@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_221829_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T18:18:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_18-18-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.082,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 0.083 pour potentiel long, sinon garder bias baissier. Short si cassure 0.078 confirmée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 0.083 en clôture 15m pour bias baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire depuis le début du graphique avec une suite de LL et LH.\n- Structure en range latéral de bas de tendance actuellement, absence de nouveaux HH.\n- Zone clé résistance entre 0.082-0.083 USDT, support notable vers 0.078 USDT.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nOn observe une tendance baissière dominante marquée par des Lower Highs (LH) et Lower Lows (LL). Depuis la dernière chute, le prix s’est stabilisé dans un range compris entre environ 0.078 USDT (support) et 0.083 USDT (résistance). La structure récente montre plusieurs tentatives de rebond bloquées sous 0.083, confirmant la résistance. Un break au-dessus de 0.083 validerait un possible retour haussier tandis qu’une cassure sous 0.078 invaliderait tout scénario haussier et relancerait la vente.\n\nC) DeskPro  \n{\"run_id\":\"dg230606\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL LH, range bas de tendance\",\"supports\":[\"0.078\"],\"resistances\":[\"0.082\",\"0.083\"],\"plan\":\"Surveiller ca",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_18-18-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_18-18-13.png"
+  }
+}

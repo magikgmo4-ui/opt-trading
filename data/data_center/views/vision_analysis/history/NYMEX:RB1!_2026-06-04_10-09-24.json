@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_140934_NYMEX:RB1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T10:09:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-09-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 3.00 avec stop au-dessus de 3.20",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour franc au-dessus de 3.20",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante depuis plusieurs jours, avec structure en LL (Lower Lows) et LH (Lower Highs) marquée.  \n- Prix teste actuellement une zone de support importante autour de 3.00, à surveiller pour un possible rebond ou rupture.  \n- Scénario principal: poursuite de la baisse en cas de cassure sous 3.00, invalidation en cas de retour marqué au-dessus des 3.20.  \n\nB) Chart unique (NYMEX:RB1! 1h):  \nLe graphique montre une tendance baissière claire, avec des creux et sommets déclinants (LL et LH). La structure technique est donc baissière. Le prix est proche d’une zone clé de support vers 3.00. Une rupture sous ce niveau validerait un potentiel prolongement de la baisse. À l’inverse, un rebond au-dessus des 3.10-3.20 pourrait signaler un retour temporaire des acheteurs. Volume en légère augmentation sur les phases baissières, ce qui confirme la pression vendeuse. En résumé, la prudence est de mise en vente uniquement sous 3.00, stop serré au-dessus de 3.20.",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-09-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_1h_2026-06-04_10-09-13.png"
+  }
+}

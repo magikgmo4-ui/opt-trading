@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_140911_NYMEX:NG1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T10:09:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-09-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.35,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur cassure 3.35 ou sur retracement vers 3.10-3.15",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 3.10",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec une série de HH (Higher Highs) et HL (Higher Lows) sur le 4h.  \n- Structure en impulsion haussière récente avec retour sur support avant nouvel élan.  \n- Zone clé à surveiller à 3.35 (résistance) pour validation d’une continuation haussière.\n\nB) Chart unique (NYMEX:NG1! 4h):  \nLa structure montre une dynamique haussière avec des points hauts et bas ascendants (HH/HL). Le prix teste actuellement une résistance majeure à 3.35, où une cassure valide l’extension haussière. Le support prioritaire est vers 3.10-3.15, zone de retest précédemment respectée. Le scénario principal reste l’achat sur retracement ou sur cassure confirmée de 3.35. Invalidation sous 3.10 amènerait un risque de correction plus large.\n\nC) DeskPro  \n{\"run_id\":\"run_nymex_ng1_4h_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"3.10\",\"3.15\"],\"resistances\":[\"3.35\"],\"plan\":\"achat sur cassure 3.35 ou sur retracement vers 3.10-3.15\",\"invalida",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-09-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_10-08-53.png"
+  }
+}

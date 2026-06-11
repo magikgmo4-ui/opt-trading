@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_205039_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:50:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-50-30",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller rebond sur support ou échec à la résistance pour extension baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break > 1870 avec HH > 1900",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière bien marquée sur ETHUSDT en 1h.  \n- Structure principalement en Lower Highs / Lower Lows (LH/LL), signe de continuation short probable.  \n- Zones clés: support autour de 1760-1780 USDT à surveiller, résistance immédiate vers 1850-1870 USDT.\n\nB) Chart 1 (haut-gauche): ETHUSDT 1h  \nTendance: Baissière  \nStructure: LH + LL établis depuis plusieurs sessions  \nSupports: Zone 1760-1780 USDT (ancien support/point bas récent)  \nRésistances: 1850-1870 USDT (plusieurs hauts locaux)  \nScénario: Continuer une tentative de reprise limitée à la résistance avant nouvelle jambe baissière possible, sinon test du support.  \nInvalidation: Reprise durable au-dessus de 1870 USDT avec HH > 1900 confirmerait un retournement.\n\nC) Chart 2 (haut-droit): inconnu  \nTendance: inconnu  \nStructure: inconnu  \nSupports: inconnu  \nRésistances: inconnu  \nScénario: inconnu  \nInvalidation: inconnu\n\nD) Chart 3 (bas-gauche): inconnu  \nTendance: inconnu  \nStructure: inconnu  \nSup",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-50-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_16-50-23.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_181801_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T14:17:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-17-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 58000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller confirmation du HL et maintien au-dessus de 58k pour un swing long. Risque si cassure sous 58k.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break clair sous 58,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le 1h avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Structure de reprise haussière récente avec un HL (Higher Low) formé après un plus bas vers 58k.\n- Zone clé de support autour de 58k, résistance notable aux environs de 63k, consolidation après rebond.\n\nB) Chart unique (BTCUSDT.P 1h) : \nLa paire BTCUSDT.P est en tendance baissière dominante, marquée par des creux et sommets déclinants (LH/LL). Cependant, un début de retournement est visible avec la formation d’un HL récent après un creux sur 58k, suivi d’une tentative de rebond jusqu’à 63k. La structure actuelle montre une possible phase d’accumulation ou un retracement haussier dans une tendance globalement baissière. La zone de support majeure à 58k est primordiale pour valider cette reprise. Invalidation sous ce support relancerait la pression vendeuse. En revanche, franchir et tenir au-dessus de 63k ouvrirait un scénario de retour haussier plus marqué.\n\nC) DeskPro \n{\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-17-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_14-17-44.png"
+  }
+}

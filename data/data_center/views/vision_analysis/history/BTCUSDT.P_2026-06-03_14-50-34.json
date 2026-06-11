@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_185046_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T14:50:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_14-50-34",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sous 65 000 avec cible 64 000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 67 500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière claire sur plusieurs jours sur BTCUSDT en 15m.  \n- Structure de bas en haut cassée (HL/HH → LH/LL) signalant un bear market de court terme.  \n- Recherche de zones clés de support pour potentielle reprise ou continuation baissière.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 15m  \nTendance baissière nette confirmée, succession de LL et LH.  \nStructure dégradée avec rupture des supports intermédiaires vers 67 500 et 66 000 USDT.  \nVolumes en hausse sur baisses, confirmant pression vendeuse.  \nZones clés à surveiller : support vers 65 000 USDT, résistance à 67 000+.  \nScénario bearish si 65 000 cassé, possible extension sous 64 000.  \nInvalidation en cas de clôture au-dessus des récents hauts vers 67 500.\n\nC) Chart 2 (haut-droit) : inconnu (non visible)  \nLe symbole et timeframe ne sont pas lisibles, aucune analyse fiable possible.\n\nD) Chart 3 (bas-gauche) : inconnu (non visible)  \nLe symbole et timeframe ne sont pas lisibles, aucune analyse fiable po",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_14-50-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_14-50-27.png"
+  }
+}

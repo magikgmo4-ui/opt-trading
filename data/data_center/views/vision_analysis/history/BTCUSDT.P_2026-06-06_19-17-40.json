@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_231750_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T19:17:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-17-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 60000 en ciblant plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "tenue au-dessus de 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation tendance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous résistance, prise de profits support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sommet",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prudence, attendre clarification",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur la majorité des graphiques avec structure de Lower Highs et Lower Lows.\n- Zones clés de support non encore cassées sur certains charts, potentiels points de rebond à surveiller.\n- Scénarios de poursuite baissière ou possible stabilisation selon confirmation break ou bounce en support.\n\nB) Chart 1 (haut-gauche)\n- Instrument : Bitcoin / TetherUS, timeframe 1h.\n- Tendance baissière dominante, structure en LL (Lower Lows) et LH (Lower Highs).\n- Support clé autour de 60 000$, résistance proche de 62 000$.\n- Volume en baisse, signe de possible consolidation prochaine.\n- Scénario prioritaire: continuation de la baisse si break support 60 000$.\n- Invalidation du biais baissier si le prix dépasse et tient au-dessus de 62 000$.\n\nC) Chart 2 (haut-droit)\n- Symbole et timeframe non lisibles, donc inconnu.\n- On note une tendance globalement latérale avec quelques oscillations, structure non claire.\n- Supports et résistances à définir précisément avant",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-17-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_19-17-31.png"
+  }
+}

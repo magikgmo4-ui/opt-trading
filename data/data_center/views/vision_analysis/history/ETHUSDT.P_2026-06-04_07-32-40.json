@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_113248_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T07:32:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-32-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance du support 1700-1720 pour entrée longue contre tendance en cas de rebond; short si cassure avec cible plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture nette au-dessus de 1800 sur 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière claire avec structure en lower highs (LH) et lower lows (LL).\n- Zone clé de support visible autour de 1700-1720 USDT, testée récemment avec rebond.\n- Résistance immédiate à surveiller à 1800 USDT pour invalider un rebond haussier.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe marché évolue clairement en tendance baissière 1h, avec des impulsions et retracements marqués par des LH et LL. La pression vendeuse s’accélère depuis le 2 juin. La structure de prix montre un support important vers 1700-1720, actuellement testé, avec un léger rebond en cours. La cassure de ce support entraînerait une poursuite vers de nouveaux plus bas. Un retour au-dessus de 1800 permettrait de considérer un possible retournement ou consolidation. Volume en hausse sur dernières chandelles, signe d’activités accrues sur zone support.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1700,1720],\"resistances\":[1800],\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-32-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_07-32-32.png"
+  }
+}

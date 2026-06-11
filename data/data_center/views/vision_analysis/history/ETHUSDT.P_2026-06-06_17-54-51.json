@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_215510_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T17:55:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-54-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous résistance 1580 avec Stop Loss au-dessus. Objectif sur retour vers 1540 et extension si cassure support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette de la résistance 1580 avec clôture de chandelier 15m confirmée.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire en 15m avec des bas plus bas (LL) et des hauts plus bas (LH) établis.  \n- Aplatissement récent avec consolidation entre ~1540 et ~1580, zone clé à surveiller pour une sortie.  \n- Scénario principal baissier avec contrepied possible à la cassure nette de la résistance ou du support.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une structure baissière classique avec une série de LH et LL, traduisant une pression vendeuse dominante. Depuis plusieurs heures, on observe une phase de range étroite (1540-1580), marquant un équilibre temporaire entre acheteurs et vendeurs. La zone autour de 1540 constitue un support important à surveiller ; sa rupture maintiendrait la dynamique baissière. À l’inverse, un franchissement au-dessus de 1580 invaliderait la tendance baissière courte terme et pourrait ouvrir une tentative de retour haussier. Le plan d’action reste de privilégier les ventes sous résistance, avec une invalidation en cas de br",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-54-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_17-54-42.png"
+  }
+}

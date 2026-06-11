@@ -1,0 +1,2 @@
+run_id,started_at,duration_s,all_ok,signal_side,signal_ticker,proposition_action,proposition_confidence,validation_verdict,executor_status,executor_fill_price,tracker_outcome,tracker_net_pnl,writer_written,feeder_bridge_status,tmux_sessions_before,tmux_sessions_after,localcms_ok,closeout_acknowledged
+20260531_006,2026-05-31T02:53:15.435367+00:00,0.093,True,BUY,BTCUSDT,BUY,0.82,APPROVED,dry_run,65000.0,win,438.03,False,dry_run,,,False,False

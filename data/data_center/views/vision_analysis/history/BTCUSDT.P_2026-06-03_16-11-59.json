@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_201209_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:12:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-11-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.7,
+      "note": "s 4430"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4475.0,
+      "confidence": 0.7,
+      "note": "r 4475"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Principal actif analysé : XAUUSD (or contre dollar) en timeframe 1 heure.\n- Structure en tendance baissière récente avec plusieurs lower highs (LH) et lower lows (LL).\n- Prix proche d’une zone de support, possibilité de rebond ou poursuite baissière suivant invalidation.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h\n- Tendance : Baissière, marquée par HL cassé suivi de LH et LL.\n- Structure : Série de lower highs et lower lows, structure baissière classique.\n- Zones clés : Support fort vers 4430-4435 (cassure plonge le prix plus bas), résistance autour 4475-4480.\n- Scénario : Sur rebond au support, possible pullback vers résistance. Sinon, cassure du support active poursuite baissière.\n- Invalidation : Reprise au-dessus de 4480 invalide scénario baissier court terme.\n\nC) Chart 2 (haut-droit): symbole inconnu, timeframe inconnu\n- Données non lisibles, impossible de faire analyse fiable.\n\nD) Chart 3 (bas-gauche): symbole inconnu, timeframe inconnu\n- Données non lisibles, imposs",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-11-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_16-11-42.png"
+  }
+}

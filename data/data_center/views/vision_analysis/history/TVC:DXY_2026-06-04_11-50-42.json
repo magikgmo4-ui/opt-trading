@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_155050_TVC:DXY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "TVC:DXY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:50:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-50-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 99.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 99.55,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur retracement proche 99.00, objectif 99.55",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte durable sous 99.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Structure en 1h montrant une alternance entre HH et HL, signalant une tendance haussière modérée.  \n- Zones clés visibles: support autour de 99.00 et résistance à 99.55.  \n- Scénario principal haussier avec prise de position sur repli proche support, invalidation sous 99.00.  \n\nB) Chart unique (TVC:DXY 1h):  \nLe DXY évolue en tendance haussière modérée, confirmée par une série de HH et HL. La zone de support majeure se situe vers 99.00, bien testée récemment avec un rebond. La résistance clé se trouve à 99.55, un sommet à surveiller pour le breakout. Le dernier mouvement de correction reste dans la structure haussière tant que le support 99.00 tient. Le plan d’action serait d’acheter sur retour à ce support, visant la résistance à 99.55. Invalidation du scénario haussier sous 99.00 avec risques de retournement baissier.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"r1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"99.00\"],\"resistances\":[\"99.55\"",
+  "symbols_found": [
+    "TVC:DXY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-50-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_11-50-32.png"
+  }
+}

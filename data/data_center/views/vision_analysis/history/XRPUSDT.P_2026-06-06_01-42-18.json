@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_054226_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T01:42:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-42-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher short proche résistance ou long si support 1.06 tient en pullback",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable au-dessus de 1.12 pour invalidation baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur ce timeframe 15m avec des lower highs (LH) et lower lows (LL).  \n- Structure impulsive vers le bas récemment avec tentative de rebond important (rejet d'une zone basse).  \n- Zone clé résistance proche autour de 1.11-1.12, support notable autour de 1.05-1.06.\n\nB) Chart unique (XRPUSDT.P 15m) :  \nLa paire montre une structure baissière claire : on observe une série de LH et LL depuis le début du graphique, confirmant une tendance baissière. Le prix a marqué un plus bas récent vers 1.05-1.06, où un rebond fort est en cours. La rupture de ce support invaliderait le scénario de rebond et prolongerait la baisse. En cas de continuation haussière, il faudra surveiller la zone de résistance à 1.11-1.12 où la présence d’un plafond pourrait limiter la remontée. Le plan possible est de shorter à proximité des résistances confirmées ou d’acheter en cas de pullback confirmé sur support.  \n\nC) DeskPro  \n{\"run_id\":\"xrpusdt_15m_20240606\",\"charts\":[{",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-42-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_01-42-09.png"
+  }
+}

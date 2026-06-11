@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_000911_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T20:09:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_20-09-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre une cassure claire du range avant d'engager une position; short sous 59800 ou long au-dessus de 61200 avec gestion serrée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 62000 invaliderait le biais baissier court terme",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec un début de range possible en bas autour de 60 000.  \n- Scénario d'attente pour un breakout soit vers le bas (reprise baisse) soit vers le haut (reprise corrective).  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une chute prononcée début juin avec des LH et LL marqués, validant une tendance baissière dominante. Les volumes augmentent lors des baisses, confirmant la pression vendeuse. Sur les dernières heures, le marché forme un consolidatif entre environ 59 800 (support clé) et 61 200 (résistance immédiate). La structure est donc un range temporaire après une forte chute. Une cassure du support déclencherait une accélération baissière, tandis qu’une cassure résistante débloquerait un possible rebond technique.  \n\nC) DeskPro  \n{\"run_id\":\"20240607_0909\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"serie LH/LL puis range\",\"supports\":[\"598",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_20-09-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_20-08-54.png"
+  }
+}

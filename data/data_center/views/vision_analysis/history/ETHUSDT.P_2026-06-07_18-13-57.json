@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_221404_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T18:14:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-13-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur repli proche du support 1600, viser extension au-dessus de 1668",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte de 1600 avec momentum baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière enclenchée depuis un point bas vers 1530 avec une série de HH/HL.  \n- Structure récente marquée par une accélération haussière visible, cassure d’une zone de résistance vers 1630-1640.  \n- Volume en hausse sur la dernière bougie impulsive, confirmant un intérêt acheteur fort.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché a rebondi à partir d’un creux vers 1530 et construit une structure haussière avec des HL et HH progressifs. La zone 1630-1640 jouait un rôle de résistance clé, récemment franchie avec volume important. Ce franchissement valide la reprise de la tendance. Un support majeur se situe maintenant autour de 1600, marquant une zone clé pour un repli potentiel. Le scénario prioritaire est la continuation haussière tant que 1600 tient. Invalidation si baisse sous ce support, suggérant un retour vers 1530 voire plus bas.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL/HH\",\"supports\":[\"1600\"],\"resis",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-13-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_18-13-48.png"
+  }
+}

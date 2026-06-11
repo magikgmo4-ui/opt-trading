@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_045335_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T00:53:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_00-53-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.087,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.092,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à la résistance 0.091-0.092 avec cible sur support 0.087",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m stable au-dessus de 0.092",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière bien marquée avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Rebond technique récent proche d'une zone de support local autour de 0.087-0.088.\n- Scénario possible de correction/interruption baissière, invalidation sous 0.087.\n\nB) Chart unique (DOGEUSDT.P 15m):\nLe marché est dans une tendance baissière claire avec une structure en LL et LH depuis plusieurs séances. La dernière baisse a marqué un nouveau plus bas vers 0.087, suivi d’un rebond rapide jusqu’à environ 0.091. Ce niveau fait résistance à court terme. Le volume est en hausse sur la dernière baisse, traduisant une pression vendeuse. Un retour vers 0.091-0.092 pourrait constituer une opportunité de vente dans la continuité de la tendance. L'invalidation du biais baissier se ferait par franchissement et maintien au-dessus de 0.092, signe d'une possible reprise haussière ou consolidation.\n\nC) DeskPro\n{\"run_id\":\"1685945600\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structur",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_00-53-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_00-53-20.png"
+  }
+}

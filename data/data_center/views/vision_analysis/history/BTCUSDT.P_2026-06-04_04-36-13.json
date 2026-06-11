@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_083626_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T04:36:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_04-36-13",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "chercher confirmation de cassure du support pour suivre la tendance baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 68000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière sur le graphique principal (BTCUSDT 1h), structure clairement en LH-LL.  \n- Zones clés à surveiller autour de 64K (support possible) et résistance vers 67-68K.  \n- Volume en hausse sur les chutes, signalant pression vendeuse importante.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière nette avec structure de plus bas (LL) et plus bas secondaires (LH absent). Plusieurs chandeliers consécutifs baissiers montrent une forte pression vendeuse. Zone clé support proche de 63K-64K, à tester pour rebond ou poursuite. Résistance marquée vers 67-68K, à franchir pour invalider la baisse. Scénario principal : continuation du downtrend si support cassé. Invalidation au-dessus des 68K avec retour vers 70K+ possible.\n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \nImpossible d’analyser faute d’identification claire. Pas de repères fiables.\n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non lisible)  \nAnalyse non réalisée",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_04-36-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_04-36-02.png"
+  }
+}

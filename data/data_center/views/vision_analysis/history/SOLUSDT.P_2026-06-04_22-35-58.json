@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_023606_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T22:36:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-35-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 67.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 68.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 70.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 70.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short privilégié sous 70 avec cible 67.5, pause ou rebond possible au support. Revue à la hausse si cassure 70.5 avec HH.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">70.5 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur ce timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure pinte : plusieurs tentatives de rebond limitées par des résistances vers 70-70.5.  \n- Zone clé support vers 67.5-68.0 à surveiller pour un potentiel rebond ou invalidation baissière.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nLa paire évolue clairement en tendance baissière avec une succession de Lower Highs et Lower Lows, confirmant la structure baissière. On observe une consolidation sous résistance 70.0-70.5, qui fait obstacle à toute reprise haussière significative. Le support notable est positionné vers 67.5-68.0, zone où un rebond pourrait se déclencher. En cas de rupture sous ce support, on peut envisager un accélération baissière. Le scénario prioritaire reste donc la poursuite baissière en range, avec confirmation baissière sous 67.5 et potentiel rebond limité sous 70. Invalidation du biais si la paire dépasse significativement 70.5 avec un HH ",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-35-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_22-35-43.png"
+  }
+}

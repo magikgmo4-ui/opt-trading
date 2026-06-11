@@ -1,0 +1,42 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_elitetradingsignalsc_5881_2026-06-05T08:16:12+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "elitetradingsignalsc",
+    "parsed_at": "2026-06-05T08:16:12+00:00",
+    "produced_at": "2026-06-11T10:00:14.298388+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4461.0,
+    "sl": 4471.0,
+    "tp": 4451.0,
+    "tps": [
+      4451.0,
+      4456.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell now : 4461 - 4466\n\nsl : 4471\n\ntp1 : 4456\ntp2 : 4451"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_elitetradingsignalsc_5888_2026-06-05T09:59:27+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "elitetradingsignalsc",
+    "parsed_at": "2026-06-05T09:59:27+00:00",
+    "produced_at": "2026-06-11T10:00:14.298884+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4464.2,
+    "sl": 4479.2,
+    "tp": 4455.0,
+    "tps": [
+      4455.0,
+      4460.2
+    ],
+    "leverage": null,
+    "raw_text": "Sell Gold @4464.2-4474.2\n\nSl :4479.2\n\nTp1:4460.2\nTp2:4455\n\n**Enter Slowly-Layer with proper money management\n\nDo not rush your entries**"
+  }
+]

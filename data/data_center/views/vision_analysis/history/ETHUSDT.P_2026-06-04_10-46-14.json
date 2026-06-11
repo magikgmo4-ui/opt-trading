@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_144622_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T10:46:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-46-14",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rejet résistance 1780-1790, stop au-dessus de 1800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus de 1800 avec structure HL/HH confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 15m avec une série de HH/HL cassés donnant une structure LL/HL en baisse.  \n- Zone de support clé autour de 1740-1750, testée plusieurs fois, permettant un rebond temporaire.  \n- Scénario actionnable: chercher short sur rejet en résistance vers 1780-1790, invalidation si franchissement clair au dessus de 1800.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance est clairement baissière. La structure affiche des lower highs (LH) et lower lows (LL) confirmant la pression vendeuse. Une zone de support horizontal proche de 1740-1750 a permis des rebonds mais la dynamique reste faible. Résistance visible à 1780-1790, zone à monitorer pour un rejet. Il faudra valider tout retournement par la cassure claire d’une structure HL/HH pour invalider la baisse.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL-LH\",\"supports\":[\"1740-1750\"],\"resistances\":[\"1780-1790\",\"1800\"],\"plan\":\"Short sur rejet résistance 1780-1",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-46-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_10-46-02.png"
+  }
+}

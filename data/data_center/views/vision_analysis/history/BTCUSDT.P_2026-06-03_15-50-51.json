@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_195101_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:50:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-50-51",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short sous 2.2T en cassure ou attendre rebond pour scalp.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture hebdo au-dessus 2.6T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché crypto total montre une tendance baissière sur le timeframe hebdomadaire.  \n- Structure en cours sur le graphique principal : formation de Lower Highs (LH) et Lower Lows (LL) traduisant une pression vendeuse continue.  \n- Zones clés actuelles à surveiller autour de 2.2T USD (support), sous pression, et 2.6T USD (résistance) comme niveau de reprise potentiel.\n\nB) Chart 1 (haut-gauche) : Crypto Total Market Cap / W  \nTendance baissière claire depuis le pic 2025 avec Lower Highs et Lower Lows établis. La structure montre que le marché n’arrive pas à reprendre le niveau des 2.6T USD, désormais résistance. Le support majeur autour de 2.2T USD est testé actuellement. Un break en dessous conduirait à un nouveau mouvement baissier significatif. Scénario préféré : attendre confirmation d’un rebond sur 2.2T ou cassure baissière pour entrer short. Invalidation au-dessus des derniers Lower High (environ 2.6T).\n\nC) Chart 2 (haut-droit) : Inconnu  \nLe symbole et timefr",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-50-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-03_15-50-36.png"
+  }
+}

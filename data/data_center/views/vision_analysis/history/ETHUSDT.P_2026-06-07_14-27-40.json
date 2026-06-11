@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_182747_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T14:27:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-27-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur retracement vers 1600-1610 avec stop sous 1530, viser extension au-delà de 1640.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 1530",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance courte nette haussière visible depuis un creux local vers 1530.\n- Structure de retournement haussier marquée par des HH (Higher Highs) et HL (Higher Lows).\n- Zone résistance clé autour de 1640 à surveiller pour extension ou rejet.\n\nB) Chart unique (ETHUSDT.P 15m) : \nLe graphique montre une reprise haussière progressive après une forte chute initiale. La structure est haussière avec des points bas et hauts qui s’élèvent (HL et HH). Le prix teste une zone de résistance située vers 1640. Un consolidatif léger est en cours au-dessus de 1620, suggérant prise de souffle. En cas de franchissement clair de 1640, le scénario privilégie une poursuite haussière. Invalidation du scénario long sous 1530 qui a fait office de creux. Aligner les entrées sur les retests de supports intermédiaires (ex. 1600-1610) offre un rapport risque/rendement intéressant.\n\nC) DeskPro\n{\"run_id\":\"eth_15m_20240607\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH-HL\",\"supports\":[",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-27-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_14-27-27.png"
+  }
+}

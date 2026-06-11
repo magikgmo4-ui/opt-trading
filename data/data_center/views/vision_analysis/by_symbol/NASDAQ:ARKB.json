@@ -1,0 +1,212 @@
+[
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_015017_NASDAQ:ARKB_1h",
+    "screen_type": "ETF_CRYPTO",
+    "symbol": "NASDAQ:ARKB",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T21:50:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_21-50-10",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "impossible de proposer un plan sans graphique",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "pas observable",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Le symbole NASDAQ:ARKB n'existe pas ou n'est pas disponible sur cette plateforme.\n- Pas de données graphiques visibles pour réaliser une analyse.\n- Analyse impossible sans accès au graphique.\n\nB) Chart unique (NASDAQ:ARKB 1h) : inconnu (symbole invalide, pas de graphique visible).\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible de proposer un plan sans graphique\",\"invalidation\":\"pas observable\"}]}",
+    "symbols_found": [
+      "NASDAQ:ARKB"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_21-50-10",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:ARKB_1h_2026-06-03_21-49-55.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_133750_NASDAQ:ARKB_1h",
+    "screen_type": "ETF_CRYPTO",
+    "symbol": "NASDAQ:ARKB",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T09:37:48-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_09-37-44",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "impossible d'élaborer un plan sans données chartistes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "symbole invalide ou graphique non chargé",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Le symbole NASDAQ:ARKB 1h est invalide ou indisponible.  \n- Aucun graphique visible pour analyse technique.  \n- Analyse impossible sans données chartistes.\n\nB) Chart unique (NASDAQ:ARKB 1h): Symbole invalide, pas de graphique disponible.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible d'élaborer un plan sans données chartistes\",\"invalidation\":\"symbole invalide ou graphique non chargé\"}]}",
+    "symbols_found": [
+      "NASDAQ:ARKB"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_09-37-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:ARKB_1h_2026-06-04_09-37-34.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_013715_NASDAQ:ARKB_1h",
+    "screen_type": "ETF_CRYPTO",
+    "symbol": "NASDAQ:ARKB",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T21:37:13-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-37-09",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "impossible de définir un scénario sans données",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnue",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Impossible d'analyser le graphique, le symbole NASDAQ:ARKB indiqué est invalide ou absent.\n- Aucun donnée de prix ou structure visible, donc aucune tendance confirmée.\n- Nécessité de corriger ou vérifier le symbole pour obtenir le graphique et procéder à l’analyse.\n\nB) Chart unique (NASDAQ:ARKB 1h): Inconnu, graphique indisponible/invalide.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible de définir un scénario sans données\",\"invalidation\":\"inconnue\"}]}",
+    "symbols_found": [
+      "NASDAQ:ARKB"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-37-09",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:ARKB_1h_2026-06-04_21-36-58.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_015619_NASDAQ:ARKB_1h",
+    "screen_type": "ETF_CRYPTO",
+    "symbol": "NASDAQ:ARKB",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T21:56:17-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-56-13",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Aucun, données absentes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Le symbole NASDAQ:ARKB en timeframe 1h n’est pas valide ou indisponible.\n- Impossible d’analyser la tendance ou la structure sans données graphiques.\n- Pas de zones clés ni scénario exploitables actuellement.\n\nB) Chart unique (NASDAQ:ARKB 1h) : symbole invalide, données graphiques absentes, analyse impossible.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"Aucun, données absentes\",\"invalidation\":\"-\"}]}",
+    "symbols_found": [
+      "NASDAQ:ARKB"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-56-13",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:ARKB_1h_2026-06-04_21-56-03.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_141510_NASDAQ:ARKB_1h",
+    "screen_type": "ETF_CRYPTO",
+    "symbol": "NASDAQ:ARKB",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T10:15:08-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-15-01",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "impossible sans données",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "symbole invalide",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Symbole NASDAQ:ARKB non disponible ou invalide sur la plateforme.  \n- Aucune donnée graphique disponible pour analyse.  \n- Impossible d’établir une tendance, structure ou zones clés sans affichage.\n\nB) Chart unique (NASDAQ:ARKB 1h): données indisponibles, symbole invalide. Analyse impossible.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible sans données\",\"invalidation\":\"symbole invalide\"}]}",
+    "symbols_found": [
+      "NASDAQ:ARKB"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-15-01",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:ARKB_1h_2026-06-05_10-14-46.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_040005_NASDAQ:ARKB_1h",
+    "screen_type": "ETF_CRYPTO",
+    "symbol": "NASDAQ:ARKB",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-06T00:00:03-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_23-59-48",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "impossible à définir, symbole invalide",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "n/a",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Le symbole NASDAQ:ARKB 1h est invalide ou non reconnu sur la plateforme.  \n- Aucun graphique ni données de marché visibles pour analyse.  \n- Impossible de faire une lecture structurée sans représentation graphique.\n\nB) Chart unique (NASDAQ:ARKB 1h): symbole invalide, pas d’analyse possible.\n\nC) DeskPro  \n```json\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible à définir, symbole invalide\",\"invalidation\":\"n/a\"}]}\n```",
+    "symbols_found": [
+      "NASDAQ:ARKB"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_23-59-48",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:ARKB_1h_2026-06-05_23-59-37.png"
+    }
+  }
+]

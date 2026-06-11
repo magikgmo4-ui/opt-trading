@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_090924_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T05:09:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-09-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1575,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure zone 1.1520-1.1580 pour prise de position directionnelle",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire sous 1.1520 pour maintien bearish, clôture horaire au-dessus 1.1580 pour invalidation du scénario baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale 1h baissière avec une succession de Lower Highs (LH) et Lower Lows (LL) confirmée jusqu'au début juin.  \n- Reprise haussière en début de semaine avec structure de Higher Highs (HH) et Higher Lows (HL) visible jusqu'à un pic le 9 juin.  \n- Depuis, oscillation latérale vers 1.1530 avec supports autour de 1.1520 et résistances proches de 1.1575-1.1580, en attente de déclenchement clair.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa structure visible sur ce graphique montre une tendance baissière claire jusqu'au 7 juin avec des LL et LH bien définis. Après un fort mouvement baissier, le prix a corrigé vers le haut en formant des HH et HL, signalant une possible inversion temporaire. Actuellement, prix en consolidation entre une zone de support vers 1.1520 et une résistance vers 1.1575-1.1580. Scénario actionnable : surveiller cassure claire de cette zone de congestion pour un trade directionnel (short sur cassure support, long sur cassure résistance). Invalida",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-09-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-11_05-09-00.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_051448_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-11T01:14:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-14-39",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre proche résistance 720-740B, cibler le support 660B avec possibilité d'extension sous 630B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 740-760B avec formation de HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière avec structure en LL (Lower Lows) et LH (Lower Highs) visible depuis la zone haute de fin 2025.  \n- Zone de support clé actuelle vers 660-670B USD, testée plusieurs fois récemment.  \n- Rebond technique en cours après creux récent, mais résistance majeure autour de 720-740B USD à franchir pour invalider la tendance baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): La structure montre un marché en consolidation basse après un fort déclin initial. Les plus bas baissiers successifs trahissent une pression vendeuse persistante. L'actuel rebond est limité par la résistance des précédents creux intermédiaires vers 720-740B USD. La zone autour de 660B agit comme support intraday solide. Le scénario prioritaire reste une poursuite baissière sous 740B, avec un objectif vers 620-630B en cas de rupture du support. Invalidation du bearish si la zone 740-760B est dépasser avec suivi de HH (Higher Highs).\n\nC) DeskPro  \n{\"run_id\":\"unique_001\",\"charts\"",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-14-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-11_01-14-23.png"
+  }
+}

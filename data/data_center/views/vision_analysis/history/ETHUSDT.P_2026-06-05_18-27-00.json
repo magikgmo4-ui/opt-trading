@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_222717_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T18:27:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-27-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1675.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre ou rester short tant que 1620 USDT ne casse pas à la hausse. Privilégier prise de bénéfices partielle près des supports clés.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair et durable au-dessus de 1630 USDT avec hausse confirmée par volume.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de lower highs (LH) et lower lows (LL) sur le timeframe 1h.  \n- Multiples zones de support cassées, forte pression vendeuse visible au volume.  \n- Scénario principal: poursuite de la baisse tant que la résistance vers 1 620 USDT tient.\n\nB) Chart unique (ETHUSDT.P 1h): \nLe graphique montre une structure baissière dominante avec des lower highs et lower lows successifs indiquant un marché sous contrôle vendeur. Les supports autour de 1 675 USDT et 1 600 USDT ont été fortement testés, puis cassés, confirmant la faiblesse. Les quelques rebonds sont faibles et les volumes augmentent sur les phases de baisse, ce qui valide la pression vendeuse. La résistance immédiate à surveiller est vers 1 620-1 630 USDT; un franchissement de cette zone invaliderait la tendance baissière court terme et pourrait mener à un rebond technique. En-dessous, la structure reste baissière avec risque d'extension vers de nouveaux plus bas.\n\nC) DeskPro  \n{",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-27-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_18-26-52.png"
+  }
+}

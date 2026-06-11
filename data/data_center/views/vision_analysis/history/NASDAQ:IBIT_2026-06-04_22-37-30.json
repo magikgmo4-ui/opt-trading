@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_023739_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:37:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-37-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 35.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 37.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 38.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller le support 35.5 pour un potentiel rebond ou continuation baissière à la cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break clair et maintien au-dessus de 38.5",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile sur les derniers chandeliers, avec tentative de rebond autour de 36 USD.  \n- Zone clé de support proche à 35.50 USD, résistance immédiate autour de 37.50 USD.\n\nB) Chart unique (NASDAQ:IBIT 1h): La tendance est clairement baissière avec une succession de creux et sommets décalés à la baisse. Le prix a fortement corrigé récemment, avec un pic de volume sur les baisses et un léger arrêt vers 36 USD. Le scénario prioritaire est une poursuite de la baisse si le support 35.50 USD cède, sinon un rebond technique est possible vers la résistance 37.50 USD. Invalidation du scénario baissier si le prix franchit durablement 38.50 USD (break HH).\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[35.5],\"resistances\":[37.5,38.5],\"plan\":\"surveiller le support 35.5 pour un potentiel rebond ou continuation baissière",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-37-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-04_22-37-18.png"
+  }
+}

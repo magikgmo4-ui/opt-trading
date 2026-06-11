@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_061902_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T02:19:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-18-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 61200 pour long, sinon short sous 60000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture claire sous 59400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent formant un possible Higher Low (HL) sous un niveau de résistance clé vers 61 200.  \n- Scénario à suivre : poursuite du rebond si cassure de la résistance ou reprise de la baisse sous le HL formé.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure actuelle montre un marché en tendance baissière claire avec des LH/LL successifs. Une tentative de retournement en HL est en cours autour de 60 000 – 60 400. La zone de résistance majeure à 61 200 est un pivot clé à valider pour envisager un possible changement de tendance court terme. Volumes stabilisés, vigilance sur invalidation en clôture sous 60 000.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL potentiel\",\"supports\":[\"60000\",\"59400\"],\"resistances\":[\"61200\",\"61800\"],\"plan\":\"Surveiller cassure 61200 pour long, sinon short sous 60000\",\"invalidation\":\"clôture",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-18-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_02-18-47.png"
+  }
+}

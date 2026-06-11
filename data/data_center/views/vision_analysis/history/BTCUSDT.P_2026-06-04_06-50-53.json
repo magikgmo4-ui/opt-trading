@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_105102_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T06:50:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-50-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rejet ou breakdown support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture franche de 64500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ce timeframe 15m avec séries de Lower Highs (LH) et Lower Lows (LL) bien marquées.  \n- Structure fragile, tentative de rebond local partielle mais sans changement de structure haussière.  \n- Zones clés à surveiller : support autour de 61 600 USDT, résistance proche à 64 500 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché est dans une structure baissière classique identifiée par des LH suivis de LL. Après une chute forte, un rebond technique est apparu sans rupture de la tendance. Les volumes montrent une légère pression vendeuse qui persiste. Le support autour de 61 600 USDT est primordial pour éviter une accélération baissière. La résistance à 64 500 USDT invaliderait cependant le scénario baissier si elle est franchie avec conviction. Le plan sera de tenter une position short en cas de rejet sur résistance ou breakdown du support, avec invalidation au-dessus de cette résistance.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-50-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_06-50-45.png"
+  }
+}

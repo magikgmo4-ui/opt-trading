@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_110407_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T07:04:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-03-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.087,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.093,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short en break 0.087 avec stop au-dessus 0.094, ciblant nouveau plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus 0.094 confirmant un retournement potentiel",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur ce 15m avec une série de creux et sommets descendants (LL/LH).  \n- Structure clairement en baisse avec des rebonds qui restent faibles, pas de signe de retournement.  \n- Zone clé support proche autour de 0.087, résistance majeure autour de 0.091 à 0.093.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une structure baissière caractérisée par des Lower Highs (LH) et Lower Lows (LL). Le prix fait des tentatives de rebonds, mais chaque rallye est limité avant de reprendre la chute. Le volume est assez irrégulier avec des pics sur les baisses rapides. La zone de support vers 0.087 est testée actuellement, perte de ce niveau ouvrirait la voie à un nouveau mouvement baissier. La résistance immédiate se situe entre 0.091 et 0.093, où la pression vendeuse a été forte. Le scénario principal reste une continuation baissière, invalidation en clôture durable au-dessus de 0.094.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-03-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_07-03-50.png"
+  }
+}

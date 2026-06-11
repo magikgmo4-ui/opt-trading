@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_221306_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T18:13:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-12-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.19,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.205,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.225,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Suivre breakout 1.2250 pour engagér position longue, stop sous 1.2050",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1.2050",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière clairement visible sur le 15m avec une série de LH et LL.  \n- Structure récente en tentative de rebond avec HL sur court terme mais résistance proche non dépassée.  \n- Zone clé support vers 1.1900 et résistance immédiate vers 1.2250 à surveiller pour validation du scénario.\n\nB) Chart unique (XRPUSDT.P 15m):  \nGraphique montre un canal baissier net avec des lower highs (LH) et lower lows (LL) sur la majorité du timeframe. Après un creux vers 1.1870-1.1900 (zone support), un rebond a formé un higher low (HL) puis prix bute sur la résistance 1.2250 sans la franchir clairement. Volume en hausse sur les creux, signal possible accumulation. Scénario favori à court terme = correction haussière potentielle en cas de breakout résistance 1.2250. Invalidation si prix retombe en dessous dernier HL vers 1.2050.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec correction haussière\",\"structure\":\"LH/LL principal, HL récent",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-12-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-03_18-12-51.png"
+  }
+}

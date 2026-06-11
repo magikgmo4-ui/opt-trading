@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_133039_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:30:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-30-26",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 99.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur pullback support avec confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rejet sous 98.80",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Paires ou indices non identifiés sur 3 graphiques, seul le graphique en haut-gauche est clairement identifié (DXY, 1h).  \n- Tendance globale du DXY en 1h montre une possible reprise haussière après une correction.  \n- Besoin de contexte supplémentaire pour valider la tendance sur les autres graphiques.\n\nB) Chart 1 (haut-gauche): DXY, 1h  \nTendance : haussière court terme depuis le point bas récent.  \nStructure : Alternance HL/HH sur la montée, correction en LH avant reprise.  \nZones clés : Support vers 98.80-99.00, Résistance immédiate proche 99.50.  \nScénario : Poursuite possible de la hausse si franchissement 99.50, vise 99.70+.  \nInvalidation : Rejet fort sous 98.80 pourrait relancer la baisse.  \nPlan : Acheter sur pullback vers support 99.00-99.10 si confirmation.  \n\nC) Chart 2 (haut-droit): inconnu  \nImpossible d’identifier symbole ou timeframe.  \nTendance et structure non analysables précisément.  \nAttendre identification ou informations complémentaires.  \n\nD",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-30-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_09-30-16.png"
+  }
+}

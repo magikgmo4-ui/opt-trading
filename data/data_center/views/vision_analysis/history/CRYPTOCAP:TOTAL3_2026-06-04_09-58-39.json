@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_135847_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T09:58:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-58-39",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveillance du maintien du support 680B pour potentiel rebond, sinon baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture daily au-dessus de 780B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière avec un net retracement haussier depuis février.  \n- Structure latérale avec bascule entre support à ~680B et résistance vers 760-780B.  \n- Action récente montre rejet actuel des hauts, possible rebond vers support majeur.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance principale est baissière (plusieurs LL et LH sur la période récente), mais une phase de consolidation latérale est visible depuis février, avec des HL et HH plus courts formant une zone de range entre environ 680B (support) et 760-780B (résistance). La cassure récente sous 700B suggère un test du support à 680B. Le volume s’accroît sur les mouvements baissiers. Scénario privilégié : surveiller réaction à 680B, si tenu, un rebond vers résistance est possible, sinon poursuite baissière. Invalidation : regain de force au-dessus de 780B en clôture daily confirmerait nouveau biais haussier.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-bais",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-58-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_09-58-29.png"
+  }
+}

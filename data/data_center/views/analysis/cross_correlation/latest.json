@@ -1,0 +1,120 @@
+{
+  "total_pairs": 10,
+  "aligned": 0,
+  "divergent": 0,
+  "unknown": 10,
+  "alignment_pct": 0,
+  "signal": "DIVERGENT",
+  "pairs": [
+    {
+      "label": "BTC-ETH",
+      "class": "CRYPTO_MAJOR",
+      "asset_a": "BTC",
+      "bias_a": "BEARISH",
+      "asset_b": "ETH",
+      "bias_b": "BEARISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "BTC-GOLD",
+      "class": "MACRO_HEDGE",
+      "asset_a": "BTC",
+      "bias_a": "BEARISH",
+      "asset_b": "GOLD",
+      "bias_b": "BEARISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "BTC-DXY",
+      "class": "MACRO_INVERSE",
+      "asset_a": "BTC",
+      "bias_a": "BEARISH",
+      "asset_b": "DXY",
+      "bias_b": "BULLISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "BTC-SPX",
+      "class": "RISK_ON",
+      "asset_a": "BTC",
+      "bias_a": "BEARISH",
+      "asset_b": "SPX",
+      "bias_b": "BULLISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "BTC-IBIT",
+      "class": "ETF_CONFIRM",
+      "asset_a": "BTC",
+      "bias_a": "BEARISH",
+      "asset_b": "IBIT",
+      "bias_b": "BEARISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "ETH-SOL",
+      "class": "CRYPTO_ALT",
+      "asset_a": "ETH",
+      "bias_a": "BEARISH",
+      "asset_b": "SOL",
+      "bias_b": "BEARISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "WTI-GASOLINE",
+      "class": "ENERGY_CHAIN",
+      "asset_a": "WTI",
+      "bias_a": "BULLISH",
+      "asset_b": "GASOLINE",
+      "bias_b": "BEARISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "WTI-NATGAS",
+      "class": "ENERGY_SIBLING",
+      "asset_a": "WTI",
+      "bias_a": "BULLISH",
+      "asset_b": "NATGAS",
+      "bias_b": "BULLISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "DXY-GOLD",
+      "class": "MACRO_INVERSE",
+      "asset_a": "DXY",
+      "bias_a": "BULLISH",
+      "asset_b": "GOLD",
+      "bias_b": "BEARISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    },
+    {
+      "label": "SPX-VIX",
+      "class": "VOL_INVERSE",
+      "asset_a": "SPX",
+      "bias_a": "BULLISH",
+      "asset_b": "VIX",
+      "bias_b": "BEARISH",
+      "status": "UNKNOWN",
+      "fresh_a": false,
+      "fresh_b": false
+    }
+  ]
+}

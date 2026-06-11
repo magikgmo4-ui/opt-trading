@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_222452_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T18:24:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-24-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64250.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure de 64250 avec cible 67000. Stop sous 60500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Prix sous 60500 annule scénario haussier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une série de HH/HL baissiers clairs jusqu’à début juin.  \n- Structure récente montre un creux plus haut (HL) formé, suivi d’une tentative de reprise haussière.  \n- Zone clé de résistance autour de 64 250 USD, support crucial proche de 59 000 USD.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une tendance globale baissière (LH/LL) marquée jusqu’à début juin, suivie par une consolidation avec un HL récent vers 60 500 USD. Le prix teste maintenant une résistance autour de 64 250 USD. Une cassure claire de ce niveau confirmerait un changement de structure vers un début de tendance haussière. Le scénario à privilégier est un break de résistance pour viser un retour vers 67 000 USD. Invalidation du scénario haussier sous 60 500 USD (dernier HL).\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish to bullish transition\",\"structure\":\"LH followed by HL recent\",\"supports\":[\"59000\",\"60500\"],\"resistances\":[\"64250\"],",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-24-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_18-24-32.png"
+  }
+}

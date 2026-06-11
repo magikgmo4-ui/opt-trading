@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_113717_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T07:37:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-37-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur rebond autour du support 1580, viser résistance 1640-1650. Stop sous 1580.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture significative sous 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente haussière après une forte baisse initiale, structure en transition vers un possible retournement.  \n- Formation de plusieurs HH et HL visible sur la droite du graphique indiquant un début de structure acheteuse.  \n- Zones clés autour de 1 580 (support) et 1 640-1 650 (résistance) à surveiller pour valider la poursuite ou l’invalidation du scénario haussier.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une forte chute initiale marquée par une série de LL et LH confirmant une tendance baissière. Ensuite, la structure évolue avec une série de HH et HL formés récemment, signalant un potentiel retournement haussier. Le prix a franchi un support devenu résistances intermédiaires autour de 1580, qui peut servir de zone clé. La résistance majeure à court terme se situe vers 1640-1650. Le scénario court terme privilégie une continuation haussière tant que la zone de support 1580 tient, avec invalidation sous ce niveau.  \n\nC) DeskPro  \n{\"run_id\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-37-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_07-36-58.png"
+  }
+}

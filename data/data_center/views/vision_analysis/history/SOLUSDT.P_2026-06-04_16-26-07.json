@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_202614_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T16:26:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-26-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 68.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 70.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 71.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short en cassure de 68 avec protection serrée au-dessus de 71",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement net de 71",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette depuis le début de l’affichage, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière clairement établie, récent rebond limité montrant un potentiel de continuation vers le bas.  \n- Zones clés à surveiller: support proche vers 68$ et résistance importante autour des 70.5$-71$; invalidation du mouvement baissier au-dessus de cette résistance.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLe marché évolue en tendance baissière avec une structure de Lower Highs et Lower Lows. Après un plus bas vers 67$, un rebond modéré s’est formé avec des difficultés à dépasser la zone 70.5-71$, indiquant une résistance forte. Le volume augmente légèrement sur les baisses, confortant le biais vendeur. Le scénario probable reste une continuation baissière, ciblant un nouveau plus bas sous 67$, à valider en cassant le support actuel vers 68. En cas de franchissement net de la résistance 71$, le scénario serait invalidé avec un possible retour ne",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-26-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_16-25-59.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_100633_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T06:06:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_06-06-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short à la cassure support 61750 ou rebond confirmé sur résistance 63000-63500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 63500 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente latérale avec oscillations entre zones clés proches de 61,750 (support) et 63,500 (résistance).  \n- Scénario prudent : surveiller une cassure claire de ces zones pour définir direction à court terme, invalidation sous 61,750 pour optimiser shorts.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une dominante baisse, marquée par une succession de LH/LL jusqu’au creux vers 61,500. Depuis, un range formé avec plusieurs tests du support vers 61,750 et résistance autour de 63,500. La dernière tentative de rebond a été interrompue sous 63,000. Le volume confirme une pression vendeuse plus forte sur les hausses. La structure est donc en attente d’une sortie directionnelle, avec un biais baissier à maintenir tant que résistance non franchie.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_1010\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"range latéral",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_06-06-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_06-06-12.png"
+  }
+}

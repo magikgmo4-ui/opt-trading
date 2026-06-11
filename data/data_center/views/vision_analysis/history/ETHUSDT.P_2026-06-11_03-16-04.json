@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_071613_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T03:16:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-16-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1665.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur maintien du HL 1620 avec objectif 1665-1670",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1610",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m globale neutre à légèrement haussière, avec recent HL visible.\n- Structure récente montre un bas plus bas (LL) suivi d’un début de remontée avec HH puis HL.\n- Zone clé support autour de 1610-1620, résistance immédiate autour de 1665-1670.\n\nB) Chart unique (ETHUSDT.P 15m): Sur cette unité de temps, le prix a lâché un mouvement baissier fort initial et a ensuite formé une succession de bas plus bas (LL) puis une tentative de rebond matérialisée par un plus haut plus haut (HH) et un plus bas plus haut (HL). Le marché teste maintenant la résistance vers 1665-1670. La zone de support clé à surveiller se trouve en 1610-1620, servant d’ancienne zone de consolidation. Le scénario préféré est une poursuite du rebond au-dessus du HL avec une extension possible vers la résistance, invalidation en cas de retour sous 1610, qui signalerait une reprise baissière.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL/HH après LL",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-16-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-11_03-15-52.png"
+  }
+}

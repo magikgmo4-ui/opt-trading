@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_182913_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T14:29:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-29-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance breakout range haussier >1580, sinon continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture 15m >1600 avec volume significatif",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure fragile en consolidation horizontale après une forte chute, range entre ~1540 et ~1580.  \n- Zone clé support autour de 1540, résistance à valider vers 1580 - 1600 pour scénario haussier.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance dominante est baissière, matérialisée par des points de structure LL et LH. Le prix consolide actuellement dans une zone latérale après la chute, créant un range étroit. Le support principal visible est autour de 1540, qui a tenu plusieurs fois, tandis que la résistance clé à franchir pour initier un retour haussier est au niveau 1580-1600. Un breakout du range permettrait de valider un scénario de reprise, sinon la poursuite de la baisse reste la trajectoire la plus probable. Invalidation du scénario baissier si le prix casse clairement au-dessus de 1600 avec volume.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"b",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-29-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_14-28-45.png"
+  }
+}

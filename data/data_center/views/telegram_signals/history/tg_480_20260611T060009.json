@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_480_20260611T060009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "btcusdt_xauusd_eurusd_signal",
+  "channel_priority": "P0",
+  "channel_type": "trade_signal",
+  "parsed_at": "2026-06-11T04:15:21+00:00",
+  "produced_at": "2026-06-11T06:00:09.423042+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4080.0,
+  "sl": null,
+  "tp": 4085.0,
+  "tps": [
+    4085.0,
+    4090.0,
+    4095.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udcca XAUUSD BUY ENTRY \ud83d\udcca\n\nENTRY: 4080 / 4075\n\nSL: TAKE YOUR OWN\n\nTP1 4085\n\nTP2 4090\n\nTP3 4095\n\nRisk only 1-2% of your balance.",
+  "summary": "XAUUSD LONG"
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_082722_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T04:27:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_04-27-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4530.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4550.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre breakout haussier >4550 pour long, ou cassure <4430 pour short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fermeture sous 4430 après rebond ou dépassement clair >4550",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente montre une tentative de rebond avec un Higher Low (HL) récent, signalant un possible retournement.  \n- Zone clé de support proche des 4430-4440 USD, résistance majeure vers 4530-4550 USD.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure de prix montre un mouvement baissier clair matérialisé par des LH et LL, suivi d’une correction haussière avec apparition d’un HL courant début juin. Le prix bute sur une résistance entre 4530 et 4550 USD, zone à surveiller pour valider le scénario haussier. Le support vers 4430 / 4440 USD est critique; une cassure invaliderait la reprise et relancerait la baisse. Le plan de trading propose d’attendre la validation d’un breakout haussier au-dessus de 4550 USD pour viser une continuation longue, ou en cas de retour sous 4430 USD, un trade short plus agressif. Volume en légère augmentation sur la phase de rebond.\n\nC) D",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_04-27-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_04-26-57.png"
+  }
+}

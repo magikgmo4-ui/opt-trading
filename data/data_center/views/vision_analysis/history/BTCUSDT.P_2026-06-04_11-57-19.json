@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_155727_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T11:57:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-57-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62200.0,
+      "confidence": 0.7,
+      "note": "s 62,200"
+    },
+    {
+      "type": "support_level",
+      "value": 64800.0,
+      "confidence": 0.7,
+      "note": "s 64,800"
+    },
+    {
+      "type": "support_level",
+      "value": 64800.0,
+      "confidence": 0.7,
+      "note": "s 64,800,"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64800.0,
+      "confidence": 0.7,
+      "note": "résistance à 64,800"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62200.0,
+      "confidence": 0.7,
+      "note": "r 62,200,"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64800.0,
+      "confidence": 0.7,
+      "note": "résistance 64,800"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une succession de lower highs (LH) et lower lows (LL).  \n- Structure récente en rebond avec un higher low (HL) formé, tentative de correction haussière en cours.  \n- Zone clé support vers 62,200-62,400 USDT, résistance majeure vers 64,800-65,000 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance dominante reste baissière (LH/LL). Cependant, on observe un rebond qui a créé un HL, indiquant une possible consolidation ou un début de retournement à confirmer. Le prix bute contre la résistance à 64,800 USDT, zone de dernier haut avant resumption de la baisse. Le scénario principal reste la poursuite de la baisse sous 64,800, avec invalidation au-dessus, confirmant un retournement possible. Support immédiat sur 62,200, si cassure, accélération baissière probable.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL récent\",\"supports\":[62200],\"resistances\":[64800],\"plan\":\"vendre ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-57-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_11-57-12.png"
+  }
+}

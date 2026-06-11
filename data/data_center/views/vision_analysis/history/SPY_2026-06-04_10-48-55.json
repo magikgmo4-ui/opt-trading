@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_144906_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T10:49:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-48-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur support 750 avec objectif 760. Stop sous 745 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure franche sous 745 avec volume.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec une structure de prix formant des HH (Higher Highs) et HL (Higher Lows).  \n- Récente correction depuis le dernier sommet, test potentiel de support à 750$.  \n- Zone clé de support à 750$ et résistance majeure au niveau du dernier sommet vers 760$.\n\nB) Chart unique (SPY 1h):  \nLe graphique SPY en 1h montre une nette tendance haussière avec des hauts et bas ascendants, validant une structure acheteuse (HH/HL). Le prix corrige actuellement après un point haut proche de 760$. Le support immédiat à surveiller se situe autour de 750$, zone où un rebond confirmerait la poursuite de la tendance. Une cassure solide sous 750$ invaliderait ce scénario haussier et pourrait annoncer une structure en retournement avec potentiels bas plus bas (LL). La résistance principale reste le récent sommet vers 760$, dont le franchissement pousserait la dynamique à la hausse. Le volume reste soutenu, ce qui rend le scénario de continuation plus probable, sous ",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-48-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_10-48-45.png"
+  }
+}

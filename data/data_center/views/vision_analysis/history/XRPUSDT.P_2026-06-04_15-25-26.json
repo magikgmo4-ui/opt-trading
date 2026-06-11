@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_192536_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T15:25:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_15-25-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.145,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.185,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre franchissement de 1.185 pour prise de position acheteuse, viser 1.225",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure en clôture sous 1.145",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le timeframe 15m avec plusieurs plus bas (LL) et plus hauts (LH) décroissants.  \n- Structure montrant un potentiel retournement haussier récent via un creux plus bas suivi d’un rebond formant un plus haut relatif actuel proche d’une résistance clé.  \n- Zone clé support autour de 1.145 et résistance immédiate vers 1.185 à surveiller pour validation du scénario haussier.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLa tendance principale est baissière avec une structure en LL et LH bien marquée. Un retournement potentiel s’esquisse avec un creux récent plus bas suivi d’un rebond vers la résistance à 1.185. Si cette résistance est franchie avec conviction, on pourra envisager un scénario haussier en visant un retour vers 1.225. Invalidation de ce scénario si le support à 1.145 est cassé, ce qui renforcerait la tendance baissière.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond potentiel\",\"structure\":\"LL et LH",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_15-25-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_15-25-19.png"
+  }
+}

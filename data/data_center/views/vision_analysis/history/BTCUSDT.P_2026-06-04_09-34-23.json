@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_133431_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T09:34:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-34-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62200.0,
+      "confidence": 0.7,
+      "note": "support 62200."
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière claire avec une succession de HH/HL cassée en LH/LL  \n- Rebond visible en fin de graphique, potentielle correction court terme  \n- Zone clé résistance autour de 64 800-65 000 USDT à surveiller pour scénario de retournement\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure est baissière sur le timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL) confirmés. On observe un fort momentum vendeur suivi d’un reflux haussier à court terme. Les supports majeurs sont autour de 62 200 USDT, qui a fait rebondir le prix. Le niveau à 64 800-65 000 USDT sert de résistance à court terme. Le scénario privilégié reste la continuation baissière tant que ce plafond ne cède pas. Invalidation du biais baissier si le prix franchit durablement 65 000 USDT avec volumes.\n\nC) DeskPro  \n{\"run_id\":\"20240604_1334\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH-LL\",\"supports\":[62200],\"resistances\":[64800,65000],\"plan\":\"Vendre sur rejets de",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-34-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_09-34-16.png"
+  }
+}

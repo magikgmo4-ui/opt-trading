@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_055907_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T01:59:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-59-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 62000 avec stop au-dessus. Objectif sur support 60000. Attention à une cassure haussière invaliderait le bearish.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Derniers chandeliers montrent une tentative de rebond vers 61 700-62 000, zone de résistance intermédiaire.  \n- Scénario baissier confirmé sous 62 000, invalidation en clôture horaire au-dessus de ce niveau.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique affiche une structure baissière claire (LH/LL). Le prix a chuté régulièrement depuis près de 75 000 jusqu’à 60 000, formant des points bas décalés vers le bas. On observe un support apparent autour de 60 000-60 200. Le récent retracement vers 61 700-62 000 constitue une résistance clé. Une cassure claire et durable au-dessus de 62 000 invaliderait la pression vendeuse dominante et ouvrirait la porte à un retour neutre voire haussier. En l’état, la tendance reste baissière et la prudence est de mise sur longs à moins d’une confirmation.\n\nC) DeskPro  \n{\"run_id\":\"20240607_1200\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-59-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_01-58-52.png"
+  }
+}

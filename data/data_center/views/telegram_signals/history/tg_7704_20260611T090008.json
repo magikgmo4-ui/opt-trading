@@ -1,0 +1,22 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_7704_20260611T090008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "forexfever11",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-03T12:44:46+00:00",
+  "produced_at": "2026-06-11T09:00:08.542296+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4515.0,
+  "sl": null,
+  "tp": 550.0,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD, sell @ 4515\ud83d\udd3d\n\n\ud83d\udca5 BANG BANG, Both Hit TP, smashed 550+ PIPS \ud83d\udcb5,\n\n\ud83d\udccccongratulations who hold till second TP\n\nSignal was posted in premium channel only \ud83d\ude04\n\n\ud83e\udd2b Join premium for more trade, more profits  \ud83e\ude99",
+  "summary": "XAUUSD SHORT"
+}

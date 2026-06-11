@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_164911_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T12:49:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-49-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous résistance, cible support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break above 66000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur ce graphique 1h avec plusieurs Lower Lows (LL) et Lower Highs (LH) confirmés.  \n- Structure de continuation baissière renforcée par une chute importante des prix suivie d’une tentative de rebond faible.  \n- Zone clé de résistance proche des 66 000 USDT, support majeur sur 62 000 USDT, invalidation si franchissement clair au-dessus de 66 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une dynamique baissière forte et persistante avec une succession de LL/LH caractéristique. Le dernier rebond semble limité et stagne sous un niveau de résistance situé environ à 66 000 USDT, correspondant à un précédent point bas devenu résistance. Le support à 62 000 USDT a freiné la baisse récemment, marquant une zone clé. Tant que le prix reste sous 66 000 USDT, la structure reste baissière avec possibilité de retour vers 62 000 ou moins. Un franchissement clair et soutenu de la résistance invaliderait ce scénario.\n\nC) DeskPro  \n{\"run_id",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-49-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_12-48-56.png"
+  }
+}

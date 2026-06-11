@@ -1,0 +1,29 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_2361_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "GBPUSDEURUSDXAUUSDFX_Vip1",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-11T06:37:45+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "USDJPY",
+  "direction": "LONG",
+  "entry_price": 160.579,
+  "sl": 160.438,
+  "tp": 1.0,
+  "tps": [
+    1.0,
+    2.0,
+    3.0,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**\ud83d\udcc8****USDJPY BUY\nEntry: 160.579\n\nTake Profit Targets\nTP1: 160.650\nTP2: 160.720\nTP3: 160.861\n\nStop Loss: 160.438**",
+  "summary": "USDJPY LONG"
+}

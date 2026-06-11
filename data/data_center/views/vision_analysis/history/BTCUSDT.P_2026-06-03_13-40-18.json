@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_174028_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:40:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-40-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rejet résistance ou breakdown support, prise de profit proche support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 68,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le marché crypto (BTCUSDT) montre une forte pression baissière avec une structure baissière claire.\n- Plusieurs indices majeurs (SPX, NDQ, DJI) sont à la baisse, renforçant un biais global négatif.\n- Les volumes récents indiquent une possible tentative de stabilisation sous une résistance clé.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h\n- Tendance: Baissière confirmée.\n- Structure: Séquence de Lower High (LH) et Lower Low (LL).\n- Zones clés: Support majeur autour de 65,000 USD, résistance visible vers 67,500 USD.\n- Scénario: Possibilité de rebond technique sur support, mais risqué sans signaux clairs de retournement.\n- Invalidation: Rupture claire au-dessus de 68,000 USD remettrait en cause le scénario baissier court terme.\n- Plan: Surveiller réaction aux supports pour entrées shorts si rejet confirmé.\n\nC) Chart 2 (haut-droit): inconnu (pas visible dans l'image)\n\nD) Chart 3 (bas-gauche): inconnu (pas visible dans l'image)\n\nE) Chart 4 (bas-droit): inconnu (pas visible dans ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-40-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_13-40-09.png"
+  }
+}

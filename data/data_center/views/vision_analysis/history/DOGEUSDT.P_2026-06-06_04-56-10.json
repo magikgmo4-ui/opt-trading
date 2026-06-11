@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_085619_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T04:56:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-56-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.084,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d’un breakout à 0.084 pour prise de position long. En cas d'échec sous 0.078, direction maintenue baissière possible.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte de 0.078",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 15m avec une série de LH et LL bien marqués.  \n- Tentative de rebond récent formant un HL local après un point bas proche de 0.077.  \n- Zone clé de résistance autour de 0.083-0.084 à surveiller pour valider un possible changement de structure.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une structure baissière claire avec des Lower Highs (LH) et Lower Lows (LL) réguliers sur plusieurs périodes. Le dernier mouvement visible est un rebond formant un Higher Low (HL) autour de 0.078, suivi d’une tentative d’attaque de la zone de résistance majeure vers 0.083-0.084. Le volume semble augmenter lors du rebond, mais la tendance globale reste baissière. Un franchissement durable de la zone 0.084 validerait un possible retournement en tendance haussière. L’invalidation du scénario se ferait sous le récent HL à 0.078.\n\nC) DeskPro  \n{\"run_id\":\"auto_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec tentative de rebond\",",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-56-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_04-56-00.png"
+  }
+}

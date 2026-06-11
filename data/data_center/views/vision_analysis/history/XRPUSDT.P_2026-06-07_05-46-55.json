@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_094703_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T05:47:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-46-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.17,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur repli vers 1.10 avec objectif 1.17 puis extension possible après cassure.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture sous 1.10 avec volume augmente",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Reprise nette de la tendance haussière sur XRPUSDT en 15m après un creux marqué.  \n- Structure montrant des HH et HL récents, confirmant la dynamique acheteuse.  \n- Zone de résistance immédiate autour de 1.17 à surveiller pour la suite, invalidation sous 1.10.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nTendance haussière nette avec formation claire de HH/HL depuis le creux vers 1.04. La dernière vague haussière est puissante et soutenue par un fort volume. Résistance clé visible à 1.17, point de possible ralentissement ou retournement. Support majeur à 1.10, si cassure, scénario baissier avec retour possible vers les plus bas. Le momentum reste favorable aux acheteurs sur ce timeframe court.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1.10\"],\"resistances\":[\"1.17\"],\"plan\":\"Acheter sur repli vers 1.10 avec objectif 1.17 puis extension possible après cassure.\",\"invalidation\":\"Clôture sous 1.10 avec volume au",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-46-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_05-46-41.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_023130_NYMEX:RB1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:31:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-31-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la rupture de 3.06$, stop au-dessus de 3.18$. Long possible si 3.18$ est cassé en clôture.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 3.18$ pour scénario baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance court terme baissière, structure présentant des Lower Highs (LH) et Lower Lows (LL).\n- Zones clés: support vers 3.06$, résistance autour 3.18$.\n- Scénario baissier si la zone support cède, possibilité de rebond si support tient.\n\nB) Chart unique (NYMEX:RB1! 1h):\nLe graphique montre une tendance baissière avec une série de Lower Highs et Lower Lows confirmée. Le prix évolue sous la résistance à 3.18$, rencontrant plusieurs rejets. Le support clé est situé vers 3.06$, où le prix a rebondi plusieurs fois. Le volume est relativement élevé lors des baisses, validant la pression vendeuse. Un break en dessous de 3.06$ invaliderait le scénario de rebond, renforçant la continuation du mouvement baissier. A contrario, un franchissement du 3.18$ permettrait une reprise haussière avec inversion de la structure en Higher Lows.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH, LL\",\"supports\":[\"3.06\"],\"resistances\":[\"3.18\"],\"plan\":\"V",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-31-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_1h_2026-06-03_22-31-08.png"
+  }
+}

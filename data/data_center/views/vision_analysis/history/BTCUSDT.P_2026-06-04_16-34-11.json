@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_203418_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T16:34:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-34-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond à résistance ou cassure 62000 pour accélération baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable au-dessus de 67000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur 1h avec une série de plus bas et plus bas (LL).  \n- Structure orientée vers la vente, absence de signes de retournement à court terme.  \n- Zones clés à surveiller : support proche vers 62 000, résistance immédiate autour de 66 800-67 000.\n\nB) Chart unique (BTCUSDT.P 1h):  \nOn observe une tendance baissière bien marquée par une série successive de Lower Highs (LH) et Lower Lows (LL). Le prix a tenté un rebond modéré depuis environ 62 000 USDT, mais reste sous une résistance significative proche des 66 800-67 000 USDT. Le volume montre une hausse sur les mouvements baissiers, indiquant une pression vendeuse forte. Aucun signal clair d'inversion n'est visible, ce qui incite à privilégier les positions short en attendant une cassure confirmée de support (62 000) pour de nouvelles opportunités.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"62000\"],\"resistances\":[\"6680",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-34-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_16-34-03.png"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_214544_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T17:45:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-45-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la réaction au support 1500 pour prise de position long en cas de rebond confirmé. Short possible sous 1500 avec objectif 1400-1350. Confirmation de reprise si cassure 1700 validée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clair au-dessus de 1700, inversion possible de tendance.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec des structures de Lower Highs (LH) et Lower Lows (LL) bien formées.  \n- Zone de support clé autour de 1500 USD où une légère reprise actuelle s’amorce.  \n- Résistance importante à 1650-1700 USD à surveiller pour valider un possible rebond ou une continuation baissière.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une nette domination vendeuse avec une succession de plus bas et plus bas (LL), et quelques tentatives de rebonds bloquées par des resistance vers 1650-1700 USD (Lower Highs). Le volume a augmenté notablement sur les derniers mouvements baissiers, validant la pression vendeuse. La zone vers 1500 USD agit actuellement comme support important. Un franchissement clair au-dessus de 1650-1700 pourrait ouvrir la voie à un test des résistances plus hautes. Invalidation scenario baissier sous 1500.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"Lower Highs et Lower Lows\",",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-45-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_17-45-21.png"
+  }
+}

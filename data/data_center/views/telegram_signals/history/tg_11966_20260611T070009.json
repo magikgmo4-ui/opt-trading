@@ -1,0 +1,31 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_11966_20260611T070009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "forexbookspdf",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-09T10:18:59+00:00",
+  "produced_at": "2026-06-11T07:00:09.465499+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": null,
+  "sl": 51090.0,
+  "tp": 50950.0,
+  "tps": [
+    50950.0,
+    50900.0,
+    50840.0,
+    50400.0,
+    50950.0,
+    50900.0,
+    50840.0,
+    50400.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "US30 SELL 50990\nSL 51090\nTP 50950\nTP 50900\nTP 50840\nTP 50400",
+  "summary": "XAUUSD SHORT"
+}

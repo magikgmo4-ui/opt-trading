@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_105631_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T06:56:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-56-22",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "trader rebond sur support ou breakout au-dessus de 63k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 60 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global:\n- Présence d’une forte tendance baissière sur le marché crypto Bitcoin en unités horaires.\n- Quelques signes de rebond court terme, possible correction ou début de retour haussier à confirmer.\n- Surveillance active des zones clés autour de 61k (support) et 63k+ (résistance) pour valider scénario.\n\nB) Chart 1 (haut-gauche) - BTCUSDT 1h:\nTendance baissière dominante avec structure en LH/LL bien marquée. Actuellement, tentative de rebond après un plus bas. Zone support clé vers 61 000 (testée plusieurs fois), résistances à 63 000 puis 64 000. Le scénario bearish restera valide tant que le prix reste sous les derniers HH intermédiaires autour de 63k. Invalidation sous 60 000, ce qui ouvrirait un nouveau test de supports inférieurs ou un retournement. Plan: trader rebond court terme proche support ou chercher confirmation breakout haussier au-dessus de 63k.\n\nC) Chart 2 (haut-droit): Indice/usine inconnu (symbole/timeframe non lisible) - Pas d’analyse possible.\n\nD) Chart 3 ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-56-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_06-56-14.png"
+  }
+}

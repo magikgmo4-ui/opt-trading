@@ -1,0 +1,48 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "BTCUSDT",
+  "total": 4,
+  "signals": [
+    {
+      "id": "tg_193_20260611T100009",
+      "channel": "LexatyCryptoSignals",
+      "direction": "LONG",
+      "entry_price": 63522.0,
+      "sl": 62852.0,
+      "tp": 64367.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-02-28T14:49:46+00:00"
+    },
+    {
+      "id": "tg_186_20260611T100009",
+      "channel": "LexatyCryptoSignals",
+      "direction": "SHORT",
+      "entry_price": 98385.0,
+      "sl": 100052.0,
+      "tp": 97052.0,
+      "confidence": "LOW",
+      "parsed_at": "2025-02-21T19:55:34+00:00"
+    },
+    {
+      "id": "tg_177_20260611T100009",
+      "channel": "LexatyCryptoSignals",
+      "direction": "SHORT",
+      "entry_price": 100460.0,
+      "sl": 103894.0,
+      "tp": 97425.0,
+      "confidence": "LOW",
+      "parsed_at": "2025-02-05T15:30:14+00:00"
+    },
+    {
+      "id": "tg_9385_20260611T100009",
+      "channel": "WhaleTank",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 200.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T13:34:27+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_195124_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T15:51:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-51-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1580 pour reprise haussière, sinon maintien sous 1540 pour continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "dépassement clair de 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière visible avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Le prix marque ensuite une phase de consolidation horizontale avec une structure latérale sur le court terme.\n- Zone clé de support autour de 1540, résistance proche à 1580 ; cassure confirmée dans l’une ou l’autre direction donnera le biais suivant.\n\nB) Chart unique (ETHUSDT.P 15m) : \nLe graphique montre un mouvement baissier initial net avec des creux et sommets descendants, validant une tendance baissière pour le timeframe 15m. La structure se stabilise ensuite avec des bas et hauts proches, indiquant une possible accumulation ou pause. Le support clé est identifié proche de 1540, base d’une zone de congestion qui pourrait soutenir un rebond. La résistance est définie vers 1580, zone à surveiller pour un retournement haussier. Un dépassement des 1580 invaliderait la continuation baissière à court terme tandis qu’une cassure des 1540 renforcerait la pression vendeuse.\n\nC) ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-51-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_15-51-05.png"
+  }
+}

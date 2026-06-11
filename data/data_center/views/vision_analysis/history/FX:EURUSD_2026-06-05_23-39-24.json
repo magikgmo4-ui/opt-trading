@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_033932_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T23:39:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-39-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Privilégier ventes sur rebond vers résistance 1.1570-1.1600, stop above 1.1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Dépassement clair de 1.1600 avec maintien",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière confirmée sur le 1h avec séquence de lower highs (LH) et lower lows (LL).  \n- Forte cassure baissière récente accompagnée d’un volume en hausse, indiquant une accélération du mouvement vendeur.  \n- Zone de support clé vers 1.1520 à surveiller pour une possible pause ou rebond technique.\n\nB) Chart unique (FX:EURUSD 1h): La structure montre un sommet plus bas suivi de creux plus bas (LH/LL), confirmant la tendance baissière. La cassure nette sous 1.1570 avec forte augmentation des volumes valide la pression vendeuse. Invalidation du scénario baissier si le prix dépasse 1.1600 avec retour au-dessus des derniers hauts locaux. Pour l’instant, chercher des opportunités vendeuses dans les rallyes vers les résistances intraday, avec comme support immédiat la zone 1.1520.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"],\"resistances\":[\"1.1570\",\"1.1600\"],\"plan\":\"Privilégier ventes s",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-39-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_23-39-14.png"
+  }
+}

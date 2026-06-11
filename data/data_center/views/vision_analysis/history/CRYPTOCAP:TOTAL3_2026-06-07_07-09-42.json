@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_110951_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-07T07:09:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-09-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 660000000000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 720000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller rebond sur support 660B pour prise de position longue si HL valide, viser réaction en zone 720-760B.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 660B prolongeant la tendance baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante confirmée par une série de plus bas (LL) et plus hauts (LH).  \n- Rejet haussier récent sur zone proche 660B, support clé potentiel.  \n- Scénario prudent à la hausse possible avec recherche de structure HL à valider.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre un marché en tendance baissière avec des plus bas et plus hauts descendants. Une forte chute récente a cassé plusieurs supports, avec un rebond depuis 660B, zone à surveiller comme support immédiat. La résistance principale reste autour de 760B, niveau où le prix a buté plusieurs fois. Un franchissement clair au-dessus de 720-740B serait nécessaire pour envisager un changement de dynamique vers une tendance haussière. L’invalidation du rebond se ferait en cassant le support à 660B, prolongeant alors la tendance baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[660000000000],\"resistances\":[72000000",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-09-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_07-09-30.png"
+  }
+}

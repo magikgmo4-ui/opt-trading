@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_114402_CRYPTOCAP:TOTAL_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T07:44:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-43-51",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 2.5T avec cible 2.1T.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rejet baissier invalidé si prix > 2.5T confirmé.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière avec une série de creux plus bas (LL) et de sommets plus bas (LH) confirmée récemment.  \n- Structure en dégradation rapide depuis fin mai, avec rejet marqué sous 2.5T, zone de résistance évidente.  \n- Scénario court privilégie poursuite de la baisse vers le premier support clé vers 2.1T, invalidation au-dessus de 2.5T.  \n\nB) Chart unique (CRYPTOCAP:TOTAL 1d):  \nLe graphique montre une tendance baissière claire marquée par des LH et LL consécutifs. Après un rebond entre février et mai autour de 2.3-2.5T, le prix a fortement baissé depuis fin mai avec de grandes chandelles rouges. La zone 2.5T représente une résistance majeure qui a empêché toute reprise. Les supports notables se situent vers 2.1T et éventuellement 2.0T psychologique. Le volume reste important dans cette chute, suggérant la force des vendeurs. Le plan d’action est de rester vendeur sous 2.5T avec un ciblage à 2.1T. En cas de franchissement valide de 2.5T, le scénario baissi",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-43-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-04_07-43-41.png"
+  }
+}

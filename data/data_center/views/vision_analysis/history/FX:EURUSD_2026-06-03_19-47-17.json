@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_234724_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T19:47:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-47-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.161,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1635,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 1.1610 avec stop au-dessus de 1.1635",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 1.1635",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de retracement en cours vers 1.1610, zone clé de résistance récente.  \n- Scénario privilégié : vente à la confirmation d’un rejet sous 1.1610, invalidation au-dessus de 1.1635.\n\nB) Chart unique (FX:EURUSD 1h): La paire EURUSD en 1h montre une dynamique baissière nette, caractérisée par des sommets et creux déclinants (LH/LL). Le prix a tenté une correction haussière jusque vers 1.1610, zone de résistance majeure confirmée par des bougies de rechute précédentes. Le volume reste modéré, sans forte impulsion acheteuse. Une cassure sous le récent creux proche de 1.1590 validerait la poursuite de la tendance baissière. À l’inverse, un franchissement clair de 1.1635 mettrait en doute la structure actuelle.\n\nC) DeskPro  \n```json  \n{\"run_id\":\"eurusd_1h_20240604\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.1590\",\"1.1570\"],\"resistances\":[\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-47-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_19-47-02.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_133106_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T09:31:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-30-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond à support 1500. Vendre si la résistance 1600 tient et confirme rejet. Reconsidérer achat si cassure claire au-dessus de 1600.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture durable au-dessus de 1600.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière bien établie avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragile sous pression, tentative de rebond récente en range après chute rapide.\n- Zone clé de support vers 1500 USDT à surveiller, résistance majeure proche à 1600 USDT.\n\nB) Chart unique (ETHUSDT.P 1h): \nLe graphique montre une tendance baissière nette, marquée par une série de LH/LL depuis début juin. Une chute rapide a mené le prix sous 1600 USDT, avec un support visible autour de 1500 USDT où le cours cherche à stabiliser. Le rebond est timide et confronté à une résistance aux environs de 1600 USDT, qui serait un seuil d'invalidation du scénario baissier si franchi avec conviction. La structure est donc baissière, mais une confirmation du rejet sur 1600 est clé pour continuer à viser les 1500 voire plus bas. Une cassure majeure sous 1500 renforcerait la pression vendeuse.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LH/LL\",",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-30-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_09-30-47.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_025741_TVC:VIX_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "TVC:VIX",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:57:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-57-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 15.2,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 16.6,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 15.20 pour suivre tendance baissière, cibler niveaux plus bas. En cas de rebond, surveiller rejet à 16.60 avant prise de position. Stop loss au-dessus de 16.60 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable au-dessus de 16.60 sur 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette et continue visible en 1h sur le VIX, avec des creux et sommets de plus en plus bas (structure LL/LH).  \n- Zone de support autour de 15.20 à surveiller, testé récemment avec rebond modéré.  \n- Scénario prioritaire : poursuite potentielle de la baisse si support 15.20 cassé, invalidation si retour au-dessus de 16.60.\n\nB) Chart unique (TVC:VIX 1h) :  \nLa structure montre une tendance baissière claire, caractérisée par des Lower Highs (LH) et Lower Lows (LL). Le VIX a récemment testé un support clé aux alentours de 15.20, niveau à partir duquel un rebond technique semble s’opérer. Toutefois, la dynamique reste baissière tant que les résistances autour de 16.60 ne sont pas franchies. Un passage en dessous du support 15.20 ouvrirait la porte à une accélération baissière. En cas de reprise au-dessus de 16.60, le scénario baissier serait invalidé et une phase de consolidation ou un retournement haussier pourrait s’enclencher.\n\nC) DeskPro  \n{\"run_i",
+  "symbols_found": [
+    "TVC:VIX"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-57-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:VIX_1h_2026-06-04_22-57-16.png"
+  }
+}

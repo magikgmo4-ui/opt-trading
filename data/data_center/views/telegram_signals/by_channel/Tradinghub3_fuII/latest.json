@@ -1,0 +1,38 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "Tradinghub3_fuII",
+  "total": 3,
+  "signals": [
+    {
+      "id": "tg_6287_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 4110.0,
+      "sl": 4125.0,
+      "tp": 4105.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T07:31:00+00:00"
+    },
+    {
+      "id": "tg_6283_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 4088.0,
+      "sl": 4101.0,
+      "tp": 4085.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:23:14+00:00"
+    },
+    {
+      "id": "tg_6273_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 4170.0,
+      "sl": 4380.0,
+      "tp": 4167.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T09:26:03+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

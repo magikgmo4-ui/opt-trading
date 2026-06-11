@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_173926_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:39:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-39-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short en cassure 4320, cibler 4300-4250. Rebond possible sur 4320 pour short en confirmation. Invalidation au-dessus 4450.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 1h avec des sommets et creux descendants (LH/LL).\n- Structure de retournement initiée vers le 5 juin après un pic, suivi d’une chute rapide.\n- Zone de support clé autour de 4320 à surveiller pour un potentiel rebond ou cassure.\n\nB) Chart unique (OANDA:XAUUSD 1h): Le graphique montre une tendance baissière prononcée avec une structure de creux plus bas (LL) et sommets plus bas (LH) formée depuis fin mai. Après un pic vers le 29 mai, la structure est devenue baissière. La dernière zone support à 4320 est testée fortement, elle est cruciale pour le scénario. En cas de maintien, un rebond vers 4400-4450 (ancienne zone de résistance) est possible. En revanche, la cassure des 4320 confirmerait la poursuite du bearish avec comme prochaine cible 4300 puis 4250. Invalidation du biais baissier si on repasse durablement au-dessus des 4450.\n\nC) DeskPro\n{\"run_id\":\"1686042000\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"suppor",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-39-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_13-38-56.png"
+  }
+}

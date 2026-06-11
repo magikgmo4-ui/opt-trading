@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_130401_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T09:03:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-03-50",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Rebond possible jusqu'à résistance; viser vente à confirmation de rejet ou continuation baissière sous 1720",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire au-dessus de 1820 valide potentiel haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière claire avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Récente tentative de rebond indicielle formant un HL à court terme, possible pullback/reprise temporaire.  \n- Zones clés à surveiller : résistance majeure vers 1 810-1 820 (dernier point haut local), support vers 1 720-1 730 (dernier point bas significatif).  \n\nB) Chart unique (ETHUSDT.P 15m):  \nTendance dominante baissière (LH/LL). Structure récente montre un HL à court terme sur 15m suggérant un possible plan de rebond. Résistance immédiate à 1 810-1 820, invalidation du rebond si cassure sous 1 720. Scénario privilégié de continuation baissière au-dessus de 1 720, avec possible test de 1 810-1 820 pour confirmer faiblesse ou poursuite haussière.  \n\nC) DeskPro  \n{\"run_id\":\"r1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL dominant avec HL récent\",\"supports\":[\"1720-1730\"],\"resistances\":[\"1810-1820\"],\"plan\":\"Rebond possible jusqu'à résistance; viser vent",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-03-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_09-03-42.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_095500_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T05:54:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-54-51",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sur rejet résistance avec stop above 62,600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break above 63,000 with volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Dominante nette de tendance baissière sur l’ensemble des graphiques.\n- Structures en séries de LH/LL prédominantes, faibles rebonds correctifs en attente.\n- Zones clés de support à proximité des derniers creux, résistance à surveiller sur les précédents sommets locaux.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h\n- Tendance baissière clairement installée, succession de Lower Highs (LH) et Lower Lows (LL).\n- Rejet récent sur 62 600 USDT, résistance intermédiaire confirmée.\n- Support majeur à 59 000 USDT, zone clé à monitorer pour rebond ou rupture.\n- Scénario principal: poursuite de la baisse si invalidation sous 59 000 USDT.\n- Plan: surveiller un retour sous résistance pour short avec stop serré au-dessus des 62 600 USDT.\n- Invalidation : franchissement clair au-dessus de 63 000 USDT avec volumes.\n\nC) Chart 2 (haut-droit) : Inconnu\n- Symbole/timeframe non identifiable.\n- Analyse impossible sans plus d’informations.\n- Recommandation : vérifier les données et compléter.\n\nD) ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-54-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_05-54-43.png"
+  }
+}

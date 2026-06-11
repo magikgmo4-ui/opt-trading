@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_001925_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T20:19:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_20-19-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller consolidation puis short en cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break durable au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière générale sur la plupart des actifs visibles.  \n- Structures principalement de type HL cassées, avec des séries de LL marquées.  \n- Zones clés de support menacées ou déjà cassées, attente de potentielle consolidation.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance : Forte tendance baissière  \nStructure : Série de Lower Highs (LH) et Lower Lows (LL) bien marquée  \nSupports : Vers 60,000 USDT zone clé à surveiller  \nRésistances : 62,000 puis 64,000 USDT  \nPlan : Attention à une possible pause ou consolidation autour de 60,000 USDT, envisager short en cassure support  \nInvalidation : Reprise durable au-dessus des 64,000 USDT pourrait annuler le biais baissier  \n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu (non lisible)  \nImpossible d’analyser car le symbole et la timeframe ne sont pas lisibles sur l’image.  \n\nD) Chart 3 (bas-gauche) : symbole/timeframe inconnu (non lisible)  \nImpossible d’analyser car le symbole et la timeframe ne son",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_20-19-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_20-19-08.png"
+  }
+}

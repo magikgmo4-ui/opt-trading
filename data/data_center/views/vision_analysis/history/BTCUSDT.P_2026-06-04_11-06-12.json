@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_150621_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:06:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-06-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d'un break 65000 pour ouvrir long avec stop sous 61500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 61500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette en 1h, avec une série de sommets et creux descendants (LH/LL).  \n- Structure récente marquée par un rebond technique sous 63 000 USDT, formant potentiellement un creux local.  \n- Zones clés à surveiller pour un retournement : support majeur vers 61 500-62 000 USDT, résistance immédiate autour de 65 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance dominante est baissière, marquée par des Lower Highs (LH) et Lower Lows (LL) sur plusieurs jours. Le prix a fortement corrigé depuis environ 74 000 USDT jusqu’à un plancher proche de 61 500 USDT, créé récemment. Après ce creux, un rebond a débuté mais reste à confirmer avec la résistance vers 65 000 USDT. Un franchissement clair de 65 000 validerait un potentiel retournement vers une phase de consolidation ou un début de tendance haussière (HL). En invalidation, une rupture sous 61 500 USDT relancerait la baisse. Le volume accompagne le rebond, signe d’un intérêt acheteur temporaire.\n\nC) De",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-06-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_11-06-05.png"
+  }
+}

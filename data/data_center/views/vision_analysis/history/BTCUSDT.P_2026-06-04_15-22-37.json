@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_192245_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T15:22:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_15-22-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long à la cassure 64400 avec stop sous 62600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 62600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière avec succession de Lower Highs (LH) et Lower Lows (LL) visibles.  \n- Structure récente montre un potentiel changement avec un Higher Low (HL) formé et test actuel d’une résistance intermédiaire.  \n- Zone clé de support autour de 62 600-62 800 USD, résistance immédiate vers 64 400 USD à surveiller pour validation du retournement.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa paire est en tendance baissière nette (LH/LL), mais un HL récent est noté après un plus bas vers 62 600. Le prix teste actuellement une zone de résistance située vers 64 400 USD. Un franchissement clair de ce niveau validerait un scénario haussier à court terme, avec un possible retour vers 65 000+. Invalidation du scénario haussier en cas de cassure sous le support 62 600 USD confirmant la poursuite baissière.\n\nC) DeskPro  \n{\"run_id\":\"20240605-graph1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"LH-LL, HL récent\",\"supports\":[\"62600\"],\"resistances\":[\"6440",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_15-22-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_15-22-30.png"
+  }
+}

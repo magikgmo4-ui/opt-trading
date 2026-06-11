@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_062210_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T02:22:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-22-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher opportunités vendeuses sur rallyes vers résistance. Surveiller rebond si HL confirmé vers 64000-65000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 66000 avec HL formé.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec une série de lower highs (LH) et lower lows (LL).  \n- Structure bear dominant, la dynamique baissière vient d’accélérer avec une forte chute récente.  \n- Possible rebond technique visible mais doit être confirmé par un HL au-dessus du dernier pivot baissier.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique montre une tendance baissière nette caractérisée par une succession de LL et LH. Le prix a cassé plusieurs supports intermédiaires, signalant une forte pression vendeuse. On observe un léger rebond sur la dernière bougie avec un volume en hausse, potentiellement un point de pause ou un retour technique. La zone clé de support à 62 000$ a été testée. Résistance importante vers 66 000$ à court terme. Scénario principal bearish tant que le prix reste en dessous des derniers LH. Invalidation du scénario baissier en cas de dépassement clair des 66 000$ avec création d’un HL.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-22-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_02-21-54.png"
+  }
+}

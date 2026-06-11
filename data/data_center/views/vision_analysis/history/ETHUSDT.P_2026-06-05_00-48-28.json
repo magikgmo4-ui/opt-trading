@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_044834_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:48:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-48-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1920.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher des shorts en maintien sous 1850 avec cible 1720 et potentiel break à la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire et tenue au-dessus de 1850",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec une structure de lower highs (LH) et lower lows (LL).\n- Plusieurs zones de résistance marquées autour de 1850 et 1920 confirmées par les tops précédents.\n- Scénario: poursuite possible de la baisse tant que le prix reste sous 1850, invalidation si franchissement convaincant.\n\nB) Chart unique (ETHUSDT.P 1h): Le graphique montre une chute continue depuis environ 2150 vers 1725. La structure forme des lower highs et lower lows, indiquant une tendance baissière solide. La dernière tentative de rebond est faible, le prix teste la zone des 1720 comme support. Résistance immédiate autour de 1850 (dernier lower high important). Volume relativement élevé sur les baisses, signalant une pression vendeuse forte.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1720],\"resistances\":[1850,1920],\"plan\":\"chercher des shorts en maintien sous 1850 avec cible 1720 et potentiel break à la baisse\",\"inval",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-48-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_00-48-20.png"
+  }
+}

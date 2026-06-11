@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_091401_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:13:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-13-51",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance breakout résistance pour invalidation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure 1900+",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de plan sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de plan sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de plan sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le marché montre une pression vendeuse nette sur les actifs visualisés, avec des tendances baissières marquées.\n- Quelques tentatives de rebond en fin de session sur le graphique 1, mais la structure globale reste fragile.\n- Zones clés identifiées en support à surveiller pour validation de rebond ou poursuite de la baisse.\n\nB) Chart 1 (haut-gauche) : ETHUSDT Perpétuel 15min Binance\n- Tendance dominante baissière avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Structure fragile en bas, tentative de rebond en formation avec HH partiel récent.\n- Zone clé support vers 1820-1830 (plus bas récent), résistance clé vers 1880-1890.\n- Scénario : surveiller une cassure de résistance pour invalidation du biais baissier.\n- Invalidation à la cassure des plus hauts locaux récents vers 1900+.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non lisibles)\n- Impossible de déterminer la tendance et structure sans données claires.\n- Pas d’analyse possible ni d’identificati",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-13-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_05-13-44.png"
+  }
+}

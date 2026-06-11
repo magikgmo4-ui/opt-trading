@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_105023_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T06:50:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-50-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller support 61.00 pour rebond ou cassure. Confirmation haussière uniquement au-delà de 65.00 avec HL. Pour l'instant, privilégier shorts à rebonds faibles.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable >65.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m clairement baissière, séries de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragile avec tentatives de rebonds inefficaces, pressions vendeuses dominantes.\n- Zone de support immédiate autour de 61.00 USDT, résistances principales entre 63.50-65.00 USDT.\n\nB) Chart unique (SOLUSDT.P 15m):\nLe graphique affiche une tendance baissière nette caractérisée par une succession de LH et LL, confirmant la faiblesse structurelle du marché. Les rebonds sont limités et incapables de former des Higher Lows (HL). Le support actuel vers 61.00 USDT est à surveiller pour un possible rebond ou une chute plus forte en cas de cassure. La résistance majeure se situe entre 63.50 et 65.00 USDT, à partir de laquelle le prix a systématiquement été repoussé. Pour un scénario haussier valide, il faudrait dépasser en force ce niveau et former un HL plus haut. Invalidation du biais baissier en clôture stable au-dessus de 65.00 USDT.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"s",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-50-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_06-50-07.png"
+  }
+}

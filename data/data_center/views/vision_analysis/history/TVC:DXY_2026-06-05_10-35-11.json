@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_143522_TVC:DXY_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "TVC:DXY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:35:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-35-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 99.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 98.95,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 99.85,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "confirmer accélération haussière ou replis sur support pour acheter",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture < 99.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte volatilité récente sur le DXY avec une cassure nette à la hausse.\n- Structure en 1h globale haussière, mais retracement important avant reprise d’impulsion.\n- Zones clés S/R à définir avec prudence, scénario haussier avec invalidation sous dernier bas.\n\nB) Chart 1 (haut-gauche) : DXY 1h\n- Bias : haussier\n- Structure : HH/HL marqués jusqu’à la montée forte finale, après un retracement ayant formé un LL puis HL.\n- Supports : 99.15 (dernier HL), 98.95 (zone de consolidation précédente)\n- Résistances : 99.85-99.90 (plus haut récent à surveiller)\n- Plan : chercher confirmation d’accélération haussière sur breakout ou reprise après retest de support.\n- Invalidation : clôture sous 99.15 fragiliserait la hausse.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non visible)\n\nD) Chart 3 (bas-gauche) : inconnu (symbole/timeframe non visible)\n\nE) Chart 4 (bas-droit) : inconnu (symbole/timeframe non visible)\n\nF) DeskPro\n{\"run_id\":\"20240605-1435\",\"charts\":[{\"slot\":\"1\",\"",
+  "symbols_found": [
+    "TVC:DXY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-35-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_10-34-56.png"
+  }
+}

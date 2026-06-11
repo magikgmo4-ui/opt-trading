@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_193419_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T15:34:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_15-34-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1870.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 1760 avec cible 1700/1650, ou attente rebond vers 1870 pour entrer en vente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire au-dessus de 1900",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante clairement baissière sur le 1h avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure affaiblie montrant des signaux potentiels de stabilisation autour de 1760-1780, zone de support provisoire.  \n- Scénario principal: attendre un retour sous 1760 pour viser poursuite baissière, ou rebond vers 1870-1900 pour une correction.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa dynamique baissière s’impose avec des creux et sommets déclinants (LH/LL). Le prix a formé un dernier plus bas vers 1740 avant un rebond timide vers 1780, zone de support à surveiller pour la suite. La résistance immédiate se situe vers 1870, niveau à franchir pour invalider la tendance baissière de court terme. En cas de rupture du support 1760, la baisse pourrait s'accélérer vers 1700 voire 1650. Volume élevé sur les derniers creux montre intérêt acheteur mais prudence nécessaire.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_15-34-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_15-33-58.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_201208_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T16:12:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-12-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à la cassure sous 1540 avec TP sur nouveaux creux; stop loss au-dessus de 1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure claire au-dessus de 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une succession de Lower Highs et Lower Lows (LH/LL).  \n- Structure latérale récente après un fort repli, avec une zone de congestion entre 1540 et 1570 USDT.  \n- Scénario prioritaire de continuation baissière sous 1540, invalidation au-dessus de 1580.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché est dans une tendance baissière dominante marquée par plusieurs Lower Highs et Lower Lows. La structure récente évolue dans une zone de range horizontal entre 1540 (support) et 1570-1580 (résistance). Le volume reste faible sur la consolidation, ce qui indique une possible préparation à une reprise de la tendance. Le scénario principal reste une cassure sous 1540 pour viser de nouveaux creux. Une cassure à la hausse au-dessus de 1580 invaliderait la perspective baissière et proposerait une réévaluation de la tendance.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec consolidation\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-12-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_16-11-41.png"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "contract": "telegram_signal.v1",
+  "id": "tg_153_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "xauusd_trading_signals",
+  "channel_priority": "P0",
+  "channel_type": "xau_signal",
+  "parsed_at": "2024-04-02T07:56:13+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 2257.7,
+  "sl": 2265.0,
+  "tp": 2255.0,
+  "tps": [
+    2255.0,
+    2250.0,
+    2245.0,
+    2255.0,
+    2250.0,
+    2245.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "__XAUUSD SELL 2257.700 2261\nTP 2255 \nTP 2250 \nTP 2245 \nSL 2265\nScalping__",
+  "summary": "XAUUSD SHORT"
+}

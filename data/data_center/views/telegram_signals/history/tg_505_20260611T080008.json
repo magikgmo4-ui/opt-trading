@@ -1,0 +1,33 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_505_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "GBPUSD_FOREXSiGNAL",
+  "channel_priority": "P0",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T11:45:37+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4158.0,
+  "sl": 4170.0,
+  "tp": 4154.0,
+  "tps": [
+    4154.0,
+    4150.0,
+    4146.0,
+    4140.0,
+    4136.0,
+    4154.0,
+    4150.0,
+    4146.0,
+    4140.0,
+    4136.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD SELL \nPRICE: 4158 to 4162\n\nTP 4154\nTP 4150\nTP 4146\nTP 4140\nTP 4136\n\nSL 4170",
+  "summary": "XAUUSD SHORT"
+}

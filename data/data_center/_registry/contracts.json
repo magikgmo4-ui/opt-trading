@@ -74,9 +74,10 @@
       "data_keys": ["stock_count", "screener_label"]
     },
     "vision_context.news_sentiment.v1": {
-      "domain": "vision", "label_fr": "Sentiment News", "provider_id": "bot_vision_headless__news_sentiment", "schedule": "6h", "score": 0.70, "status": "PROVEN", "on_demand": false,
-      "view_path": "data/deskpro/inputs/vision_context/news_sentiment/latest.json", "producer_module": "bot_vision_headless_capture",
-      "data_keys": ["sentiment_label", "avg_sentiment_score", "article_count"]
+      "domain": "vision", "label_fr": "Sentiment News", "provider_id": "bot_vision_headless__news_sentiment", "schedule": "6h", "score": 0.70, "status": "PARTIAL", "on_demand": false,
+      "view_path": null, "producer_module": "bot_vision_headless_capture",
+      "data_keys": ["sentiment_label", "avg_sentiment_score", "article_count"],
+      "next_action": "Producer declared but not writing to data_center views yet — needs DC writer"
     },
     "telegram_signal.v1": {
       "domain": "telegram", "label_fr": "Signal Trade", "provider_id": "telegram_screener_bridge", "schedule": "hourly", "score": 0.88, "status": "PROVEN", "on_demand": false,
@@ -157,8 +158,8 @@
   "summary": {
     "total_contracts": 28,
     "total_domains": 7,
-    "proven": 21,
-    "partial": 7,
+    "proven": 20,
+    "partial": 8,
     "missing": 0,
     "hypothesis": 0,
     "on_demand": 2,

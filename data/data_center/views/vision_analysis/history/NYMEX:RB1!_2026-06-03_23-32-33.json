@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_033243_NYMEX:RB1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:32:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-32-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur cassure sous 3.06 avec stop au-dessus de 3.18. Acheteur si rebond confirmé au-dessus de 3.18.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 3.18",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible depuis le 21 mai avec une série de LH (Lower Highs) et LL (Lower Lows) confirmée.  \n- Depuis le 27 mai, le prix forme une structure plus latérale avec oscillation entre 3.06 (support clé) et 3.18 (résistance clé).  \n- Le récent retour vers le support vers 3.08 suggère un point critique pour invalider la phase de consolidation actuelle.\n\nB) Chart unique (NYMEX:RB1! 1h)  \nLe graphique montre une tendance baissière initiale avec une succession de LH et LL sur le timeframe 1h. Une phase de range s’installe ensuite, plus horizontale, avec un support notable à 3.06 USD et une résistance à 3.18 USD. Le prix teste actuellement le support intermédiaire proche de 3.08 USD. Une cassure en dessous de 3.06 pourrait relancer la baisse vers de nouveaux creux. Si le prix rebondit et dépasse 3.18, un test plus haut serait possible, signalant potentiellement un retournement ou une correction haussière temporaire. Le volume est en légère hausse su",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-32-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_1h_2026-06-03_23-32-19.png"
+  }
+}

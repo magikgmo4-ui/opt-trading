@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_055030_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T01:50:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-50-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur cassure 65.00 avec stop sous 61.00",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cours < 61.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme : légère reprise haussière après un fort mouvement baissier.  \n- Structure : succession de plus bas (LL) puis un creux suivi d’un plus haut relatif (HL) récent.  \n- Zones clés : support majeur autour de 61.00, résistance proche à 65.00.\n\nB) Chart unique (SOLUSDT.P 15m) :  \nLe graphique montre une tendance baissière initiale avec formation de plus bas consécutifs (LL). Depuis un point bas aux environs de 60.50-61.00, une série de plus hauts et bas élevés (HL) se met en place, signalant un début de retournement ou au moins une consolidation haussière. La zone 61.00 agit comme support solide, tandis qu’une zone de résistance notable est visible autour de 65.00. Le scénario privilégié est un retour en tendance haussière si la résistance à 65.00 est dépassée avec volume. Invalidation du scénario haussier si le support à 61.00 cède.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bullish à confirmer\",\"structure\":\"LL suivis de HL\",\"su",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-50-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-07_01-50-13.png"
+  }
+}

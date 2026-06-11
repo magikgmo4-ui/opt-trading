@@ -1,0 +1,36 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_fatpigsignals_4993_2025-08-15T03:07:04+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "fatpigsignals",
+    "parsed_at": "2025-08-15T03:07:04+00:00",
+    "produced_at": "2026-06-06T11:30:55.884941+00:00",
+    "pair": "BTCUSDT",
+    "asset": "BTC",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "\ud83d\ude80 **JULY 2025 RESULTS ARE IN \u2013 AND THEY\u2019RE UNSTOPPABLE!** \ud83d\ude80\n\nWhile most traders were getting crushed by volatility\u2026\n\ud83d\udc8e **Fat Pig Signals VIP members were cashing in!**\n\n\u2705 **17 WINS** \u2013 ONLY 1 LOSS \ud83d\udcc8\n\u2705 Up to **+67.35%** gains in ONE trade \ud83d\ude80\n\u2705 BTC Short Options Trade \u2192 **+100% PROFIT** \ud83d\udca5\n\n\ud83d\udcca **Highlights from July:**\n\n* **BTC/USDT:** +15.01%\n* **UNI/USDT:** +67.35%\n* **ONDO/USDT:** +37.50%\n* **XRP/USDT:** +36.82%\n* **ETHENA/USDT:** +23.65%\n\n\u26a0\ufe0f Every signal included **exact entries, targets & stop-loss** \u2013 ZERO guessing.\n\n\u274c If you missed these trades, you left serious money on the table.\n\ud83d\udcb0 Our VIPs didn\u2019t.\n\n\u23f3 **Time is ticking.** Every day without the right signals = missed profit.\n\ud83d\udcc8 The next wave of trades is coming \u2013 **will you be in or out?**\n\n\ud83d\udce9 **Ready to level up? Contact us now to join VIP:**\n\ud83d\udc49 **@dad10**\n\ud83d\udc49 **@gangplank123**\n\n\ud83d\ude80 **Trade with the pros. Trade with precision. Trade with Fat Pig Signals.**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_fatpigsignals_4994_2025-08-20T10:04:36+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "fatpigsignals",
+    "parsed_at": "2025-08-20T10:04:36+00:00",
+    "produced_at": "2026-06-06T11:30:55.885107+00:00",
+    "pair": "BTCUSDT",
+    "asset": "BTC",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "\ud83d\ude80 ****JULY 2025 RESULTS \u2013 17 WINS, 1 LOSS!**** \ud83d\ude80\nUp to **+67.35%** in a single trade & **+100%** on BTC short options \ud83d\udca5\n**\u23f3 Don\u2019t miss the next wave \u2013 **DM now to join VIP:** \ud83d\udc49 ****@dad10**** | \ud83d\udc49 ****@gangplank123**"
+  }
+]

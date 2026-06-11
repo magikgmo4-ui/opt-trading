@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_071213_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T03:12:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-12-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Recherche d’une correction haussière avant potentielle reprise de la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour durable au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, symbole/timeframe non visible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, symbole/timeframe non visible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, symbole/timeframe non visible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Fort mouvement baissier clair sur le Bitcoin en timeframe 1h.\n- Structure de baisse bien marquée avec des Low plus bas (LL) et High plus bas (LH).\n- Plusieurs zones clés de support testées, attention à la possibilité d’une reprise ou d’une continuation.\n\nB) Chart 1 (haut-gauche) : Bitcoin / USDT 1h Binance\nTendance : Baissière nette sur cette unité.\nStructure : Formation de LH et LL confirmées, pas de signe clair d’inversion.\nZones clés (S/R) : Support autour de 61 000, résistance autour de 64 000.\nScénario : Soit une correction haussière temporaire vers les résistances avant nouvelle jambe baissière, soit un retour rapide sous 61 000 pour continuation.\nInvalidation : Retour au-dessus durable de 64 000 pour remettre en cause la pression vendeuse dominante.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non visible)\nImpossible d’analyser avec certitude faute de visibilité.\n\nD) Chart 3 (bas-gauche) : inconnu (symbole/timeframe non visible)\nImpossible d’analyser ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-12-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_03-11-55.png"
+  }
+}

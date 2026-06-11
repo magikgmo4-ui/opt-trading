@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_161654_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T12:16:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-16-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short à la rupture du support 60000 avec stop au-dessus du dernier LH vers 61600. Surveillance d’un potentiel rebond en cas de maintien du support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable au-dessus de 61600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure cumulant des rebonds locaux sans inversion nette, zone clé de support proche des 60 000.  \n- Scénario possible : poursuite de la baisse en cas de rupture du support 60 000, avec tentative de rebond à surveiller en cas de retour au-dessus du dernier LH (~61 600).\n\nB) Chart unique (BTCUSDT.P 15m) :  \nLe graphique montre une tendance baissière nette confirmée par une succession de Lower Highs et Lower Lows. Le prix teste actuellement un support situé autour de 60 000, zone clé à surveiller pour validation ou invalidation du mouvement baissier. Un rebond technique est visible, mais l’incapacité à franchir le dernier point haut (~61 600) renforce la dominance des vendeurs. L’invalidation du scénario baissier interviendrait par un franchissement clair et soutenu au-dessus du dernier LH.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-16-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_12-16-04.png"
+  }
+}

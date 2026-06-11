@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_034523_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T23:45:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-45-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1600 pour confirmation haussière, gestion prudente short en cas d'échec",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cours < 1560 pour écarter reprise",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière confirmée avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Récente consolidation latérale avec une petite tentative de reprise en formant un Higher Low (HL).\n- Zone clé de résistance vers 1,600 USDT sous surveillance, cassure nécessaire pour confirmer un retournement.\n\nB) Chart unique (ETHUSDT.P 15m):\n- Structure baissière dominante (LH/LL) avec tentative de stabilisation récente (HL).\n- Support notable autour de 1,540 USDT, zone de rebond intermédiaire.\n- Résistance clé proche 1,600 USDT, à franchir pour invalider la tendance baissière.\n- Scénario principal: continuation baissière si rejection sous 1,600 USDT.\n- Scénario alternatif: rupture au-dessus de 1,600 USDT, possible début d'une reprise haussière.\n- Invalidation du scénario haussier si le cours retombe sous le HL récent vers 1,560 USDT.\n\nC) DeskPro\n{\"run_id\":\"20240607-eth15m\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish-to-neutral\",\"structure\":\"LH/LL avec HL récent\",\"supports\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-45-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_23-44-52.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_035853_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T23:58:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-58-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 735.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rechercher une cassure sous 735 pour short, avec prise de bénéfices partielle si réaction sur support. Alternativement, attendre confirmation de retour haussier au-dessus de 760 pour envisager un acha",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">760",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intraday passant d'une phase haussière à un retournement baissier marqué.  \n- Structure récente montre une série de HH/HL avant une rupture vers un LH suivi d'un LL.  \n- Zone clé de support autour de 735, invalidation du scénario baissier au-dessus de 760.\n\nB) Chart unique (SPY 1h):  \nLa tendance principale sur ce graphique 1h était haussière avec une structure de hauts et bas haussiers (HH/HL) bien marquée. Cependant, une forte bougie baissière a brisé la dernière structure, créant un plus bas plus bas (LL), confirmant un début de retournement baissier. Le prix test actuellement un support clé proche de 735, qui pourrait offrir une réaction. La résistance immédiate se situe autour de 760, niveau du dernier sommet. Le scénario envisagé est un pullback baissier si la zone support cède, sinon un retour de la tendance haussière si 760 est dépassé.\n\nC) DeskPro  \n{\"run_id\":\"20240607_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"HL puis LH, LL ré",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-58-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-05_23-58-32.png"
+  }
+}

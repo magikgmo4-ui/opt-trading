@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_075159_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T03:51:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-51-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1590.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre le rebond sur résistance 1580-1590, viser support vers 1520-1530",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break clair au-dessus de 1590",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière clairement établie avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Pullback actuel sur petite hausse, à surveiller comme retour vers résistance clé.\n- Scénario dominant: vendre les rebonds sur zones de résistance, invalidation en cas de break clair au-dessus des derniers LH.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe graphique montre une tendance baissière nette avec des Lower Highs et Lower Lows successifs. Le price action a formé un support vers 1520-1530, où la dernière impulsion haussière s’est engagée. La zone des 1580-1590 constitue une résistance importante où de nombreux retours se heurtent. Le volume est plutôt soutenu lors des mouvements baissiers, signe d’une pression vendeuse constante. Le scénario prioritaire reste la reprise de la baisse après rejet en résistance. Invalidation principale si la résistance des 1590 est franchie avec conviction, signalant un possible renversement ou consolidation.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-51-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_03-51-42.png"
+  }
+}

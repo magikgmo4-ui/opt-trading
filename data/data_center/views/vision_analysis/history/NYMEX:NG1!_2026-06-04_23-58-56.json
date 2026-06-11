@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_040035_NYMEX:NG1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T23:59:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-58-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.45,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Achat sur rupture de 3.45 avec stop sous 3.15, viser 3.60+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 3.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le 4h avec formation de creux et sommets de plus en plus hauts (HL et HH).  \n- Structure saine avec retraits correctifs sur supports clés suivis de reprises haussières marquées.  \n- Zone de résistance récente autour de 3.45 à surveiller pour extension du mouvement, invalidation sous 3.15.  \n\nB) Chart unique (NYMEX:NG1! 4h):  \nActuellement dans une tendance haussière claire avec des sommets et creux ascendants (HH/HL). Le prix a rebondi sur un support autour de 3.15 USD et a repris sa hausse vers la résistance proche à 3.45. Le volume confirme l’intérêt acheteur lors des impulsions. Un franchissement des 3.45 validerait une poursuite haussière vers de nouveaux sommets. En revanche, un retour sous 3.15 invaliderait le scénario haussier et indiquerait une possible correction plus profonde. Les supports clés sont à 3.15 et 3.00, résistances à 3.45 et 3.50.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-58-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_23-58-45.png"
+  }
+}

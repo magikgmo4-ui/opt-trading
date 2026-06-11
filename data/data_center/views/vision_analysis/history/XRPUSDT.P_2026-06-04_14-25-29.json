@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_182540_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T14:25:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-25-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.155,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.185,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 1.155 avec cible 1.130. Achat possible si dépassement 1.185 pour un rebond technique.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1.185 valide scénario long.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure cassée récemment vers le bas avec un nouveau plus bas, tentative de rebond en cours.  \n- Zone clé de support autour de 1.155-1.160 USDT, résistance immédiate vers 1.180-1.185 USDT.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLa structure est bearish avec une succession de LH et LL, indiquant une pression vendeuse dominante. Après un fort mouvement baissier, un rebond technique tente de se mettre en place mais reste limité sous la résistance à 1.180. La zone 1.155-1.160 sert actuellement de support clé, le maintien est crucial pour espérer une correction plus haute. Scénario prioritaire: continuation de la baisse en cas de cassure du support 1.155, invalidation si prise de position longue par dépassement clair des 1.185.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.155\",\"1.160\"],\"resistances\":[\"1.180\",\"1.",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-25-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_14-25-22.png"
+  }
+}

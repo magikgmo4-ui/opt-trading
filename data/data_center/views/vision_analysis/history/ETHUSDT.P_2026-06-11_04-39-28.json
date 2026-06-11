@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_083936_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T04:39:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-39-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1665.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat potentiel en cassure 1665 avec stop sous 1610",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1610 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance court terme en reprise haussière après une forte baisse.\n- Structure récente montre une succession de plus bas (LL) puis un redressement vers des plus hauts (HH) locaux.\n- Zone clé de résistance proche vers 1 665 USDT, à valider pour poursuite de hausse.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe graphique met en avant une tendance baissière initiale bien marquée (LL, LH), suivie d’une tentative de retournement avec des plus bas remontant progressivement (HL) et des hauts de plus en plus élevés (HH). Le prix teste actuellement une résistance autour de 1 665 USDT. Si cette zone est franchie avec volume, un scénario d’extension haussière est possible. Support notable à 1 610 USDT (dernier bas significatif). Invalidation du scénario haussier si le prix retombe sous ce support avec vigueur.\n\nC) DeskPro\n{\"run_id\":\"20240611_eth_single_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier potentiel\",\"structure\":\"transition LL/HL avec HH récents\",\"supports\":[\"1610\"],\"resistanc",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-39-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-11_04-39-16.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_115918_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T07:59:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_07-59-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 63000 pour inversion, sinon continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure haute 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence dominante d’une tendance baissière sur le premier graphique (BTC/USDT 1h).  \n- Sur les autres graphiques, les symboles/timeframes ne sont pas lisibles, analyse limitée.  \n- Focus à privilégier sur BTC pour opportunités court terme avec attention aux zones de support clés.  \n\nB) Chart 1 (haut-gauche): BTC/USDT 1h  \nTendance baissière claire avec des structures en LH et LL successifs. La dernière zone montre une phase de volatilité avec tentative de stabilisation autour de 60 000$. Plusieurs supports testés vers 60 000$ et 59 000$ agissent comme zones clés. Résistance majeure proche autour de 63 000$. Scénario baissier dominant sauf si cassure claire au-dessus des 63 000$ avec HH, ce qui invaliderait la tendance actuelle. Plan: surveiller une confirmation de retournement haussier ou continuation baissière.  \n\nC) Chart 2 (haut-droit): inconnu  \nImpossible d’identifier symbole et timeframe, pas d’analyse possible.\n\nD) Chart 3 (bas-gauche): inconnu  \nImpossible",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_07-59-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_07-59-00.png"
+  }
+}

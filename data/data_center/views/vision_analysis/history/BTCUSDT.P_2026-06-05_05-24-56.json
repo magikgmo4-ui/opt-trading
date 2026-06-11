@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_092506_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T05:25:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-24-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 63500 avec target 61500, ou attente breakout range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout clair au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière avec une série de Lower Highs (LH) et Lower Lows (LL) bien marqués.  \n- Structure fractale récente en range latéral avec oscillations autour de 62 700-63 500.  \n- Zone clé support sur 61 500, résistance majeure proche à 63 500-64 000, scénario baissier privilégié en cas de cassure support.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre un mouvement principal baissier net avec une structure en Lower Highs et Lower Lows. Après une chute importante, le prix se consolide dans un range situé entre 62 700 et 63 500, témoignant d’une hésitation. Le support proche vers 61 500 apparaît comme zone critique à surveiller pour un potentiel nouveau repli. La résistance à 63 500-64 000 est à valider pour envisager une inversion ou un rebond technique. Invalidation du biais baissier en cas de cassure claire au-dessus de 64 000.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL en tendance baissière, ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-24-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_05-24-49.png"
+  }
+}

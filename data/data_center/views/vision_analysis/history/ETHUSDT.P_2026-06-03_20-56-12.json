@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_005749_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T20:56:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_20-56-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1880.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Privilégier ventes sur rebond jusqu'à prise de décision à cassure support 1760",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire stable au-dessus de 1880 avec hausse confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire, avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile en fin de graphique, tentative de rebond sur zone de support autour de 1760-1780 USDT.  \n- Scénario principal bearish à court terme, possible rebond technique mais vulnérable à cassure baissière.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa paire ETHUSDT.P en 1h est en tendance baissière dominante marquée par une série de LH et LL. Le prix a cassé plusieurs supports intermédiaires et vient de toucher une zone clé de support vers 1760-1780 USDT, où un rebond technique s'amorce. Le volume augmente significativement sur les baisses, confirmant la pression vendeuse. Un retour sous 1760 invaliderait tout rebond et confirmerait la poursuite baissière. Une résistance immédiate se situe vers 1850-1880, zone de précédents plus hauts locaux (LH). Le plan reste de privilégier les ventes sur rallyes, en ciblant une confirmation sous le support.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"c",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_20-56-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_20-56-05.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_092122_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T05:21:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-21-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d'une cassure haute pour signaler un rebond fort, sinon maintien dans range possible.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cloture sous 61000 valide la reprise de la tendance baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le timeframe 1h, avec une série de LL (Lower Lows) claire jusqu'au 5e, suivi d'un retracement correctif.  \n- Structure récente montre un pattern de range avec des HH (Higher Highs) et HL (Higher Lows) au-dessus de 61,000, suggérant une tentative de rebond ou de consolidation.  \n- Zone clé de résistance proche de 63,000-63,500, zone support notable vers 61,000-61,500 à surveiller pour validation ou invalidation du rebond.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance baissière confirmée par des LL sur les premiers jours. Ensuite, le prix forme une structure de range avec des HH/HL, indiquant un potentiel rebond. Support solide autour de 61,000, résistance forte vers 63,000-63,500. Le scénario probable est une continuation du range ou dépassement à la hausse si 63,500 est franchi avec conviction. Invalidation du rebond si baisse et clôture sous 61,000.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre haussier ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-21-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_05-21-00.png"
+  }
+}

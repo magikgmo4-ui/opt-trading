@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_054147_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T01:41:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_01-41-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.13,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.19,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure claire sous 1.13 pour short avec stop au-dessus de 1.14; scout rebond sous résistance 1.18 pour prise de position bear",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture daily au-dessus de 1.19",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec structure de Lower Highs (LH) et Lower Lows (LL) sur le 15m.  \n- Zone clé de support vers 1.13-1.14 saturée, testée plusieurs fois, mais risque de rupture.  \n- Résistance majeure visible autour de 1.18-1.19, verrouillant les rebonds.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLe prix montre une série de swing bas et hauts descendants (structure LH/LL) confirmant une tendance baissière. La volatilité augmente avec des chandeliers de forte amplitude à la rupture des supports intermédiaires. Le niveau de 1.13-1.14 est une zone de support importante à surveiller car une cassure franche sous celle-ci pourrait déclencher une accélération baissière. En résistance, 1.18-1.19 a contenu les tentatives de reprise, imposant un seuil à franchir pour un renversement potentiel. Le scénario prioritaire reste short tant que les HH ne sont pas formés au-dessus de 1.18. Invalidation du biais baissier à la clôture au-dessus de 1.19.\n\nC) DeskPro  \n{\"run_id\":\"001",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_01-41-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-05_01-41-25.png"
+  }
+}

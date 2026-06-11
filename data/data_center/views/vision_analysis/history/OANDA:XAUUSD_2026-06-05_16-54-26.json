@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_205435_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T16:54:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-54-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4330.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4360.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre en rejet résistance 4360-4380, stop au-dessus 4380; ou vendre sur rupture support 4320",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus 4380",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec des creux et sommets descendants (LH/LL).  \n- Structure récente montre une forte chute avec rebond limitant dans une zone de support temporaire vers 4320-4330.  \n- Zone clé à surveiller en résistance vers 4360-4380 pour validation ou rejet du rebond, scénario baissier dominant tant que ce niveau ne cède pas.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe prix évolue en tendance baissière marquée, avec une série de sommets et creux plus bas (LH/LL) confirmant la faiblesse du marché. Après une forte chute récente, un support autour de 4320-4330 semble tenir provisoirement, permettant un petit rebond. Une zone de résistance se situe proche des 4360-4380, correspondant à d’anciens supports devenus résistances. Invalidation d’une pression vendeuse majeure au-delà de 4380. Stratégie possible en vente sur résistance, avec stop au-dessus de 4380, ou en attente d’une rupture claire du support 4320 pour accélération baissière.  ",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-54-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_16-54-12.png"
+  }
+}

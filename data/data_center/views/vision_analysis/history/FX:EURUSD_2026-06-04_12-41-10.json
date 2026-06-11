@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_164119_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T12:41:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-41-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.161,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.168,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance cassure 1.1640 pour achat vers 1.1680, stop sous 1.1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme latérale avec oscillations entre 1.1600 et 1.1680.  \n- Structure récente en lower high (LH) et lower low (LL) avant un rebond haussier partiel.  \n- Zone clé support vers 1.1600 et résistance majeure proche de 1.1680 à surveiller.\n\nB) Chart unique (FX:EURUSD 1h): Tendance latérale avec structure de range. Le prix a formé des LL/ LH indiquant hésitation baissière avant un rebond vers 1.1640. Supports à 1.1600-1.1610. Résistance à 1.1680 testée plusieurs fois. Scénario haussier validé au-dessus de 1.1640 avec extension vers 1.1680 possible. Invalidation sous 1.1600 avec retour à une dynamique baissière.\n\nC) DeskPro  \n{\"run_id\":\"20240604_1641\",\"charts\":[{\"slot\":\"single\",\"bias\":\"latéral avec potentiel haussier\",\"structure\":\"LH, LL puis rebond en HL partiel\",\"supports\":[\"1.1600\",\"1.1610\"],\"resistances\":[\"1.1640\",\"1.1680\"],\"plan\":\"surveillance cassure 1.1640 pour achat vers 1.1680, stop sous 1.1600\",\"invalidation\":\"clôture sous 1.1600\"}]}",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-41-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_12-40-54.png"
+  }
+}

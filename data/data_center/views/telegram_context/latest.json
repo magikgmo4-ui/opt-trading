@@ -1,0 +1,6 @@
+{
+  "input_class": "telegram_context.v1",
+  "provider_id": "telegram_screener_bridge",
+  "context_signals": 27,
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

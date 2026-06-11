@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_151855_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T11:18:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-18-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 66.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre proche résistance 70.5-71 avec stop serré sous 66.5, viser continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement franc au-dessus de 71",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de plus bas (LL) et plus bas relatifs (LH) sur le timeframe 15m.  \n- Structure récente marque un rebond technique formant un plus bas plus haut (HL) après un point bas vers 66.5, mais la dynamique reste fragile.  \n- Zones clés : support proche à 66.5, résistance immédiate vers 70.5-71. Scénario haussier à confirmer par franchissement clair de cette résistance, sinon reprise baissière probable.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nOn observe une dominante pression vendeuse dans une tendance baissière forte, avec une confirmation par la structure HH/HL/LL montrant un biais baissier net. Le prix tente un rebond depuis 66.5, formant un HL, mais se heurte à la résistance des 70.5-71. Le scénario principal reste la continuation de la baisse si ce seuil ne cède pas, avec un point d'invalidation du rebond sous ce support 66.5. Une cassure des 71 invaliderait temporairement la tendance baissière court terme et favoriserait un test d",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-18-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_11-18-39.png"
+  }
+}

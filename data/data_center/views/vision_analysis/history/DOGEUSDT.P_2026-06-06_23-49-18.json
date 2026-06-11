@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_034926_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T23:49:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-49-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0835,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.084,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation du franchissement 0.0840 pour position long, stop sous 0.0800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 0.0800 avec clôture confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur la partie gauche puis tentative de stabilisation et rebond.  \n- Structure récente en creux plus hauts (HL) indiquant un possible début de retournement.  \n- Zone clé de résistance vers 0.0835-0.0840, support à 0.0800-0.0805.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une tendance baissière marquée avec une série de lower lows (LL) puis un creux formé autour de 0.077-0.078 suivi par des higher lows (HL) et lower highs (LH) dans la phase intermédiaire, suggérant une possible phase de consolidation. Récemment, un mouvement haussier a poussé le prix jusqu'à la zone 0.0835-0.0840, qui agit comme résistance immédiate. Le scénario est une attente d’une cassure confirmée au-dessus de cette résistance pour valider un retournement haussier avec poursuite du momentum. L’invalidation serait une chute en dessous du dernier HL vers 0.0800, montrant un retour de la pression vendeuse.  \n\nC) DeskPro  \n{\"run_id\":\"auto1\",\"charts\":[{\"slo",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-49-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_23-49-08.png"
+  }
+}

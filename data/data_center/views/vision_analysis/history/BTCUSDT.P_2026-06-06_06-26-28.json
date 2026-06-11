@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_102636_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T06:26:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-26-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond vers résistance, viser le support. En cas de break support, poursuite baissière probable.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 63000 valide un potentiel retournement haussier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur 1h, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de marché bearish dominante, sans signe net de retournement pour l’instant.  \n- Zone clé de support testée autour de 59 000-60 000, résistance immédiate vers 62 000-63 000.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa structure montre une succession cohérente de points bas et hauts de plus en plus bas (LH/LL). La tendance est donc baissière. Le prix tente une stabilisation proche de 60 000, mais reste sous la résistance 62 000-63 000. Un break au-dessus de cette résistance invaliderait la poursuite baissière. Le support autour de 59 000 sert de zone critique pour surveiller un potentiel rebond ou continuation baissière en cas de cassure. Le scénario prioritaire reste la poursuite du downtrend tant que la structure LH/LL reste intacte.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[59000,60000],\"resistances\":[62",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-26-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_06-26-19.png"
+  }
+}

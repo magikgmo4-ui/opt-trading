@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_170511_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T13:05:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-05-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1590.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur break et close au-dessus de 1640 avec stop sous 1590.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture sous 1590.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Reprise haussière nette depuis le point bas autour de 1 520 avec une série de HL et HH sur 15m.\n- Consolidation actuelle proche de 1 630, zone de résistance clé à valider pour une poursuite.\n- Scénario bullish probable si 1 640 est franchi, invalidation sous 1 590.\n\nB) Chart unique (ETHUSDT.P 15m):\nTendance récente en rebond haussier avec structure HH/HL. Support majeur confirmé à 1 520, support intermédiaire à 1 590. Résistance visible à 1 640, suivie de 1 670. Le prix se consolide après la forte montée, formant un range de décision. Un break clair au-dessus de 1 640 ouvrirait la voie à la poursuite haussière. Le franchissement sous 1 590 remettrait en cause le biais.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[1520,1590],\"resistances\":[1640,1670],\"plan\":\"Acheter sur break et close au-dessus de 1640 avec stop sous 1590.\",\"invalidation\":\"Clôture sous 1590.\"}]}",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-05-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_13-04-54.png"
+  }
+}

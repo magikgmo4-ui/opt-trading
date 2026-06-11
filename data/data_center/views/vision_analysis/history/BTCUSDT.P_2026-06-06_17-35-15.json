@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_213524_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T17:35:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-35-15",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 59k pour continuation baisse. Rebond possible si break 63k.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sous 63k, tendance reste baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Bitcoin en fort mouvement baissier sur l’heure, structure clairement en baisse (LH/LL).  \n- Volume en légère augmentation mais sans confirmation solide d’un retournement.  \n- Pas de zone clé majeure identifiée sur ce timeframe, à surveiller break pour suivi.  \n\nB) Chart 1 (haut-gauche) :  \n- Symbole : BTCUSDT, timeframe : 1h  \n- Tendance : Baissière nette, série de LH et LL bien marquée sur ce timeframe.  \n- Structure : Lower Highs et Lower Lows confirmés depuis début juin.  \n- Zones clés : Résistance proche autour des 63k USDT, support à court terme à 59k USDT.  \n- Scénario : Poursuite possible de la baisse sous 59k, tentative de rebond envisagée si cassure au-dessus de 63k.  \n- Invalidation : Reprise haussière invalidée si sous résistance des 63k.  \n\nC) Chart 2 (haut-droit) : inconnu (non lisible sur l’image)  \n\nD) Chart 3 (bas-gauche) : inconnu (non lisible sur l’image)  \n\nE) Chart 4 (bas-droit) : inconnu (non lisible sur l’image)  \n\nF) DeskPro  \n{\"run_id\":\"001\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-35-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_17-34-49.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_084826_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T04:48:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-48-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 1.11 avec objectif sur 1.05, stop above 1.11",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 1.11",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière en 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent visible mais sans invalidation claire de la structure baissière.  \n- Zones clés à surveiller : résistance autour de 1.11 et support majeur vers 1.05.\n\nB) Chart unique (XRPUSDT.P 15m) : La structure est clairement baissière (LH/LL), avec une tentative de rebond marquée en fin de graphique. La résistance autour de 1.11 correspond aux derniers points hauts verts rejetés. Le support vers 1.05 a été testé et a provoqué un rebond. Un break au-dessus de 1.11 invaliderait la configuration baissière court terme et pourrait ouvrir vers un changement de tendance. Le scénario prioritaire reste la continuation baissière tant que le prix reste sous 1.11.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH-LL\",\"supports\":[\"1.05\"],\"resistances\":[\"1.11\"],\"plan\":\"Vente sous 1.11 avec objectif sur 1.05, stop above 1.11\",\"invalidation\":\"cl",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-48-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_04-48-09.png"
+  }
+}

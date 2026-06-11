@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_221425_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T18:14:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-14-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 63000 pour renversement haussier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre cassure zone clé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure contre tendance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rechercher pullback sur support pour entrer long",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre breakout range pour suivre tendance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour dans range après breakout",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence principale d’une tendance baissière avec des replis structurels bas.  \n- Quelques tentatives de rebond mais avec zones clés proches pour confirmer ou invalider.  \n- Focus sur les niveaux de support et résistance pour ajuster le plan selon cassure ou rejet.  \n\nB) Chart 1 (haut-gauche): BTCUSDT.P 1h  \nTendance majoritairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL). Rebond récent qui pourrait amorcer une correction ou un renversement à court terme. Zones clés : résistance autour de 63 000, support proche de 60 000. Scénario : attendre la cassure claire d’un HH au-dessus de 63 000 pour envisager une inversion haussière, sinon continuation du bearish. Invalidation : franchissement en clôture au-dessus de 63 000 validant un changement de structure.  \n\nC) Chart 2 (haut-droit): symbole/timeframe inconnu  \nTendance difficile à déterminer précisément, structure irrégulière. Plusieurs oscillations marquées indiquant une phase de consolidation",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-14-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_18-14-06.png"
+  }
+}

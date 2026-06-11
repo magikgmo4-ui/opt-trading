@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_003618_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T20:36:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_20-36-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1880.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance du support 1780 pour stratégie vendeuse à cassure. Rebond possible à court terme. Stop loss au-dessus de 1880.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement et maintien au-dessus de 1880 confirmant un retournement",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une succession de Lower Highs (LH) et Lower Lows (LL) sur le 1h.  \n- Structure fragile avec tentative de rebond récente mais résistance baissière intacte autour de 1850-1880.  \n- Zone clé de support importante vers 1775-1780 à surveiller pour tenue ou rupture.  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nL’analyse montre une orientation baissière claire, marquée par une série de LH et LL, indiquant un momentum vendeur dominant. Le prix teste actuellement un support clé vers 1780, après un léger rebond depuis ce niveau. La zone 1850-1880 apparaît comme une résistance majeure, renforçant la dynamique baissière. Un scénario probable est la poursuite du repli en cas de cassure sous 1780, avec possible extension baissière. Invalidation du biais si le prix franchit durablement 1880 avec structure HH.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH-LL\",\"supports\":[\"1780\"],\"resistances\":[\"1850\",\"1880\"],\"pl",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_20-36-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_20-36-00.png"
+  }
+}

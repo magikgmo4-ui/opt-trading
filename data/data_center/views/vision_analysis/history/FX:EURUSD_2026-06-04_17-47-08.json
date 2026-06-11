@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_214716_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T17:47:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-47-08",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.166,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher vente sur rebond proche 1.1640 avec stop au-delà de 1.1660 et cible 1.1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1.1660 confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance majoritairement baissière à court terme avec des creux plus bas (LL) et des sommets plus bas (LH).\n- Structure marquée par une série de LH/LL après un sommet local début juin.\n- Zones clés à surveiller : support vers 1.1580 et résistance vers 1.1640-1.1660.\n\nB) Chart unique (FX:EURUSD 1h) : \nLa paire EURUSD sur 1h montre une cassure baissière marquée fin mai, suivie par une succession de LH et LL confirmant une tendance baissière. Le prix teste actuellement une zone support vers 1.1600-1.1580, avec un rejet récent suivit d’un léger rebond. La résistance proche est localisée entre 1.1640 et 1.1660, où plusieurs sommets ont été respectés. Le scénario préférentiel reste une continuation baissière au-dessous de la résistance avec un potentiel rallye correctif vers 1.1640 avant reprise du mouvement vers 1.1580. Invalidation du biais si la price dépasse 1.1660 avec un nouveau HH.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-47-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_17-46-58.png"
+  }
+}

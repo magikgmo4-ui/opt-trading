@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_223058_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T18:30:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-30-48",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien support 1.15 pour potentiel rebond. En cas de cassure, prise de position short recommandée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "reprise nette au-dessus de 1.20 invalidant la pression vendeuse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL) sur le 15m.  \n- Structure fragile avec tentative de rebond formant un Higher Low (HL) vers 1.14-1.16 mais validée par faibles volumes.  \n- Zone clé de support autour de 1.15 à surveiller, cassure entraînerait accélération baissière.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique montre une dynamique baissière nette avec des Lower Highs et Lower Lows confirmés. Après un creux vers 1.14, un léger rebond vers 1.18 a formé un HL mais la pression vendeuse est toujours dominante. Le support majeur à 1.15 est testé actuellement, et sa perte invaliderait la tentative de retournement court terme. Résistance à 1.18-1.20. Le volume reste modéré, signalant un manque de conviction acheteuse.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL-LH avec tentative de HL récent\",\"supports\":[\"1.15\"],\"resistances\":[\"1.18\",\"1.20\"],\"plan\":\"Surveiller maintien support 1",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-30-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_18-30-41.png"
+  }
+}

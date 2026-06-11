@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_163649_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:36:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-36-35",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Entrée sur pullback vers 750, viser retest 760-763",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure sous 750 avec LL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante sur le SPY 1h, avec corrections ponctuelles.  \n- Structure globalement de HH/HL, récente légère correction indiquant un possible pullback.  \n- Zones clés proches autour de 750-755 (support) et 762-765 (résistance possible court terme).  \n\nB) Chart 1 (haut-gauche): SPY 1h  \n- Tendance : haussière, avec une série de HH/HL depuis fin avril.  \n- Structure : récente correction sur un HL, support potentiel à 750.  \n- Supports : 750-752 (zone de récents bas confirmés).  \n- Résistances : 760-763 (plus hauts récents).  \n- Scénario : attendre retour vers 750 pour envisager achats, viser retest haute zone 760-763.  \n- Invalidation : cassure claire sous 750 avec nouveaux LL, structure haussière remise en question.\n\nC) Chart 2 (haut-droit) : inconnu (pas lisible clairement).  \n- Pas d’analyse possible, timeframe/symbol illisible.\n\nD) Chart 3 (bas-gauche) : inconnu (pas lisible clairement).  \n- Pas d’analyse possible, timeframe/symbol illisible.\n\nE) ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-36-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-03_12-36-25.png"
+  }
+}

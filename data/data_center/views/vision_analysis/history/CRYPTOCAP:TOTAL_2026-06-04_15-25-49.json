@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_192558_CRYPTOCAP:TOTAL_1w",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1w",
+  "analysis_ts": "2026-06-04T15:25:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_15-25-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 2200000000000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 2000000000000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 2800000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3000000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short ou prudence tant que la résistance 2.8T n’est pas dépassée; surveiller zone 2.2T pour possibilité de rebond ou breakdown.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 2.8T avec volumes conséquents",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière en 1w, avec une série de lower highs (LH) et lower lows (LL) depuis le pic de fin 2025.  \n- Structure récente : retournement en tendance baissière confirmé par le break des supports précédents vers 2.8T et 2.6T.  \n- Zones clés : résistance majeure autour de 2.8T-3.0T, support important proche de 2.0T (baisse à surveiller).\n\nB) Chart unique (CRYPTOCAP:TOTAL 1w):  \nLa structure montre un ATH marqué fin 2025 suivi par une succession de creux et sommets descendants (LH/LL), caractéristique d’une tendance baissière. La cassure des supports à environ 2.8T et 2.6T en volume modéré invalide le scénario haussier précédent. Le prix teste actuellement un support aux environs de 2.2T, zone à surveiller pour détection d’un possible rebond ou poursuite de la baisse. Une remontée durable au-dessus de 2.8T serait nécessaire pour invalider la tendance baissière.\n\nC) DeskPro  \n{\"run_id\":\"run001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/L",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_15-25-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-04_15-25-38.png"
+  }
+}

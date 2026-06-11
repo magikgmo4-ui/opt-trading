@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_030548_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T23:05:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-05-38",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous support cassé, surveiller rebond technique",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage au-dessus de 66000 valide reprise haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière nette et accélérée sur BTCUSD en 1h.  \n- Structures de bas en haut non validées, scénario majoritairement baissier avec zones de support à tester.  \n- Surveillance des zones clés pour tout rebond potentiel ou reprise d'une structure haussière.\n\nB) Chart 1 (haut-gauche) : BTCUSD 1h  \n- Tendance dominante : baissière nette, avec séries de Lower Highs (LH) et Lower Lows (LL).  \n- Structure : absence de HH/HL récents, signal clair de baisse.  \n- Zones clés : supports vers 62 000-63 000 USDT actifs, résistances à valider autour de 66 000 USDT.  \n- Scénario : poursuite possible de la baisse si support cassé, ou rebond technique si volumes supportent.  \n- Invalidation : reprise structure HH/HL au-dessus de 66 000 USDT.  \n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu  \n- Impossible d’analyser précisément, données non lisibles.   \n\nD) Chart 3 (bas-gauche) : symbole/timeframe inconnu  \n- Impossible d’analyser précisément, données non lisi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-05-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_23-05-31.png"
+  }
+}

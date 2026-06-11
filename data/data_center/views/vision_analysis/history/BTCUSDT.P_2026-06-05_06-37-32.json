@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_103954_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T06:37:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_06-37-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à rebond sur résistance ou sous cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 65000 en clôture 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée sur 1h avec des lower highs (LH) et lower lows (LL).  \n- Structure démontre un momentum vendeur dominant, sans signe clair de retournement.  \n- Zone clé support proche de 61 000 USD, résistance autour de 64 000-65 000 USD.\n\nB) Chart unique (BTCUSDT.P 1h): Le graphique montre une série de lower highs et lower lows depuis plusieurs jours, indiquant une tendance baissière forte. Le prix tente plusieurs rebonds faibles sur la zone des 61 000 USD mais ne parvient pas à casser les résistances vers 64 000-65 000 USD, qui freinent toute reprise haussière. La structure actuelle suggère une poursuite de la baisse tant que le seuil des 65 000 USD n’est pas franchi avec conviction. Le scénario envisageable est une répétition des tests du support à 61 000 USD, avec un risque de breakout baissier en dessous, ou un pullback vers la résistance pour chercher un retour vendeur.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_06-37-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_06-37-05.png"
+  }
+}

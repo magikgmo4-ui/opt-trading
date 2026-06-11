@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_105735_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T06:57:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-57-25",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre vers résistance 1570-1580 si rechute valide, viser support 1520 puis 1500. Surveiller cassure à la hausse de 1580 pour potentielle inversion de tendance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement net des 1580 avec HH et volume fort",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante sur le 15m avec plusieurs lower highs (LH) et lower lows (LL).\n- Structure actuelle en rebond corrective après un LL, potentiellement un lower high en formation.\n- Zones clés identifiées autour de 1520 (support) et 1570-1580 (résistance) à surveiller pour validation ou invalidation du retournement.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe graphique montre une claire tendance baissière avec des mouvements marqués par des LL et LH. Après un creux vers 1500, un rebond a formé un sommet intermédiaire vers 1570-1580, sans parvenir à casser le downtrend. Un nouveau test du support vers 1520 semble en cours. Le scénario principal reste celui d’un maintien baissier tant que la résistance à 1580 ne sera pas dépassée avec un HH. Invalidation du biais baissier si rupture claire à la hausse au-dessus de 1580 avec des volumes soutenus.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec rebond correctif\",\"suppo",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-57-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_06-57-17.png"
+  }
+}

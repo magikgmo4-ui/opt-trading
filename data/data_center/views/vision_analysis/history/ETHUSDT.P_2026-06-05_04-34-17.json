@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_083425_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T04:34:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_04-34-17",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sur rally, prise de bénéfices en support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1750",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le timeframe 15m avec structure de LH (Lower High) et LL (Lower Low) claire.  \n- Rejet récent à zone de support vers 1640-1650 avec rebond immédiat, possibilité de petite correction ou consolidation.  \n- Scénario principal baissier avec sell on rally; invalidation si le prix passe et clôture au-dessus des 1750 résistances.  \n\nB) Chart unique (ETHUSDT.P 15m): Tendance baissière nette avec structure LH/LL visible. Zones clés S autour de 1640-1650, résistances majeures vers 1720-1750. Le volume augmente sur la dernière chute, signalant pression vendeuse forte. Un rebond technique à surveiller, le plan reste de vendre sur rally après confirmation de résistance. Invalidation du biais si franchissement clair et maintien au-dessus de 1750.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1640-1650\"],\"resistances\":[\"1720-1750\"],\"plan\":\"vente sur rally, prise de bénéfices en suppor",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_04-34-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_04-34-05.png"
+  }
+}

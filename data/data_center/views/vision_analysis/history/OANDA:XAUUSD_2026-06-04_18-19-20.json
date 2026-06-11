@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_221934_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T18:19:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-19-20",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller break 4620 pour long, sous 4450 pour short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Above 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Analyse sur XAUUSD en timeframe 1h, tendance sans direction claire, oscillations marquées.  \n- Structure avec alternance HH/HL puis LH/LL indiquant une phase neutre à incertaine.  \n- Zones clés à surveiller autour de 4540 en support et 4600-4620 en résistance, pivot pour prochains mouvements.  \n\nB) Chart 1 (haut-gauche) : XAUUSD 1h  \n- Tendance: neutre à légèrement baissière sur le court terme avec swings importants.  \n- Structure: succession de HH (28-29 mai) puis bascules en LH/LL depuis début juin.  \n- Supports: 4450-4460 (plusieurs rebonds), zone clé pour maintien haussier.  \n- Résistances: 4600-4620, plafonnement répété, zone de fermeture des hauts.  \n- Scénario: possible phase de range, break au-dessus de 4620 pour relance haussière, ou cassure sous 4450 pour accélération baissière.  \n- Invalidation: maintien au-dessus de 4450 invalide le scénario baissier profond.  \n\nC) Chart 2 (haut-droit): inconnu (non visible dans le screenshot principal).  \n\nD) Chart 3 (",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-19-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_18-19-04.png"
+  }
+}

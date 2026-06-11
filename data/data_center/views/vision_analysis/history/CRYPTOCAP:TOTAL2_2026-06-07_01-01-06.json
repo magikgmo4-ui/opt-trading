@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_050115_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-07T01:01:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-01-06",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 840B, viser un rebond technique vers 960-980B. Prendre position vendeuse si rejet sur résistance sans rupture. Stop au-dessus de 980B pour invalider le scénario.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture au-dessus de 980B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente montre un crash accéléré, potentiellement un point de retournement à confirmer.  \n- Zone de support clé autour de 840B$ ; break sous ce niveau invaliderait un rebond.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLa structure est baissière claire avec des Lower Highs et Lower Lows bien marqués depuis plusieurs mois. Un dernier mouvement violent à la baisse vient de créer un nouveau LL, proche d'une zone de support historique vers 840B$. Le prix rebondit momentanément, ce qui peut indiquer un rebond technique ou un test de ce support. La résistance immédiate se situe vers 960-980B$, niveau à dépasser pour invalider la structure baissière. Le scénario prioritaire reste le maintien du biais baissier tant que 980B$ n’est pas franchi. Invalidation en cas de rupture claire au-dessus de 980B$.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"s",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-01-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-07_01-00-50.png"
+  }
+}

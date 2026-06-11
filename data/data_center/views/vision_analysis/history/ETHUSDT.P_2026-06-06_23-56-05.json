@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_035611_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T23:56:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-56-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rupture à 1625 pour invalidation, sinon rebond possible vers support 1525",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture franche au-dessus de 1625",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le 1h avec une série de LL et LH formant une structure baissière.\n- Présence d’une petite correction haussière récente avec un HL sur le dernier segment visible.\n- Zones clés : support vers 1 525 USD, résistance vers 1 625 USD; cassure validante à surveiller.\n\nB) Chart unique (ETHUSDT.P 1h): La tendance dominante est baissière depuis plusieurs jours, caractérisée par des Lower Highs et Lower Lows clairement établis. On observe cependant un retournement temporaire avec un Higher Low récent, indiquant un début potentiel de reprise ou une correction. Le prix progresse doucement vers la résistance 1 625 USD. Une rupture claire de cette résistance invaliderait la structure baissière dominante et confirmerait un changement de tendance. À l’inverse, un rejet sur cette zone renforcerait la poursuite de la baisse. Support clé à 1 525 USD à monitorer pour la stabilité.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"struct",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-56-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_23-55-54.png"
+  }
+}

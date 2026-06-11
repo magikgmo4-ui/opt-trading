@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_074443_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T03:44:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_03-44-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0777,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.085,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée possible sur breakout confirmé de 0.085 avec stop sous 0.078",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture sous 0.078",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante suivie d’un retournement haussier récent.  \n- Structure passée en HH/HL (plus haut et plus bas ascendants) depuis un creux vers 0.0778.  \n- Zone clé résistance autour de 0.085 à surveiller pour validation du retournement.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une tendance baissière claire initialement avec LL (lower lows) et LH (lower highs). Puis, vers la fin du graphe, on observe un changement de structure avec un creux formant un HL suivi de HH, indiquant un retournement haussier potentiel. La zone 0.0777-0.0780 a servi de support important. La résistance principale à court terme est située autour de 0.085, niveau testé récemment mais non encore franchi durablement. Le scénario privilégié est une poursuite du mouvement haussier si la résistance est dépassée, sinon risque de retour en range ou retest du support. L’invalidation du scénario haussier se ferait en cas de rupture nette du support 0.078.\n\nC) DeskPro  \n{\"r",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_03-44-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-07_03-44-26.png"
+  }
+}

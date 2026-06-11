@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_111152_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T07:11:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-11-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 66.0,
+      "confidence": 0.7,
+      "note": "s 66"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s 62"
+    },
+    {
+      "type": "support_level",
+      "value": 66.0,
+      "confidence": 0.7,
+      "note": "s 66"
+    },
+    {
+      "type": "support_level",
+      "value": 62200.0,
+      "confidence": 0.7,
+      "note": "support 62200."
+    },
+    {
+      "type": "resistance_level",
+      "value": 66800.0,
+      "confidence": 0.7,
+      "note": "résistance 66800"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h, avec des structures de bascule en LL (Lower Low) et LH (Lower High) bien marquées.  \n- Zone clé de support autour de 62 000 USDT, dernière zone de rebond potentiel.  \n- Scénario potentiellement baissier dominant tant que le prix reste sous la résistance vers 66 800 USDT. Invalidation si franchissement clair et confirmé au-delà.  \n\nB) Chart unique (BTCUSDT.P 1h) : Le marché affiche une forte pression vendeuse avec une succession de creux et sommets déclinants (LL et LH). Après une phase de latéralisation, la chute s'accélère avec volume croissant, renforçant la dominance des vendeurs. Le support vers 62 000 USDT est testé, pouvant offrir un rebond technique. La résistance à court terme se situe vers 66 800 USDT, niveau clé à surveiller pour un retournement. Le momentum baissier est intact, prudence sur les entrées longues avant confirmation d'un changement structurel.  \n\nC) DeskPro  \n{\"run_id\":\"20240604-1\",\"charts\":[{\"slot\":\"singl",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-11-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_07-11-35.png"
+  }
+}

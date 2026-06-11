@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_161343_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T12:13:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-13-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur support 61,600 avec objectif 62,800 puis 63,000+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 61,600/rupteur de HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m haussière valide avec HL et HH récents bien formés.  \n- Structure de retracement en cours après un sommet local vers 62,800, avec un dernier test baissier partiel.  \n- Zones clés proches : support vers 61,600 et résistance immédiate autour de 62,800.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nOn observe une tendance haussière structurée par des HH/HL depuis la base vers 59,200. Après une phase de consolidation latérale, le prix a atteint un sommet local à 62,800 puis a initié un retracement modéré qui respecte le dernier support à 61,600. La pression acheteuse semble reprendre sur ce support. Le scénario préférentiel est une relance haussière vers 62,800 puis 63,000+. En validation du scénario, il faut garder les HL inchangés. Invalidation en dessous de 61,600 avec un possible retour à une phase de correction plus prononcée.\n\nC) DeskPro  \n{\"run_id\":\"20240607_1613\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bullish\",\"structure\":\"HH HL en place, retracement en cours\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-13-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_12-13-27.png"
+  }
+}

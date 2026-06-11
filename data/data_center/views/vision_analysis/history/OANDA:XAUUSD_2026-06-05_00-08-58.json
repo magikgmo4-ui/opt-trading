@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_040907_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:09:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-08-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4425.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4465.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 4450 en target 4430/4425, stop au-dessus de 4465.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Remontée au-dessus de 4465 avec HH valide.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière avec des séries de plus bas (LL) et plus bas relatifs (LH).  \n- Structure actuelle indique une faiblesse, avec retournement baissier depuis le dernier plus haut marqué.  \n- Zone clé support autour de 4425-4430 USD à surveiller, un franchissement invaliderait la poursuite baissière.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure montre des sommets dégressifs (LH) et des creux dégressifs (LL) sur le timeframe 1h, signalant une tendance baissière. Après un rebond temporaire, le prix a repris la baisse, échouant à établir un higher high et cassant le support intermédiaire à 4450 USD. Les supports importants se situent vers 4425-4430 USD. Un franchissement à la baisse de cette zone renforcerait la dynamique baissière, tandis qu’une inversion digne de ce nom s’enclencherait si le niveau 4465 USD était dépassé.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[4430,4425],\"resi",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-08-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_00-08-45.png"
+  }
+}

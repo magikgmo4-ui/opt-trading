@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_015623_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T21:56:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-56-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62100.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rebond jusqu'à résistance 64000, objectif test du support 62100 et potentiellement plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture franche au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure orientée vers la continuation du bearish, sans signe net de rebond significatif.  \n- Zone clé de support à surveiller autour de 62 100 USDT, point potentiel d’invalidation en cas de rebond.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa paire BTCUSDT.P sur le timeframe 15 minutes présente une forte tendance baissière. La structure est marquée par des Lower Highs (LH) et Lower Lows (LL) confirmant la pression vendeuse. Le prix casse des supports intermédiaires avec des volumes en hausse lors des phases de baisse, ce qui renforce la conviction vendeuse. Zone de support clé visible autour de 62 100 USDT. Un rebond au-dessus d’un dernier LH autour de 64 000 USDT invaliderait ce scénario bearish court terme. L’objectif est une poursuite vers de nouveaux LL au-dessous du support actuel, avec prudence à tout signal contraire.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"b",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-56-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_21-56-07.png"
+  }
+}

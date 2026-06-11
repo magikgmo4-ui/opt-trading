@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_053123_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T01:29:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_01-29-45",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond sous résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture au-dessus de 4500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- La paire XAUUSD sur 1h montre une structure principalement baissière avec des oscillations marquées.  \n- Plusieurs zones de support détectées autour de 4430-4440 et résistances entre 4480 et 4500.  \n- La tendance intermédiaire semble être un range baissier sous résistance clé, avec potentiel de continuation à la baisse.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \n- Structure marquée par des Lower High (LH) et Lower Low (LL) depuis la dernière hausse vers 29 mai.  \n- Zone clé de support autour de 4430-4440 testée plusieurs fois, agissant comme pallier temporaire.  \n- Résistance notable vers 4480-4500, validée par plusieurs rejets.  \n- Scénario privilégié: poursuite de la baisse sous résistance, idéal pour vendre sur rebond.  \n- Invalidation: franchissement clair et durable au-dessus de 4500 qui annulerait cette dynamique baissière.\n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)\n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non lisible)\n\nE) Chart",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_01-29-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_01-29-35.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_165057_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:50:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-50-48",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre à cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 60%",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte dynamique baissière nette sur l’ensemble du dashboard.  \n- Multiples signaux de retournement baissier, avec cassures structurelles visibles.  \n- Zones clés de support sous pression, potentielle entrée dans une phase de baisse accélérée.  \n\nB) Chart 1 (haut-gauche): BTC Dominance 1D  \n- Tendance: nette tendance baissière depuis un pic récent.  \n- Structure: séquence de Lower High (LH) et Lower Low (LL) validée.  \n- Zones clés: support clé autour de 58.5%, actuel en train de céder.  \n- Scénario: poursuite probable de la baisse à court terme.  \n- Invalidation: rebond ferme au-dessus de 60% redonnerait un biais plus neutre.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non visible)  \n- Impossible d’analyser précisément par manque d’informations visibles.  \n- À fournir pour analyse.  \n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non visible)  \n- Analyse non possible faute d’identification du graphique.  \n- Nécessité de plus d’info.  \n\nE) Chart 4 (",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-50-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_12-50-37.png"
+  }
+}

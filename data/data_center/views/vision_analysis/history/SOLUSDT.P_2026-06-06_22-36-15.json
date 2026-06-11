@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_023622_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T22:36:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_22-36-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.7,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 64.50 avec objectif 61.70/60 ou acheter au-dessus de 64.50 pour viser un retour vers 67",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage durable au-dessus de 64.50 valide un retournement haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière visible avec une succession de LH et LL sur 15m.  \n- Structure récente en phase de consolidation avec un HL formé sur petit swing court terme.  \n- Zone clé à surveiller autour de 64.50 comme résistance majeure; support notable vers 61.70.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLe prix est clairement dans une tendance baissière marquée par des Lower Highs et Lower Lows jusqu’à un creux récent près de 60. Des signes d’un rebond à court terme apparaissent par un Higher Low et une tentative de franchissement vers 64.50, qui fait résistance. La structure suggère un potentiel retournement si la résistance est cassée avec-delà un nouveau HH. À l’inverse, un rejet à 64.50 et le retour sous 61.70 validerait la continuité baissière.\n\nC) DeskPro {\"run_id\":\"run1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec tentative de rebond court terme\",\"structure\":\"LH/LL global, HL récent en swing court\",\"supports\":[\"61.70\",\"60.00\"],\"resistances\":[\"64.50\"],\"plan",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_22-36-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_22-36-06.png"
+  }
+}

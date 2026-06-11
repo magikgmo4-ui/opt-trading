@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_054135_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T01:41:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_01-41-25",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Shorts sur rebonds zone résistances 1820-1900, viser baisse vers 1750 puis 1680",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure et maintien au-dessus de 1900 avec HH confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Présence d'un rebond temporaire sur la zone vers 1750, mais la structure globale reste baissière.  \n- Scénario privilégié: poursuite de la baisse sous 1820, invalidation si un Higher High (HH) est confirmé au-dessus de 1900.\n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance dominante baissière avec structure en LH/LL. Supports clés identifiés autour de 1750 et 1680. Résistances majeures à 1820 puis 1900. Le rebond actuel est un pullback potentiellement vendeur. La confirmation d’un second Lower Low invaliderait toute reprise haussière. Invalidation du biais si le prix franchit et tient au-dessus des 1900. Plan d’action: envisager des shorts sur résistances en surveillant la cassure des supports.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1750,1680],\"resistances\":[1820,1900],\"plan\":\"Shorts sur rebonds zone résistance",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_01-41-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_01-41-18.png"
+  }
+}

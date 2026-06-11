@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_202658_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T16:26:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-26-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre un rejet sous 1.18 pour positionnement court, stop au-dessus de 1.18. En cas de cassure sous 1.15, viser extension baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement net au-dessus de 1.18",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire en 15m, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente marque un arrêt sur zone de support vers 1.15-1.16, avec tentative de rebond.  \n- Scénario principal : continuation baissière sous résistance 1.18 invalidée si franchissement clair au-dessus.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique montre une tendance baissière bien établie en 15 minutes. Les sommets et creux sont décalés à la baisse (LH/LL), confirmant la force vendeuse. Une zone de support clé se forme autour de 1.15-1.16, stoppant provisoirement la chute. Le prix tente un rebond vers 1.18 qui fait office de résistance immédiate. Un franchissement confirmé au-dessus de 1.18 invaliderait la poursuite baissière et ouvrirait la porte à un retournement en tendance haussière. En revanche, une cassure sous 1.15 relancerait la dynamique vendeuse sur des plus bas faibles.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"st",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-26-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_16-26-42.png"
+  }
+}

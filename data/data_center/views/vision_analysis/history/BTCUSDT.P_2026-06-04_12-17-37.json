@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_161747_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T12:17:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-17-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s 62"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s 62"
+    },
+    {
+      "type": "support_level",
+      "value": 62200.0,
+      "confidence": 0.7,
+      "note": "support 62200"
+    },
+    {
+      "type": "support_level",
+      "value": 64400.0,
+      "confidence": 0.7,
+      "note": "s 64400"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "résistance à 64"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m baissière claire avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Tentative récente de rebond mais structure reste fragile, HL non confirmé.\n- Zones clés à surveiller : support vers 62 200 USDT, résistance forte autour de 64 400 USDT.\n\nB) Chart unique (BTCUSDT.P 15m) : La configuration est dominée par une tendance baissière nette matérialisée par des points bas et hauts déclinants (LL/LH). Le prix cherche un rebond local vers la résistance à 64 400 USDT mais reste en dessous, invalidant pour l’instant toute inversion de tendance. Support clé identifié vers 62 200 USDT ; une cassure de ce niveau relancerait la pression vendeuse. Le scénario le plus probable est un range inférieur ou continuation baissière si ce support cède. Invalidation de la tendance baissière si le prix franchit avec conviction 64 400 USDT.\n\nC) DeskPro {\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[62200],\"resistances\":[64400],\"plan\":\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-17-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_12-17-29.png"
+  }
+}

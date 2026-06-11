@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_194155_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T15:41:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-41-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance breakout range, achat si dépassement 1600 avec confirmation, vente si cassure 1500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante clairement baissière sur le 1h avec une succession de creux plus bas (LL) et de sommets plus bas (LH).\n- Structure en range serré en fin de graphique, possible consolidation après fort mouvement de baisse.\n- Zones clés identifiées proches de 1600 (résistance) et 1500 (support) à surveiller pour scénario de reprise ou continuation.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nTendance : Baissière, en séquence LL/LH bien marquée  \nStructure : Présence d’un range de consolidation après forte chute, range entre 1500 (S) et 1600 (R)  \nSupports : 1500 (zone de rebond potentiel)  \nRésistances : 1600 (zone de rejet potentielle)  \nPlan : Attendre un breakout clair du range pour confirmer un nouvel élan (à la hausse pour une possible inversion, à la baisse pour poursuite)  \nInvalidation : Passage durable au-dessus des 1600 invaliderait la tendance baissière actuelle, cassure sous 1500 validerait poursuite baissière\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"sin",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-41-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_15-41-38.png"
+  }
+}

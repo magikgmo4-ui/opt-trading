@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_070346_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T03:03:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-03-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0865,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0895,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 0.08300 avec stop au-dessus de 0.08950, viser continuation de la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture claire au-dessus de 0.08950",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette confirmée en 15m avec structure de creux et sommets plus bas (LL/LH).\n- Zone clé de support résistive testée vers 0.083 USDT, actuellement sous pression.\n- Scénario baissier privilégié avec possibilité de poursuite de la chute si 0.08300 cassé, invalidation au-dessus de 0.08950.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa paire DOGEUSDT.P évolue clairement en tendance baissière sur ce timeframe avec une succession de Lower Highs (LH) et Lower Lows (LL). Le support important se situe autour de 0.08300 USDT, zone testée plusieurs fois mais fragilisée par forte pression vendeuse et augmentation du volume. La résistance clé à surveiller est vers 0.08950 USDT, niveau du dernier top significatif. Le contexte technique incite à favoriser un scénario de continuation baissière sous 0.08300, avec un stop loss serré au-dessus des 0.08950 pour invalider la structure baissière. En cas de rebond, un premier objectif serait une zone de résistance intermédiaire ",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-03-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-05_03-03-25.png"
+  }
+}

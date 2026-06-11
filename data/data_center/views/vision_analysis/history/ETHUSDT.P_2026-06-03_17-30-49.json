@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_213058_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T17:30:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-30-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1830.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le rebond sur support 1780 et la réaction à la résistance 1830 pour valider un retournement ou reprise de baisse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement stable au-dessus de 1830 avec volumes confirmés.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 15m avec une série de HH/HL cassés, structure en LH (Lower High) et LL (Lower Low).\n- Zone de support récente testée vers 1780 USD, rebond visible mais incertain.\n- Résistance clé vers 1830 USD à surveiller pour valider un potentiel retournement.\n\nB) Chart unique (ETHUSDT.P 15m) : \nLe graphique montre une dominante vendeuse avec structure baissière : on observe plusieurs Lower Highs et Lower Lows. Une zone de support est identifiée autour de 1780 USD où le prix a rebondi rapidement avec augmentation de volume, indiquant une pression d’achat temporaire. Le premier obstacle majeur est le niveau des 1830 USD (ancienne zone de support devenue résistance). Un franchissement clair de ce niveau invaliderait la tendance baissière court terme. Sans cela, le scénario principal reste une reprise de la baisse.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1780],\"resistances\":[1830],\"plan",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-30-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_17-30-42.png"
+  }
+}

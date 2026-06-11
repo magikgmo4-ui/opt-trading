@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_013349_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T21:33:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-33-39",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure au-dessus de 70.50 pour un retournement. Vendre sur rejeu du support 67.80 ou sous cassure pour suivre la baisse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture persistante au-dessus de 71.00 invalide la tendance baissière 15m.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 15m avec des séries de HH/HL cassées, confirmant une structure de Lower Highs / Lower Lows (LH/LL).\n- Zone de support immédiat autour de 67.80-68.00, zone de résistance identifiable vers 70.50-71.00.\n- Scénario actionnable : surveiller une cassure claire au-dessus de 70.50 pour un retournement haussier, ou reprise de la baisse sous 67.80 pour renforcer la tendance baissière.\n\nB) Chart unique (SOLUSDT.P 15m)\nLa structure montre une succession de creux et sommets déclinants (LH/LL), indiquant une tendance baissière dominante. Après un fort retracement baissier, le prix oscille autour du support 67.80-68.00 qui fait office de zone clé. Résistance immédiate à 70.50-71.00 limitant les tentatives de rebond. La sortie du range délimitera l’action future : un break de résistance invaliderait la tendance baissière actuelle, tandis qu’un repli sous support confirmerait la poursuite de la baisse.\n\nC) DeskPro\n{\"run_id\":\"20240605_0133\",\"charts\":[{",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-33-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_21-33-27.png"
+  }
+}

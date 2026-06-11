@@ -1,0 +1,23 @@
+[
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "goldtrading",
+    "role": "CANDIDATE_SIGNAL",
+    "messages_total": 1,
+    "parsed_count": 0,
+    "claims_count": 0,
+    "needs_review_count": 0,
+    "unknown_raw_count": 1,
+    "noise_count": 0,
+    "dominant_message_types": [
+      "UNKNOWN_RAW"
+    ],
+    "avg_parser_score": 0.0,
+    "supported_formats": [
+      "UNKNOWN_RAW"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  }
+]

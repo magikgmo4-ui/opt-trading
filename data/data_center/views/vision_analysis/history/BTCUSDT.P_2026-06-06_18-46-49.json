@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_224657_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T18:46:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_18-46-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance 61000-62000, stop >62000, viser retour plus bas récents",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire au-dessus de 62000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire depuis plusieurs jours avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure de marché bien orientée vers le vendeur, consolidation actuelle près de 60 500-61 000 (zone neutre).  \n- Scénario probable de continuation baissière si le support autour de 60 000 cède.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est baissière avec une succession de plus bas et plus bas (LL/LH). La zone support autour de 60 000 est un pivot court terme. Résistance clé identifiée entre 61 000 et 62 000. La structure suggère que la pression vendeuse prédomine, la consolidation actuelle est un pullback potentiel. Une cassure sous 60 000 invaliderait le rebond et confirmerait la poursuite du mouvement baissier. Le plan optimal reste vente sous résistance avec stop-loss au-dessus des 62 000, objectif retour vers des plus bas récents.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"60000\"],\"re",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_18-46-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_18-46-40.png"
+  }
+}

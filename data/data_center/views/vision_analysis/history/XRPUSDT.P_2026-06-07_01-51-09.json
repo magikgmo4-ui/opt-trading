@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_055116_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T01:51:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-51-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.055,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.065,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.125,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.13,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long sur rebond support avec objectif résistance 1.125-1.130",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 1.055",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière visible jusqu’au 6 avril avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Depuis le creux autour de 1.045, tentative de retournement avec structure haussière récente (HL et HH).  \n- Zone clé résistance vers 1.125-1.130 ; support majeur à 1.045-1.055.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLa structure est devenue haussière sur le court terme avec un HL validé après un important creux. La tendance de fond reste baissière mais ce rebond offre un scénario acheteur à court terme tant que le support 1.055-1.065 tient. La résistance à 1.125-1.130 est l’objectif à surveiller. Invalidation du scénario long sous 1.055 qui remettrait en cause la tentative de retournement.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"court terme haussier / long terme baissier\",\"structure\":\"HL/HH récent après LL/LH\",\"supports\":[\"1.055\",\"1.065\"],\"resistances\":[\"1.125\",\"1.130\"],\"plan\":\"long sur rebond support avec objectif résistance 1.125-1.",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-51-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_01-50-59.png"
+  }
+}

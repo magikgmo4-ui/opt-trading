@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_090822_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T05:08:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-08-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1880.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "favoriser les positions short sur rebonds sous résistances, viser supports.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1880",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de lower highs (LH) et lower lows (LL).  \n- Structure baissière confirmée, le cours reste sous les résistances clés sans signe de retournement.  \n- Volume variable mais sans force d’achat dominante; la pression vendeuse reste majoritaire.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa paire ETHUSDT.P est en tendance baissière confirmée sur le timeframe 1h, marquée par une structure de lower highs (LH) et lower lows (LL). Après une phase latérale fin mai, le prix a cassé les supports intermédiaires vers 1900 puis 1800 USDT, s’enfonçant jusqu’à la zone actuelle proche de 1760 USDT. Les supports clés potentiels se situent vers 1720-1750 USDT, avec une résistance importante en zone 1850-1880 USDT. Le scénario principal reste une poursuite de la baisse tant que la résistance 1850-1880 USDT n’est pas dépassée. Invalidation du biais baissier en cas de franchissement clair des 1880 USDT avec maintien au-dessus, signalant un possi",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-08-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_05-08-00.png"
+  }
+}

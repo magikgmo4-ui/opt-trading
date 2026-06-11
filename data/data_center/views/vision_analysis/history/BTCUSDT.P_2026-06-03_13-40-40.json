@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_174107_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:41:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-40-40",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short à cassure support, long en rebond avec retour au dessus 4480",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au dessus 4500 avec structure HH/HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le dashboard montre plusieurs actifs, mais seul le graphique 1 (en haut-gauche) est identifié comme XAUUSD en UT 1h.  \n- La tendance sur XAUUSD 1h est bearish avec une structure en LH/LL confirmée.  \n- Zones clés à surveiller: support vers 4420-4430, résistance autour de 4480-4500.\n\nB) Chart 1 (haut-gauche) : XAUUSD 1h  \nTendance: Baissière clairement installée depuis le 27/05 avec lower highs (LH) et lower lows (LL).  \nStructure: Succession de bas plus bas et de hauts plus bas, confirmée par la chute sous 4480.  \nZones clés: Support majeur à 4420-4430 testée plusieurs fois, résistance notable à 4480-4500.  \nScénario: Poursuite de la baisse si le support cède, cible possible vers 4350.  \nInvalidation: Rebond franc au-dessus de 4500 avec structure HH/HL serait un premier signal d’inversion.  \nPlan: Attendre confirmation de cassure significative du support avant short, ou chercher longs si rebond avec retour au-dessus 4480.\n\nC) Chart 2 (haut-droit) : symbole/timefram",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-40-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_13-40-30.png"
+  }
+}

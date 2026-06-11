@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_033836_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:38:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-38-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 62k pour un swing haussier; sinon short sur rupture 62k avec TP vers 60k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 68k",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le timeframe 1h, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure de continuation du bearish confirmée par la faiblesse entre 73k et 64k USD.\n- Rebond récent sur zone clé support vers 62k USD, à surveiller pour un potentiel retournement ou poursuite à la baisse.\n\nB) Chart unique (BTCUSDT.P 1h) : \nLe graphique montre une forte pression vendeuse depuis environ 78k USD, avec une succession de LH et LL validant une tendance baissière dominante. Le support majeur autour de 62k a provoqué un rebond volumineux, indiquant un intérêt d’achat potentiel. Résistance importante à 67k-68k, niveau où les vendeurs avaient repris la main précédemment. Scénario principal : poursuite de la baisse si le support 62k casse, ou retournement si dépassement clair des 68k avec HH. Invalidation du bearish en clôture horaire au-dessus de 68k avec suivi.\n\nC) DeskPro\n{\"run_id\":\"20240604_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"L",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-38-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_23-38-17.png"
+  }
+}

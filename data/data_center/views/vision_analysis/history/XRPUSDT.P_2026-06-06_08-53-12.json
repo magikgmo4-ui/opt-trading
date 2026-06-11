@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_125321_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T08:53:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-53-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.07,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillez rupture résistance 1.10-1.11 pour acheter, sinon privilégier la vente sous 1.07",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage franc sous 1.07",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente en tentatives de rebond avec quelques Higher Lows (HL) intermédiaires mais sans cassure claire de résistance.  \n- Zone clé de résistance proche de 1.10-1.11 USD à surveiller pour un potentiel retournement haussier.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nLe graphique affiche une tendance baissière nette matérialisée par des Lower Highs et Lower Lows successifs. Une légère consolidation est visible récemment avec des points de support vers 1.07 USD qui forment des HL, mais la résistance à 1.10-1.11 sert de barrière. Un breakout au-dessus de cette résistance orienterait le biais vers une reprise haussière (scénario haussier), sinon la tendance baissière pourrait reprendre. Invalidation du scénario haussier sous 1.07 USD.  \n\nC) DeskPro  \n{\"run_id\":\"20240613-1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL intermédiaire récent\",\"su",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-53-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_08-53-04.png"
+  }
+}

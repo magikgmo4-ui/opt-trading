@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_090232_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T05:02:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-02-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller breakout 1700 pour achat; protection sous 1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire sous 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière claire, marquée par une série de plus bas (LL) et plus bas relatifs (LH) depuis le début du graphe.\n- Structure récente latéralisée avec des oscillations entre 1 600 et 1 700 USDT, sans formation de HH ni HL.\n- Zone clé à surveiller autour de 1 700 USDT en résistance et 1 600 USDT en support, seuils de range important.\n\nB) Chart unique (ETHUSDT.P 1h):\nLe graphique montre une tendance baissière forte initiale avec des LL et LH évidents jusqu’au 5e jour. Puis une phase de consolidation latérale s’installe avec un range entre 1 600 et 1 700 USDT. Pas de reprise haussière confirmée, structure neutre dans le court terme. Scénario principal : rupture à la hausse du 1 700 pour une inversion potentielle, ou cassure du 1 600 pour continuation baissière. Invalidation sous 1 600 pour le biais neutre/haussier, confirmation baisse sous ce niveau.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier/neutre\",\"structure\":\"LL-LH initiau",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-02-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_05-02-11.png"
+  }
+}

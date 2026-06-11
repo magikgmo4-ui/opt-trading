@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_013449_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T21:34:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-34-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.154,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur résistance 1.1800, cible 1.1540",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 1.1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure latérale récente depuis fin de graphique, marquée par un support proche de 1.1540 et résistance vers 1.1800.  \n- Scénario actionnable : vente sous résistance avec cible support à 1.1540, invalidation en clôture au-dessus de 1.1800.  \n\nB) Chart unique (XRPUSDT.P 15m): Tendance baissière dominante, structure HL/HH absente, remplacement par pattern range. Supports clés autour de 1.1540 (plusieurs rebonds visibles) et résistances à environ 1.1800. Plan trader focalisé sur continuation baissière dans le range, entrée short proche résistance, stop tight au-dessus de 1.1800. Invalidation claire si rupture haussière des 1.1800 confirmée.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL puis range\",\"supports\":[\"1.1540\"],\"resistances\":[\"1.1800\"],\"plan\":\"vente sur résistance 1.1800, cible 1.1540\",\"invalidation\":\"clôture > 1.1800\"",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-34-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_21-34-22.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_110949_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T07:08:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_07-08-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Préférence vente sur rebond proche résistance 1580-1600. Confirmation à la baisse sous 1500 pour poursuite de la chute.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1600 sur 1h.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire confirmée par une série de LL (Lower Lows) et LH (Lower Highs) sur le graphique 1h.  \n- Structure fragile avec un premier support autour de 1 500 USD testé récemment, tenu pour l'instant.  \n- Résistances majeures proches de 1 600 USD, zone à surveiller en cas de rebond technique.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe marché est en tendance baissière nette, avec des creux et des sommets décalés à la baisse (LL/LH). Le prix subit une forte pression vendeuse avec une chute rapide ces derniers jours. Le support horizontal autour de 1 500 USD est un zone clé temporaire, tandis que la résistance immédiate se situe sur la zone 1 580-1 600 USD. Le scénario prioritaire reste la continuation baissière. Toute cassure en clôture au-dessus des 1 600 USD invaliderait ce scénario court terme. Il est recommandé d’attendre confirmation de rupture de support avant d’envisager une position vendeuse.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"b",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_07-08-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_07-08-03.png"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_6283_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "Tradinghub3_fuII",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-11T06:23:14+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4088.0,
+  "sl": 4101.0,
+  "tp": 4085.0,
+  "tps": [
+    4085.0,
+    4082.0,
+    4078.0,
+    4070.0,
+    4050.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**\ud83d\udcca**** XAUUSD SELL 4088\u20134093\n\n****\ud83d\udcc9**** Targets:\nTP\u00b9: 4085\nTP\u00b2: 4082\nTP\u00b3: 4078\nTP\u2074: 4070\nTP\u2075: 4050 We can Extend \n\n****\u203c\ufe0f**** Stop Loss: 4101\n****\ud83d\udd10**** Risk = 2% per trade. Trade smart & stay disciplined.****\u2b50\ufe0f**",
+  "summary": "XAUUSD SHORT"
+}

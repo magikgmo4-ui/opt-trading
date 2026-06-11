@@ -1,0 +1,71 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Tradinghub3_fuII_6273_2026-06-10T09:26:03+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Tradinghub3_fuII",
+    "parsed_at": "2026-06-10T09:26:03+00:00",
+    "produced_at": "2026-06-11T10:00:14.028421+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4170.0,
+    "sl": 4380.0,
+    "tp": 4150.0,
+    "tps": [
+      4150.0,
+      4155.0,
+      4160.0,
+      4164.0,
+      4167.0
+    ],
+    "leverage": null,
+    "raw_text": "**\ud83d\udcca**** XAUUSD SELL 4170\u20134175\n\n****\ud83d\udcc9**** Targets:\nTP\u00b9: 4167\nTP\u00b2: 4164\nTP\u00b3: 4160\nTP\u2074: 4155\nTP\u2075: 4150 We can Extend \n\n****\u203c\ufe0f**** Stop Loss: 4380\n****\ud83d\udd10**** Risk = 2% per trade. Trade smart & stay disciplined.****\u2b50\ufe0f**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Tradinghub3_fuII_6283_2026-06-11T06:23:14+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Tradinghub3_fuII",
+    "parsed_at": "2026-06-11T06:23:14+00:00",
+    "produced_at": "2026-06-11T10:00:14.029533+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4088.0,
+    "sl": 4101.0,
+    "tp": 4050.0,
+    "tps": [
+      4050.0,
+      4070.0,
+      4078.0,
+      4082.0,
+      4085.0
+    ],
+    "leverage": null,
+    "raw_text": "**\ud83d\udcca**** XAUUSD SELL 4088\u20134093\n\n****\ud83d\udcc9**** Targets:\nTP\u00b9: 4085\nTP\u00b2: 4082\nTP\u00b3: 4078\nTP\u2074: 4070\nTP\u2075: 4050 We can Extend \n\n****\u203c\ufe0f**** Stop Loss: 4101\n****\ud83d\udd10**** Risk = 2% per trade. Trade smart & stay disciplined.****\u2b50\ufe0f**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Tradinghub3_fuII_6287_2026-06-11T07:31:00+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Tradinghub3_fuII",
+    "parsed_at": "2026-06-11T07:31:00+00:00",
+    "produced_at": "2026-06-11T10:00:14.030010+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4110.0,
+    "sl": 4125.0,
+    "tp": 4050.0,
+    "tps": [
+      4050.0,
+      4090.0,
+      4095.0,
+      4100.0,
+      4105.0
+    ],
+    "leverage": null,
+    "raw_text": "**\ud83d\udcca**** XAUUSD SELL 4110\u20134115\n\n****\ud83d\udcc9**** Targets:\nTP\u00b9: 4105\nTP\u00b2: 4100\nTP\u00b3: 4095\nTP\u2074: 4090\nTP\u2075: 4050 We can Extend \n\n****\u203c\ufe0f**** Stop Loss: 4125\n****\ud83d\udd10**** Risk = 2% per trade. Trade smart & stay disciplined.****\u2b50\ufe0f**"
+  }
+]

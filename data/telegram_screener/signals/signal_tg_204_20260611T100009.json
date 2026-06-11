@@ -1,0 +1,21 @@
+{
+  "contract": "telegram_signal.v1",
+  "id": "tg_204_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "gold_signals_vip",
+  "channel_priority": "P2",
+  "channel_type": "xau_signal",
+  "parsed_at": "2023-09-13T04:49:59+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "USDJPY",
+  "direction": "LONG",
+  "entry_price": null,
+  "sl": 146.95,
+  "tp": 147.7,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "USDJPY m\u1edf phi\u00ean \u0111\u1ea7u tu\u1ea7n c\u00f3 m\u1ed9t \u0111o\u1ea1n GAP v\u00e0 \u0111ang c\u00f3 xu h\u01b0\u1edbng ho\u00e0n GAP.\nNg\u1eafn h\u1ea1n v\u1eeba ph\u00e1 qua \u0111\u1ec9nh 147.200 n\u00ean s\u1ebd c\u00f3 xu h\u01b0\u1edbng test l\u1ea1i.\n\n\ud83d\udfe2  CANH BUY USDJPY 147.2\n\n\u274c SL : 146.95 (25 pips)\n\u2705  TP : 147.7",
+  "summary": "USDJPY LONG"
+}

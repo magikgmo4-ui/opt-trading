@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_174821_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:48:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-48-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance rebond support pour scalp; cassure support = continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure au-dessus 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte tendance baissière nette sur la paire BTCUSDT en 1h.\n- Structure claire de Lower Highs (LH) et Lower Lows (LL) indiquant une pression vendeuse dominante.\n- Zone clé de support vers 60 000 USD, proche du prix actuel, à surveiller pour un rebond ou une cassure.\n\nB) Chart 1 (haut-gauche) : BTCUSDT - 1h  \n- Tendance : Baissière  \n- Structure : Succession de Lower Highs et Lower Lows (LH/LL) confirmée.  \n- Supports : Environ 60 000 USD, base d’un premier palier visible.  \n- Résistances : Vers 63 000-64 000 USD, anciens supports devenus résistances.  \n- Plan : Surveiller possible rebond sur 60 000 USD pour un scalp acheteur. En cas de cassure, poursuite de la baisse attendue.  \n- Invalidation : Reprise au-dessus de 64 000 USD annulerait la continuité baissière.\n\nC) Chart 2 (haut-droit) : inconnu  \n- Analyse impossible, symbole et timeframe non lisibles.\n\nD) Chart 3 (bas-gauche) : inconnu  \n- Analyse impossible, symbole et timeframe non lisibles.\n\nE) Chart 4 (bas-droi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-48-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_13-48-01.png"
+  }
+}

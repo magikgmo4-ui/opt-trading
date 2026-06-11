@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_162351_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T12:23:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-23-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.0,
+      "confidence": 0.7,
+      "note": "s 1"
+    },
+    {
+      "type": "support_level",
+      "value": 1.0,
+      "confidence": 0.7,
+      "note": "s 1"
+    },
+    {
+      "type": "support_level",
+      "value": 1570.0,
+      "confidence": 0.7,
+      "note": "support 1570,"
+    },
+    {
+      "type": "support_level",
+      "value": 1570.0,
+      "confidence": 0.7,
+      "note": "s 1570"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme haussière confirmée par une série de HH et HL récents.  \n- Structure initiale baissière forte, suivie d'une stabilisation puis d'un rebond marqué depuis environ 1 570 USDT.  \n- Zone clé de support identifiée autour de 1 570 USDT, résistance à surveiller vers 1 645-1 650 USDT pour validation du continuation haussière.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une évolution initiale en tendance baissière nette (LH/LL) jusqu’à un point bas proche de 1 490 USDT. Ensuite, on note une phase de consolidation horizontale avec des bas plus hauts (HL), puis un retournement vers une tendance haussière visible via une série de HH/HL. La zone S principale est autour de 1 570 USDT, correspondant à un creux récent et un niveau de support fort. Résistance notable à 1 645-1 650 USDT: un breakout au-dessus validerait une poursuite de la tendance haussière, tandis qu’un rejet donnerait un scénario de range ou correction possible. Invalidation du s",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-23-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_12-23-32.png"
+  }
+}

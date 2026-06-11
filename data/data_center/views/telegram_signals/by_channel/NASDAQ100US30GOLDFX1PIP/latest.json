@@ -1,0 +1,18 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "NASDAQ100US30GOLDFX1PIP",
+  "total": 1,
+  "signals": [
+    {
+      "id": "tg_1079_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 4084.0,
+      "sl": 4096.0,
+      "tp": 4080.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:26:00+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

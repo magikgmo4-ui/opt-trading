@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_094740_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T05:47:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-47-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1.15 pour bullish, sinon continuation baisse sous 1.11",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1.11",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière visible avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure de rattrapage possible en court terme avec rebond autour de 1.11, formant un HL provisoire.\n- Zone clé de résistance vers 1.15 à surveiller pour valider un éventuel retournement haussier.\n\nB) Chart unique (XRPUSDT.P 15m): La paire est en tendance baissière claire, caractérisée par une structure en Lower Highs et Lower Lows. Dernièrement, un support à 1.11 a permis un rebond technique formant un Higher Low potentiel. Ce HL reste fragile tant que la résistance à 1.15 n’est pas cassée avec conviction. Un breakout au-dessus de 1.15 ouvrirait la voie à un changement de structure vers une tendance haussière. En revanche, un retour sous 1.11 invaliderait ce scénario et confirmerait la poursuite de la baisse. L’action est à court terme dans une phase de consolidation entre ces deux niveaux clés.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"stru",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-47-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-05_05-47-21.png"
+  }
+}

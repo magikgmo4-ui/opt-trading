@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_192406_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T15:24:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-23-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4315.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4360.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4370.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller rebond sous résistance 4360 ou poursuite baisse après consolidation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture franche >4370",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de signal clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de signal clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de signal clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global:\n- Tendance baissière nette et forte sur l'instrument inconnu en unité horaire, avec chute importante sur le dernier segment.\n- Structure en dégradation, plusieurs HH/HL cassés, formation récente de LL confirmée.\n- Zones clés à surveiller pour rebond ou poursuite : résistance vers 4,360 et support majeur vers 4,300.\n\nB) Chart 1 (haut-gauche):\n- Symbole : XAUUSD, timeframe : 1h.\n- Tendance : baissière avec impulsion forte à la baisse.\n- Structure : après une série de HH/HL, rupture nette avec formation de LL successifs.\n- Supports clés : 4,315 puis 4,300 psychologique et marqué par volume important.\n- Résistances : autour 4,360-4,370 correspondant à un dernier point pivot intermédiaire.\n- Scénario : attente de rebond technique sous résistance ou consolidation avant reprise de la baisse.\n- Invalidation : franchissement clair au-dessus de 4,370 invaliderait continuation baissière court terme.\n\nC) Chart 2 (haut-droit):\n- Symbole et timeframe : inconnu.\n- Tendance : diffici",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-23-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_15-23-46.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_210455_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T17:04:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-04-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillez cassure support 1525 pour continuation baissière, cassure résistance 1600-1610 pour tentative de retournement.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Dépassement clair de 1610 valide scénario haussier court terme.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure de consolidation récente en bas de range, potentiellement un point de pause ou retournement.\n- Zones clés à surveiller : support vers 1 525 et résistance vers 1 600-1 610 pour la confirmation du scénario.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre une dynamique baissière nette. On observe une succession de Lower Highs et Lower Lows depuis plusieurs jours. Le prix a fortement chuté autour du 5 juin, suivi d’une phase de range étroit entre 1 525 et 1 600 USDT. Un break clair de ces zones donnera le plan d’action :  \n- En cassure support 1 525, poursuite baissière probable.  \n- En cassure résistance 1 600-1 610, tentative de reprise haussière (invalidation du biais baissier court terme).  \nLe volume augmente fortement sur les baisses, signalant la pression vendeuse.\n\nC) DeskPro  \n{\"run_id\":\"r1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-04-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_17-04-21.png"
+  }
+}

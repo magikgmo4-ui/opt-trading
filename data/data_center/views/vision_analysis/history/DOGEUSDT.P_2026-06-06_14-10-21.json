@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_181030_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T14:10:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-10-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.081,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.082,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente proche résistance 0.08100-0.08200, stop au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure 0.08250 en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec structure de Lower Highs (LH) et Lower Lows (LL).  \n- Prix stagne autour de 0.08100, zone clé de résistance récente.  \n- Scénario probable de poursuite baissière après rebond faible, attention à cassure 0.07800 en support.\n\nB) Chart unique (DOGEUSDT.P 15m): La structure est baissière (LH/LL) confirmée par plusieurs impulsions baissières. La zone de résistance clé se situe autour de 0.08100-0.08200, où les prix butent régulièrement. Le support majeur est vers 0.07800, ayant agi de plancher sur plusieurs rebonds. Le volume confirme une pression vendeuse les baisses sont accompagnées de pics de volume. Scénario d'action : vendeurs en contrôle, recommandé de viser des positions short à proximité de la résistance 0.08100-0.08200, avec un stop au-dessus de cette zone. Invalidation du biais baissier si cassure nette au-dessus de 0.08250 avec structure en higher high.\n\nC) DeskPro  \n{\"run_id\":\"20240609_1\",\"charts\":[{\"slot\":\"single\",\"bi",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-10-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_14-10-12.png"
+  }
+}

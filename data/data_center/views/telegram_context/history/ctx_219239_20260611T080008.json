@@ -1,0 +1,17 @@
+{
+  "contract": "telegram_context.v1",
+  "id": "ctx_219239_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "whale_trade",
+  "channel": "coinglass_alerts",
+  "channel_priority": "P1",
+  "channel_type": "whale_trade",
+  "parsed_at": "2026-06-11T06:36:30+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "asset": "BTC",
+  "direction": "SHORT",
+  "entry_price": 62833.7,
+  "amount": null,
+  "value_usd": null,
+  "raw_text": "\u5b9e\u65f6\u76d1\u63a7\uff1aHyperliquid\u5de8\u9cb8**(0x873e)** \u4ee5 **10x** \u6760\u6746\u505a\u7a7a**BTC**,\u5f00\u4ed3\u4ef7\u683c **$62833.7**,\u4ed3\u4f4d\u4ef7\u503c**701.1\u4e07**\u7f8e\u5143. \n\u70b9\u51fb\u67e5\u770b\u8be6\u60c5:\n[https://www.coinglass.com/hyperliquid/0x873e...](https://www.coinglass.com/zh/hyperliquid/0x873e1c729a12658e4e3f39e927687e424967ccbf)"
+}

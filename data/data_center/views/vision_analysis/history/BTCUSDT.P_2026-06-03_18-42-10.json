@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_224220_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T18:42:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-42-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rallyes au contact résistance, cibler support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break clair 67000+ avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Marchés en pression baissière avec structures de baisse majoritaires.\n- Support majeur à identifier rapidement pour éviter poursuite du déclin accentué.\n- Vigilance sur les zones de résistance pour envisager des pullbacks et opportunités de vente.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h\n- Tendance nette baissière claire depuis plusieurs sessions.\n- Structure marquée par des LL (Lower Lows) et LH (Lower Highs), confirmation d'une tendance down.\n- Zone clé support autour de 64,000$: support court terme à surveiller.\n- Résistance à 67,000$ correspondant à un dernier pivot important.\n- Scénario principal: poursuite de la baisse tant que la résistance tient, idéal pour ventes sur rallyes.\n- Invalidation: franchissement net et confirmé du seuil 67,000$ avec volume significatif.\n\nC) Chart 2 (haut-droit): inconnu (détails illisibles)\n- Impossible de donner une lecture fiable, symbole et timeframe non identifiables.\n- Analyse à refaire avec données complètes.\n\nD) Chart 3 (bas-g",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-42-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_18-42-03.png"
+  }
+}

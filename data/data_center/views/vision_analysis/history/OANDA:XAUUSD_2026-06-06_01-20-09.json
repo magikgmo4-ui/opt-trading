@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_052017_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T01:20:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-20-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 4320 avec stop au-dessus de 4380, viser retour sur 4250 en extension",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 4380 invalide le scénario baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance majoritairement baissière visible avec une série de plus bas et plus hauts descendants (LH/LL).\n- Structure fragile révélée par une tentative de rebond (HL temporaire) rapidement invalidée par un fort mouvement baissier.\n- Zone de support clé vers 4320 USD testée avec fort volume, à surveiller pour un possible rebond ou poursuite du breakout.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa tendance sur ce timeframe est baissière avec une structure en Lower Highs et Lower Lows confirmée. Une tentative de retournement haussier sur fin mai est rapidement contredite par une forte chute début juin. Le support principal à 4320 USD est une zone clé à surveiller pour valider une accumulation ou un nouveau mouvement baissier. L’invalidation d’un nouveau plus bas sous ce niveau ouvrirait la porte à une accélération à la baisse. Le scénario prudent est donc une position vendeuse sous 4320, avec un stop au-dessus du dernier plus haut intermédiaire à 4380 USD.  \n\nC) DeskPro  \n{",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-20-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_01-19-42.png"
+  }
+}

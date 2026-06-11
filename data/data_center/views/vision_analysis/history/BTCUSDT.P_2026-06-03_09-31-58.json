@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_133217_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:32:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-31-58",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance avec confirmation ou viser rebond sur support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 3.40",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée exploitable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée exploitable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée exploitable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché du gaz naturel en unité 1h, tendance récente baissière après un rebond marqué.  \n- Structure volatile avec HH puis LH, témoignant d’une possible inversion court terme.  \n- Zones clés identifiées autour de 3.35 (résistance) et 3.05-3.10 (support).\n\nB) Chart 1 (haut-gauche):  \nSymbole et timeframe: NG1!, 1h  \nBias: Neutre-baissier court terme  \nStructure: Après un creux et un rebond formant des HH, la dernière vague montre un LH et un LL partiel, signe d’une possible faiblesse.  \nSupports: Vers 3.10-3.05, zone de base du dernier rebond solide.  \nRésistances: 3.35-3.40, plafond récent où la pression vendeuse réapparaît.  \nPlan: Vendre sous résistance avec confirmation d’un rejet de prix ou viser un rebond sur support.  \nInvalidation: Clôture au-dessus de 3.40 invalide la continuation baissière.\n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe: inconnu  \nBias: Impossible à définir (symbol/timeframe non lisible).  \nStructure: Non identifiable.  \nSupports/ Résista",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-31-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-03_09-31-48.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_092529_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T05:25:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-25-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4515.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4530.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur résistance ou achat après break et HH",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break durable au-dessus de 4530 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance majoritairement baissière sur le 1h avec une succession de HH et LL confirmant la structure de baisse.  \n- Zone clé de support autour de 4430-4450 USD, rebond en cours depuis ce niveau.  \n- Résistance importante vers 4515-4530 USD à surveiller pour valider reprise haussière ou retour baissier.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure montre une succession de Lower Highs (LH) et Lower Lows (LL), caractéristique d’une tendance baissière. Le prix vient de rebondir sur un support clé proche de 4430-4450 USD, zone où l’on note un volume plus important. L’action tente actuellement un retour vers la résistance majeure entre 4515 et 4530 USD, qui a déjà provoqué des rejets. Le scénario probable reste la continuation baissière tant que le prix ne casse pas durablement cette résistance. L'invalidation se fera par un break clair au-dessus de 4530 USD avec un HH formé confirmant un retournement de tendance. Le plan peut être une vente sur rebond en zone de",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-25-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_05-25-09.png"
+  }
+}

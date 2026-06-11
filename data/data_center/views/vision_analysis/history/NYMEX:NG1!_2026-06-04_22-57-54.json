@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_025801_NYMEX:NG1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T22:57:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-57-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.45,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée long sur rebond près support 3.15 ou break 3.45 confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cours < 3.15 - changement tendance possible",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire en 4h avec une série de HH/HL depuis mi-avril.  \n- Structure récente en HL sur le retracement fin mai, rebond fort et un nouveau HH début juin.  \n- Zone clé support à 3.15 USD, résistance importante testée vers 3.45 USD.\n\nB) Chart unique (NYMEX:NG1! 4h):  \nLe marché montre une dynamique haussière régulière avec un enchaînement de hauts et bas relevés (HH/HL). Après une correction fin mai sur 3.00-3.15, le cours a rebondi et formé un nouveau haut à 3.45 début juin. Ce niveau représente une résistance majeure à surveiller. Tant que le support vers 3.15 n’est pas cassé, la probabilité reste en faveur d’une poursuite haussière. En cas de franchissement de 3.45, l’extension de l’uptrend sera confirmée. Invalidation du scénario haussier sous 3.15.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"3.15\"],\"resistances\":[\"3.45\"],\"plan\":\"Entrée long sur rebond près support 3.15 ou break 3.45 ",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-57-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_22-57-43.png"
+  }
+}

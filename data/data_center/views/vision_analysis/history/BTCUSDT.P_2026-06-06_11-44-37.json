@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_154449_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T11:44:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-44-37",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre breakout 63k pour correction, sinon rupture dessous continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable au-dessus de 63 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sentiment négatif global, forte volatilité attendue",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte pression vendeuse visible avec tendance baissière claire sur la majorité des actifs listés.  \n- Indicateurs de volatilité (VIX) en forte hausse indiquant incertitude et nervosité des marchés.  \n- BTCUSDT en phase de consolidation après un long mouvement baissier, zone clé à surveiller pour éventuelle reprise ou continuation.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière nette avec structure en LH/LL.  \nLe prix fait une consolidation latérale autour de 60 800 USDT (zone de support).  \nVolume en baisse sur recentre, signe d’attente.  \nZone résistance autour de 63 000 USDT (zone ancienne de rebond).  \nScénario: breakout haussier au-dessus de 63k pour initier une correction ou continuation baissière en cas de rupture sous 60k.  \nInvalidation : franchissement durable au-dessus des 63k.\n\nC) Chart 2 (haut-droit): Symboles et évolution inconnus (liste d’indices et futures, pas de graph visualisé)  \nSentiment global négatif sur indices majeurs (SPX, NDQ, ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-44-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_11-44-15.png"
+  }
+}

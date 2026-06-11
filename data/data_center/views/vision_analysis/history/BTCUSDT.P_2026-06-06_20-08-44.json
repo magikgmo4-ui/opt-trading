@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_000852_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T20:08:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_20-08-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Long possible après cassure 61300 avec confirmation HL, short si rupture 59750",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure durable au-dessus de 61300 sans retour",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente baissière marquée par une série de lower highs (LH) et lower lows (LL) avant un rebond important.  \n- Structure actuelle latérale avec oscillations autour de 60 800, indiquant une phase d’indécision.  \n- Zone de support vers 59 750, résistance majeure autour de 61 300 à surveiller pour validation d’un retournement.  \n\nB) Chart unique (BTCUSDT.P 15m): La tendance court terme est baissière avec une structure LL/LH jusqu’au dernier spike haussier. Le prix consolide maintenant sans créer de HH/HL clairs, formant une zone clé de support vers 59 750 et résistance à 61 300. Volume en léger déclin sur la consolidation. Scénario principal: attendre une cassure claire au-dessus de 61 300 pour envisager une reprise haussière (HL à confirmer) ou une rechute sous 59 750 pour relancer la tendance baissière. Invalidation si franchissement haussier net, favorisant un retournement.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-baissier\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_20-08-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_20-08-36.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_011541_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T21:15:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-15-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance 64,600 en ciblant cassure support 63,000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus de 64,600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur ce timeframe 15m avec une série de LH et LL.  \n- Structure de baisse dominante sans signe immédiat de reprise, volumes soutenus sur les phases de repli.  \n- Zones clés : support important proche de 63 000 USDT, résistance immédiate vers 64 600 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché affiche une dynamique baissière affirmée avec une succession de Lower Highs (LH) et Lower Lows (LL), démontrant une structure de marché vendue. Le prix teste actuellement un support proche des 63 000 USDT, niveau psychologique et technique. Une rupture sous ce support pourrait accélérer la chute vers 62 400 USDT. En cas de rebond, la zone résistante à 64 600 USDT sera un point clé pour invalider ce scénario baissier à court terme. Le plan immédiat est de rester vendeur sous cette résistance, avec invalidation lors d’une franchisse exceptionnelle à la hausse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"struc",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-15-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_21-15-23.png"
+  }
+}

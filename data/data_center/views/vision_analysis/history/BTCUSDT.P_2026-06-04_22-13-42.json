@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_021519_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T22:13:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-13-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s 64"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s 64"
+    },
+    {
+      "type": "support_level",
+      "value": 63.0,
+      "confidence": 0.7,
+      "note": "s 63"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "support 62"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s 64"
+    },
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.7,
+      "note": "s 62400,"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance intraday baissière confirmée avec une série de bas plus bas (LL) et de hauts plus bas (LH).\n- Structure en retracement latéral après une forte chute, consolidation sous résistance majeure vers 64 200 USDT.\n- Scénario privilégié : poursuite possible de la baisse en invalidant le seuil des 64 200 USDT, support important à 62 400 USDT.\n\nB) Chart unique (BTCUSDT.P 15m) : \nLe graphique montre une tendance clairement baissière avec une succession de LL et LH, confirmant une structure de baisse. Un range latéral s’est formé récemment entre 62 400 USDT (support) et 64 200 USDT (résistance). Le prix teste actuellement la zone médiane vers 63 150 USDT. Volume en légère baisse, suggérant un affaiblissement momentané du momentum baissier. La rupture en dessous du support 62 400 USDT validerait la poursuite de la tendance baissière, tandis qu’une cassure au-dessus des 64 200 USDT invaliderait ce scénario et pourrait annoncer un retournement ou une correction plus large.\n",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-13-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_22-13-30.png"
+  }
+}

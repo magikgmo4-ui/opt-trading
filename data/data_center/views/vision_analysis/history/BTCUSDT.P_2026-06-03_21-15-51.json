@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_011559_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T21:15:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-15-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63.0,
+      "confidence": 0.7,
+      "note": "s 63"
+    },
+    {
+      "type": "support_level",
+      "value": 63.0,
+      "confidence": 0.7,
+      "note": "s 63"
+    },
+    {
+      "type": "support_level",
+      "value": 66.0,
+      "confidence": 0.7,
+      "note": "s 66"
+    },
+    {
+      "type": "support_level",
+      "value": 67.0,
+      "confidence": 0.7,
+      "note": "s 67"
+    },
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.7,
+      "note": "support 63000."
+    },
+    {
+      "type": "resistance_level",
+      "value": 66500.0,
+      "confidence": 0.7,
+      "note": "résistance 66500"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure claire de baisse, sans tentative visible de retour haussier significatif.  \n- Zones clés à surveiller : support proche vers 63 000 USDT, résistance autour de 66 500-67 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nAnalyse montre un canal baissier marqué par des Lower Highs et Lower Lows, indiquant une pression vendeuse forte. Le prix teste actuellement une zone de support proche des 63 000 USDT, cruciale pour éviter une poursuite de la chute. Volume en augmentation lors des baisses suggère un intérêt vendeur croissant. Un rebond au-dessus des 66 500-67 000 USDT serait nécessaire pour invalider ce biais et envisager un retournement. Scénario principal reste la continuation baissière tant que le support n'est pas tenu. Invalidation en cas de franchissement durable des derniers Lower Highs vers 67 000 USDT.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-15-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_21-15-43.png"
+  }
+}

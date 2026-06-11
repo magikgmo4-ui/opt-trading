@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_094800_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T05:47:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-47-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.168,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sous 1.1680 après rebond sur 1.1600, stop sous 1.1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance neutre à court terme avec alternance de structure HH/HL et LH/LL.  \n- Zone clé de résistance majeure autour de 1.1680, support important à 1.1600.  \n- Scénario haussier à privilégier sous condition de franchissement et maintien au-dessus de 1.1650, sinon risque de reprise baissière.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLe graphique montre une tendance latérale avec des hauts et bas relativement égaux (alternance HH/HL et LH/LL). Après un recent plus bas proche de 1.1600 (zone de support), le prix rebondit fortement vers 1.1640. La résistance principale à surveiller se situe autour de 1.1680, point de plusieurs rejets précédents. Un dépassement de cette zone ouvrirait la porte à une poursuite haussière. L’invalidation du scénario haussier se ferait par une rupture claire sous 1.1600. La volatilité est modérée avec un volume en hausse sur le rebond, signalant potentiellement un intérêt acheteur.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-47-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_05-47-42.png"
+  }
+}

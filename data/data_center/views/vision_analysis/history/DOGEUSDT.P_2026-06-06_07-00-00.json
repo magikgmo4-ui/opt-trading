@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_110011_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T07:00:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_07-00-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0825,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher des shorts à la cassure de 0.08000 avec cible vers 0.07800 ou plus bas. Monitorer réaction vers 0.08000 pour un éventuel rebond technique.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retournement haussier invalidé sous la cassure durable de 0.08300 avec formation de HH.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière clairement établie avec une série de creux et de sommets descendants (LH/LL).  \n- Structure fragile vers la zone 0.08000 où le prix hésite, zone support clé à surveiller.  \n- Scénario probable de poursuite de la baisse sous 0.08000, avec résistance à 0.08250-0.08300 comme point d'invalidation bullish.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa tendance dominante est baissière avec des Lower Highs et Lower Lows formés depuis le début du graphique. Le support principal est autour de 0.08000, zone où le prix monte et descend sans conviction. La résistance significative se situe vers 0.08250-0.08300. En l’état, le scénario favori est une continuation baissière si le support 0.08000 casse, avec anticipation d’une accélération. Invalidation du biais si le prix dépasse durablement 0.08300 avec structure de HH.  \n\nC) DeskPro  \n{\"run_id\":\"20240607_1159\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"0.08000\"],\"resistances\":[\"0",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_07-00-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_06-59-52.png"
+  }
+}

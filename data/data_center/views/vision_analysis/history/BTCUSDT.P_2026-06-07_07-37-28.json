@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_113741_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T07:37:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-37-28",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveille franchissement résistance pour long, ou rejets pour continuation short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 59,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d'une tendance baissière dominante visible sur plusieurs graphiques avec quelques tentatives de rebond.  \n- Structures principales en LH/LL sur la majorité des frames, signe d’un contrôle vendeur.  \n- Zones clés (S/R) à surveiller pour valider un retournement ou un pullback dans la tendance.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance: Baissière de fond avec tentative en cours de reprise.  \n- Structure: Série de LH/LL sur toute la descente, puis un HL récent qui pourrait indiquer un possible début de bascule.  \n- Supports: Zone autour de 59,000-60,000 serve comme support récent solide.  \n- Résistances: 64,000-65,000 à franchir pour confirmer la reprise.  \n- Scénario: Soit continuation de la tendance baissière si rejet sous résistance, soit début d'une correction haussière si franchissement.  \n- Invalidation: Retour sous 59,000 invaliderait la tentative de reprise.\n\nC) Chart 2 (haut-droit): Inconnu (symbole/timeframe non lisible)  \n- Analyse impossib",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-37-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_07-37-19.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_090130_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T05:01:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-01-18",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Acheter en cassure confirmée au-dessus de 64k ou vendre sur rejet",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte durable sous 59k USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non applicable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non applicable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non applicable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Majoritairement tendance baissière sur l’ensemble, avec quelques phases de correction ou range local.  \n- Structures en majorité en Lower Highs (LH) / Lower Lows (LL), mais présence de tentatives de rebond à surveiller.  \n- Zones clés S/R doivent être respectées pour valider un changement de polarité ou poursuite du trend.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance dominante baissière avec structure en LH/LL confirmée jusqu’à présent. On note un possible rebond formant des HL temporaires, mais la résistance vers 63k-64k USDT reste un seuil clé à franchir. Les supports majeurs sont autour de 59k USDT, à invalider pour signaler reprise baissière plus agressive. Scénario actionnable : surveiller une cassure claire au-dessus de 64k pour un possible retournement, ou un rejet pour retour à la baisse.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non lisibles, impossible d’analyser précisément. Pas d’infos exploitables.\n\nD) Chart 3 (bas-gauche): inconnu  ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-01-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_05-01-03.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_145342_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T10:53:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_10-52-41",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sur rejet résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure 1.26",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre breakout clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prise de position prématurée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre sortie range, favoriser short si cassure basse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout haussier confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière claire sur le plus petit timeframe (15m), avec structure de lower highs/lower lows confirmée.  \n- Présence de zones clés de support vers 1.19-1.20, et résistances autour de 1.25-1.26.  \n- Scénario privilégié: recherche de rebonds baissiers sur résistances en vue de poursuite de la baisse. Invalidation si breakout haussier significatif.  \n\nB) Chart 1 (haut-gauche):  \n- Symbole: XRP/USDT, timeframe 15 minutes  \n- Tendance: Baissière dominante  \n- Structure: Série de LH/LL, avec tentative de rebond récent stoppée avant ancien support devenu résistance (~1.25)  \n- Supports: 1.19-1.20 zone à surveiller pour tenue ou cassure  \n- Résistances: 1.25-1.26 zone clé de rejection prix  \n- Plan: Surveiller une confirmation de rejet des résistances pour prise de position vendeuse  \n- Invalidation: Cassure nette au-dessus de 1.26 avec maintien rapide  \n\nC) Chart 2 (haut-droit):  \n- Symbole et timeframe non lisibles, donc \"inconnu\"  \n- Observation rapide:",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_10-52-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-03_10-52-30.png"
+  }
+}

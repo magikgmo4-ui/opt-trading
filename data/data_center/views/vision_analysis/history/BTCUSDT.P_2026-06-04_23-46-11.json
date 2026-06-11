@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_034620_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T23:46:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-46-11",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rupture du support 61800-62200 avec stop au-dessus de 67000. Recherche de continuation baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 67000 avec un higher high valide.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure nette de baisse avec plusieurs replis sans franchissement des hauts précédents.\n- Zones clés identifiées autour de 67 000 (résistance) et 62 000 (support temporaire).\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLa structure actuelle montre une succession de LH et LL, caractéristique d’une tendance baissière claire. Le prix a cassé plusieurs supports intermédiaires, confirmant la pression vendeuse. On observe une zone de support entre 61 800 et 62 200, servant de possible zone de rebond court terme. La résistance majeure est proche du dernier point haut à environ 67 000, testée sans succès. Le scénario favori reste une poursuite de la baisse en cas de rupture du support 62 000-61 800. Invalidation du biais baissier en cas de remise au-dessus de 67 000 avec un HH établi.\n\nC) DeskPro  \n{\"run_id\":\"20240605_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-46-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_23-46-04.png"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_181210_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T14:12:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-11-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4370.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sous confirmation cassure 4580, vente si rupture 4370",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage soutenu sous 4370",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Marché globalement volatile avec alternance de phases haussières et baissières.\n- Zones clés à surveiller proches des récents pics et creux majeurs.\n- Scénarios clairsemés, requièrent confirmation via structure HH/HL ou LH/LL.\n\nB) Chart 1 (haut-gauche): XAU/USD 1h\n- Tendance globalement neutre à court terme, structure oscillante avec HH/HL puis LH/LL.\n- Supports clés autour de 4 440 et 4 370 USD, résistances majeures proches de 4 580 USD.\n- Scénario prioritaire : attente d’une cassure au-dessus de 4 580 pour relance haussière, invalidation sous 4 370.\n- Volumes modérés, confirmer move avec accroissement.\n\nC) Chart 2 (haut-droit): Inconnu\n- Pas d’éléments lisibles, absence de symboles/timeframe.\n- Pas d’analyse possible.\n\nD) Chart 3 (bas-gauche): Inconnu\n- Pas d’éléments lisibles, absence de symboles/timeframe.\n- Pas d’analyse possible.\n\nE) Chart 4 (bas-droit): Inconnu\n- Pas d’éléments lisibles, absence de symboles/timeframe.\n- Pas d’analyse possible.\n\nF) DeskPro\n{\"ru",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-11-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_14-11-49.png"
+  }
+}

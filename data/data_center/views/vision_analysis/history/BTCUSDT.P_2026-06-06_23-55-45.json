@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_035552_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T23:55:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-55-45",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure au-dessus 62000 pour rebond ou confirmation haussière. Stop si cassure support 59000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 59000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière clairement établie avec une série de HH/HL cassés en LH/LL.  \n- Structure actuelle montre un léger rebond local, possiblement un retracement ou début de consolidation.  \n- Zone clé de support vers 59 000-60 000; résistance immédiate autour de 62 000.\n\nB) Chart unique (BTCUSDT.P 1h): Le graphique met en évidence une forte tendance baissière avec des sommets et creux décroissants (LH et LL). Dernièrement, un rebond apparaît avec une tentative de franchissement de la résistance à 62 000, ce qui pourrait signaler un retracement temporaire ou un changement de structure si le niveau est dépassé avec force. Le support majeur est identifié autour de 59 000-60 000, servant de zone de maintien pour les acheteurs. La structure reste baissière tant que le prix ne confirme pas des HH/HL au-dessus des résistances récentes. Scénario haussier envisageable en cas de cassure claire au-dessus de 62 000, sinon continuation baissière vers support. Invalida",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-55-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_23-55-36.png"
+  }
+}

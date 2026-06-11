@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_132855_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:28:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-28-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter en cassure claire au-dessus de 1.1680 avec stop sous 1.1600, ou vendre en échec vers résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse nette sous 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme neutre à légèrement haussière avec structure mixte (alternance de HH/HL et LH/LL).  \n- Zones clés visibles : support autour de 1.1600, résistance proche de 1.1650-1.1680.  \n- Scénario possible de reprise haussière si la résistance 1.1650-1.1680 est franchie, sinon risque de retour vers support 1.1600.  \n\nB) Chart unique (FX:EURUSD 1h) :  \nLe graphique affiche une structure en transition avec des hauts et bas partiellement ascendants puis descendus (HH, HL, LH, LL). Le support majeur se situe autour de 1.1600, testé plusieurs fois, ce qui montre une zone clé importante à défendre. La zone de résistance moyenne haute se trouve vers 1.1650-1.1680. La récente rupture haussière montre un potentiel de reprise si le prix clôture au-dessus de cette résistance, sinon, il pourrait revenir tester le support. Invalidation du scénario haussier sous 1.1600.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"alter",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-28-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_09-28-32.png"
+  }
+}

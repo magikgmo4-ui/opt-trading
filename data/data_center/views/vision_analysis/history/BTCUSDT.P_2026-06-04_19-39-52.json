@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_234005_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T19:40:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-39-52",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Rebond potentiel vers résistance, suivi d’un rejet pour continuation downtrend",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus 67 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte baisse prolongée visible sur le graphique BTCUSDT 1h, tendance globalement baissière.  \n- Le rebond récent cherche à établir un support local mais reste fragile face à la pression vendeuse.  \n- La structure montre une succession de Lower Highs (LH) et Lower Lows (LL), signal clair de tendance baissière.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance : Baissière, avec une structure HH/HL passée à LH/LL depuis début juin.  \n- Structure : Plusieurs Lower Highs et Lower Lows formés, signal de momentum vendeur prédominant.  \n- Supports : Zone 62 000-63 000 à surveiller comme support local récent (rebond actuel).  \n- Résistances : 65 000/66 000 à clé pour confirmer un retournement ou poursuite de la baisse.  \n- Scénario : Rebond possible jusqu’à résistance, puis reprise du downtrend si rejet.  \n- Invalidation : Clôture claire au-dessus de 67 000 invaliderait le scénario baissier court terme.  \n\nC) Chart 2 (haut-droit): Inconnu (symbole/timeframe non lisible) ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-39-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_19-39-39.png"
+  }
+}

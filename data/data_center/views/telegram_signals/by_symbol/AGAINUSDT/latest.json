@@ -1,0 +1,18 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "AGAINUSDT",
+  "total": 1,
+  "signals": [
+    {
+      "id": "tg_7719_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "LONG",
+      "entry_price": 4337.0,
+      "sl": null,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T12:54:18+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

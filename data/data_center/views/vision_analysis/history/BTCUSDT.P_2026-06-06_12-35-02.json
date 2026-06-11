@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_163511_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T12:35:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_12-35-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.7,
+      "note": "s 61"
+    },
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.7,
+      "note": "s 60"
+    },
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.7,
+      "note": "s 60"
+    },
+    {
+      "type": "support_level",
+      "value": 61250.0,
+      "confidence": 0.7,
+      "note": "s 61250"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante clairement baissière sur le 15m avec une série de lower highs (LH) et lower lows (LL).\n- Structure volatile avec tentatives haussières latérales, mais résistance nette vers 61 250 USD.\n- Zone clé de support proche des 60 000 USD, à surveiller pour invalidation du biais baissier.\n\nB) Chart unique (BTCUSDT.P 15m) : \nLa paire est dans une tendance baissière marquée. La structure montre des LH et LL confirmant la pression vendeuse. Un support significatif s’établit autour des 60 000 USD, ayant déjà servi plusieurs fois. La résistance majeure à court terme se situe près de 61 250 USD, qui limite les reprises haussières. Le scénario principal reste la continuation de la baisse tant que le prix reste sous cette résistance. Une cassure claire en dessous de 60 000 USD pourrait accentuer la chute. En revanche, un dépassement franc au-dessus de 61 250 invaliderait temporairement ce biais baissier et pourrait ouvrir la voie à un rebond plus large.\n\nC) DeskPro ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_12-35-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_12-34-54.png"
+  }
+}

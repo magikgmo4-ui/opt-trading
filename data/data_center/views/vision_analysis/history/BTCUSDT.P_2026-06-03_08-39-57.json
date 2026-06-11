@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_124121_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T08:40:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_08-39-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 66000, stop au-dessus de 68000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 68000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre confirmation break résistance pour achat, stop sous support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure à la baisse du support",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Privilégier shorts avec stop au-dessus dernier LH",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement haussier du LH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Renforcer shorts si cassure support, sinon prudence",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus résistance récente",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière marquée par une chute rapide du prix sur tous les graphiques visibles.  \n- Structure clairement orientée vers des Lower Highs (LH) et Lower Lows (LL), signalant une dynamique vendeuse dominante.  \n- Zones clés de support testées sur les bas récents; la zone autour de 66,000 semble cruciale pour la suite de la dynamique.\n\nB) Chart 1 (haut-gauche) :  \nGraphique 1h du Bitcoin (BTC/USDT) sur Binance.  \nLa tendance est baissière avec une succession de Lower Highs et Lower Lows, validant une structure de marché en repli. La cassure rapide début juin montre une accélération des ventes.  \nLes supports clés vers 66,000 ont été testés plusieurs fois, avec un volume en augmentation qui suggère une pression vendeuse forte.  \nRésistance notable proche de 68,000, zone à surveiller pour un possible rejet.  \nScénario préféré : poursuite du mouvement baissier sous 66,000, invalidation au-dessus de 68,000 avec un retour à des HH.  \n\nC) Chart 2 (haut-dro",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_08-39-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_08-39-31.png"
+  }
+}

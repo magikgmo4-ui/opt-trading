@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_191316_CRYPTOCAP:TOTAL_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-07T15:13:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-13-07",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le maintien au-dessus des supports pour prendre position acheteuse en swing. Prendre profit progressivement en zone résistance, ou attendre cassure claire pour scenario haussier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette au-dessus de 2.5T avec suivi haussier valide biais bullish.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur 1d, avec une série de Lower Highs (LH) et Lower Lows (LL) marqués.  \n- Rebond technique récent après une forte chute, à surveiller pour potentiel test de résistance.  \n- Zone clé de support proche des 2.0T, zone de résistance importante autour de 2.4T-2.5T.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1d):  \nLa structure montre des hauts et bas descendants (LH/LL) confirmant une tendance baissière. Un récent rebond frôle la zone de support majeure vers 2.0T. Le premier obstacle à la hausse est la zone des 2.4T-2.5T (ancienne zone de support devenue résistance). Un passage au-dessus de cette résistance invaliderait un scénario bearish de moyen terme, tandis qu’un rejet renforcerait la pression vendeuse. Idéalement, un retour vers les 2.0T à 2.05T pourrait constituer une bonne zone d’achat pour un rebond technique court terme.\n\nC) DeskPro  \n{\"run_id\":\"20240606_cryptocap_total\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supp",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-13-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-07_15-12-55.png"
+  }
+}

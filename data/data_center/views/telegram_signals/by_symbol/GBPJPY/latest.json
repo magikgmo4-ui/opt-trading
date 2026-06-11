@@ -1,0 +1,38 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "GBPJPY",
+  "total": 3,
+  "signals": [
+    {
+      "id": "tg_1381_20260611T100009",
+      "channel": "BTCUSDGOLDVIP_SIGNALS",
+      "direction": "SHORT",
+      "entry_price": 214.528,
+      "sl": 214.94,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T09:02:14+00:00"
+    },
+    {
+      "id": "tg_2365_20260611T100009",
+      "channel": "GBPUSDEURUSDXAUUSDFX_Vip1",
+      "direction": "SHORT",
+      "entry_price": 214.528,
+      "sl": 214.94,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T09:03:59+00:00"
+    },
+    {
+      "id": "tg_996_20260611T100009",
+      "channel": "xauusd_trading_free",
+      "direction": "SHORT",
+      "entry_price": 214.528,
+      "sl": 214.94,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T09:03:29+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

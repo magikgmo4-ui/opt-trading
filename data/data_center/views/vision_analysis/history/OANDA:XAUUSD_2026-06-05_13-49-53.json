@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_175001_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T13:49:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-49-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4340.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 4450 avec objectif vers 4340 et possibilité de poursuite sous ce niveau si cassure.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 4450.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière manifeste en 1h avec des séries de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragilisée par une très forte chute récente, marquant une accélération vendeuse.  \n- Zones clés à surveiller : support actuel autour de 4340 USD, résistance proche à 4450 USD.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa tendance dominante est clairement baissière, avec une structure en LH et LL. Le dernier gros mouvement est une violente baisse qui pousse le prix sous un support intermédiaire vers 4340 USD, déclenchant un repositionnement baissier fort. La zone 4340 USD constitue un support immédiat à court terme, à surveiller pour un rebond technique. La résistance à 4450 USD représente désormais un plafond important pour limiter tout rebond. Un retour au-dessus de 4450 invaliderait potentiellement la poursuite de la baisse. Le scénario principal reste un maintien sous 4450 avec risque d’extension baissière.\n\nC) DeskPro  \n{\"run_id\":\"20240607_01\",\"charts\":[{\"slot\":",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-49-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_13-49-35.png"
+  }
+}

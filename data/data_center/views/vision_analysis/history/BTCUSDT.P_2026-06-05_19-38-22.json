@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_233913_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T19:38:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_19-38-22",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short rebond résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout >65,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus derniers hauts",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "HH et changement de bias",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller test support, short possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement net résistance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché clairement baissier avec une structure en série de plus bas (LL) et plus bas secondaires (LH) sur la plupart des graphiques.  \n- Zones clés de support proches testées ou cassées, confirmant la pression vendeuse dominante.  \n- Scénario prioritaire baissier, avec risques de poursuite vers les prochains supports; invalidation remontée franchissant les derniers HH.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1H  \n- Tendance : baissière marquée.  \n- Structure : série de LL et LH, momentum vendeur fort.  \n- Supports : zone autour de 59,000-60,000 USD testée à plusieurs reprises.  \n- Résistances : 63,000 - 65,000 USD (points de rejet récents).  \n- Plan : rechercher swing shorts sur rebonds vers la résistance.  \n- Invalidation : breakout clair au-dessus de 65,000 USD avec sustain.\n\nC) Chart 2 (haut-droit) : inconnu  \n- Difficulté à identifier le symbole et timeframe.  \n- La lecture structurelle semble baissière avec derniers points bas plus bas que précédents.  \n- Plusieurs",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_19-38-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_19-38-10.png"
+  }
+}

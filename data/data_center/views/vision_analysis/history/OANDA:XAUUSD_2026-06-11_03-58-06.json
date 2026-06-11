@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_075817_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T03:58:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-58-06",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rebond vers résistance, vente en échec sous 4,175",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure claire 4,175",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière nette sur XAUUSD en 1h, avec structure de baisse forte.\n- Rebond actuel possible, à confirmer par cassure de zones clés.\n- Volume en hausse sur dernières mèches basses, signe d’un possible retournement ou consolidation.\n\nB) Chart 1 (haut-gauche) : XAUUSD 1h\n- Tendance : baissière.\n- Structure : série de Lower Highs (LH) et Lower Lows (LL), forte dynamique vendeuse.\n- Zones clés : support vers 4,020-4,030, résistance vers 4,150-4,175.\n- Scénario : le prix pourrait retester la résistance avant reprise de baisse.\n- Invalidation : franchissement clair au-dessus de 4,175 confirmerait une potentielle inversion vers tendance plus neutre/haussière.\n\nC) Chart 2 (haut-droit) : inconnu (symbole non lisible)\n- Tendance : inconnue.\n- Structure : inconnue.\n- Zones clés : inconnues.\n- Scénario : non applicable.\n- Invalidation : non applicable.\n\nD) Chart 3 (bas-gauche) : inconnu (symbole non lisible)\n- Tendance : inconnue.\n- Structure : inconnue.\n- Zones c",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-58-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-11_03-57-56.png"
+  }
+}

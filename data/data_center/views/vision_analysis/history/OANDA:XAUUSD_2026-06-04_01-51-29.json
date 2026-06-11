@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_055142_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T01:51:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_01-51-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4540.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à la cassure du support avec cible sous 4400 ou pullback sur résistance 4540-4580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 4600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- La tendance court terme sur le graphique principal est baissière avec quelques replis haussiers correctifs.  \n- Zones clés à surveiller autour de 4470 en support et 4580 en résistance.  \n- Scénario vendeur privilégié si la structure de HH/HL n’est pas confirmée, invalidation au-dessus de 4600.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \n- Tendance dominante : baissière (LH/LL) depuis le sommet local du 29 mai.  \n- Structure : succession de bas plus bas confirmée, malgré une reprise partielle récente (HL partiel).  \n- Supports : 4440-4460 (zone de bas récents), 4400 zone psychologique.  \n- Résistances : 4540 puis 4580 zone de pic intermédiaire.  \n- Scénario : poursuite possible de la baisse en cassant 4440, avec rebond possible sur ce support.  \n- Invalidation : franchissement soutenu au-dessus de 4600 avec retour de HH.\n\nC) Chart 2 (haut-droit): inconnu (non lisible)  \n- Données non identifiables.  \n- Aucune analyse possible.\n\nD) Chart 3 (bas-gauche): inconnu (non lisib",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_01-51-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_01-51-19.png"
+  }
+}

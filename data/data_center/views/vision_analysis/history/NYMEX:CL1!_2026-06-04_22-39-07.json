@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_023916_NYMEX:CL1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:CL1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T22:39:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-39-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 90.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 88.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 96.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 98.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre proche résistance 96-98 avec stop au-dessus de 98, viser 90 puis 88",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 4h au-dessus de 98",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente globalement baissière avec séries de LH (Lower Highs) et LL (Lower Lows) sur 4h.  \n- Reprise haussière récente forme un HL (Higher Low), possible tentative de retournement ou rebond technique.  \n- Zone clé résistance vers 96-98 USD, support important autour de 88-90 USD.\n\nB) Chart unique (NYMEX:CL1! 4h):  \nLe graphique montre un marché baissier dominant avec des structures LH/LL marquées. Le dernier swing semble avoir stoppé la chute avec un HL autour de 89-90, suivi d’une remontée jusqu’à environ 94. La zone 96-98 agit comme résistance forte sur les précédents sommets. Le volume ne montre pas d’impulsion claire pour une cassure haussière. Scénario principal reste donc une correction baissière tant que la résistance tient, invalidée si 98 est franchi en clôture. Support solide à 88-90 à surveiller pour nouveau rebond ou reprise de baisse.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-baissier\",\"structure\":\"LH/LL avec dernier",
+  "symbols_found": [
+    "NYMEX:CL1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-39-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-04_22-38-51.png"
+  }
+}

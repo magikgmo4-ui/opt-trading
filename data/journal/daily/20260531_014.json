@@ -1,0 +1,412 @@
+{
+  "run_id": "20260531_014",
+  "session_id": "7f0aaba0-cc3b-4907-8432-4b782c54c4de",
+  "journal_type": "daily_session",
+  "pipeline": "E2E dry-run pipeline daily session journal",
+  "controlled_write": false,
+  "dry_run": true,
+  "paper_mode": true,
+  "started_at": "2026-05-31T03:23:43.449917+00:00",
+  "completed_at": "2026-05-31T03:23:43.485660+00:00",
+  "duration_s": 0.043,
+  "pipeline_duration_s": 0.032,
+  "all_ok": true,
+  "steps": [
+    {
+      "step": "1_signal_router",
+      "timestamp": "2026-05-31T03:23:43.459787+00:00",
+      "result": {
+        "signal_id": "e55c17f8-4810-4dac-9dae-ca71397e50e2",
+        "ticker": "BTCUSDT",
+        "side": "BUY",
+        "price": 65000.0,
+        "timestamp": 1780197823.4597049,
+        "strategy_id": "e2e_dry_run",
+        "tf": "1h",
+        "tp": 68000.0,
+        "sl": 63000.0,
+        "reason": "E2E dry-run pipeline test",
+        "source": "tradingview"
+      }
+    },
+    {
+      "step": "1b_desk_pro_dry_run",
+      "timestamp": "2026-05-31T03:23:43.460479+00:00",
+      "result": {
+        "mode": "dry_run",
+        "status": "WARN",
+        "no_trade": true,
+        "no_telegram": true,
+        "no_webhook": true,
+        "no_systemd": true,
+        "signal_event": {
+          "source": "tradingview.webhook",
+          "event_type": "signal_event",
+          "engine": "e2e_dry_run",
+          "symbol": "BTCUSDT",
+          "timeframe": "1h",
+          "direction": "BUY",
+          "timestamp": "2026-05-31T03:23:43.460350+00:00",
+          "status": "accepted",
+          "payload_hash": "0a5618081c4a0174830413e6acf16929efb33fd8535fac994e684fe895410e04",
+          "raw_payload_ref": null,
+          "meta": {
+            "price": 65000.0,
+            "tp": 68000.0,
+            "sl": 63000.0,
+            "reason": "E2E dry-run pipeline test"
+          },
+          "risk_context": null,
+          "visual_context_ref": null,
+          "desk_snapshot_ref": null,
+          "errors": []
+        },
+        "visual_context": {
+          "source": "e2e_fixture",
+          "capture_id": "e2e_capture_e55c17f8-4810-4dac-9dae-ca71397e50e2",
+          "symbol": "BTCUSDT",
+          "timeframe": "1h",
+          "captured_at": "2026-05-31T03:23:43.460350+00:00",
+          "image_ref": "fixture://desk_pro/snapshot.png",
+          "status": "ok"
+        },
+        "desk_snapshot": {
+          "symbol": "BTCUSDT",
+          "tf": "1h",
+          "snapshot_ts": "2026-05-31T03:23:43.460350+00:00",
+          "path": "C:/fixtures/desk_pro_snapshot.png"
+        },
+        "join_checks": {
+          "timeframe_match": true,
+          "symbol_match": true,
+          "symbol_normalization_needed": false,
+          "visual_context_ref_match": true
+        },
+        "errors": [],
+        "warnings": [
+          "market_metrics missing: market-context-free synthesis",
+          "vision_analysis missing: vision-context-free synthesis",
+          "telegram_claim missing: telegram-context-free synthesis"
+        ],
+        "market_metrics": null,
+        "vision_analysis": null,
+        "telegram_claim": null,
+        "summary": {
+          "signal_event_present": true,
+          "visual_context_present": true,
+          "desk_snapshot_present": true,
+          "market_metrics_present": false,
+          "vision_analysis_present": false,
+          "telegram_claim_present": false
+        }
+      }
+    },
+    {
+      "step": "1c_notification_dispatcher_dry_run",
+      "timestamp": "2026-05-31T03:23:43.460534+00:00",
+      "result": {
+        "dispatch": [
+          {
+            "ok": false,
+            "skipped": "dispatcher_unavailable"
+          },
+          {
+            "ok": false,
+            "skipped": "dispatcher_unavailable"
+          },
+          {
+            "ok": false,
+            "skipped": "dispatcher_unavailable"
+          }
+        ]
+      }
+    },
+    {
+      "step": "2_proposition_engine",
+      "timestamp": "2026-05-31T03:23:43.467027+00:00",
+      "result": {
+        "request_id": "fd284e05-cbcb-42c1-acee-5dfb892570e5",
+        "signal_id": "e55c17f8-4810-4dac-9dae-ca71397e50e2",
+        "action": "BUY",
+        "size_pct": 0.15,
+        "entry": 65000.0,
+        "sl": 63000.0,
+        "tp": 68000.0,
+        "confidence": 0.82,
+        "rationale": "E2E dry-run simulated proposition (bridge not called)",
+        "engines_context": {
+          "probability": {
+            "symbol": "BTCUSDT",
+            "timestamp": "2026-05-31T03:23:43.465834+00:00",
+            "probability_long": 0.68,
+            "probability_short": 0.32,
+            "confidence": 0.36,
+            "directional_bias": "LONG",
+            "raw_score": 0.36,
+            "summary": "Moderate confidence LONG bias driven by: trend (bullish), momentum (bullish).",
+            "derivatives_context": {
+              "used": false,
+              "bias": "NONE",
+              "risk_flag": false,
+              "score_adjustment": 0.0
+            },
+            "derivatives_context_used": false,
+            "derivatives_bias": "NONE",
+            "derivatives_risk_flag": false,
+            "derivatives_score_adjustment": 0.0,
+            "adjusted_confidence": 0.36
+          },
+          "ranker": {
+            "symbol": "BTCUSDT",
+            "opportunity_score": 0.37,
+            "priority": "LOW",
+            "setup_bias": "LONG",
+            "confidence": 0.35,
+            "summary": "LOW priority LONG setup (Score: 0.37). Supported by Scanner, Probability, Liquidation.",
+            "timestamp": "2026-05-31T03:23:43.466379+00:00",
+            "_details": {
+              "scan_score": 0.5,
+              "prob_long": 0.68,
+              "liq_score": 0.2
+            },
+            "rank": 1
+          },
+          "decision": {
+            "symbol": "BTCUSDT",
+            "decision": "WAIT",
+            "confidence": 0.36,
+            "decision_score": 0.37,
+            "directional_bias": "LONG",
+            "review_priority": "LOW",
+            "rationale": "Ranker High (0.37); Prob Long 0.68; Confidence too low.",
+            "timestamp": "2026-05-31T03:23:43.467009+00:00"
+          }
+        },
+        "duration_ms": 1,
+        "dry_run": true,
+        "status": "ok",
+        "error": null
+      }
+    },
+    {
+      "step": "3_validation_gate",
+      "timestamp": "2026-05-31T03:23:43.470945+00:00",
+      "result": {
+        "request_id": "0103c6fe-52b9-43b8-8575-adaede9f2578",
+        "signal_id": "e55c17f8-4810-4dac-9dae-ca71397e50e2",
+        "verdict": "APPROVED",
+        "reason": "auto_approved",
+        "risk_status": "ALLOW",
+        "risk_reason": "confidence=0.820 >= 0.8",
+        "operator_approved": null,
+        "duration_ms": 0,
+        "dry_run": true,
+        "meta": {}
+      }
+    },
+    {
+      "step": "4_trade_executor",
+      "timestamp": "2026-05-31T03:23:43.474359+00:00",
+      "result": {
+        "request_id": "b7342c84-c68b-40df-85b0-b065ab8be628",
+        "signal_id": "e55c17f8-4810-4dac-9dae-ca71397e50e2",
+        "trade_id": "paper_BTCUSDT_dfe5a3fa",
+        "action": "BUY",
+        "ticker": "BTCUSDT",
+        "fill_price": 65000.0,
+        "fill_qty": 0.15,
+        "size_pct": 0.15,
+        "sl": 63000.0,
+        "tp": 68000.0,
+        "status": "dry_run",
+        "reason": "paper_filled",
+        "duration_ms": 0,
+        "dry_run": true,
+        "meta": {
+          "adapter": {
+            "ok": true,
+            "status": "filled",
+            "execution_id": "paper_BTCUSDT_123",
+            "filled_qty": 0.15,
+            "avg_price": 65000.0,
+            "adapter": "paper"
+          },
+          "notif": {
+            "ok": false,
+            "error": "no_dispatcher"
+          }
+        }
+      }
+    },
+    {
+      "step": "5_result_tracker",
+      "timestamp": "2026-05-31T03:23:43.477241+00:00",
+      "result": {
+        "trade_id": "paper_BTCUSDT_dfe5a3fa",
+        "request_id": "b7342c84-c68b-40df-85b0-b065ab8be628",
+        "signal_id": "e55c17f8-4810-4dac-9dae-ca71397e50e2",
+        "ticker": "BTCUSDT",
+        "action": "BUY",
+        "entry_price": 65000.0,
+        "close_price": 68000.0,
+        "fill_qty": 0.15,
+        "size_pct": 0.15,
+        "sl": 63000.0,
+        "tp": 68000.0,
+        "gross_pnl": 450.0,
+        "net_pnl": 438.03,
+        "fees": 11.97,
+        "duration_s": 0.0,
+        "outcome": "win",
+        "opened_at": "2026-05-31T03:23:43.477104+00:00",
+        "closed_at": "2026-05-31T03:23:43.477104+00:00",
+        "dry_run": true,
+        "meta": {
+          "notif": {
+            "ok": false,
+            "error": "no_dispatcher"
+          }
+        }
+      }
+    },
+    {
+      "step": "6_datasheet_writer",
+      "timestamp": "2026-05-31T03:23:43.478953+00:00",
+      "result": {
+        "ok": true,
+        "dry_run": true,
+        "written": false,
+        "jsonl_path": "",
+        "csv_path": "",
+        "error": ""
+      }
+    },
+    {
+      "step": "7_learning_feeder",
+      "timestamp": "2026-05-31T03:23:43.481790+00:00",
+      "result": {
+        "request_id": "43b13582-30b6-4da7-ad02-60b24a025c42",
+        "signal_id": "e55c17f8-4810-4dac-9dae-ca71397e50e2",
+        "bridge_status": "dry_run",
+        "brick_stored": false,
+        "brick_id": "",
+        "summary": "=== LEARNING FEEDBACK ===\nsignal_id : e55c17f8-4810-4dac-9dae-ca71397e50e2\nticker    : BTCUSDT  action=BUY\nentry     : 65000.0  \u2192  close=68000.0\noutcome   : WIN\npnl       : gross=450.0000  net=438.0300  fees=11.9700\nsize      : size_pct=15.0%  fill_qty=0.15\nduration  : 0.0s\nconfidence: 0.82\nrationale : E2E dry-run simulated proposition (bridge not called)\nfeedback  : Positive reinforcement \u2014 setup worked as expected.",
+        "duration_ms": 0,
+        "dry_run": true,
+        "meta": {
+          "dry_run": true
+        }
+      }
+    }
+  ],
+  "signal_source": {
+    "engine": "e2e_dry_run",
+    "signal": "BUY",
+    "symbol": "BTCUSDT"
+  },
+  "proposition_summary": {
+    "action": "BUY",
+    "confidence": 0.82
+  },
+  "validation_verdict": "APPROVED",
+  "trade_executor_status": "dry_run",
+  "result_tracker_outcome": "win",
+  "pnl_paper": {
+    "net_pnl": 438.03,
+    "outcome": "win"
+  },
+  "datasheet_writer": {
+    "dry_run": true,
+    "written": false
+  },
+  "learning_feeder": {
+    "bridge_status": "dry_run",
+    "brick_stored": false
+  },
+  "tmux_before": {
+    "error": "tmux rc=1",
+    "stderr": "error connecting to /tmp/tmux-1000/default (No such file or directory)",
+    "active": []
+  },
+  "tmux_after": {
+    "error": "tmux rc=1",
+    "stderr": "error connecting to /tmp/tmux-1000/default (No such file or directory)",
+    "active": []
+  },
+  "localcms": {
+    "/health": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu/state": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/runtime/tmux": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    }
+  },
+  "localcms_ok": false,
+  "localcms_before": {
+    "/health": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu/state": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/runtime/tmux": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    }
+  },
+  "localcms_after": {
+    "/health": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu/state": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/runtime/tmux": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    }
+  },
+  "closeout_required": false,
+  "closeout_acknowledged": false,
+  "sheets_sync": {
+    "enabled": true,
+    "mode": "dry_run",
+    "returncode": 0,
+    "stdout_tail": "GOOGLE SHEETS SYNC - 20260531_014\n============================================================\nMode     : dry_run\nRun ID   : 20260531_014\nDate     : 2026-05-31\nSignal   : BUY BTCUSDT\nVerdict  : APPROVED\nOutcome  : win net=438.03\nCloseout : False\n\n-- Row preview (columns -> values) --\n  run_id                    = 20260531_014\n  date                      = 2026-05-31\n  signal                    = BUY BTCUSDT\n  side                      = BUY\n  ticker                    = BTCUSDT\n  action                    = BUY\n  confidence                = 0.8200\n  verdict                   = APPROVED\n  exec_status               = dry_run\n  fill_price                = \n  outcome                   = win\n  net_pnl                   = 438.0300\n  datasheet_written         = NO\n  bridge_status             = dry_run\n  brick_stored              = NO\n  tmux_before               = \n  tmux_after                = \n  localcms_before_ok        = 0/4\n  localcms_after_ok         = 0/4\n  closeout_acknowledged     = NO\n  duration_s                = 0.0430\n  all_ok                    = YES\n\nDRY-RUN - no write to Google Sheets.\n  Use --controlled-write to actually sync.\n  Note: set GOOGLE_SHEETS_SYNC_SHEET_ID and run\n  gcloud auth application-default login --scopes=https://www.googleapis.com/auth/spreadsheets\n  for controlled-write mode.\n============================================================",
+    "stderr": ""
+  }
+}

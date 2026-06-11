@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_162713_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T12:27:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-26-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "shorts proches résistance 62000, cible 59000-57000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fracture claire résistance 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière dominante sur BTCUSDT, avec structure en série de LH/LL confirmée.  \n- Zones clés proches de 62 000 (résistance) et 59 000 (support) à surveiller pour des réactions.  \n- Contexte de marché global très volatil avec indices et matières premières en baisse, ce qui renforce le biais baissier crypto.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière claire depuis plusieurs jours, structure en Lower Highs (LH) et Lower Lows (LL). La paire a récemment testé un support clé vers 59 000 USDT, rebond technique en cours vers résistance 62 000. Volume en augmentation sur rebond, signalant un intérêt sur ces niveaux. Scénario principal: continuation baissière si la résistance 62 000 tient, avec invalidation en cas de franchissement clair au-dessus. Zones clés: support 59 000, résistance 62 000. Plan: privilégier shorts proches résistance, objectif vers 59 000-57 000.\n\nC) Chart 2 (haut-droit): Inconnu (non lisible)  \nSymbole et timeframe non iden",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-26-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_12-26-38.png"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_061332_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T02:13:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-13-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 58500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rejet résistance 63000, cible 60000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 63500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Configuration baissière dominante sur le BTC, avec tentative de rebond récent.  \n- Zones clés à surveiller autour de 63 000 USDT (résistance) et 60 000 USDT (support).  \n- Scénario prioritaire : rejet possible sur résistance, invalidation en cas de franchissement clair.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance clairement baissière avec structure de lower highs (LH) et lower lows (LL). Rebond actuel teste la zone de résistance vers 63 000 USDT, résistance déjà testée plusieurs fois sans cassure. Supports clés autour de 60 000 USDT et 58 500 USDT. Scénario principal : short sur rejet de la résistance avec objectif 60 000 USDT. Invalidation si dépassement à plus de 63 500 USDT avec bougie de clôture ferme.  \n\nC) Chart 2 (haut-droit): Inconnu  \nSymbole et timeframe non lisibles, aucune analyse possible.  \n\nD) Chart 3 (bas-gauche): Inconnu  \nSymbole et timeframe non lisibles, aucune analyse possible.  \n\nE) Chart 4 (bas-droit): Inconnu  \nSymbole et timeframe no",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-13-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_02-13-09.png"
+  }
+}

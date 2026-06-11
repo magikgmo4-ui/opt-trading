@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_151939_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T11:19:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-19-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.155,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.182,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller casse au-dessus de 1.182 pour viser 1.200, sinon repli possible vers 1.150",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse en clôture sous 1.150",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte nette baissière, avec une série de Lower Highs (LH) et Lower Lows (LL) sur le 15m.  \n- Structure récente de rebond haussier formant un Higher Low (HL) après un LL, indiquant une possible correction ou accumulation.  \n- Zone clé de résistance vers 1.180-1.182 USDT, support à 1.150-1.155 USDT; cassure de ces niveaux définira le prochain scénario.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nSur ce timeframe 15m, XRPUSDT.P est dans une dynamique baissière claire, matérialisée par une succession de LH et LL. Un rebond est en cours, avec un HL formé sur 1.150-1.155. La résistance immédiate se situe autour de 1.180-1.182. Une validation du rebond nécessite de casser cette résistance pour viser un retour vers 1.200. En revanche, un échec à ce niveau ou un retour sous 1.155 invaliderait le scénario haussier court terme et relancerait la tendance baissière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec correction\",\"structure\":\"LL,",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-19-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_11-19-22.png"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_5_20260611T063008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "gold_forex_signals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2018-11-16T10:20:19+00:00",
+  "produced_at": "2026-06-11T06:30:08.195206+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 1216.14,
+  "sl": 1212.2,
+  "tp": 1230.0,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "*Gold buy now: 1216.14\n  -Tp: 1230\n  - Sl: 1212.2",
+  "summary": "XAUUSD LONG"
+}

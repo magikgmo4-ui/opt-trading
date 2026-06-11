@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_234817_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T19:48:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-48-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure range, long au-dessus de 61,200, short en dessous de 60,500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 60,500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec structure principale en LL (Lower Lows) et LH (Lower Highs)  \n- Stabilisation récente visible avec oscillations latérales autour de 60,800 USDT, zone clé de support  \n- Scénario envisageable de rebond technique mais invalidation possible en cas de cassure sous 60,500 USDT  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre un mouvement baissier dominant avec des creux et sommets décalés à la baisse (LL/LH). Une zone de support se forme autour de 60,500 USDT, où le prix consolide en range. La résistance immédiate se situe vers 61,200 USDT, seuil à dépasser pour envisager un retournement. Volume en baisse recente témoigne d’attente du marché. Le plan est d’attendre une cassure claire du range : au-dessus de 61,200 pour un biais haussier temporaire, ou en-dessous de 60,500 pour revenir dans la tendance baissière forte en place. Invalidation du biais haussier si nouveau plus bas sous 60,500 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"cha",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-48-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_19-48-01.png"
+  }
+}

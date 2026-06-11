@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_044127_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T00:41:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-41-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0821,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre dans le retracement sous 0.082 avec stop au-dessus de 0.083. Cible initiale 0.075 ou moindre en extension si cassure 0.078.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Reprise au-dessus durable de 0.083",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec une accélération baissière récente confirmée par un fort volume à la cassure des supports.  \n- Zone clé support proche à 0.078, son franchissement pourrait accélérer la baisse, résistance à 0.0821-0.083 en zone de congestion récente.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe marché est en tendance baissière définie par une structure LH/LL. Le prix a cassé plusieurs supports intermédiaires, avec un volume en hausse à chaque rupture. La zone autour de 0.078 sert de support critique à court terme. Un rebond sur ce niveau pourrait proposer un swing short sur repli vers 0.082. En cas de cassure sous 0.078, le mouvement baissier sera validé et potentiellement intensifié. Le scénario haussier sera invalidé si le prix remonte durablement au-dessus de 0.083. La prudence est de mise, privilégier les setups vendeurs sous résistance.  \n\nC) DeskPro  \n{\"run_id\":",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-41-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_00-40-59.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_033155_NYMEX:NG1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:31:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-31-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.17,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.37,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.38,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien support 3.15 pour achat, sinon scalp ou vente en cas de cassure à la baisse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire sous 3.15 pour scénario haussier; franchissement au-dessus de 3.38 pour scénario baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le marché montre une phase haussière suivie d’une correction nette, puis une tentative de stabilisation.\n- Structure récente marquée par un haut plus haut (HH) vers 3.38, puis retracement avec un bas plus bas (LL), creusant une possible inversion.\n- Zone clé résistante autour de 3.38, support intraday à 3.15, à surveiller pour confirmer la reprise ou la poursuite du repli.\n\nB) Chart unique (NYMEX:NG1! 1h): \nTendance actuelle incertaine, oscillant entre hausse et correction. Structure globale récente haussière avec HH/HL mais cassure d’un HL en cours (LH/LL formés). Support clé visible vers 3.15-3.17, résistance majeure vers 3.37-3.38. Scénario haussier si maintien au-dessus de 3.15 avec retour sur résistance, scénario baissier si cassure nette sous 3.15 et maintien sous 3.20. Invalidation à la hausse sous 3.15, ou à la baisse au-delà de 3.38. Volume en légère hausse sur la tentative de rebond.\n\nC) DeskPro \n{\"run_id\":\"20240604_0331\",\"charts\":[{\"slot\":\"single\",\"bias\":\"",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-31-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-03_23-31-22.png"
+  }
+}

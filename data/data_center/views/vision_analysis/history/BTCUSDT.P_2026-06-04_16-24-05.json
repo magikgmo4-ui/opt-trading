@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_202414_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T16:24:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-24-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur cassure 62800, ou attente HH pour achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable 64400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance claire baissière sur le 15m avec succession de LL (Lower Lows) et LH (Lower Highs).\n- Structure actuelle montre une tentative de rebond sous résistance vers 64 400 USDT, sans création de HH confirmée.\n- Scénario actionnable : surveiller cassure du support vers 62 800 USDT pour poursuite baissière, invalidation si franchissement durable au-dessus de 64 400 USDT.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nTendance dominante : baissière  \nStructure : LL/LH, absence de HH récent  \nSupports clés : 62 800 USDT (plus bas récent), 62 400 USDT (zone de volume élevé)  \nRésistances clés : 64 400 USDT (plus haut local intermédiaire)  \nPlan : Vendre sur confirmation de cassure support 62 800, ou attendre une éventuelle construction de HH pour revenir à l’achat  \nInvalidation : franchissement durable au-dessus de 64 400 USDT avec volume\n\nC) DeskPro {\"run_id\":\"20240610_2024\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL LH\",\"supports\":[\"62800\",\"62400\"],\"resistance",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-24-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_16-23-58.png"
+  }
+}

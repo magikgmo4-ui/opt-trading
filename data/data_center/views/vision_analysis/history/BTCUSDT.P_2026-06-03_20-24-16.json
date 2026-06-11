@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_002426_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T20:24:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_20-24-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rebond ou rupture support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure au-dessus de 68000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analysé non réalisable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analysé non réalisable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analysé non réalisable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Sur l’ensemble des graphiques, la tendance principale est baissière avec des structures de bas en haut (LH/LL) prédominantes.  \n- Plusieurs zones clés (supports et résistances) se dessinent, utiles pour des points d'entrée ou de sortie.  \n- Scénarios baissiers à privilégier tant que les niveaux d’invalidation ne sont pas franchis.\n\nB) Chart 1 (haut-gauche) : Bitcoin / USDT, 1h  \n- Tendance : Baissière claire, succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure : Confirmation du downtrend avec pas de retournement visible à court terme.  \n- Supports clés : 64 000 USDT (actuel, support psychologique), puis 62 000 USDT.  \n- Résistances clés : 66 000 USDT (récente résistance dynamique), 68 000 USDT.  \n- Scénario : Poursuite du mouvement vers le support si rupture de 64 000 USDT. Rebond possible en range entre 64 000-66 000 USDT.  \n- Invalidation : Cassure haussière au-dessus de 68 000 USDT remettrait en cause la faiblesse.\n\nC) Chart 2 (haut-droit) : Symbole",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_20-24-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_20-24-09.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_092807_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T05:28:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-27-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur rupture support 62,800, envisager short avec cible 61,900. En cas de franchissement 64,400, réévaluer pour éventuelle consolidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture solide au-dessus de 64,400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL) sur le 15m.  \n- Structure fragilisée avec tentative de rebond en cours, légèrement corrective, sans signe de renversement durable.  \n- Zones clés à surveiller pour entrées : support immédiat vers 62,800 USDT, résistance sur 64,400 USDT (ancien point de support devenu résistance).\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance est baissière dominante avec une structure en Lower Highs et Lower Lows confirmée. Après un nouveau creux autour de 61,900 USDT, un rebond technique a provoqué une réaction vers 64,400 USDT, mais la pression vendeuse reste forte. Le prix teste actuellement le support vers 62,800 USDT; en cas de rupture, poursuite probable de la baisse. À l’inverse, franchir 64,400 USDT invaliderait une poursuite baissière court terme et ouvrirait une phase potentielle de consolidation voire de reprise. Le volume accompagne les mouvements baissiers en pic, signalant conviction vend",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-27-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_05-27-46.png"
+  }
+}

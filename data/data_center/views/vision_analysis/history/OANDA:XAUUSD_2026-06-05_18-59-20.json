@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_225928_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T18:59:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-59-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher shorts à rebonds sous résistances 4380/4400, cible 4300 puis 4280 en cas de cassure support 4320",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">4400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le timeframe 1h, avec des bas et des hauts descendants (LH/LL).\n- Structure en consolidation baissière entre 4375 et 4325 avant forte accélération baissière.\n- Zone clé de support proche 4320 à surveiller pour un possible rebond ou poursuite baissière.\n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLa tendance est baissière claire avec structure LH/LL confirmée. Les support majeurs à court terme se situent vers 4320-4330, zone testée récemment avec rebond limité. Résistance significative autour de 4375-4380. Scénario privilégié : continuation vers les 4300-4280 en cas de cassure du support actuel. Invalidation possible au-dessus des 4390-4400 qui remettraient en cause la dynamique baissière court terme.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[4320,4300],\"resistances\":[4380,4400],\"plan\":\"Chercher shorts à rebonds sous résistances 4380/4400, cible 4300 puis 4280 en cas de cassure su",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-59-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_18-59-02.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_135355_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T09:53:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_09-53-04",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Achat en cassure de 0.0855 avec stop sous 0.0810. Objectif extension haussière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Repli sous 0.0810 avec retour possible à la baisse.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Structure récente en HL/HH indiquant un rebond et un début de reprise haussière à CT.  \n- Zone de support clé autour de 0.0810-0.0815, zone de résistance majeure vers 0.0855-0.0860.  \n- Scénario haussier privilégié si rupture des 0.0855 avec invalidation sous 0.0810.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa tendance court terme est haussière, confirmée par une succession de creux et sommets plus hauts (HL/HH). Le prix a rebondi sur un support à 0.0810 et remonte vers la résistance 0.0855. Volume en légère augmentation lors des remontées. En cas de dépassement franchi de 0.0855, la hausse pourrait s’accélérer. En revanche, un retour sous 0.0810 invaliderait ce scénario haussier et pourrait relancer la pression vendeuse. La structure est donc claire avec une zone de support clé en bas et une résistance à franchir pour valider la tendance.\n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL/HH\",\"supports\":[\"0.0810-0.0815\"],\"resis",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_09-53-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-07_09-52-56.png"
+  }
+}

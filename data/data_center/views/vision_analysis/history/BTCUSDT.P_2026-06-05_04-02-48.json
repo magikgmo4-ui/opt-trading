@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_080258_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T04:02:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_04-02-48",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur repli sur support 61000, engager long avec stop sous support. Sur rupture résistance 64000, chercher confirmation d’un retournement haussier. Abandonner positions longues si cassure sous 61000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture durable au-dessus de 64000 pour abandonner biais baissier, ou cassure sous 61000 pour confirmer tendance baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une succession de lower highs (LH) et lower lows (LL) sur ce timeframe 15m.  \n- Structure de consolidation récente marquée par un range servant de support vers 61,000 et résistance vers 64,000.  \n- Scénario de rebond possible vers résistance clé, mais invalidation si rupture du support à 61,000.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance principale est baissière (LH/LL). On observe une zone support autour de 61,000, testée plusieurs fois, où des volumes d’achats apparaissent. La résistance majeure est autour de 64,000, zone où le prix bute régulièrement. Le prix évolue actuellement dans un range entre ces deux zones. Un franchissement clair de 64,000 amènerait un potentiel retour d’une structure haussière (HH/HL), tandis qu’une cassure sous 61,000 renforcerait la tendance baissière avec poursuite des LL.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish avec potentiel rebond range\",\"structure\":\"LH/LL sur",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_04-02-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_04-02-36.png"
+  }
+}

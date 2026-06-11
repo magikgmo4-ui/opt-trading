@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_052755_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T01:27:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-27-48",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1480.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée acheteuse à la cassure de 1620, stop sous 1480",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chute sous 1480",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m baissière sur la première partie, puis stabilisation et début de reprise en fin de graphique.\n- Structure passée : plusieurs Lower Highs (LH) et Lower Lows (LL) caractérisant la chute initiale.\n- Zone clé de support vers 1480-1500 USDT, résilience visible, scénario bullish possible si break 1620.\n\nB) Chart unique (ETHUSDT.P 15m): \nLe marché a dominé par une série de bas plus bas et de hauts plus bas indiquant une tendance baissière solide. Sur la fin, le prix montre un rebond avec une structure de bas plus hauts (HL) confirmant un retournement potentiel. Zone de support majeur visible autour de 1480-1500 USDT, avec résistance immédiate à 1620 USDT. Le plan de trading serait de surveiller la cassure de cette résistance pour confirmer la reprise haussière. L’invalidation du scénario serait un retour sous 1480.\n\nC) DeskPro\n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier en rebond\",\"structure\":\"LL/LH puis HL\",\"supports\":[1480,1500],\"resistanc",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-27-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_01-27-33.png"
+  }
+}

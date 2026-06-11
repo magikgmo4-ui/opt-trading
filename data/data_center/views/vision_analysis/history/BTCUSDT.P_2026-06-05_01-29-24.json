@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_052932_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T01:29:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_01-29-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur retest résistance, viser nouveau plus bas sur support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break >66000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Dominante nette de tendance baissière sur l’ensemble des vues.  \n- Structure clairement en succession de Lower Highs (LH) et Lower Lows (LL), absence de signal de retournement.  \n- Zones clés à surveiller : support autour de 62 000 USD, résistance vers 65 500 USD.\n\nB) Chart 1 (haut-gauche) :  \nGraphique 1h du BTC/USDT. Tendance baissière bien installée avec structure en Lower Highs et Lower Lows. Le prix est venu consolider après un fort sell-off, zones clés sur support à ~62 000 USDT, résistance à ~65 500 USDT. Volume en hausse sur les baisses, signe de force vendeuse. Scénario principal : poursuite du downtrend avec retest du support vers 62k. Invalidation si franchissement clair au-dessus de 66 000 USD.\n\nC) Chart 2 (haut-droit) : inconnu (détail illisible).  \n\nD) Chart 3 (bas-gauche) : inconnu (symbole et timeframe non identifiables).  \n\nE) Chart 4 (bas-droit) : inconnu (symbole/timeframe non lisibles).  \n\nF) DeskPro  \n{\"run_id\":\"analyse_2024_06_05_01\",\"charts\":",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_01-29-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_01-29-15.png"
+  }
+}

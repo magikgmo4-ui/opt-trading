@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_171952_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:19:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-19-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rester short sur pullback vers 1.1580 ou poursuite de la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1.1580 avec nouveau HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette confirmée par une cassure franche sous les derniers supports.\n- Structure en LL (Lower Lows) et LH (Lower Highs) clairement visible, montrant un affaiblissement progressif.\n- Zone clé de support cassée autour de 1.1580, maintenant potentiellement résistante pour un retour à la hausse.\n\nB) Chart unique (FX:EURUSD 1h):\nOn observe une chute rapide et puissante du prix qui a brisé plusieurs creux antérieurs (LL) et a invalidé la structure de range précédemment établie. Le prix évolue sous une série de LH, ce qui renforce le biais baissier. Les niveaux clés sont le support cassé à 1.1580 devenu résistance, et un support potentiel plus bas autour de 1.1500. Le scénario prioritaire reste une continuation baissière tant que le prix ne repasse pas durablement au-dessus de 1.1580. Invalidation si retour au-dessus de cette zone avec un nouveau HH.\n\nC) DeskPro\n```json\n{\"run_id\":\"eurusd_1h_20240605\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-19-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_13-19-30.png"
+  }
+}

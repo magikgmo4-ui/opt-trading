@@ -1,0 +1,29 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_167_20260611T090008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "forex_gold_signals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2023-10-11T10:37:46+00:00",
+  "produced_at": "2026-06-11T09:00:08.542296+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 148.8,
+  "sl": 150.9,
+  "tp": 1.0,
+  "tps": [
+    1.0,
+    2.0,
+    2.0,
+    1.0,
+    2.0,
+    2.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "#USDJPY\u00a0 #SELL 1\u20e3 @148.800\nTP1 @ 148.400\nTP2 @ 147.900\n#SELL 2\u20e3 @ 149.900\nTp 2 @148.900\nSL @150.900",
+  "summary": "XAUUSD SHORT"
+}

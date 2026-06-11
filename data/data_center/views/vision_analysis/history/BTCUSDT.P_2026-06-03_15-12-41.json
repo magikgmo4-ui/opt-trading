@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_191253_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:12:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-12-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.168,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à la cassure support ou rejet résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 1.1680",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation structure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "selon évolution",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "réévaluer selon ouverture de contexte",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller pour infos complémentaires",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Les graphiques montrent principalement une tendance baissière ou en cours d’affaiblissement sur plusieurs unités de temps.  \n- La structure alterne entre des lower highs (LH) et lower lows (LL), confirmant une pression vendeuse dominante.  \n- Zones clés de support détectées vers 1.1590 ; résistance autour de 1.1650 - 1.1680.\n\nB) Chart 1 (haut-gauche): EUR/USD 1h  \nTendance descendante claire avec structure HL puis LH suivie de LL, indiquant un retournement baissier.  \nZone de support identifiée autour de 1.1590, testée plusieurs fois.  \nRésistance majeure autour de 1.1650-1.1680 qui a bloqué les remontées.  \nScénario principal : poursuite du mouvement baissier en cas de cassure claire du support 1.1590.  \nInvalidation en cas de retour au-dessus de 1.1680 avec un nouveau HH.  \nPlan : vendre sur rejet de résistance ou cassure support.\n\nC) Chart 2 (haut-droit): inconnu (symbol/timeframe non visible)  \nStructure difficile à analyser précisément, absence d’indications c",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-12-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_15-12-30.png"
+  }
+}

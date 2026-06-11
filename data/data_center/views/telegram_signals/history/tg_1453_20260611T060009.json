@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_1453_20260611T060009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "xauusd_free_signals",
+  "channel_priority": "P0",
+  "channel_type": "xau_signal",
+  "parsed_at": "2023-03-07T14:52:37+00:00",
+  "produced_at": "2026-06-11T06:00:09.423042+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 1828.0,
+  "sl": 1820.0,
+  "tp": 1839.0,
+  "tps": [
+    1839.0,
+    1847.0,
+    1862.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "Buy Gold @ 1828-30\n\nTP1:  1839\u2705\nTP2: 1847\u2705\nTP3: 1862\u2705\n\nSL  1820\u2666\ufe0f \n\nUse proper risk \u2757\ufe0f",
+  "summary": "XAUUSD LONG"
+}

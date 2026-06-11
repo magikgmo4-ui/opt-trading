@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_183_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "LexatyCryptoSignals",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2025-02-18T17:00:37+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "INJUSDT",
+  "direction": "LONG",
+  "entry_price": 14.456,
+  "sl": 13.889,
+  "tp": 14.912,
+  "tps": [
+    14.912,
+    15.245,
+    16.145
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udfe2 Buy/Long signal #INJUSDT\nEntry range: 14.456\nTargets: 14.912_ 15.245_ 16.145\nStop: 13.889\nLeverage: 6-8X\nBalance: 6% of capital",
+  "summary": "INJUSDT LONG"
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_185257_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T14:52:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_14-52-45",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure sous support pour short; invalidation au-dessus résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture quotidienne > 2.7T USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière confirmée sur la majorité des graphiques avec structure de creux et sommets dégradés.  \n- Plusieurs zones clés de support testées, à surveiller en intraday pour potentielle reprise ou poursuite baissière.  \n- Les scénarios baissiers dominent, invalidation possible uniquement par franchissement clair des résistances majeures.  \n\nB) Chart 1 (haut-gauche):  \nTendance baissière claire sur 1D, structure en LH/LL depuis novembre avec plusieurs tentatives de rebond infructueuses. Volume en hausse lors des chutes, ce qui confirme la pression vendeuse. Zone clé de support proche des 2.25T USD à surveiller, une cassure en clôture sous ce niveau pourrait engendrer une chute accélérée. Résistance immédiate autour de 2.7T, invalidation baissière au-dessus. Scénario prioritaire : poursuite du downtrend jusqu'à nouvel excès vendeur.  \n\nC) Chart 2 (haut-droit):  \nInconnu (symbole et timeframe non visibles).  \n\nD) Chart 3 (bas-gauche):  \nInconnu (symbole",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_14-52-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-03_14-52-28.png"
+  }
+}

@@ -1,0 +1,2865 @@
+[
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260603_215326_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T17:53:24-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_17-53-17",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur cassure sous 700B avec stop au-dessus de 720B / Achat potentiel en cas de rebond confirmé vers 760B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "au-dessus de 780B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière depuis plusieurs mois, structure en LL et LH clairement visible.  \n- Price action récent latéral à légèrement baissier avec tests répétés de la zone de support proche de 700B.  \n- Risque de nouvelle cassure baissière sous 700B ou rebond technique vers résistance 760-780B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nOn observe une tendance baissière de fond marquée par une succession de Lower Highs (LH) et Lower Lows (LL). Depuis février, la structure se comporte en range/basculement entre 700B (support clé) et 760-780B (résistance majeure). Le prix teste actuellement la zone basse du range avec un volume en légère hausse, suggérant un potentiel breakdown. Un rebond pourrait intervenir si le support 700B tient, mais à confirmer. La structure récente est fragile et le scénario baissier reste privilégié tant que 780B n’est pas franchi clairement.\n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL LH,",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_17-53-17",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_17-53-06.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260603_225529_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T18:55:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_18-55-21",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sous 700B avec confirmation, viser 640B en extension baissière",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Remontée au-dessus de 720-730B et maintien",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible depuis l’automne 2025 avec une série de LH (Lower Highs) et LL (Lower Lows).  \n- Depuis mars 2026, structure latérale avec HL et LH proches, zone de consolidation entre environ 700B$ (support) et 780B$ (résistance).  \n- Rupture récente sous le support 700B$ pourrait signaler une reprise baissière si confirmée, invalidation en cas de retour au-dessus.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance globale est baissière marquée par des sommets et creux dégressifs jusqu’en février 2026. L’évolution entre mars et fin mai 2026 évolue en range horizontal compris entre 700B$ (support clé) et 780B$ (résistance clé). Dernière bougie indique cassure à la baisse du support 700B$, augmentant le risque d'une dégradation structurelle avec un nouveau LL. Volume en légère hausse lors de la baisse récente, ce qui renforce la validité potentielle de ce mouvement. Le scénario principal privilégie une poursuite baissière sous 700B$ avec ci",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_18-55-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_18-55-11.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260603_235741_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T19:57:38-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_19-57-32",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure support 700B pour entrée short, stop au-dessus de 770B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture daily au-dessus de 770B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance générale baissière de moyen terme avec séries de Lower Highs (LH) et Lower Lows (LL).\n- Phase de consolidation récente avec structure latérale entre 700B et 770B USD.\n- Cassure possible vers le bas si le support clé à 700B est invalidé, risque de reprise baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) : \nLe graphique montre une tendance baissière dominante marquée par une succession de LH et LL. Depuis février, le marché évolue dans une zone de congestion latérale, oscillant entre un support horizontal majeur vers 700B (zone testée plusieurs fois) et une résistance autour de 770B. La structure récente est neutre avec plusieurs tentatives de rebond avortées, soulignant une pression vendeuse persistante. Le scénario prioritaire est une cassure à la baisse sous 700B, confirmant la reprise du mouvement baissier. L’invalidation de ce scénario se ferait si le prix franchit et maintient au-dessus de 770B, évoquant une possible inversion vers un trend haussier.\n\nC",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_19-57-32",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_19-57-22.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_010915_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T21:09:13-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_21-09-04",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur 700B pour possible swing haussier court terme. En cas de cassure à la baisse, viser baisse prolongée.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture quotidienne au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance dominante baissière visible sur la période de plusieurs mois, avec des lower highs (LH) et lower lows (LL).\n- Structure latérale à court terme depuis février, avec des zones de support autour de 700B et résistance vers 760B.\n- Risque d'une nouvelle baisse si le support clé des 700B est invalidé.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): \nLe marché montre une tendance baissière prolongée confirmée par des mouvements en lower highs et lower lows jusqu’en février. Depuis, la structure est latérale, oscillant entre un support à 700B (testé plusieurs fois) et une résistance vers 760B. Le prix teste actuellement le support à 710B, proche de la zone clé des 700B. Un rebond pourrait relancer une tentative de hausse vers la résistance 760B. En cas de cassure sous 700B, la tendance baissière se remettrait en place, ciblant de nouveaux plus bas.\n\nC) DeskPro \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish to neutral\",\"structure\":\"LH/LL puis range\",\"supports\":[\"7",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_21-09-04",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_21-08-49.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_021047_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T22:10:45-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-10-38",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "vendre sur rebond sous 760B ou break support 710B pour viser nouveaux plus bas",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour et clôture stable au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le long terme avec une série de lower highs (LH) et lower lows (LL).  \n- Structure récente latérale à baissière, avec plusieurs tentatives de rebond stoppées sous 760B (résistance).  \n- Break actuel sous support vers 710B-700B, signalant un risque de poursuite de la baisse à court terme.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance dominante est baissière depuis plusieurs mois, visible via la succession de HH/HL inversée en LH/LL. La structure latérale observée entre février et mai se fragilise avec une cassure sous la zone de support majeure autour de 710B-700B. La résistance clé est autour de 760B, qui bloque la moindre tentative de rebond. Le scénario prioritaire est une continuation baissière jusqu’à de nouveaux bas. Invalidation possible en cas de retour au-dessus de 760B avec volume.\n\nC) DeskPro  \n{\"run_id\":\"run_CRYPTOCAP_TOTAL3_1d_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL avec latéralité récent",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-10-38",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_22-10-28.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_033035_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T23:30:33-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_23-30-26",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction à 680B pour prise de position (rebond ou cassure)",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalier sous 680B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale baissière depuis plusieurs mois, avec des lower highs et lower lows marqués.  \n- Structure latérale entre 680B et 760B depuis février, sans cassure franche.  \n- Présence d’une zone clé support autour de 680B, à surveiller pour un potentiel rebond ou invalidation baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nOn observe une tendance baissière initiale avec une série de lower highs (LH) et lower lows (LL) jusqu’à fin janvier. Depuis février, la structure évolue en range latéral entre environ 680B (support) et 760B (résistance). Le prix teste de nouveau le support vers 700B, proche de la zone basse historique récente. Le scénario actionable serait d’attendre une réaction claire au support 680B :  \n- rebond possible vers 760B = scénario haussier moyen terme (changement de structure HL à confirmer)  \n- cassure sous 680B = poursuite de la tendance baissière avec nouvelle zone à trouver.  \nL’invalidation d’un rebond sera une baisse franche en clôtur",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_23-30-26",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_23-30-09.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_043152_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T00:31:50-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_00-31-45",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller break 680B pour entrée short, viser 640B. Stop au-dessus 780B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture au-dessus de 780B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance globalement baissière avec une série de HH/HL interrompue récemment par un nouveau plus bas.\n- Structure montrant un léger range entre 680 B et 780 B, avec des résistances solides vers 760-780 B.\n- Scénario baissier dominant en cas de cassure sous 680 B, invalidation au-dessus de 780 B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière de fond confirmée depuis plusieurs semaines, avec des oscillations latérales récentes entre 680 B (support majeur) et 780 B (résistance clé). La structure récente a perdu son dernier plus haut relatif (lower high), suggérant un risque de reprise baissière. La zone 680 B est importante pour un rebond potentiel, mais sa cassure pourrait entraîner un accéléré vers des niveaux plus bas. Une invalidation du scénario baissier s'effectuerait au-dessus de 780 B, où l’offre semble réapparaître fortement.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"HL en éche",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_00-31-45",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_00-31-35.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_053447_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T01:34:45-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_01-34-36",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance de la cassure nette sous 700B pour prise de position vendeuse avec cible sur prochains supports inférieurs. Attente d’un retour au-dessus de 740-750B pour invalider le biais baissier.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour et clôture au-dessus de 750B.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance de fond clairement baissière depuis plusieurs mois (structure de LL).\n- Tentatives intermittentes de rebond mais sans création de HL confirmés.\n- Zone de support clé autour de 700B testée plusieurs fois, récente rupture partielle susceptible d’ouvrir la voie à une poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) : \nLa structure est en série de Lower Lows (LL) et Lower Highs (LH), signalant une tendance baissière. Le prix a testé à plusieurs reprises la zone de support proche de 700B, ce niveau servait de zone clé. Dernièrement, on observe une incursion sous ce support sans rebond immédiat, ce qui pourrait engager un scénario de continuation à la baisse. La résistance majeure se situe vers 780-790B, niveau où les précédents retracements se sont arrêtés. Un retour au-dessus des 740-750B est nécessaire pour envisager un retournement structurel. L’invalidation du scénario baissier se situerait donc au-dessus de ce seuil.\n\nC) DeskPro\n{\"run_id\":\"2024060",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_01-34-36",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_01-34-26.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_063630_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T02:36:28-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_02-36-20",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure du support 700B pour entrée short, target vers 680B. Stop en cas de retour au-dessus de 780B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Reprise nette au-dessus de 780B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière depuis plusieurs mois avec des creux plus bas (LL) et des sommets également plus bas (LH).  \n- Structure latérale récente depuis février avec une zone de support autour de 700B et résistance vers 770-780B.  \n- Rejet baissier actuel proche du support clé à 700B, scénario de continuation baissière probable en cas de rupture.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre un marché baissier global avec une succession de Lower High (LH) et Lower Low (LL) jusqu’à février. Depuis cette période, le prix évolue latéralement, oscillant entre support majeur vers 700B (zone de plusieurs rebonds) et résistance à 770-780B. Actuellement, la récente cassure sous ce support testera la solidité de cette zone. Une invalidation baissière se produirait si le prix remonte durablement au-dessus des 780B, signalant un possible retour haussier. La prudence est de mise, car la tendance macro reste baissière, avec un risque élevé de nouvelle ph",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_02-36-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_02-36-09.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_073809_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T03:38:07-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_03-38-00",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vente sous 700B avec cible 680B. Surveiller rebond au-dessus de 760B pour invalidation du biais.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale clairement baissière depuis plusieurs mois, avec des séries de Lower Highs (LH) et Lower Lows (LL).  \n- Structure latérale entre février et mai avec support vers 700B USD, récemment invalidée à la baisse.  \n- Scénario vendeur dominant à court terme, avec risque potentiel de poursuite de la baisse en cas de maintien sous 700B.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché est en tendance baissière (LH/LL). Après un range latéral autour de 700-760B, la cassure récente du support à 700B confirme une faiblesse structurelle. Volume en légère hausse à la baisse, validant la pression vendeuse. Résistance clé à 730-760B, ancien plafond du range. Invalidation en cas de rebond robuste au-dessus de 760B qui remettrait en question la poursuite baissière. Objectif potentiel à court terme vers les 680B voire plus bas si momentum persiste.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"700B\",\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_03-38-00",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_03-37-46.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_084938_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T04:49:36-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_04-49-28",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre à la cassure du support 680B en momentum baissier, prévoir prise de profit en zone 640B ou plus bas. Surveiller un retour au-dessus de 740-760B pour invalidation et potentiel retournement.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour hebdomadaire au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière, avec des creux et sommets de plus en plus bas (LH/LL).  \n- Structure latérale baissière récente avec rupture vers le bas en cours.  \n- Zone clé support proche autour de 680B, zone résistance majeure à 740-760B.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière nette sur la période, caractérisée par une structure de Lower Highs (LH) et Lower Lows (LL). Après une période de consolidation latérale entre 680B (support) et 760B (résistance), la cassure récente sous ce support de 680B indique une possible accélération de la pression vendeuse. Le volume augmente légèrement lors de cette chute, renforçant la validité du mouvement baissier. Le scénario privilégié est donc une poursuite de la baisse tant que la résistance située autour de 720-740B n'est pas franchie. Une inversion de tendance ne sera envisagée qu'en cas de dépassement clair et soutenu au-dessus de 760B (invalidation du scénario baissier).\n\nC)",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_04-49-28",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_04-49-17.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_095214_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T05:52:12-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_05-52-06",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "attendre réaction sur support 685-690B avant entrée vendeuse, stop au-delà de 740B pour invalidation du biais",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture nette au-dessus de 740B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale baissière nette avec une série de lower highs (LH) et lower lows (LL).  \n- Phase récente de consolidation latérale suivie d'une reprise baissière nette depuis début mai.  \n- Zone clé support vers 685-690B, à surveiller pour éventuelle réaction ou accélération baissière.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure est clairement baissière avec succession de LH/LL. Après une longue chute, une consolidation latérale s'est formée entre 700B et 740B. Le prix vient de casser le support majeur vers 700B à fort volume, signalant potentiellement une nouvelle jambe baissière. Une zone de support secondaire existe autour de 685B, à valider. En cas de rebond, une résistance importante est visible autour de 740B. Le scénario principal attendu reste une poursuite de la tendance baissière sauf franchissement de 740B qui invaliderait ce biais.  \n\nC) DeskPro  \n{\"run_id\":\"20240614-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"sup",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_05-52-06",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_05-51-55.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_105534_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T06:55:32-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_06-55-26",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vente sous 700B avec stop au-dessus 780B, viser continuation baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour et maintien au-dessus 780B USD.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le timeframe journalier avec une succession de lower highs (LH) et lower lows (LL).  \n- Structure en consolidation depuis début 2026, tentatives de rebond freinées vers zone 760-780B USD (résistance majeure).  \n- Cassure récente sous zone de support autour de 700B USD, indiquant un risque de poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique CRYPTOCAP:TOTAL3 en daily montre une dynamique baissière nette avec une série d’LL/HL cassés à la baisse. La zone clé à surveiller se situe autour de 700B USD, ancien support désormais cassé, ce qui renforce la pression vendeuse. La résistance principale reste sur 760-780B USD, validant la structure baissière. Le scénario le plus probable est une continuation vers des niveaux plus bas, sauf retour haussier net au-dessus des 760B qui invaliderait temporairement la pression baissière. Invalidation se ferait par tenue au-dessus des 780B USD avec formation de higher lows.\n\n",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_06-55-26",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_06-55-15.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_115535_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T07:55:33-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_07-55-26",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Attendre confirmation de rejet sous 690B$. Entrée short envisagée sur rebond faible ou cassure avec volume. Cible vers 640-650B$.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Reprise rapide au-dessus de 700B$ avec volume",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale baissière forte depuis plusieurs mois, avec une chute marquée autour de janvier 2026.  \n- Sur le timeframe 1d, structure en Lower Highs (LH) et Lower Lows (LL) confirmée depuis la sortie du range latéral.  \n- Zone clé importante de support vers 690B$, cassée récemment, ce qui valide la reprise de la dynamique baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché est en tendance baissière claire, structure formant des LH et LL. Après une phase de consolidation latérale entre 700B$ et 760B$, la cassure du support vers 690B$ engage un nouveau mouvement baissier. Le volume augmente sur la dernière chute, confirmant la pression vendeuse. La zone 690B$ constitue un point d’invalidation possible si le prix remonte rapidement au-dessus. En l’absence de rebond clair, le scénario privilégié est la poursuite vers des niveaux plus bas, la prochaine zone de support majeure se situant vers 640-650B$.\n\nC) DeskPro  \n{\"run_id\":\"20240601-crypto-total3\",\"cha",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_07-55-26",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_07-55-16.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_125629_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T08:56:26-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_08-56-16",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure support 680B pour entrée vendeuse, invalidation au-dessus de 750B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière > 750B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante depuis plusieurs mois avec des phases de consolidation latérale récemment.  \n- Structure récente montre une série de LL (Lower Lows) et LH (Lower Highs), confirmant la continuation baissière.  \n- Zone de support clé autour de 680B testée, mais break possible à court terme, ce qui validerait un renforcement de la pression vendeuse.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance sur le 1d est baissière claire avec des creux et sommets de plus en plus bas (LL/LH). Après une longue baisse, la structure s’est stabilisée entre 700B et 750B durant 2 mois environ, formant une zone de support horizontale vers 680B et résistance vers 750B. Actuellement, la cassure sous le support vers 680B est en cours, signalant un risque de reprise baissière. L’invalidation se trouverait au-delà de 750B, ce qui relancerait un scénario plus neutre/haussier. Le plan reste donc d’observer un rebond confirmé ou une poursuite sous support pour envisager des",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_08-56-16",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_08-56-01.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_135847_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T09:58:45-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_09-58-39",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveillance du maintien du support 680B pour potentiel rebond, sinon baisse",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture daily au-dessus de 780B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière avec un net retracement haussier depuis février.  \n- Structure latérale avec bascule entre support à ~680B et résistance vers 760-780B.  \n- Action récente montre rejet actuel des hauts, possible rebond vers support majeur.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance principale est baissière (plusieurs LL et LH sur la période récente), mais une phase de consolidation latérale est visible depuis février, avec des HL et HH plus courts formant une zone de range entre environ 680B (support) et 760-780B (résistance). La cassure récente sous 700B suggère un test du support à 680B. Le volume s’accroît sur les mouvements baissiers. Scénario privilégié : surveiller réaction à 680B, si tenu, un rebond vers résistance est possible, sinon poursuite baissière. Invalidation : regain de force au-dessus de 780B en clôture daily confirmerait nouveau biais haussier.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-bais",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_09-58-39",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_09-58-29.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_151030_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T11:10:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_11-10-20",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "ouvrir short à la cassure sous 700B avec stop au-dessus de 700-780B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 700B puis franchissement de 780B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globalement baissière avec une succession de Lower Highs (LH) et Lower Lows (LL) depuis novembre.  \n- Structure latérale à partir de février, oscillant entre une zone de support proche de 700B et une résistance vers 780B-800B.  \n- Scénario baissier activé avec cassure récente du support à 700B, signalant une possible continuation vers de nouveaux plus bas.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre un biais baissier clair depuis plusieurs mois (LH et LL). Depuis février, un range horizontal s'est formé entre 700B (support clé) et 780-800B (résistance clé). La récente rupture à la baisse sous 700B invalide la phase de consolidation latérale et pourrait initier une nouvelle jambe baissière. Volume soutenu lors de la sortie baissière, confirmant la pression vendeuse. Invalidation en cas de retour rapide au-dessus de 700B et franchissement de la résistance à 780B.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"stru",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_11-10-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_11-10-05.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_163139_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T12:31:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_12-31-31",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "short sous 700B avec target 680B, stop au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance journalière baissière avec des bas plus bas (LL) récents confirmés.  \n- Structure de consolidation latérale entre environ 700B et 760B avant la récente cassure à la baisse.  \n- Zone clé support proche des 680B, à surveiller pour potentielle réaction.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière de fond avec une succession de LL et LH depuis le pic initial. Plusieurs phases de consolidation latérale entre 700B-760B ont précédé une rupture nette sous 700B. La dynamique actuelle est clairement baissière avec une pression vendeuse croissante. La zone support autour de 680B apparaît comme un niveau critique; une cassure sous ce seuil renforcerait la direction baissière, tandis qu’un rebond permettrait une tentative de retour vers la zone de résistance 720-760B. Invalidation du scénario baissier si retour solide au-dessus de 760B.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_12-31-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_12-31-16.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_173320_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T13:33:17-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_13-33-12",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 685.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 690.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 770.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la cassure des supports vers 685-690B pour short ou attendre retour en résistance pour vente",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 770B avec High Volume et formation de HL",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure latérale à court terme avec supports proches des 685-690B et résistances autour des 760-770B.  \n- Scénario baissier renforcé par la récente cassure des supports et forte pression vendeuse en volume.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance de fond en baisse marquée par une succession de LL et LH depuis novembre, confirmant la structure baissière. Depuis février, le marché évolue dans une fourchette latérale avec un support critique testé à plusieurs reprises vers 685-690B, puis une résistance formée vers 760-770B. La récente chute sous ce support semble indiquer une possible poursuite baissière. La forte augmentation du volume lors de cette baisse valide la pression vendeuse. Une invalidation du scénario baissier pourrait avoir lieu en cas de retour sous forme de Higher Low (HL) au-dessus de 690B ou dépassement franc des 770B.",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_13-33-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_13-33-01.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_183458_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T14:34:56-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_14-34-46",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la tenue du support 680B; si cassure, viser nouveaux plus bas. En cas de retour au-dessus de 760B, invalider le biais baissier et chercher confirmation de retournement.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance daily clairement baissière depuis plusieurs mois, avec structure de lower highs (LH) et lower lows (LL).\n- Zone clé de support proche des 680B à surveiller pour une possible réaction.\n- Scénario principal baissier avec risque de poursuite vers de nouveaux plus bas, invalidation au-dessus des 760B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) :  \nLe graphique montre une structure baissière claire avec des lower highs et lower lows formés depuis l’automne. Après une période de consolidation entre 700B et 760B, le cours casse le support vers 720B et teste actuellement le support majeur autour des 680B. Le volume a tendance à augmenter lors des mouvements baissiers récents, confirmant la pression vendeuse. Une rupture nette sous 680B engagerait la poursuite du trend baissier. En revanche, un retour au-dessus des 760B invaliderait le scénario baissier et signalerait un potentiel renversement structurel.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"b",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_14-34-46",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_14-34-30.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_193639_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T15:36:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_15-36-31",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller poursuite de la baisse après cassure du support critique, viser prochaines zones de support plus basses",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 710-720B en clôture journalier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec des sommets et creux descendants (LH/LL).\n- Structure de consolidation latérale entre février et mai avec un support clé autour de 700B.\n- Reprise de la baisse cassant ce support, ce qui valide un nouveau mouvement baissier.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):\nLe graphique montre une tendance dominante baissière avec une structure globale en Lower Highs et Lower Lows. Depuis février, une phase de consolidation latérale s’est formée entre environ 700B en support et 760-770B en résistance, traduisant une zone clé à surveiller. La récente cassure clairement en clôture sous le support à 700B invalide tout scénario haussier à court terme et donne une priorité à la chute vers les prochains supports majeurs non visibles sur ce graphique. Le volume semble augmenter lors de la dernière baisse, ce qui renforce la validité de la cassure.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec phase de c",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_15-36-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_15-36-20.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_203733_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T16:37:31-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_16-37-26",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre à la cassure du support 680B en visant 620-640B. Achat si retour au-dessus de 720B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour durable au-dessus de 720B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le long terme, avec une structure de creux plus bas (LL) et sommets plus bas (LH).  \n- Consolidation latérale entre février et mai, avant rechute sous support clé vers 700B $ récemment.  \n- Scénario probable: poursuite du mouvement baissier si le support à 680B $ est invalidé, cible plus basse possible vers 620-640B $.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance reste baissière avec une succession de LL et LH. Après une phase de range horizontal, le prix vient de casser un support important autour de 700B $. Volume en hausse sur la baisse, confirmant la pression vendeuse. La zone 700-710B $ devient résistance clé désormais. En dessous, cible de support majeur autour 620-640B $. Une invalidation de ce scénario serait une remontée au-dessus de 720B $ avec retour de structure HL.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL, LH\",\"supports\":[\"680B\",\"620-640B\"],\"resistances\":[\"700-710B",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_16-37-26",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_16-37-15.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_214805_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T17:48:03-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_17-47-58",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Anticiper poursuite de la baisse tant que 720B n'est pas franchi à la hausse",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Reprise au-dessus de 720B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Structure globale en tendance baissière visible avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rejet récent sous zone de support à ~720B, confirmant la pression vendeuse.  \n- Volume en hausse lors de la chute, indiquant conviction vendeuse et risque de poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre une domination des LL et LH, caractéristique d'une tendance baissière claire. Après une tentative de stabilisation autour des 720B (ancienne zone de support devenu résistance potentielle), la cassure à la baisse s’est accompagnée d’un fort volume, suggérant un possible élan baissier. La zone ~690B est à surveiller comme support court terme, tout maintien en dessous renforcerait la dynamique négative. Un retour au-dessus des 720B invaliderait le scénario baissier dominant.\n\nC) DeskPro  \n{\"run_id\":\"20240603_2147\",\"charts\":[{\"slot\":\"single\",\"bias\":\"BAISSIER\",\"structure\":\"LH, LL dominante\",\"supports\":[\"690B\"],\"resistances\":[\"72",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_17-47-58",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_17-47-47.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_225107_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T18:51:05-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_18-50-59",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 680.0,
+        "confidence": 0.7,
+        "note": "support à 680"
+      },
+      {
+        "type": "support_level",
+        "value": 760.0,
+        "confidence": 0.7,
+        "note": "s 760"
+      },
+      {
+        "type": "support_level",
+        "value": 690.0,
+        "confidence": 0.7,
+        "note": "s 690"
+      },
+      {
+        "type": "support_level",
+        "value": 640.0,
+        "confidence": 0.7,
+        "note": "s 640"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière dominante sur le plan daily.\n- Structure en Lower Highs (LH) et Lower Lows (LL), avec un recent plus bas marqué.\n- Zone clé support à 680-690B testée, scénario baissier en cas de cassure.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):\nLe marché montre clairement une tendance baissière avec une structure de Lower Highs et Lower Lows confirmée depuis plusieurs mois. Un support important se situe autour de 680-690B USD, qui a été testé plusieurs fois récemment. Le rebond est faible, indiquant un manque d’élan acheteur. Le scénario principal reste la continuation baissière sous ce support, avec pour invalidation une remontée au-dessus des derniers Lower Highs vers 760-770B. Volume en légère hausse sur les replis, renforçant la pression vendeuse.\n\nC) DeskPro\n{\"run_id\":\"run_unique_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":[\"LH\",\"LL\"],\"supports\":[680700000000],\"resistances\":[760770000000],\"plan\":\"Vente sous 690B avec objectif vers 640B, stop a",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_18-50-59",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_18-50-48.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_235239_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T19:52:36-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_19-52-29",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rebond proche résistance 720B-730B, viser 660B-670B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 750B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance daily baissière nette, avec une structure claire de Lower Highs (LH) et Lower Lows (LL) depuis plusieurs mois.  \n- Prix passe sous zone de support horizontale vers 720-730B, ce qui valide la reprise de la pression vendeuse.  \n- Volume en hausse sur les chandeliers baissiers récents, signalant une accélération vendeuse à court terme.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière dominante depuis la mi-2025, confirmée par une série de LH/LL. Après une phase de range entre 700B et 750B, le prix a cassé le support vers 720B avec augmentation des volumes, indiquant une forte pression vendeuse. La prochaine zone clé de support est vers 660-670B. Le scénario privilégié reste un mouvement baissier vers cette zone. Invalidation sous forme d’un retour au-dessus de 750B avec un franchissement clair d’un dernier LH.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"Lower Highs / Lower Lows\",\"s",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_19-52-29",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_19-52-09.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_005311_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T20:53:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_20-53-02",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur confirmation sous 700B, stop au-dessus de 720B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Remontée durable > 720B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale baissière marquée sur le long terme avec des creux et sommets descendants (LH/LL).  \n- Phase récente latérale entre ~700B (S) et 760B (R), rupture baissière soudaine sous support 700B.  \n- Risque de poursuite baissière si la zone des 700B ne se récupère pas rapidement (invalidation au-dessus de 720B).  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \n- Structure baissière dominante avec des Lower Highs et Lower Lows confirmés.  \n- Support clé brisé récemment à ~700B, signale une possible accélération de la baisse.  \n- Résistances principales situées à 720-760B, zone à reconquérir pour invalider le scénario baissier.  \n- Volume en hausse sur la chute, indiquant conviction vendeuse.  \n- Plan: envisager des positions vendeuses en cas de confirmation sous 700B, prudence en cas de retour rapide au-dessus.  \n- Invalidation si prix remonte durablement au-dessus 720B, indiquant un potentiel changement de structure.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slo",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_20-53-02",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_20-52-47.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_015601_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T21:55:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-55-51",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 680000000000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 620000000000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 700000000000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 720000000000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveillance d’une poursuite baissière sous 680B, prise de position short possible après confirmation daily close en dessous. Cible potentielle 620-640B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 720B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière de long terme visible avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Depuis début 2026, consolidation latérale/support autour de 680-700B, suivie d'une récente reprise baissière.  \n- Zone clé de support proche des 680B, risque de poursuite de la baisse si cassure confirmée.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché montre une structure globalement baissière (LL/LH) depuis plusieurs mois. Une phase de stabilisation latérale s’est déroulée entre 680B et 760B pendant plusieurs semaines, mais le prix vient de casser le support clé à 680B en clôture journalière. Cette cassure, soutenue par une hausse de volume, invalide le scénario de rebond haussier et relance le biais baissier. À court terme, il faut surveiller la réaction sous les 680B pour valider une poursuite baissière, avec potentiellement une accélération vers les 620-640B. Niveau résistance majeur à présent à 700-720B. Invalidation du biais baissier en cas de remontée cl",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-55-51",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_21-55-40.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_025647_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T22:56:45-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_22-56-38",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre les rebonds proches de la résistance, viser support 670B; envisager achat si breakout au-dessus de 750B confirmé",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "rupture haute au-dessus de 750B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance dominante baissière depuis plusieurs mois avec des lower highs et lower lows (LH/LL).\n- Structure de consolidation récente en range horizontal autour de 700B, mais rupture baissière en cours.\n- Zone clé support autour de 670B, résistance vers 750B; invalidation possible si retour au-dessus de 750B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché est dans une tendance baissière claire avec une structure de lower highs et lower lows. Après une période de consolidation latérale entre environ 670B et 750B, une rupture vers le bas vient de se produire. Le volume montre une augmentation lors de la baisse récente, confirmant la pression vendeuse. Le support principal à surveiller est aux alentours de 670B, zone où un rebond serait envisageable. Le scénario baissier restera valide tant que le prix reste sous la résistance à 750B. Se repositionner à l’achat ne se justifierait qu’en cas de franchissement confirmé de cette résistance, signalant une potentielle inve",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_22-56-38",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_22-56-27.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_035823_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T23:58:21-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_23-58-12",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance d’une cassure en clôture sous 680B pour prise de position short, stop au-dessus de 700B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 700B avec volume acheteur faible",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le long terme visible par des Lower Highs (LH) et Lower Lows (LL).  \n- Phase de consolidation récente avec structure plutôt neutre à légèrement baissière (range marqué entre 700B et 760B).  \n- Rejet actuel sous zone support clé vers 700B, signal d’un possible nouveau mouvement baissier si 680B est cassé.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance générale baissière confirmée par une série de Lower Highs et Lower Lows depuis plusieurs mois. Une phase de range s’est installée récemment entre 700B (support clé) et 760B (résistance). Le prix vient de rechuter sous ce support, indiquant un risque de continuation baissière. Le volume est en augmentation sur les baisses, ce qui confirme la pression vendeuse. La zone des 680B apparaît comme un niveau critique d’invalidation pour un rebond; en dessous, la structure baissière se renforce.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissi",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_23-58-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_23-58-01.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_054357_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T01:42:26-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_01-42-20",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "suivre la rupture du support 690B; viser 650B; surveiller rebond/invalidation au-delà de 740B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour solide au-dessus de 740B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale baissière avec une série de plus bas (LL) marqués depuis plusieurs mois.  \n- Structure récente en consolidation latérale/plutôt range avec oscillation autour des 700B USD, testant plusieurs supports.  \n- Rupture actuelle sous un support clé vers 690-700B, accentuant le risque d’une nouvelle jambe baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre un downtrend clair avec des lower highs (LH) et lower lows (LL) bien identifiés. La zone autour de 700B USD servait de support multiple depuis plusieurs semaines, désormais cassée à la baisse. La configuration suggère une continuation baissière, avec potentielle accélération. Le prochain support à surveiller se situe vers 650B USD. Une invalidation du biais baissier se ferait par un retour et clôture durable au-dessus des 740B.\n\nC) DeskPro  \n{\"run_id\":\"session001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL-LH\",\"supports\":[\"690B\",\"650B\"],\"resistances\":[\"740B\"],\"plan\":",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_01-42-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_01-42-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_064404_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T02:44:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_02-43-56",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillez test zone support 660-670B pour opportunité acheteuse en swing ou cassure pour continuation baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 780B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière claire après un rejet sur résistance majeure proche de 780B.  \n- Structure de plus en plus caractérisée par des Lower Highs (LH) et Lower Lows (LL).  \n- Zone de support clé à tester vers 660-670B, invalidation du biais baissier si franchissement durable à la hausse.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) :  \nLe graphique montre un retournement baissier fort suite à un échec sous une résistance à environ 780B. La tendance générale depuis plusieurs semaines est baissière, marquée par des Lower Highs et des Lower Lows. Actuellement, le prix casse plusieurs supports intermédiaires et se dirige vers la zone clé des 660-670B à surveiller pour un potentiel rebond ou continuation. Un franchissement haussier durable au-dessus de 780B invaliderait la tendance baissière dominante. Le scénario prioritaire reste un test et possible rebond/rupture du support à court terme. Volume en hausse sur la baisse, confirmant la pression vendeuse.\n\nC) DeskPro  \n{\"run_id\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_02-43-56",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_02-43-45.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_074654_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T03:45:22-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_03-45-14",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sous 700B avec objectif proche de 660B, accroître la prise de bénéfices si casse 660B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 720B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance majoritairement baissière depuis novembre avec plusieurs LL et LH.\n- Structure récente latérale entre 660B et 780B, recherche de support.\n- Cassure baissière récente sous 700B, activation d’un nouveau potentiel point bas.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): La dynamique est baissière avec une structure de plus bas plus bas et de plus hauts plus bas visible depuis plusieurs mois. La zone clé de support majeur se situe autour de 660B, récemment testée à la baisse avec une forte augmentation du volume. La résistance notable est à 780B, plafond non franchi depuis plusieurs semaines. Scénario prioritaire : poursuite de la baisse sous 660B pour viser un plus bas historique, avec comme invalidation un retour au dessus de 720B.\n\nC) DeskPro \n{\"run_id\":\"1685647200\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"660B\"],\"resistances\":[\"700B\",\"780B\"],\"plan\":\"Vendre sous 700B avec objectif proche de 660B, accroître la prise de bénéfices ",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_03-45-14",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_03-44-58.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_090520_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T05:05:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_05-05-02",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rebond proche 740-760B, viser support 660B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière claire depuis plusieurs mois avec structure en LL (Lower Lows).\n- Rejet récent sous la zone clé des 740-760B, puis chute accélérée vers les 670B.\n- Scénario court privilégié tant que la résistance des 740B ne casse pas, invalidation en clôture au-dessus.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) : \nLa tendance dominante est baissière avec une série de plus bas et plus bas marqués (LL). La tentative de rebond sur la zone 740-760B a échoué, confirmée par un fort rejet et une baisse rapide. Les supports clés se situent autour de 660B, zone à surveiller pour un éventuel rebond ou consolidation. La structure reste donc baissière avec faibles chances de retournement immédiat avant rupture claire de la résistance. La perte actuelle du support intermédiaire valide la poursuite de la baisse à court terme.\n\nC) DeskPro\n{\"run_id\":\"20240601_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL (Lower Lows)\",\"supports\":[\"660B\"],\"resistances\":[\"740-760B\"]",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_05-05-02",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_05-04-47.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_101032_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T06:09:01-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_06-08-53",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur résistance 680B cassée, viser 640B. Stop si retour au-dessus 760B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus 760B stable",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le moyen terme avec une série de LH (Lower Highs) et LL (Lower Lows) confirmée.  \n- Structure latérale à court terme entre environ 680B et 760B, avec récemment une cassure baissière sous support.  \n- Zone clé (S) proche des 680B, si elle casse durablement, risque d’accélération baissière vers les 640B et plus bas.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): La structure générale reste baissière avec un échec à reprendre les hauts précédents autour de 800B. Depuis plusieurs semaines, on observe un range horizontal avec plusieurs tentatives de rebond sans confirmation, culminant en une sortie par le bas. Le support majeur cassé vers 680B devient maintenant résistance. La dynamique actuelle favorise une poursuite baissière vers les 640B voire 620B. La invalidation de cette tendance passerait par un retour durable au-dessus des 760B, ce qui n’est pas encore visible.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240601-crypto-total3\",\"charts\":[{\"slot\":",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_06-08-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_06-08-36.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_135613_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T09:56:11-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_09-56-06",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Short sur rupture 700B avec objectif 660B, stop si remontée au-dessus de 740B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière au-dessus de 740B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le timeframe journalier avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Action récente forte en baisse, rupture nette d’une zone de support intermédiaire vers 700B.  \n- Scénario court terme favorisant une poursuite de la pression vendeuse, surveillance des supports vers 660-670B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure est clairement baissière avec une succession de LH et LL depuis le pic historiquement élevé. Après une tentative de stabilisation entre février et mai, le marché casse aujourd’hui un support clé autour de 700B, indiquant un renouvellement de la dynamique vendeuse. Le volume augmente sur la baisse, confirmant la pression vendeuse. La zone 660-670B représente un support important à court terme à surveiller pour un potentiel rebond ou consolidation. Une invalidation du scénario baissier interviendrait en cas de retour au-dessus des 740-750B, niveau de résistance majeur.\n\nC) DeskPro  \n{\"run_id\":\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_09-56-06",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_09-55-55.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_150802_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T11:08:00-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_11-07-51",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la zone 660B-670B pour rebond ou cassure. Position courte privilégiée sous 740B-760B avec gestion serrée en cas de retour au-dessus.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante depuis plusieurs mois avec une structure de bas en haut en LL (Lower Lows) et LH (Lower Highs).  \n- Rejet fort récent sur zone 740B-760B suivi d’une chute rapide vers les 670B, confirmant pression vendeuse significative.  \n- Zone clé de support vers 660B-670B à surveiller, rupture probable pour extension baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière claire avec une série de Lower Highs et Lower Lows depuis le pic initial. Les tentatives de rebond début 2026 ont échoué près de 740B-760B, zone de résistance forte. La récente cassure rapide depuis cette zone marque un renforcement du biais vendeur. Le support immédiat à 660B-670B est critique : il s’agit d’une zone de bas précédent et potentiel pivot intraday. En cas de tenue, un rebond technique est possible, sinon la poursuite de la baisse vers les 620B-630B est probable. Invalidation du scénario baissier si le prix remonte au-dessus de 7",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_11-07-51",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_11-07-41.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_165928_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T12:59:26-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_12-59-17",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveiller continuation baisse sous 700B, viser 650B, stop au-dessus 780B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture solide au-dessus de 780B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante à long terme avec plusieurs lower highs (LH) et lower lows (LL).  \n- Phase latérale à partir de février, avec une tentative de reprise stoppée en mai sur résistance vers 780B.  \n- Repli actuel significatif, cassure récente d’un support proche des 700B, signalant une possible reprise baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une structure baissière claire avec une série de lower highs (LH) et lower lows (LL) depuis le pic initial. Après un mouvement latéral entre 650B et 780B de février à mai, la récente chute a cassé le support à 700B, invalidant le scénario de reprise. Zone clé de résistance vers 780B, support immédiat cassé à 700B, puis potentiellement 650B en extension. Le scénario principal reste baissier à moyen terme, avec confirmation sous 700B. L’invalidation serait une clôture durable au-dessus de 780B confirmant la reprise.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bear",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_12-59-17",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_12-59-02.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_180159_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T14:01:57-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_14-01-50",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Chercher opportunité vendeuse sous 660B pour continuation baissière",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 760B avec HH net",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale clairement baissière sur le 1d avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure latérale à court terme visible entre mars et mai, avec absence de HH significatifs.  \n- Rechute récente forte sous zone de support 720B USD, signalant reprise du momentum vendeur.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nOn observe un marché vendeur dominant avec une structure de baisse marquée (LH/LL). La tentative de consolidation entre 700B et 760B USD a échoué, la cassure sous 700B valide la poursuite de la baisse. Volume en hausse sur la récente chute, confirmant la pression vendeuse. Tendance baissière intacte. Zones clés S vers 660B (proche du cours actuel) et R entre 720B et 760B. Scénario probable : continuation de la baisse sur cassure 660B. Invalidation du scénario baissier en cas de retour rapide au-dessus de 760B avec un HH formé.\n\nC) DeskPro  \n```json\n{\"run_id\":\"single_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"L",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_14-01-50",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_14-01-32.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_191602_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T15:16:00-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_15-15-53",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre ou rester short sur rebond vers résistance 720-740B, viser 620-640B en extension.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 740B USD",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance générale en journalier bearish, avec une série de Lower Highs (LH) et Lower Lows (LL) formés récemment.  \n- Cassure nette du support vers 675B USD, accentuant la pression vendeuse.  \n- Volume en augmentation sur la dernière baisse, confirmant la dynamique baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nStructure baissière clairement installée avec une succession de HL cassés en LH puis LL. La zone clé support vers 675B USD est rompue avec conviction, ouvrant la voie à une poursuite du mouvement descendant. Résistance immédiate repérée autour des 720-740B USD, ancien support devenu résistance. Le scénario favori reste une continuation à la baisse vers les 620-640B USD. Invalidation sous forme d’un retour rapide au-dessus de 740B USD, signalant un possible retour haussier.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"675B USD (cassé)\",\"620-640B USD zone basse\"],\"resistances\":[\"720-740B USD",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_15-15-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_15-15-38.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_202507_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T16:25:05-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_16-24-55",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur appui sur support 660-670B, envisager un court rebond. En cassure baissière, poursuite momentum vendeur attendue.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 760B USD annule le biais baissier actuel.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance primaire baissière visible avec succession de lower highs (LH) et lower lows (LL) depuis le pic initial.  \n- Structure actuelle en phase de correction à court terme avec breakout baissier récent, confirmant reprise de la dynamique vendeuse.  \n- Zone clé de support autour de 660-670B USD, à surveiller pour un rebond ou poursuite baissière en cas de cassure.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une structure globale de baisse avec plusieurs impulsions vers le bas. Après une période latéralisante et légère reprise entre février et fin mai, un retournement baissier s'est manifesté avec une chute franche récemment. Les derniers chandeliers montrent un fort momentum vendeur avec volume élevé. Le support majeur à 660-670B est testé, zone à surveiller pour confirmer la continuation de la tendance ou un rebond. L’invalidation du scénario baissier se ferait par un retour au-dessus du dernier sommet local proche de 760B.  \n\nC) DeskPro  \n```",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_16-24-55",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_16-24-44.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_212822_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T17:28:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_17-28-12",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "vendre sur rebond sous 770B ou break support 650B pour accélérer la baisse",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalier au-dessus de 770B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale baissière confirmée avec une série de plus bas plongeants (LL) et plus bas relatifs (LH).  \n- Structure récente montre une consolidation latérale entre 650B (support clé) et 770B (résistance clé) avant nouvelle baisse marquée.  \n- Scénario baissier dominant avec pression vendeuse forte, invalidation possible au-dessus de 770B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché est dans une tendance baissière claire, avec structure en LL/LH persistante depuis plusieurs mois. Après une période de range entre 650B (support) et 770B (résistance), un fort mouvement baissier a été amorcé, confirmant la pression vendeuse. La zone 650B est cruciale à surveiller, car une cassure nette entraînerait un nouveau recul significatif. Le plan est de rester baissier tant que 770B n’est pas franchi en clôture quotidienne, ce qui invaliderait le biais actuel.\n\nC) DeskPro  \n{\"run_id\":\"20240601_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL LH\",\"suppo",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_17-28-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_17-28-00.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_034907_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T23:49:05-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_23-48-55",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 660.0,
+        "confidence": 0.7,
+        "note": "s 660"
+      },
+      {
+        "type": "support_level",
+        "value": 660.0,
+        "confidence": 0.7,
+        "note": "s 660"
+      },
+      {
+        "type": "support_level",
+        "value": 660.0,
+        "confidence": 0.7,
+        "note": "s 660"
+      },
+      {
+        "type": "support_level",
+        "value": 780.0,
+        "confidence": 0.7,
+        "note": "s 780"
+      },
+      {
+        "type": "support_level",
+        "value": 660.0,
+        "confidence": 0.7,
+        "note": "support 660"
+      },
+      {
+        "type": "support_level",
+        "value": 780.0,
+        "confidence": 0.7,
+        "note": "s 780"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante clairement visible avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rejet marqué à la zone 760-780B USD, confirmé par chute rapide vers 660B.  \n- Support clé à 660B USD à surveiller, invalidation baissière au-dessus de 780B.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une structure baissière avec une succession de Lower Highs et Lower Lows depuis plusieurs semaines. La tendance est clairement orientée à la baisse, le dernier mouvement valide une chute franche, cassant un support intermédiaire autour de 700B. La zone de support critique se situe vers 660B, niveau vers lequel le prix revient actuellement. En cas de maintien sous 660B, un nouveau mouvement baissier pourrait s’intensifier. A contrario, une clôture au-dessus des 780B invaliderait ce scenario et signalerait un retournement possible.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[66000000",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_23-48-55",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_23-48-45.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_045121_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T00:51:19-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_00-51-12",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 640.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 650.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 770.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 780.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveillez rebond potentiel sur zone support 640-650B USD, sinon vente à la cassure avec stop au-dessus de 780B USD",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture au-dessus de 780B USD",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière claire depuis plusieurs mois avec formation de plus bas et plus bas (LL).  \n- Structure fragile, tentative de consolidation au printemps 2026, puis reprise baissière forte en sortie.  \n- Zone clé support autour de 640-650B USD à surveiller pour scénario possible de rebond ou continuation baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière dominante matérialisée par une série de plus bas (LL) et plus hauts (LH). Après une période de consolidation latérale de février à mai, le prix a cassé brutalement les supports intermédiaires. Le dernier chandelier est fortement baissier avec un volume important confirmant la pression vendeuse. La zone de support autour de 640-650B USD est clé : un rebond pourrait signaler une pause ou un retournement, une cassure validerait la poursuite du mouvement baissier. L’invalidation du scénario baissier est une remontée rapide au-dessus des derniers sommets vers 770-780B USD.\n",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_00-51-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_00-50-47.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_055219_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T01:52:17-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_01-52-12",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rebond proche résistances 720-740B ou reprise haussière confirmée, sinon privilégier poursuite short sous 640B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "remontée au-dessus 740B avec structure HH/HL",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1d avec des plus bas (LL) et plus bas relatifs récents.  \n- Structure montrant une série de bas plus bas confirmée par la baisse actuelle marquée et un fort volume.  \n- Zone support clef vers 640B USD à surveiller pour un rebond ou poursuite baissière en invalidation.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance dominante est baissière, matérialisée par des lower highs (LH) et lower lows (LL) consécutifs. Après une phase de consolidation de mars à mai, la récente chute rapide sur volume élevé vient casser les supports intermédiaires vers 700B USD. La prochaine zone clé de support se situe autour de 640B USD, où la structure pourrait potentiellement se stabiliser. Le scénario prioritaire reste la poursuite de la baisse tant que ce support ne tient pas. Invalidation du biais baissier si le cours remonte au-dessus des 720-740B USD avec un retournement de structure en HH/HL.\n\nC) DeskPro  \n{\"run_id\":\"20240605-01\",\"chart",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_01-52-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_01-52-01.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_071300_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T03:12:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_03-12-52",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance d'un rebond possible sur support 650-660B avec prise de profits proche de 720-740B. Confirmer la reprise avant d'engager long. Attention à la cassure sous 640B qui invaliderait la remonté",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 640B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante clairement identifiée depuis plusieurs mois avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Action récente marquée par une forte chute ramenant le prix vers un support clé autour de 650-660B, zone à surveiller pour potentielle réaction.  \n- Scénario intermédiaire : rebond possible sur support sinon poursuite de la baisse avec invalidation sous 640B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure est baissière (LH/LL). Le support important se situe entre 650B et 660B, zone où le prix a déjà rebondi en février. Résistance majeure autour de 780B-800B, niveau des derniers sommets significatifs. Le scénario prioritaire est une tentative de rebond court terme sur support avec un objectif de retour vers 720-740B. L’invalidation du scénario haussier se ferait par une cassure nette sous 640B. Volumes élevés sur la récente baisse indiquent une pression vendeuse forte.\n\nC) DeskPro  \n{\"run_id\":\"20240601-1\",\"charts\":[{\"slot\":\"sing",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_03-12-52",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_03-12-40.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_081446_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T04:14:44-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_04-14-38",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "short under 680B avec prise partielle vers 660B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "reprise au-dessus de 720B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière sur le moyen terme, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente en range latéral entre 720B (résistance) et 680B (support), cassée récemment à la baisse vers 666B.  \n- Risque d’accélération baissière si le support 660B est invalidé, zone clé à surveiller.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière durable avec structure en Lower Highs (LH) et Lower Lows (LL). Les prix ont oscillé en range latéral sur 720B-680B de mars à début juin 2026. Une rupture nette du support à 680B vient de se produire, la prochaine zone support importante se situant autour de 660B. Le scénario privilégié est une poursuite baissière sous 680B avec un test possible des 660B, support critique à maintenir pour éviter une accélération. Une invalidation du scénario survient si les prix remontent au-dessus de 720B, signalant une possible reprise haussière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_04-14-38",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_04-14-27.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_091735_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T05:17:34-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_05-17-28",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveiller réaction sur support 650-660B, achat possible si rebond confirmé avec chandelier acheteur et diminution volume vendeurs, sinon vente sous 650B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 720B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible depuis plusieurs mois avec une série de lower highs (LH) et lower lows (LL).  \n- Action récente montre un fort SELL-OFF qui pousse le prix vers un support majeur autour de 650-660B.  \n- Nécessaire de surveiller la tenue de ce support pour un potentiel rebond, sinon poursuite du bearish confirmé.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nTendance baissière claire depuis le début, avec structure en LH et LL régulière. Le prix a récemment accéléré sa chute, testant une zone clé de support vers 650-660B. Cette zone est cruciale pour déterminer la légitimité d’un rebond ou la continuation du mouvement baissier. Volume en forte hausse lors de la chute actuelle, signe d’une pression vendeuse importante. Un retour au-dessus de 700-720B serait nécessaire pour invalider la baisse récente et envisager un changement temporaire de structure vers un HL.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_05-17-28",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_05-17-16.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_101830_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T06:18:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_06-18-22",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Identifier opportunité short en cassure 650B avec cible 600B. Protection au-dessus 700B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 760B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière nette confirmée avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragilisée par une récente accélération baissière visible en fin de graphique.\n- Zone clé de support importante vers 650B, vigilance sur sa tenue pour éviter poursuite de baisse.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): Le marché évolue clairement en tendance baissière avec des creux et sommets déclinants (LL, LH). Le rebond tenté entre mars et mai a échoué, revenus sous résistance vers 760B. La cassure récente sous 700B marque un tournant, avec forte dynamique vendeuse. Support à 650B à surveiller comme zone pivot de retournement ou poursuite. Scénario principal: continuation baissière vers 600B en cas de break 650B. Invalidation en cas de retour au-dessus de 760B.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":[\"LH\",\"LL\"],\"supports\":[\"650B\"],\"resistances\":[\"700B\",\"760B\"],\"plan\":\"Identifier opportunité short en cassure 650B avec cib",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_06-18-22",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_06-17-56.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_112056_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T07:20:53-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_07-20-48",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rebond avec confirmation sous 650B ou attendre cassure support pour short",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 780B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière depuis début novembre avec une série de lower highs (LH) et lower lows (LL).  \n- Consolidation de février à fin mai, formant une structure latérale, tentative ratée de retournement haussier.  \n- Reprise récente de la baisse avec forte pression vendeuse vers les 660 milliards, zone clé à surveiller.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière claire avec une succession de LH et LL confirmant la faiblesse structurelle. La phase latérale entre 680B et 780B a permis une accumulation temporaire, mais la rupture nette vers le bas invalide le scénario haussier. Zone soutien importante autour des 650B à court terme. Résistance immédiate à 700B, puis zone forte entre 740B et 780B. Scénario principal: poursuite de la baisse si le support 650B casse, sinon rebond technique possible. Invalidation baissière à franchissement durable au-dessus de 780B.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_07-20-48",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_07-20-37.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_122214_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T08:22:12-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_08-22-08",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 640000000000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 700000000000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760000000000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "short sous 680B, viser 640B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour clair >720B avec volume",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance dominante baissière confirmée avec une série de LH (Lower Highs) et LL (Lower Lows).\n- Récente accélération baissière marque une forte pression vendeuse.\n- Zone clé actuelle proche du support 640B, à surveiller pour un rebond ou poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d)  \nTendance: baissière. Structure: LH/LL formés, récente cassure à la baisse d'une zone de support intermédiaire vers 680B-700B. Supports clés: ~640B, puis vers 600B si cassure. Résistances: 700B-720B (ancienne zone de congestion), puis 760B (resistance récente). Scénario: repositionnement short privilégié sous 680B, viser le support majeur à 640B. Invalidation si retour net au-dessus de 720B avec volume.\n\nC) DeskPro  \n```json\n{\"run_id\":\"20240607_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[640000000000],\"resistances\":[700000000000,760000000000],\"plan\":\"short sous 680B, viser 640B\",\"invalidation\":\"retour clair >720B avec volume\"}]}\n```",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_08-22-08",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_08-21-57.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_132324_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T09:23:22-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_09-23-14",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur cassure support 645-660B, viser poursuite baisse. En rebond, viser zone 720-765B pour test résistance avant décision.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière au-dessus de 765B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec structure de lower highs (LH) et lower lows (LL).  \n- Rejet net sur zone de résistance autour de 755-765B, suivi d'une forte chute récente.  \n- Zone clé support à 645-660B testée, scénario baissier à confirmer sous cette zone.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché montre une structure baissière claire avec des sommets descendants (LH) et des creux descendants (LL). Une tentative de rebond a eu lieu autour de 725-765B mais la forte bougie rouge du jour confirme un rejet marqué. Le volume d’échange augmente sur la chute, renforçant la pression vendeuse. La zone de support clé à 645-660B est un niveau pivot à surveiller : cassure invaliderait la tentative de stabilisation et prolongerait la baisse. En cas de rebond, un retour en résistance près de 720-765B sera un point critique pour valider un retournement.\n\nC) DeskPro  \n{\"run_id\":\"unique001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH, LL\",\"supports\":[\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_09-23-14",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_09-23-02.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_142604_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T10:26:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_10-25-53",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur 650B pour potentiel achat ou nouvelle baisse en cassant 650B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Passage clair au-dessus de 760B avec volume",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une série de LL (Lower Lows) et LH (Lower Highs) confirmée.  \n- Rejet net des niveaux autour de 740B-760B indiquant une forte résistance.  \n- Chute récente avec forte augmentation de volume, support important vers 650B à surveiller.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché est en tendance baissière avec structure de LL/LH bien formée. Après un rallye infructueux vers les 760B, le prix a fortement reculé, cassant plusieurs supports intermédiaires. La zone 650B semble jouer un rôle de support clé, correspondant à un creux précédent. Le volume en forte hausse au dernier jour de baisse suggère pression vendeuse importante. Scénario possible : réaction haussière de rebond sur ce support ou poursuite de la chute sous 650B. Invalidation du scénario baissier possible si le prix dépasse les 760B avec volume soutenu.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LL/LH\",\"supports\":[\"650",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_10-25-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_10-25-41.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_152628_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T11:26:26-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_11-26-20",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Short sous résistance 700B. Cible 640B-650B. Stop au-dessus de 760B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retournement haussier au-dessus de 760B.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance de fond baissière claire depuis plusieurs mois avec une série de bas plus bas (LL) et hauts plus bas (LH).  \n- Structure actuelle en dégradation avec une accélération baissière récente, cassant les supports intermédiaires.  \n- Zone clé de support autour de 640-650B à surveiller pour une possible réaction, sinon poursuite du mouvement baissier.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre un marché en tendance baissière claire, marqué par une structure de LH et LL automne 2025 à mi-2026. Après une phase de consolidation latérale depuis février jusqu’à mai, on observe une forte chute récente qui casse les supports intermédiaires vers 700-720B. Le prix s’approche d’un support majeur situé vers 640-650B. Le scénario prioritaire reste une poursuite baissière tant que la zone 700B–720B ne sera pas revalidée en support. L’invalidation se fera au-dessus de 740-760B avec un retour à une configuration neutre ou haussière.  \n\nC) DeskPro  \n{\"run_id\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_11-26-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_11-26-08.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_162752_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T12:27:51-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_12-27-45",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rallye proche résistance 680-700B, viser 640B. Surveiller volume à 640B pour rebond potentiel.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 700B avec volume.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance dominante baissière confirmée par une série de plus bas et plus bas (LH/LL).\n- Cassure récente d’un support clé autour de 680-700B, accélération de la pression vendeuse.\n- Scénario principal : poursuite de la baisse vers la zone 640B, avec risque de rebond technique possible à court terme.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) :  \nLe graphique montre une structure baissière recente accentuée par une cassure d’un support horizontal majeur (680-700B). Le prix forme des Lower Highs (LH) et Lower Lows (LL) confirmant la faiblesse. Le volume a augmenté sur la dernière baisse, validant la dynamique vendeuse. Zone de support à 640B sous surveillance pour un potentiel rebond ou poursuite vers des niveaux inférieurs. Invalidation du scénario baissier si le prix revient au-dessus de 700B avec force.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"640B\"],\"resistances\":[\"680-700B\"],\"plan\":\"Vendre sur rallye pro",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_12-27-45",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_12-27-33.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_173019_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T13:30:17-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_13-30-11",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 640000000000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 700000000000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 780000000000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "short sous résistance 700B après retour, viser 640B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 700B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière classique avec une succession de structures HH/HL puis inversion récente en LH/LL.\n- Forte baisse récente marquant une rupture potentielle de la zone de support 700B, accélération baissière.\n- Scénario baissier privilégie poursuite vers 640B, invalidation en cas de retour au-dessus de 700B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) :  \nTendance dominante passée haussière sur période récente (HH/HL), mais cassure nette à la baisse avec nouveaux plus bas (LL), structure baissière en place. Zones clés principales : résistance autour 780B et support majeur sous pression vers 700B, actuellement dépassé à la baisse. Volume en augmentation sur la chute, confirmant pression vendeuse. Plan optimal : attendre retracement sous résistance 700B pour short, ou attendre invalidation si reprise au-dessus. Invalidation au-dessus de 700B avec retour sous résistance récente.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_13-30-11",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_13-29-58.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_183338_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T14:33:36-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_14-33-30",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction en support 640B. Priorité à la vente si cassure nette de ce support. Éventuel rebond possible sous 700B pour short.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière durable au-dessus de 700B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une séquence de bas plus bas (LL) confirmée.  \n- Structure de prix fragile avec un breakout récent à la baisse, renforçant la pression vendeuse.  \n- Zone clé de support autour de 640B USD à surveiller pour un éventuel rebond ou poursuite de la chute.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière dominante traduite par la formation de bas et hauts décalés vers le bas (LL et LH). Après une phase de consolidation entre environ 700B et 760B USD, la cassure nette sous 700B a accéléré la baisse. Le volume augmente lors des jours baissiers récents, ce qui valide la force vendeuse. Le niveau autour de 640B USD apparaît comme un support majeur à court terme, à surveiller pour une potentielle réaction. Le scénario prioritaire reste la poursuite baissière sauf si un retournement en HH se construit au-dessus de 700B. Invalidation de ce scénario baissier si on repasse durablement au-dessus de 700B.  \n\nC) Des",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_14-33-30",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_14-33-19.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_194545_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T15:45:43-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_15-45-37",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vente sous 700B avec prise de bénéfices proche 620-640B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 740B confirmé",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance journalière clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL)  \n- Structure fracturée depuis début 2026, échec à tenir zone de support autour de 720B  \n- Forte accélération baissière récente, volume en augmentation sur les baisses  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance dominante baissière avec des LH et LL marqués depuis plusieurs mois. La zone de support 700-720B a cassé récemment, validant la poursuite du mouvement baissier. Le dernier mouvement se caractérise par un sell-off rapide accompagné d'un pic volumétrique, signe d'une pression vendeuse intense. En absence de signaux de retournement clairs, la stratégie privilégiée sera de rester à la vente sous 700B, avec un objectif potentiellement vers les 620-640B. L’invalidation du scénario baissier se ferait par un retour solide au-dessus des 740B.  \n\nC) DeskPro  \n{\"run_id\":\"20240604-01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_15-45-37",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_15-45-25.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_205521_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T16:55:19-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_16-55-13",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 680.0,
+        "confidence": 0.7,
+        "note": "s 680"
+      },
+      {
+        "type": "support_level",
+        "value": 640.0,
+        "confidence": 0.7,
+        "note": "s 640"
+      },
+      {
+        "type": "support_level",
+        "value": 700.0,
+        "confidence": 0.7,
+        "note": "s 700"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée avec une succession de bas plus bas (LL) et de hauts plus bas (LH).  \n- Structure actuelle en forte dégradation avec cassure nette des supports intermédiaires vers 680-700 B.  \n- Zone clé de support majeure potentielle vers 640 B à surveiller pour un rebond ou poursuite de la chute.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre un marché en tendance baissière claire depuis plusieurs mois. La structure évolue en séquence LL/LH, indiquant une pression vendeuse dominante. La récente forte chandelle rouge est venue casser un support intermédiaire autour de 680-700 B, augmentant la probabilité d’un retour vers un support plus significatif autour de 640 B. Le volume a augmenté durant la chute, confirmant la force vendeuse. Un retour au-dessus des 700 B invaliderait ce scénario baissier à court terme. La zone 640-650 B est critique, à suivre de près pour détecter un potentiel rebond ou une accélération du mouvement baissi",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_16-55-13",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_16-55-02.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_215656_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T17:56:53-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_17-56-47",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vente en cassure de 660B avec cible 640B, stop above 690B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 690B confirmé",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le timeframe 1d avec une série de lower highs (LH) et lower lows (LL) marqués depuis plusieurs mois.  \n- Structure récente en consolidation latérale entre 690B (résistance) et 660B (support) avant la forte chute actuelle.  \n- Scénario court terme bearish confirmée par la cassure du support vers 660B ; attention à une possible zone de support autour de 640B à surveiller.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché affiche une structure baissière claire (LH/LL) avec des tentatives ponctuelles de rebond non soutenues. Depuis fin mai, la perte du support majeur autour de 660B et la chute rapide plaident pour une continuation vers le prochain niveau clé vers 640B. Le volume élevé confirme la force vendeuse. Invalidation si le prix remonte et dépasse durablement 690B.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"660B\",\"640B\"],\"resistances\":[\"690B\"],\"plan\":\"Vente en ",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_17-56-47",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_17-56-35.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_234153_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T19:41:51-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_19-41-45",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rebond sous résistance à 670B ou à la cassure du support 640B pour viser extension baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 740B qui invalide le biais baissier.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière confirmée avec une série de plus bas (LL) et plus bas relatifs (LH cassés).\n- Structure récente indique un rejet des zones hautes, avec forte chute dernière bougie.\n- Zone de support possible autour de 640-650B à surveiller pour un rebond ou poursuite de la baisse.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): Sur ce timeframe journalier, la tendance est globalement baissière, matérialisée par une succession de plus bas importants (LL). La structure a tenté une reprise temporaire avec quelques hauts plus hauts (HH) début 2026, mais a rapidement repris sa dynamique baissière. Le récent drop montre une forte pression vendeuse, la cassure sous 670B valide le scénario baissier. Une zone clé à court terme se situe autour de 640-650B, qui pourrait faire office de support important. Le scénario préférentiel reste une poursuite vers le bas si ce support est invalidé, sinon un rebond technique est possible. Invalidation du scénario baissier si le prix revient au-",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_19-41-45",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_19-41-21.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_035936_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T23:59:30-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_23-59-24",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance du rebond. Achat possible en cassure et maintien >720B avec stop sous 640B. Sinon rester à l'écart ou shorter en dessous de 640B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "rebond >720B puis tenue, sinon reprise baissière sous 640B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de bas plus bas (LL) et de hauts plus bas (LH).  \n- Structure récente marquée par un rebond technique limité après un nouveau creux sous support.  \n- Zones clés à surveiller : support vers 640B, résistance immédiate près de 700B-720B.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance est baissière claire avec une structure de LH/LL formée depuis plusieurs mois. Le dernier mouvement montre une cassure du support horizontal autour de 700B, suivi d’un rebond actuel qui semble être un pullback technique. La zone 640B représente un support important, testé récemment. Pour un scénario haussier, il faudrait voir un franchissement clair et maintien au-dessus de 720B. En cas de nouvelle perte de 640B, la tendance baissière sera renforcée. L’invalidation du scénario haussier passe par un retour sous 640B.  \n\nC) DeskPro  \n{\"run_id\":\"auto\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"64",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_23-59-24",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_23-59-12.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_051003_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T01:10:01-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_01-09-55",
+    "signals": [
+      {
+        "type": "raw_analysis",
+        "value": "A) Résumé global  \n- Tendance baissière dominante visible depuis le pic initial, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Récente tentative de rebond marquée par un petit Higher Low (HL) après un plus bas important, mais toujours sous résistance majeure.  \n- Zone clé de support autour de 640-660B, résistance principale proche de 770-780B à surveiller pour valider un retournement.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d)  \nLa structure montre une baisse claire avec des Lower Hig",
+        "confidence": 0.5,
+        "note": "Extracted from raw analysis text; no structured signals found"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante visible depuis le pic initial, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Récente tentative de rebond marquée par un petit Higher Low (HL) après un plus bas important, mais toujours sous résistance majeure.  \n- Zone clé de support autour de 640-660B, résistance principale proche de 770-780B à surveiller pour valider un retournement.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d)  \nLa structure montre une baisse claire avec des Lower Highs et Lower Lows depuis plusieurs mois. Plus récemment, un rebond a formé un Higher Low près de 660B, signe d’un possible début de stabilisation. Cependant, la résistance au niveau de 770-780B reste un obstacle majeur à franchir pour valider un changement de tendance. Le volume semble augmenter sur la récente vague baissière, indiquant une pression vendeuse importante. Le scénario envisagé reste baissier tant que la résistance n’est pas cassée avec confirmation. Invalidation au-dessus du dernier",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_01-09-55",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_01-09-43.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_075522_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T03:55:20-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_03-55-15",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Acheter un rebond si maintien > 660B, viser 760B; vendre si rupture < 660B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure nette et clôture au-dessus de 760B avec HH",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante depuis plusieurs mois avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Stabilisation récente avec un rebond au support autour de 660B, possible zone clé de base.  \n- Scénario court terme haussier possible en cas de maintien au-dessus de 660B, mais invalidation rapide si rupture vers le bas.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure démontre une tendance baissière claire (LL/LH) avec un support important vers 660B testé plusieurs fois. Le prix a rebondi aujourd'hui vers 678B, indiquant une pression acheteuse temporaire. La résistance majeure se situe vers 760B, zone où l’offre a freiné les reprises. Le scénario prioritaire est une consolidation sous 760B, avec un potentiel retour en force des vendeurs si 660B cède. Invalidé si le prix casse durablement au-dessus de 760B avec HH confirmé.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"660B\"],\"resistances\":[\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_03-55-15",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_03-55-03.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_090739_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T05:07:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_05-07-20",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "observer réaction à la résistance 740-760B pour envisager rebond durable ou reprise baisse",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte sous 660B avec confirmation nouveau LL",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance daily baissière dominante depuis plusieurs mois avec une série de LH et LL.  \n- Rejet marqué récemment sur zone basse vers 660B, initiant un rebond technique.  \n- Zone 740-760B en résistance clé à surveiller pour confirmer un retournement ou reprise de la baisse.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) :  \nLe marché global excluant BTC et ETH est dans une structure baissière claire (LH/LL). Le récent rebond depuis 660B montre une tentative de correction, mais la structure ne s’est pas encore inversée. La zone de support évidente est autour de 660B, validée par un volume important. En résistance, la zone 740-760B est critique : un passage clair au-dessus offrirait un premier signal positif pour un renversement potentiel, sinon la pression vendeuse pourrait reprendre. Invalidation du scénario haussier si perte nette de 660B avec nouveaux plus bas.  \n\nC) DeskPro  \n{\"run_id\":\"20240611-1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec réc",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_05-07-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_05-07-09.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_100913_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T06:09:11-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_06-09-04",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller retour à 700B pour signal d'invalidation baissière, viser rebond cible 740B. Sous 650B, confirmer poursuite de la baisse.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture durable au-dessus de 700B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière nette, avec une série de LH (Lower Highs) et LL (Lower Lows).  \n- Structure récente montre une forte chute suivie d’un rebond technique à court terme sous une zone de résistance clé.  \n- Volume en hausse lors de la descente, indiquant pression vendeuse importante avant léger retour des achats.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe prix évolue dans une tendance baissière claire, matérialisée par une série de Lower Highs et Lower Lows depuis plusieurs mois. La chute rapide récente a cassé des supports vers 700B USD, zone devenue résistance immédiate. La structure montre un rebond technique acté après un plus bas vers 650B USD. Les résistances clés se trouvent à 700B et 740B USD, supports à 650B USD. Un retour au-dessus de 700B invaliderait temporairement la pression baissière dominante et permettrait un test des 740B. En revanche, un retour sous 650B signalerait un potentiel prolongement baissier.  \n\nC) DeskPro  \n```json\n{\"run_i",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_06-09-04",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_06-08-44.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_110951_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T07:09:49-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_07-09-42",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 660000000000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 720000000000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760000000000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "surveiller rebond sur support 660B pour prise de position longue si HL valide, viser réaction en zone 720-760B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 660B prolongeant la tendance baissière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante confirmée par une série de plus bas (LL) et plus hauts (LH).  \n- Rejet haussier récent sur zone proche 660B, support clé potentiel.  \n- Scénario prudent à la hausse possible avec recherche de structure HL à valider.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre un marché en tendance baissière avec des plus bas et plus hauts descendants. Une forte chute récente a cassé plusieurs supports, avec un rebond depuis 660B, zone à surveiller comme support immédiat. La résistance principale reste autour de 760B, niveau où le prix a buté plusieurs fois. Un franchissement clair au-dessus de 720-740B serait nécessaire pour envisager un changement de dynamique vers une tendance haussière. L’invalidation du rebond se ferait en cassant le support à 660B, prolongeant alors la tendance baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[660000000000],\"resistances\":[72000000",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_07-09-42",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_07-09-30.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_132254_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T09:22:52-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_09-22-45",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Short si résistance confirmée sous 760B, long court terme sur rebond 660B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "dépassement net 760B avec HH",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière avec une série de Lower Highs (LH) et Lower Lows (LL) datant des derniers mois.  \n- Structure plus latérale depuis février avec absence de Higher Highs (HH) clairs, signalant un possible range entre 640B et 760B environ.  \n- Rebond récent sur zone support vers 660B avec fort volumex, possible tentative de correction haussière court terme.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché reste en tendance baissière de moyen terme (LH/LL). Le support clé à 660B a teni récemment, déclenchant un rebond vers 675B. La résistance la plus proche se trouve autour de 740-760B. La structure actuelle est neutre à baissière avec un range visible, absence de nouveau HH. Scénario privilégié : continuation sous 760B avec nouveaux LL si résistance confirmée. Invalidation baissière par dépassement clair de 760B et HH. Pris de position court terme possible sur rebond à 660B, mais prudence en cas de cassure sous ce support.  \n\nC) DeskPro  \n{\"run_id\":",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_09-22-45",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_09-22-33.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_161702_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T12:16:59-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_12-16-51",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveillance rebond sur 660B; acheter sur cassure 760B; short en rupture 660B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure nette et clôture sous 660B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globalement baissière depuis plusieurs mois avec séquences de lower highs (LH) et lower lows (LL).  \n- Structure latérale récente entre 660B et 760B, formant une zone de support clé proche autour de 660B.  \n- Rebond actuel sur support, scénario possible de consolidation ou short-term bounce, à monitorer pour validation d’un retournement ou continuation baissière.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa tendance principale est baissière matérialisée par des creux et sommets décroissants (LH/LL). On observe une phase latérale début 2026 entre ~660B (support) et ~760B (résistance). Le prix vient de toucher le support vers 660B puis montre un rebond. Ce support est une zone clé à monitorer. Le scénario d’un rebond durable nécessite une cassure au-dessus de 740-760B. En invalidation, une cassure nette sous 660B relancerait la dynamique baissière. La structure reste fragile et dépend de ce seuil critique.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_01\",\"charts\":[",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_12-16-51",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_12-16-39.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_171833_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T13:18:31-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_13-18-21",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond actuel; possibilité de pullback jusqu'à 740B pour short ou attendue cassure support",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure nette au-dessus de 740B avec volumes",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une série de LH et LL sur le timeframe journalier.  \n- Structure de court terme marquée par une tentative de rebond, formant un HL provisoire après une chute nette.  \n- Zone clé de support autour de 660-670B USD testée et temporairement respectée, résistance visible proche des 740B USD.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché montre une tendance globale baissière avec des hauts plus bas (LH) et des bas plus bas (LL) confirmant la faiblesse structurelle. Récemment, après une forte baisse jusqu’à environ 660B USD, un rebond a formé un bas plus haut (HL), ce qui pourrait signaler une correction ou un début de retournement à court terme. La zone des 660-670B USD agit comme support majeur. La résistance à surveiller se situe autour des 740B USD, niveau d’intérêt pour valider la poursuite ou l’invalidation du rebond. Le scénario principal reste baissier en attente d’une cassure claire du support ou d’une confirmation de repri",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_13-18-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_13-18-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_182056_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T14:20:55-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_14-20-46",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance du rebond et tentative de franchissement des résistances 720-740B. Entrée en position longue si break confirmé. Stop sous 660B.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture sous 660B valide continuation baissière.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale de moyen terme clairement baissière avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Rebond récent sur un support visible autour de 660B, possiblement un point de retournement court terme.  \n- Résistance clé proche vers 740B, zone cruciale pour valider un changement de structure haussière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d)  \nLa structure est baissière dominante avec une série de plus bas et plus bas relatifs (LL/LH). Le cours a testé un support notable vers 660B, rebondissant fortement. Ce rebond peut initier une correction ou un retournement sous condition de franchissement des résistances intermédiaires vers 720-740B. Une invalidation du scénario haussier est donnée par un nouveau plus bas sous 660B. Court terme neutre à positif si extension au-dessus de 740B, sinon retour vers 660B probable.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"660B\"],\"resistances\":[\"720B\",\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_14-20-46",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_14-20-35.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_192338_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T15:23:36-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_15-23-31",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance de la réaction au support 660B. Privilégier achats si rebond confirmé avec HL. En cas de cassure, envisager ventes ou positions prudentes à la baisse.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture durable au-dessus de 740B avec HH confirmerait un changement de tendance.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale baissière confirmée avec une série de lower highs (LH) et lower lows (LL).  \n- Structure récente montre une tentative de rebond sous résistance autour de 740B, mais la pression vendeuse reste forte.  \n- Zone clé support vers 660B, teste actuellement, zone cruciale pour maintien d’un rebond.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique présente une tendance baissière dominante matérialisée par une succession de LH et LL. Depuis mai, le prix a chuté fortement sous un niveau de résistance majeur proche de 740B. Actuellement, le marché teste un support important vers 660B. Une tenue de ce support avec formation de higher low (HL) pourrait initier une phase de stabilisation ou un rebond de court terme. En cas de cassure sous ce support, le potentiel baissier sera renforcé, validant un scénario de continuation baissière.\n\nC) DeskPro  \n{\"run_id\":\"20240601_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"660B\"],\"re",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_15-23-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_15-23-18.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_221804_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T18:18:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_18-17-56",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Achat court terme sur rebond support 640-660B, cible 740B. Stop sous 640B en invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture sous 640B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec des structures en LL (Lower Lows) et LH (Lower Highs) régulières.  \n- Phase de consolidation visible entre février et mai avec oscillation latérale.  \n- Rejet récent sur zone support proche de 640B, possible rebond technique à court terme.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre une tendance baissière claire matérialisée par des Lower Highs et Lower Lows successifs, indiquant une pression vendeuse persistante. La zone clé entre 640B-660B agit comme support majeur, testé plusieurs fois récemment. La résistance immédiate se situe autour de 740B, zone où les vendeurs reprennent souvent la main. Le scénario principal reste baissier tant que le prix ne parvient pas à franchir et confirmer au-dessus de 740B. Le rebond actuel pourrait être une opportunité de trading court terme à l’achat, avec une invalidation en clôture sous le support à 640B.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"b",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_18-17-56",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_18-17-43.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_051448_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T01:14:47-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_01-14-39",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "vendre proche résistance 720-740B, cibler le support 660B avec possibilité d'extension sous 630B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture au-dessus de 740-760B avec formation de HH",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière avec structure en LL (Lower Lows) et LH (Lower Highs) visible depuis la zone haute de fin 2025.  \n- Zone de support clé actuelle vers 660-670B USD, testée plusieurs fois récemment.  \n- Rebond technique en cours après creux récent, mais résistance majeure autour de 720-740B USD à franchir pour invalider la tendance baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): La structure montre un marché en consolidation basse après un fort déclin initial. Les plus bas baissiers successifs trahissent une pression vendeuse persistante. L'actuel rebond est limité par la résistance des précédents creux intermédiaires vers 720-740B USD. La zone autour de 660B agit comme support intraday solide. Le scénario prioritaire reste une poursuite baissière sous 740B, avec un objectif vers 620-630B en cas de rupture du support. Invalidation du bearish si la zone 740-760B est dépasser avec suivi de HH (Higher Highs).\n\nC) DeskPro  \n{\"run_id\":\"unique_001\",\"charts\"",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_01-14-39",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-11_01-14-23.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_061944_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T02:19:42-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_02-19-32",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance d'un rebond potentiel au support 660B. Viser un retournement si rupture haussière au-dessus de 760B. En cas de cassure sous 640B, anticipation de poursuite baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 760B pour invalidation de la tendance baissière court terme.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale baissière depuis plusieurs mois, confirmée par une série de bas plus bas (LL) et hauts plus bas (LH).  \n- Structure récente fragile avec tentative de rebond depuis zone basse (~660B) mais sans rupture claire de la résistance à 760B.  \n- Zone clé supports autour de 660B-640B à surveiller, résistance majeure vers 760B-780B pour validation d’un retournement.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière dominante avec une succession de LH et LL depuis le plus haut historique visible. Le plus récent rebond s’est arrêté sous une forte zone de résistance vers 760B, ce qui maintient la pression vendeuse. Le support immédiat est proche de 660B, avec un support plus bas à 640B qui pourrait être un palier important. Le scénario principal reste baissier, une cassure en dessous de 640B ouvrirait la voie à une poursuite de la baisse. Un retour au dessus de 760B invaliderait la structure baissière court terme et pourrait ",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_02-19-32",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-11_02-19-13.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_072157_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T03:21:55-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_03-21-49",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 760.0,
+        "confidence": 0.7,
+        "note": "s 760"
+      },
+      {
+        "type": "support_level",
+        "value": 630.0,
+        "confidence": 0.7,
+        "note": "s 630"
+      },
+      {
+        "type": "support_level",
+        "value": 640.0,
+        "confidence": 0.7,
+        "note": "support 640"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière visible avec série de Lower Highs (LH) et Lower Lows (LL) depuis novembre.  \n- Structure latérale baissière avec plusieurs tentatives de rebond bloquées sous 760-780B.  \n- Zone clé de support autour de 640-660B, testée récemment, scénario de rebond possible à court terme.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): La structure montre un marché en tendance baissière dominante, marqué par des LH et LL confirmés. La résistance majeure se situe dans la zone 760-780B où les prix butent régulièrement. Le support important récent se place autour de 640-660B, qui a été testé avec rebond. Le prix évolue actuellement proche de ce support, avec un volume en légère hausse sur les replis, signalant un intérêt possible des acheteurs. Scénario actionable: surveiller la stabilité au-dessus de 640B pour un rebond ciblant premièrement 720-740B. Invalidation claire en clôture journalière sous 630B, qui confirmerait la poursuite de la baisse.  \n\nC) DeskPro",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_03-21-49",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-11_03-21-34.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_082427_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T04:24:25-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_04-24-18",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Observer prise de position longue proche 660B avec objectif court terme 700-720B; envisager shorts si cassure 660B",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "dépassement clair et confirmé de 740B",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance dominante baissière au 1d avec structure en LL et LH marqués dans les phases précédentes.\n- Phase récente de consolidation latérale entre 660B et 740B, échouant à établir un HH clair.\n- Rebond actuel autour de la zone de support 660B, potentiel retour vers 700-720B avant décision.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) : La structure montre un mouvement de baisse significative suivi d’une phase de range latéral. Les plus bas sont descendus vers 660B (support clé) avec plusieurs tentatives de rebond sans dépassement durable des résistances autour de 720-740B. La tendance reste baissière tant que le prix ne franchit pas un HH au-dessus de 740B. En cas de cassure sous 660B, scénario baissier confirmé. Invalidation du scénario baissier si franchissement clair des 740B.\n\nC) DeskPro\n{\"run_id\":\"20240612-1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec tentative de rebond\",\"structure\":\"LL, LH, range entre 660B et 740B\",\"supports\":[\"660B\"],\"resistances\":[\"720B\",\"7",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_04-24-18",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-11_04-24-03.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_092737_CRYPTOCAP:TOTAL3_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL3",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T05:27:35-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_05-27-28",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Chercher opportunité short sur rebond vers résistance 740-760B. Stop au-dessus 760B pour invalidation du bearish.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Franchissement durable de 760B avec HH confirmé.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance daily baissière bien établie avec une série de lower highs (LH) et lower lows (LL).\n- Opportunité potentielle de rebond court terme sur zone support vers 660-670B USD.\n- Scénario baissier s'invalide si le prix franchit durablement 760B, créant un higher high (HH).\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre clairement une dynamique baissière marquée par plusieurs LH et LL depuis début 2026. Le prix baisse après un plateau entre 700 et 760B, testant actuellement une zone support clé autour de 660-670B USD. Le volume semble augmenter sur les baisses, signe de pression vendeuse. Un rebond est probable à court terme sur ce support, mais la résistance à 740-760B est un obstacle à franchir pour inversion de tendance. Le scénario vendu reste préféré sous résistance, avec stop au-dessus de 760B.\n\nC) DeskPro  \n{\"run_id\":\"20240604_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"660B\",\"670B\"],\"resistances\":[\"740B\",\"7",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL3"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_05-27-28",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-11_05-27-13.png"
+    }
+  }
+]

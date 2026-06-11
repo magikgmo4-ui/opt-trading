@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_055857_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:58:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-58-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.153,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1575,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente à cassure 1.1530, stop au-dessus 1.1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1.1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière visible avec structure de HH/HL rompue par chute franche (breakdown).\n- Structure récente en range latéral entre 1.1530 (S) et 1.1575 (R) après la forte chute.\n- Scénario possible de continuation baissière si support 1.1530 cassé, invalidation au-dessus de 1.1580.\n\nB) Chart unique (FX:EURUSD 1h): \nLe graphique montre une tendance de fond baissière confirmée par une série de LH et LL après un breakdown violent début juin. La structure s’est stabilisée ensuite en range horizontal entre une zone de support claire vers 1.1530 et une résistance à 1.1575-1.1580. Le volume a augmenté fortement lors de la chute. Le prix oscille actuellement dans ce range, reposant sur support. Le biais reste baissier tant que le support n’est pas franchi à la hausse. Le plan serait une vente à la cassure 1.1530 avec un stop au-dessus de 1.1580. Invalidation du scénario baissier en cas de retour au-dessus de 1.1580.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"si",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-58-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-11_01-58-32.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_023807_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T22:38:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-37-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rallye sous résistance 1780-1820 avec stop loss au-dessus 1820",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure claire au-dessus de 1820",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 15m, avec des lower highs (LH) et lower lows (LL) bien marqués.  \n- Structure sans rebond significatif, récente tentative de correction stoppée près de 1780-1820.  \n- Zone clé support vers 1740-1760 sous surveillance; invalidation du scénario baissier si franchissement solide au-dessus de 1820.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une dominante baisse avec une série de LH/LL confirmant la tendance baissière. Après un fort drop autour de 1820, le prix a testé un support entre environ 1740 et 1760. La tentative de rebond est encore faible, bloquée par la résistance autour de 1780-1820. Seule la cassure claire au-dessus de cette zone annulerait la dynamique négative actuelle. Un maintien sous ces niveaux suggère poursuite baissière. Volume relativement élevé lors des baisses récentes.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1740,1760],\"resist",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-37-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_22-37-50.png"
+  }
+}

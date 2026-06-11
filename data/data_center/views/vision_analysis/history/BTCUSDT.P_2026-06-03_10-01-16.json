@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_140136_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T10:01:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_10-01-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 66400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short si cassure 66,400, arrêts au-dessus de 67,400",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable au-dessus 67,400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Dominance d'une tendance baissière claire sur le principal actif visible (probablement BTCUSDT à 15m).  \n- Absence de signaux de retournement forts à court terme, consolidation récente après chute.  \n- Structures de prix indiquent des zones clés à surveiller pour éventuelle continuation ou rebond.\n\nB) Chart 1 (haut-gauche):  \nTendance fortement baissière en 15 minutes (BTCUSDT). Structure marquée par une série de Lower Highs (LH) et Lower Lows (LL). Présence d’une consolidation entre 66,400 et 67,200 en zone récente, possible zone clé de support temporaire. Résistance repérée proche de 67,200-67,400. Scénario principal : poursuite de la baisse si invalidation du support 66,400. Invalidation avec retour au-dessus de 67,400.\n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe illisibles, impossible d'analyser structure précise. Identifier tendance et zones clés nécessaires avant prise de décision.\n\nD) Chart 3 (bas-gauche):  \nSymbole et timeframe illisibles. Aucune struc",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_10-01-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_10-01-09.png"
+  }
+}

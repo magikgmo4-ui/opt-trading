@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_012214_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:22:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-22-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short si cassure 62500, longs possibles au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus 66000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière bien établie sur le 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure claire de baisse depuis la zone 75 000 jusqu’à 63 000 USDT, marquée par une accélération baissière autour du 2-3 juin.  \n- Stabilisation récente visible entre 62 500 et 64 000, zone clé à surveiller pour un éventuel rebond ou reprise baissière.\n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance: Baissière claire  \nStructure: LL et LH, absence de HL significatifs  \nSupports: Zone 62 500-63 000 (testée plusieurs fois)  \nRésistances: 64 000 puis 66 000 (points de rebond précédents)  \nPlan: Recherchez une cassure du support 62 500 pour poursuite baissière, ou un franchissement de 64 000 pour signaler une possible inversion ou correction.  \nInvalidation: Cassure claire au-dessus de 66 000 remettrait en cause la tendance baissière court terme.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL LH\",\"supports\":[\"62500",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-22-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_21-21-56.png"
+  }
+}

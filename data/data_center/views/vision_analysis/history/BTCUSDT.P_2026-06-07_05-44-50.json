@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_094457_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T05:44:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-44-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre en proximité résistance 63000 USDT, viser retour support 59000 USDT. Rechercher signes de faiblesse sur rebond actuel.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 63000 USDT confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière nette sur la période visible, avec des bas plus bas (LL) et des hauts plus bas (LH).  \n- Rebond récent vers 62 500 USDT, possible retracement technique dans une tendance baissière.  \n- Zone clé de résistance autour de 63 000 USDT, support significatif proche des 59 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une structure claire de continuation baissière avec des séquences LL et LH fréquentes. Le prix a tenté un rebond depuis la zone des 59 000 USDT, marquant un creux local visible, mais reste en dessous d’un haut précédent marqué vers 63 000 USDT. Les volumes augmentent au moment du rebond, indiquant un intérêt temporaire à l’achat. Le scénario prioritaire reste une recherche de nouveaux points bas après échec sous la résistance à 63 000. Invalidation du scénario baissier possible en cas de passage clair au-dessus des 63 000 avec maintien.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-44-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_05-44-42.png"
+  }
+}

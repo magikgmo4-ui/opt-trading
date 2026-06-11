@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_051003_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-07T01:10:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-09-55",
+  "signals": [
+    {
+      "type": "raw_analysis",
+      "value": "A) Résumé global  \n- Tendance baissière dominante visible depuis le pic initial, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Récente tentative de rebond marquée par un petit Higher Low (HL) après un plus bas important, mais toujours sous résistance majeure.  \n- Zone clé de support autour de 640-660B, résistance principale proche de 770-780B à surveiller pour valider un retournement.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d)  \nLa structure montre une baisse claire avec des Lower Hig",
+      "confidence": 0.5,
+      "note": "Extracted from raw analysis text; no structured signals found"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante visible depuis le pic initial, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Récente tentative de rebond marquée par un petit Higher Low (HL) après un plus bas important, mais toujours sous résistance majeure.  \n- Zone clé de support autour de 640-660B, résistance principale proche de 770-780B à surveiller pour valider un retournement.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d)  \nLa structure montre une baisse claire avec des Lower Highs et Lower Lows depuis plusieurs mois. Plus récemment, un rebond a formé un Higher Low près de 660B, signe d’un possible début de stabilisation. Cependant, la résistance au niveau de 770-780B reste un obstacle majeur à franchir pour valider un changement de tendance. Le volume semble augmenter sur la récente vague baissière, indiquant une pression vendeuse importante. Le scénario envisagé reste baissier tant que la résistance n’est pas cassée avec confirmation. Invalidation au-dessus du dernier",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-09-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_01-09-43.png"
+  }
+}

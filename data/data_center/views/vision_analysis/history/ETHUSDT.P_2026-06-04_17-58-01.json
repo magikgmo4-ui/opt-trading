@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_215809_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T17:58:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-58-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 1820 avec cible 1740 puis 1700 si cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable au-dessus de 1820",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec structure en LH (lower highs) et LL (lower lows) bien marquée depuis plusieurs séances.  \n- Zone clé de support proche des 1 740 USDT, à surveiller pour un potentiel rebond ou cassure.  \n- Scénario principal : maintien de la pression vendeuse vers 1 700 USDT si le support casse, invalidation en cas de retour au-dessus des 1 820 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance baissière forte, structure en lower high / lower low depuis fin mai. Support majeur vers 1 740 USDT (plusieurs rebonds sur cette zone visible). Résistance immédiate autour de 1 820 USDT (point de congestion avant la chute). Volume en pic lors des grandes baisses, signe de pression vendeuse soutenue. Scénario vendeur privilégié, avec attention à une possible consolidation dans la zone des 1 740-1 780 USDT. Invalidation possible en cas de retour durable au-dessus de 1 820 USDT.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"str",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-58-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_17-57-53.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_170831_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:08:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-08-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1665,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.168,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Repli sur support pour swing possible, confirmation à la hausse sur rebond",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "<1.1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Les paires et actifs montrés présentent globalement une volatilité modérée à élevée avec des tendances mixtes.  \n- Les structures de prix sont en majorité en phase de correction ou consolidation avec plusieurs zones clés proches.  \n- Les opportunités sont à chercher sur retour sur supports ou cassure de résistances, en confirmation de structure.\n\nB) Chart 1 (haut-gauche) : EUR/USD 1h  \n- Tendance short-term latérale à légèrement baissière avec structure à LH et LL récents confirmés.  \n- Support clé autour de 1.1590, résistance vers 1.1665-1.1680.  \n- Scénario principal : repli vers support pour chercher un rebond, invalidation sous 1.1580.  \n- Volume en augmentation proche du support, attention à un éventuel retournement ou break.  \n\nC) Chart 2 (haut-droit) : Inconnu  \n- Symbol/timeframe non lisible, pas d’analyse possible fiable.  \n\nD) Chart 3 (bas-gauche) : Inconnu  \n- Symbol/timeframe non lisible, pas d’analyse possible fiable.  \n\nE) Chart 4 (bas-droit) : Inconn",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-08-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_13-08-05.png"
+  }
+}

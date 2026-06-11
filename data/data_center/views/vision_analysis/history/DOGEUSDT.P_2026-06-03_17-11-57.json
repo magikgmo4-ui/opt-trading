@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_211333_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T17:12:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-11-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0905,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.094,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 0.094 avec objectif 0.0905, stop above 0.094 for invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break above 0.094 with a confirmed higher high.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière clairement affichée sur cette unité de temps.  \n- Structure en LH (Lower High) et LL (Lower Low) confirmée récemment, sans signe d'inversion.  \n- Zones clés identifiées autour de 0.094 en résistance et 0.0905 en support, pivot potentiel à surveiller.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa paire DOGEUSDT.P évolue en tendance baissière avec une succession de plus bas et plus bas relatifs (LH/LL). Après un fort drop, la tentative de rebond reste limitée sous 0.094, qui joue le rôle de résistance. Support crucial à 0.0905, récemment testé puis rebondi. Scénario préférentiel baissier sous la résistance principale avec poursuite possible de la baisse si le support cède. Invalidation sous forme de rupture claire d’un HH au-dessus de 0.094 avec volume significatif.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_2140\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"0.0905\"],\"resistances\":[\"0.094\"],\"plan\":\"Short sous 0.094 av",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-11-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_17-11-45.png"
+  }
+}

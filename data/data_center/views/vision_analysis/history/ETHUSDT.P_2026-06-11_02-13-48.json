@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_061409_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T02:14:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-13-48",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat en cassure claire above 1680 avec stop sous 1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1580 confirme continuation baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière sur la période récente, avec des creux et sommets descendants (LH/LL).\n- Apparition d'une tentative de stabilisation puis de reprise avec quelques HH et HL dans la phase récente.\n- Zone clé de résistance vers 1 670 - 1 680 USDT, support majeur autour de 1 580 - 1 600 USDT.\n\nB) Chart unique (ETHUSDT.P 1h) : \nLa structure montre d’abord une forte impulsion baissière avec des LH/LL nombreux. Ensuite un retracement en forme de range se développe, créant une succession de HL/HH plus courts suggérant une possible phase de retournement ou correction. Le cours bute sur une résistance à environ 1 670-1 680, clé à confirmer. Le support structurants est situé vers 1 580-1 600. Scénario principal : attendre une cassure franche en H1 au-dessus de 1 680 pour valider un changement de tendance haussière (HH/HL plus forts). Invalidation : une rechute sous 1 580 annulerait ce scénario et confirmerait la tendance baissière.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-13-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_02-13-34.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_094837_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T05:48:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-48-29",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short sous résistance, vise support. Attention rebond potentiel si cassure > 64.00.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour au-dessus de 64.00 valide retournement, rupture sous 61.00 confirme baisse.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur ce timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec tentative de rebond récente mais sans franchissement de zone haute, potentiellement un retracement.  \n- Zones clés à surveiller : support vers 61.00-61.50, résistance immédiate autour de 63.50-64.00.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nLa tendance est baissière (Lower Highs/Lower Lows) marquée par une succession de creux et sommets décroissants. Après un creux à environ 60.00, un rebond a porté le prix à une résistance autour de 63.50-64.00 sans la dépasser. Le prix consolide actuellement autour de 62.50-63.00. Zone support critique proche de 61.00-61.50 à surveiller pour éviter une poursuite baissière. En cas de cassure haute nette au-dessus de 64.00, scénario de retournement potentiel. Invalidation de ce scénario si le prix retourne sous 61.00 avec conviction.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bear",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-48-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_05-48-21.png"
+  }
+}

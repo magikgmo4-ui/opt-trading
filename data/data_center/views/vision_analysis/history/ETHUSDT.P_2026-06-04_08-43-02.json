@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_124311_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T08:43:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_08-43-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1745.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1775.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre confirmation franchissement 1780-1800 pour long sinon rester à l'écart ou short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sous 1720 continuation baisse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière bien marquée, avec une série de Lower Highs (LH) et Lower Lows (LL) sur le timeframe 15m.  \n- Structure récente indique tentative de rebond avec un Higher Low (HL) formé, mais la pression vendeuse reste dominante.  \n- Zone clé résistance autour de 1800 USD à surveiller, cassure nécessaire pour inversion structurelle.  \n\nB) Chart unique (ETHUSDT.P 15m):  \n- Tendance dominante : Baissière.  \n- Structure : Succession de LH et LL avec récente impulsion haussière formant potentiellement un HL plus haut.  \n- Supports : 1720 USD (recent low), 1745 USD (HL potentiel).  \n- Résistances : 1775-1780 USD (prix actuel), 1800 USD (zone de résistance forte).  \n- Plan : Surveiller confirmation du HL par franchissement clair des 1780-1800 USD pour envisager un long. Sinon, risque de reprise baissière.  \n- Invalidation : Rejet sous 1720 USD confirmerait la poursuite de la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_ethusdtp_15m\",\"charts\":[{\"slot\":\"single\",\"bias\":\"b",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_08-43-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_08-42-55.png"
+  }
+}

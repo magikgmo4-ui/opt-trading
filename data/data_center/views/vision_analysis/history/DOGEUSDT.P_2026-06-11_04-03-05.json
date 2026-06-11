@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_080313_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T04:03:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-03-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.0825,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.085,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat recherché en maintien au-dessus de 0.0830 avec objectif 0.0865+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cloture sous 0.0825",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Structure récente en HH/HL depuis le creux vers 0.0815, signe d’un début de tendance haussière.  \n- Zone de résistance clé autour de 0.0850 bloquant la poursuite.  \n- Le scénario haussier reste valide tant que le support à 0.0830/0.0825 tient, invalidation en cassure de ce dernier.\n\nB) Chart unique (DOGEUSDT.P 15m): Le graphique montre une séquence baissière initiale claire suivie d’un retournement avec des plus bas et plus hauts ascendents depuis la zone 0.0815. Le prix test actuellement une forte résistance proche de 0.0850. Un breakout de cette résistance ouvrirait vers 0.0865 et plus haut. A contrario, un rejet avec retour sous 0.0830 signifierait un risque de reprise baissière. La volatilité est modérée avec des volumes soutenus lors des remontées.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"0.0830\",\"0.0825\"],\"resistances\":[\"0.0850\"],\"plan\":\"achat recherché en maintien au-dessus de 0.0830 avec obj",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-03-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-11_04-02-52.png"
+  }
+}

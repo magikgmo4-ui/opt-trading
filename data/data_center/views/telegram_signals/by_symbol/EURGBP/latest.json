@@ -1,0 +1,18 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "EURGBP",
+  "total": 1,
+  "signals": [
+    {
+      "id": "tg_31387_20260611T100009",
+      "channel": "wfr_analysis",
+      "direction": "SHORT",
+      "entry_price": 0.865,
+      "sl": null,
+      "tp": 0.8639,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T05:07:54+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

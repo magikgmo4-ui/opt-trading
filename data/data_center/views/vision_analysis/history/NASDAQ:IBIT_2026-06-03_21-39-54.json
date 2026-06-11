@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_014002_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T21:40:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-39-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 36.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Favoriser les positions vendeuses sous 37 avec stop serré au-dessus de 44.50. Objectif vers 36.50 puis plus bas si cassure.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 44.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance claire baissière en 1h avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure en déclin accentuée depuis la mi-mai, rupture nette sous les supports intermédiaires.\n- Zone clé résistante autour de 44.50-45.00 USD, support actuel fragile proche de 36.50 USD.\n\nB) Chart unique (NASDAQ:IBIT 1h) :  \nLe graphique montre une impulsion baissière très nette depuis un sommet vers 47 USD début mai. La structure présente une séquence évidente de Lower Highs et Lower Lows. Les tentatives de rebond restent faibles, confirmant la pression vendeuse. Le dernier support important visible est vers 36.50 USD, ayant servi de plancher temporaire. La résistance majeure à retenir est autour de 44.50-45.00 USD, niveau invalidant un scénario baissier si franchi. Le volume augmente lors des baisses, validant la force des vendeurs. Le scénario dominant est une poursuite de la baisse sous 37 USD avec comme objectif les creux récents. Invalidation en cas de dépassement au-dess",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-39-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-03_21-39-43.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_152001_NYMEX:NG1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:19:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-19-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.4,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur retracement vers 3.20-3.25 avec objectif 3.40 puis plus haut",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse claire sous 3.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente en 1h en nette reprise haussière avec une cassure de plusieurs résistances intermédiaires.  \n- Structure récente marquée par des HH/HL, confirmant un biais acheteur de moyen terme.  \n- Zone clé proche vers 3.40$ à surveiller comme résistance majeure; invalidation sous 3.15$.\n\nB) Chart unique (NYMEX:NG1! 1h):  \nLe graphique montre une tendance haussière bien installée avec des points hauts et bas de plus en plus hauts (HH et HL). Après une correction visible début juin, les prix ont reconstitué un support vers 3.15$ avant de repartir à la hausse fortement. Volume en augmentation sur les dernières chandelles haussières confirme l’intérêt acheteur. La zone 3.40$ représente une résistance importante, où un potentiel retournement peut apparaître. Scénario bullish privilégié tant que les supports ne sont pas cassés, avec un point d’invalidation sous 3.15$.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"s",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-19-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-04_11-19-41.png"
+  }
+}

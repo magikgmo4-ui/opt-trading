@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_195218_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T15:52:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-52-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente en zone résistance 1600-1620 avec stop au-dessus de 1620",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "dépassement franc et maintien au-dessus de 1620",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Le prix vient de rebondir sur une zone de support clé vers 1540-1550, avec un léger volume en hausse.  \n- Scénario principal : continuation baissière sous résistance 1600, invalidation en cas de dépassement clair de cette zone.  \n\nB) Chart unique (ETHUSDT.P 15m): Graphique en tendance baissière structure LH/LL. Support clé identifié autour de 1540-1550 testé récemment. Résistance majeure vers 1600-1620. Volume en légère augmentation sur la récente reprise haussière, mais pas encore signe d'inversion confirmée. Scénario à privilégier = opportunité de vente en zone résistance avec stop au-dessus de 1620 (invalidation de la tendance baissière).  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1540,1550],\"resistances\":[1600,1620],\"plan\":\"vente en zone résistance 1600-1620 avec stop au-dessus de 1620\",\"invalidation\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-52-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_15-51-56.png"
+  }
+}

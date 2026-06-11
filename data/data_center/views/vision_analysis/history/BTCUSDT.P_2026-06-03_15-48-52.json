@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_194904_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:49:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-48-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1810.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance, surveiller rebond support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1900",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "neutre, pas de signaux clairs",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible sur le graphique 15 minutes d’Ethereum.  \n- Structure majoritairement de Lower Highs (LH) et Lower Lows (LL), confirmation de la tendance.  \n- Zones clés à surveiller autour des supports proches de 1810 et résistances vers 1880-1900 pour valider un éventuel rebond ou poursuite.\n\nB) Chart 1 (haut-gauche):  \nSymbole/timeframe : Ethereum / USDT 15min  \nTendance clairement baissière avec une série de LH et LL. La structure montre une cassure nette sous les précédents supports, maintenant devenus résistances. Support clé autour de 1810, zone à surveiller pour un possible rebond. Scénario baissier privilégié tant que le prix reste sous 1880-1900. Invalidation en cas de franchissement net au-dessus des 1900.\n\nC) Chart 2 (haut-droit):  \nSymbole/timeframe : inconnu  \nDifficile d’analyser sans repère clair. Pas de structure identifiable ni tendance précise sur l’image donnée. Nécessite plus d’informations pour donner un scénario actionnab",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-48-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_15-48-45.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_085300_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T04:52:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_04-52-44",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur cassure support pour continuation baissière vers 65,000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage et maintien au-dessus de 67,600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globalement baissière marquée, avec de fortes phases de vente sur l’ensemble des graphiques.  \n- Plusieurs structures de bas de cycle (HL, HH) en attente de confirmation pour un possible retour haussier.  \n- Zones clés à surveiller pour rebond ou continuation baissière identifiées proches des supports intermédiaires.\n\nB) Chart 1 (haut-gauche): Bitcoin / USDT 15min  \n- Tendance courte terme: clairement baissière, progression de LL et LH bien marquée.  \n- Structure: principaux swings à la baisse, aucun higher high récent confirmé.  \n- Supports clés: entre 66,400 et 66,500 USDT (ancien creux visible)  \n- Résistances: 67,200-67,600 USDT, niveau actuel pas encore invalidé.  \n- Scénario principal: continuation du retracement si le support casse, test possible des 65,000.  \n- Invalidation: franchissement clair et maintien au-dessus de 67,600 pourrait initier un range ou rebond.\n\nC) Chart 2 (haut-droit): inconnu (graphique non lisible)  \n- Impossible d’analyser en",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_04-52-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_04-52-34.png"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_172746_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:27:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-27-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 65700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "recherche rebond local depuis support, prise de position longue sous résistance intraday",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break ferme sous 65600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Après une forte tendance baissière visible sur plusieurs périodes, le marché semble chercher un point bas local.  \n- Structure bearish claire avec absence de HH/HL, plutôt une succession de LH/LL.  \n- Scénario prudent de reprise possible sous zone clé de support, invalidation si nouveau plus bas significatif.\n\nB) Chart 1 (haut-gauche): BTCUSDT 15min  \nTendance baissière nette, structure en LH/LL sans reprise visible. Pas de fractale haussière. Volume en pic sur certaines baisses, confirmation de pression vendeuse. Zone clé support vers ~65,600 à 65,700 USDT. Scénario possible : tentative de rebond local avec prise de position longue courte durée sous résistance intraday ~66,500-66,600. Invalidation si break sous 65,600 ferme.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non lisibles, analyse impossible.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole et timeframe non lisibles, analyse impossible.\n\nE) Chart 4 (bas-droit): inconnu  \nSymbole et timeframe non l",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-27-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_13-27-25.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_135258_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T09:52:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_09-52-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1770.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond proche résistance 1770 avec cible 1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1800 confirme invalidation du biais baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le timeframe 1h avec des séries de Lower Highs (LH) et Lower Lows (LL).\n- Structure claire de continuation baissière sans signe de retournement pour l’instant.\n- Zones clés à surveiller : support majeur proche de 1,600 et résistance vers 1,770.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe marché forme une succession stable de plus bas et plus bas (LL), confirmant une forte pression vendeuse. La récente accélération vers 1,634 indique que le support autour de 1,600 est la prochaine zone de réaction importante. La zone 1,770-1,800 agit comme résistance intraday et permet de définir un stop de protection. Un scénario probant est la poursuite de la baisse vers 1,600, invalidée uniquement en cas de cassure claire au-dessus des 1,800, marquant potentiellement un changement de structure à surveiller.\n\nC) DeskPro  \n{\"run_id\":\"unique001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1600\"],\"resistances\":[\"1770\"],\"plan\":\"v",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_09-52-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_09-52-40.png"
+  }
+}

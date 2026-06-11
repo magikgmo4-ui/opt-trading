@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_215529_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T17:55:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-55-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.7,
+      "note": "s 60"
+    },
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.7,
+      "note": "s à 60"
+    },
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.7,
+      "note": "s 60"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte tendance baissière claire sur le BTC/USDT.\n- Structure en lower lows et lower highs confirme le momentum négatif.\n- Présence de zones clés proches des 60 000 en support et 63 000 en résistance.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h\nTendance baissière nette avec plusieurs lower highs et lower lows marqués. Le prix a cassé rapidement plusieurs supports, solder, puis montre un léger range entre 60 000 et 61 200. Le volume augmente lors des baisses, validant la force vendeuse. Zones clés à 60 000 (support) et 63 000 (résistance). Scénario principal: continuation baissière à la rupture sous 60 000. Invalidation au-dessus de 63 000.\n\nC) Chart 2 (haut-droit): inconnu\nSymbole/timeframe non lisible, pas d’analyse possible.\n\nD) Chart 3 (bas-gauche): inconnu\nSymbole/timeframe non lisible, pas d’analyse possible.\n\nE) Chart 4 (bas-droit): inconnu\nSymbole/timeframe non lisible, pas d’analyse possible.\n\nF) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"baissi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-55-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_17-55-12.png"
+  }
+}

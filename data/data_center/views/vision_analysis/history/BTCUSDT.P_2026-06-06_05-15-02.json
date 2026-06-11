@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_091545_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T05:15:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-15-02",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support; short si cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "hausse au-dessus de 65 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d'une pression vendeuse dominante sur la plupart des graphiques, avec plusieurs tendances baissières claires.  \n- Structure en bear trend sur Bitcoin 1h avec des LL et LH bien visibles, cherchant une potentielle zone de support.  \n- Opportunités de repli sur des zones clés de support pour un éventuel rebond, mais confirmations nécessaires.  \n\nB) Chart 1 (haut-gauche): Bitcoin / TetherUS 1h (Binance)  \n- Tendance baissière claire sur le 1h, avec une série de Lower High (LH) et Lower Low (LL).  \n- Structure montre un bear market dominant sans retournement visible actuellement.  \n- Zones clés: résistance autour de 64 000 - 65 000 (derniers tops), support principal situé vers 59 000 - 60 000.  \n- Scénario: tentative de rebond sur le support 60 000 possible, mais la cassure sous ce niveau invaliderait tout retournement.  \n- Invalidation: franchissement au-dessus de 65 000 confirmerait un changement de structure haussière.  \n\nC) Chart 2 (haut-droit): inconnu  \n-",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-15-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_05-14-53.png"
+  }
+}

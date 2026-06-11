@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_231959_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T19:19:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-19-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Monitor support for bounce or break. Short on break; consider cover or reversal trade on strong bounce.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sustain above 1820 USDT.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- La structure montre une forte dynamique vendeuse avec plusieurs impulsions baissières nettes.  \n- Zone clé de support autour de 1 740-1 750 USDT, à surveiller pour un potentiel rebond ou rupture.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance dominante baissière avec séquences répétées de LH et LL formant une structure dégradée. Plusieurs fortes chandelles rouges indiquent une pression vendeuse importante. Le dernier mouvement latéral suggère une phase de consolidation près de la zone de support clé vers 1 740-1 750 USDT. Une rupture en dessous validerait un nouveau mouvement baissier, tandis qu’un rebond pourrait engendrer un retour vers les résistances proches vers 1 800-1 820 USDT. Invalidation du biais baissier si le prix dépasse durablement 1 820 USDT en break-out.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LH/L",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-19-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_19-19-42.png"
+  }
+}

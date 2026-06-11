@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_024802_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:47:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-47-52",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 62k; envisager vente sous résistance 65k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break above 65k with HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "No data",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "No data",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "No data",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "No data",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "No data",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "No data",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière dominante sur la majorité des actifs visibles.  \n- Volatilité élevée avec certaines rebonds techniques sur BTC.  \n- Zones clés de support testées ou en approche, sentiment de prudence recommandé.  \n\nB) Chart 1 (haut-gauche): BTCUSDT.P 1h  \nTendance baissière claire avec structure en Lower High (LH) et Lower Low (LL) répétée.  \nZone clé de support autour de 62k-63k USD, récemment testée avec rebond.  \nRésistance immédiate proche de 65k USD, forte zone de supply.  \nScénario: rebond technique possible, mais tendance générale reste baissière tant que 65k n’est pas franchi.  \nInvalidation en cas de franchissement clair et durable au-dessus de 65k USD avec HH.  \n\nC) Chart 2 (haut-droit): inconnu  \nSymbole/timeframe non lisible, analyse impossible.  \n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole/timeframe non lisible, analyse impossible.  \n\nE) Chart 4 (bas-droit): inconnu  \nSymbole/timeframe non lisible, analyse impossible.  \n\nF) DeskPro  \n{\"run_id\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-47-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_22-47-18.png"
+  }
+}

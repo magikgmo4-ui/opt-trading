@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_9388_20260611T063008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "WhaleTank",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2026-06-08T13:18:28+00:00",
+  "produced_at": "2026-06-11T06:30:08.195206+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 1631.52,
+  "sl": 1601.99,
+  "tp": 1648.29,
+  "tps": [
+    1648.29,
+    1648.29
+  ],
+  "leverage": 4,
+  "confidence": "LOW",
+  "raw_text": "#ETHUSDT\n\nBUY 1631.52 - 1617.67\n\nTP 1648.29 1669.97 1698.96 1721.57\n\nSL 1601.99\n\nLeverage 4x",
+  "summary": "XAUUSD LONG"
+}

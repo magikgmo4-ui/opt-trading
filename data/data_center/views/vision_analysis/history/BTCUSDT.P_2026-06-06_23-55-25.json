@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_035534_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T23:55:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-55-25",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 58800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure validée de 61800 avec stop sous 58800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture confirmée sous 58800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte terme baissière claire avec structure à LL (Lower Lows) et LH (Lower Highs) jusque vers 59 000.  \n- Rebond technique initié sur zone support autour de 59 000, avec tentative de reprise haussière.  \n- Confirmation haussière attendue au-dessus de 61 800, cassure nécessaire pour invalider le scénario baissier.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché suit une tendance baissière sur ce timeframe, matérialisée par une série de LH et LL. Une zone de support clé se situe vers 59 000, où les prix se sont stabilisés avant un rebond. Le prix teste à présent une résistance à 61 800, niveau à surveiller pour valider un possible retournement. La structure reste fragile tant que les prix ne dépassent pas ce niveau. En cas de rejet sous cette résistance, la baisse pourrait reprendre. Un stop loss sous le dernier plus bas (environ 58 800) protégerait le scénario haussier.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish en cours, potentie",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-55-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_23-55-16.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_163250_NYMEX:NG1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T12:32:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-32-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.4,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.45,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher un achat sur retracement proche support 3.15-3.20 avec cible 3.40-3.45. Stop sous 3.00 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et fermeture sous 3.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 4h avec une série de HH et HL.  \n- Structure marquée par des retracements temporaires mais maintien de la domination des acheteurs.  \n- Zones clés à surveiller : support majeur autour de 3.00, résistance récente proche de 3.40.\n\nB) Chart unique (NYMEX:NG1! 4h) :  \nLa tendance est haussière avec une succession de creux et sommets plus hauts (HL/HH). Après une correction vers 3.15, le prix a repris sa montée, dépassant la résistance dynamique à 3.30-3.35. Le volume a augmenté lors des poussées haussières, confirmant la force du mouvement. Le support à 3.00 est crucial pour invalider le scénario haussier si cassé. Objectif court terme à 3.40-3.45, zone de résistance récente. En cas d’échec, un retour vers 3.15-3.20 serait à prévoir.\n\nC) DeskPro  \n{\"run_id\":\"20240604_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[3.00,3.15],\"resistances\":[3.40,3.45],\"plan\":\"Chercher un achat sur retracement proche supp",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-32-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_12-32-27.png"
+  }
+}

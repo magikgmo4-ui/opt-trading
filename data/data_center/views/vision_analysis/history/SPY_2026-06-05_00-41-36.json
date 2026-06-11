@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_044144_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:41:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-41-36",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 755.0,
+      "confidence": 0.7,
+      "note": "s 755."
+    },
+    {
+      "type": "support_level",
+      "value": 760.0,
+      "confidence": 0.7,
+      "note": "s 760"
+    },
+    {
+      "type": "support_level",
+      "value": 748.0,
+      "confidence": 0.7,
+      "note": "s 748,"
+    },
+    {
+      "type": "support_level",
+      "value": 748.0,
+      "confidence": 0.7,
+      "note": "support 748"
+    },
+    {
+      "type": "price_target",
+      "value": 760.0,
+      "confidence": 0.5,
+      "note": "objectif 760"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec une série de HH et HL formés sur le 1h.  \n- Structure récente marquée par un rejet sous résistance proche de 760, consolidation en cours.  \n- Zone de support clé identifiée autour de 748-750, nécessaire à maintenir pour préserver la dynamique.\n\nB) Chart unique (SPY 1h):  \nLe SPY évolue dans une tendance haussière nette avec des sommets et creux ascendants (HH/HL). Dernière phase montre un rejet à 760 (résistance), suivi d'un retracement vers 755. Le support autour de 748-750 est fondamental pour éviter un retournement structurel. Scénario privilégié : maintien au-dessus du support et reprise vers 760+ pour viser un nouveau sommet. Invalidation sous 748, ce qui signalerait potentiellement un début de correction ou une pause plus profonde.\n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[748,750],\"resistances\":[760],\"plan\":\"Acheter au support 748-750 avec objectif 760+\",\"invalid",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-41-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-05_00-41-25.png"
+  }
+}

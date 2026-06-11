@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_005527_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T20:55:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_20-55-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62900.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher opportunités short sur rebond proche résistance 65000 ; confirmer maintien du support 62900, sinon accélération baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m > 65000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette en 15m avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure confirmée de faiblesse, absence de retournement à ce stade.\n- Zones clés à surveiller : support majeur proche de 62 900 USDT, résistance intra-trend autour de 65 000 USDT.\n\nB) Chart unique (BTCUSDT.P 15m) : \nLe graphique montre une tendance baissière claire caractérisée par une succession de Lower Highs (LH) et Lower Lows (LL). Le prix vient de rebondir sur un support proche de 62 900 USDT, niveau à valider pour limiter la pression vendeuse. La zone de résistance à 65 000 USDT a agi comme un plafond stoppant toute tentative de rebond plus haut. Le scénario prioritaire reste une poursuite baissière tant que la résistance des 65k n’est pas franchie en clôture 15m. Invalidation de ce biais si le prix casse les 65 000 USDT avec un Higher High (HH).\n\nC) DeskPro\n{\"run_id\":\"20240604_0055\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[62900],\"resis",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_20-55-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_20-55-11.png"
+  }
+}

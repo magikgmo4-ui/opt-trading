@@ -1,0 +1,17 @@
+{
+  "contract": "telegram_context.v1",
+  "id": "ctx_101121_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "crypto_flow",
+  "channel": "whale_alert_io",
+  "channel_priority": "P1",
+  "channel_type": "whale_alert",
+  "parsed_at": "2026-06-09T18:54:20+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "asset": "BTC",
+  "direction": null,
+  "entry_price": null,
+  "amount": "1625",
+  "value_usd": "100299781",
+  "raw_text": "\ud83d\udea8 \ud83d\udea8 \ud83d\udea8 \ud83d\udea8 \ud83d\udea8  1,625 $BTC (100,299,781 USD) transferred from unknown wallet to unknown wallet\n[Details](https://whale-alert.io/transaction/bitcoin/735c7ab10b8482e21e5095b4bc313801c327c467904d2cefeaaa45fd17d4b9c2)"
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_051100_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:10:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-10-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter en breakout confirmé au-dessus de 63000 avec un stop sous 60000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Repli clair sous 60000 invalide le scénario haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante récente baissière visible jusqu'au 5, suivi d'un range latéral avec bases de support vers 60 000 et résistances vers 63 000.  \n- Structure actuelle en range, avec des bas relativement plats autour de 60-61k (HL) et des hauts vers 63k (HH local).  \n- Scénario haussier possible en cas de breakout clair au-dessus de 63 000 ; invalidation du scénario avec repli sous 60 000.  \n\nB) Chart unique (BTCUSDT.P 1h): La paire BTCUSDT.P montre une tendance baissière initiale nette suivie d'une consolidation latérale entre 60 000 (support solide) et 63 000 (résistance clé). Les swings récents présentent des HH/HL dans ce range, indiquant un potentiel début de retournement en tendance haussière si la résistance est dépassée. Le volume est globalement plus élevé en phase de baisse, traduisant de la pression vendeuse dominante. Confirmation à attendre sur rompue de la zone de résistance.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-hau",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-10-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_01-10-34.png"
+  }
+}

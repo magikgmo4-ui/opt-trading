@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_171054_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T13:10:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-10-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1710.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1730.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le rejet ou franchissement de 1780-1800 pour valider un potentiel retournement haussier. En l'absence, viser des positions short avec stop serré au-dessus de 1800.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le timeframe 1h avec une série de creux et sommets déclinants (LL/LH).  \n- Structure fragile, tentative de rebond récent marquée par un HL partiel, mais sous forte pression vendeuse.  \n- Zones clés : support vers 1710-1730, résistance immédiate autour de 1780-1800 ; scénario haussier conditionné à la prise de cette résistance.  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre une nette tendance baissière matérialisée par une succession de Lower Highs (LH) et Lower Lows (LL). Le dernier mouvement tente d’établir un Higher Low (HL) autour de 1710-1730, indiquant un potentiel reflux vendeur. La zone des 1780-1800 représente une résistance clé à franchir pour inverser la dynamique. En dessous de 1710, la tendance s’accélérerait à la baisse. Le volume reste globalement élevé durant les baisses, confirmant la force du biais short. Le scénario prioritaire reste donc baissier tant que la résistance 1780-1800 ne cède pas. Invalidatio",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-10-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_13-10-34.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_165956_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T12:59:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-59-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 34.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 35.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 38.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 41.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillez rebond possible sur support 34.5-35. En cas de rupture, poursuite baissière probable. Reprise haussière validée au-dessus de 41.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 41 USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure dégradée depuis la mi-mai, le prix casse plusieurs supports majeurs.  \n- Possible rebond technique actuel autour de 34.5-35, zone à surveiller pour une reprise ou poursuite.\n\nB) Chart unique (NASDAQ:IBIT 1h):  \nLa structure montre une tendance clairement baissière marquée par des Lower Highs et Lower Lows. Le prix a cassé plusieurs supports clés, notamment autour de 41 puis 38 USD. Actuellement, le prix semble stabilisé vers 34.5-35, zone qui pourrait temporairement jouer de support. Le volume augmente notablement lors des phases baissières, renforçant la dynamique vendeuse. Un rebond technique est en cours, mais la tendance reste baissière tant que les résistances vers 38 et 41 ne sont pas franchies. Scénario privilégié : attente d’une confirmation de reprise ou d'une nouvelle jambe baissière à la cassure du support actuel. Invalidation en cas de franchissement ",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-59-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-05_12-59-30.png"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_062246_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T02:22:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-22-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sur échec de la reprise sous 1850, viser retour vers 1760 puis 1700; cassure haussière 1850 invalide la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture ferme au-dessus de 1850 en H1",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h clairement baissière avec une série de structures LH et LL  \n- Support clé récent testé autour de 1760, avant un rebond technique actuel  \n- Résistance à suivre vers 1840-1850, zone invalidation du scénario baissier si franchie  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une tendance baissière dominante via une succession de plus bas (LH/LL) depuis fin mai. Le prix vient de toucher un support majeur proche de 1760 USDT avec un fort volume d’achat, traduisant une tentative de rebond. La zone de résistance immédiate située vers 1840-1850 pourrait freiner la reprise. Le scénario principal reste la poursuite de la baisse si ce niveau n’est pas cassé avec conviction, sinon invalidation baissière et possible retour vers 2000 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"unique_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1760\"],\"resistances\":[\"1840-1850\"],\"plan\":\"sur échec de la reprise sous 1850, viser retour vers 1760 p",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-22-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_02-22-31.png"
+  }
+}

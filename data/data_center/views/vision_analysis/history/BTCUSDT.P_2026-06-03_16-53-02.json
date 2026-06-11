@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_205313_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:53:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-53-02",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller tenue support pour timing entrée vendeuse, viser continuation sous 58%",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 60%",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte baisse récente marquée sur le graphique BTC Dominance (temps 1D), possible changement de structure.  \n- Volumes en augmentation lors de la chute, signalant pression vendeuse significative.  \n- Nécessaire de surveiller la tenue d’un support clé sous les 58.5%, zone potentielle pour un rebond ou poursuite baissière.  \n\nB) Chart 1 (haut-gauche): BTC Dominance, Daily  \n- Tendance récente baissière très prononcée, cassure rapide d’un support autour de 59.5%.  \n- Structure passée en fracturation d’un sommet (HL puis LH possible), indiquant une faiblesse.  \n- Zones clés: Résistance forte aux environs 60.8%-61.2%, support immédiat vers 58.4%-58.5%.  \n- Scénario principal: poursuite de la baisse vers 57.5%-57% si le support actuel ne tient pas.  \n- Invalidation du scénario baissier si retour au-dessus de 60%, retrouvant une dynamique haussière.  \n\nC) Chart 2 (haut-droit): Inconnu  \n- Symbole ou timeframe non lisibles, aucune analyse possible.  \n\nD) Chart 3 (bas-gauche",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-53-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_16-52-52.png"
+  }
+}

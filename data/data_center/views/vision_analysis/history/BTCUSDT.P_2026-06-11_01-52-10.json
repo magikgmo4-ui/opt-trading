@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_055219_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:52:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-52-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance de la cassure 63000 pour prise de positions longues, stop sous 60000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse 60000 en clôture 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière visible jusqu'au 5, puis début d'une consolidation à plat avec HL et LH confirmés.\n- Structure récente neutre/haussière avec un léger retour à la hausse, plusieurs HL sur le timeframe 1h.\n- Zone clé support vers 60 000 USDT, résistance importante proche de 63 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h) :\nOn observe une tendance baissière nette jusque début 5 avril, suivie d’une phase de range avec structure de type HL/HH après un bottom vers 59 000. La zone support autour de 60 000 est testée plusieurs fois. Résistance majeure à 63 000 USDT, à surveiller pour une cassure qui validerait une reprise haussière. Invalidation du scénario haussier sous 60 000, ce qui relancerait la tendance baissière dominante.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL/HH récent après forte baisse\",\"supports\":[\"60000\"],\"resistances\":[\"63000\"],\"plan\":\"Surveillance de la cassure 63000 pour prise de positions long",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-52-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_01-52-02.png"
+  }
+}

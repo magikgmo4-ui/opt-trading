@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_044944_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T00:49:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_00-49-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure de 62800 ou pullback sur 61000-60600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte durable sous 61000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme en rebond haussier après une forte chute initiale, structure récente en HL.  \n- Zones clés identifiées : support majeur autour de 60,600 USDT, résistance à 62,800 USDT testée actuellement.  \n- Scénario privilégié : poursuite du rallye vers la résistance, invalidation sous 61,000 USDT à surveiller.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nLa tendance récente est haussière avec une structure HL visible après un creux marqué. Le prix retrace vers une résistance évidente à 62,800 USDT. Le support principal se situe autour de 60,600 USDT où le prix a rebondi fortement. Un franchissement clair de la résistance confirmerait la poursuite du mouvement haussier. En revanche, une cassure sous 61,000 USDT invaliderait ce scénario et risque d’initier une nouvelle phase baissière.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL\",\"supports\":[60600,61000],\"resistances\":[62800],\"plan\":\"Acheter sur cassure de 62800 ou p",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_00-49-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-11_00-49-22.png"
+  }
+}

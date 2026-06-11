@@ -1,0 +1,2975 @@
+[
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260603_215157_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T17:51:55-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_17-51-49",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller le support à 58.3%. En cas de tenue, attendre un rebond/reprise. En cassure nette, viser la poursuite baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Reprise au-dessus de 61.2%, inversion de tendance possible.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance daily baissière marquée avec chute nette récente de la dominance BTC.\n- Structure en renversement, avec un top local établi suivi de lower highs (LH) et lower lows (LL).\n- Zone clé support proche à 58.3%, en cours de test critique pour maintenir une éventuelle pause ou rebond.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): \nLe graphique montre une nette tendance baissière après un sommet autour de 61.2%. La structure est claire avec des lower highs et lower lows récents. La dominance BTC teste actuellement un support majeur vers 58.3%, niveau à surveiller pour valider ou invalider la poursuite de la baisse. Un rebut à ce niveau pourrait signaler une consolidation temporaire; en cas de cassure consolidée sous ce support, le biais baissier se renforcerait nettement.\n\nC) DeskPro \n{\"run_id\":\"20240603_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"lower highs/lower lows\",\"supports\":[\"58.3%\"],\"resistances\":[\"61.2%\"],\"plan\":\"Surveiller le support à 58.3%. En c",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_17-51-49",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_17-51-39.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260603_225349_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T18:53:47-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_18-53-41",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance test support 58% + suivi cassure/tenue, trade baissier en cas de break confirmé",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "reprise au-dessus 61.5% de façon soutenue",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière récente très marquée après un pic proche de 61.5%.  \n- Structure de retournement avec un HH en mai suivi d'un LH violent confirmant un changement de structure.  \n- Zone clé de support court terme autour de 58%, en cours de test avec une possible cassure à surveiller.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une dominance BTC qui a atteint un sommet vers 61.5% début mai avant d’amorcer une chute rapide et prononcée jusqu’à environ 58.1%. La structure a formé un plus haut relatif (HH) puis des plus bas descendants (LH) indiquant un retournement baissier. Le volume augmente lors de la chute, renforçant la pression vendeuse. La zone autour de 58% est un support psychologique et technique, à surveiller pour validation ou cassure. Un maintien au-dessus pourrait signaler une pause ou tentative de rebond, une cassure en clôture journalière invaliderait la tendance haussière précédente et renforcerait la dynamique baissière. \n\nC) DeskP",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_18-53-41",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_18-53-31.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260603_235617_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T19:56:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_19-56-07",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller un rebond ou cassure sous 57.80%. Confirmation de la baisse sous ce niveau avec volume. Stop si retour au-dessus du dernier HL.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus du dernier plus haut local (HL) autour de 58.60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe daily avec une chute rapide et volumineuse récente.  \n- Structure marquée par un dernier mouvement en LL (Lower Low) après un sommet récent en HH (Higher High).  \n- Zone de support clé possible à 57.80% à surveiller pour un rebond ou poursuite baissière.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance Bitcoin est en forte baisse accélérée, passant sous des supports intermédiaires. La structure montre une impulsion baissière marquée par un pattern de Lower High puis Lower Low, indiquant un retournement de tendance. Le volume augmente sur la chute, renforçant la pression vendeuse. Le support immédiat est situé autour de 57.80%, à surveiller pour un possible rebond technique. Si ce support est cassé, la cible suivante pourrait se situer plus bas, potentiellement vers 57.60%. Un retour au-dessus du dernier HL invaliderait le scénario baissier actuel.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_19-56-07",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_19-55-57.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_010741_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T21:07:38-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_21-07-31",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Privilégier prises de position short sur rebonds en résistance 58.50-59%. Stop loss au-dessus 60% pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "reprise structure haussière au-dessus 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente clairement baissière avec break net des derniers supports.  \n- Structure en renversement marqué: on passe d’une séquence de HH/HL à LH/LL.  \n- Zone clé support à 58.50% franchie, nouvelle zone de résistance désormais.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une correction très forte de la dominance BTC depuis un sommet autour de 61%. La tendance haussière antérieure (HH/HL) est invalidée par une chute rapide et prononcée formant une nouvelle structure baissière (LH/LL). Le support psychologique vers 58.50% a été nettement cassé avec volume en hausse, confirmant la faiblesse actuelle. Le scénario favori est une continuation baissière à court terme avec résistance possible sur 58.50-59%. Invalidation en cas de retour au-dessus de 60%.  \n\nC) DeskPro  \n{\"run_id\":\"20240601-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"58.50%\"],\"resistances\":[\"59%\",\"60%\"],\"plan\":\"Privilégier prises de position sh",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_21-07-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_21-07-21.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_020920_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T22:09:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-08-43",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la zone de support à 57.6% pour un rebond. En cas de cassure, continuation baissière probable. Scénario haussier invalidé au-dessus de 59.4%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière au-dessus de 59.4%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance daily baissière très nette avec forte pression vendeuse visible sur la dernière bougie.\n- Structure de sommet plus bas (LH) confirmée récemment après un pic à 61.2%, puis chute franche sous support ancien.\n- Zone clé support actuelle vers 57.6%, résistance proche autour de 59.4% (ancien support devenu résistance).\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): \nLe dominance du BTC (BTC.D) montre une structure baissière claire avec un sommet plus bas formé en mai. Le prix vient d’achever une chute rapide en cassant plusieurs supports quotidiens, indiquant une accélération de la correction. La zone entre 57.6% et 58% est un support important à surveiller pour un rebond potentiel. À la hausse, la zone 59.4%-60% sera un test clé pour invalider ce scénario baissier si l’on venait à la reconquérir. Volume en hausse sur la chute qui valide la dynamique vendeuse.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH\",\"supports\":[\"57.6%\"],\"res",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-08-43",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_22-08-33.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_032157_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-03T23:21:55-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_23-21-48",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction sur support 58% pour potentiel rebond. En cas de rupture, prévoir poursuite baissière. En cas de retour au-dessus de 59.2%, invalidation du scénario baissier.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture nette au-dessus des 59.2%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le daily après un sommet autour de 61.2%.  \n- Structure récente : formation de points bas (LL) et points hauts (LH) confirmant une rupture de la structure haussière antérieure.  \n- Zone clé de support visible proche de 58%, à surveiller pour un possible rebond ou poursuite de la chute.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une nette cassure baissière depuis le sommet local à environ 61.2%, avec une chute rapide et appuyée qui forme une série de Lower Highs (LH) et Lower Lows (LL). Le prix teste actuellement une zone de support cruciale vers 58%, déjà réactive par le passé. Le volume accentue la pression vendeuse sur la dernière bougie, indiquant une forte dynamique baissière. Un rebond possible pourrait se matérialiser sur ce support, sinon une invalidation sur franchissement durable au-dessus des 59.2% relancerait un scénario haussier.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_23-21-48",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_23-21-33.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_042327_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T00:23:25-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_00-23-20",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "vendre sur rejeu résistance 59.8%-60% avec stop au-dessus 60.5%. Attention au rebond court terme sur support 57.8%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 60.5%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme baissière forte après un sommet récent autour de 61.2%.  \n- Structure récente formant un creux bas (LL) significatif avec reprise haussière intraday.  \n- Zone clé support proche autour de 57.8%, résistance majeure vers 59.8%-60.0%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une chute rapide et violente du dominance BTC en cryptomarché, brisant plusieurs supports intermédiaires. La structure a basculé en tendance baissière avec des creux et sommets descendants (LL/LH). Une bougie verte de rebond apparaît sur la zone de support historique vers 57.8%, indiquant un possible rebond ou pause du mouvement. La résistance à surveiller est autour de 59.8%-60% (ancien support devenu résistance). Scénario prioritaire: poursuite du bearish sous résistance, invalidation si retour au-dessus de 60.5%.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH (baissier)\",\"supports\":[\"57.8%\"],\"resistances",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_00-23-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_00-23-09.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_052303_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T01:23:01-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_01-22-55",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction support 57.80% pour potentiel rebond court terme. Confirmer inversion si dépassement de 61.20%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Reprise au-dessus de 61.20%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance court terme baissière marquée suite à une chute rapide et forte.\n- Structure montrant une série de HH puis rupture avec un LH suivi d’un fort momentum vendeur.\n- Zone clé support vers 57.80% à surveiller pour potentiel rebond ou extension de la baisse.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLa dominance BTC évoluait en tendance haussière avec des hauts et bas plus hauts (HH/HL) jusqu’à fin mai, où une forte baisse interdite a cassé la structure en formant un bas plus bas (LL). Le volume a augmenté sur la chute, indiquant conviction vendeuse. La zone 57.80% joue un rôle de support immédiat, testée plusieurs fois lors de cette baisse brutale. La récupération récente au-dessus de 58% est à confirmer pour valider un début de stabilisation. Invalidation du scénario baissier si la dominance recasse les récents sommets autour de 61.2%.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier court terme\",\"structure\":\"HH/HL cassé en LL\",\"supports\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_01-22-55",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_01-22-40.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_062424_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T02:24:22-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_02-24-17",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller un test/résistance 59.60-60%. Short si rejet confirmé avec nouveau LH/LL. Prise de profit partielle possible proche support 58% si rebond temporaire.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour durable au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière forte, avec une rupture rapide d’un support important.  \n- Structure récente en HL, mais cassure nette avec chandelier rouge puissant, indiquant un retournement vers LH/LL.  \n- Zone clé support vers 58%, résistance immédiate autour de 59.60-60% à surveiller pour validation du rebond ou poursuite baissière.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une cassure brutale et rapide sous une zone de support horizontale vers 58.80%, validant un changement structurel. La tendance était haussière avec des HH/HL depuis début 2026, mais la récente forte chute remet en cause cette structure. Le momentum baissier est très fort, le volume augmente lors de la chute, ce qui soutient la dynamique vendeuse. Un rebond technique est visible en clôture journalière, mais l’invalidation du scénario baissier se ferait uniquement par un retour au-dessus de 59.60-60%. Le scénario probable est donc une poursuite de la baisse si ce niveau tien",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_02-24-17",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_02-24-06.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_072605_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T03:26:03-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_03-25-57",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la tenue du support 57.85%. En cas de rebond, viser une résistance vers 59.80%. En cas de cassure, envisager poursuite de la baisse.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture au-dessus de 61.20%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière récente très marquée avec un fort momentum vendeur.  \n- Structure passée en LH (Lower High) et LL (Lower Low) nets confirmant la pression baissière.  \n- Zone clé de support vers 57.85% testée et rebond possible à court terme.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nOn observe une structure en baisse avec des hauts de plus en plus bas (LH) et des bas de plus en plus bas (LL), typique d’une tendance baissière sur plusieurs semaines. Le plus récent mouvement est une chute brutale vers une zone de support majeure près de 57.85%, suivie d'un rebond technique aujourd’hui. Ce niveau est crucial : s’il casse en clôture, cela confirmerait la poursuite baissière. Sinon, un rebond vers la résistance à 59.80% peut se jouer. Invalidation du scénario bearish à la sortie au-dessus des 61.20%, correspondant à un précédent plus haut significatif.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"57.85",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_03-25-57",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_03-25-46.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_082924_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T04:29:22-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_04-29-15",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "chercher opportunité short sous 59.4%. Confirmer baisse avec cassure 57.8% ou valider retour haussier si retour au-dessus de 59.4%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière au-dessus de 59.4% qui invalide la structure baissière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante précédente haussière sur BTC Dominance avec des creux plus hauts (HL) et des sommets plus hauts (HH) jusqu’en mai.  \n- Forte baisse très rapide sur la dernière séquence, cassure nette de support visible vers 59.4%, structure potentiellement renversée en LH (Lower High).  \n- Zone à surveiller 57.8% comme support immédiat, invalidation du scénario baissier si le prix remonte clairement au-dessus de 59.4%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC a formé une tendance haussière jusqu’en mai avec une série de HH/HL. Depuis, la structure s’est fracturée avec un mouvement violent baissier engendrant un LL récent. Cette chute rapide est accompagnée d’un fort volume, signalant une forte pression vendeuse. Le support autour de 57.8% est clé pour le court terme. Le prochain scénario serait soit une continuation vers de nouveaux creux (cassure en clôture sous 57.8%), soit un rebond si résistance 59.4% regagnée. Le biais court terme est donc ",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_04-29-15",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_04-29-05.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_093210_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T05:32:08-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_05-32-02",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la tenue du support à 57.9%. Entrée potentielle long sur rebond avec stop en dessous. En cas de cassure du support, envisager positions short. Invalidation à la rupture soutenue au-dessus d",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Break et close journalier au-dessus de 60.4%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme baissière marquée par une forte chute récente.  \n- Structure en LH (Lower High) confirmée par la baisse après un sommet récent.  \n- Zone clé support autour de 57.9%, possible rebond si tenu, sinon poursuite baissière.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une dominance BTC en déclin après un sommet à environ 61.4%. On observe une structure de plus bas et plus bas (LH/LL), avec un retracement violent sous les 59%. Le support immédiat se situe autour de 57.9%, où un rebond est en cours. Le scénario principal est la poursuite de la baisse si le support cède, sinon un retour vers les résistances proches à 59.4% et 60.4%. L’invalidation serait un retour et maintien au-dessus de 60.4%, indiquant un possible changement de biais.  \n\nC) DeskPro  \n{\"run_id\":\"20240606_0932\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"57.9%\"],\"resistances\":[\"59.4%\",\"60.4%\"],\"plan\":\"Surveiller la tenue du support à 5",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_05-32-02",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_05-31-51.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_104237_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T06:42:35-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_06-42-29",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la tenue du support 58.10%. En cas de rebond, viser un test de résistance à 59.60%. En cas de cassure, considérer poursuite baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 59.60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance courte en forte baisse, cassure brutale d’un support récent.  \n- Structure montrant un sommet local (LH) suivi d’un nouveau plus bas significatif (LL).  \n- Zone clé support à 58.10% attaquée, possible rebond technique ou poursuite baissière si cassure nette.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC est en tendance baissière après avoir atteint un sommet autour de 61.20%. La structure montre un plus haut relatif suivi d’un mouvement baissier accéléré formant un plus bas plus bas (LL). La zone de support vers 58.10% est critique; un maintien pourrait signaler un rebond sur ce seuil, sinon la chute pourrait se poursuivre vers 57.80%. Le volume augmente fortement sur la baisse, signalant une pression vendeuse importante. La tendance est clairement baissière, avec une structure de HH/HL détruite et remplacée par un biais de LH/LL. Invalidation du scénario baissier si retour au-dessus de 59.60%.  \n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_06-42-29",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_06-42-18.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_114339_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T07:43:36-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_07-43-30",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller support 58% pour rebond. Reprendre position haussière au-dessus de 59.5%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retournement confirmé au-dessus de 59.5% après cassure, invalidation vente",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale haussière depuis mars avec une succession de hauts et bas plus hauts (HH/HL).  \n- Rejet violent récent matérialisé par une grande bougie rouge, cassure rapide sous un support intermédiaire autour de 59.5%.  \n- Zone clé de support à 58%, à surveiller pour un rebond ou poursuite de la baisse, invalidation si remontée au-dessus de 59.5%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une structure de plus en plus haussière matérialisée par des HH/HL depuis la fin de l’hiver, culminant début mai avec un plus haut autour de 61.2%. Cependant, un fort mouvement de vente brutal a cassé plusieurs supports intermédiaires et a rapidement fait chuter la dominance BTC à 58%. La structure est pour l’instant remise en question avec une possible formation de bas plus bas (LL). La zone 58% apparaît comme support clé critique à surveiller pour détecter un rebond ou une accélération baissière. Scénario de rebond à court terme possible, mais maintien a",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_07-43-30",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_07-43-20.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_125448_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T08:54:46-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_08-54-20",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 58.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 60.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller maintien du support 58.20% pour prise de position longue avec objectifs vers 60%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "casse franche sous 58.20%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance journalière haussière sur le très court terme après une forte chute brutale.  \n- Structure récente montre un sommet plus bas (LH) suivi d’un rebond formant un possible creux plus haut (HL).  \n- Zone clé support autour de 58.20%, résistance probable proche de 60%, pivot à surveiller.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une chute rapide de la dominance BTC autour de fin mai/début juin, suivie d’un rebond immédiat traduisant un intérêt acheteur en zone basse. La structure récente est une bascule haussière potentielle marquée par un nouveau creux plus haut (HL) après un sommet plus bas (LH), signalant un retournement possible. Les supports majeurs se situent autour de 58.20%, zone à maintenir pour invalidation de ce scénario haussier. La zone de résistance se situe près de 60%, niveau clé pour consolider ou invalider ce rebond.\n\nC) DeskPro  \n{\"run_id\":\"20240601_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier court terme\",\"structure\":\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_08-54-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_08-54-05.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_135721_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T09:57:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_09-57-10",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Chercher vente sous résistance 59.8-60%, avec stop au-dessus de 60%. Confirmation si retour sous 58%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Break clair au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance intermédiaire en baisse avec structure de creux et sommets descendants (LH/LL) depuis le pic de mai.  \n- Forte chute rapide récemment avec rebond immédiat, marquant une zone de support potentielle autour de 58.0%.  \n- Scénario à privilégier: poursuite de la faiblesse sous résistance clé 59.8-60.0%, invalidation au-dessus de cette zone.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nTendance baissière nette confirmée par une série LH/LL depuis fin mai. Le support principal se situe autour de 58% où un rebond a eu lieu, formant une zone clé à surveiller. La résistance majeure est identifiée entre 59.8% et 60%, niveau de précédents sommets rejetés. Le volume a fortement augmenté lors de la chute, signalant une pression vendeuse importante mais aussi un intérêt acheteur immédiat. L’invalidation du scénario baissier interviendrait par un franchissement clair au-dessus des 60%, sinon on peut anticiper un nouveau test à la baisse vers 57.6%.  \n\nC) DeskPro  \n{\"run_id\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_09-57-10",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_09-57-00.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_150001_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T10:59:59-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_10-59-52",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sous 58%, viser 57.5% ou plus bas. Recherche rebond possible si maintien support 58%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Rupture claire au-dessus de 59.5% qui inverse la tendance baissière.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière très forte récente, rupture nette d'un support intermédiaire.  \n- Structure actuellement en LH et LL, signal d'affaiblissement de la dominance BTC.  \n- Zone clé majeure support vers 58% à surveiller pour un possible rebond ou poursuite de la baisse.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une structure baissière bien marquée avec des plus bas (LL) et plus bas sommets (LH) récents. Après une phase latérale fluctuante, une chute violente a brisé plusieurs supports, signalant une accélération de la correction. La zone 58% constitue un support psychologique et technique important. Le scénario à privilégier est une poursuite baissière sous ce niveau. En invalidation, un retour au-dessus de 59,5% casserait la structure baissière et laisserait envisager un retour vers les 61%.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH, LL\",\"supports\":[\"58.0%\"],\"resistances\":[\"59.5%\",\"61%\"],\"plan\":\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_10-59-52",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_10-59-37.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_155959_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T11:59:57-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_11-59-51",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "attendre confirmation de maintien au-dessus de 58% pour envisager une reprise, sinon surveiller cassure en clôture sous 58% pour short",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture au-dessus de 60% avec volume pour invalider la tendance baissière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance récente baissière marquée par une chute rapide et significative.\n- Structure montre une série de HH puis un renversement avec une cassure nette sous le dernier HL.\n- Zone clé de support proche de 58%, à surveiller pour un possible rebond ou poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):\nLe marché présente une structure initiale en tendance haussière avec des HH et HL, puis un retournement clair visible début mai. Une chute brutale a lieu, franchissant à la baisse le support précédent vers 59%, confirmant une nouvelle structure LH et LL. Volume en hausse lors de la chute, indiquant un fort momentum vendeur. Support actuel autour de 58% agit comme zone critique : un rebond pourrait rétablir un biais neutre à haussier, tandis qu’une cassure en clôture sous ce niveau validerait une poursuite baissière. Résistance à 59-60%, ancien support devenu résistance.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"retourne",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_11-59-51",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_11-59-36.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_170129_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T13:01:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_13-01-20",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la zone de support 58%, trader retour ou break selon réaction. Prudent sur signal de continuation baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 60.8% invaliderait la pression vendeuse",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance courte-term présente un retournement baissier marqué à la fin du graphe.  \n- Structure récente montre un plus haut (HH) suivi d’un plus bas significatif (LL), indiquant un possible début de tendance baissière.  \n- Zone clé de support vers 58%, résistance immédiate proche de 60.8%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique met en évidence une forte chute du dominance BTC avec un gap baissier récent, cassant plusieurs supports intraday. La dominance a formé un HH vers 61.2% début mai avant d’enclencher une baisse rapide jusqu’à environ 58%. La structure montre un LL récent, invalidant une poursuite haussière immédiate. Le volume augmente sur la baisse, renforçant la pression vendeuse. Support clé vers 58% à surveiller sous peine de poursuite baissière. Résistances principales autour de 60% et 60.8% à franchir pour reprendre une dynamique haussière.\n\nC) DeskPro  \n{\"run_id\":\"20240605-1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"HH p",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_13-01-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_13-01-09.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_180330_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T14:03:28-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_14-03-21",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rebond sous 60%, viser 58% puis surveiller cassure pour poursuite",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour ferme au-dessus de 60.0%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Rejet massif de la dominance BTC visible avec une forte bougie baissière récente.  \n- Structure en retournement, avec un HH (plus haut) atteint puis un pullback marqué qui crée un LH (plus bas).  \n- Zone clé résistance autour de 61.2%, support actuel vers 58.0%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d)  \nLa dominance BTC montre une structure haussière antérieure avec des HH et HL jusqu’au sommet à 61.2%. Depuis ce pic, la tendance s’est retournée brutalement avec une série de LH et LL, traduisant une pression vendeuse forte. La récente bougie quotidienne est un rejet violent de la zone supérieure, suivi d’un très fort volume baissier. Cette cassure rapide invalide la poursuite haussière court terme. Le pivot clé pour surveiller reste le support vers 58.0%, en dessous duquel la chute pourrait s’amplifier. Un retour au-dessus de 60.0% serait nécessaire pour invalider ce scénario baissier.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier court te",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_14-03-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_14-03-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_190444_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T15:04:42-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_15-04-36",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond possible sur 58.0%. Privilégier short en clôture sous 58.8% avec stop au-dessus de 59.6%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 59.6%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le court terme après un sommet marqué autour de 61.3%.  \n- Structure en cours de rupture avec cassure rapide sous 58.8%, invalidant la reprise récente.  \n- Zone clé support à 58% à surveiller pour un possible rebond, résistance immédiate à 59.6%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une tendance baissière claire depuis un sommet local à ~61.3% (HH précédent). La structure récente montre un changement de direction avec un LH et une forte cassure sous le support intermédiaire vers 58.8%. Le volume augmente fortement à la baisse, ce qui valide la pression vendeuse. La zone 58.0%-58.2% représente un support clé à court terme, à garder en watch pour un rebond potentiel. Invalidation du scénario baissier si retour au-dessus de 59.6% (ancienne zone de support devenue résistance).  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH, rupture support\",\"supports\":[\"58.0%\"],\"resistan",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_15-04-36",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_15-04-26.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_200604_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T16:06:01-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_16-05-51",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller le maintien du support à 58%, en cas de rupture nette, poursuite probable de la baisse. Un rebond sur ce niveau peut offrir une opportunité de swing trade à court terme.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 59.6% avec confirmation d’un HH",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le court terme après un sommet proche de 61,2%.  \n- Structure récente en baisse avec succession de LH (Lower Highs) et LL (Lower Lows).  \n- Zone clé de support vers 58% testée avec forte volatilité et volume en hausse.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC est dans une tendance baissière visible depuis fin mai, avec des creux et hauts relatifs qui se décalent à la baisse (LH/LL). La baisse rapide avec forte augmentation du volume suggère une pression vendeuse importante, potentiellement une accélération de la perte de dominance. Le support prioritaire est autour de 58%, zone d’invalidation du scénario baissier si franchie à la hausse. Un rejet sur ce support pourrait engendrer un rebond technique.  \n\nC) DeskPro  \n{\"run_id\":\"20240602_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"58%\"],\"resistances\":[\"59.6%\",\"61.2%\"],\"plan\":\"Surveiller le maintien du support à 58%, en cas de ruptur",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_16-05-51",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_16-05-40.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_210655_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T17:06:53-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_17-06-46",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 58.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 57.95,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 59.8,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 61.2,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction sur support 58%. Si rebond, viser un retour vers 59.8% pour prise de bénéfices. En cas de cassure nette sous 57.95%, renforcer position short en anticipation d’une extension baissi",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture durable au-dessus de 59.80%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance journalière baissière marquée après un sommet vers 61.2%.  \n- Structure récente en régression avec plusieurs plus bas relatifs (LL) et plus bas intermédiaires (LH).  \n- Zone clé support visible proche de 58%, possible point d'invalidation si cassure baissière confirmée.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une nette baisse de la dominance BTC (%) après un sommet local autour de 61.2%, avec une forte chute jusqu’à la zone 58%. La structure actuelle affiche des hauts descendants (LH) et des bas descendants (LL), indiquant une pression vendeuse dominante. Le volume augmente lors de la forte chute, validant la conviction baissière. Le support majeur à 58% est testé; un rebond sur cette zone pourrait offrir un premier point d'entrée court terme, tandis qu'une cassure sous 57.95% invaliderait ce scénario et confirmerait une poursuite baissière plus importante.\n\nC) DeskPro  \n{\"run_id\":\"20240601_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearis",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_17-06-46",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_17-06-36.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_220844_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T18:08:42-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_18-08-33",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur 58% pour opportunité d'achat court terme, sinon maintien short sous 59.5%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture claire au-dessus de 59.5%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière forte sur le plus récent segment avec une chute accélérée du BTC Dominance.  \n- Structure récente marquée par un renversement après un sommet local vers 61.2%, suivie d’une série de Lower Highs (LH) puis un Lower Low (LL) très prononcé.  \n- Zone clé de support autour de 58%, à surveiller pour un rebond ou une poursuite baissière en cas de cassure.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une dominance BTC qui a formé un sommet puis une série de LH, confirmant un début de tendance baissière. La récente bougie longue rouge sur forte volatilité indique un dumping rapide et violent, passant en dessous de la zone 58.5%. Le support à 58% semble pour l’instant contenir la pression, mais une invalidation de ce support pourrait provoquer la poursuite de la baisse. Scénario probable : rebond technique sur 58% ou continuation baissière vers région 57.8%+. Invalidation majeure si retour above 59.5% qui invaliderait la dynamique baissièr",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_18-08-33",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_18-08-18.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_231029_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T19:10:26-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_19-10-20",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance du support 58.0% pour prise de position longue avec stop serré. En cas de cassure, poursuivre vente ou rester à l'écart. Confirmation haussière si dépassement 60.5%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "au-dessus de 60.5%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance récente baissière forte sur le BTC Dominance, après un sommet en mai autour de 61.2%.\n- Structure montrant un renversement depuis un sommet HH/HL vers un pattern possible de LH/LL.\n- Zone clé de support proche de 58%, testée massivement avec un rebond actuel.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d)\nLe graphique montre une tendance haussière nette ayant mené à un plus haut à 61.2%, suivi d’un effondrement rapide en grande chandelle rouge, générant une structure de plus bas (LH) et potentiellement de nouveaux plus bas (LL) par rapport aux sommets précédents. Le support crucial se situe autour de 58%, correspondant au niveau actuel où une rejection haussière apparaît. La prochaine résistance se trouve dans la zone 59.5-60.5%, invalidant le scénario bearish si dépassée. La structure invite à la prudence, un rebond technique est possible mais le biais reste baissier tant que le support casse clairement.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_19-10-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_19-10-04.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_001130_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T20:11:28-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_20-11-22",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance support 58.4% pour rebond. Short sur pullback vers 59.6-60%. Confirmation baissière par maintien sous 59.6%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée sur le dernier segment avec une forte accélération bearish.  \n- Structure récente de lower highs (LH) et lower lows (LL) confirmant la pression vendeuse.  \n- Zone clé de support immédiat autour de 58.4% à surveiller pour un rebond potentiel ou poursuite baissière.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): Tendance négative dominante avec une structure de baisse claire (LH/LL). La cassure rapide des supports précédents accentue le biais baissier. Le volume en hausse sur la chute confirme la force vendeuse. Résistance principale vers 59.6-60%. Scénario prudent envisage un pullback vers résistance avant continuation possible. Invalidation en cas de franchissement significatif au-dessus de 60%.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"58.4%\"],\"resistances\":[\"59.6%\",\"60%\"],\"plan\":\"Surveillance support 58.4% pour rebond. Short sur pullback vers 59.6-60%. Confirmation baissière p",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_20-11-22",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_20-11-06.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_011305_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T21:13:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-12-56",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller maintien du support 58.20%, chercher confirmation pour des shorts sur rebond au resistance 59.80%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 59.80%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le court terme avec forte chute du dominance BTC.  \n- Structure récente montre un LL important marqué par un mouvement violent à la baisse.  \n- Zone clé de support proche à 58.20%, résistance visible à 59.80% (ancien pivot haut).  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC.D est en tendance baissière claire depuis le pic récent autour de 61.20%. On observe une succession de Lower Highs (LH) et Lower Lows (LL), confirmant un retournement baissier structurel, renforcé par une forte chandelle rouge marquée. Le support critique à 58.20% doit être surveillé, car une cassure entraînerait potentiellement une continuation de la baisse. La résistance immédiate se situe autour de 59.80%, zone où un pullback baissier pourrait se produire en cas de rebond technique. Scénario principal : poursuite du retracement avec invalidation au-dessus de 59.80%.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structu",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-12-56",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_21-12-41.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_021734_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T22:17:31-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_22-16-53",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance d'un rebond potentiel sur support 58.2%-58.5%, avec prise de position short en échec. Confirmation baissière si nouvelle cassure en clôture sous 58.2%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 59%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme baissière très marquée depuis un pic récent autour de 61.2%.  \n- Structure en série de Lower Highs (LH) et Lower Lows (LL) se dessine, confirmant la faiblesse actuelle.  \n- Zone de support clé autour de 58.2%-58.5% à surveiller pour un potentiel rebond ou accélération baissière.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une dominance BTC en repli fort après une tentative de nouveau sommet. La structure présente des sommets et creux descendants (LH/LL), indiquant une pression vendeuse dominante. Le volume augmente sur les baisses, signe de conviction vendeuse. Le prix teste actuellement une zone de support horizontal autour de 58.2%, important pour définir la poursuite ou non de la correction. Un retour au-dessus des 59% invaliderait la dynamique baissière immédiate.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"58.2%\",\"58.5%\"],\"resistances\":[\"59%\",\"60.6%\"],\"plan\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_22-16-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_22-16-42.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_031620_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-04T23:16:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_23-16-11",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction au support 58.20%. Possible bounce pour pullback. Privilégier shorts tant que résistance à 59.50%/60% non franchie.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le dernier mouvement avec forte accélération à la baisse.  \n- Structure de marché passée en LH (Lower High) puis LL (Lower Low) confirmant la faiblesse.  \n- Zone clé de support autour de 58.20% récemment testée, potentielle zone de rebond à surveiller.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLe graphique montre un renversement baissier marqué après un sommet vers 61.20%. La structure a cassé plusieurs supports intermédiaires, validant une dynamique vendeuse. Le prix évolue en sequence de LH puis LL, indiquant que les acheteurs restent sous pression. La zone 58.20% est clé, à la fois support récent et pivot psychologique. Un rebond serait un premier signal d'achat, mais la tendance reste baissière en absence de retour au-dessus d’un précédent HL vers 59.50%-60%. Invalidation du scénario baissier si franchissement durable au-dessus 60%.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH->LL\",\"support",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_23-16-11",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_23-15-55.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_041747_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T00:17:44-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_00-17-37",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction sur support 58.0% pour prise de position courte ou attente rebond éventuel.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 59.5% invaliderait scénario baissier immédiat.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente violente à la baisse après un sommet autour de 61.2%.  \n- Structure de marché en retournement clair avec de plus bas (LL) marqués depuis le pic de début mai.  \n- Zone support clé autour de 58.0%, à surveiller pour un possible rebond ou poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC montre une rupture nette de la structure haussière créée d’avril à début mai, avec un sommet à proximité de 61.2% suivi d’une forte chute. Le prix forme une série de plus bas descendants (LL) et rechute vers un support crucial ~58.0%. Le volume augmente sur cette dégringolade, indiquant une forte pression vendeuse. Une confirmation de rebond sur 58.0% pourrait signaler une correction ou reprise, en cas de cassure nette en dessous, le biais baissier serait confirmé avec potentielle poursuite vers 57.6% ou plus bas.\n\nC) DeskPro  \n{\"run_id\":\"20240604-CRYPTOCAPBTC\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL depuis sommet 61.2",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_00-17-37",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_00-17-27.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_052212_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T01:22:10-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_01-22-01",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller le rebond à 58.00% pour prise de position short, viser la poursuite de la baisse. Protection sous 57.80%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture au-dessus de 59.20%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale récemment baissière avec forte chute sur les dernières sessions.  \n- Structure récente marquée par un sommet suivi d’un creux plus bas (LH puis LL).  \n- Zone de support visible autour de 58.00%, possible rebond court terme à surveiller.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa tendance dominante est baissière après un sommet autour de 61.20%. On observe une série de plus hauts et plus bas descendants (LH/LL), confirmant la faiblesse structurelle. Le prix a cassé nettement sous le support intermédiaire vers 59.20%, puis est venu tester une zone support clé vers 58.00% avec un volume en forte hausse, ce qui laisse entrevoir une possible réaction haussière de court terme. Le scénario prioritaire reste la continuation baissière si 58.00% est invalidé en clôture. Invalidation du scénario baissier sous 57.80%. Résistances clés sur 59.20% et 60.50%.\n\nC) DeskPro  \n{\"run_id\":\"20240604-CRYPTOCAPBTC\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"struct",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_01-22-01",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_01-21-50.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_062319_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T02:23:17-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_02-23-09",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur repli vers 58.4%, considérer achat temporaire de rebond mais viser prise de bénéfices rapide. En cas de cassure sous 58.4%, renforcer biais short. Attention à invalidation au-dessus 60.5%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus durable de 60.5%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance récente baissière très forte suite à un pic vers 61.2%, retournement clair après une série de HH.\n- Structure passée de HL/HH à LL indiquant un changement de dynamique baissière.\n- Zone clé support immédiat autour de 58.4%, résistances proches vers 59.2%-60.0%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d)\nLa dominance BTC montre un retournement baissier net depuis un plus haut à 61.2%. Le prix forme une séquence LL/LL (Lower Highs/Lower Lows) depuis fin mai, confirmant la faiblesse du BTC dominance. Le support à 58.4% est testé avec un fort volume, réaction haussière fragile. Résistance marquée à 59.2% puis zone 60% qui pourrait constituer un point de pullback. Scénario baissier privilégié à court terme avec une invalidation si le cours revient durablement au-dessus de 60.5%.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LL\",\"supports\":[\"58.4%\"],\"resistances\":[\"59.2%\",\"60.0%\"],\"plan\":\"Sur repli vers 58.4%, considérer achat ",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_02-23-09",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_02-22-59.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_072440_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T03:24:39-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_03-24-29",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance d'une continuation baissière sous 58.20%, potentiel rebond si maintien du support. Sortie haussière si retour au-dessus de 59.50%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Rupture nette au-dessus de 59.50%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance récente fortement baissière avec chute rapide de la dominance BTC.\n- Structure passant de HH/HL à une cassure baissière nette, suggérant un pivot vers une tendance potentielle baissière.\n- Zone clé de support proche des 58.20%, avec résistance immédiate vers 59.50% avant la dernière chute.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) : \nLa dominance BTC affiche une structure baissière récente avec un dernier sommet plus bas (LH) validant un renversement après une phase haussière précédente (HH/HL). La chute brutale confirme un fort momentum vendeur. Le support majeur local se situe autour de 58.20%, niveau à surveiller pour observer une possible stabilisation ou rebond technique. Résistance identifiable vers 59.50%, zone testée précédemment et cassée à la baisse. En cas de rupture du support à 58.20%, confirmation du biais baissier avec extension probable. Invalidation du scénario baissier si la dominance revient au-dessus durablement de 59.50%.\n\nC) DeskPro \n{\"run_",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_03-24-29",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_03-24-18.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_084728_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T04:45:57-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_04-45-50",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 61.2,
+        "confidence": 0.7,
+        "note": "s 61.20"
+      },
+      {
+        "type": "support_level",
+        "value": 58.0,
+        "confidence": 0.7,
+        "note": "support à 58.00"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le court terme avec cassure rapide d’un support important.  \n- Structure passée de HH/HL vers LH, signalant un possible retournement baissier.  \n- Zone clé de support entre 58.20% et 58.00%, premier niveau de surveillance.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une structure claire de retournement baissier après un sommet vers 61.20%. La dominance BTC a formé des plus hauts descendants (LH) suite à un rallye haussier d’avril-mai. La chute rapide récente a cassé plusieurs supports intermédiaires, aboutissant à un test proche de la zone 58.00-58.20%, où un rebond léger apparaît. Le volume est en nette augmentation sur la chute, validant la force vendeuse. Un franchissement haussier au-dessus de 59.00% invaliderait le scénario baissier à court terme.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier court terme\",\"structure\":\"Transition HH/HL vers LH/LL\",\"supports\":[\"58.20%\",\"58.00%\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_04-45-50",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_04-45-40.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_094820_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T05:48:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_05-48-13",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance d'une continuation baissière sous 58.4%. Achat possible en rebond limité pour swing court terme, prise de bénéfices proche de 60.5%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Franchissement solide et durable de 60.5% avec volume",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme baissière marquée par une chute rapide depuis un sommet en mai.  \n- Structure récente de creux et sommets descendants (LH/LL), indiquant une faiblesse dominante.  \n- Zone clé de soutien autour de 58.4% testée avec rebond, résistance notable vers 60.5%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLe graphique montre une forte pression vendeuse début juin après un sommet proche de 61.2%. La dominance BTC a formé une série de sommets et creux descendants récemment (LH/LL), ce qui valide une tendance baissière. Le support principal est identifié autour de 58.4%, où un rebond est observé. La zone de résistance à surveiller est située vers 60.5%, seuil où la tendance baissière pourrait être invalidée en cas de franchissement. Le scénario prioritaire reste la continuation baissière tant que le support majeur casse.  \n\nC) DeskPro  \n{\"run_id\":\"20240602_0950\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"58.4%\"],\"resistance",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_05-48-13",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_05-48-02.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_135432_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T09:54:28-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_09-54-21",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 58.4,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 58.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 59.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 61.2,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Vente sous 58.4 avec extension vers 57.8-57.6. Monitorer rebond possible au support.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 59.5 avec nouveau HL confirmé.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1d après un pic vers 61.2%, structure de bascule claire.  \n- Structure en cours : série de HH/HL jusqu’à fin mai, suivie d’un fort renversement avec break de HL récents.  \n- Zone clé support vers 58.4-58.2% testée actuellement, résistance notable au plus haut vers 61.2%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe marché du dominance BTC montre une rupture majeure de la structure haussière récente avec des Lower Highs et Lower Lows formés depuis fin mai. La zone 58.4-58.2% apparaît comme un support critique, déjà testée, sous laquelle la baisse pourrait s’accélérer. Résistance principale identifiée autour du dernier plus haut à ~61.2%. Le volume augmente significativement à la baisse, confirmant la pression vendeuse. Le scénario majoritaire est un bearish continuation tant que 58.4% ne tient pas. Invalidation en cas de retour au-dessus des 59.5% avec un nouveau HL.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_1354\",\"charts\":[{\"slot\":\"single",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_09-54-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_09-54-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_145650_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T10:56:48-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-56-40",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller le support à 58.4% pour prise de décision. Cassure confirme poursuite baissière. Rebond possible proportionnel pour swing haussier court terme.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récemment baissière marquée sur le timeframe journalier avec forte chute rapide.  \n- Structure en retournement : après un sommet récent proche de 61.2%, la dominance BTC a formé des Lower Highs (LH) et Lower Lows (LL).  \n- Zone clé de support vers 58.4%, à surveiller pour scénario de rebond ou poursuite baissière en invalidant ce support.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une nette baisse de la dominance BTC sur le dernier segment, passant d’un pic vers 61.2% à un repli vers 58.4%. La structure présente un sommet inférieur récent (LH) et une chute formant un creux plus bas (LL). Le support immédiat à 58.4% est une zone clé à observer. Si ce support casse, la tendance baissière se renforcera, sinon un rebond possible pourrait correspondre à un HL de court terme. La dynamique et volume confirment un fort momentum vendeur. L’invalidation principale serait un retour au-dessus de 60%, signalant une reprise haussière de la dominance ",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-56-40",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_10-56-25.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_164114_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T12:41:12-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_12-41-06",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveiller cassure 58.7% pour retourner haussier, sinon suivre la tendance baissière",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "au-dessus de 61.4% pour invalider la baisse, ou sous 58.0% pour invalider le rebond",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance de moyen terme en construction d’un creux bas (LL) formé après un sommet marqué (LH).  \n- Rebond récent violent sur zone de support vers 58.0%, possible réaction haussière court terme.  \n- La structure reste fragile, scénario baissier dominant tant que le range 58.7%-61.4% n’est pas franchi.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une dominance BTC en baisse nette après un sommet à 61.4%, avec une série de plus bas et plus bas secondaires (LH/LL). Un support solide semble pris autour de 58.0%, d’où un fort rebond récent. La tendance est baissière majoritaire avec une structure de baisse, mais le rebond indique une possible consolidation voire retournement si la résistance à 58.7% est dépassée. Invalidation du biais baissier sous 58.0%, et invalider la poursuite haussière sous 61.4%.\n\nC) DeskPro  \n{\"run_id\":\"20240604-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec potentiel de rebond court terme\",\"structure\":\"LH/LL avec rebond sur",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_12-41-06",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_12-40-51.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_174108_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T13:41:06-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_13-40-59",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur retour sous résistance à 58.8% ou attendre cassure sous 58.0% pour renforcer position vendeuse.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Franchissement net et durable au-dessus de 61.1%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance intermédiaire baissière marquée par une chute forte depuis un plus haut vers 61%.  \n- Structure récente avec Lower High (LH) et Lower Low (LL) confirmée, indicateur d’un momentum baissier.  \n- Zone clé à surveiller autour de 58.8% (ancien support devenu résistance potentielle).  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance BTC a subit une inversion majeure après un sommet près de 61.1%, déclenchant une forte baisse rapide qui casse les supports intermédiaires. La structure actuelle est baissière avec une succession de Lower High et Lower Low. Le retour actuel vers 58.6% teste une zone de résistance importante (ancien support). Un franchissement durable au-dessus de 58.8% serait nécessaire pour envisager un retour en tendance haussière. L’invalidation baissière se situe au-dessus du dernier sommet à 61.1%.  \n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"58.0%\"],\"resistances\":[\"58.8%\",\"61",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_13-40-59",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_13-40-44.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_190456_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T15:03:25-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_15-03-16",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 58.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 59.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 61.2,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Short sous 58.20 avec target 57.50-57.80, stop si break 59.50",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture daily au-dessus 59.50",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière nette depuis un pic majeur début mai, structure de Lower Highs (LH) et Lower Lows (LL) sur le dernier mois.  \n- Zone support actuelle vers 58.20% testée avec rebond faible sur le chandelier récent, possible zone clé pour un rebond court terme.  \n- Scénario prioritaire : continuation baissière sous 58.20% avec invalidation possible si dépassement clair de 59.50%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLe graphique montre un retournement clair après un sommet proche de 61.20%, avec une structure en baisse formée par des Lower Highs (LH) et Lower Lows (LL) depuis un mois. Le prix a fortement chuté récemment, cassant le support intermédiaire à 58.80% pour venir buter sur une zone de support vers 58.20%. Le volume a augmenté sur la baisse, confirmant la pression vendeuse. Le rebond actuel reste faible, indiquant une hésitation qui peut mener à une poursuite de la tendance baissière. Un franchissement solide à la hausse au-dessus de 59.",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_15-03-16",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_15-03-01.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_200659_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T16:05:28-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_16-05-08",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller maintien/support à 58.40% pour rebond possible, prise de position short si cassure en clôture jour sous 58.40%, objectif 57.60%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture jour au-dessus de 59.00%, signal possible de stabilisation/reprise haussière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- La dominance BTC est en tendance baissière nette depuis le pic de début mai.  \n- Structure actuelle montre une série de lower highs (LH) et lower lows (LL), confirmant la faiblesse relative.  \n- Zone clé à surveiller autour de 58.40% qui joue actuellement de support; un rebond est possible mais fragile.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique affiche une chute rapide et profonde de la dominance BTC, passant d’un sommet vers 61.20% à environ 58.43% en quelques jours, avec un volume en forte augmentation sur les dernières sessions. La structure est clairement baissière avec des LH et LL. La zone vers 58.40% est un support potentiel, à court terme. La rupture nette en dessous invaliderait un possible rebond et pourrait accentuer la baisse. Pour l’instant, le prix teste ce support avec un léger retour haussier, scenario d’un rebond correctif envisageable, mais à confirmer par la tenue du support.  \n\nC) DeskPro  \n{\"run_id\":\"20240602-1\",\"charts\":[{\"slot\":",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_16-05-08",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_16-04-53.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_210621_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T17:06:19-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_17-06-13",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance du rebond, entrée possible si dépassement de résistances à 59.2-59.6%, sinon prudence ou short sous 58.4%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Dépassement clair du dernier sommet vers 61.2% invaliderait scénario baissier.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente baissière forte, après un sommet autour de 61.2%.  \n- Structure actuelle en repli marqué avec un LL (plus bas) récent et début de rebond.  \n- Zone clé de support autour de 58.4%, résistance notable vers 59.2%-59.6%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance BTC.D a connu un pic suivi d’une correction rapide et abrupte. La structure montre des HL de fin d’avril, puis un retournement baissier avec un LL début juin. Le rebond actuel reste à confirmer, avec un support solide à 58.4%. La rupture au-dessus de 59.2%-59.6% validerait un potentiel retour haussier. En cas de cassure sous 58.4%, le biais bearish se renforcerait.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"230604-CRYPTOCAPBTC\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond potentiel\",\"structure\":\"LL récent + rebond en cours\",\"supports\":[\"58.4%\"],\"resistances\":[\"59.2%\",\"59.6%\"],\"plan\":\"Surveillance du rebond, entrée possible si dépassement de résistances à 59.2-59.6%, sinon pruden",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_17-06-13",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_17-05-57.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_222856_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T18:28:54-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_18-28-46",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "suivre la tenue du support 58.2-58.4%, chercher confirmation de rebond ou poursuite baissière",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus 59.6%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance courte en fort retournement baissier après un sommet récent.  \n- Structure passée en HH/HL jusqu’à début mai, maintenant cassure nette avec un dernier chandelier rouge violent.  \n- Zone clé de support potentiel vers 58.2-58.4%, rebond technique en cours à surveiller.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance BTC montrait une structure haussière claire (HH/HL) jusqu’à début mai, culminant autour de 61.3%. Depuis, forte correction avec un violant mouvement baissier matérialisé par plusieurs grands chandeliers rouges consécutifs cassant les derniers HL, indiquant une bascule vers une structure LH/LL en formation. Le support à surveiller pour un rebond est situé vers 58.2-58.4%. La récente mèche basse suivie d’un rebond montre un intérêt acheteur mais la tendance reste fragile. Invalidation du scénario baissier si retour rapide au-dessus de 59.6%.  \n\nC) DeskPro  \n{\"run_id\":\"chatgpt_202406\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier court terme\",\"s",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_18-28-46",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_18-28-36.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_233057_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T19:30:54-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_19-30-44",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller maintien support 58.5% pour rebond; viser retest résistances; stop si break sous 58%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture sous 58%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Structure en baisse nette depuis le pic de mai avec formation de LL (Lower Lows) et LH (Lower Highs).  \n- Zone clé de support court terme autour de 58.5% testée puis rebond marqué.  \n- Scénario probable de récupération avec inversion potentielle à confirmer, invalidation sous recent low à 58%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nTendance baissière dominante sur le court terme avec structure en LL et LH depuis le sommet vers 61.2%. Une zone de support clé est identifiée à 58.4%-58.5%, validée par un rebond puissant du volume. Le plan est de surveiller un maintien au-dessus de ce support pour envisager un retest des résistances intermédiaires autour de 59.3% et 60%. L’invalidation du scénario haussier sera une rechute sous le dernier plus bas vers 58%, confirmant la pression vendeuse.\n\nC) DeskPro  \n{\"run_id\":\"20240601_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish-to-neutral\",\"structure\":\"LL, LH en cours; tentative de stabilisation\",\"supports\":[\"58.4% - 58.5%\"]",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_19-30-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_19-30-34.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_005257_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T20:52:55-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_20-52-49",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond technique; vendre sous 59.20% avec cible 58.40%; invalidation au-dessus de 59.80%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture durable au-dessus de 59.80%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance générale baissière récente marquée par une cassure rapide et forte.\n- Structure en Lower High (LH) puis rupture de supports clés vers 58.40%.\n- Possible rebond technique en cours, mais scénario baissier dominant à confirmer.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): Le graphique montre une longue phase d’oscillation avec des hauts et bas relativement stables autour de 59-60%. Depuis début mai, la dominance BTC a formé un plus haut significatif avant d’engager une forte chute en Lower High et Lower Low nette jusqu’à environ 58.40%. Le fort volume confirme la pression vendeuse. Un rebond technique léger apparaît à 58.73%, mais l’invalidation du scénario baissier ne sera validée qu’au-delà du dernier swing high vers 59.80%. Les zones clés sont supports à 58.40% et résistances à 59.20% puis 59.80%.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH puis LL\",\"supports\":[\"58.40%\"],\"resistances\":[\"59.20%\",\"59.80%\"],\"plan\":\"Surveill",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_20-52-49",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_20-52-38.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_034737_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-05T23:47:35-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_23-47-29",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 58.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 59.8,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 60.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction à résistance 59.80-60.00 pour prise de position; possible short si rejet",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "franchissement durable au-dessus de 60.00 et maintien au-dessus",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance de court terme clairement baissière avec une succession de LH et LL depuis le pic de fin mai.  \n- Rebond récent en cours après un fort mouvement baissier aigu, possible retracement ou correction.  \n- Zone de résistance immédiate vers 59.80% à surveiller pour validation d’un retournement ou poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLa structure montre un sommet local fin mai suivi d’une série de Lower Highs (LH) et Lower Lows (LL) indiquant une tendance baissière. Le marché a fortement chuté ces derniers jours, avec un volume en augmentation lors de la chute, signe d’une forte pression vendeuse. Un rebond puissant amorcé actuellement suggère un retracement. La zone 59.80%-60.00% apparaît comme une résistance clé à court terme, à franchir pour invalider ce scénario baissier. Support notable autour de 58.00%, en dessous invalidant un rebond durable.\n\nC) DeskPro  \n{\"run_id\":\"run_CRYPTOCAP_BTC.D_1d_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"ba",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_23-47-29",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_23-47-18.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_044941_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T00:49:38-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_00-49-34",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la rupture claire des résistances pour valider un rebond ou préparer short si rejet",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 60.00% invaliderait le biais baissier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière forte validée par une chute rapide de la dominance BTC.  \n- Structure récente montre un bottom potentiel avec un rebond notable (HL formé sur court terme).  \n- Zone clé support vers 57.60%, résistance à surveiller autour de 59.20%-59.60%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance du BTC a fortement chuté fin mai, cassant la structure haussière précédente (HH/HL). Actuellement, on observe un rebond technique avec un premier HL, suggérant une correction ou un début de reprise. L’action se confronte à une résistance entre 59.20% et 59.60%, zone à valider pour confirmer un retournement ou simplement un pullback. En cas d’échec et retour sous 58.30%, le scénario baissier reste dominant.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"HL récent sur rebond suite à un LL majeur\",\"supports\":[\"57.60%\"],\"resistances\":[\"59.20%\",\"59.60%\"],\"plan\":\"Surveiller la rupture claire des résistances pour valider un re",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_00-49-34",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_00-49-23.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_055052_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T01:50:50-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_01-50-44",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller le maintien au-dessus de 58.00% pour conforter un rebond, et une cassure au-dessus de 60.80%-61.20% pour un possible retournement haussier.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 58.00% avec nouveau plus bas significatif.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente baissière forte avec formation de plus bas (LL) très marquée.  \n- Rebond en cours sur zone de support proche de 58.00%, suggérant un possible retournement ou correction.  \n- Zone de résistance clé à surveiller vers 60.80%-61.20% pour valider un changement durable de tendance.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa structure met en évidence une séquence baissière récente avec des lower lows (LL) et lower highs (LH). Le prix a brutalement chuté depuis un sommet vers 61.20% et a atteint une zone de support matérialisée autour de 58.00%, générant un rebond significatif. Ce mouvement indique un potentiel retournement ou une correction technique, mais la tendance dominante reste baissière tant que les résistances à 60.80%-61.20% ne sont pas franchies en clôture daily.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond potentiel\",\"structure\":\"LL/LH récents\",\"supports\":[\"58.00%\"],\"resistances\":[\"60.80%\",\"61.20%\"],\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_01-50-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_01-50-33.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_065232_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T02:52:29-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_02-52-24",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la résistance à 59.30% pour un possible retour vendeurs. Un franchissement du support 58.40% confirmerait la poursuite baissière. Invalidation si le cours dépasse 60.80%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": ">60.80%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance récente clairement baissière avec une structure de Lower Highs (LH) et Lower Lows (LL) confirmée depuis le plus haut de mai.\n- Forte pression vendeuse à court terme, suivie d’un rebond technique sur une zone de support aux environs de 58.40%.\n- Scénario principal possible : poursuite de la correction sous résistance majeure vers 59.30-59.50%, invalidation si retour au-dessus du sommet local à 60.80%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance BTC affiche une structure baissière avec des Lower Highs et Lower Lows depuis fin mai, soulignant un affaiblissement de la dominance. Le récent rebond est technique, dû à un support majeur proche de 58.40%. Les résistances à surveiller sont situées vers 59.30% puis le sommet local à 60.80%. La forte augmentation de volume sur la chute signale une capitulation possible, mais la dynamique reste baissière tant que les plus hauts ne sont pas dépassés. Il conviendra d’observer si ce rebond amorce une nouvelle phase ",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_02-52-24",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_02-52-12.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_075421_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T03:54:19-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_03-54-13",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur support 58.4%, prise de position longue possible avec cible prudente à 59.8%, stop sous 58.4% pour limiter risque.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 59.8% invalide scénario baissier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- La dominance BTC.D a montré une forte correction baissière récente après un sommet proche de 61.2%.  \n- La structure montre une succession de sommets et creux descendants (LH/LL) sur le dernier mouvement, confirmant la tendance baissière.  \n- Zone clé support vers 58.4% à surveiller, le rebond actuel reste fragile et une invalidation passerait au-dessus de 59.8%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa tendance dominante est baissière avec une structure en Lower Highs / Lower Lows. Le prix a chuté rapidement depuis un sommet local proche de 61.2% vers un creux proche de 58.4%, soutenu par un support solide indicatif. Le rebond pourrait offrir une opportunité de prise de position à l’achat court terme mais la résistance principale à 59.8% constitue un seuil d’invalidation pour ce scénario. La pression volume augmente sur la baisse et sur la reprise, signe d’une forte volatilité à court terme sur ce timeframe.  \n\nC) DeskPro  \n{\"run_id\":\"20240606_01\",\"charts\":[{",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_03-54-13",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_03-54-02.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_085703_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T04:57:01-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_04-56-54",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillez un franchissement de 60% pour inversion haussière. En cas de rejet, viser retour vers 58% voire moins.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière stable au-dessus de 60% invalide la baisse de court terme.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière récente fortement marquée avec un pullback haussier en fin de graphique.\n- Structure en baisse avec des Lower Highs (LH) et Lower Lows (LL) depuis mai.\n- Zone clé support autour de 58.0%, résistance autour de 60.0% à surveiller pour validation du rebond.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) : \nLa dominance BTC montre une forte chute depuis un pic à 61.2%, confirmant une structure baissière avec LH et LL récents. La baisse a été très rapide et violente, suivie d’un rebond technique sur un support majeur proche de 58%. La reprise actuelle semble être un retracement, la résistance principale à 60% est un niveau à franchir pour envisager un retournement haussier. En cas de rejet, la lever baisse pourrait se poursuivre avec un creusement sous 58%, ce qui invaliderait le scénario de reprise. Le volume s’est accru nettement à la baisse, signe d’une pression vendeuse forte mais avec possible épuisement.\n\nC) DeskPro \n{\"run_id\":\"23062024_1\",\"charts\":[{\"slot",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_04-56-54",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_04-56-43.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_095815_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T05:58:13-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_05-58-08",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur rebond technique proche support, viser une prise de profit vers résistance 60%. En cas de franchissement clair des 60%, réévaluer un possible changement de tendance.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Franchissement durable au-dessus de 60.00%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur la période récente après un sommet proche de 61.20%.  \n- Structure en cours montre une séquence de Lower Highs (LH) et Lower Lows (LL) confirmée depuis la fin Mai.  \n- Rebond technique début Juin avec un volume en forte hausse, zone support vers 57.80% testée et tenue.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC était en hausse marquée jusqu’à fin Mai (plus haut vers 61.20%), mais a basculé clairement en baisse avec formation d’une structure baissière (LH/LL). La chute depuis ce sommet a été violente et rapide, avec un pic de volume lors du creux près de 57.80%, zone support clé. Depuis, un rebond technique a amorcé une correction à la hausse, mais la structure générale reste baissière tant que 60.00% ne sera pas franchi durablement. Scenario privilégié: poursuite de la correction haussière à court terme, puis test des résistances avant éventuelle continuation baissière. Invalidation du biais baissier si la dominance d",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_05-58-08",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_05-57-57.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_110123_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T07:01:19-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_07-01-10",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur achat en support 58.4%, viser un test résistance 59.8%. Stop sous 58.3% pour limiter risque. Retour au-dessus 59.8% invalide baisse.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière au-dessus de 59.8%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme baissière nette confirmée par une chute rapide et prononcée.  \n- Structure récente en Lower Highs (LH) et Lower Lows (LL) indiquant un momentum vendeur.  \n- Zone de support clé autour de 58.40% tenue provisoirement avec rebond sur volume élevé, potentiel pivot.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC montre une forte correction depuis un sommet à environ 61.3%, formant plusieurs Lower Highs et Lower Lows. Le support majeur autour de 58.40% a été testé fortement avec un pic de volume et a provoqué un rebond technique. La structure reste baissière tant que le prix ne dépasse pas les 59.80%, résistance immédiate. Un retour au-dessus de ce niveau invaliderait la tendance baissière court terme. Le scénario probable est une poursuite du range entre 58.4% et 59.8% avant choix directionnel clair.  \n\nC) DeskPro  \n{\"run_id\":\"20240602_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish à court terme\",\"structure\":\"LH, LL\",\"supports\":[\"58.40%",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_07-01-10",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_07-00-46.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_120243_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T08:02:38-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_08-02-29",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller confirmation du support à 58.5%. En cas de cassure, vente à viser. Rebond à 60% possible avant reprise baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Reprise claire au-dessus de 60% avec création de HL",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- La dominance BTC.D est en forte baisse depuis un pic récent vers 61,2%, marquant une cassure nette de la structure haussière précédente (HH/HL).\n- Rebond technique possible autour de 58,5%, zone de support clé suite à la baisse violente du graphique.\n- Scénario principal baissier avec structure en LH/LL confirmée, invalidation en cas de retour durable au-dessus de 60%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :\nLe graphique montre une tendance baissière nette sur le dernier mois, marquée par une série de plus bas et plus bas (LH/LL). La chute rapide autour de 59% a été suivie d’un rebond sur volume important à 58,5%, constituant une zone de support clé. La résistance majeure à surveiller se situe vers 60%, zone de consolidation précédant la chute. Le scénario attendu privilégie la continuation du mouvement baissier si la zone de support cède, sinon un possible range ou rebond technique en direction de 60%.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"b",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_08-02-29",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_08-02-11.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_131334_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T09:13:32-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_09-13-23",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "short sous résistance 59.50%, viser 58.00% puis 57.80%. Surveiller rebond sur 58.00% pour prise de bénéfices ou ajustement.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière au-dessus de 59.50%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière depuis le sommet de mai, avec une cassure nette sous 58.80% de dominance.  \n- Structure en cours montre des Lower Highs (LH) et Lower Lows (LL), confirmant la pression vendeuse.  \n- Zone support clé autour de 58.00%, où le prix vient de rebondir, à surveiller pour un potentiel pullback ou poursuite baissière.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique affiche une tendance baissière claire depuis un sommet près de 61.30%, avec une série de Lower Highs et Lower Lows confirmant l'affaiblissement de la dominance BTC. La zone de support majeure se situe autour de 58.00%, qui a provoqué un rebond intraday. Ce support est crucial : une tenue pourrait amener un rebond vers les 59.50% comme résistance intermédiaire. Si 58.00% est cassé, on peut s’attendre à une accélération baissière vers 57.80% voire plus bas. Le plan d’action est de privilégier les shorts sous 59.50% tant que la résistance tient, avec invalidation en clôture au-d",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_09-13-23",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_09-13-12.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_141521_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T10:15:19-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_10-15-12",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond actuel pour prise de position short sur rejet résistance ou break support pour accélération baissière",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour au-dessus de 60.0% validant un nouveau cycle haussier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance de fond récente baissière marquée par une forte chute depuis le sommet autour de 61.2%.  \n- Structure en rebond court terme dès la zone basse proche de 58.0%, avec un possible retournement haussier à confirmer.  \n- Zones clés identifiées : support autour de 58.0%, résistance à surveiller vers 59.6%-60.0%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLa dominance BTC montre une rupture majeure de structure haussière (HH/HL) construite depuis mars-avril. Passage en structure baissière nette avec un plus bas (LL) vers 58.0%. Après ce point bas, nouveau HL partiel en configuration de rebond, mais la tendance reste baissière sur le moyen terme tant que la résistance 59.6%-60.0% n’est pas dépassée. Le scénario prioritaire est donc une continuation baissière avec possible retracement. Invalidation du bearish si la dominance reprend un nouveau HH au-dessus de 60.0%.\n\nC) DeskPro  \n{\"run_id\":\"1685620500\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish avec rebond court term",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_10-15-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_10-15-00.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_151711_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T11:17:08-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_11-17-01",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "attendre confirmation d'un rebond avec franchissement 59.6% avant prise de position long ; sinon rester vendeur sous 59.4% avec objectif autour de 58%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 60.2%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente clairement baissière sur BTC.D après un sommet vers 61%, avec une chute rapide et violente.  \n- Structure en LH (Lower High) puis LL (Lower Low) confirmée, signe d’une pression vendeuse dominante.  \n- Possible rebond technique à court terme sur zone de support autour de 58.2%, à monitorer pour une éventuelle reprise ou poursuite baissière.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLa dominance BTC est en tendance baissière nette depuis son plus haut local vers 61.2%. La structure montre une série de Lower Highs et Lower Lows, ce qui confirme la faiblesse persistante. La chute rapide depuis fin mai a franchi un support clé vers 59%, avec un nouveau plus bas vers 58.2%, suivi d’un rebond marqué sur ce niveau. Résistance immédiate autour de 59.4-59.6%. Scénario actionnable : attendre confirmation d’une inversion haussière avec un franchissement clair des 59.6% pour bullish, sinon risque de poursuite vers 58% voire plus bas. Invalidation de la baisse",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_11-17-01",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_11-16-47.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_161836_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T12:18:34-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_12-18-21",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller maintien support 58.60%. En cas de rebond, cibler 59.20-59.40% pour prise de profits ou confirmation de reprise. Stop sous 58.60% pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassage définitif du support 58.60% confirmé",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette depuis le pic de mai avec structure en Lower High (LH) et Lower Low (LL).  \n- Rebond récent sur une zone basse vers 58.60% après forte chute, tentative de reprise à confirmer.  \n- Zone clé support autour de 58.60%, résistance immédiate fixe vers 59.20-59.40%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance Bitcoin montre une structure baissière claire avec des creux et sommets déclinants (LH/LL). Le recent fort mouvement baissier sur des volumes élevés a cassé plusieurs supports intermédiaires, jusqu’à 58.59%. Un rebond technique s'organise mais il reste fragile. La zone 58.60% est un support clé à défendre pour maintenir une hypothèse de reprise. La principale résistance se situe entre 59.20% et 59.40%, zone à franchir pour envisager un retour en tendance neutre voire haussière. Invalidation du rebond en cas de retest et cassure du support 58.60% à nouveau.  \n\nC) DeskPro  \n{\"run_id\":\"20240601_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_12-18-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_12-18-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_183154_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T14:31:51-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_14-31-45",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur cf confirmation baisse vers soutien - envisager shorts en rebond vers résistance",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Franchissement et maintien au-dessus de 60.00%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière récente marquée par un fort momentum vendeur.  \n- Structure montre un passage d’un sommet (HH) à une série de bas plus bas (LL) et tops plus bas (LH), signe de changement de tendance.  \n- Zone clé support vers 58.00% testée avec rebond potentiel, résistance autour de 59.40%-60.00%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLe graphique affiche une claire dynamique baissière après un pic proche de 61.20%. La structure a rompu plusieurs supports intermédiaires confirmant une série de LH et LL. La forte augmentation du volume à la baisse indique un fort intérêt vendeur. Après un creux autour de 57.80%, un rebond a eu lieu vers 58.80%, mais le prix reste sous la résistance vers 59.40%. Le scénario baissier reste privilégié tant que le cours ne franchit pas durablement cette zone de résistance. Invalidation du biais baissier possible au franchissement et maintien au-dessus de 60.00%.  \n\nC) DeskPro  \n{\"run_id\":\"20240604-cryptocap\",\"charts\":[{\"slot\":\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_14-31-45",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_14-31-32.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_193351_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T15:33:50-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_15-33-44",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur support 58% pour prise de position court terme, envisager continuation baissière si cassure 58% à la baisse",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "dépassement solide des 60% vers 61.3%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance actuelle baissière, avec une chute forte du dominance BTC depuis un pic fin mai.\n- Structure récente caractérisée par des plus bas (LL) et plus bas relatifs confirmant la pression vendeuse.\n- Rebond technique en cours sur zone support autour de 58%, à surveiller pour scénario de correction ou reprise baissière.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) : La dominance BTC a marqué un sommet vers 61.3% avant d’engager une forte dynamique baissière, en formant plusieurs LL et LH. Le support majeur à 58% semble activer un rebond, mais la structure reste fragile. Scénario principal : poursuite de la correction avec nouvelle tentative de test des 58%, invalidation si dépassement durable au-dessus des 60%. À court terme, opportunité de range dans zone 58-59.5%.\n\nC) DeskPro \n{\"run_id\":\"230626-1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL LH\",\"supports\":[\"58%\"],\"resistances\":[\"60%\",\"61.3%\"],\"plan\":\"Surveiller rebond sur support 58% pour prise de positio",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_15-33-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_15-33-32.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_203341_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T16:33:39-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_16-33-33",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 58.2,
+        "confidence": 0.7,
+        "note": "s 58.20"
+      },
+      {
+        "type": "support_level",
+        "value": 57.8,
+        "confidence": 0.7,
+        "note": "s 57.80"
+      },
+      {
+        "type": "support_level",
+        "value": 59.6,
+        "confidence": 0.7,
+        "note": "s 59.60"
+      },
+      {
+        "type": "support_level",
+        "value": "57.80.",
+        "confidence": 0.7,
+        "note": "s 57.80."
+      },
+      {
+        "type": "resistance_level",
+        "value": 59.6,
+        "confidence": 0.7,
+        "note": "résistance 59.60"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière récente avec cassure franche du support vers 58.20%.\n- Structure en LH/LL confirmée sur les dernières semaines.\n- Rebond court terme en cours, test possible de la zone résistance 59.60%-60.00%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): Le graphique montre une nette tendance baissière initiée depuis la fin mai, marquée par une chute rapide suivie d’un petit rebond technique. La dominance du Bitcoin est en phase de correction depuis un sommet proche de 61.2%. La structure est baissière avec une série de Lower Highs et Lower Lows. Le support clé invalidant ce scénario se situe autour de 60.20%, zone à franchir pour un retour d’une dynamique haussière. Le repli récent a bénéficié d'un fort volume et la zone 58.20% a servi de point d’appui. Le scénario privilégié reste celui d’une continuation baissière, avec une consolidation/rebond court terme possible avant de tester à nouveau les supports vers 57.80%.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"sing",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_16-33-33",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_16-33-15.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_213708_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T17:37:06-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_17-36-59",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond au support 58%, prise de position potentielle short sous cassure 58%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "reprise durable au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette depuis le sommet autour de 61.2%, marquée par un gros momentum vendeur.  \n- Structure en cours : plusieurs Lower Highs (LH) et Lower Lows (LL) confirmant la faiblesse.  \n- Zone clé support autour de 58.0%, récemment testée avec rebond volumineux, possible rebond technique.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC montre un retournement baissier après un plus haut à 61.2% (LH), avec une série de chandeliers rouges marqués. La structure HL précédente a été cassée, formant des LL plus bas. Le support majeur à 58% a été testé fortement avec un spike de volume et une tentative de rebond. Scénario envisageable : rebond court terme sous pression, à surveiller la cassure sous 58% pour poursuite du downtrend. Invalidation si retour et maintien au-dessus de 60%.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH,LL\",\"supports\":[\"58.0%\"],\"resistances\":[\"60.0%\",\"61.2%\"],\"plan\":\"Surveiller rebo",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_17-36-59",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_17-36-46.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_023812_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T22:38:10-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_22-38-04",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 58.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 59.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 59.2,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 59.8,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la capacité à casser 59.20 pour envisager un rebond durable, sinon continuation baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture quotidienne au-dessus de 59.80",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette après un sommet local très marqué fin mai.  \n- Structure récente en cours de retournement avec un plus bas plus bas (LL) suivi d'une tentative de rebond.  \n- Zone clé de support autour de 58.00% testée avec forte réaction haussière mais résistance immédiate à 59.00%-59.20%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une dominance BTC en recul important depuis un pic vers 61.40%, formant une série de bas plus bas (LL) et hauts plus bas (LH) confirmant la tendance baissière. Le prix est venu chercher la zone de support forte vers 58.00%, déclenchant un rebond rapide. La structure reste fragile tant que le niveau de résistance 59.00%-59.20% ne sera pas cassé avec une confirmation d’un plus haut plus haut (HH). Invalidation du scénario baissier en cas de break au-dessus de 59.80%. Le volume récent augmente fortement lors du creux, ce qui peut suggérer un intérêt acheteur temporaire.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"sl",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_22-38-04",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_22-37-53.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_035805_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-06T23:58:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-06_23-57-57",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Chercher short à la résistance 59.6-60%, viser retour vers 58% ou plus bas si cassure, stop loss au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette récente avec chute rapide depuis le sommet autour de 61.2%.  \n- Structure en cours montre un LL (Lower Low) venu casser les précédents supports, confirmant une pression vendeuse.  \n- Rebond actuel sur zone basse (~58%) à surveiller comme potentiel support clé avant une décision directionnelle.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre une tendance dominante baissière sur le dernier segment, avec formation de Lower High (LH) et Lower Low (LL) marquant un changement de sentiment baissier. La zone proche de 58% représente un support important validé par le rebond en volume élevé. Résistance immédiate près de 59.6-60% (ancien support devenu résistance). Le scénario privilégié : continuer la baisse si la résistance tient, invalidation si retour durable au-dessus de 60%.  \n\nC) DeskPro  \n{\"run_id\":\"2306\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH et LL\",\"supports\":[\"58.0%\"],\"resistances\":[\"59.6%\",\"60.0%\"],\"pla",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-06_23-57-57",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_23-57-45.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_045952_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T00:59:50-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_00-59-45",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rejet à résistance 59%, protéger en cas de cassure support 58%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture journalière > 59.0%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- La dominance BTC montre une structure en retournement suite à une forte chute récente.  \n- La tendance court terme est baissière avec un pullback technique en cours.  \n- Zone clé support autour de 58% validée, résistance immédiate proche de 59%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa structure récente montre un sommet inférieur (LH) suivi d’une chute rapide brute jusqu’à un support clé vers 58%, où une réaction haussière débute. La tendance court terme est baissière (LH/LL), mais un rebond technique est en place. La zone des 59% apparaît comme première résistance forte, où un rejet possible pourrait accentuer la baisse. Le scénario principal reste la continuation baissière sous 59%, avec invalidation si la dominance dépasse durablement ce niveau, potentiellement relançant une reprise haussière (HH). Surveillance de l’évolution sur les prochains jours pour confirmer la validité du support à 58% ou la cassure vers de nouveaux creux.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_00-59-45",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_00-59-33.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_060209_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T02:02:07-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_02-02-01",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "chercher vente à retest de 59.60% après rebond, stop au-dessus de 59.60%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "rupture au-dessus de 59.60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur BTC Dominance après un pic en mai, structure LH confirmée.  \n- Rebond technique actuel proche d’une zone support clé vers 58.20%.  \n- Scénario baissier confirmé tant que le récent plus haut autour de 59.60% n’est pas franchi, invalidation possible au-dessus.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance BTC montre une structure baissière claire avec des plus bas (LL) et plus bas relatifs (LH) en formation depuis fin mai. Le prix a cassé fortement le support à 58.20%, déclenchant une zone de volume importante qui a engendré un rebond actuel. Résistance évidente proche de 59.60%, zone de précédent sommet local. La dynamique reste baissière mais le rebond peut offrir une opportunité de vente à retest. Invalidation en cas de rupture claire du dernier sommet à 59.60%.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"58.20%\"],\"resistances\":[\"59.60%\"],\"plan\":\"chercher vente",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_02-02-01",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_02-01-50.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_074527_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T03:45:25-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_03-45-19",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveillance du rebond sur support 58%, prise de position longue prudente si rebond confirmé par franchissement 59.8%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte nette sous 58% confirme continuation baissière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente baissière nette avec un fort mouvement de correction rapide.  \n- Structure montrant une succession de HH/HL jusqu’en mai, suivie d’un rejet brutal en LH.  \n- Zone clé de support visible autour de 58%, testée et tenue récemment, possible rebond à court terme.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance BTC était en tendance haussière depuis mars avec une structure de HH et HL solides. Depuis début mai, un renversement s’est amorcé, matérialisé par une série de LH rapides, culminant avec une chute très rapide en début juin. Le support majeur autour de 58% a été atteint et tient pour l’instant, montrant un potentiel rebond. La zone de résistance à surveiller pour invalider le rebond se situe autour de 59.8%-60%, où la précédente résistance dynamique est présente. La structure reste incertaine le temps de cette consolidation, un retour au-dessus de 59.8% validerait un potentiel retour en tendance haussière.\n\nC) DeskPro  \n{\"run_id\":\"20240602-1\",",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_03-45-19",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_03-45-08.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_084725_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T04:47:23-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_04-47-14",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Attendre confirmation de rebond au-dessus de 58.80% pour envisager un test des 59.30%. En cas de rechute sous 58.20%, renforcer la position short.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 59.50% avec structure HH/HL réinstallée",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente baissière forte avec cassure nette d’un support intermédiaire vers 58.20%.  \n- Stabilisation actuelle autour de 58.80% avec un pincement possible, signalant une pause ou un rebond technique.  \n- Structure récente montre un plus bas important (LL), invalidant la tendance haussière précédente.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance Bitcoin a subi une chute rapide et marquée depuis un sommet proche de 61.0%, cassant plusieurs supports intermédiaires. La structure passe de HH/HL à LH/LL, signalant un retournement de tendance vers le bas. Zone clé à surveiller actuellement entre 58.50% (support court terme) et 59.30% (résistance immédiate). Un retour au-delà de 59.30% pourrait tenter un test de reprise. En dessous de 58.20%, scénario baissier renforcé, invalidation du rebond actuel.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissière\",\"structure\":\"LH et LL récents après un sommet\",\"supports\":[\"58.20%\",\"58.50%\"],\"res",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_04-47-14",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_04-47-02.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_094820_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T05:48:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_05-48-11",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur support 58%. Vente sur signal d’échec de franchissement 59.8%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture au-dessus de 59.8% ou rupture sous 58%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente clairement baissière après un plus haut vers 61.4%, avec structure de lower highs (LH) et lower lows (LL) sur la dernière phase.  \n- Support clé visible autour de 58%, ayant servi de point de rebond récent.  \n- Le rallye en clôture montre un possible rebond technique ou un test de la zone support, à monitorer pour décision.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe dominance BTC.D montre une tendance baissière confirmée avec une succession de LH et LL depuis le pic à 61.4%. Un support majeur se situe vers 58%, niveau où la structure a tenu brièvement ce jour. Le volume est élevé sur la chute puis le rebond, signe d’importante activité. Pour envisager un retournement haussier, il faut une cassure des derniers LH autour de 59.8%. L’invalidation serait une rupture franche sous 58%, signalant un potentiel approfondissement de la correction. Le scénario prioritaire reste un pullback vers résistance 59.8-60% avant continuation de la baisse.\n\nC) DeskPro",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_05-48-11",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_05-47-54.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_104939_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T06:49:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_06-49-31",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur rebond, viser résistance 59.1% pour prise de décision; invalidation haussière au-dessus de 59.1%. En cas de cassure sous 58%, envisager continuation baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture journalière au-dessus de 59.1%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière récente marquée par un fort rejet sous 60.8% de dominance BTC.  \n- Structure en cours montre un dernier plus bas important (LL), mais rebond technique visible sur le court terme.  \n- Zone clé de support vers 58.0% testée avec forte réaction acheteuse, invalidation baissière au-dessus de 59.1%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa dominance BTC a perdu sa structure haussière après un sommet autour de 61.2%, formant une série de plus bas et plus bas (LH/LL). Le prix est venu tester à la baisse une zone de support clé située vers 58%, avec un fort volume d’achat sur les dernières bougies. Ce rebond offre un scénario potentiel de correction/reprise, mais la tendance dominante reste baissière tant que le prix reste sous 59.1% (ancienne zone de support devenue résistance). Une cassure claire au-dessus invaliderait la dynamique baissière et pourrait signaler un retour haussier. A contrario, une rechute sous 58% relancerait la baisse.  \n\nC) Desk",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_06-49-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_06-49-20.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_115055_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T07:50:53-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_07-50-47",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller réaction à la résistance 59.00%, possibilité de poursuite baissière si rejet. Invalidation si franchissement 60.50%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": ">60.50%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière nette depuis le pic de mai, avec une chute rapide de dominance BTC.\n- Structure récente montre un plus bas significatif (LL) suivi d’un rebond technique.\n- Zone support vers 57.80% validée, première résistance vers 59.00% à surveiller.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d)  \nLe graphique montre une phase de baisse marquée suite à un sommet vers 61.4%, confirmant une structure de plus bas (LL) jusque vers 57.80%. Le rebond entamé est faible mais visible, avec un test en cours de la zone de résistance intermédiaire vers 59.00%. La tendance dominante reste baissière, invalidation possible au-dessus de 60.50%, scénario principal est la continuation baissière en échec/rebond technique à court terme.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL récent, rebond HL à court terme\",\"supports\":[\"57.80%\"],\"resistances\":[\"59.00%\",\"60.50%\"],\"plan\":\"Surveiller réaction à la résistance 59.00%, possibilité de poursuite b",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_07-50-47",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_07-50-36.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_160611_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T12:06:08-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_12-06-00",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur rebond proche résistance 59.2-59.5%, envisager vente avec visée support 58.0% ; surveiller rupture sous 58.0% pour accélération baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "remontée durable au-dessus 59.8%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière récente nette après un sommet autour de 61.2% de dominance BTC.  \n- Structure de sommet descendant (LH) avec pattern de repli visible, confirmant une pression vendeuse forte.  \n- Zone clé de support à 58.0% testée puis rebond immédiat, possible zone de décision à court terme.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLa dominance BTC montre une structure récente de lower highs (LH) et lower lows (LL) depuis le pic en mai à 61.2%. Le pullback baissier est marqué par une forte volatilité et un volume important à la récente zone de support autour de 58.0%, qui a tenu pour l’instant. La tendance court terme est baissière, la rupture confirmée sous 58.0% invaliderait une reprise haussière. Une consolidation ou un retour vers 59.2-59.5% pourrait offrir une opportunité de repli à la vente. Le scénario privilégié : poursuite du déclin si la structure de LH/LL se confirme. L’invalidation serait une montée durable au-dessus du sommet intermédiaire près de ",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_12-06-00",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_12-05-49.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_170735_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T13:07:33-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_13-07-24",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sous résistance 59.5-60% pour envisager continuation baissière. Achat possible en swing si franchissement net au-dessus de 60%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour solide au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée récemment par une chute rapide et forte.  \n- Structure bear avec plusieurs Lower Highs et Lower Lows visibles.  \n- Zone clé de support vers 58%, rebond technique possible mais sous résistance majeure.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance BTC est en tendance baissière marquée depuis fin mai, avec un break violent des supports vers 58.5%. La structure en LH/LL est claire, malgré un rebond depuis ce creux, la résistance autour 59.5%-60% limite la reprise. Un échec à rebondir au-dessus de cette zone renforcerait le scénario baissier dominant. En cas de retour au-dessus de 60%, la tendance pourrait se stabiliser ou inverser. Invalidation du scénario baissier sous la cassure récente à 58%.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"58%\"],\"resistances\":[\"59.5%\",\"60%\"],\"plan\":\"Surveiller rebond sous résistance 59.5-60% pour envisager continuation baissière.",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_13-07-24",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_13-07-14.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_180937_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T14:09:35-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_14-09-27",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur support 58.20% ou confirmation du refus sous résistance 59.20% pour continuation baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Passage marqué au-dessus de 59.20%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale récente clairement baissière avec une forte chute des prix.  \n- Structure montre une série de HH puis retournement en LH sur le dernier swing.  \n- Zone de support majeur testée vers 58.20%, rebond actuel à surveiller pour continuation ou retour baissier.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLa tendance au 1d est baissière suite à une forte correction après un sommet à environ 61.40%. La structure récente montre un plus haut inférieur (LH) après une série de plus hauts et plus bas élevés (HH/HL). La zone clé de support est visible vers 58.20%, correspondant à un palier où la dominance BTC a rebondi brièvement. La résistance immédiate se situe autour de 59.20%, seuil à franchir pour invalider le scénario baissier. Le plan à court terme reste de surveiller un rejet dans la zone support ou une possible reprise jusqu’à la résistance pour valider un retournement. Invalidation du biais baissier si la dominance dépasse 59.20% avec des volumes offe",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_14-09-27",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_14-09-16.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_191253_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T15:12:51-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_15-12-44",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vérifier la tenue du support à 58%, viser une extension à la baisse en dessous de 58% en cas de rupture. Revoir surrachat en cas de retour > 60%.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 60%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente baissière nette après un sommet marqué au-dessus de 61%.  \n- Structure de retournement avec un pattern de lower high (LH) et lower low (LL) sur les derniers jours.  \n- Zone clé de support proche des 58%, tenante actuellement, à surveiller pour maintien ou rupture.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLa dominance BTC montre une forte impulsion baissière depuis un plus haut vers 61,3%, avec une cassure franche sous le support intermédiaire vers 59,5%. La structure récente révèle une série de lower highs et lower lows caractérisant une tendance baissière. Le niveau de 58% agit comme support majeur où un rebond technique est en cours, mais la faiblesse demeure dominante. Un retour au-dessus de 60% serait nécessaire pour invalider le scénario baissier. En scénario principal, une poursuite vers 57,5%-57% semble probable en cas de rupture du support 58%.  \n\nC) DeskPro  \n{\"run_id\":\"20240603-1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\"",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_15-12-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_15-12-32.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260607_220832_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-07T18:08:30-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-07_18-08-24",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur support 58.2% pour tenter un swing buy court terme, avec stop serré. En cas de cassure 58.2% viser continuation baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Reprise claire au-dessus de 60% invalide scénario baissier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- La dominance BTC montre une tendance baissière récente marquée par une chute rapide après un sommet autour de 61.2%.  \n- La structure révèle un schéma LH (Lower High) et LL (Lower Low) formé après ce pic, confirmant la pression vendeuse.  \n- Zone clé de support vers 58.2% testée et rebond provisoire; résistance importante autour de 59.6-60% à surveiller pour potential rebond ou consolidation.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique illustre une phase de correction nette après un sommet en mai, caractérisée par une série de chandeliers rouges forts. La structure globale est baissière (LH puis LL). Une zone de support intermédiaire à 58.2% agit comme un pivot, avec un léger rebond visible actuellement. La résistance à 59.6%-60% reste un obstacle majeur qui, s’il est invalidé avec un retour au-dessus, pourrait initier un scénario de reprise haussière. En revanche, une cassure sous 58.2% validerait la poursuite du trend baissier. Il faut surveiller le v",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-07_18-08-24",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-07_18-08-13.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_050428_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T01:04:26-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_01-04-19",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Sur rebond, envisager vente proche résistance 59.2-60%, viser 58.2% en support.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "dépassement clair de 60% avec chandelier journalier fermé au-dessus.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière récente avec forte chute depuis fin mai.  \n- Structure montre une série de hauts et bas plutôt neutres avant la chute, puis un plus bas significatif début juin.  \n- Rebond actuel en cours, mais la structure reste fragile tant que le dernier sommet ne sera pas dépassé.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique de dominance Bitcoin montre une tendance baissière nette depuis début juin, avec un plus bas significatif vers 58.2%. Avant ceci, la structure alternait hauts et bas sans direction claire, avec des niveaux de résistances entre 60% et 61.2%. Le récent rebond vers 59% est une réaction après la forte chute, mais la structure reste en séquence de lower highs (LH) et lower lows (LL). La zone de 59.2%-60% est une résistance clé à franchir pour invalider la tendance baissière actuelle. En dessous de 58.2%, on valide la poursuite du mouvement baissier.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_01-04-19",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-11_01-04-04.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_055921_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T01:59:20-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_01-59-14",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Monitorer la cassure de 59.5%-60% pour confirmation d'un retournement haussier, sinon risque de poursuite baissière",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Rechute sous 58%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière majeure depuis un pic local en mai, avec forte chute suivie d’un rebond récent.  \n- Structure en cours montrant un creux majeur (LL) puis un léger HL sur ce rebond, potentielle reprise à confirmer.  \n- Zone clé de support autour de 58%, résistance importante proche de 59.5%-60%, à surveiller pour validation de scénario haussier.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance de BTC montre un mouvement descendant net avec une cassure rapide sous les supports intermédiaires. Un retour haussier tente de s’installer, formant une structure HL après le creux, mais la résistance à 59.5%-60% reste un obstacle clé. Si la résistance se casse, le scénario haussier de reprise se validera. En revanche, une rechute sous 58% invalidera ce scénario, signalant une continuation de la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"unique20240606\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier à court terme\",\"structure\":\"LL suivi d’un HL (potentiel retournement)\",\"su",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_01-59-14",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-11_01-58-59.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_070156_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T03:01:53-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_03-01-44",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure au-dessus de 59.2-59.3% pour entrée long, viser 60%+. En cas de retour sous 58.2%, privilégier prudence et potentielle poursuite baissière.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "<58.2%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme baissière terminée par un rebond significatif en bougies vertes.  \n- Structure récente en lower highs (LH) sur le timeframe 1d, possible inversion vers un pattern de reprise haussière si consolidation au-dessus des 59%.  \n- Zone clé support visible autour de 58.2%, résistance immédiate à surveiller vers 59.2-59.3% pour valider une reprise bullish.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique montre un breakdown marqué depuis un sommet à ~61.2%, suivi d’une chute rapide jusqu’à un support vers 58.2%, d’où un rebond technique actuel. La structure est baissière avec présence de lower highs et lower lows, mais la récente impulsion haussière montre un potentiel de rebond. Le scénario principal reste une consolidation autour de 59%, zone à franchir pour valider un retour possible en tendance haussière. Invalidation sous 58.2% ramènerait sous pression la dominance BTC.\n\nC) DeskPro  \n{\"run_id\":\"20240607_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"ne",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_03-01-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-11_03-01-26.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_080403_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T04:04:01-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_04-03-53",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveiller confirmation du rebond via franchissement 59.80% ; stop short sous 58.20%",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure nette sous 58.20%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme baissière nette avec structure de bas en haut passant de HH à LL récemment.  \n- Rebond technique en cours depuis un point bas vers 58.20%, signalant une possible correction ou reprise temporaire.  \n- Zone clé de support majeure autour de 58.20% ; résistance forte proche de 59.80%/60.00%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): La dominance BTC affiche une structure baissière récente marquée par des Lower Highs et Lower Lows sur les dernières séances, après un pic vers 61.20%. Reprise haussière en forme de rebond initie temporairement une série potentielle de HH à confirmer. La zone critique à surveiller est le support vers 58.20%, dont la cassure invaliderait tout scénario haussier. Résistances proches dans la zone 59.80%-60.00%, dont le franchissement validerait un retour de la pression acheteuse. Le scénario à privilégier est un rebond de court terme dans une tendance baissière plus large, avec vigilance sur la dynamique à la clôture journal",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_04-03-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-11_04-03-37.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_091054_CRYPTOCAP:BTC.D_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:BTC.D",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-11T05:10:52-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_05-10-44",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveiller maintien support 58% pour prise de position acheteuse avec stop serré, ou entrée vendeuse sur cassure",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "franchissement décisif au-dessus de 60.00%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme : correction baissière forte après un sommet marqué vers 61.20%, suivie d’une tentative de rebond  \n- Structure récente : série de LL (Lower Lows) avec un rebond potentiel formant HL à confirmer  \n- Zones clés : support visible autour de 58.00%, résistance à valider vers 59.60%-60.00%\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLe graphique montre une tendance baissière nette depuis le pic d’environ 61.20% avec une perte rapide de la dominance BTC.D. La structure est en LL avec un plus bas récent proche de 57.90%. Le prix teste un support autour de 58.00%, suivi d’un léger rebond marqué par un HL provisoire. La résistance majeure se situe près des 59.60%-60.00% (point de retour possible vers la zone de congestion précédente). Le scénario privilégie une continuation baissière si le support 58.00% cède, tandis qu’un franchissement clair au-dessus de 59.60% invaliderait ce biais et ouvrirait vers un retest du sommet. La volatilité élevée implique pr",
+    "symbols_found": [
+      "CRYPTOCAP:BTC.D"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_05-10-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-11_05-10-29.png"
+    }
+  }
+]

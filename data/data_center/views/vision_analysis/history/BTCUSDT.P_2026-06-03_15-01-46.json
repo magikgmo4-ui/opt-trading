@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_190156_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:01:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-01-46",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Sur cassure support, short avec objectif 0.0900. Invalidation au-dessus 0.0950.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Close au-dessus 0.0950 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante sur la période courte avec plusieurs phases de retracement.\n- Structure montrant principalement des lower highs (LH) et lower lows (LL) indiquant un momentum vendeur.\n- Zones clés proches des niveaux 0.0925 (support potentiel) à 0.0945 (résistance intermédiaire).\n\nB) Chart 1 (haut-gauche): DOGEUSDT, 15 min\n- Tendance baissière nette, avec formation de lower highs et lower lows.\n- Structure active inclut plusieurs attempts de rebond rejetés sur 0.0945-0.0950.\n- Support clé identifié autour de 0.0920-0.0925, plusieurs bougies de rejection sur ce niveau.\n- Scénario probable : poursuite possible de la chute si le support 0.0925 est invalidé par un breakout clair à la baisse.\n- Invalidation du scénario baissier si breakout et close au-dessus 0.0950 avec volume.\n\nC) Chart 2 (haut-droit): inconnu (non visible sur l’image)\n- Aucune donnée lisible.\n\nD) Chart 3 (bas-gauche): inconnu (non visible sur l’image)\n- Aucune donnée lisible.\n\nE) Chart 4 (ba",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-01-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_15-01-39.png"
+  }
+}

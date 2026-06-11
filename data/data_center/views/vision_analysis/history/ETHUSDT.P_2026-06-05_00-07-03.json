@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_040712_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T00:07:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-07-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.7,
+      "note": "s 1780"
+    },
+    {
+      "type": "support_level",
+      "value": 1790.0,
+      "confidence": 0.7,
+      "note": "s 1790."
+    },
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.7,
+      "note": "s 1780"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec structure en série de lower highs (LH) et lower lows (LL).  \n- Zone de support proche autour de 1720-1730, zone de résistance majeure vers 1780-1790.  \n- Scénario fav : poursuite de la baisse sous invalidation à franchissement des 1790.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance baissière nette sur le timeframe 15 minutes, avec une succession de points hauts et bas descendants (LH/LL). Les rebonds sont faibles, indiquant une pression vendeuse dominante. Le support clé immédiat se situe autour de 1720-1730, zone où les prix ont rebondi précédemment. La résistance principale se trouve vers 1780-1790, zone où les vendeurs ont repris la main. Un franchissement franc de cette résistance invaliderait la tendance baissière court terme, suggérant un potentiel retournement. Pour l’instant, la structure technique privilégie la continuation du mouvement à la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"s",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-07-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_00-06-56.png"
+  }
+}

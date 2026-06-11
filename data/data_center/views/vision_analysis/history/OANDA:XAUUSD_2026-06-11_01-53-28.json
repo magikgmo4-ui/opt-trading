@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_055341_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:53:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-53-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4050.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4125.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4150.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous 4050 en cassure, sinon rebond court terme vers résistances",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "tenue support 4050 et breakout LH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière globale sur le graphique principal (XAUUSD 1h).  \n- Signes récents d’un rebond technique possible sur volumes accrus.  \n- Zones clés de support testées, scénario baissier dominant à court terme.  \n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \nStructure baissière claire avec suites de Lower Highs (LH) et Lower Lows (LL).  \nZone clé support vers 4 050 USD testée plusieurs fois avec réactions en volume.  \nScénario principal : continuation de la baisse si support 4 050 USD cassé.  \nAlternatif : rebond à court terme possible, viser 4 125-4 150 USD en résistance.  \nInvalidation du bearish : tenue ferme du support et passage au-dessus des derniers Lower High.  \n\nC) Chart 2 (haut-droit): Inconnu (symbole/timeframe non lisible)  \nStructure et tendance non identifiables.  \nZones support et résistance inconnues, pas de plan ni d’invalidation possibles.  \n\nD) Chart 3 (bas-gauche): Inconnu (symbole/timeframe non lisible)  \nTendance, structure, supports et rési",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-53-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-11_01-53-13.png"
+  }
+}

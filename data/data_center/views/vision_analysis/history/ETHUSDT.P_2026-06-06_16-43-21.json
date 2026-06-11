@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_204329_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T16:43:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-43-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée longue si HH > 1600, stop sous 1525. Short si cassure 1525 avec cible plus basse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire > 1600 invalide la tendance baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec tentative de stabilisation récente autour de 1 550 USDT, possible zone de support.  \n- Scénario actionnable : attendre confirmation d'un reversal haussier via HH au-delà de 1 600 ou continuation baissière sous 1 525 (invalidation du support).  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre une dominante baissière, la tendance est clairement à la vente avec des LH et LL successifs depuis plusieurs jours. Un support sensible se dessine autour de 1 550 USDT où le prix semble s’accumuler. Un breakout haussier au-dessus de 1 600 serait un premier signal de changement de structure en HL. En cas de cassure en dessous de 1 525, la tendance baissière continue avec confirmation de nouveaux LL. Volume plus élevé sur les chutes, ce qui valide la pression vendeuse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-43-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_16-43-08.png"
+  }
+}

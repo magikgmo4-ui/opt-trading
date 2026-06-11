@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_145623_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:56:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-56-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": "1.1570.",
+      "confidence": 0.7,
+      "note": "s 1.1570."
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente baissière très forte sur la dernière bougie, cassure nette des supports.  \n- Structure incertaine avant cette chute, alternance HH/HL puis LH, puis retour brutal vers un nouveau plus bas (LL).  \n- Zone clé support invalidée autour de 1.1570, nouveau support potentiel proche de 1.1540.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLe graphique montre une tendance de fond entre consolidation et légères fluctuations avec des pics à la hausse, puis un retournement baissier fort marqué par une grande bougie rouge sur la droite, cassant un support clé vers 1.1570. La structure évolue vers des Lower Highs et Lower Lows (LH/LL), confirmant un biais baissier. Le volume augmente sensiblement sur la dernière baisse brutale, signalant un fort engagement vendeur. Scénario conseillé : surveiller une confirmation en clôture 1h et viser des positions short avec invalidation au-dessus du dernier plus haut local (environ 1.1635).  \n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-56-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_10-56-03.png"
+  }
+}

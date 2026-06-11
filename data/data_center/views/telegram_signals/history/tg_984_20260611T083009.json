@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_984_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "xauusd_trading_free",
+  "channel_priority": "P0",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-11T04:15:46+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4080.0,
+  "sl": null,
+  "tp": 4085.0,
+  "tps": [
+    4085.0,
+    4090.0,
+    4095.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udea8 XAUUSD BUY SIGNAL \ud83d\udea8\n\n\ud83d\udcc8 Entry Zone: 4080 \u2013 4075\n\n\ud83c\udfaf Take Profit Targets:\n\ud83c\udfc1 TP1: 4085\n\ud83c\udfc1 TP2: 4090\n\ud83c\udfc1 TP3: 4095\u2714\ufe0f\n\n\ud83d\uded1 Stop Loss: TAKE YOUR OWN\n\n\n\ud83d\udc8e Trade smart, stay disciplined, and secure your profits! \ud83d\udcca",
+  "summary": "XAUUSD LONG"
+}

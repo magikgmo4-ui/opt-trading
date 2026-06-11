@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_165853_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T12:58:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-58-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.115,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.17,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond support 1.115 avec prise de profit proche résistance 1.170",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "<1.115",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Structure haussière récente avec une série de HH/HL depuis le creux du 6.\n- Zone résistance clé vers 1.170, précédemment testée en sommet local.\n- Support immédiat à 1.115, invalidation en dessous pour scénario haussier.\n\nB) Chart unique (XRPUSDT.P 15m):\nTendance récente haussière, visible par les hauts et bas plus hauts (HH/HL). Le prix a corrigé depuis un pic vers 1.170, puis a rebondi au-dessus de 1.115 confirmant ce support. Les volumes montrent un intérêt en hausse sur la dernière vague. Le scénario prioritaire est une reprise vers la résistance 1.170, avec comme invalidation une cassure franche sous 1.115 qui pourrait signaler un retour en tendance baissière.\n\nC) DeskPro (JSON)\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1.115\"],\"resistances\":[\"1.170\"],\"plan\":\"achat sur rebond support 1.115 avec prise de profit proche résistance 1.170\",\"invalidation\":\"<1.115\"}]}",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-58-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_12-58-38.png"
+  }
+}

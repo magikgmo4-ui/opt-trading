@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_184944_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T14:49:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-49-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 1540 avec stop au-dessus du range, achat possible en cas de cassure 1580 pour rebond",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture longue au-dessus de 1580 ou cassure nette du support 1540",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible avec une série de LL et LH sur le 15m.  \n- Structure récente en phase de consolidation latérale avec absence de nouveaux LL/HL clairs.  \n- Zone clé support vers 1540-1550, résistance notable vers 1580-1600 pour un éventuel rebond ou poursuite baissière.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance majeure est baissière, marquée par des Lower Highs (LH) et Lower Lows (LL) depuis le début du graphique. Plus récemment, le prix oscille en range horizontal entre 1540 (support) et 1580 (résistance), sans nouvelle rupture significative. Le scénario prioritaire reste une poursuite de la baisse si le support 1540 est cassé (invalidation du range). En revanche, une cassure au-dessus de 1580 pourrait signaler un retournement vers un rebond plus marqué. Volume plus élevé lors des baisses, signalant pression vendeuse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL-LH en tendance, consolidation ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-49-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_14-49-27.png"
+  }
+}

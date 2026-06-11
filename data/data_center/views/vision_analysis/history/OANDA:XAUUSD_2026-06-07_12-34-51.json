@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_163501_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T12:34:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-34-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 4320, viser 4300 puis plus bas si dynamique persiste",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte chute récente sur XAUUSD en H1, rupture claire d’une structure haussière précédente.\n- Le prix est en tendance baissière avec des plus bas et plus bas (LL) marqués.\n- Zone clé de support à surveiller proche des 4320 USD, scénario baissier dominant sauf rebond significatif.\n\nB) Chart 1 (haut-gauche) : XAUUSD 1h\n- Structure : baisse nette, succession de Lower High (LH) et Lower Low (LL), tendance baissière affirmée.\n- Supports clés vers 4320 (proche du plus bas récent) et 4300 USD.\n- Résistances visibles autour de 4400 et 4450 USD.\n- Volume en forte augmentation lors de la chute, signal de dynamique vendeuse.\n- Scénario : recherche de confirmations sous 4320 pour poursuivre la baisse vers 4300 et plus bas.\n- Invalidation : franchissement clair de 4450 en clôture horaire stoppe scénario baissier.\n\nC) Chart 2 (haut-droit) : inconnu (non lisible sur l’image)\n\nD) Chart 3 (bas-gauche) : inconnu (non lisible sur l’image)\n\nE) Chart 4 (bas-droit) : inconnu (non lisible s",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-34-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_12-34-40.png"
+  }
+}

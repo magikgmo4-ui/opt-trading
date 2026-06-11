@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_130246_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:02:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-02-36",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller support 2.2T pour rebond; invalidation si cassure à la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 2.2T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Structure de marché baissière en cours sur le total crypto, avec des sommets et creux descendants (LH, LL).\n- Présence de zones clés de support vers 2.2T et résistances majeures autour de 2.7-3T.\n- Scénario dominant de continuation baissière tant que le prix reste sous la résistance et que les creux ne sont pas invalidés.\n\nB) Chart 1 (haut-gauche):\n- Symbole : TOTAL, timeframe : hebdomadaire (1W).\n- Tendance : baissière claire avec des Lower Highs (LH) et Lower Lows (LL) récents.\n- Supports : zone 2.2T, base d’un ancien range, importante à surveiller.\n- Résistances : 2.7T puis 3T, niveau de retournement possible.\n- Plan : surveiller la tenue du support 2.2T pour un rebond, invalidation en cas de cassure nette à la baisse.\n- Scénario alternatif : cassure résistances → retour vers une consolidation plus neutre.\n\nC) Chart 2 (haut-droit): Inconnu (non visible)\n\nD) Chart 3 (bas-gauche): Inconnu (non visible)\n\nE) Chart 4 (bas-droit): Inconnu (non visible)\n\nF) DeskPro\n{\"run",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-02-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-03_09-02-26.png"
+  }
+}

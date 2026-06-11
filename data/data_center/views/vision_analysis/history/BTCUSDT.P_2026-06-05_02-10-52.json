@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_061101_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T02:10:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-10-52",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 61000 ou rupture pour poursuite baissière. Confirmation haussière au-dessus de 65000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchir clairement dernier LH pour inversion haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le graphique visible (1h BTC/USDT), structure en série de lower highs (LH) et lower lows (LL).  \n- Volume en hausse sur les baisses, confirmant la pression vendeuse.  \n- Zones clés à surveiller autour des 61 000 USDT (support) et entre 64 000-65 000 USDT (résistance).  \n\nB) Chart 1 (haut-gauche): Inconnu (aucun graphique visible dans ce quadrant)\n\nC) Chart 2 (haut-droit): Inconnu (aucun graphique visible dans ce quadrant)\n\nD) Chart 3 (bas-gauche): Inconnu (aucun graphique visible dans ce quadrant)\n\nE) Chart 4 (bas-droit): Graphique BTC/USDT 1h  \n- Tendance: baissière confirmée avec des lower highs et lower lows.  \n- Structure: LH/LL dominante, pas de signe clair de retournement pour l’instant.  \n- Supports clés: zone vers 61 000 USDT, à contrôler pour éviter une poursuite baissière.  \n- Résistances clés: 64 000-65 000 USDT, seuil à franchir pour un début de rebond ou consolidation.  \n- Scénario: sous 61 000, la tendance baissière pourr",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-10-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_02-10-44.png"
+  }
+}

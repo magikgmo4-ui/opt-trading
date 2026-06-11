@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_055134_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T01:51:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-51-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0845,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur repli vers 0.080, viser 0.0845",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cours sous 0.080",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente : rebond après une forte baisse, tentative de formation de HL.  \n- Structure passée : série de LL confirmée, bas historique vers 0.077 avant rebond.  \n- Zone clé à surveiller : résistance vers 0.0845, support important vers 0.080.\n\nB) Chart unique (DOGEUSDT.P 15m) :  \nLe marché montre une tendance baissière initiale marquée par des Lower Highs (LH) et Lower Lows (LL). Récemment, un creux a été formé autour de 0.077, suivi par une remontée avec un Higher Low (HL) potentiel. Le prix teste actuellement une résistance intermédiaire proche de 0.0845. La structure indique une tentative de retournement, mais la tendance baissière n’est pas invalidée tant que le support à 0.080 n’est pas cassé. Scénario à privilégier : acheter sur repli vers support avec cible résistance 0.0845, invalidation en cas de retour sous 0.080.\n\nC) DeskPro  \n{\"run_id\":\"20240607_1300\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haut\",\"structure\":\"LH, LL puis HL potentiel\",\"supports\":",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-51-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-07_01-51-18.png"
+  }
+}

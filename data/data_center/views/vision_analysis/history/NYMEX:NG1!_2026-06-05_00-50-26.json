@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_045035_NYMEX:NG1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:50:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-50-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.2,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.4,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.42,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat zones support 3.15-3.20 avec objectif 3.40+, stop sous 3.15",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 3.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière confirmée avec structure de HH (Higher Highs) et HL (Higher Lows) bien marquée sur ce 1h.  \n- Zones clés : support vers 3.15-3.20, résistance majeure à 3.40-3.42 testée récemment.  \n- Scénario bullish privilégié tant que le support 3.15 tient, invalidation sous ce niveau à surveiller.\n\nB) Chart unique (NYMEX:NG1! 1h):  \nLe graphique montre une tendance haussière nette avec une succession claire de plus hauts et plus bas relevés (HH/HL). Le prix a récemment testé la résistance autour de 3.40 sans la franchir durablement, indiquant une prise de profit ou consolidation. Le volume accompagne la montée, signe de conviction d’achat. Le support clé à 3.15-3.20 a fait office de zone d’achat, formant un pivot pivotant la structure dans le biais haussier. Le scénario le plus probable est une reprise de la hausse si la zone support tient. Une cassure sous 3.15 invaliderait cette dynamique et pourrait entraîner un retour à un biais plus neutre ou baissier.\n\n",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-50-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-05_00-50-16.png"
+  }
+}

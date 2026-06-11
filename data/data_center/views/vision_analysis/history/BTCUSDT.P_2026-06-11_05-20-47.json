@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_092057_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T05:20:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-20-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur retest de support 61 200 en visant résistance 63 200",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure durable sous 61 200",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance récente baissière jusqu’au 9 juin, suivie d’une reprise haussière avec formation de HL/HH.\n- Structure en 15m montre des points bas plus hauts (HL) et des points hauts plus hauts (HH) depuis la dernière correction.\n- Zone clé de support autour de 61 200 USDT, résistance à surveiller vers 63 200 USDT.\n\nB) Chart unique (BTCUSDT.P 15m) : Le marché est en reprise haussière après une correction marquée. La structure forme des HL et HH, indiquant une tendance haussière à court terme. La zone sous 61 200 USDT doit tenir pour garder ce scénario, sinon invalidation possible. Le prochain objectif réside dans la validation d’un breakout au-dessus de 63 200 USDT pour confirmer la continuation. La gestion du risque doit se faire sous 61 200 USDT.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL/HH\",\"supports\":[61200],\"resistances\":[63200],\"plan\":\"Acheter sur retest de support 61 200 en visant résistance 63 200\",\"invalidation\":\"cass",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-20-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-11_05-20-35.png"
+  }
+}

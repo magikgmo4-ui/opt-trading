@@ -1,0 +1,60 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GOLD_FOREX_SIGN_92228_2026-06-09T12:14:39+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GOLD_FOREX_SIGN",
+    "parsed_at": "2026-06-09T12:14:39+00:00",
+    "produced_at": "2026-06-11T10:00:13.897044+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4340.0,
+    "sl": 4346.0,
+    "tp": 4306.0,
+    "tps": [
+      4306.0,
+      4315.0,
+      4325.0,
+      4332.0
+    ],
+    "leverage": null,
+    "raw_text": "#Gold Sell NOW\u00a0XAUUSD\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 4340/4344  Again \nTp1\u00a0 4332\nTp2\u00a0 4325\nTp3\u00a0 4315\nTp4\u00a0 4306\nTp5\u00a0 Open \n\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 SL 4346...\n\nMust Use Proper M-Management"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GOLD_FOREX_SIGN_92248_2026-06-10T17:47:48+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GOLD_FOREX_SIGN",
+    "parsed_at": "2026-06-10T17:47:48+00:00",
+    "produced_at": "2026-06-11T10:00:13.897916+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4109.0,
+    "sl": 4103.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Gold buy now : 4109\n\nSL: 4103\nTP: 4150\n\nMoney management\u203c\ufe0f"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GOLD_FOREX_SIGN_92256_2026-06-11T06:37:49+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GOLD_FOREX_SIGN",
+    "parsed_at": "2026-06-11T06:37:49+00:00",
+    "produced_at": "2026-06-11T10:00:13.898119+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4089.0,
+    "sl": 4103.0,
+    "tp": 4084.0,
+    "tps": [
+      4084.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold Sell now @4089\n\nSL:4103\n\nTp-4084\nTp2-4080"
+  }
+]

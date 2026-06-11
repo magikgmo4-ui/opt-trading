@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_214055_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T17:40:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-40-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.086,
+      "confidence": 0.7,
+      "note": "s 0.0860"
+    },
+    {
+      "type": "support_level",
+      "value": 0.09,
+      "confidence": 0.7,
+      "note": "s 0.0900,"
+    },
+    {
+      "type": "support_level",
+      "value": 0.086,
+      "confidence": 0.7,
+      "note": "support 0.0860,"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.09,
+      "confidence": 0.7,
+      "note": "résistance 0.0900"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur ce timeframe 15m avec séquences de Lower Highs et Lower Lows.  \n- Structure fragile à court terme avec quelques reprises temporaires (HL partiels) mais sans inversion claire.  \n- Zone clé support vers 0.0860-0.0865 à surveiller pour scénario possible de rebond ou cassure baissière.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa paire DOGEUSDT.P évolue en tendance baissière dominante marquée par une succession d’Higher Lows (HL) faibles et de Lower Highs (LH) renforçant la pression vendeuse. Le prix teste actuellement un support proche de 0.0860-0.0865, zone à fort volume visible en bas du graphique, pivot potentiel pour un retournement court terme. Le dernier mouvement montre une accélération baissière, ce qui valide une structure baissière classique. Si ce support casse, la baisse devrait s’intensifier. En cas de rebond, une résistance clé se situe vers 0.0900, niveau à dépasser pour invalider la configuration baissière en 15m.\n\nC) DeskPro  \n",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-40-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_17-40-38.png"
+  }
+}

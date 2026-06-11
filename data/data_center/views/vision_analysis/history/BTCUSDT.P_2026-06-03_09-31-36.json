@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_133147_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:31:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-31-36",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 97.0,
+      "confidence": 0.7,
+      "note": "s 97.00"
+    },
+    {
+      "type": "support_level",
+      "value": 91.0,
+      "confidence": 0.7,
+      "note": "s : 91.00,"
+    },
+    {
+      "type": "support_level",
+      "value": 97.0,
+      "confidence": 0.7,
+      "note": "s : 97.00"
+    },
+    {
+      "type": "support_level",
+      "value": 97.0,
+      "confidence": 0.7,
+      "note": "s 97.00,"
+    },
+    {
+      "type": "support_level",
+      "value": 91.0,
+      "confidence": 0.7,
+      "note": "support 91"
+    },
+    {
+      "type": "resistance_level",
+      "value": "91.00.",
+      "confidence": 0.7,
+      "note": "r 91.00."
+    },
+    {
+      "type": "price_target",
+      "value": 97.0,
+      "confidence": 0.5,
+      "note": "objectif 97"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché du Light Crude Oil Futures montre une reprise haussière après une phase baissière marquée.  \n- Structure récente en HH/HL sur le court terme indiquant un biais haussier.  \n- Zones clés à surveiller vers 97.00 en résistance et 91.00 en support pour valider la continuité du mouvement.  \n\nB) Chart 1 (haut-gauche) : CL1! 1h  \n- Tendance : Haussière court terme après un creux autour de 86.00.  \n- Structure : Formation récente de HH/HL, signalant un changement de momentum.  \n- Supports clés : 91.00, 88.00 (ancien point bas).  \n- Résistances clés : 97.00 (plus haut récent), 100.00 (psychologique).  \n- Scénario : Continuation haussière possible vers 97.00, idéalement en rebond sur 91.00.  \n- Invalidation : Perte du niveau 88.00 avec clôture sous ce support remettrait en cause la reprise.  \n\nC) Chart 2 (haut-droit) : inconnu (pas lisible sur l’image)  \n- Information non disponible.  \n\nD) Chart 3 (bas-gauche) : inconnu (pas lisible sur l’image)  \n- Information non ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-31-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-03_09-31-25.png"
+  }
+}

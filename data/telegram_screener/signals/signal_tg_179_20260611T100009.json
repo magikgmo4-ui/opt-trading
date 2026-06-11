@@ -1,0 +1,25 @@
+{
+  "contract": "telegram_signal.v1",
+  "id": "tg_179_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "LexatyCryptoSignals",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2025-02-06T18:49:56+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "CTCUSDT",
+  "direction": "SHORT",
+  "entry_price": 0.94655,
+  "sl": 0.98125,
+  "tp": 0.92905,
+  "tps": [
+    0.92905,
+    0.9024,
+    0.86545
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udd34sell/short signal #CTCUSDT\nEntry range: 0.94655-9.5400\nTargets: 0.92905_ 0.90240_ 0.86545\nStop: 0.98125\nLeverage:6-8X\nBalance: 5% of capital",
+  "summary": "CTCUSDT SHORT"
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_185135_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T14:51:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-51-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond potentiel sur 59000; Short si rejet sous 59000; Invalidité au-dessus de 62000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Pression fortement vendeuse sur les actifs majeurs avec correction marquée.\n- Structures majoritairement baissières sur les timeframes courts.\n- Recherche de zones clés pour rebond ou continuation baissière.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h\nTendance claire baissière avec structure de lower highs (LH) et lower lows (LL). Multiples vagues de vente intensives et rebonds faibles. Zone clé support vers 59 000 USDT testée, possible rebond court terme à surveiller. Résistance immédiate autour de 62 000 USDT. Scénario principal : poursuite de la baisse avec invalidation au-dessus de 62 000. Surveillez la réaction volume et sortie de cette zone pour prise de position.\n\nC) Chart 2 (haut-droit): Inconnu\nSymbole et timeframe non lisibles. Impossible de fournir une analyse structurée sans ces données.\n\nD) Chart 3 (bas-gauche): Inconnu\nSymbole et timeframe non lisibles. Analyse non applicable.\n\nE) Chart 4 (bas-droit): Inconnu\nSymbole et timeframe non lisibles. Analyse non app",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-51-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_14-51-15.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_130336_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:03:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-03-25",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure 780 B$ pour scénario haussier, invalidation sous 700 B$",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 700 B$",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché crypto hors BTC/ETH est en phase de consolidation latérale, sans tendance claire.  \n- La structure montre une série de bas et hauts relativement horizontaux, sans nouvelle impulsion haussière nette.  \n- Zones clés à surveiller autour des 700 B$ (support) et 760-780 B$ (résistance), décision en attente d'une cassure significative.\n\nB) Chart 1 (haut-gauche): Crypto Total Market Cap Excl. BTC/ETH - Journalier  \n- Structure : Range latéral, avec des points hauts et bas horizontaux (pas de HH ni HL clairs, ni LH/LL franchement marqués).  \n- Supports : En premier plan vers 700 B$, déjà testé plusieurs fois.  \n- Résistances : Zone 760-780 B$, plafond multiple refusé.  \n- Tendance : Neutre, attente d’une nette cassure.  \n- Scénario : Cassure au-dessus 780 B$ ouvrirait un scénario haussier vers 820 B$. Rejet sous 700 B$ invalidation, retour vers 640 B$.  \n- Invalidation : Perte claire 700 B$ avec clôture confirmée.  \n\nC) Chart 2 (haut-droit): symbole/timeframe inc",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-03-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_09-03-14.png"
+  }
+}

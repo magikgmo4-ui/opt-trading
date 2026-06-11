@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_005216_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T20:52:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_20-52-08",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 0.084,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher des shorts sur rebond proche résistance, viser 0.0810 en cible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 0.0840",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière avec une série de lower highs (LH) et lower lows (LL).\n- Structure actuelle en tentative de rebond avec un higher low (HL) récent formé sur le support.\n- Zone clé support autour de 0.0810-0.0815, résistance immédiate vers 0.0830-0.0835.\n\nB) Chart unique (DOGEUSDT.P 15m): La paire évolue dans une structure baissière claire marquée par des lower highs et lower lows. Un rebond est visible depuis le support situé aux alentours de 0.0810, avec la formation d’un higher low intermédaire. La résistance la plus proche se situe vers 0.0830-0.0835, seuil à franchir pour envisager une correction plus importante. En-dessous de 0.0810, le scénario baissier reste valide avec possible poursuite vers un nouveau lower low. L’invalidation du scénario baissier se ferait au-dessus de 0.0840.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL récent\",\"supports\":[\"0.0810-0.0815\"],\"resistances\":[\"0.0830-0.0835\",\"",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_20-52-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-05_20-52-01.png"
+  }
+}

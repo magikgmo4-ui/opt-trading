@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_034907_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T23:49:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-48-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 660.0,
+      "confidence": 0.7,
+      "note": "s 660"
+    },
+    {
+      "type": "support_level",
+      "value": 660.0,
+      "confidence": 0.7,
+      "note": "s 660"
+    },
+    {
+      "type": "support_level",
+      "value": 660.0,
+      "confidence": 0.7,
+      "note": "s 660"
+    },
+    {
+      "type": "support_level",
+      "value": 780.0,
+      "confidence": 0.7,
+      "note": "s 780"
+    },
+    {
+      "type": "support_level",
+      "value": 660.0,
+      "confidence": 0.7,
+      "note": "support 660"
+    },
+    {
+      "type": "support_level",
+      "value": 780.0,
+      "confidence": 0.7,
+      "note": "s 780"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante clairement visible avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rejet marqué à la zone 760-780B USD, confirmé par chute rapide vers 660B.  \n- Support clé à 660B USD à surveiller, invalidation baissière au-dessus de 780B.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une structure baissière avec une succession de Lower Highs et Lower Lows depuis plusieurs semaines. La tendance est clairement orientée à la baisse, le dernier mouvement valide une chute franche, cassant un support intermédiaire autour de 700B. La zone de support critique se situe vers 660B, niveau vers lequel le prix revient actuellement. En cas de maintien sous 660B, un nouveau mouvement baissier pourrait s’intensifier. A contrario, une clôture au-dessus des 780B invaliderait ce scenario et signalerait un retournement possible.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[66000000",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-48-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_23-48-45.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_185351_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T14:53:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_14-53-42",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 940B en visant 900B, confirmer la baisse par volume",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour au-dessus 1.08T avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global:\n- Tendance globalement baissière avec faibles phases de reprise.\n- Structure principalement en lower highs (LH) et lower lows (LL) indiquant un marché sous pression.\n- Présence de zones clés importantes autour des 1.1T (résistance) et 900B (support).\n\nB) Chart 1 (haut-gauche) : TOTAL2 1D\n- Tendance dominante baissière avec série de LH et LL marqués depuis les derniers mois.\n- Structure actuelle confirmée par une cassure récente sous un support vers 960-940B.\n- Zone clé de support autour des 900B, zone de résistance proche de 1.04-1.08T.\n- Scénario probable: poursuite du mouvement baissier en cas de maintien sous 940B.\n- Invalidation si retour au-dessus de 1.08T avec création de HH.\n- Volume en augmentation lors des baisses, signe de pression vendeuse.\n\nC) Chart 2 (haut-droit) : inconnu (pas lisible)\n- Symbol ou timeframe non visible, impossible d’analyser.\n\nD) Chart 3 (bas-gauche) : inconnu (pas lisible)\n- Symbol ou timeframe non visible, aucune donnée exploitable.\n\nE",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_14-53-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-03_14-53-18.png"
+  }
+}

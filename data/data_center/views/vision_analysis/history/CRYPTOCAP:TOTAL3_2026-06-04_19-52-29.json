@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_235239_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T19:52:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-52-29",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond proche résistance 720B-730B, viser 660B-670B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture journalière au-dessus de 750B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance daily baissière nette, avec une structure claire de Lower Highs (LH) et Lower Lows (LL) depuis plusieurs mois.  \n- Prix passe sous zone de support horizontale vers 720-730B, ce qui valide la reprise de la pression vendeuse.  \n- Volume en hausse sur les chandeliers baissiers récents, signalant une accélération vendeuse à court terme.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière dominante depuis la mi-2025, confirmée par une série de LH/LL. Après une phase de range entre 700B et 750B, le prix a cassé le support vers 720B avec augmentation des volumes, indiquant une forte pression vendeuse. La prochaine zone clé de support est vers 660-670B. Le scénario privilégié reste un mouvement baissier vers cette zone. Invalidation sous forme d’un retour au-dessus de 750B avec un franchissement clair d’un dernier LH.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"Lower Highs / Lower Lows\",\"s",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-52-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_19-52-09.png"
+  }
+}

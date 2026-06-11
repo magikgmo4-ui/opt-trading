@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_122405_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T08:24:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_08-23-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.168,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur retracement sur 1.1600-1.1610, viser 1.1650+extension possible 1.1680",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire sous 1.1590",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intraday latérale à faiblement baissière avec séquence mixte de HL et LH.  \n- Structure récente marquée par un rebond fort depuis 1.1590, franchissement rapide de plusieurs résistances intermédiaires.  \n- Zone clé à surveiller en support autour de 1.1610-1.1600, résistance majeure en zone 1.1650-1.1680.  \n\nB) Chart unique (FX:EURUSD 1h): La paire évolue dans un range baissier 1.1680-1.1590 avec alternance de HH/HL et LH/LL. Le rebond agressif sur support 1.1590 modifie la structure à court terme, mettant en lumière une possible tentative de reprise haussière. Validation au-dessus de 1.1650 à confirmer pour viser 1.1680-1.1700. Invalidation sous 1.1600.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier short terme\",\"structure\":\"HL récent puis LH, puis HL sur rebond\",\"supports\":[\"1.1600\",\"1.1590\"],\"resistances\":[\"1.1650\",\"1.1680\"],\"plan\":\"acheter sur retracement sur 1.1600-1.1610, viser 1.1650+extension possible 1.16",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_08-23-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_08-23-40.png"
+  }
+}

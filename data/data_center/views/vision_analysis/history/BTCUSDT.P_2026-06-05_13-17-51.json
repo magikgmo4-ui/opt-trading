@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_171801_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T13:17:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-17-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.7,
+      "note": "s 60"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s 62"
+    },
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.7,
+      "note": "s 60"
+    },
+    {
+      "type": "support_level",
+      "value": 58.0,
+      "confidence": 0.7,
+      "note": "s 58"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.7,
+      "note": "s 60000"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL) sur le 1h.\n- Zone de support testée proche de 60 000$, zone clé pour un rebond ou poursuite de la chute.\n- Scénario principal : continuer la baisse sous 60 000$; invalidation en cas de franchissement avec maintien au-dessus des 62 500$.\n\nB) Chart unique (BTCUSDT.P 1h): La tendance dominante est baissière, marquée par une structure en Lower Highs et Lower Lows. Le prix a fortement chuté depuis près de 76 000$ jusqu'à la zone des 60 000$, où un support semble temporairement se mettre en place. Le volume augmente sur les baisses et rebonds légers, indiquant une pression vendeuse importante. La résistance immédiate à surveiller se situe autour de 62 500$, seuil à partir duquel un retournement temporaire vers un range pourrait s’enclencher. En-dessous de 60 000$, la faiblesse pourrait s'accentuer vers les 58 000$ et potentiellement plus bas.\n\nC) DeskPro\n{\"run_id\":\"rdm001\",\"charts\":[{\"slot\":\"si",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-17-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_13-17-44.png"
+  }
+}

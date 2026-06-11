@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_202247_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T16:22:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-22-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 60000 avec cible plus basse, prudence et stop serré si rebond > 63000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement stable de 63000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette et continue visible sur plusieurs jours.\n- Structure en Lower Highs (LH) et Lower Lows (LL) confirmant la dynamique vendeuse.\n- Zone clé de support autour de 60 000 USD, résistance proche à 63 000 USD.\n\nB) Chart unique (BTCUSDT.P 1h) : La tendance est clairement baissière avec une succession de creux et pics déclinants (LL/LH). La zone support 60 000 USD semble temporairement tenir, avec un léger rebond actuel mais faible momentum haussier. La prochaine résistance significative à 63 000 USD jouera un rôle important pour invalider un retournement. Scénario principal : poursuite de la baisse en cas de cassure du support 60 000 USD. Invalidation du scénario baissier si le prix franchit durablement 63 000 USD avec un HH.\n\nC) DeskPro\n{\"run_id\":\"20240606_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"60000\"],\"resistances\":[\"63000\"],\"plan\":\"Vente sous 60000 avec cible plus basse, prudence et stop serré si rebond > ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-22-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_16-22-29.png"
+  }
+}

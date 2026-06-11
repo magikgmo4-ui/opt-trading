@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_153727_TVC:DXY_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "TVC:DXY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:37:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-37-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 99.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 99.55,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat en cassure haute, vente sous support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 99.00 significatif",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché global en phase de consolidation active avec oscillations sur plusieurs niveaux.  \n- Modifications structurelles fréquentes entre phases haussières et baissières sur les unités de temps visibles.  \n- Surveillance de zones clés essentielle pour identifier les entrées/sorties, notamment sur les supports récents.  \n\nB) Chart 1 (haut-gauche): U.S. Dollar Index (DXY) 1h  \nTendance neutre à court terme avec phases de retracement marquées. Structure en alternance HL/LL, indiquant absence de direction claire durable. Zones clés à surveiller : support autour de 99.00, résistance vers 99.55. Scénario haussier possible en cassure nette de 99.55, invalidation si repasse sous 99.00 de manière significative.  \n\nC) Chart 2 (haut-droit): inconnu (pas lisible)  \nImpossible d’analyser, le symbole/timeframe n’est pas identifiable sur l’image.  \n\nD) Chart 3 (bas-gauche): inconnu (pas lisible)  \nImpossible d’analyser, le symbole/timeframe n’est pas identifiable sur l’image.  \n\nE",
+  "symbols_found": [
+    "TVC:DXY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-37-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_11-37-01.png"
+  }
+}

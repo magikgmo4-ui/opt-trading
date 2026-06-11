@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_170623_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T13:06:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-06-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 1540 pour tentative de correction technique, viser 1580. En cas de cassure sous 1540, reprendre position short, viser nouveaux plus bas.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette au-dessus de 1580 avec HH confirmé pour invalider le biais baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante visible avec succession de Lower Highs et Lower Lows.  \n- Stabilisation récente sur zone entre 1540 et 1580, consolidation latérale.  \n- Scénario possible : rebond technique à partir des supports pour correction ou reprise baissière si la structure se casse.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché est en tendance baissière claire avec structure LH/LL. Après une chute marquée, le prix montre actuellement une phase de range dans la zone 1540-1580, agissant comme une zone support. La cassure en dessous de 1540 invaliderait potentielle stabilisation et confirmerait la poursuite baissière. En revanche, un franchissement au-dessus de 1580 pourrait indiquer un premier signe de rebond ou possible base de retournement si confirmé par de nouveaux HH.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL puis range\",\"supports\":[\"1540\"],\"resistances\":[\"1580\"],\"plan\":\"Surveiller rebond sur 1540 pour tent",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-06-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_13-06-06.png"
+  }
+}

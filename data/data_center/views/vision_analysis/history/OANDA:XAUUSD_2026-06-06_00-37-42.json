@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_043751_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T00:37:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-37-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prévoir continuation short sous 4320, cible 4280-4250",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 4400 avec HH signalant retournement possible",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte pression vendeuse sur le XAUUSD, en clôture basse sur 1h avec un plongeon significatif.  \n- Structure baissière claire sur cette unité, plusieurs bas et hauts plus bas (LL/LH).  \n- Zones clés de support à surveiller autour de 4 320 USD, résistance entre 4 380 et 4 400 USD.  \n\nB) Chart 1 (haut-gauche): XAUUSD 1H  \nTendance : Baissière nette  \nStructure : Succession de LL et LH, confirmation du basculement à la baisse  \nSupports : Zone autour de 4 320 USD (proche du prix actuel, important à tenir)  \nRésistances : Entre 4 380 - 4 400 USD, ancien support devenu résistance possible  \nScénario : Poursuite probable à la baisse si le support casse, retour vers niveaux 4 280 et potentiellement 4 250 USD  \nInvalidation : Repasser durablement au-dessus de 4 400 USD avec un HH confirmerait un rebond possible  \n\nC) Chart 2 (haut-droit): inconnu (non visible dans l’image)  \n\nD) Chart 3 (bas-gauche): inconnu (non visible dans l’image)  \n\nE) Chart 4 (bas-droit): inconnu (non",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-37-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_00-37-32.png"
+  }
+}

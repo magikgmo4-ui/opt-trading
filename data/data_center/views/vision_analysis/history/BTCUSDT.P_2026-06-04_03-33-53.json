@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_073402_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T03:34:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_03-33-53",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 66500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur support, chercher rebond technique, viser résistances pour prise de bénéfices.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure au-dessus 66500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché montre une forte tendance baissière avec une dynamique vendeuse dominante.  \n- Plusieurs points de support ont été testés récemment, indiquant un possible rebond court terme.  \n- La structure est en phase de retournement potentielle avec vigilance sur invalidation d’un rebond.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance clairement baissière, structure en LH/LL confirmée.  \n- Zones clés de support vers 62 000 - 63 000 USD, résistance autour de 66 500 USD.  \n- Scénario principal : rebond technique possible sur support, suivi d’un nouveau test de résistances.  \n- Invalidation si cassure claire au-dessus du dernier HH à 66 500 USD.\n\nC) Chart 2 (haut-droit): Inconnu  \n- Pas de donnée lisible pour analyse précise.  \n- Absence d’informations sur symbole et timeframe empêche toute recommandation.\n\nD) Chart 3 (bas-gauche): Inconnu  \n- Symbole et timeframe non visibles.  \n- Analyse non réalisable sans information claire.\n\nE) Chart 4 (bas-droit): Inconnu  \n- ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_03-33-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_03-33-45.png"
+  }
+}

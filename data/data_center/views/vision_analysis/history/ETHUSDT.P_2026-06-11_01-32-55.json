@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_053305_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:33:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-32-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller breakout au-dessus de 1700 pour confirmer reprise haussière, ou short sous 1580 en invalidation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette en dessous de 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec formation initiale de plus bas et plus bas (LL) marqués.  \n- Structure en bas de cycle latéral-haussier avec une série de hauts et bas plus hauts (HH/HL) sur les derniers jours.  \n- Zone clé de résistance autour de 1 680-1 700, soutenue par support notable vers 1 580-1 600.  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre un fort mouvement baissier initial suivi par une phase de consolidation avec création d'une structure de retournement potentielle (HL/HH). La résistance principale se situe vers 1 680-1 700, où plusieurs tentatives de rupture ont échoué. Le support majeur à surveiller est situé vers 1 580-1 600, base des rebonds récents. Le scénario prioritaire est une poursuite de la consolidation avec possible breakout haussier au-delà de 1 700 ou invalidation si le support casse pour reprise baissière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier potentiel\",\"structure\":\"transition LL ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-32-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_01-32-43.png"
+  }
+}

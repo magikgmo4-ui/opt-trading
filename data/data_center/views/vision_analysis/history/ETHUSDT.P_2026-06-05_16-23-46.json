@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_202355_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T16:23:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-23-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Stratégie baissière dominante, chercher des opportunités de vente sur rebonds jusqu’à 1700. Très prudents sur rupture haussière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1700 confirmant un retournement.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec une série de lower highs (LH) et lower lows (LL) sur le timeframe 1h.\n- Confirmation de la pression vendeuse forte sur la dernière semaine avec un volume en légère augmentation au dernier rebond.\n- Scénario possible de rebond technique à court terme, mais la structure ne montre pas encore d'inversion haussière.\n\nB) Chart unique (ETHUSDT.P 1h): La structure dominante est baissière avec des lower highs et lower lows qui s'enchaînent depuis plusieurs jours. Le prix a récemment touché un plus bas vers 1550 USDT avant de rebondir légèrement jusqu’à 1600 USDT. Les volumes montrent une légère amplification sur ce rebond, indiquant un intérêt acheteur temporaire, mais cela reste fragile. Les niveaux clés à surveiller sont le support autour de 1550 USDT et la résistance vers 1700 USDT. Validation d’un retournement nécessiterait un break des derniers lower highs, invalidant la structure baissière. En l’état, privilégier une stratégie prudente ori",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-23-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_16-23-34.png"
+  }
+}

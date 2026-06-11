@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_194039_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:40:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-40-28",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 67500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur cassure support, rachat sur invalidation au-dessus résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout 67500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente breakout clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "mouvements hors range",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prudence, confirmation structure requise",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure support majeur",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente privilégiée sous résistances",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus hauts récents",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- 4 graphiques cryptos inconnus, probablement des setups de tendance baissière marquée.  \n- Structure globale en tendance baissière dominante (Lower Highs et Lower Lows).  \n- Zones clés support proches du prix, attention à des retournements potentiels ou poursuite de la chute.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière claire, structure avec LH/LL définie. Plusieurs grosses chandelles baissières confirment la pression vendeuse. Le prix teste un support vers 65 500-66 000, zone clé à surveiller pour un rebond ou cassure. Scénario privilégié : poursuite de la baisse si ce support cède, invalidation en cas de breakout au-dessus de 67 500.  \n\nC) Chart 2 (haut-droit): inconnu  \nTendance et structure difficilement identifiables. Le graphique semble montrer une consolidation en range serré sans tendance dominante claire. Zones clés doit être définies pour prise de position, à attendre un breakout net en support ou résistance pour décision.  \n\nD) Chart 3 (b",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-40-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_15-40-20.png"
+  }
+}

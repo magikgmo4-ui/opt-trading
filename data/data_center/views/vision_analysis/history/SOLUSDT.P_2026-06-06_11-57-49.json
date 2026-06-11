@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_155759_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T11:57:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-57-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rejet de la résistance 63.50-64.00",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 64.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ce timeframe 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile de rebond local mais sans inversion confirmée, résistance proche vers 63.50-64.00.  \n- Scénario privilégié : reprise baissière après rejet sur la résistance clé, stop au-dessus du dernier LH.\n\nB) Chart unique (SOLUSDT.P 15m) :  \nLa tendance dominante est baissière, matérialisée par une série de LH et LL. Le prix tente un rebond sur un support autour de 61.00-61.50, mais rencontre une forte résistance dans la zone 63.50-64.00, qui a agi plusieurs fois comme point de rejet. La structure actuelle est incertaine; un franchissement clair de 64.00 invaliderait le scénario baissier et ouvrirait la voie à un test plus haut. En revanche, un nouvel échec sous cette résistance renforcerait la tendance baissière. Le plan est donc de rester vendeur sur rejet, avec une invalidation au-dessus de 64.00.\n\nC) DeskPro  \n{\"run_id\":\"r1\",\"charts\":[{\"slot\":\"sin",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-57-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_11-57-40.png"
+  }
+}

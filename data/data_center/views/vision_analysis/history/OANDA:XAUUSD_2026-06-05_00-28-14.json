@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_042827_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:28:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-28-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4520.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pullback de rejet vers résistance 4480-4490, puis short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire > 4490",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globalement baissière sur le principal graphique 1h de XAUUSD.  \n- Structures en série de Lower Highs / Lower Lows dominantes indiquant pression vendeuse.  \n- Zones clés support enfin à valider autour de 4430-4440, résistance forte vers 4480-4490.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \nTendance: Baissière.  \nStructure: LL / LH bien formés depuis fin mai.  \nSupports: 4430-4440 (zone teste actuelle), 4380.  \nRésistances: 4480-4490 (dernière résistance clé), puis 4520.  \nScénario: Pullback baissier possible sur 4480-4490, puis reprise de la chute si rejet.  \nInvalidation: Clôture horaire > 4490 annulerait le scénario baissier court terme.\n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \nImpossible d’analyser précisément le chart 2, aucune donnée lisible.\n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non lisible)  \nImpossible d’analyser précisément le chart 3, aucune donnée lisible.\n\nE) Chart 4 (bas-droit): inconnu (symbole/timeframe ",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-28-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_00-27-59.png"
+  }
+}

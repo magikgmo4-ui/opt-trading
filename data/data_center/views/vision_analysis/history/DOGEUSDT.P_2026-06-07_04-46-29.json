@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_084635_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T04:46:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-46-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.079,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0855,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher entrée acheteuse sur retracement ou breakout de 0.0855",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse ferme sous 0.078",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m récente haussière après un retour sur zone basse.\n- Structure en bas marquée par des HL puis HH confirmés.\n- Zone clé support vers 0.078-0.079, résistance immédiate autour 0.0855.\n\nB) Chart unique (DOGEUSDT.P 15m): \nLe graphique montre une tendance baissière initiale nette, suivie d'une phase de consolidation basse où des bas plus hauts (HL) se sont formés, validant un retournement. Ensuite, des hauts plus hauts (HH) apparaissent indiquant un début de dynamique haussière solide. La rupture des précédents sommets locaux vers 0.083-0.084 ouvre la voie à la résistance vers 0.0855. La zone autour de 0.078-0.079 agit comme support clé, invalidant le scénario bullish si elle est cassée à la baisse.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL puis HH\",\"supports\":[\"0.078\",\"0.079\"],\"resistances\":[\"0.0855\"],\"plan\":\"chercher entrée acheteuse sur retracement ou breakout de 0.0855\",\"invalidation\":\"casse ferme sous 0.078\"}",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-46-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-07_04-46-20.png"
+  }
+}

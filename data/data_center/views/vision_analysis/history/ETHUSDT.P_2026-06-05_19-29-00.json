@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_232909_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T19:29:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_19-29-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur échec sous résistance 1650, viser maintien sous support 1550 pour confirmer pression baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture soutenue au-dessus de 1650 pourrait invalider le scénario baissier court terme.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière en 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec quelques tentatives de rebond mais incapacité à franchir durablement les résistances.  \n- Zone clé support vers 1 550 USDT, zone résistance majeure autour de 1 650 USDT.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance est clairement baissière, marquée par une série de LH et LL depuis plusieurs jours. La structure montre une forte pression vendeuse, notamment un breakdown accéléré début juin. Le dernier support testé autour de 1 550 USDT a provoqué un rebond technique mais la résistance à 1 650 USDT n’a pas été dépassée. Un retour sous 1 550 invaliderait ce léger rebond et prolongerait la baisse. Le scénario prioritaire reste donc un maintien sous résistance avec risques de continuation baissière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LH/LL\",\"supports\":[1550],\"resistances\":[1650],\"plan\":\"Vendre sur",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_19-29-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_19-28-45.png"
+  }
+}

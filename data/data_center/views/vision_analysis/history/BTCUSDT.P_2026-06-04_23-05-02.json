@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_030510_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T23:05:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-05-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur échec de rebond ou cassure support pour viser nouveau LL",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 64,500 avec HH/HL confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure claire de correction ou de distribution, sans signe de rebond significatif à court terme.  \n- Zone clé support proche de 62 400 USDT, résistance immédiate vers 64 000-64 500 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance dominante est baissière avec des Lower Highs et Lower Lows bien formés depuis plusieurs sessions. Le prix teste actuellement une zone de support autour de 62 400 USDT. Une cassure en dessous confirmerait la poursuite de la baisse et le développement d’une nouvelle jambe baissière. À la hausse, les résistances immédiates sont vers 64 000-64 500 USDT, niveau de précédents rebonds avortés. Le scénario privilégié est donc une poursuite de la baisse tant que le support n’est pas tenu. Invalidation du biais baissier en franchissant durablement 64 500 USDT avec structure de HH/HL.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_0305\",\"charts\":[{\"slot\":\"single\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-05-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_23-04-50.png"
+  }
+}

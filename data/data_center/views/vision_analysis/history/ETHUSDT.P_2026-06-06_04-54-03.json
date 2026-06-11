@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_085412_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T04:54:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-54-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "observer rejet en résistance pour opportunité short, ou break pour entrer long en confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break haussier clair >1620",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante visible sur 15m avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Récente tentative de rebond marquée par un HL (Higher Low) vers 1520 puis hausse jusqu’à 1590.  \n- Zone clé résistance autour de 1600-1620 à surveiller pour validation ou rejet du rebond.\n\nB) Chart unique (ETHUSDT.P 15m):  \nStructure baissière claire avec succession de LL/LH. Rebond récent qui forme un HL, suggérant une possible correction ou début de retournement à court terme. Supports clés autour de 1520 (HL), résistances vers 1600-1620 (plusieurs sommets antérieurs). Plan: suivre la réaction en zone résistante, en cas de rejet, viser un nouveau test des 1520-1500. Invalidation du scénario baissier si franchissement solide des 1620 avec continuation possible vers 1650+.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec correction\",\"structure\":\"LL/LH, récent HL\",\"supports\":[1520,1500],\"resistances\":[1600,1620],\"plan\":\"observer rejet e",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-54-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_04-53-49.png"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_1079_20260611T070009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "NASDAQ100US30GOLDFX1PIP",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-11T04:26:00+00:00",
+  "produced_at": "2026-06-11T07:00:09.465499+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4084.0,
+  "sl": 4096.0,
+  "tp": 4080.0,
+  "tps": [
+    4080.0,
+    4076.0,
+    4072.0,
+    4068.0,
+    4080.0,
+    4076.0,
+    4072.0,
+    4068.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**XAUUSD SELL 4084:4088\n\nTP 4080\nTP 4076\nTP 4072\nTP 4068\n\u00a0\u00a0\nSL 4096**",
+  "summary": "XAUUSD SHORT"
+}

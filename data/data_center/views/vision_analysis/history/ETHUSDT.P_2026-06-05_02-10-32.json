@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_061042_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T02:10:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-10-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1665.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1770.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous 1720 en visant 1665, prise de bénéfices partielle à 1665, stop loss au-dessus de 1770",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour significatif au-dessus de 1770",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 15m avec une série de lower highs (LH) et lower lows (LL).  \n- Structure fragile à court terme, avec un fort drop récent lié à une accélération vendeuse.  \n- Zones clés à surveiller : support majeur vers 1665 USDT, résistance proche vers 1770 USDT.\n\nB) Chart unique (ETHUSDT.P 15m):  \nTendance baissière nette marquée par une succession de LH et LL, indiquant un momentum vendeur dominant. Le prix vient de casser un support intermédiaire vers 1720 USDT avec fort volume, accentuant la pression baissière. Le support suivant à 1665 USDT est critique ; une rupture confirmerait la poursuite de la baisse. En scenario alternatif, un rebond depuis 1665 pourrait amener un retour vers la zone de résistance 1750-1770 USDT, zone à valider pour inversion ou poursuite de la consolidation. Invalidation baissière sous forme d’un HH au-dessus de 1770 USDT.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-10-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_02-10-25.png"
+  }
+}

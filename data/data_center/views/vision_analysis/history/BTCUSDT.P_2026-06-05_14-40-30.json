@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_184042_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T14:40:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-40-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61100.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond vers résistance ou short à cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 61,100",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière confirmée par une série de HH et LL plus bas.\n- Structure actuelle en baisse avec des Lower Highs (LH) et Lower Lows (LL).\n- Zone clé de support proche de 59 200 USDT à surveiller pour un possible rebond ou poursuite de la chute.\n\nB) Chart unique (BTCUSDT.P 15m) : Sur ce timeframe 15m, BTCUSDT.P affiche une forte pression vendeuse. Le prix forme une structure baissière classiquement caractérisée par des Lower Highs (LH) et Lower Lows (LL), marquant une tendance nette à la baisse. Les volumes sérieux lors des replis accentuent cette dynamique. La zone de support autour de 59 200 USDT parait cruciale ; un franchissement en clôture en dessous renforcerait le baisier. À l’inverse, un rebond significatif au-dessus des derniers LH autour de 61 000-61 100 USDT invaliderait temporairement la tendance et pourrait ouvrir un scénario d’accumulation/reprise.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH-LL\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-40-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_14-40-23.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_105757_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T06:57:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-57-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.7,
+      "note": "s 61"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.7,
+      "note": "support 59000,"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché en tendance baissière évidente sur le timeframe 1h (Bitcoin USDT).  \n- Structure claire de Lower Highs (LH) et Lower Lows (LL).  \n- Zones clés à surveiller pour potentiel rebond ou continuation.\n\nB) Chart 1 (haut-gauche):  \n- Actif : BTCUSDT, timeframe 1h.  \n- Tendance : Baissière, avec série de Lower Highs et Lower Lows.  \n- Structure : Après les baisses successives, pas de formation de retournement visible.  \n- Supports : Autour de 59 000 (zone basse récente).  \n- Résistances : Vers 61 000/62 000, résistance de court terme.  \n- Scénario : Attendre test support pour envisager rebond, ou rupture pour poursuite baisse.  \n- Invalidation : Rupture claire au-dessus de 62 000 signalerait un possible changement de biais.\n\nC) Chart 2 (haut-droit):  \n- Symbole/timeframe inconnu, lecture difficile.  \n- Structure et tendance non définies faute d’infos précises.  \n- Zones clés non identifiables.  \n- Pas d’analyse actionnable sans plus de données.\n\nD) Chart 3 (bas-gauch",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-57-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_06-57-37.png"
+  }
+}

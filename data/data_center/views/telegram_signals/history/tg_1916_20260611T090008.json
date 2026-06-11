@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_1916_20260611T090008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "Btcusdtradingdaily",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-11T06:08:07+00:00",
+  "produced_at": "2026-06-11T09:00:08.542296+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4085.0,
+  "sl": null,
+  "tp": 4080.0,
+  "tps": [
+    4080.0,
+    4075.0,
+    4070.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**__XAUUSD SELL__**\n\n**__ENTRY: 4085 / 4090__**\n\n**__TP1 4080__**\n\n**__TP2 4075__**\n\n**__TP3 4070__**\n\n**__Risk only 1-2% of your balance.__**",
+  "summary": "XAUUSD SHORT"
+}

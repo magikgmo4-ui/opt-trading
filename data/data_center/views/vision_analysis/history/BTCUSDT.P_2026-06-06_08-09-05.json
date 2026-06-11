@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_120916_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T08:09:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-09-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond possible sur support 60000, viser un retour vers 62000. Vendre en cas de cassure baissière sous 59000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture sous 59000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée sur le 1h avec une série de HH/HL brisés, formation de LH/LL.  \n- Structure fragile en bas de range, avec un possible support vers 60 000 USD testant la demande.  \n- Scénario potentiel de rebond court terme si le support tient, mais invalidation rapide si cassure en clôture sous 59 000 USD.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance dominante est clairement baissière, avec un alignement de plus en plus net de lower highs (LH) et lower lows (LL). La zone clé de support vers 60 000 USD est testée plusieurs fois, créant une accélération des volumes. Résistance notable vers 62 000 USD, délimitant une courte zone de congestion. La structure laisse envisager un rebond potentiel à court terme, si ce support tient. L’invalidation du scénario bull serait une clôture horaire nette sous 59 000 USD, ce qui relancerait un mouvement baissier plus profond.\n\nC) DeskPro  \n{\"run_id\":\"0\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-09-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_08-08-56.png"
+  }
+}

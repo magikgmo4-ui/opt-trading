@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_040610_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T00:06:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-06-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rebond vers 1620 avec cible vers 1540",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture durable au-dessus de 1620 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante en 15m avec une série de LH (Lower Highs) et LL (Lower Lows) clairement formés.  \n- Structure fragile, oscillations récentes montrent des tentatives de rebond sans création de HH (Higher High).  \n- Zones clés identifiées autour de 1 620 USDT en résistance et 1 540 USDT en support; cassure sous 1 540 conduirait à poursuite de la baisse.  \n\nB) Chart unique (ETHUSDT.P 15m):  \n- Bias: baissier.  \n- Structure: série de LH et LL, absence de retournement haussier confirmé.  \n- Supports: 1 540 USDT (plus bas récent).  \n- Résistances: 1 620 USDT (plus hauts intermédiaires).  \n- Plan: privilégier les ventes sur rebond proche de la résistance 1 620 USDT, avec objectif proche du support médian 1 540 USDT.  \n- Invalidation: franchissement clair et durable au-dessus de 1 620 USDT avec HH formé remettrait en cause la tendance baissière et inviterait à attendre un nouveau biais.  \n\nC) DeskPro  \n{\"run_id\":\"unique_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-06-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_00-05-47.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_172251_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T13:22:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-22-42",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vente à cassure 960B avec cible 850B et stop above 1,04T",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1,04T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière clairement établie depuis plusieurs mois avec une série de HH/HL cassée récemment.\n- Structure montrant des Lower Highs (LH) et des Lower Lows (LL), signalant une faiblesse persistante.\n- Zone clé support cassée proche de 960B USD, ouvrant la voie à une poursuite de la baisse.\n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d)\nLa structure est baissière avec des lower highs et lower lows. Le graphique montre une rupture récente du support majeur vers 960B USD. Le volume en hausse accompagne cette chute, renforçant la validité du mouvement baissier. Sans signe immédiat de retournement, le scénario probable reste un approfondissement du déclin vers les 850B USD voire plus bas. L’invalidation du scénario baissier interviendrait par un retour au-dessus de 1,04T USD, ce qui reconstituerait un support crucial.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"960B\",\"850B\"],\"resistances\":[\"1,04T\"],\"plan\":\"Vente ",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-22-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-04_13-22-32.png"
+  }
+}

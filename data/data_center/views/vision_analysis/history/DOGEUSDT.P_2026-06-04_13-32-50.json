@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_173259_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T13:32:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-32-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.087,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0905,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à rejet sur résistance 0.0905 ou rupture des supports clés 0.0870 pour viser plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 0.0905 en 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte fortement baissière confirmée, avec une structure en LL (Lower Lows) et LH (Lower Highs) sur le timeframe 15m.  \n- Zone de support clé proche des 0.0870 USDT, testée plusieurs fois récemment.  \n- Scénario principal vendeur sous résistance 0.0905 USDT ; invalidation si clôture nette au-dessus.\n\nB) Chart unique (DOGEUSDT.P 15m): Le graphique montre une succession claire de plus bas et plus bas (LL), confirmant la pression vendeuse dominante. Après une forte chute, un rebond technique s’est formé vers 0.0895, créant un point de résistance local avant un léger repli. La zone chiffrée autour de 0.0870 correspond à un support visible, servant de pivot pour potentiels rebonds ou cassures. La structure actuelle est donc baissière, avec un besoin de prudence à la résistance majeure autour de 0.0900-0.0905. Un franchissement de cette zone invaliderait la structure baissière court terme et pourrait amorcer un pullback haussier plus marqué.\n\nC) DeskPro  \n{\"run_",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-32-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_13-32-43.png"
+  }
+}

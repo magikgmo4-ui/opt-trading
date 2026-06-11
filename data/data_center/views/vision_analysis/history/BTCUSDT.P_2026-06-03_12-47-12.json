@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_164723_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:47:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-47-12",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1880.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short si cassure support, rebond possible sur zone support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 1900",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "à confirmer",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "indéterminé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "observation recommandée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- L’ensemble des graphiques montre une forte pression vendeuse avec tendance baissière marquée.  \n- Structures principalement en LH et LL indiquant une dynamique baissière claire.  \n- Zones clés à surveiller pour le rebond ou poursuite baissière sous 1820-1830 (support actuel) et résistances autour de 1880-1900.\n\nB) Chart 1 (haut-gauche):  \nSymbole : ETHUSDT.P / Timeframe : 15m  \nTendance : Baissière confirmée  \nStructure : Lower Highs (LH) et Lower Lows (LL) bien visibles  \nSupports : Zone 1810-1820 base du dernier rebond  \nRésistances : 1880 puis 1900  \nScénario : Possibilité de rebond technique à court terme sur support, prise de position short possible si cassure sous 1810.  \nInvalidation : Retour au-dessus de 1900 engagerait un retournement potentiel.\n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe : Inconnu (détails illisibles)  \nTendance : Probablement baissière (selon contexte global)  \nStructure : Inconnu, à vérifier pour HL/HH ou LH/LL  \nSupports / Résista",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-47-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_12-47-05.png"
+  }
+}

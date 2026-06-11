@@ -1,0 +1,22 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_trading_vip_870_2025-03-11T12:40:43+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_trading_vip",
+    "parsed_at": "2025-03-11T12:40:43+00:00",
+    "produced_at": "2026-06-11T10:00:14.459629+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2913.0,
+    "sl": 2920.0,
+    "tp": 2909.0,
+    "tps": [
+      2909.0,
+      2911.5
+    ],
+    "leverage": null,
+    "raw_text": "Sell Gold @2913-2917\n\nSl :2920\n\nTp1 :2911.5\nTp2 :2909"
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_211123_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T17:11:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-10-55",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vente à retest résistance avec confirmation ou suivi de baisse sous support clé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 1900.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure actuelle sous pression avec tentative de rebond mineur mais sans inversion claire.  \n- Zone clé de support autour de 1770-1780, résistance notable vers 1880-1900.\n\nB) Chart unique (BITGET:BZUSDT 1h) :  \nLa dynamique est fortement baissière depuis plusieurs sessions avec une structure composée de LH et LL marqués. Le dernier mouvement présente une tentative de rebond qui bute sur une résistance intermédiaire à ~1880. Le volume augmente lors des baisses, confirmant la pression vendeuse. Le support principal se situe vers 1770-1780, zone critique à surveiller pour validation ou invalidation du scénario baissier. Un dépassement significatif au-dessus de 1900 invaliderait la tendance et pourrait signaler un retournement.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1770-1780\"],\"resistances\":[\"1880-1900\"],\"plan\":\"Vent",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-10-55",
+    "source_screenshot": "/opt/trading/data/vision_inbox/screen_tradingview_BITGET:BZUSDT_1h_2026-06-03_17-10-45.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_035212_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:52:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-52-04",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Reprise d'achat au support confirmé. Prise de bénéfice partielle proche résistance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure sous 748 avec volume, signe de retournement court terme",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière clairement établie avec une série de HH (Higher Highs) et HL (Higher Lows) jusqu'au récent sommet.  \n- Correction en cours marquée par une structure potentielle de retracement, avec une première zone de support testée.  \n- Surveiller la rupture des HL récents pour valider un retournement ou envisager une reprise de la hausse.  \n\nB) Chart unique (SPY 1h):  \nLa structure montre une série de HH/HL bien définie, confirmant une tendance haussière sur ce timeframe. Le prix corrige actuellement après avoir atteint un sommet autour de 760. Une zone clé de support est visible vers 748-750, correspondant à un HL précédent et un niveau psychologique. Le scénario prioritaire est une reprise vers les 760-765 tant que le support tient. En cas de cassure sous 748, cela invaliderait la dynamique haussière et ouvrirait un scénario de correction plus profonde vers 735-740. La vigilance est recommandée à ces niveaux pour ajuster la prise de position.  \n\nC) DeskPro ",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-52-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-03_23-51-53.png"
+  }
+}

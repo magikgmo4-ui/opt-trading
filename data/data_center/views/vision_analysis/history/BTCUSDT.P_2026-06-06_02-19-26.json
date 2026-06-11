@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_061934_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T02:19:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-19-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 59000 pour short; rebond au-dessus 62000 pour valide une tentative de reprise",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire > 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette depuis plusieurs jours, avec une série de LL (lower lows) et LH (lower highs).  \n- Structure faible, le prix ne parvient pas à former de HH ni HL significatifs, tendance clairement baissière.  \n- Zone clé de support vers 59 000-60 000 USD testée plusieurs fois, jouer une cassure à la baisse ou un rebond pour décision.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre un fort momentum baissier depuis fin mai, avec des chandeliers rouges marqués et des volumes en hausse sur les baisses. La structure est clairement en LL/LH, confirmant la faiblesse de la tendance. Une zone support importante autour de 59k-60k est scrutée, car elle a provoqué un rebond léger actuellement. Une cassure claire sous ce support validerait une continuation baissière. A contrario, un retour au-dessus de 62 000 USD pourrait initier une tentative de reprise, mais reste à confirmer par un HH. Scénario principal: poursuite de la baisse avec invalidation si dépassem",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-19-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_02-19-05.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_181956_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T14:19:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-19-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 60000 avec stop au dessus de 62500, viser nouvelles terres basses",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair et soutenu au-dessus de 62500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur 15m avec une série de plus bas et plus bas (LH/LL).  \n- Structure de continuation baissière claire malgré quelques corrections haussières temporaires.  \n- Zone clé S vers 60 000 USD, résistance importante vers 62 500 USD.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une nette tendance baissière avec des plus bas successifs confirmant la structure de baisse (LH/LL). Les tentatives de rebond sont limitées à des HL temporaires mais ne remettent pas en cause la pression vendeuse. La zone de 60 000 USD fait office de support provisoire à surveiller, sa rupture entraînerait un accélération baissière. La résistance principale se situe autour de 62 500 USD, zone idéale pour initier des shorts. Scénario favori : poursuite de la baisse sous 60 000 USD. Invalidation en cas de franchissement clair et soutenu au-dessus de 62 500 USD.\n\nC) DeskPro  \n{\"run_id\":\"r1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"support",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-19-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_14-19-35.png"
+  }
+}

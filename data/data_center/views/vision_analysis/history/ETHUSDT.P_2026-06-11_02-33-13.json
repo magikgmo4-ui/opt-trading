@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_063322_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T02:33:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-33-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1660.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1665.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre breakout 1665 pour achat, stop sous 1600 en cas d’échec.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture < 1600 valide scénario baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m en phase de consolidation avec structure en range horizontal.  \n- Pas de HH ou HL clairs, alternance de hauts et bas similaires (signe d’indécision).  \n- Zone clé support vers 1600-1610 USDT, résistance à 1660-1665 USDT, cassure attendue pour directionalité.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLa structure montre un mouvement baissier initial fort suivi d’une série de vagues latérales où les hauts ne dépassent pas 1665 (LH) et les bas restent proches de 1600 (HL vers 1610 puis LL vers 1595). Volume plus conséquent sur les replis. Scénario prioritaire : attente d’une sortie du range 1600-1665. Cassure à la hausse valide reprise haussière avec un nouveau HH > 1665. Cassure à la baisse invaliderait ce scénario, indiquant un retour en tendance baissière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre\",\"structure\":\"range horizontal avec LH/HL\",\"supports\":[\"1600\",\"1610\"],\"resistances\":[\"1660\",\"1665\"],\"plan\":\"Attendre breakout 166",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-33-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-11_02-33-06.png"
+  }
+}

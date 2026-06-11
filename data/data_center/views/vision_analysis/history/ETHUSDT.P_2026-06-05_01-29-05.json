@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_052913_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T01:29:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_01-29-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1770.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond vers résistance, viser support, stop loss au-dessus de 1770",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture nette et suivie au-dessus de 1770",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur ce timeframe 15m avec des Lower Highs (LH) et Lower Lows (LL) successifs.  \n- Structure fragile avec quelques tentatives de rebond formant des Lower Highs, sans confirmation de retournement.  \n- Zones clés : résistance autour de 1760-1770, support important vers 1720-1730 (prix actuel proche).  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe prix est en tendance baissière avec une série de Lower Highs et Lower Lows. Plusieurs rebonds sur la zone 1720-1730 indiquent une zone de support court terme. La résistance à surveiller se situe vers 1760-1770, zone où le prix a rencontré plusieurs rejets. Un retour au-dessus des 1770 invaliderait le biais baissier immédiat. À l’inverse, une cassure sous 1720 pourrait accélérer la baisse vers 1680 ou moins. Scénario privilégié : continuation baissière dans un canal descendant.  \n\nC) DeskPro  \n{\"run_id\":\"20240605-1530\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1720\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_01-29-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_01-28-58.png"
+  }
+}

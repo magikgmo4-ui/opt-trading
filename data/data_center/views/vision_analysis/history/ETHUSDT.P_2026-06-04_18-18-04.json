@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_221811_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T18:18:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-18-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1725.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1790.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur retour en résistance 1790-1800 avec stop au-dessus 1810. Achat uniquement si cassure claire above 1800 en daily confirmation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture 15m stable et au-dessus 1800.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de HH/HL cassée et apparition de LH/LL.  \n- Structure récente montre un épuisement des vendeurs avec un possible range latéral ou un rebond temporaire.  \n- Zones clés à surveiller autour de 1740 (support important) et 1790-1800 (résistance immédiate).\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance dominante est baissière confirmée par une succession de creux et sommets plus bas (LH/LL). La structure après le dernier plus bas à ~1725 montre un rebond limité par une résistance vers 1790-1800, formant un range. La zone de support autour de 1740 est essentielle pour maintenir ce rebond. Un franchissement clair de 1800 invaliderait le scénario baissier court terme et suggérerait une correction haussière plus marquée. À l’inverse, la cassure sous 1725 relancerait la pression vendeuse.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec un range récent\",\"supports\":[\"1740\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-18-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_18-17-54.png"
+  }
+}

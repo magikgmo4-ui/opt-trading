@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_135127_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:51:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-51-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.195,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.2,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.245,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.25,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat si cassure résistance 1.245 confirmé par volume",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture sous 1.195",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte en déclin marqué avec tentative récente de reflux haussier.  \n- Structure fragilisée, avec lows plus bas (LL) majoritaires, tentative d’établir un creux (HL possible).  \n- Zone clé de support proche autour de 1.195-1.20, résistance immédiate vers 1.245-1.25.\n\nB) Chart 1 (haut-gauche): XRP/USDT 15min  \n- Tendance baissière claire, structure en LH et LL bien visible.  \n- Dernière jambe montre tentatives de rebond avec HL/HH en construction possible.  \n- Support important identifié au creux vers 1.195-1.20, résistance autour de 1.245.  \n- Scénario haussier envisageable si casse 1.245 avec nouveau HH, sinon continuation de la baisse.  \n- Invalidation en cas de rupture nette sous 1.195.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \n- Analyse non réalisable faute d’identification précise du graphique.  \n- Nécessité d’info complémentaire pour structurer entrée ou sortie.  \n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non lis",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-51-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-03_09-51-05.png"
+  }
+}

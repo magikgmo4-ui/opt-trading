@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_165709_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T12:57:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_12-57-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente en rebond proche résistance 1600-1625, stop serré au-dessus de 1625, cible 1500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair de 1625 en clôture 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure dégradée sans rebond haussier significatif, consolidation autour de 1550-1575 après forte chute.  \n- Zone de support clé proche de 1500, résistance importante vers 1600-1625, scénario baissier dominant tant que ce dernier n’est pas franchi.  \n\nB) Chart unique (ETHUSDT.P 1h): Tendance baissière dominante avec structure en LH/LL. Supports identifiés vers 1500-1525, résistances notables vers 1600-1625. Le cours semble actuellement en légère consolidation après forte baisse, le moindre retour au-dessus de 1625 invaliderait le scénario baissier à court terme. Scénario principal : maintien de la pression vendeuse, recherche de rebond vers 1500.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1500,1525],\"resistances\":[1600,1625],\"plan\":\"Vente en rebond proche résistance 1600-1625, stop serré au-dessus de ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_12-57-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_12-56-51.png"
+  }
+}

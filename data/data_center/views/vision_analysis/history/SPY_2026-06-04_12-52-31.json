@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_165239_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T12:52:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-52-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 760.0,
+      "confidence": 0.7,
+      "note": "s 760."
+    },
+    {
+      "type": "support_level",
+      "value": 752.0,
+      "confidence": 0.7,
+      "note": "s 752."
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.7,
+      "note": "r 760"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec des structures de HH (Higher Highs) et HL (Higher Lows).  \n- Récente correction ramenant le prix vers un support majeur avant rebond.  \n- Zone de résistance autour de 760 à surveiller pour continuation ou inversion potentielle.  \n\nB) Chart unique (SPY 1h) :  \nLe graphique montre une tendance haussière dominante matérialisée par une succession de HH/HL. Le prix a corrigé récemment, formant un HL autour de 752-753, zone d'accumulation visible sur le volume. Rebond en cours indiquant une reprise probable du momentum haussier. La résistance principale se situe sur la zone 758-760, avec un double sommet latent vers 760. Un franchissement net de cette zone validerait la poursuite du uptrend. Invalidation du scénario haussier si le prix casse sous le dernier HL significatif vers 752.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[752],\"resistances\":[758,760],\"plan\":\"acha",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-52-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_12-52-21.png"
+  }
+}

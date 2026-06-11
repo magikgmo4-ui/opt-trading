@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_103259_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T06:32:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-32-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4420.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous 4480-4500 avec stop 4500, viser re-test 4420",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture h1 au-dessus de 4500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale 1h baissière avec structure de Lower Highs (LH) et Lower Lows (LL) bien formée.  \n- Rebond récent en cours montrant un possible pullback sur zone de résistance 4480-4500 USD.  \n- Scénario principal baissier confirmé sous résistance, invalidation au-dessus de 4500 USD.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure montre des bas et hauts déclinants (LH/LL) ce qui confirme une tendance baissière. Les prix ont marqué un plus bas vers 4420 USD, suivi d’un rebond technique jusque vers 4480-4500 USD, zone de résistance clé identifiable. Le volume ne montre pas d’accélération haussière significative lors du rebond, renforçant la probabilité d’une continuation baissière. Un break en dessous de 4420 USD validerait la poursuite du downtrend, tandis qu’une cassure au-dessus de 4500 USD invaliderait le scénario baissier et indiquerait un potentiel retournement ou range. En synthèse, vente sous 4480-4500 avec stop au-dessus de 4500.  \n\nC) DeskPro  \n{\"run",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-32-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_06-32-37.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_085806_CRYPTOCAP:TOTAL_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-07T04:58:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-57-57",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le support 2.0T pour un rebond court terme; signal d'achat possible si tenue. Vendre/shorter en cas de rejet sous support. Invalidation si breakout au-dessus de 2.5T avec volumes élevés.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break au-dessus de 2.5T avec confirmation volumique",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante en 1d clairement baissière avec une série de LL (Lower Lows) et LH (Lower Highs) marquants.  \n- Récente tentative de rebond sur zone de support proche de 2.0T USD, confirmée par augmentation du volume.  \n- Résistance majeure identifiée vers 2.5T USD ; invalidation du scénario baissier attendue au-dessus.  \n\nB) Chart unique (CRYPTOCAP:TOTAL 1d) :  \nLe graphique montre un mouvement baissier prolongé avec des creux et sommets déclinants (LL/LH), indiquant une structure bearish. Une zone de support importante est visible autour de 2.0T où un rebond technique s’amorce avec un volume en hausse. La résistance clé à surveiller se situe vers 2.5T. Le rebond actuel demeure fragile et un retour sous le support invaliderait tout espoir d'inversion à court terme. Scénario privilégié : continuation baissière avec potentiel test du support 2.0T, suivi d’un possible rebond limité. Break au-dessus de 2.5T invaliderait ce biais bearish.  \n\nC) DeskPro  \n{\"run_id\":\"",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-57-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-07_04-57-45.png"
+  }
+}

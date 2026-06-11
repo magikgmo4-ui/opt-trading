@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_034906_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T23:49:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-49-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.07,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.13,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter si clôture stable >1.12 avec stop sous 1.07",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix < 1.07",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur la majeure partie du graphique avec une structure de lower highs (LH) et lower lows (LL).  \n- Depuis le creux récent vers 1.05, tentative de retournement haussier avec des higher lows (HL) et un breakout local vers 1.12.  \n- Zone clé support autour de 1.07-1.08 et résistance à surveiller proche de 1.12-1.13 pour valider un potentiel retournement.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nStructure initiale marquée par une succession de LH et LL indiquant une tendance baissière claire. Après un point bas vers 1.05, le prix forme une série de HL, signalant un début de phase haussière. La cassure récente au-dessus de 1.11-1.12 soulève un scénario de retournement potentiel. Scénario principal: attendre une confirmation au-dessus de 1.12 pour viser un rallye plus élevé. Invalidation si retour sous 1.07, qui remettrait en cause le rebond haussier. Zones clés: support à 1.07-1.08, résistance à 1.12-1.13.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"chart",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-49-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_23-48-50.png"
+  }
+}

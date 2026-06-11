@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_170950_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T13:09:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-09-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance 1780-1800, viser supports 1720, sortir à cassure 1800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m stable au-dessus de 1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de LL et LH baissiers.  \n- Structure actuelle en tentative de rebond, formant un HL récent mais fragile.  \n- Zone de résistance clé vers 1780-1800 à surveiller pour un possible rejet ou cassure.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché est en tendance baissière continue visible par la succession de Lower Highs (LH) et Lower Lows (LL). Un récent creux a marqué un HL, indiquant un potentiel début de rebond, mais la pression vendeuse reste dominante. Les supports clés se situent autour de 1720-1740, où les prix ont rebondi plusieurs fois. La résistance majeure immédiate est la zone 1780-1800, zone clé à franchir pour inverser la tendance. Scénario principal : short sur rejet sous résistance avec invalidation en cassure haussière majeure au-dessus de 1800.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH baissiers avec HL récent\",\"supports\":[1720,1740],\"resistances\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-09-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_13-09-35.png"
+  }
+}

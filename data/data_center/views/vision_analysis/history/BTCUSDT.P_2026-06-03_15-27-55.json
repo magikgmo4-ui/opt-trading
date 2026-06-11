@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_192809_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T15:28:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-27-55",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "suivre cassure support pour short, rebond possible sous résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "HH au-dessus de 67 600 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure nette pour direction",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout clair haut/bas",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "consolidation, possible rebond ou poursuite baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement fort zones clés",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "poursuivre repli si support cassé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "formation HH intraday",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Marchés actions en léger repli, indices SPX, NDQ et DJI sous pression.\n- Crypto (BTC/USDT) montre une forte tendance baissière en 15 minutes.\n- Matières premières (Or, Argent) également en baisse; pétrole en rebond.\n\nB) Chart 1 (haut-gauche) : BTC/USDT 15 min\nTendance clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL). La structure montre une faiblesse persistante et absence de rebond majeur. Zone clé de support autour de 65 000 USDT, à surveiller pour un possible rebond. Résistance immédiate vers 67 600 USDT. Scénario principal : poursuite baissière en cas de cassure du support. Invalidation : dépassement clair des 67 600 USDT avec un HH formé.\n\nC) Chart 2 (haut-droit) : Symbole / timeframe inconnu (indices US)\nTendance générale neutre à légèrement baissière avec des mouvements latéraux et résistances sur niveaux proches (SPX 7 563). Structure avec des Swing Highs et Swing Lows horizontaux, difficulté à définir une impulsion claire. Zones clé",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-27-55",
+    "source_screenshot": "/opt/trading/data/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_15-27-45.png"
+  }
+}

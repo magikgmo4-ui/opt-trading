@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_223012_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T18:30:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-30-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 67.5,
+      "confidence": 0.7,
+      "note": "s 67.50"
+    },
+    {
+      "type": "support_level",
+      "value": 70.5,
+      "confidence": 0.7,
+      "note": "s 70.50"
+    },
+    {
+      "type": "support_level",
+      "value": 67.5,
+      "confidence": 0.7,
+      "note": "s 67.50"
+    },
+    {
+      "type": "support_level",
+      "value": 67.5,
+      "confidence": 0.7,
+      "note": "support 67.5"
+    },
+    {
+      "type": "resistance_level",
+      "value": 70.5,
+      "confidence": 0.7,
+      "note": "résistance 70.5"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec tentative de rebond mais rapidement rejetée, confirmant la pression vendeuse.  \n- Zones clés: résistance majeure autour de 70.50-71.00 USDT et support à court terme proche de 67.50 USDT.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nLa tendance est baissière, confirmée par la structure en LH et LL, sans signe évident de renversement. Les prix testent actuellement un support majeur vers 67.50 USDT. Un rebond pourrait viser une résistance vers 70.50-71.00 USDT, mais un retour sous 67.50 invaliderait ce scénario et ouvrirait la voie à de nouvelles baisses. La volumétrie est élevée lors des drops, confirmant la dominance vendeuse. Pour une prise de position, privilégier une confirmation claire du support avant un trade long, sinon privilégier les shorts sur rebond avec une invalidation au-dessus de 71.00.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-30-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_18-29-49.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_090011_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T05:00:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_04-59-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.087,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur cassure support 0.08700 avec stop au-dessus résistance 0.09100. Long possible si rebond marqué sur 0.08700.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 0.09100 avec structure de HH/HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette avec une succession de creux et sommets plus bas (LH/LL).\n- La structure montre une forte pression vendeuse, malgré quelques rebonds intermédiaires.\n- Zone de support clé à 0.08700 environ, à surveiller; résistance majeure autour de 0.09100.\n\nB) Chart unique (DOGEUSDT.P 15m):\nSur ce graphique 15 minutes, la tendance dominante est baissière caractérisée par une structure de LH/LL. Le prix tente des rebonds mais n’arrive pas à inverser cette dynamique. Le support autour de 0.08700 a été testé plusieurs fois, ce qui en fait une zone clé pour un potentiel rebond ou poursuite de la chute. La résistance la plus proche se situe vers 0.09100, représentant un pivot important pour invalider ce scénario baissier à court terme. Le plan d’action serait d’attendre une confirmation via un rejet net du support pour envisager un long, ou une cassure suivie d’un pullback pour short avec un stop au-dessus de 0.09100.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slo",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_04-59-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_04-59-52.png"
+  }
+}

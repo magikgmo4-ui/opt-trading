@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_220401_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T18:03:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-03-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond vers support 61000 avec objectif 62800. Breakout 62800 pour continuation haussière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 61000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente haussière visible avec une structure de HH/HL formée après une phase de consolidation latérale.  \n- Zone clé support autour de 61 000, résistance courante proche de 62 800.  \n- Scénario probable : poursuite de la hausse si la zone 62 800 est franchie, invalidation en cas de cassure sous 61 000.  \n\nB) Chart unique (BTCUSDT.P 15m) :  \nLa paire évolue en tendance haussière à court terme, avec plusieurs HH (Higher Highs) et HL (Higher Lows) marqués depuis une base autour de 59 000-60 000. Après un pic à environ 62 800, un retracement a ramené le prix vers 61 400-61 200, zone qui tient comme support. La structure reste intacte tant que ce support ne cède pas. Le prix tente actuellement une reprise vers la résistance à 62 800. Un break above cette résistance confirmerait une reprise impulsive. À l’inverse, une cassure claire sous 61 000 invaliderait ce scénario bullish et signalerait une possible correction ou retournement baissier.  \n\nC) DeskPro  \n{\"run",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-03-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_18-03-41.png"
+  }
+}

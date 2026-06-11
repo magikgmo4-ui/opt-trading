@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_163438_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T12:34:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-34-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Long au-dessus de 63,000 avec stop sous 59,000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 59,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure montre un possible bottoming avec un récent Higher Low (HL) sur la partie droite.\n- Zone clé support autour de 59 000 USDT, résistance proche à 63 000 USDT, scénario haussier au-dessus.\n\nB) Chart unique (BTCUSDT.P 1h): \nLe graphique montre une tendance majoritairement baissière en formation de Lower Highs et Lower Lows, confirmant la pression vendeuse persistante. Cependant, on observe un recent rebond formant un Higher Low temporaire, suggérant qu’un support autour de 59K USDT est actif. La résistance immédiate se situe vers 63K USDT, seuil de breakout potentiel pour un retournement. En-dessous de 59K, le scénario baissier reste dominant. L’invalidation du scénario haussier se fait sous 59 000 USDT, ce qui pourrait relancer la baisse. Le plan consiste à surveiller le franchissement de 63 000 USDT pour un biais acheteur à court terme.\n\nC) DeskPro\n{\"run_id\":\"20240607_1635\",\"ch",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-34-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_12-34-22.png"
+  }
+}

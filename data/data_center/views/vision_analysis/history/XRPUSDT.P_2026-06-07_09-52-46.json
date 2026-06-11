@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_135254_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T09:52:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_09-52-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.17,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur rebond proche support 1.11 avec objectif 1.15-1.17, stop sous 1.08",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "coupure sous 1.08 confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière récente avec une séquence de HL et HH sur le court terme.  \n- Forte correction visible après un pic autour de 1.17, formant une possible zone de résistance.  \n- Consolidation latérale autour de 1.12 à confirmer, support clé à 1.08 pour maintien du biais haussier.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nLe graphique montre une phase initiale de baisse suivie d'un rebond soutenu marquant une structure haussière (HL puis HH). Après un sommet près de 1.17, le prix corrige fortement en formant un swing low à environ 1.11, suivi d'une tentative de reprise stoppée autour de 1.14-1.15. La structure récente fait penser à une hésitation avec un support visible vers 1.12-1.11 et une résistance à 1.15-1.17. Scénario préféré : poursuite de la consolidation avant une potentielle nouvelle impulsion haussière. Invalidation en cas de rupture franche sous 1.08, transformant la structure en bearish.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"ha",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_09-52-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_09-52-38.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_041931_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T00:19:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_00-19-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1825.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1840.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "ventes près résistance avec stop au-dessus de 1840, viser retest support 1740",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture durable au-dessus de 1840",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec series de LH (Lower Highs) et LL (Lower Lows) sur le timeframe 15m.\n- Structure actuelle de rebond correctif après un plus bas récent sous 1,740, avec un HL (Higher Low) en formation.\n- Zone clé support vers 1,740-1,750, zone résistance vers 1,825-1,840, scenario de continuation baissière si résistance maintien.\n\nB) Chart unique (ETHUSDT.P 15m):\nLa paire ETHUSDT.P sur 15 minutes présente une dynamique baissière dominante caractérisée par une succession de creux et sommets plus bas (LL et LH). Un rebond technique récent crée un HL provisoire depuis un point bas proche de 1,740 $. Ce rebond bute sur une zone de résistance vers 1,820-1,840. Un retour sous 1,750 invaliderait le rebond et relancerait la pression vendeuse. Le plan est d’observer une possible prise de position vendeuse près des résistances, avec un stop serré au-dessus des plus hauts récents (1,840). La structure laisse envisager un nouveau test du support clé autour de 1,740 ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_00-19-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_00-19-08.png"
+  }
+}

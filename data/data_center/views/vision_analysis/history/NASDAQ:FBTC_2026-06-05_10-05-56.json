@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_140602_NASDAQ:FBTC_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:FBTC",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:06:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-05-56",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Graphique vide, aucune donnée visible.  \n- Impossible d’observer une tendance, structure ou zones clés.  \n- Aucune action possible sans données graphiques.  \n\nB) Chart unique (NASDAQ:FBTC 1h): Données indisponibles, graphique vide. Analyse technique impossible.  \n\nC) DeskPro  \n{\"run_id\":\"unique1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"inconnu\",\"invalidation\":\"inconnu\"}]}",
+  "symbols_found": [
+    "NASDAQ:FBTC"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-05-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:FBTC_1h_2026-06-05_10-05-43.png"
+  }
+}

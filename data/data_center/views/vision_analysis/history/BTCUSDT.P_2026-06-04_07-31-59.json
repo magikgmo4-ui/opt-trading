@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_113208_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T07:32:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-31-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond possible sur support 62k, viser rebond court terme. Risque de poursuite baissière si cassure 62k.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 66,500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de LL (Lower Lows) et LH (Lower Highs)  \n- Forte pression vendeuse matérialisée par des volumes en hausse lors des chutes  \n- Zone de support récente vers 62 000-62 200 semble freiner la baisse pour le moment  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLe BTC évolue dans une tendance baissière marquée par des structures de prix LH et LL. Les rebonds sont faibles et ne dépassent pas les résistances précédentes (environ 66 000-67 000). La zone support vers 62 000 retient le prix temporairement, mais la pression vendeuse reste dominante, suggérant que ce support pourrait céder à court terme. Un retour au-dessus de 66 500 invaliderait le scénario baissier actuel.  \n\nC) DeskPro  \n{\"run_id\":\"run1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"62,000\",\"62,200\"],\"resistances\":[\"66,000\",\"67,000\"],\"plan\":\"Surveiller rebond possible sur support 62k, viser rebond court terme. Risque de poursuite baissière si cas",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-31-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_07-31-52.png"
+  }
+}

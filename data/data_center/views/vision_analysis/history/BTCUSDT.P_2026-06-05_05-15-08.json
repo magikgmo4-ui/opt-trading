@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_091518_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T05:15:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-15-08",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "préférence short en cassure du support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure au-dessus 65500 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché en tendance baissière claire sur le court terme.  \n- Structure de prix en Lower Highs (LH) et Lower Lows (LL) marqués.  \n- Présence de zones clés support à 62 000 et résistance à 64 000-65 000 USDT.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière dominante, avec structure en Lower Highs et Lower Lows. Après une chute rapide, le prix teste la zone de support vers 62 000 USDT. Résistance visible autour de 64 000-65 000 USDT, zone de congestion récente. Scénario baissier en place, un break en dessous du support valide une poursuite. Invalidation à la cassure claire des derniers Highs à environ 65 500 USDT.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole/timeframe non lisible. Analyse impossible.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole/timeframe non lisible. Analyse impossible.\n\nE) Chart 4 (bas-droit): inconnu  \nSymbole/timeframe non lisible. Analyse impossible.\n\nF) DeskPro  \n{\"run_id\":\"20240605_0915\",\"charts\":[{\"slot\":1,\"bias\":\"baissier\",\"structure\":",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-15-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_05-15-01.png"
+  }
+}

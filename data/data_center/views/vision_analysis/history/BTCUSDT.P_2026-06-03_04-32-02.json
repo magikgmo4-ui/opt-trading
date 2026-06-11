@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_083214_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T04:32:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_04-32-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond potentiel sur support 65k-66k, short si résistance invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout 67600 confirmé par volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Marché BTCUSDT sur 15m montre une dominante baissière claire avec une série de LL/LH.\n- Les réactions haussières sont faibles, indiquant un possible épuisement ou un range de rebond.\n- Zones clés à surveiller proches des supports vers 65 000 USDT et résistances autour 67 200 USDT.\n\nB) Chart 1 (haut-gauche): BTCUSDT 15m\n- Tendance: baissière nette (succession de Lower Highs et Lower Lows).\n- Structure: série de LL (Lower Lows) et LH (Lower Highs) confirmée.\n- Supports clés: 66 000 et 65 000 USDT (zone testée avec réaction volume).\n- Résistances clés: 67 200 - 67 600 USDT (plafond sur plusieurs chandeliers).\n- Scénario: possible consolidation/réaction entre la zone de support 66k-65k.\n- Invalidation: franchissement clair 67 600 + avec volumes > pourrait signaler retournement court terme.\n\nC) Chart 2 (haut-droit): inconnu (symbol/timeframe non lisible)\n\nD) Chart 3 (bas-gauche): inconnu (symbol/timeframe non lisible)\n\nE) Chart 4 (bas-droit): inconnu (symbol/timeframe non",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_04-32-02",
+    "source_screenshot": "/opt/trading/data/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_04-31-50.png"
+  }
+}

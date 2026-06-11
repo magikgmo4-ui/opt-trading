@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_184217_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T14:42:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-42-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 63.5 avec stop au-dessus de 67. A surveiller retournement baissier si franchissement 67 confirmé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">67 durablement",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de marché affaiblie sans signe net de retournement, consolidation temporaire entre 64.5 et 66.5.  \n- Zones clés à surveiller : support vers 63.5 (actuel), résistance majeure autour de 66.5-67.\n\nB) Chart unique (SOLUSDT.P 15m): La tendance est bearish avec formation de Lower Highs et Lower Lows, confirmant un momentum vendeur. Après un pic à ~67 USD, le prix recule sous les 64 USD, testant le support majeur proche de 63.5. Volume en hausse sur les baisses confirme la pression vendeuse. La zone 66.5-67 sert de résistance forte. Scénario principal : poursuite de la baisse en cas de cassure du support 63.5. Invalidation du biais baissier si le prix franchit durablement 67 avec volume.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[63.5],\"resistances\":[66.5,67],\"plan\":\"Vendre sous 63.5 avec stop",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-42-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-05_14-42-01.png"
+  }
+}

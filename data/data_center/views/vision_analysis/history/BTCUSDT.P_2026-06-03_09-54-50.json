@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_135458_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:54:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-54-50",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le dashboard affiche une erreur indiquant que le symbole \"BITB\" n'existe pas.\n- Aucune donnée graphique visible ni timeframe identifiable.\n- Analyse impossible sans données de marché disponibles.\n\nB) Chart 1 (haut-gauche) : symbole/timeframe inconnu, absence de graphique, impossible d’analyser la tendance ou la structure.\n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu, aucune donnée visible, pas de zones clés détectables.\n\nD) Chart 3 (bas-gauche) : symbole/timeframe inconnu, image d’erreur, aucune information exploitable.\n\nE) Chart 4 (bas-droit) : symbole/timeframe inconnu, graphique non chargé, aucune analyse possible.\n\nF) DeskPro\n{\"run_id\":\"unique_001\",\"charts\":[{\"slot\":\"1\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible sans données\",\"invalidation\":\"n/a\"},{\"slot\":\"2\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible sans données\",\"invalidation\":\"n/a\"},{\"slot\":\"3\",\"bias\":\"inconnu\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-54-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:BITB_1h_2026-06-03_09-54-39.png"
+  }
+}

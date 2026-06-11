@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_29399_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "goldtradermofxx",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2024-10-23T09:41:03+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 2750.72,
+  "sl": 2743.21,
+  "tp": 2751.86,
+  "tps": [
+    2751.86,
+    2754.08
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD BUY NOW @ 2750.72 - 2746.50\n\nSL : 2743.21\n\nTP 1 : 2751.86\nTP 2 : 2754.08",
+  "summary": "XAUUSD LONG"
+}

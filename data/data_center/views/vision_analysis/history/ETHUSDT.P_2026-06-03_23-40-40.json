@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_034047_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:40:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-40-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure 1820 pour confirmer rebond, stop sous 1760",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture en dessous 1760",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent sur un support important vers 1760$, marqué par une forte augmentation des volumes.  \n- Scénario haussier envisageable si la zone des 1820$ est cassée, invalide en dessous du dernier creux vers 1760$.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe marché est dans une tendance baissière prononcée avec formation de LL et LH successifs. Un support clé se situe autour de 1760$, où un fort volume a provoqué un rebond notable. La résistance à surveiller est vers 1820$, niveau à franchir pour envisager une reprise haussière. En cas d’échec à casser cette résistance, la tendance baissière pourrait se poursuivre. Invalidation du scénario haussier sous 1760$.\n\nC) DeskPro  \n{\"run_id\":\"20240604_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1760\"],\"resistances\":[\"1820\"],\"plan\":\"attendre cassure 1820 pour confirmer rebond, stop sous 1760\",\"invalid",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-40-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_23-40-31.png"
+  }
+}

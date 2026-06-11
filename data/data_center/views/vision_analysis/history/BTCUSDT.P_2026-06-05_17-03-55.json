@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_210404_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T17:04:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-03-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 58000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure claire de 64,000 USDT avec SL sous 58,000 USDT. Sinon privilégier repli ou attente.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire sous 58,000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de Lower Highs et Lower Lows (LH/LL).  \n- Rebond récent depuis zone proche des 58 000 USDT, actionnelle comme un possible support court terme.  \n- Scénario haussier conditionné à la prise des 64 000 USDT avec invalidation sous 58 000 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance dominante est baissière, caractérisée par une succession de LH et LL. Le prix a fortement chuté de près de 76 000 à 58 000 USDT. La récente flambée volumique sur le plus bas touche une zone clé de support autour de 58 000 USDT qui pourrait offrir un rebond. Le prix teste actuellement les 62 000 USDT mais doit dépasser 64 000 USDT pour envisager une reprise de tendance (HH à valider). En dessous de 58 000 USDT, la structure baissière serait confirmée avec poursuite probable de la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"58,000\"],\"resistances\":[\"62,000\",\"64,00",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-03-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_17-03-47.png"
+  }
+}

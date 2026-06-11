@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_194216_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T15:42:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-42-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur vente sous 59000 pour viser nouvelle jambe baissière. En cas de rebond sur 59000, viser range 59000-62000 avec prudence.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture forte et stable au-dessus de 62000 valide un scénario de retour haussier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 15m avec des Lower Highs (LH) et Lower Lows (LL) successifs.  \n- Structure claire de baisse confirmée après multiples rejets sur résistance intermédiaire vers 62 000 USDT.  \n- Support court terme identifié autour de 59 000 USDT à surveiller pour possible rebond ou continuation baissière.\n\nB) Chart unique (BTCUSDT.P 15m): La tendance dominante est baissière avec une structure en LH/LL bien visible. Le prix a tenté plusieurs reprises des retests de résistance vers 62 000 USDT sans succès, validant la pression vendeuse. Le volume a augmenté sur les dernières séances baissières, renforçant le momentum down. Le support clé immédiat se situe autour de 59 000 USDT, zone à surveiller pour détection d’un rebond. La cassure de ce support annoncerait une extension de la baisse, tandis qu’un rebond permettrait une reprise plus neutre voire haussière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-42-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_15-41-55.png"
+  }
+}

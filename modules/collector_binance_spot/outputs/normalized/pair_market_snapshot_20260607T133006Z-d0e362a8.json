@@ -1,0 +1,53 @@
+{
+  "contract_version": "v1",
+  "schema_version": "v1.0",
+  "module_id": "collector_binance_spot",
+  "provider_id": "binance_spot",
+  "run_id": "20260607T133006Z-d0e362a8",
+  "generated_at": "2026-06-07T13:30:07Z",
+  "entity_type": "pair_market_snapshot",
+  "records": [
+    {
+      "pair_symbol": "BTCUSDT",
+      "base_asset": "BTC",
+      "quote_asset": "USDT",
+      "trading_status": "TRADING",
+      "is_spot_trading_allowed": true,
+      "last_price": "61834.54000000",
+      "open_price_24h": "60881.76000000",
+      "high_price_24h": "62960.00000000",
+      "low_price_24h": "60393.96000000",
+      "price_change_percent_24h": "1.565",
+      "volume_base_24h": "20698.80182000",
+      "volume_quote_24h": "1276699411.81474240",
+      "trade_count_24h": 4049315,
+      "window_open_at": "2026-06-06T13:30:07Z",
+      "window_close_at": "2026-06-07T13:30:07Z",
+      "weighted_avg_price_24h": "61679.87030926",
+      "source": {
+        "provider_symbol": "BTCUSDT"
+      }
+    },
+    {
+      "pair_symbol": "ETHUSDT",
+      "base_asset": "ETH",
+      "quote_asset": "USDT",
+      "trading_status": "TRADING",
+      "is_spot_trading_allowed": true,
+      "last_price": "1620.26000000",
+      "open_price_24h": "1562.09000000",
+      "high_price_24h": "1648.70000000",
+      "low_price_24h": "1544.87000000",
+      "price_change_percent_24h": "3.724",
+      "volume_base_24h": "432208.62730000",
+      "volume_quote_24h": "687113196.48716400",
+      "trade_count_24h": 4561893,
+      "window_open_at": "2026-06-06T13:30:07Z",
+      "window_close_at": "2026-06-07T13:30:07Z",
+      "weighted_avg_price_24h": "1589.77205240",
+      "source": {
+        "provider_symbol": "ETHUSDT"
+      }
+    }
+  ]
+}

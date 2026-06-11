@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_032612_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T23:26:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-26-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1730.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous 1740 avec stop au-delà de 1780",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair des 1780",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec structure en LL (Lower Lows) et LH (Lower Highs) sur le timeframe 15m.  \n- La cassure des derniers supports vers 1725-1730 confirme la pression vendeuse.  \n- Scénario baissier valide sous 1740, invalidation à franchir les récents sommets vers 1780.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nSur ce graphique 15m, Ethereum montre une structure clairement baissière marquée par des Lower Highs et Lower Lows. Les derniers rebonds sont faibles et s’arrêtent sous la zone 1760-1780, confirmant un plafonnement vendeur. Le prix casse les supports proches des 1730, avec un volume d’échange en hausse lors des baisses, ce qui légitime la dynamique vendeuse. Les résistances clés se situent dans la zone 1750 à 1780, tandis que les supports immédiats notables se trouvent vers 1720-1730. Le scénario privilégié reste une continuation de la baisse sous 1740, avec une invalidation au franchissement des 1780, pouvant signaler un retournement de tendance à c",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-26-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_23-25-55.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_061803_CRYPTOCAP:TOTAL_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-11T02:18:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-17-49",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond proche support 2.1T, envisager achat si break 2.6T confirmé, sinon rester à l’écart.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette sous 2.1T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale baissière visible au timeframe journalier, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure actuelle en tentatif de rebond court terme, mais sans franchissement clair des résistances majeures.\n- Zone clé de support autour de 2.1T USD, résistance majeure à 2.6T USD; scénario haussier invalidé en cas de cassure sous le support.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1d) : \nLe graphique montre une tendance baissière claire marquée par des Lower Highs et Lower Lows depuis plusieurs mois. Le prix tente actuellement un rebond à court terme après un creux proche de 2.1T, mais reste sous une résistance majeure autour de 2.6T. La dynamique est incertaine tant que le prix ne revient pas au-dessus des plus hauts récents. Le support à 2.1T est crucial : une cassure sous ce niveau relancerait la pression vendeuse. Le scénario le plus prudent est donc d’attendre une confirmation de retour en tendance haussière (break de 2.6T) avant de considérer un",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-17-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-11_02-17-38.png"
+  }
+}

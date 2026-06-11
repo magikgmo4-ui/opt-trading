@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_202129_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T16:21:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_16-21-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond support avec prise de bénéfices prochaine résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture < 61000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance majoritairement haussière depuis le creux vers 59 000 jusqu’à un sommet proche de 63 000.  \n- Structure en HH/HL marquée, validant un biais acheteur sur le court terme.  \n- Correction récente latérale et baissière vers 61 200 testant un support clé avant rebond visible.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une nette reprise haussière après une phase de consolidation autour de 60 200 - 60 400. La structure forme des HH/HL avec un dernier point haut vers 62 900 et un creux local à 61 200. Zone support clé vers 61 200-61 400, résistance à surveiller vers 62 800 - 63 000. Le rebond actuel sur support laisse envisager une continuation haussière si 62 800 est franchi. Invalidation en clôture en dessous de 61 000, signalant potentielle poursuite baissière.\n\nC) DeskPro  \n{\"run_id\":\"20240612-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"61200\",\"61400\"],\"resistances\":[\"62800\",\"63000\"],\"plan\":\"achat sur rebond s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_16-21-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_16-21-07.png"
+  }
+}

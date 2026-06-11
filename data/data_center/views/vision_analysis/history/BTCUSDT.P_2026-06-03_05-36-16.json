@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_093626_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:36:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-36-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.166,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.168,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous résistance 1.1660, stop au-dessus 1.1685",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">1.1685",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Structure globale incertaine avec volatilité mais tendance baissière récente visible.  \n- Zones clés identifiées autour de 1.1660 (résistance) et 1.1600 (support proche).  \n- Scénario court possible à privilégier si le support cède, invalidation au-dessus dernier plus haut.\n\nB) Chart 1 (haut-gauche): EUR/USD 1H  \nTendance baissière court terme avec structure HL cassée vers LH et LL.  \nSupports clés vers 1.1600 et 1.1580 testés, résistances autour 1.1660-1.1680.  \nVolume en légère augmentation sur baisses, suggérant pression vendeuse.  \nPlan: Vente sous résistance à 1.1660 avec stop au-dessus dernier sommet.  \nInvalidation: franchissement net 1.1685.\n\nC) Chart 2 (haut-droit): inconnu (non lisible)  \nPas possible d’analyser faute de visibilité sur symbole et timeframe.\n\nD) Chart 3 (bas-gauche): inconnu (non lisible)  \nPas possible d’analyser faute de visibilité sur symbole et timeframe.\n\nE) Chart 4 (bas-droit): inconnu (non lisible)  \nPas possible d’analyser faute de",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-36-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_05-36-06.png"
+  }
+}

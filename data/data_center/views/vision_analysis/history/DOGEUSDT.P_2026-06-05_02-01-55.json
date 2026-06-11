@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_060204_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T02:02:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-01-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0845,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0875,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.089,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond vers résistance avec stop above 0.0890, viser poursuite baisse sous 0.0845",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture significative >0.0890",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec structure en LL (Lower Lows) et LH (Lower Highs).  \n- Plusieurs supports ont été cassés, accentuant la pression vendeuse.  \n- Volume en augmentation lors des baisses importantes, confirmant la dynamique vendeuse.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa tendance est baissière depuis plusieurs heures avec une série de creux et sommets déclinants (LL/LH). La structure du prix montre un enchaînement de ruptures de supports avec un dernier pic de volume associé à la forte chute récente. Les zones clés de résistance à 0.0875 et 0.0890 sont maintenant des obstacles à toute reprise. Le support visible autour de 0.0845 est à surveiller, une cassure motivée en dessous pourrait accélérer la baisse. Le scénario prioritaire reste donc la poursuite du mouvement baissier tant que les résistances ne sont pas franchies. L’invalidation du biais baissier serait une remontée au-dessus des 0.0890 avec volume.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_DOGE_SIN",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-01-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-05_02-01-45.png"
+  }
+}

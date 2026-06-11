@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_180133_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T14:01:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-01-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond proche résistance majeure 63.50-64.00 avec stop serré au-dessus. Acheter en cas de cassure de 60.00 invalidant la tendance baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 64.00.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de prix claire avec plusieurs tentatives de rebond bloquées sous 63.50-64.00 (résistance clé).  \n- Zone de support à 60.00 environ, à surveiller pour un possible rebond ou cassure.\n\nB) Chart unique (SOLUSDT.P 15m) :  \nLe graphique montre une tendance baissière en 15 minutes caractérisée par une succession de Lower Highs et Lower Lows. Le prix stagne actuellement autour de 61.5, après un retracement bloqué sous une résistance située entre 63.50 et 64.00. Le support principal se situe autour de 60.00. Scénario prioritaire : poursuite de la baisse si la zone des 60.00 est cassée avec volume. Invalidation du biais baissier si franchissement clair et fermé au-dessus de 64.00, signalant un possible retournement ou consolidation.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[60.00],\"resistances\":[63.50,64.00],\"pla",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-01-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_14-01-09.png"
+  }
+}

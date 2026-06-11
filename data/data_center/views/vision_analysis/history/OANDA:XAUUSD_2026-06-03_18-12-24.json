@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_221232_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T18:12:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-12-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4370.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4510.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4520.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous résistance 4510 avec stop loss au-dessus. Privilégier la vente en pullback ou sous cassure 4430.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 4520",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière visible sur le timeframe 1h, avec une succession de plus bas et plus bas (LH/LL).\n- Structure récente : tentative de rebond avec un plus haut local (HL) non confirmé, suivi d'une reprise baissière vers un support clé proche des 4430.\n- Zone clé de support identifiée vers 4430, résistance majeure vers 4510-4520 ; scénario baissier privilégié si le support cède.\n\nB) Chart unique (OANDA:XAUUSD 1h) : \nLe graphique montre une tendance baissière claire avec une structure en LH/LL. Après un rebond depuis un plus bas vers 4370, le prix a formé un plus haut local autour de 4510, invalide pour un retournement haussier. Le prix teste actuellement un support important vers 4430. Si ce niveau casse, on pourrait viser un retour vers le support dominant à 4370. En revanche, un rebond confirmé au-dessus des 4510 ouvrirait la porte à un changement de biais vers une tendance haussière. L’action à court terme reste baissière tant que le prix ne dépasse pas ce",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-12-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_18-12-12.png"
+  }
+}

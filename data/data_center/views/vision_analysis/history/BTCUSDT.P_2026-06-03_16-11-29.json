@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_201140_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:11:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-11-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.092,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.095,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur cassure 0.091 ou vente sur rebond résist 0.095",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus 0.095",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Trend clair baissier sur du 15m avec structure HL/HH cassée, passage en LH/LL.  \n- Zones clés observables autour de 0.095 (support devenu résistance) et 0.092 (zone de price action récente).  \n- Scénario principal : continuation baissière à court terme, tentative de rebond possible sous 0.092.  \n\nB) Chart 1 (haut-gauche): DOGEUSDT, 15m  \nTendance principale baissière avec une série de Lower Highs et Lower Lows (LH/LL) confirmée. Structure récente montre une tentative de stabilisation autour de 0.092, zone  importante à court terme. Les volumes augmentent lors des poussées baissières, ce qui valide la pression vendeuse. Zone clé à surveiller : résistance autour de 0.095, inversion possible si break significatif au-dessus. Plan : vendre sur rebond ou continuation short sur cassure de 0.091. Invalidation si retour durable au-dessus de 0.095.  \n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non lisibles. Impossible de donner une analyse fiable.  \n\nD) Chart 3 ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-11-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_16-11-17.png"
+  }
+}

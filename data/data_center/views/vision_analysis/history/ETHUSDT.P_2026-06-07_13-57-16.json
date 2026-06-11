@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_175724_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T13:57:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-57-16",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation HH pour longs, stop sous 1470",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1470",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec succession de Lower Highs (LH) et Lower Lows (LL) jusqu’au 6 juin.  \n- Structure en début de retournement haussier depuis le creux, avec un Higher Low (HL) suivi d’un possible Higher High (HH) en formation.  \n- Zone clé de support vers 1470-1500 USDT, importante pour maintenir la dynamique haussière actuelle.  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nLa tendance principale est baissière (LH/LL) sur la période récente, terminée par un fort rebond depuis un support majeur proche de 1470 USDT. La structure montre un HL validé sur ce rebond, avec tentative de HH vers 1630 USDT. La zone de résistance immédiate se situe vers 1650-1675 USDT. Un retour sous 1500 USDT invaliderait le scénario haussier en cours. Le plan d’action consiste à attendre la confirmation du HH pour envisager des entrées long avec une gestion serrée sous le support du HL.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier à court terme\",\"structure\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-57-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_13-57-08.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_225308_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T18:53:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-52-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1870.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rejet sous 1850, viser 1780-1800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture au-dessus de 1880 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent visible, mais structure de continuation baissière non invalide.  \n- Zone de support vers 1780-1800 testée avec volume, possible retracement court terme.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une forte dominance vendeuse avec des mouvements impulsifs baissiers. Structure en LH/LL établie, le prix forme un point bas proche de 1780 suivi d’un rebond technique vers 1850, qui ne dépasse pas les derniers hauts majeurs (LH). Volume en hausse sur la baisse et sur le rebond récent, indiquant intérêt à ces zones. Les zones clés identifiées sont un support majeur entre 1780-1800 (point bas récent) et une résistance à 1850-1870 (points hauts intermédiaires). Scénario prioritaire baissier à moyen terme, avec un plan de vente en cas d’échec sous résistance 1850. Invalidation sous rupture claire au-dessus de 1870-1880 avec structure HH.\n\nC) DeskPro  \n{\"run_id\":\"001",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-52-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_18-52-47.png"
+  }
+}

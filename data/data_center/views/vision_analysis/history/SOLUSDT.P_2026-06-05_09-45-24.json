@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_134533_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T09:45:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_09-45-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 65.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure 67.00 pour signal d'inversion haussière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte support 64.00, poursuite baisse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Rebond récent entre 64.00 et 66.50, zone de support temporaire à surveiller.\n- Scénario principal en attente de cassure claire au-dessus des 67.00 pour envisager un changement de structure haussière.\n\nB) Chart unique (SOLUSDT.P 15m) : \nLe graphique montre une chute marquée suivie d’un rebond faible, sans formation de Higher High (HH). La structure reste donc baissière avec des Lower High (LH) et Lower Low (LL) confirmés. Le prix teste une zone support située autour de 64.00-65.00, qui a provoqué un rebond vers 66.50. La résistance autour de 67.00 empêche la reprise haussière. Le plan serait d’attendre une cassure nette au-dessus des 67.00 (potentiel HL/HH) pour entrer en position longue. L’invalidation serait la perte du support 64.00, signalant une continuation baissière.\n\nC) DeskPro \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH-LL\",\"supports\":[64",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_09-45-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-05_09-45-16.png"
+  }
+}

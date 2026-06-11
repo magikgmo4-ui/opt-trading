@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_040100_NYMEX:RB1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:00:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-00-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller rebond à support 3.00 pour prises de position acheteuses, cible 3.20. Vendre si rupture support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture nette en clôture sous 3.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente baissière sur le 1h, caractérisée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en consolidation avec oscillation entre zones de support autour de 3.00 et résistance proche de 3.20.  \n- Scénario privilégié de tentative de rebond sous résistance clé, avec invalidation possible si rupture claire support 3.00.\n\nB) Chart unique (NYMEX:RB1! 1h):  \nLa structure montre une dynamique baissière avec une succession de LH et LL, signalant une dominance vendeuse à court terme. Le prix a testé plusieurs fois la zone de support majeure vers 3.00 USD, où il trouve temporairement un soutien. La résistance majeure se situe autour de 3.20 USD, niveau qui a freiné plusieurs reprises la hausse. Le volume est élevé lors des phases de baisse marquée, indiquant un effort vendeur. Un rebond est en cours mais reste fragile tant que le prix n’a pas franchi la résistance 3.20. La rupture durable du support 3.00 invaliderait le scénario haussier à court ",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-00-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_1h_2026-06-05_00-00-38.png"
+  }
+}

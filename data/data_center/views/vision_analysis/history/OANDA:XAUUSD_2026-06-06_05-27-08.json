@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_092716_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T05:27:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-27-08",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4350.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "favoriser les ventes sur retour vers résistance 4350-4380 ou cassure support 4300",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable au-dessus de 4380",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur le 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile depuis le dernier rebond, marqué par un rejet fort à la zone 4350/4380 USD (résistance majeure récente).  \n- Prix actuellement en phase de test de support vers 4320 USD, zone critique pour possible retour ou poursuite baissière.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nSur le graphique 1h de XAUUSD, la tendance est baissière avec une série de LH/LL confirmée. Le prix a chuté fortement après avoir buté sur la résistance autour de 4380 USD. La structure récente montre un échec de rebond et un fort momentum vendeur. Les supports clés se situent vers 4320 USD et 4300 USD, où le marché pourrait tenter de stabiliser ou d’amorcer un rebond. Une cassure sous 4300 ouvrirait la voie à une poursuite de la baisse. Le plan d’action privilégie une stratégie baissière en attente d’une confirmation de la rupture du support, avec comme invalidation le franchissement du",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-27-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_05-26-54.png"
+  }
+}

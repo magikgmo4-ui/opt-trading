@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_025848_NYMEX:RB1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T22:58:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-58-38",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "scalps vendeurs sur rebonds sous 3.20 ou attente cassure support 3.00",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 4h au-dessus de 3.25",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le prix montre une tendance baissière claire depuis début mai avec des creux et sommets descendants (LH/LL).  \n- Structure récente hésitante en zone de support vers 3.00-3.05 USD, possible base avant un rebond technique.  \n- Résistance majeure à 3.20-3.25 USD, zone à dépasser pour invalider la continuité baissière.  \n\nB) Chart unique (NYMEX:RB1! 4h):  \nTendance: baissière  \nStructure: LH/LL marqués, tentative de stabilisation en HL mineur récent  \nSupports: 3.00-3.05 (zone de rebond potentiel)  \nRésistances: 3.20-3.25 (zone d’invalidation de la baisse)  \nPlan: privilégier scalps vendeurs sur rebonds sous 3.20, ou attendre cassure nette support 3.00 pour viser poursuite baissière.  \nInvalidation: franchissement clair de 3.25 en clôture 4h, signal possible retournement ou consolidation.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL récent\",\"supports\":[\"3.00-3.05\"],\"resistances\":[\"3.20-3.25\"],\"plan\":\"sc",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-58-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_4h_2026-06-04_22-58-26.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_002930_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T20:29:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_20-29-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance cassure 61000 pour entrée long, stop sous 59200",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 59200 en clôture",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale baissière nette sur le 15m avec une série de bas et hauts descendants (LH et LL).\n- Structure latéralisante récente après un bas significatif proche de 59,200, consolidation autour de 60,700.\n- Scénario prioritaire: attente confirmation d’une reprise haussière claire avec cassure des résistances pour envisager un retournement.\n\nB) Chart unique (BTCUSDT.P 15m) : En 15 minutes, Bitcoin est en tendance baissière avec une structure de Lower Highs (LH) et Lower Lows (LL) jusqu’au creux autour de 59,200. Ensuite, une phase neutre/latérale s’installe entre 60,200 (support intermédiaire) et 61,000 (résistance proche). La zone clé de support se situe à 59,200 et la résistance critique de retournement se note à 61,000. La cassure nette de 61,000 confirmerait un possible changement de tendance vers la hausse. Invalidation du scénario haussier si prix retombe durablement sous 59,200.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"st",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_20-29-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_20-29-14.png"
+  }
+}

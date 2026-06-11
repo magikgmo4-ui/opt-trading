@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_223657_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T18:36:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-36-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.7,
+      "note": "s 61"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s 64"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.7,
+      "note": "support 60000,"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63.0,
+      "confidence": 0.7,
+      "note": "résistance à 63"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.7,
+      "note": "r 63500"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte tendance baissière globale sur le marché crypto et indices américains visibles dans certains graphiques.\n- Structures majoritairement en lower highs / lower lows, indiquant une dynamique baissière.\n- Zones clés S/R à surveiller pour scénario de rebond ou cassure.\n\nB) Chart 1 (haut-gauche) BTCUSDT 1h :\nTendance baissière nette avec structure en LL et LH marqués, cassure de supports récents vers 61 000 USDT. Volume en hausse sur baisses, confirmant pression vendeuse. Support clé autour de 60 000 USDT à surveiller, résilience possible ici. Scénario: rebond potentiel vers résistance à 63 500 si support tenu, sinon poursuite de baisse vers zone 58 000-59 000. Invalidation au-dessus des récents HH vers 64 500.\n\nC) Chart 2 (haut-droit) inconnu :\nSymbole / timeframe non lisible clairement. Impossible d’analyser.\n\nD) Chart 3 (bas-gauche) inconnu :\nSymbole / timeframe non lisible clairement. Impossible d’analyser.\n\nE) Chart 4 (bas-droit) inconnu :\nSymbole / timeframe non",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-36-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_18-36-31.png"
+  }
+}

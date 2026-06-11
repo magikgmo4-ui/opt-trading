@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_214523_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T17:45:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-45-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.7,
+      "note": "s 1530"
+    },
+    {
+      "type": "invalidation_level",
+      "value": 1530.0,
+      "confidence": 0.55,
+      "note": "invalidation en dessous de 1530"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le 1h, avec une série de plus bas (LL) et plus bas relatifs (LH).\n- Structure récente de range/consolidation entre 1530 $ (S) et 1575 $ (R).\n- Scénario clé : une cassure claire au-dessus de 1575 $ invaliderait la poursuite baissière.\n\nB) Chart unique (ETHUSDT.P 1h) :\nLe graphique montre une tendance baissière marquée avec des lower highs (LH) et lower lows (LL) bien visibles. Après un fort mouvement descendant, le prix forme une zone de consolidation horizontale entre environ 1530 $ en support et 1575 $ en résistance. Le marché teste actuellement cette résistance suite à un rebond au support, ce qui porte à une possible sortie du range. Une confirmation haussière serait une cassure et maintien au-dessus de 1575 $ (potentiel retournement ou correction). À l’inverse, un retour sous 1530 $ pourrait relancer la dynamique baissière.\n\nC) DeskPro\n{\"run_id\":\"eurun_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec cons",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-45-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_17-45-08.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_140147_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T10:01:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_10-01-36",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous résistance, viser continuation baisse après rebond faible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus de 1610 avec bonne dynamique",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire, avec une série de bas plus bas (LL) et de hauts plus bas (LH).\n- Structure confirmée par des cassures régulières des supports intermédiaires.\n- Biais vendeur dominant, attente d'une potentielle poursuite de la baisse après consolidation.\n\nB) Chart unique (ETHUSDT.P 15m): \nLe marché montre une nette structure baissière avec des LL et LH. Les supports récents vers 1540-1550 sont respectés temporairement, mais le prix peine à trouver une impulsion haussière solide. La résistance clé à 1600-1610 limite les tentatives de rebond. Le scénario prioritaire reste une continuation baissière, en surveillant une invalidation si le prix franchit durablement les 1610 en HH. La prudence reste de mise en cas de reprise haussière sur volumes.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL, LH\",\"supports\":[1540,1550],\"resistances\":[1600,1610],\"plan\":\"vente sous résistance, viser continuation baisse après rebond faible\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_10-01-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_10-01-13.png"
+  }
+}

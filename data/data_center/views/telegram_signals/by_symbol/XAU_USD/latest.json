@@ -1,0 +1,2478 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "XAU_USD",
+  "total": 247,
+  "signals": [
+    {
+      "id": "tg_15719_20260611T100009",
+      "channel": "BTC_USD_GOLD_FREE_SIGNALS",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": 4500.0,
+      "tp": 4489.0,
+      "confidence": "LOW",
+      "parsed_at": "2025-12-24T12:27:48+00:00"
+    },
+    {
+      "id": "tg_1921_20260611T100009",
+      "channel": "Btcusdtradingdaily",
+      "direction": "SHORT",
+      "entry_price": 4111.0,
+      "sl": 4124.0,
+      "tp": 4108.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T07:33:40+00:00"
+    },
+    {
+      "id": "tg_1916_20260611T100009",
+      "channel": "Btcusdtradingdaily",
+      "direction": "SHORT",
+      "entry_price": 4085.0,
+      "sl": null,
+      "tp": 4080.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:08:07+00:00"
+    },
+    {
+      "id": "tg_1913_20260611T100009",
+      "channel": "Btcusdtradingdaily",
+      "direction": "LONG",
+      "entry_price": 4080.0,
+      "sl": null,
+      "tp": 4085.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:14:12+00:00"
+    },
+    {
+      "id": "tg_1904_20260611T100009",
+      "channel": "Btcusdtradingdaily",
+      "direction": "SHORT",
+      "entry_price": 4132.0,
+      "sl": 4147.5,
+      "tp": 4129.5,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T16:24:51+00:00"
+    },
+    {
+      "id": "tg_517_20260611T100009",
+      "channel": "GBPUSD_FOREXSiGNAL",
+      "direction": "SHORT",
+      "entry_price": 4110.0,
+      "sl": 4125.0,
+      "tp": 4107.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T07:35:40+00:00"
+    },
+    {
+      "id": "tg_513_20260611T100009",
+      "channel": "GBPUSD_FOREXSiGNAL",
+      "direction": "SHORT",
+      "entry_price": 4085.0,
+      "sl": null,
+      "tp": 4080.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:10:24+00:00"
+    },
+    {
+      "id": "tg_505_20260611T100009",
+      "channel": "GBPUSD_FOREXSiGNAL",
+      "direction": "SHORT",
+      "entry_price": 4158.0,
+      "sl": 4170.0,
+      "tp": 4154.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T11:45:37+00:00"
+    },
+    {
+      "id": "tg_493_20260611T100009",
+      "channel": "GBPUSD_FOREXSiGNAL",
+      "direction": "SHORT",
+      "entry_price": 4343.0,
+      "sl": 4355.0,
+      "tp": 4340.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T12:50:42+00:00"
+    },
+    {
+      "id": "tg_488_20260611T100009",
+      "channel": "GBPUSD_FOREXSiGNAL",
+      "direction": "LONG",
+      "entry_price": 4325.0,
+      "sl": 4302.0,
+      "tp": 4330.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T07:24:35+00:00"
+    },
+    {
+      "id": "tg_92256_20260611T100009",
+      "channel": "GOLD_FOREX_SIGN",
+      "direction": "SHORT",
+      "entry_price": 4089.0,
+      "sl": 4103.0,
+      "tp": 4084.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:37:49+00:00"
+    },
+    {
+      "id": "tg_92248_20260611T100009",
+      "channel": "GOLD_FOREX_SIGN",
+      "direction": "LONG",
+      "entry_price": 4109.0,
+      "sl": 4103.0,
+      "tp": 4150.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T17:47:48+00:00"
+    },
+    {
+      "id": "tg_92244_20260611T100009",
+      "channel": "GOLD_FOREX_SIGN",
+      "direction": "SHORT",
+      "entry_price": 4169.0,
+      "sl": null,
+      "tp": 4159.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T10:29:32+00:00"
+    },
+    {
+      "id": "tg_92239_20260611T100009",
+      "channel": "GOLD_FOREX_SIGN",
+      "direction": "LONG",
+      "entry_price": 4168.0,
+      "sl": null,
+      "tp": 4178.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T08:24:43+00:00"
+    },
+    {
+      "id": "tg_92235_20260611T100009",
+      "channel": "GOLD_FOREX_SIGN",
+      "direction": "LONG",
+      "entry_price": 4188.0,
+      "sl": null,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T07:46:47+00:00"
+    },
+    {
+      "id": "tg_92228_20260611T100009",
+      "channel": "GOLD_FOREX_SIGN",
+      "direction": "SHORT",
+      "entry_price": 4340.0,
+      "sl": 4346.0,
+      "tp": 4332.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T12:14:39+00:00"
+    },
+    {
+      "id": "tg_17334_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:11:27+00:00"
+    },
+    {
+      "id": "tg_17332_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:10:21+00:00"
+    },
+    {
+      "id": "tg_17331_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": 4146.0,
+      "sl": 4136.0,
+      "tp": 4149.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:03:37+00:00"
+    },
+    {
+      "id": "tg_17326_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T13:25:25+00:00"
+    },
+    {
+      "id": "tg_17325_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T12:59:28+00:00"
+    },
+    {
+      "id": "tg_17324_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T12:58:23+00:00"
+    },
+    {
+      "id": "tg_17323_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": 4345.0,
+      "sl": 4353.0,
+      "tp": 4343.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T12:17:36+00:00"
+    },
+    {
+      "id": "tg_17322_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 4.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T14:04:22+00:00"
+    },
+    {
+      "id": "tg_17321_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T13:52:40+00:00"
+    },
+    {
+      "id": "tg_17320_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T13:50:57+00:00"
+    },
+    {
+      "id": "tg_17318_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": 4340.0,
+      "sl": 4353.0,
+      "tp": 4337.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T13:34:33+00:00"
+    },
+    {
+      "id": "tg_17317_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "SHORT",
+      "entry_price": 4315.0,
+      "sl": 4323.0,
+      "tp": 4312.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T07:28:32+00:00"
+    },
+    {
+      "id": "tg_17311_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T08:36:31+00:00"
+    },
+    {
+      "id": "tg_17310_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T08:34:31+00:00"
+    },
+    {
+      "id": "tg_17308_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": 4460.0,
+      "sl": 4450.0,
+      "tp": 4463.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T07:45:10+00:00"
+    },
+    {
+      "id": "tg_17305_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T06:10:12+00:00"
+    },
+    {
+      "id": "tg_17304_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T04:27:06+00:00"
+    },
+    {
+      "id": "tg_17303_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T03:33:26+00:00"
+    },
+    {
+      "id": "tg_17302_20260611T100009",
+      "channel": "GolddExpert",
+      "direction": "LONG",
+      "entry_price": 4437.0,
+      "sl": 4430.0,
+      "tp": 4440.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T03:20:40+00:00"
+    },
+    {
+      "id": "tg_1079_20260611T100009",
+      "channel": "NASDAQ100US30GOLDFX1PIP",
+      "direction": "SHORT",
+      "entry_price": 4084.0,
+      "sl": 4096.0,
+      "tp": 4080.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:26:00+00:00"
+    },
+    {
+      "id": "tg_6287_20260611T100009",
+      "channel": "Tradinghub3_fuII",
+      "direction": "SHORT",
+      "entry_price": 4110.0,
+      "sl": 4125.0,
+      "tp": 4105.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T07:31:00+00:00"
+    },
+    {
+      "id": "tg_6283_20260611T100009",
+      "channel": "Tradinghub3_fuII",
+      "direction": "SHORT",
+      "entry_price": 4088.0,
+      "sl": 4101.0,
+      "tp": 4085.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:23:14+00:00"
+    },
+    {
+      "id": "tg_6273_20260611T100009",
+      "channel": "Tradinghub3_fuII",
+      "direction": "SHORT",
+      "entry_price": 4170.0,
+      "sl": 4380.0,
+      "tp": 4167.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T09:26:03+00:00"
+    },
+    {
+      "id": "tg_2081_20260611T100009",
+      "channel": "USDJPY_XAUUSD_SIGNALS",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 230.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T15:58:35+00:00"
+    },
+    {
+      "id": "tg_2080_20260611T100009",
+      "channel": "USDJPY_XAUUSD_SIGNALS",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 190.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T15:57:04+00:00"
+    },
+    {
+      "id": "tg_2079_20260611T100009",
+      "channel": "USDJPY_XAUUSD_SIGNALS",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 120.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T15:56:19+00:00"
+    },
+    {
+      "id": "tg_2078_20260611T100009",
+      "channel": "USDJPY_XAUUSD_SIGNALS",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 50.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T15:55:16+00:00"
+    },
+    {
+      "id": "tg_2077_20260611T100009",
+      "channel": "USDJPY_XAUUSD_SIGNALS",
+      "direction": "SHORT",
+      "entry_price": 4130.0,
+      "sl": 4145.5,
+      "tp": 4127.5,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T15:37:30+00:00"
+    },
+    {
+      "id": "tg_9388_20260611T100009",
+      "channel": "WhaleTank",
+      "direction": "LONG",
+      "entry_price": 1631.52,
+      "sl": 1601.99,
+      "tp": 1648.29,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T13:18:28+00:00"
+    },
+    {
+      "id": "tg_9381_20260611T100009",
+      "channel": "WhaleTank",
+      "direction": "LONG",
+      "entry_price": 1691.57,
+      "sl": 1100.0,
+      "tp": 2029.89,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-04T13:20:56+00:00"
+    },
+    {
+      "id": "tg_10142_20260611T100009",
+      "channel": "XAUUSDGOLDsignals",
+      "direction": "LONG",
+      "entry_price": 4441.0,
+      "sl": 4420.0,
+      "tp": 4473.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-03T17:01:33+00:00"
+    },
+    {
+      "id": "tg_5080_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 200.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T05:46:42+00:00"
+    },
+    {
+      "id": "tg_5079_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 4.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T05:46:27+00:00"
+    },
+    {
+      "id": "tg_5078_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T05:39:20+00:00"
+    },
+    {
+      "id": "tg_5077_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T05:39:05+00:00"
+    },
+    {
+      "id": "tg_5076_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T05:38:42+00:00"
+    },
+    {
+      "id": "tg_5075_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": 4080.0,
+      "sl": 4067.0,
+      "tp": 4085.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:45:48+00:00"
+    },
+    {
+      "id": "tg_5072_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 200.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T23:01:21+00:00"
+    },
+    {
+      "id": "tg_5071_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 4.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T23:01:00+00:00"
+    },
+    {
+      "id": "tg_5070_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T23:00:26+00:00"
+    },
+    {
+      "id": "tg_5068_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T22:59:55+00:00"
+    },
+    {
+      "id": "tg_5067_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T22:59:41+00:00"
+    },
+    {
+      "id": "tg_5065_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "SHORT",
+      "entry_price": 4065.0,
+      "sl": 4078.0,
+      "tp": 4060.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T22:49:38+00:00"
+    },
+    {
+      "id": "tg_5030_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "SHORT",
+      "entry_price": 4150.0,
+      "sl": 4063.0,
+      "tp": 4145.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T07:43:31+00:00"
+    },
+    {
+      "id": "tg_5025_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "SHORT",
+      "entry_price": 4178.0,
+      "sl": 4.0,
+      "tp": 4173.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T03:15:06+00:00"
+    },
+    {
+      "id": "tg_4985_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 150.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T05:42:42+00:00"
+    },
+    {
+      "id": "tg_4984_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 5.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T05:42:31+00:00"
+    },
+    {
+      "id": "tg_4983_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 4.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T05:42:27+00:00"
+    },
+    {
+      "id": "tg_4982_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T03:22:15+00:00"
+    },
+    {
+      "id": "tg_4981_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T02:56:25+00:00"
+    },
+    {
+      "id": "tg_4980_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T02:56:18+00:00"
+    },
+    {
+      "id": "tg_4979_20260611T100009",
+      "channel": "XAUUSDSIGNALSG1",
+      "direction": "LONG",
+      "entry_price": 4333.0,
+      "sl": 4323.0,
+      "tp": 4336.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T02:41:43+00:00"
+    },
+    {
+      "id": "tg_3111_20260611T100009",
+      "channel": "XAUUSDUSDJPYEURUSDfx",
+      "direction": "SHORT",
+      "entry_price": 1968.0,
+      "sl": 1963.0,
+      "tp": 1966.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-11-07T08:20:15+00:00"
+    },
+    {
+      "id": "tg_3102_20260611T100009",
+      "channel": "XAUUSDUSDJPYEURUSDfx",
+      "direction": "LONG",
+      "entry_price": 1974.0,
+      "sl": 1969.0,
+      "tp": 1976.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-11-07T07:05:19+00:00"
+    },
+    {
+      "id": "tg_8592_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T07:53:35+00:00"
+    },
+    {
+      "id": "tg_8590_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 165.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T10:08:35+00:00"
+    },
+    {
+      "id": "tg_8589_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T08:36:02+00:00"
+    },
+    {
+      "id": "tg_8588_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "SHORT",
+      "entry_price": 4173.0,
+      "sl": 4183.0,
+      "tp": 4168.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T08:27:09+00:00"
+    },
+    {
+      "id": "tg_8585_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "LONG",
+      "entry_price": 4183.0,
+      "sl": 4173.0,
+      "tp": 4193.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T07:56:47+00:00"
+    },
+    {
+      "id": "tg_8582_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T13:15:02+00:00"
+    },
+    {
+      "id": "tg_8581_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "LONG",
+      "entry_price": 4337.5,
+      "sl": 4327.5,
+      "tp": 4342.5,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T13:05:35+00:00"
+    },
+    {
+      "id": "tg_8577_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "SHORT",
+      "entry_price": 4332.0,
+      "sl": 4342.0,
+      "tp": 4322.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T08:21:56+00:00"
+    },
+    {
+      "id": "tg_8569_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "SHORT",
+      "entry_price": 4292.0,
+      "sl": 4299.0,
+      "tp": 4290.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T08:16:38+00:00"
+    },
+    {
+      "id": "tg_8565_20260611T100009",
+      "channel": "XauusdUSpips",
+      "direction": "SHORT",
+      "entry_price": 4461.0,
+      "sl": 4471.0,
+      "tp": 4456.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T08:16:24+00:00"
+    },
+    {
+      "id": "tg_6598_20260611T100009",
+      "channel": "angela_xauusd",
+      "direction": "LONG",
+      "entry_price": 4111.0,
+      "sl": 4101.0,
+      "tp": 4121.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T15:51:10+00:00"
+    },
+    {
+      "id": "tg_6592_20260611T100009",
+      "channel": "angela_xauusd",
+      "direction": "LONG",
+      "entry_price": 4157.0,
+      "sl": 4147.0,
+      "tp": 4167.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T12:34:18+00:00"
+    },
+    {
+      "id": "tg_6589_20260611T100009",
+      "channel": "angela_xauusd",
+      "direction": "LONG",
+      "entry_price": 4329.0,
+      "sl": 4319.0,
+      "tp": 4339.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T13:32:59+00:00"
+    },
+    {
+      "id": "tg_6584_20260611T100009",
+      "channel": "angela_xauusd",
+      "direction": "SHORT",
+      "entry_price": 4334.0,
+      "sl": 4344.0,
+      "tp": 4324.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T12:04:01+00:00"
+    },
+    {
+      "id": "tg_20053_20260611T100009",
+      "channel": "aussieforex",
+      "direction": "LONG",
+      "entry_price": 4290.0,
+      "sl": 4266.0,
+      "tp": 4390.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T12:04:25+00:00"
+    },
+    {
+      "id": "tg_20051_20260611T100009",
+      "channel": "aussieforex",
+      "direction": "LONG",
+      "entry_price": 4486.0,
+      "sl": 4470.0,
+      "tp": 4700.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-27T03:10:50+00:00"
+    },
+    {
+      "id": "tg_20049_20260611T100009",
+      "channel": "aussieforex",
+      "direction": "LONG",
+      "entry_price": 4655.0,
+      "sl": 4639.0,
+      "tp": 4900.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-11T19:47:26+00:00"
+    },
+    {
+      "id": "tg_20048_20260611T100009",
+      "channel": "aussieforex",
+      "direction": "LONG",
+      "entry_price": 4530.0,
+      "sl": 4500.0,
+      "tp": 4730.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-11T00:59:11+00:00"
+    },
+    {
+      "id": "tg_20046_20260611T100009",
+      "channel": "aussieforex",
+      "direction": "LONG",
+      "entry_price": 4860.0,
+      "sl": 4800.0,
+      "tp": 5200.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-03-06T13:18:38+00:00"
+    },
+    {
+      "id": "tg_20045_20260611T100009",
+      "channel": "aussieforex",
+      "direction": "LONG",
+      "entry_price": 5300.0,
+      "sl": 5250.0,
+      "tp": 6200.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-03-02T03:37:21+00:00"
+    },
+    {
+      "id": "tg_20041_20260611T100009",
+      "channel": "aussieforex",
+      "direction": "LONG",
+      "entry_price": 5145.0,
+      "sl": null,
+      "tp": 6000.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-01-29T18:11:44+00:00"
+    },
+    {
+      "id": "tg_20039_20260611T100009",
+      "channel": "aussieforex",
+      "direction": "LONG",
+      "entry_price": 5145.0,
+      "sl": null,
+      "tp": 5500.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-01-29T18:11:25+00:00"
+    },
+    {
+      "id": "tg_480_20260611T100009",
+      "channel": "btcusdt_xauusd_eurusd_signal",
+      "direction": "LONG",
+      "entry_price": 4080.0,
+      "sl": null,
+      "tp": 4085.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:15:21+00:00"
+    },
+    {
+      "id": "tg_460_20260611T100009",
+      "channel": "btcusdt_xauusd_eurusd_signal",
+      "direction": "SHORT",
+      "entry_price": 4170.0,
+      "sl": 4180.0,
+      "tp": 4165.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T12:51:03+00:00"
+    },
+    {
+      "id": "tg_174_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 2422.0,
+      "sl": 2416.0,
+      "tp": 2424.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-07-31T10:16:16+00:00"
+    },
+    {
+      "id": "tg_173_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "SHORT",
+      "entry_price": 2408.0,
+      "sl": 2423.0,
+      "tp": 2406.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-07-15T09:37:28+00:00"
+    },
+    {
+      "id": "tg_169_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "SHORT",
+      "entry_price": 2371.5,
+      "sl": 2386.5,
+      "tp": 2369.5,
+      "confidence": "LOW",
+      "parsed_at": "2024-07-08T10:52:15+00:00"
+    },
+    {
+      "id": "tg_168_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 2344.5,
+      "sl": 2331.5,
+      "tp": 2346.5,
+      "confidence": "LOW",
+      "parsed_at": "2024-07-03T09:56:52+00:00"
+    },
+    {
+      "id": "tg_167_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "SHORT",
+      "entry_price": 148.8,
+      "sl": 150.9,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-11T10:37:46+00:00"
+    },
+    {
+      "id": "tg_166_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 1.226,
+      "sl": 1.206,
+      "tp": 1.23,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-10T15:11:10+00:00"
+    },
+    {
+      "id": "tg_165_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 0.871,
+      "sl": 0.851,
+      "tp": 0.876,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-10T15:09:18+00:00"
+    },
+    {
+      "id": "tg_164_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 0.905,
+      "sl": 0.885,
+      "tp": 0.909,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-10T15:03:17+00:00"
+    },
+    {
+      "id": "tg_163_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 0.9155,
+      "sl": 0.895,
+      "tp": 0.919,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-04T15:44:05+00:00"
+    },
+    {
+      "id": "tg_162_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "SHORT",
+      "entry_price": 148.9,
+      "sl": 150.9,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-04T15:44:05+00:00"
+    },
+    {
+      "id": "tg_161_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 0.866,
+      "sl": 0.84,
+      "tp": 0.871,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-04T15:44:05+00:00"
+    },
+    {
+      "id": "tg_160_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "SHORT",
+      "entry_price": 149.75,
+      "sl": 151.7,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-03T08:00:01+00:00"
+    },
+    {
+      "id": "tg_159_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 0.87,
+      "sl": 0.85,
+      "tp": 0.874,
+      "confidence": "LOW",
+      "parsed_at": "2023-10-02T16:44:58+00:00"
+    },
+    {
+      "id": "tg_158_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 0.9135,
+      "sl": 0.893,
+      "tp": 0.918,
+      "confidence": "LOW",
+      "parsed_at": "2023-09-26T08:16:23+00:00"
+    },
+    {
+      "id": "tg_157_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 0.863,
+      "sl": 0.843,
+      "tp": 0.868,
+      "confidence": "LOW",
+      "parsed_at": "2023-09-26T08:15:11+00:00"
+    },
+    {
+      "id": "tg_151_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "LONG",
+      "entry_price": 1.239,
+      "sl": 1.219,
+      "tp": 1.244,
+      "confidence": "LOW",
+      "parsed_at": "2020-04-21T08:55:43+00:00"
+    },
+    {
+      "id": "tg_148_20260611T100009",
+      "channel": "forex_gold_signals",
+      "direction": "SHORT",
+      "entry_price": 1.5314,
+      "sl": 1.552,
+      "tp": 1.526,
+      "confidence": "LOW",
+      "parsed_at": "2020-04-15T09:50:48+00:00"
+    },
+    {
+      "id": "tg_11974_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "SHORT",
+      "entry_price": 4110.0,
+      "sl": 4120.0,
+      "tp": 4106.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T07:27:37+00:00"
+    },
+    {
+      "id": "tg_11972_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": 4116.0,
+      "tp": 4132.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T16:00:59+00:00"
+    },
+    {
+      "id": "tg_11969_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": 4116.0,
+      "tp": 4132.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T15:24:37+00:00"
+    },
+    {
+      "id": "tg_11966_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": 51090.0,
+      "tp": 50950.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T10:18:59+00:00"
+    },
+    {
+      "id": "tg_11963_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "SHORT",
+      "entry_price": 4337.0,
+      "sl": 4347.0,
+      "tp": 4333.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T01:55:57+00:00"
+    },
+    {
+      "id": "tg_11959_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "SHORT",
+      "entry_price": 4506.0,
+      "sl": 4515.0,
+      "tp": 4500.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-04T12:58:43+00:00"
+    },
+    {
+      "id": "tg_11958_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "SHORT",
+      "entry_price": 4501.5,
+      "sl": 4511.0,
+      "tp": 4497.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-04T12:41:14+00:00"
+    },
+    {
+      "id": "tg_11951_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "SHORT",
+      "entry_price": 4492.0,
+      "sl": 4498.0,
+      "tp": 4487.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-03T00:52:38+00:00"
+    },
+    {
+      "id": "tg_11947_20260611T100009",
+      "channel": "forexbookspdf",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": 51070.0,
+      "tp": 50930.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-02T09:18:51+00:00"
+    },
+    {
+      "id": "tg_7727_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4157.0,
+      "sl": null,
+      "tp": 100.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T08:21:09+00:00"
+    },
+    {
+      "id": "tg_7725_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4157.0,
+      "sl": null,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:21:45+00:00"
+    },
+    {
+      "id": "tg_7724_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4175.0,
+      "sl": null,
+      "tp": 190.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T10:15:45+00:00"
+    },
+    {
+      "id": "tg_7721_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4330.0,
+      "sl": null,
+      "tp": 500.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T14:56:48+00:00"
+    },
+    {
+      "id": "tg_7718_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "LONG",
+      "entry_price": 3334.0,
+      "sl": null,
+      "tp": 68.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T12:51:48+00:00"
+    },
+    {
+      "id": "tg_7716_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "LONG",
+      "entry_price": 4323.0,
+      "sl": null,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T15:04:31+00:00"
+    },
+    {
+      "id": "tg_7715_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "LONG",
+      "entry_price": 4292.0,
+      "sl": null,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T11:36:19+00:00"
+    },
+    {
+      "id": "tg_7714_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "LONG",
+      "entry_price": 4292.0,
+      "sl": null,
+      "tp": 130.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T10:50:10+00:00"
+    },
+    {
+      "id": "tg_7709_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "LONG",
+      "entry_price": 4543.0,
+      "sl": null,
+      "tp": 190.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T07:21:07+00:00"
+    },
+    {
+      "id": "tg_7708_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4600.0,
+      "sl": null,
+      "tp": 190.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-04T14:36:16+00:00"
+    },
+    {
+      "id": "tg_7705_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4564.0,
+      "sl": null,
+      "tp": 160.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-03T12:51:42+00:00"
+    },
+    {
+      "id": "tg_7704_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4515.0,
+      "sl": null,
+      "tp": 550.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-03T12:44:46+00:00"
+    },
+    {
+      "id": "tg_7702_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4515.0,
+      "sl": null,
+      "tp": 220.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-02T14:27:53+00:00"
+    },
+    {
+      "id": "tg_7700_20260611T100009",
+      "channel": "forexfever11",
+      "direction": "SHORT",
+      "entry_price": 4509.5,
+      "sl": null,
+      "tp": 395.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-01T13:24:33+00:00"
+    },
+    {
+      "id": "tg_29_20260611T100009",
+      "channel": "gold_forex_signals",
+      "direction": "SHORT",
+      "entry_price": 1244.3,
+      "sl": 1248.5,
+      "tp": 1235.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-12-13T04:15:02+00:00"
+    },
+    {
+      "id": "tg_26_20260611T100009",
+      "channel": "gold_forex_signals",
+      "direction": "LONG",
+      "entry_price": 1227.0,
+      "sl": 1224.0,
+      "tp": 1241.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-11-22T06:49:13+00:00"
+    },
+    {
+      "id": "tg_22_20260611T100009",
+      "channel": "gold_forex_signals",
+      "direction": "SHORT",
+      "entry_price": 1221.76,
+      "sl": 1223.45,
+      "tp": 1205.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-11-20T23:52:50+00:00"
+    },
+    {
+      "id": "tg_18_20260611T100009",
+      "channel": "gold_forex_signals",
+      "direction": "SHORT",
+      "entry_price": 1223.3,
+      "sl": 1227.0,
+      "tp": 1205.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-11-20T10:23:44+00:00"
+    },
+    {
+      "id": "tg_5_20260611T100009",
+      "channel": "gold_forex_signals",
+      "direction": "LONG",
+      "entry_price": 1216.14,
+      "sl": 1212.2,
+      "tp": 1230.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-11-16T10:20:19+00:00"
+    },
+    {
+      "id": "tg_190_20260611T100009",
+      "channel": "gold_signals_vip",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": 1918.0,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2023-09-06T08:53:26+00:00"
+    },
+    {
+      "id": "tg_189_20260611T100009",
+      "channel": "gold_signals_vip",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": 1936.0,
+      "tp": 191.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-09-06T01:29:16+00:00"
+    },
+    {
+      "id": "tg_870_20260611T100009",
+      "channel": "gold_trading_vip",
+      "direction": "SHORT",
+      "entry_price": 2913.0,
+      "sl": 2920.0,
+      "tp": 2911.5,
+      "confidence": "LOW",
+      "parsed_at": "2025-03-11T12:40:43+00:00"
+    },
+    {
+      "id": "tg_22977_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 4.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:42:20+00:00"
+    },
+    {
+      "id": "tg_22976_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:42:06+00:00"
+    },
+    {
+      "id": "tg_22974_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:41:35+00:00"
+    },
+    {
+      "id": "tg_22972_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:40:56+00:00"
+    },
+    {
+      "id": "tg_22970_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "LONG",
+      "entry_price": 4067.0,
+      "sl": 4057.0,
+      "tp": 4070.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T03:45:16+00:00"
+    },
+    {
+      "id": "tg_22932_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 4.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T01:29:31+00:00"
+    },
+    {
+      "id": "tg_22931_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T01:29:22+00:00"
+    },
+    {
+      "id": "tg_22929_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T01:29:04+00:00"
+    },
+    {
+      "id": "tg_22927_20260611T100009",
+      "channel": "goldmarket67",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T01:28:47+00:00"
+    },
+    {
+      "id": "tg_49688_20260611T100009",
+      "channel": "goldsnipers11",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 370.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:47:27+00:00"
+    },
+    {
+      "id": "tg_49686_20260611T100009",
+      "channel": "goldsnipers11",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:45:02+00:00"
+    },
+    {
+      "id": "tg_49684_20260611T100009",
+      "channel": "goldsnipers11",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:44:27+00:00"
+    },
+    {
+      "id": "tg_49671_20260611T100009",
+      "channel": "goldsnipers11",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:03:16+00:00"
+    },
+    {
+      "id": "tg_49670_20260611T100009",
+      "channel": "goldsnipers11",
+      "direction": "LONG",
+      "entry_price": 4149.0,
+      "sl": 4132.0,
+      "tp": 4154.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:01:59+00:00"
+    },
+    {
+      "id": "tg_29422_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "SHORT",
+      "entry_price": 2735.0,
+      "sl": 2745.0,
+      "tp": 2732.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-24T07:06:56+00:00"
+    },
+    {
+      "id": "tg_29419_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "SHORT",
+      "entry_price": 2731.0,
+      "sl": 2742.0,
+      "tp": 2727.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-24T06:24:46+00:00"
+    },
+    {
+      "id": "tg_29416_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "LONG",
+      "entry_price": 2727.0,
+      "sl": 2720.0,
+      "tp": 2730.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-24T06:07:36+00:00"
+    },
+    {
+      "id": "tg_29411_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "LONG",
+      "entry_price": 2747.0,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T12:22:33+00:00"
+    },
+    {
+      "id": "tg_29408_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "SHORT",
+      "entry_price": 2752.5,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T12:02:00+00:00"
+    },
+    {
+      "id": "tg_29406_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "LONG",
+      "entry_price": 2749.57,
+      "sl": 2742.66,
+      "tp": 2751.36,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T11:09:35+00:00"
+    },
+    {
+      "id": "tg_29404_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "LONG",
+      "entry_price": 2750.03,
+      "sl": 2742.7,
+      "tp": 2751.86,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T10:54:48+00:00"
+    },
+    {
+      "id": "tg_29403_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "LONG",
+      "entry_price": 2750.55,
+      "sl": 2743.36,
+      "tp": 2752.34,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T10:02:05+00:00"
+    },
+    {
+      "id": "tg_29399_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "LONG",
+      "entry_price": 2750.72,
+      "sl": 2743.21,
+      "tp": 2751.86,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T09:41:03+00:00"
+    },
+    {
+      "id": "tg_29395_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "SHORT",
+      "entry_price": 2757.0,
+      "sl": 2769.0,
+      "tp": 2747.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T08:19:34+00:00"
+    },
+    {
+      "id": "tg_29394_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "SHORT",
+      "entry_price": 2751.0,
+      "sl": 2763.0,
+      "tp": 2741.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T07:08:03+00:00"
+    },
+    {
+      "id": "tg_29391_20260611T100009",
+      "channel": "goldtradermofxx",
+      "direction": "LONG",
+      "entry_price": 2751.0,
+      "sl": 2746.0,
+      "tp": 2755.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-10-23T06:07:38+00:00"
+    },
+    {
+      "id": "tg_15021_20260611T100009",
+      "channel": "robertcroakgoldsignals",
+      "direction": "LONG",
+      "entry_price": 4089.0,
+      "sl": 4079.0,
+      "tp": 100.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T08:53:12+00:00"
+    },
+    {
+      "id": "tg_15017_20260611T100009",
+      "channel": "robertcroakgoldsignals",
+      "direction": "LONG",
+      "entry_price": 4107.0,
+      "sl": 4097.0,
+      "tp": 4117.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T08:12:12+00:00"
+    },
+    {
+      "id": "tg_15016_20260611T100009",
+      "channel": "robertcroakgoldsignals",
+      "direction": "SHORT",
+      "entry_price": 4104.0,
+      "sl": 4118.0,
+      "tp": 4100.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T08:10:52+00:00"
+    },
+    {
+      "id": "tg_14996_20260611T100009",
+      "channel": "robertcroakgoldsignals",
+      "direction": "SHORT",
+      "entry_price": 4166.5,
+      "sl": 4174.5,
+      "tp": 40.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T10:00:17+00:00"
+    },
+    {
+      "id": "tg_14993_20260611T100009",
+      "channel": "robertcroakgoldsignals",
+      "direction": "LONG",
+      "entry_price": 4183.0,
+      "sl": 4173.0,
+      "tp": 4193.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T09:00:17+00:00"
+    },
+    {
+      "id": "tg_14992_20260611T100009",
+      "channel": "robertcroakgoldsignals",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 3.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T07:41:49+00:00"
+    },
+    {
+      "id": "tg_699_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2676.7,
+      "sl": 2669.0,
+      "tp": 2680.0,
+      "confidence": "LOW",
+      "parsed_at": "2025-01-10T08:08:32+00:00"
+    },
+    {
+      "id": "tg_698_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2653.5,
+      "sl": 2645.5,
+      "tp": 2657.0,
+      "confidence": "LOW",
+      "parsed_at": "2025-01-08T08:56:43+00:00"
+    },
+    {
+      "id": "tg_696_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2605.0,
+      "sl": 2610.5,
+      "tp": 2599.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-31T06:22:17+00:00"
+    },
+    {
+      "id": "tg_695_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2626.8,
+      "sl": 2619.0,
+      "tp": 2630.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-27T11:35:26+00:00"
+    },
+    {
+      "id": "tg_694_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2635.0,
+      "sl": 2641.7,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-26T15:19:51+00:00"
+    },
+    {
+      "id": "tg_693_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2614.5,
+      "sl": 2619.0,
+      "tp": 2612.5,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-24T11:39:10+00:00"
+    },
+    {
+      "id": "tg_692_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2641.3,
+      "sl": 2649.0,
+      "tp": 2638.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-17T09:31:53+00:00"
+    },
+    {
+      "id": "tg_691_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2656.5,
+      "sl": 2662.5,
+      "tp": 2654.5,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-17T07:45:59+00:00"
+    },
+    {
+      "id": "tg_690_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2648.0,
+      "sl": 2653.5,
+      "tp": 2642.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-17T06:45:19+00:00"
+    },
+    {
+      "id": "tg_689_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2698.0,
+      "sl": 2699.0,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-11T10:18:31+00:00"
+    },
+    {
+      "id": "tg_688_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2693.6,
+      "sl": 2686.0,
+      "tp": 2697.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-11T08:32:04+00:00"
+    },
+    {
+      "id": "tg_687_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2649.7,
+      "sl": 2657.0,
+      "tp": 2646.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-09T08:19:16+00:00"
+    },
+    {
+      "id": "tg_686_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2639.5,
+      "sl": 2635.0,
+      "tp": 2647.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-09T05:41:04+00:00"
+    },
+    {
+      "id": "tg_685_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2645.0,
+      "sl": 2639.0,
+      "tp": 2648.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-12-02T13:46:51+00:00"
+    },
+    {
+      "id": "tg_684_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2657.3,
+      "sl": 2651.0,
+      "tp": 2661.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-29T08:47:39+00:00"
+    },
+    {
+      "id": "tg_683_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2633.0,
+      "sl": 2638.5,
+      "tp": 2626.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-28T06:00:31+00:00"
+    },
+    {
+      "id": "tg_682_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2648.3,
+      "sl": 2640.0,
+      "tp": 2652.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-27T08:48:47+00:00"
+    },
+    {
+      "id": "tg_681_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2623.5,
+      "sl": 2615.0,
+      "tp": 2627.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-26T09:40:01+00:00"
+    },
+    {
+      "id": "tg_680_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2642.94,
+      "sl": 2648.99,
+      "tp": 2639.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-25T14:28:58+00:00"
+    },
+    {
+      "id": "tg_679_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2624.0,
+      "sl": 2629.0,
+      "tp": 2621.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-20T11:31:15+00:00"
+    },
+    {
+      "id": "tg_678_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2624.2,
+      "sl": 2630.2,
+      "tp": 2623.2,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-19T06:56:48+00:00"
+    },
+    {
+      "id": "tg_677_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2610.0,
+      "sl": 2616.0,
+      "tp": 2607.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-18T15:01:30+00:00"
+    },
+    {
+      "id": "tg_676_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2667.0,
+      "sl": 2660.0,
+      "tp": 2669.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-06T16:34:20+00:00"
+    },
+    {
+      "id": "tg_675_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2742.0,
+      "sl": 2736.0,
+      "tp": 2744.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-05T12:30:04+00:00"
+    },
+    {
+      "id": "tg_674_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "SHORT",
+      "entry_price": 2741.0,
+      "sl": 2747.0,
+      "tp": 2740.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-04T12:06:25+00:00"
+    },
+    {
+      "id": "tg_672_20260611T100009",
+      "channel": "signalsGOLD1",
+      "direction": "LONG",
+      "entry_price": 2754.0,
+      "sl": 2752.0,
+      "tp": 2758.2,
+      "confidence": "LOW",
+      "parsed_at": "2024-11-01T14:05:28+00:00"
+    },
+    {
+      "id": "tg_699_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4390.0,
+      "sl": 4375.0,
+      "tp": 4400.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-27T13:40:30+00:00"
+    },
+    {
+      "id": "tg_695_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4517.0,
+      "sl": 4500.0,
+      "tp": 4522.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-26T05:54:42+00:00"
+    },
+    {
+      "id": "tg_687_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4696.0,
+      "sl": 4680.0,
+      "tp": 4700.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-12T06:04:38+00:00"
+    },
+    {
+      "id": "tg_684_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4663.0,
+      "sl": 4645.0,
+      "tp": 4669.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-11T05:26:09+00:00"
+    },
+    {
+      "id": "tg_682_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "SHORT",
+      "entry_price": 4765.0,
+      "sl": 4780.0,
+      "tp": 4760.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-07T14:28:26+00:00"
+    },
+    {
+      "id": "tg_677_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4545.0,
+      "sl": 4530.0,
+      "tp": 4550.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-05T16:32:34+00:00"
+    },
+    {
+      "id": "tg_672_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4562.0,
+      "sl": 4548.0,
+      "tp": 4567.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-01T08:23:33+00:00"
+    },
+    {
+      "id": "tg_671_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4538.0,
+      "sl": 4528.0,
+      "tp": 4543.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-04-29T16:54:37+00:00"
+    },
+    {
+      "id": "tg_667_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4572.0,
+      "sl": 4555.0,
+      "tp": 4580.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-04-28T11:11:24+00:00"
+    },
+    {
+      "id": "tg_665_20260611T100009",
+      "channel": "trading_signals_gold",
+      "direction": "LONG",
+      "entry_price": 4646.0,
+      "sl": 4620.0,
+      "tp": 4652.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-04-27T19:41:19+00:00"
+    },
+    {
+      "id": "tg_1445_20260611T100009",
+      "channel": "usdjpy_xauusd_forex_signals",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": 28.0,
+      "tp": 28970.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T09:50:31+00:00"
+    },
+    {
+      "id": "tg_1435_20260611T100009",
+      "channel": "usdjpy_xauusd_forex_signals",
+      "direction": "SHORT",
+      "entry_price": 4085.0,
+      "sl": null,
+      "tp": 4080.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:25:06+00:00"
+    },
+    {
+      "id": "tg_1428_20260611T100009",
+      "channel": "usdjpy_xauusd_forex_signals",
+      "direction": "LONG",
+      "entry_price": 4157.0,
+      "sl": 4140.0,
+      "tp": 4166.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T12:49:49+00:00"
+    },
+    {
+      "id": "tg_1420_20260611T100009",
+      "channel": "usdjpy_xauusd_forex_signals",
+      "direction": "SHORT",
+      "entry_price": 4214.0,
+      "sl": 4230.0,
+      "tp": 4209.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T06:35:13+00:00"
+    },
+    {
+      "id": "tg_30613_20260611T100009",
+      "channel": "vasilytradersignalforex",
+      "direction": "SHORT",
+      "entry_price": 4170.0,
+      "sl": 4180.0,
+      "tp": 4160.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T12:32:22+00:00"
+    },
+    {
+      "id": "tg_30608_20260611T100009",
+      "channel": "vasilytradersignalforex",
+      "direction": "SHORT",
+      "entry_price": 4168.0,
+      "sl": 4178.0,
+      "tp": 4158.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T09:16:51+00:00"
+    },
+    {
+      "id": "tg_30605_20260611T100009",
+      "channel": "vasilytradersignalforex",
+      "direction": "LONG",
+      "entry_price": 4170.0,
+      "sl": 4160.0,
+      "tp": 4180.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T08:23:05+00:00"
+    },
+    {
+      "id": "tg_30601_20260611T100009",
+      "channel": "vasilytradersignalforex",
+      "direction": "SHORT",
+      "entry_price": 4328.0,
+      "sl": 4338.0,
+      "tp": 4318.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T14:11:23+00:00"
+    },
+    {
+      "id": "tg_30598_20260611T100009",
+      "channel": "vasilytradersignalforex",
+      "direction": "SHORT",
+      "entry_price": 4352.0,
+      "sl": 4362.0,
+      "tp": 4342.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T13:51:31+00:00"
+    },
+    {
+      "id": "tg_30595_20260611T100009",
+      "channel": "vasilytradersignalforex",
+      "direction": "SHORT",
+      "entry_price": 4332.0,
+      "sl": 4342.0,
+      "tp": 4322.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T13:33:21+00:00"
+    },
+    {
+      "id": "tg_30591_20260611T100009",
+      "channel": "vasilytradersignalforex",
+      "direction": "LONG",
+      "entry_price": 4288.5,
+      "sl": 4278.5,
+      "tp": 4298.5,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T10:06:32+00:00"
+    },
+    {
+      "id": "tg_30590_20260611T100009",
+      "channel": "vasilytradersignalforex",
+      "direction": "LONG",
+      "entry_price": 4288.5,
+      "sl": 4228.5,
+      "tp": 4298.5,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T10:04:29+00:00"
+    },
+    {
+      "id": "tg_31399_20260611T100009",
+      "channel": "wfr_analysis",
+      "direction": "SHORT",
+      "entry_price": 4152.0,
+      "sl": 4171.0,
+      "tp": 4125.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:03:54+00:00"
+    },
+    {
+      "id": "tg_31391_20260611T100009",
+      "channel": "wfr_analysis",
+      "direction": "SHORT",
+      "entry_price": 4342.0,
+      "sl": 4353.0,
+      "tp": 4321.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T12:15:16+00:00"
+    },
+    {
+      "id": "tg_31389_20260611T100009",
+      "channel": "wfr_analysis",
+      "direction": "SHORT",
+      "entry_price": 4328.5,
+      "sl": 4344.0,
+      "tp": 4305.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T08:50:56+00:00"
+    },
+    {
+      "id": "tg_31370_20260611T100009",
+      "channel": "wfr_analysis",
+      "direction": "SHORT",
+      "entry_price": 4465.0,
+      "sl": 4480.0,
+      "tp": 4441.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-05T12:40:19+00:00"
+    },
+    {
+      "id": "tg_5659_20260611T100009",
+      "channel": "xauusd",
+      "direction": "LONG",
+      "entry_price": 4184.0,
+      "sl": 4174.0,
+      "tp": 4194.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T07:56:44+00:00"
+    },
+    {
+      "id": "tg_1475_20260611T100009",
+      "channel": "xauusd_free_signals",
+      "direction": "SHORT",
+      "entry_price": 1910.0,
+      "sl": null,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2023-03-14T12:44:27+00:00"
+    },
+    {
+      "id": "tg_1453_20260611T100009",
+      "channel": "xauusd_free_signals",
+      "direction": "LONG",
+      "entry_price": 1828.0,
+      "sl": 1820.0,
+      "tp": 1839.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-03-07T14:52:37+00:00"
+    },
+    {
+      "id": "tg_3621_20260611T100009",
+      "channel": "xauusd_signals",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 4.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T16:01:22+00:00"
+    },
+    {
+      "id": "tg_987_20260611T100009",
+      "channel": "xauusd_trading_free",
+      "direction": "LONG",
+      "entry_price": 4078.0,
+      "sl": 4045.0,
+      "tp": 4084.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:10:37+00:00"
+    },
+    {
+      "id": "tg_984_20260611T100009",
+      "channel": "xauusd_trading_free",
+      "direction": "LONG",
+      "entry_price": 4080.0,
+      "sl": null,
+      "tp": 4085.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:15:46+00:00"
+    },
+    {
+      "id": "tg_972_20260611T100009",
+      "channel": "xauusd_trading_free",
+      "direction": "LONG",
+      "entry_price": 4148.0,
+      "sl": 4138.0,
+      "tp": 4158.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:31:34+00:00"
+    },
+    {
+      "id": "tg_971_20260611T100009",
+      "channel": "xauusd_trading_free",
+      "direction": "LONG",
+      "entry_price": 4158.0,
+      "sl": 4130.0,
+      "tp": 4162.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:00:48+00:00"
+    },
+    {
+      "id": "tg_1711_20260611T100009",
+      "channel": "xauusd_trading_gold_signals",
+      "direction": "SHORT",
+      "entry_price": 4092.5,
+      "sl": 4110.5,
+      "tp": 4089.8,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:28:37+00:00"
+    },
+    {
+      "id": "tg_172_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "LONG",
+      "entry_price": 2370.0,
+      "sl": 2360.0,
+      "tp": 2380.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-16T07:02:05+00:00"
+    },
+    {
+      "id": "tg_171_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "LONG",
+      "entry_price": 2354.0,
+      "sl": 2343.0,
+      "tp": 2358.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-15T02:09:35+00:00"
+    },
+    {
+      "id": "tg_168_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "SHORT",
+      "entry_price": 2377.0,
+      "sl": 2390.0,
+      "tp": 2360.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-12T16:33:32+00:00"
+    },
+    {
+      "id": "tg_165_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "SHORT",
+      "entry_price": 2391.0,
+      "sl": 2400.0,
+      "tp": 2380.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-12T11:27:26+00:00"
+    },
+    {
+      "id": "tg_161_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "LONG",
+      "entry_price": 2330.0,
+      "sl": 2320.0,
+      "tp": 2335.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-11T09:24:13+00:00"
+    },
+    {
+      "id": "tg_158_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "SHORT",
+      "entry_price": 2271.0,
+      "sl": 2281.0,
+      "tp": 2265.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-03T12:35:08+00:00"
+    },
+    {
+      "id": "tg_157_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "SHORT",
+      "entry_price": 2262.0,
+      "sl": 2268.0,
+      "tp": 2258.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-02T08:35:15+00:00"
+    },
+    {
+      "id": "tg_153_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "SHORT",
+      "entry_price": 2257.7,
+      "sl": 2265.0,
+      "tp": 2255.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-02T07:56:13+00:00"
+    },
+    {
+      "id": "tg_152_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "LONG",
+      "entry_price": 2257.0,
+      "sl": null,
+      "tp": 2260.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-01T09:17:58+00:00"
+    },
+    {
+      "id": "tg_148_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-03-28T14:09:19+00:00"
+    },
+    {
+      "id": "tg_147_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-03-28T14:07:49+00:00"
+    },
+    {
+      "id": "tg_143_20260611T100009",
+      "channel": "xauusd_trading_signals",
+      "direction": "SHORT",
+      "entry_price": 2211.0,
+      "sl": 2215.0,
+      "tp": 2207.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-03-28T10:57:46+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

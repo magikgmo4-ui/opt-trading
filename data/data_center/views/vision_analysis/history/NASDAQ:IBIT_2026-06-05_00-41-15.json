@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_044123_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:41:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-41-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 35.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 38.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 38.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prévoir ventes sous 38.00 avec cible 35.50",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 38.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte claire : baissière, avec une série de Lower Highs (LH) et Lower Lows (LL) formée depuis fin mai.  \n- Structure fragile avec tentative de rebond à court terme mais sans confirmation de retournement.  \n- Zone clé résistante autour de 38.00-38.50 USD, support immédiat vers 35.50 USD.  \n\nB) Chart unique (NASDAQ:IBIT 1h):  \nLe graphique montre une nette tendance baissière marquée par des Lower Highs et Lower Lows depuis fin mai, indiquant une structure de marché baissière. Le prix tente un rebond depuis un plus bas récent vers 35.50 USD, mais il peine à franchir la résistance vers 38.00-38.50 USD. L’absence de création de Higher Highs suggère que le biais vendeur reste dominant. Le scénario prioritaire est une continuation baissière sous la zone 38 USD, avec potentiel test du support à 35.50 USD. Invalidation du scénario bear si le prix dépasse durablement 38.50 USD, signalant une possible reprise haussière.  \n\nC) DeskPro  \n{\"run_id\":\"r1\",\"charts\":[{\"slo",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-41-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-05_00-41-05.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_125050_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T08:50:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-50-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short en cassure support ou rebond à résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture et maintien >1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur 1h avec succession de LL (Lower Lows) et LH (Lower Highs).  \n- Structure sans rebond significatif, signalant une pression vendeuse forte.  \n- Zone clé support potentielle vers 1520-1530, résistance majeure proche 1625-1650.\n\nB) Chart unique (ETHUSDT.P 1h): Tendance baissière dominante avec structure en LL/LH. Le prix teste une zone de support autour de 1520-1530 qui a déjà montré des réactions. Résistance immédiate identifiée entre 1625 et 1650, où le prix a buté plusieurs fois. Scénario principal : continuation de la baisse si support cassé. Scénario alternative : rebond technique vers résistance. Invalidation si rupture claire du dernier LH vers le haut, à 1650+.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[\"1520\",\"1530\"],\"resistances\":[\"1625\",\"1650\"],\"plan\":\"short en cassure support ou rebond à résistance\",\"invalidation\":\"rupture et maintien >1650\"}]}",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-50-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_08-50-33.png"
+  }
+}

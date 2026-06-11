@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_092527_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T05:25:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-25-17",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "pas de plan faute d'infos",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de plan faute d'infos",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4325.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur cassure de 4325, viser continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de plan faute d'infos",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte chute récente visible sur le graphique principal, retournement baissier marqué.  \n- Structure globalement baissière avec des LL/HL instables, zone de support testée en bas.  \n- Volume en hausse sur la chute, scénario de poursuite possible à la baisse si support casse.\n\nB) Chart 1 (haut-gauche): inconnu (pas clairement lisible le symbole ni timeframe)  \nImpossible de faire une analyse précise sans ces informations. Pas de tendance claire visible, structure floue. Zones clés non identifiées.\n\nC) Chart 2 (haut-droit): inconnu  \nGraphique partiellement visible, pas de donnée nette pour déterminer tendance ou structure. Aucun scénario clair à envisager, support et résistance non définis.\n\nD) Chart 3 (bas-gauche): XAUUSD 1h (Gold Spot / U.S. Dollar)  \nTendance baissière nette avec des LL successifs. Structure casse les HL précédents, renforçant ce biais. Support clé vers 4325 testé fortement. Volume augmente lors des baisses, indiquant pression vendeuse. Résistance",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-25-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_05-24-59.png"
+  }
+}

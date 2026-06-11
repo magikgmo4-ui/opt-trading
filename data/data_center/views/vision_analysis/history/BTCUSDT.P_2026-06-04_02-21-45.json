@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_062152_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T02:21:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-21-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller réaction à 65000 pour prise de position; bearish en échec si cassure haute",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 65000 USDT en 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m baissière nette, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Rebond récent formant un Higher Low (HL) provisoire, possible début d’une correction.\n- Zones clés à surveiller : résistance vers 65 000 USDT, support majeur autour de 63 000 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):\nStructure baissière claire (LH/LL) jusqu’au plus bas récent proche de 62 800 USDT. Depuis, rebond formant un HL autour de 63 200 USDT. L’amorce de reprise est fragile, résistance immédiate près de 65 000 USDT. Un franchissement clair de cette résistance invaliderait la pression vendeuse court terme. En cas d’échec, retour probable vers le support 63 000-62 800 USDT et potentielle poursuite baissière.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL avec HL récent\",\"supports\":[\"63200\",\"62800\"],\"resistances\":[\"65000\"],\"plan\":\"Surveiller réaction à 65000 pour prise de position; bearish en échec si cassure haute\",\"invalidation\":\"clôt",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-21-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_02-21-38.png"
+  }
+}

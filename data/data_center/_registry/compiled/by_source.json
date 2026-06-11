@@ -1,0 +1,135 @@
+{
+  "derivatives_collector__bitget": {
+    "contract_class": "market_metrics.v1",
+    "data_keys": [
+      "open_interest",
+      "funding_rate",
+      "volume_futures",
+      "long_short_ratio",
+      "liquidations_long",
+      "liquidations_short"
+    ],
+    "family": "derivatives",
+    "output_path": "data/data_center/derivatives/derivatives_collector__bitget/",
+    "score_components": {
+      "source_reliability": 0.5,
+      "freshness": 0.0,
+      "completeness": 0.0
+    },
+    "last_write": null
+  },
+  "derivatives_collector__binance": {
+    "contract_class": "market_metrics.v1",
+    "data_keys": [
+      "open_interest",
+      "funding_rate",
+      "volume_futures",
+      "long_short_ratio",
+      "liquidations_long",
+      "liquidations_short"
+    ],
+    "family": "derivatives",
+    "output_path": "data/data_center/derivatives/derivatives_collector__binance/",
+    "score_components": {
+      "source_reliability": 0.5,
+      "freshness": 0.0,
+      "completeness": 0.0
+    },
+    "last_write": null
+  },
+  "collector_binance_spot": {
+    "contract_class": "pair_market_snapshot.v1",
+    "data_keys": [
+      "last_price",
+      "open_price_24h",
+      "high_price_24h",
+      "low_price_24h",
+      "volume_24h",
+      "quote_volume_24h",
+      "price_change_24h",
+      "price_change_pct_24h",
+      "trading_status"
+    ],
+    "family": "spot",
+    "output_path": "data/data_center/spot/collector_binance_spot/",
+    "score_components": {
+      "source_reliability": 0.5,
+      "freshness": 0.0,
+      "completeness": 0.0
+    },
+    "last_write": null
+  },
+  "bot_vision_headless": {
+    "contract_class": "vision_analysis.v1",
+    "data_keys": [
+      "support_level",
+      "resistance_level",
+      "trend_direction",
+      "key_level",
+      "invalidation_level",
+      "price_target"
+    ],
+    "family": "vision",
+    "output_path": "data/data_center/views/vision_analysis/",
+    "score_components": {
+      "source_reliability": 0.5,
+      "freshness": 0.0,
+      "completeness": 0.0
+    },
+    "last_write": null
+  },
+  "bot_vision_headless__coinglass": {
+    "contract_class": "vision_context.coinglass.v1",
+    "data_keys": [
+      "liquidations_long",
+      "liquidations_short",
+      "liquidation_heatmap_level",
+      "funding_rate",
+      "open_interest",
+      "open_interest_change_24h",
+      "long_short_ratio"
+    ],
+    "family": "vision",
+    "output_path": "data/data_center/views/vision_context/coinglass/",
+    "score_components": {
+      "source_reliability": 0.5,
+      "freshness": 0.0,
+      "completeness": 0.0
+    },
+    "last_write": null
+  },
+  "bot_vision_headless__screener": {
+    "contract_class": "vision_context.screener.v1",
+    "data_keys": [
+      "stock_price",
+      "stock_change_pct",
+      "stock_volume"
+    ],
+    "family": "vision",
+    "output_path": "data/data_center/views/vision_context/screener/",
+    "score_components": {
+      "source_reliability": 0.5,
+      "freshness": 0.0,
+      "completeness": 0.0
+    },
+    "last_write": null
+  },
+  "bot_vision_headless__news_sentiment": {
+    "contract_class": "vision_context.news_sentiment.v1",
+    "data_keys": [
+      "sentiment_score",
+      "article_count",
+      "positive_count",
+      "negative_count",
+      "neutral_count"
+    ],
+    "family": "vision",
+    "output_path": "data/data_center/views/vision_context/news_sentiment/",
+    "score_components": {
+      "source_reliability": 0.5,
+      "freshness": 0.0,
+      "completeness": 0.0
+    },
+    "last_write": null
+  }
+}

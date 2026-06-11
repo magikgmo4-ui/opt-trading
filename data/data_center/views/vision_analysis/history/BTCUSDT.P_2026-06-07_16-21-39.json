@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_202147_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T16:21:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_16-21-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59.0,
+      "confidence": 0.7,
+      "note": "s 59"
+    },
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.7,
+      "note": "s 60"
+    },
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.7,
+      "note": "support 61000"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière claire depuis le début du graphique avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente montre un rebond et consolidation autour de 61 000-63 000, formant une possible base.\n- Zone de résistance clé proche à 64 000 ; invalidation du rebond en dessous de 60 500.\n\nB) Chart unique (BTCUSDT.P 1h) : \nLe graphique présente une forte tendance baissière avec une structure HH/HL cassée puis suivie de LH/LL. Après un creux vers 59 500, un rebond s’installe jusque 63 000, formant un HL mais reste sous la résistance forte autour de 64 000. Le prix consolide actuellement entre 61 000 et 63 000, zone de support à surveiller pour valider maintien ou poursuite de rebond. Scénario haussier si franchissement de 64 000 avec confirmation; invalidation sous 60 500 qui relancerait la baisse.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond\",\"structure\":\"LH/LL avec HL récent\",\"supports\":[61000,60500],\"re",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_16-21-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_16-21-31.png"
+  }
+}

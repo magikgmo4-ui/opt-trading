@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_093556_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T05:35:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-35-46",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher confirmation de rebond sur support 1600-1620 pour prise de position scalping / swing, viser résistance 1700. Stop si cassure en dessous de 1600.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure et clôture sous 1600 invalide le rebond, continuation baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global:\n- Tendance baissière claire en 15m avec une série de LL et LH cassés à la baisse.\n- Structure actuelle en tentative de rebond (premier HL intra-session) après un fort mouvement baissier.\n- Zone clé support vers 1600-1620 pour le potentiel rebond, résistance immédiate à 1700-1720 à surveiller.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe graphique montre un mouvement baissier bien établi marqué par plusieurs Lower Highs (LH) et Lower Lows (LL). La récente cassure sous le support 1720-1740 a accéléré la chute jusqu’à une zone de support majeur vers 1600-1620 où une reprise haussière tente de se mettre en place avec un premier HL formé. La tendance générale reste baissière tant que le prix reste sous les résistances à 1700 puis 1740. Un breakout au-dessus validerait un potentiel retournement ou reflux. En invalidation, la rupture sous 1600 annulerait ce rebond.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH avec tentative HL\",\"supports",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-35-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_05-35-39.png"
+  }
+}

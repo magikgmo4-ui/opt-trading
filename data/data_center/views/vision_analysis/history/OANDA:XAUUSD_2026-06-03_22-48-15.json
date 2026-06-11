@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_024824_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:48:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-48-15",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short sous résistance avec stop au-dessus des 4570",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement des 4570",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence majoritaire d’une tendance baissière avec des phases de retracement.  \n- Structures alternant LH/LL indiquant un marché sous pression vendeuse.  \n- Zones clés à surveiller proches des derniers sommets et creux pour validation ou invalidation des retournements.  \n\nB) Chart 1 (haut-gauche)  \nLe graphique montre une tendance baissière clairement établie, avec des Lower Highs (LH) et Lower Lows (LL) successifs. Le prix a récemment effacé une partie de la baisse via un retracement vers une ancienne zone de support maintenant potentiellement résistance (zone des 4530-4560). Structure sous résistance importante, à surveiller un rejet baissier. Le scénario privilégié reste la continuité de la baisse si le prix est rejeté ici. Invalidation possible en cas de franchissement clair des 4570.  \n\nC) Chart 2 (haut-droit)  \nInconnu (aucune information visible ou lisible sur ce graphique).  \n\nD) Chart 3 (bas-gauche)  \nInconnu (aucune information visible ou lisible sur ce g",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-48-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_22-48-04.png"
+  }
+}

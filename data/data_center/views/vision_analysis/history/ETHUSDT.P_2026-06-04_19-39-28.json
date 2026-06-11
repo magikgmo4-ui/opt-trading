@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_233937_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T19:39:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-39-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "korter sous 1740 ou attendre cassure 1800 pour achats",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage net au-dessus de 1820 confirmant un HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une série de plus bas et plus bas (LL) bien marquée.  \n- Stabilisation récente sous forme de range horizontal autour de 1760-1780, traduisant une consolidation.  \n- Zone clé support proche des 1740 à surveiller, résistance immédiate vers 1780-1800.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa structure est baissière (LL/LL), avec un retracement avant recompression latérale. Le prix oscille dans un range court terme, zone support vers 1740 servant de base. Résistance à valider vers 1780-1800. Scénario prudent de continuation baissière sous 1740. Une cassure nette au-dessus d’environ 1800 indiquerait une possible inversion ou correction plus ample. Invalidation de la tendance baissière si le prix fait un HH au-dessus des récents sommets vers 1800-1820.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LL\",\"supports\":[1740],\"resistances\":[1780,1800],\"plan\":\"korter sous 1740 ou attendre cassure 1800 po",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-39-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_19-39-21.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_051044_BITGET:BZUSDT_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BITGET:BZUSDT",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-07T01:10:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-10-39",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "impossible a definir, graphique indisponible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le symbole BITGET:BZUSDT sur timeframe 4h est invalide ou indisponible.  \n- Impossible d'analyser la tendance, la structure ou les zones clés sans données graphiques.  \n- Le scénario et point d'invalidation ne peuvent être déterminés.  \n\nB) Chart unique (BITGET:BZUSDT 4h): Indisponible, symbole invalide, données graphiques absentes.\n\nC) DeskPro {\"run_id\":\"auto_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible a definir, graphique indisponible\",\"invalidation\":\"inconnue\"}]}",
+  "symbols_found": [
+    "BITGET:BZUSDT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-10-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BITGET:BZUSDT_4h_2026-06-07_01-10-27.png"
+  }
+}

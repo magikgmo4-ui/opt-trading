@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_134126_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:41:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-41-16",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller réaction proche résistance pour confirmer continuation ou retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close sous 1830",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Correction marquée sur ETHUSDT sur la période récente avec une tentative de reprise actuellement.  \n- Volatilité importante avec volume plus élevé lors des phases baissières.  \n- Zones clés de support à surveiller vers 1820-1850, résistance immédiate vers 1880-1890.\n\nB) Chart 1 (haut-gauche): ETHUSDT 15m  \nTendance baissière dominante visible, structure en LH/LL depuis le pic vers 2020. Récente réaction haussière forme un HL provisoire mais en attente de confirmation. Zones clés: support à 1830-1850 (ancienne zone de congestion + volume élevé), résistance autour de 1880-1890 (point de rejet récent). Scénario idéal: consolidation puis nouveau test des résistances pour valider ou invalider le retournement. Invalidation du scénario haussier si break en dessous du support 1830.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non identifiables clairement sur l’image, analyse impossible.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole et timeframe non identifiables ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-41-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_09-41-09.png"
+  }
+}

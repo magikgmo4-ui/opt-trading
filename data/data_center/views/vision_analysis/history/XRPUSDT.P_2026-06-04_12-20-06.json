@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_162014_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T12:20:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-20-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.135,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "favoriser shorts sous 1.180 avec arrêt serré au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair au-dessus de 1.180",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec une succession de bas plus bas (LL) et de points hauts plus bas (LH).  \n- Structure en repli marqué, support clé récent autour de 1.135, résistance proche vers 1.180.  \n- Scénario prioritaire : poursuite du range baissier sous résistance 1.180, invalide en cas de franchissement clair de ce niveau.\n\nB) Chart unique (XRPUSDT.P 15m) :  \nLe graphique montre une tendance baissière dominante avec des swings baissiers successifs et des mouvements de reprise limités. La structure est formée de plus bas et plus hauts décroissants (LL/LH). Un support important est visible vers 1.135 (plus bas récent et zone de volume élevée). La zone des 1.180 sert de résistance intraday multiple. Le prix évolue actuellement dans ce range. Un rebond en direction de 1.180 est possible, mais la pression vendeuse semble prioritaire. Invalidaton du scénario baissier si le prix dépasse 1.180 avec conviction.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"sin",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-20-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_12-19-53.png"
+  }
+}

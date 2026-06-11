@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_175804_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T13:58:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-57-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller fracture claire du range pour prise de position. Short sous 60000 avec stop au dessus de 61000. Long possible au-dessus de 61000 avec cible 61500+.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "hausse franchissant durablement 61500 invalide la tendance baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante sur le timeframe 15m, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente latérale entre 60 750 et 60 000, indiquant une possible phase de consolidation ou pause.\n- Zone clé de support vers 60 000, résistance majeure à 61 000; un franchissement net de ces niveaux définira le prochain mouvement.\n\nB) Chart unique (BTCUSDT.P 15m): Le marché affiche une tendance baissière claire avec un enchaînement de LH/LL depuis le sommet vers 64 500. Après un creux vers 59 000, la paire a rebondi mais sans casser le précédent sommet intermédiaire, formant ainsi un range horizontal majeur. La structure suggère une attente d’une décision entre reprise baissière (retour vers 59 000) ou cassure haussière au-dessus des 61 000. Volume global en diminution, validant la phase d’attente.\n\nC) DeskPro {\"run_id\":\"20240618_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL puis range horizontal\",\"supports\":[60000,59000],\"resist",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-57-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_13-57-46.png"
+  }
+}

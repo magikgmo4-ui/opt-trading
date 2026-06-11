@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_071236_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T03:12:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-12-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre dans les rebonds sur résistance, viser le test du support 1600. Acheter si cassure et maintien au-dessus de 1750.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Prix au-dessus de 1750 validant un retournement haussier potentiel",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur ce timeframe 1h.  \n- Structure en LH (Lower High) et LL (Lower Low) confirmée par les creux et sommets descendantes.  \n- Zone clé de support potentielle autour de 1600 USDT à surveiller, avec résistance proche vers 1750 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une chute marquée du prix Ethereum face au Tether sur l’heure. La tendance principale est baissière, caractérisée par des sommets et creux inférieurs (LH/LL). Un support psychologique et technique se situe récemment à environ 1600, où le cours semble tenter un rebond. La prochaine résistance se trouve autour de 1750, niveau qui pourrait servir de point de sortie en cas de correction. Le volume augmente lors des baisses, ce qui confirme la pression vendeuse. Le scénario dominant reste la continuation baissière sauf franchissement ferme des résistances. Invalidation de ce scénario à la remontée au-dessus de 1750.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slo",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-12-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_03-12-15.png"
+  }
+}

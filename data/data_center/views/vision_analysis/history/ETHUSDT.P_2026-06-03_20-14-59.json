@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_001507_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T20:15:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_20-14-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rejection ou breakout 1840-1850 pour prendre position. Vendre en échec, acheter après breakout confirmé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure sous 1780 pour abandon du scénario de rebond",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec tentative de rebond formant un Higher Low (HL) potentiel autour de 1 780 USD.  \n- Zone clé résistance vers 1 840-1 850 USD à surveiller pour confirmer reprise ou poursuite de la baisse.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance baissière nette sur le timeframe 15m, caractérisée par des Lower Highs et Lower Lows marqués. Un rebond récent a permis de former un higher low vers 1 780 USD, mais la structure reste incertaine tant que la résistance majeure entre 1 840 et 1 850 USD n'est pas franchie. Une cassure sous 1 780 invaliderait le scénario de retournement et relancerait la pression vendeuse. Le scénario prioritaire reste donc une poursuite baissière en cas d’échec sur la zone de résistance.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL potentiel\",\"supports\":[\"1780\"],\"resistanc",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_20-14-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_20-14-51.png"
+  }
+}

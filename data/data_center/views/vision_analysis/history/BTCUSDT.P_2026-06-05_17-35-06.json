@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_213517_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T17:35:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-35-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond vers 62000-63000, viser retour vers 60000 ou moins",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire > 63500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière dominante sur la majorité des graphiques.  \n- Structure clairement en baisse (LH/LL) avec quelques rebonds techniques en cours.  \n- Zones clés de supports testées, possible rebond mais risque de reprise baissière si invalidation.  \n\nB) Chart 1 (haut-gauche):  \n- Graphique BTCUSDT 1h, tendance baissière claire avec des Lower Highs (LH) et Lower Lows (LL).  \n- Breakdown récent d’un support vers 62k, suivi d’un test de zone 60k-61k.  \n- Volume en hausse sur les baisses, validant la pression vendeuse.  \n- Zones clés : Résistance autour 62k, support majeur 59.5k-60k.  \n- Scénario privilégié : rebond technique possible à 60k avant nouvelle jambe baissière.  \n- Invalidation : franchissement durable au-dessus de 63.5k remettrait en cause la dynamique baissière.  \n\nC) Chart 2 (haut-droit):  \n- Inconnu (symbole/timeframe illisible).  \n\nD) Chart 3 (bas-gauche):  \n- Inconnu (symbole/timeframe illisible).  \n\nE) Chart 4 (bas-droit):  \n- Inconnu (symbole/",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-35-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_17-34-51.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_170049_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:00:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-00-40",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short sous 65 000 avec cible 63 000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture stable > 68 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché crypto en forte pression vendeuse sur le court terme, notamment Bitcoin en baisse nette.  \n- Volatilité élevée avec des zones de support testées vigoureusement mais tenant encore partiellement.  \n- Polarisation négative dominante, vigilance sur les niveaux clés pour détecter un retournement ou poursuite baissière.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance baissière claire, structure en LH (Lower High) et LL (Lower Low) confirmée.  \n- Support clé vers 65 000 USD, testé plusieurs fois sans cassure nette à la clôture.  \n- Résistance autour 67 500 USD marquant un point de rejet.  \n- Scénario principal : poursuite de la baisse sous 65 000 USD avec extension vers 63 000 USD.  \n- Invalidation : retour durable au-dessus de 68 000 USD avec structure HL (Higher Low).  \n\nC) Chart 2 (haut-droit): inconnu  \n- Symbole et timeframe non identifiables.  \n- Impossible de fournir analyse fiable.  \n\nD) Chart 3 (bas-gauche): inconnu  \n- Symbole et timeframe non lisibl",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-00-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_13-00-26.png"
+  }
+}

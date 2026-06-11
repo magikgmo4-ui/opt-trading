@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_201404_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T16:14:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-13-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short privilégié sous 1780 avec stop au-dessus, cible sur 1740 puis 1720. En cas de cassure 1780, tentative d'achat limitée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "remontée durable au-dessus de 1820",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Stabilisation récente autour de 1760-1780, zone de support court terme.\n- Scénario possible de rebond technique, mais invalidation sous 1740 remettra en cause tout retour haussier.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa structure présente un mouvement dominant baissier avec une succession de LH et LL bien marqués. Le prix semble actuellement consolider entre 1760 (support) et 1780 (résistance) après un plus bas vers 1720. Le volume baisse en phase de consolidation, signe d’hésitation. Une cassure haute au-dessus de 1780 pourrait initier une correction haussière localisée (HL), tandis qu’une cassure sous 1740 validerait la poursuite de la baisse (LL). À court terme, la vigilance reste de mise, la tendance baissière reste favorite tant que les niveaux clés ne sont pas renversés.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH, LL, consolidat",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-13-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_16-13-48.png"
+  }
+}

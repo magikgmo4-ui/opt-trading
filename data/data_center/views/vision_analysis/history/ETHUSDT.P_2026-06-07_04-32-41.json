@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_083248_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T04:32:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-32-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1560.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1630.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat breakout >1630, stop <1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "<1560",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m baissière confirmée jusqu'à minuit environ, avec structure de bas en bas (LH et LL) pendant la première moitié.  \n- Depuis tôt ce matin, tentative de retournement haussier visible, avec création de HH et HL.  \n- Zone clé résistance vers 1620-1630 à surveiller pour confirmer la poursuite haussière ou un rejet baissier.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nStructure passée de baisse (LH/LL) à une accroche haussière récente (HH/HL), signalant un potentiel début de retournement.  \nSupports notables autour de 1540-1560 (anciens bas) et 1580 (points de rebond intermédiaires).  \nRésistance importante à 1620-1630, zone à breakout pour validation du scénario haussier.  \nPlan : Achat à la confirmation d’un breakout clair au-dessus de 1630 avec stop sous 1580.  \nInvalidation : Recul en dessous de 1560 confirmerait la reprise de la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"transition LH/LL à HH/HL\",\"s",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-32-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_04-32-32.png"
+  }
+}

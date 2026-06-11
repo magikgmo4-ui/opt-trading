@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_192736_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:27:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-27-24",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Chercher continuation baissière sous 65 000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture journalière > 67 500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d'une forte tendance baissière sur l'actif principal visible (BTC/USDT 15m).  \n- Absence d’autres symboles/timeframes lisibles pour les autres graphiques.  \n- Volumes en légère hausse sur les replis, possible intérêt acheteur local.\n\nB) Chart 1 (haut-gauche): BTC/USDT 15m  \nTendance clairement baissière avec structure en LH (Lower High) et LL (Lower Low) confirmée. Les baissiers dominent malgré quelques phases de retracement. Zone clé support proche de 65 000 USDT, sous laquelle la baisse pourrait s’accélérer. Résistance majeure autour de 67 500 USDT, zone de plusieurs rejets. Scénario principal: poursuivre la baisse vers 64 000 puis 62 000 si support cassé. Invalidation du scénario baissier en clôture quotidienne au-dessus de 67 500 USDT.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non lisibles, analyse impossible.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole et timeframe non lisibles, analyse impossible.\n\nE) Chart 4 (bas-droit): inconnu  \nSym",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-27-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_15-27-16.png"
+  }
+}

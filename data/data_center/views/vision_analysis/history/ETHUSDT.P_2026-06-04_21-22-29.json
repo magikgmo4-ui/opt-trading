@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_012238_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T21:22:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-22-29",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre à approche résistance 1780-1790, viser support 1720. Stop-loss si cassure 1790 à la hausse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m > 1790",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ETHUSDT au 15m avec succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure dégradée indiquant une pression vendeuse dominante sans signaux de retournement immédiats.  \n- Zones clés à surveiller : support vers 1720-1730 et résistance intra-range vers 1780-1790.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance baissière en place avec une série de Lower Highs et Lower Lows bien marquée. Les mouvements correctifs restent faibles et rencontrent une résistance forte autour de 1780-1790. Un support notable se situe près de 1720-1730 où les prix ont rebondi plusieurs fois. Le scénario le plus probable reste la continuation vers la zone basse si le support 1720 est cassé. Invalidation du biais baissier en cas de franchissement clair du seuil 1790 en clôture 15m.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1720-1730\"],\"resistances\":[\"1780-1790\"],\"plan\":\"V",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-22-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_21-22-16.png"
+  }
+}

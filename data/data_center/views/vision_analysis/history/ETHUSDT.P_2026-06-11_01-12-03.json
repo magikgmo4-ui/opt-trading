@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_051209_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:12:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-12-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.7,
+      "note": "s 1550"
+    },
+    {
+      "type": "support_level",
+      "value": 1670.0,
+      "confidence": 0.7,
+      "note": "s 1670"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.7,
+      "note": "s 1550"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.7,
+      "note": "support 1550."
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.7,
+      "note": "résistance 1670"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance courte observée : reprise haussière après une forte tendance baissière.\n- Structure : apparition de bas hauts (HL) puis plat avec quelques hauts plus bas (LH).\n- Zones clés : support majeur vers 1550 USDT, résistance proche vers 1670 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):\nLe graphique montre une nette chute initiale, suivie d’une phase de stabilisation et tentative de rebond. La structure récente est hésitante, avec des plus hauts et plus bas proches et une zone de neutralité autour de 1600-1650 USDT. Un franchissement clair de 1670 au-dessus validerait la reprise haussière, sinon rechute vers 1550 en invalidation du scénario haussier.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL/LH indécise\",\"supports\":[1550],\"resistances\":[1670],\"plan\":\"Attendre confirmation de franchissement résistance 1670 pour chercher longs, sinon prudence avec risque rechute vers support 1550.\",\"invalidation\":1540}]}",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-12-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_01-11-51.png"
+  }
+}

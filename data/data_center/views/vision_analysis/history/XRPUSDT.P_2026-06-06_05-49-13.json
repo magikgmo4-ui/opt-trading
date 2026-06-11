@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_094921_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T05:49:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-49-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rebonds sous 1.11, target bas vers support 1.05-1.06",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage clair au-dessus de 1.12",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m baissière marquée avec structure en LL et LH.  \n- Zone clé support vers 1.05-1.06 testée et tenace, résistance majeure autour de 1.11-1.12.  \n- Scénario prioritaire short sur rechutes sous 1.11, invalidation au-dessus de ce niveau.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique montre une tendance baissière claire avec une succession de Lower Highs et Lower Lows. Un support notable a été testé à plusieurs reprises vers 1.05-1.06, provoquant des rebonds temporaires. La résistance principale se situe autour de 1.11-1.12, niveau à partir duquel le prix a reculé à chaque tentative. Le prix est actuellement sous cette résistance, ce qui favorise la continuité du biais baissier. Un passage net au-dessus de 1.12 invaliderait ce scénario. Le plan d'action est de privilégier les prises de position short sur rebonds, avec une gestion serrée en cas de franchissement résistant.  \n\nC) DeskPro  \n{\"run_id\":\"20240610_0950\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearis",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-49-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_05-49-05.png"
+  }
+}

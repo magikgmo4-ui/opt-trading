@@ -1,0 +1,567 @@
+{
+  "contract": "telegram_trade_archive.v1",
+  "produced_at": "2026-06-11T10:00:13.731983+00:00",
+  "total_signals": 226,
+  "channels": {
+    "AplusFxSignal": {
+      "channel": "AplusFxSignal",
+      "signals": 2,
+      "first_ts": "2026-06-05T06:25:50+00:00",
+      "last_ts": "2026-06-09T15:41:04+00:00",
+      "assets": [
+        "AUDJPY",
+        "EURJPY"
+      ]
+    },
+    "BTCUSDGOLDVIP_SIGNALS": {
+      "channel": "BTCUSDGOLDVIP_SIGNALS",
+      "signals": 3,
+      "first_ts": "2026-06-11T06:32:13+00:00",
+      "last_ts": "2026-06-11T09:02:14+00:00",
+      "assets": [
+        "GBPJPY",
+        "GBPUSD",
+        "USDJPY"
+      ]
+    },
+    "Btcusdtradingdaily": {
+      "channel": "Btcusdtradingdaily",
+      "signals": 2,
+      "first_ts": "2026-06-10T16:24:51+00:00",
+      "last_ts": "2026-06-11T07:33:40+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "FXTradingVision": {
+      "channel": "FXTradingVision",
+      "signals": 1,
+      "first_ts": "2026-06-11T09:48:00+00:00",
+      "last_ts": "2026-06-11T09:48:00+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "Free_Gold_Trading_Signals_vip": {
+      "channel": "Free_Gold_Trading_Signals_vip",
+      "signals": 1,
+      "first_ts": "2026-06-11T05:24:13+00:00",
+      "last_ts": "2026-06-11T05:24:13+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "GBPUSDEURUSDXAUUSDFX_Vip1": {
+      "channel": "GBPUSDEURUSDXAUUSDFX_Vip1",
+      "signals": 3,
+      "first_ts": "2026-06-11T06:37:45+00:00",
+      "last_ts": "2026-06-11T09:03:59+00:00",
+      "assets": [
+        "GBPJPY",
+        "GBPUSD",
+        "USDJPY"
+      ]
+    },
+    "GBPUSD_FOREXSiGNAL": {
+      "channel": "GBPUSD_FOREXSiGNAL",
+      "signals": 6,
+      "first_ts": "2026-06-09T07:24:35+00:00",
+      "last_ts": "2026-06-11T07:35:40+00:00",
+      "assets": [
+        "GBPUSD",
+        "USDJPY",
+        "XAUUSD"
+      ]
+    },
+    "GOLD_FOREX_SIGN": {
+      "channel": "GOLD_FOREX_SIGN",
+      "signals": 3,
+      "first_ts": "2026-06-09T12:14:39+00:00",
+      "last_ts": "2026-06-11T06:37:49+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "GoldSignals_gbpusd": {
+      "channel": "GoldSignals_gbpusd",
+      "signals": 3,
+      "first_ts": "2026-06-11T07:20:39+00:00",
+      "last_ts": "2026-06-11T08:51:28+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "GolddExpert": {
+      "channel": "GolddExpert",
+      "signals": 6,
+      "first_ts": "2026-06-05T03:20:40+00:00",
+      "last_ts": "2026-06-10T13:03:37+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "Golden_Academy_12": {
+      "channel": "Golden_Academy_12",
+      "signals": 1,
+      "first_ts": "2025-10-23T13:12:07+00:00",
+      "last_ts": "2025-10-23T13:12:07+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "LexatyCryptoSignals": {
+      "channel": "LexatyCryptoSignals",
+      "signals": 9,
+      "first_ts": "2025-02-04T18:46:06+00:00",
+      "last_ts": "2026-02-28T14:49:46+00:00",
+      "assets": [
+        "BAN",
+        "BTC",
+        "CHILLGUY",
+        "CTC",
+        "INJ",
+        "MELANIA",
+        "ONE"
+      ]
+    },
+    "MaxtrickFx": {
+      "channel": "MaxtrickFx",
+      "signals": 1,
+      "first_ts": "2026-05-11T15:14:51+00:00",
+      "last_ts": "2026-05-11T15:14:51+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "NASDAQ100US30GOLDFX1PIP": {
+      "channel": "NASDAQ100US30GOLDFX1PIP",
+      "signals": 1,
+      "first_ts": "2026-06-11T04:26:00+00:00",
+      "last_ts": "2026-06-11T04:26:00+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "RocketWallet_Official": {
+      "channel": "RocketWallet_Official",
+      "signals": 2,
+      "first_ts": "2026-02-19T14:23:13+00:00",
+      "last_ts": "2026-04-27T13:45:45+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "TradeBitfx": {
+      "channel": "TradeBitfx",
+      "signals": 6,
+      "first_ts": "2025-09-14T19:42:36+00:00",
+      "last_ts": "2025-10-19T21:43:31+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "Tradinghub3_fuII": {
+      "channel": "Tradinghub3_fuII",
+      "signals": 3,
+      "first_ts": "2026-06-10T09:26:03+00:00",
+      "last_ts": "2026-06-11T07:31:00+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "USDJPY_XAUUSD_SIGNALS": {
+      "channel": "USDJPY_XAUUSD_SIGNALS",
+      "signals": 1,
+      "first_ts": "2026-06-10T15:37:30+00:00",
+      "last_ts": "2026-06-10T15:37:30+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "WhaleTank": {
+      "channel": "WhaleTank",
+      "signals": 2,
+      "first_ts": "2026-06-04T13:20:56+00:00",
+      "last_ts": "2026-06-08T13:18:28+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "XAUUSDGOLDsignals": {
+      "channel": "XAUUSDGOLDsignals",
+      "signals": 1,
+      "first_ts": "2026-06-03T17:01:33+00:00",
+      "last_ts": "2026-06-03T17:01:33+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "XAUUSDSIGNALSG1": {
+      "channel": "XAUUSDSIGNALSG1",
+      "signals": 5,
+      "first_ts": "2026-06-09T02:41:43+00:00",
+      "last_ts": "2026-06-11T04:45:48+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "XAUUSDUSDJPYEURUSDfx": {
+      "channel": "XAUUSDUSDJPYEURUSDfx",
+      "signals": 2,
+      "first_ts": "2023-11-07T07:05:19+00:00",
+      "last_ts": "2023-11-07T08:20:15+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "XauusdUSpips": {
+      "channel": "XauusdUSpips",
+      "signals": 6,
+      "first_ts": "2026-06-05T08:16:24+00:00",
+      "last_ts": "2026-06-10T08:27:09+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "Xauusdgoldsignalstips": {
+      "channel": "Xauusdgoldsignalstips",
+      "signals": 3,
+      "first_ts": "2026-02-16T12:28:44+00:00",
+      "last_ts": "2026-02-17T05:56:40+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "angela_xauusd": {
+      "channel": "angela_xauusd",
+      "signals": 4,
+      "first_ts": "2026-06-08T12:04:01+00:00",
+      "last_ts": "2026-06-10T15:51:10+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "aussieforex": {
+      "channel": "aussieforex",
+      "signals": 6,
+      "first_ts": "2026-03-02T03:37:21+00:00",
+      "last_ts": "2026-06-08T12:04:25+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "bankniftytechnoastro": {
+      "channel": "bankniftytechnoastro",
+      "signals": 1,
+      "first_ts": "2022-06-07T09:28:28+00:00",
+      "last_ts": "2022-06-07T09:28:28+00:00",
+      "assets": [
+        "SLIVER"
+      ]
+    },
+    "btcusdt_xauusd_eurusd_signal": {
+      "channel": "btcusdt_xauusd_eurusd_signal",
+      "signals": 2,
+      "first_ts": "2026-06-10T11:51:21+00:00",
+      "last_ts": "2026-06-10T12:51:03+00:00",
+      "assets": [
+        "EURUSD",
+        "XAUUSD"
+      ]
+    },
+    "elitetradingsignalsc": {
+      "channel": "elitetradingsignalsc",
+      "signals": 2,
+      "first_ts": "2026-06-05T08:16:12+00:00",
+      "last_ts": "2026-06-05T09:59:27+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "forex_gold_signals": {
+      "channel": "forex_gold_signals",
+      "signals": 17,
+      "first_ts": "2020-04-15T09:50:48+00:00",
+      "last_ts": "2024-07-31T10:16:16+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "forex_pulse_trading": {
+      "channel": "forex_pulse_trading",
+      "signals": 2,
+      "first_ts": "2026-06-03T10:52:34+00:00",
+      "last_ts": "2026-06-10T18:58:50+00:00",
+      "assets": [
+        "EURUSD",
+        "XAUUSD"
+      ]
+    },
+    "forex_xauusd_master": {
+      "channel": "forex_xauusd_master",
+      "signals": 2,
+      "first_ts": "2026-06-05T08:07:51+00:00",
+      "last_ts": "2026-06-05T08:07:51+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "forexbookspdf": {
+      "channel": "forexbookspdf",
+      "signals": 5,
+      "first_ts": "2026-06-03T00:52:38+00:00",
+      "last_ts": "2026-06-11T07:27:37+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "forexsignalstrialgroup": {
+      "channel": "forexsignalstrialgroup",
+      "signals": 3,
+      "first_ts": "2026-06-08T09:23:56+00:00",
+      "last_ts": "2026-06-10T07:44:09+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "freeforextradingsignalsdaily": {
+      "channel": "freeforextradingsignalsdaily",
+      "signals": 2,
+      "first_ts": "2023-06-23T07:46:51+00:00",
+      "last_ts": "2023-06-27T06:13:30+00:00",
+      "assets": [
+        "USDJPY",
+        "XAUUSD"
+      ]
+    },
+    "gbpusd_gbpnzdforex": {
+      "channel": "gbpusd_gbpnzdforex",
+      "signals": 3,
+      "first_ts": "2026-06-11T07:20:41+00:00",
+      "last_ts": "2026-06-11T08:51:30+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "gold_Xauusd_ForexScalping": {
+      "channel": "gold_Xauusd_ForexScalping",
+      "signals": 3,
+      "first_ts": "2026-06-11T07:20:39+00:00",
+      "last_ts": "2026-06-11T08:51:29+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "gold_forex_signals": {
+      "channel": "gold_forex_signals",
+      "signals": 5,
+      "first_ts": "2018-11-16T10:20:19+00:00",
+      "last_ts": "2018-12-13T04:15:02+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "gold_trading_free": {
+      "channel": "gold_trading_free",
+      "signals": 2,
+      "first_ts": "2022-05-10T12:28:39+00:00",
+      "last_ts": "2022-05-11T12:21:52+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "gold_trading_signalss": {
+      "channel": "gold_trading_signalss",
+      "signals": 2,
+      "first_ts": "2023-05-23T15:11:09+00:00",
+      "last_ts": "2023-05-23T15:11:29+00:00",
+      "assets": [
+        "EURAUD",
+        "XAUUSD"
+      ]
+    },
+    "gold_trading_vip": {
+      "channel": "gold_trading_vip",
+      "signals": 1,
+      "first_ts": "2025-03-11T12:40:43+00:00",
+      "last_ts": "2025-03-11T12:40:43+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "goldmarket67": {
+      "channel": "goldmarket67",
+      "signals": 1,
+      "first_ts": "2026-06-11T03:45:16+00:00",
+      "last_ts": "2026-06-11T03:45:16+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "goldsnipers11": {
+      "channel": "goldsnipers11",
+      "signals": 1,
+      "first_ts": "2026-06-10T13:01:59+00:00",
+      "last_ts": "2026-06-10T13:01:59+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "goldtradermofxx": {
+      "channel": "goldtradermofxx",
+      "signals": 10,
+      "first_ts": "2024-10-23T06:07:38+00:00",
+      "last_ts": "2024-10-24T07:06:56+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "indextradingnitin": {
+      "channel": "indextradingnitin",
+      "signals": 1,
+      "first_ts": "2026-06-11T08:50:53+00:00",
+      "last_ts": "2026-06-11T08:50:53+00:00",
+      "assets": [
+        "NIFTY"
+      ]
+    },
+    "professoroff": {
+      "channel": "professoroff",
+      "signals": 1,
+      "first_ts": "2025-04-21T12:04:46+00:00",
+      "last_ts": "2025-04-21T12:04:46+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "robertcroakgoldsignals": {
+      "channel": "robertcroakgoldsignals",
+      "signals": 5,
+      "first_ts": "2026-06-10T09:00:17+00:00",
+      "last_ts": "2026-06-11T08:53:12+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "signalsGOLD1": {
+      "channel": "signalsGOLD1",
+      "signals": 26,
+      "first_ts": "2024-11-01T14:05:28+00:00",
+      "last_ts": "2025-01-10T08:08:32+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "solusdtcryptosignalss": {
+      "channel": "solusdtcryptosignalss",
+      "signals": 2,
+      "first_ts": "2026-01-12T07:48:14+00:00",
+      "last_ts": "2026-01-12T12:04:06+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "stockoptionfuture": {
+      "channel": "stockoptionfuture",
+      "signals": 1,
+      "first_ts": "2020-01-10T07:43:56+00:00",
+      "last_ts": "2020-01-10T07:43:56+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "trading_signals_gold": {
+      "channel": "trading_signals_gold",
+      "signals": 10,
+      "first_ts": "2026-04-27T19:41:19+00:00",
+      "last_ts": "2026-05-27T13:40:30+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "usdjpy_xauusd_forex_signals": {
+      "channel": "usdjpy_xauusd_forex_signals",
+      "signals": 2,
+      "first_ts": "2026-06-10T06:35:13+00:00",
+      "last_ts": "2026-06-10T12:49:49+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "vasilytradersignalforex": {
+      "channel": "vasilytradersignalforex",
+      "signals": 8,
+      "first_ts": "2026-06-08T10:04:29+00:00",
+      "last_ts": "2026-06-10T12:32:22+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "wallstreetqueenofficialTG": {
+      "channel": "wallstreetqueenofficialTG",
+      "signals": 1,
+      "first_ts": "2026-05-22T20:07:41+00:00",
+      "last_ts": "2026-05-22T20:07:41+00:00",
+      "assets": [
+        "APT"
+      ]
+    },
+    "wfr_analysis": {
+      "channel": "wfr_analysis",
+      "signals": 4,
+      "first_ts": "2026-06-05T12:40:19+00:00",
+      "last_ts": "2026-06-10T13:03:54+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "xauusd": {
+      "channel": "xauusd",
+      "signals": 1,
+      "first_ts": "2026-06-10T07:56:44+00:00",
+      "last_ts": "2026-06-10T07:56:44+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "xauusd_free_signals": {
+      "channel": "xauusd_free_signals",
+      "signals": 1,
+      "first_ts": "2023-03-07T14:52:37+00:00",
+      "last_ts": "2023-03-07T14:52:37+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "xauusd_trading_free": {
+      "channel": "xauusd_trading_free",
+      "signals": 6,
+      "first_ts": "2026-06-10T11:55:38+00:00",
+      "last_ts": "2026-06-11T09:03:29+00:00",
+      "assets": [
+        "EURUSD",
+        "GBPJPY",
+        "USDJPY",
+        "XAUUSD"
+      ]
+    },
+    "xauusd_trading_gold_signals": {
+      "channel": "xauusd_trading_gold_signals",
+      "signals": 1,
+      "first_ts": "2026-06-11T06:28:37+00:00",
+      "last_ts": "2026-06-11T06:28:37+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
+    "xauusd_trading_signals": {
+      "channel": "xauusd_trading_signals",
+      "signals": 9,
+      "first_ts": "2024-03-28T10:57:46+00:00",
+      "last_ts": "2024-04-16T07:02:05+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    }
+  }
+}

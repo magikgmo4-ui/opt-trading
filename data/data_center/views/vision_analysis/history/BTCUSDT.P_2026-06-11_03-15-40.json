@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_071550_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T03:15:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-15-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 61000 pour vente ou cassure 63500 pour achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure au-dessus 64000 ou sous 60000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière marquée, avec impulsion forte à la baisse initialement.\n- Apparition d'une phase de consolidation latérale entre 61 000 et 63 500, indiquant un possible équilibre offre/demande.\n- Structure récente indécise, à surveiller pour une cassure claire afin déterminer la direction suivante.\n\nB) Chart unique (BTCUSDT.P 1h): \nLe graphique montre une tendance baissière nette avec une série de Lower Highs (LH) et Lower Lows (LL) jusqu’au 5 juin. Ensuite, une phase de range se forme avec des points hauts et bas relativement stables (HL/LL proches). Les zones clés sont le support proche de 61 000 USDT et la résistance vers 63 500 USDT. Un scénario possible est une continuation baissière en cas de cassure sous 61 000, ou un renversement haussier si 63 500 est franchi avec volume. L’invalidation se situera si le prix casse définitivement à la hausse au-dessus des 64 000 ou la baisse sous 60 000.\n\nC) DeskPro \n{\"run_id\":\"20240611_0715\",\"charts\":[{\"slot\":\"single\",\"bi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-15-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_03-15-28.png"
+  }
+}

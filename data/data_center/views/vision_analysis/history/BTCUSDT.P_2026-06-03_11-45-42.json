@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_154603_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T11:45:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_11-45-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1830.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rupture support pour continuation baisse, ou rebond possible sur ce niveau",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Au-dessus 1900 USDT tendance baissière court terme invalidée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Pression vendeuse dominante sur la crypto ETHUSDT avec baisse nette récente.  \n- Structure de tendance clairement baissière sur les unités de temps visibles (15m).  \n- Nécessite vigilance sur les zones clés S/R pour détection de potentielle reprise ou continuation baissière.  \n\nB) Chart 1 (haut-gauche): Ethereum 15m  \n- Tendance: Baissière nette, série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure: Confirmation d’une structure de prix baissière solide depuis la zone 2,000 USDT.  \n- Zones clés: Support immédiat autour de 1,830 USDT, résistance proche à 1,870-1,880 USDT.  \n- Scénario: Probable poursuite de la baisse sous la zone support si volume vendeur reste fort.  \n- Invalidation: Reprise au-dessus des 1,900 USDT invaliderait la tendance baissière courte.  \n\nC) Chart 2 (haut-droit): inconnu (pas d’image distincte fournie)  \n- Impossible d’analyse précise par manque d’informations visibles.  \n\nD) Chart 3 (bas-gauche): inconnu (pas d’image distincte fournie)",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_11-45-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_11-44-55.png"
+  }
+}

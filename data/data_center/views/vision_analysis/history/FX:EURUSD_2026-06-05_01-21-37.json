@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_052148_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T01:21:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_01-21-37",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1.1645,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance 1.1645 avec stop au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 1.1645",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h baissière avec structure de Lower Highs (LH) et Lower Lows (LL).\n- Zone clé de support vers 1.1590-1.1600 testée plusieurs fois.\n- Scénario vendeur privilégié à court terme, invalidation en clôture au-dessus 1.1645.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa structure montre clairement une succession de sommets et creux descendants (LH/LL). Le prix teste une zone support clé située autour de 1.1590-1.1600. Après une tentative de rebond, la résistance proche de 1.1645 correspond à un dernier High avant la reprise baissière. Un rejet sous cette résistance confirmera la poursuite du mouvement baissier. En cas de cassure claire et clôture au-dessus de 1.1645, la tendance baissière sera mise en doute, signalant un possible retour haussier.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.1590-1.1600\"],\"resistances\":[\"1.1645\"],\"plan\":\"vendre sous résistance 1.1645 avec stop au-dessus\",\"invalidation\":\"clôture",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_01-21-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_01-21-27.png"
+  }
+}

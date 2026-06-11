@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_131011_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T09:10:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-10-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59250.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61250.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 59250 pour poursuite baissière ou breakout 61250 pour potentiel retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture nette au-dessus de 61500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière marquée par une série de Lower Highs (LH) et de Lower Lows (LL).  \n- Structure récente en consolidation latérale avec oscillations autour de 60 750-61 250.  \n- Zone clé de support vers 59 250 à surveiller; un franchissement confirmerait un basculement baissier.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure est clairement baissière avec de multiples LH et LL visibles. Après un creux proche de 59 250, le prix remonte en forme de range (60 750-61 250) sans nouveau HH. Ce cadre latéral peut annoncer soit une pause avant reprise baissière, soit un possible retournement si la résistance est franchie. Pour l’instant, pas de signe clair d’un changement de tendance. La zone 59 250 sert de support critique, tandis que 61 250 fait office de résistance. Le scénario principal reste une consolidation dans un trend baissier, avec invalidation à la hausse si 61 500 est dépassé.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-10-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_09-09-53.png"
+  }
+}

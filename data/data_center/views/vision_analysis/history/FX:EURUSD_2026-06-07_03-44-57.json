@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_074506_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T03:45:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_03-44-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.156,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur confirmation sous 1.1520 avec stop au-dessus de 1.1560",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1.1560",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière sur 1h, avec chute rapide et forte augmentation de volume sur la dernière bougie.  \n- Structure passée : des sommets et creux relativement stables puis rupture d’un support clé autour de 1.1530.  \n- Zone clé de support vers 1.1520 sous pression, à surveiller pour un possible rebond technique ou poursuite du momentum baissier.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLa paire montre une structure de tendance latérale avant la forte cassure baissière récente, matérialisée par un LL (plus bas bas) net sous le support 1.1530. Le volume a explosé lors de cette chute confirmant la force vendeuse. Le biais est donc bearish avec un plan d’attente pour une continuation baissière sous 1.1520, ou un repli si le prix rebondit sur ce niveau. L’invalidation serait une remontée au-dessus de 1.1560, annulation le scénario de basculement baissier.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240607_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH,LL ré",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_03-44-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-07_03-44-45.png"
+  }
+}

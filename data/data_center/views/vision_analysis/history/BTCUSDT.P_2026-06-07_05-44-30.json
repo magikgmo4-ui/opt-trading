@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_094439_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T05:44:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-44-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s 62"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s 62"
+    },
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.7,
+      "note": "s 61"
+    },
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.7,
+      "note": "s 61"
+    },
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.7,
+      "note": "support 61"
+    },
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.7,
+      "note": "s 61"
+    },
+    {
+      "type": "resistance_level",
+      "value": 15.0,
+      "confidence": 0.7,
+      "note": "r 15"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "résistance à 62"
+    },
+    {
+      "type": "price_target",
+      "value": 62.0,
+      "confidence": 0.5,
+      "note": "objectif 62"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance court terme haussière confirmée sur 15m avec une structure HL récente.\n- Rebond net depuis la zone support autour de 60 600, suivi d’une cassure haute vers 62 700.\n- Zone clé de résistance immédiate vers 62 700-62 800 à surveiller; invalidation sous le dernier higher low vers 61 600.\n\nB) Chart unique (BTCUSDT.P 15m):\nLa structure montre un retournement haussier après plusieurs lower lows, formant une série de higher lows et higher highs. Le prix a rebondi sur un niveau support important proche de 60 600, marqué par des volumes plus élevés. Le mouvement à la hausse s’est accéléré, franchissant une résistance intermédiaire à 62 000-62 200, pour atteindre un sommet à environ 62 700. La tendance actuelle est donc haussière, mais la résistance à 62 700-62 800 doit être confirmée pour valider un nouveau cycle d’extension. Un retour sous 61 600 invaliderait ce scénario haussier.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"H",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-44-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_05-44-16.png"
+  }
+}

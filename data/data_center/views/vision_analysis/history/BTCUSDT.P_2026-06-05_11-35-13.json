@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_153524_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T11:35:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-35-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "objectif de vente sous 60000, attention à un rebond possible vers 64000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage clair au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance fortement baissière confirmée avec série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure claire de déclin, sans signe de retournement visible sur ce timeframe 1h.  \n- Zone clé à surveiller autour de 60 000 USDT, support potentiel à court terme.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique affiche une tendance baissière marquée par une cassure successive de supports importants. La structure est composée de LH et LL, indiquant une faiblesse dominante. Le volume est globalement stable avec quelques pics lors des chutes. Le prix teste actuellement la zone des 60 000 USDT, qui peut agir comme support. En cas de passage net sous cette zone, la poursuite du mouvement baissier est probable. Le scénario alternatif serait un rebond technique vers 63 000-64 000 USDT, mais ce dernier reste fragile tant que la structure de baisse n’est pas invalidée. Invalidation du biais baissier à partir d’un franchissement clair des derniers LH autour de 64 000 USDT.\n\nC) D",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-35-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_11-35-06.png"
+  }
+}

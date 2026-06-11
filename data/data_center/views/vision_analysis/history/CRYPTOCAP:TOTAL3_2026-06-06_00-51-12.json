@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_045121_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T00:51:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-51-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 640.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 650.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 770.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillez rebond potentiel sur zone support 640-650B USD, sinon vente à la cassure avec stop au-dessus de 780B USD",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 780B USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire depuis plusieurs mois avec formation de plus bas et plus bas (LL).  \n- Structure fragile, tentative de consolidation au printemps 2026, puis reprise baissière forte en sortie.  \n- Zone clé support autour de 640-650B USD à surveiller pour scénario possible de rebond ou continuation baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière dominante matérialisée par une série de plus bas (LL) et plus hauts (LH). Après une période de consolidation latérale de février à mai, le prix a cassé brutalement les supports intermédiaires. Le dernier chandelier est fortement baissier avec un volume important confirmant la pression vendeuse. La zone de support autour de 640-650B USD est clé : un rebond pourrait signaler une pause ou un retournement, une cassure validerait la poursuite du mouvement baissier. L’invalidation du scénario baissier est une remontée rapide au-dessus des derniers sommets vers 770-780B USD.\n",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-51-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_00-50-47.png"
+  }
+}

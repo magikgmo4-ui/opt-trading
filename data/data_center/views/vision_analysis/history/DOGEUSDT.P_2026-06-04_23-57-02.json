@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_035715_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T23:57:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-57-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0855,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.09,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0915,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short à la cassure de 0.0855 avec cible vers 0.0830, stop au-dessus de 0.0915.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et maintien au-dessus de 0.0915 confirme retournement haussier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée avec une série de Lower Highs (LH) et Lower Lows (LL) sur ce timeframe 15m.  \n- Structure montrant plusieurs tentatives de rebond rapidement invalidées, preuve d’une pression vendeuse dominante.  \n- Zone clé de support identifiée vers 0.0855$, zone de résistance forte autour de 0.0900$ validée plusieurs fois.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une structure baissière claire avec des sommets et creux déclinants (LH/LL). La dynamique révèle un biais vendeur dominant, appuyé par de multiples rejets aux niveaux de résistance situés proche de 0.0900$. Le prix teste actuellement la zone de support à environ 0.0855$, qui a été plusieurs fois respectée, constituant une zone critique à surveiller pour une éventuelle réaction. Le scénario prioritaire est la poursuite baissière en cas de cassure claire de ce support, avec un risque confirmé si les résistances vers 0.0900$ ne sont pas franchies dans un contexte de retournement",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-57-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_23-56-55.png"
+  }
+}

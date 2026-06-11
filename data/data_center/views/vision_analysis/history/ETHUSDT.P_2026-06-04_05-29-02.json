@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_092918_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T05:29:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-29-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1725.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher un short sur rebond vers résistance 1780-1785 avec stop au-dessus de 1800, viser extension baisse sous 1725",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement et maintien >1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL) clairement formée.  \n- Structure fragile, sans signe de retournement clair, le prix continue de casser des supports.  \n- Zones clés : résistance vers 1 780-1 785$ (anciens supports devenus résistances), support immédiat vers 1 725$ à surveiller pour un rebond potentiel.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une baisse bien marquée avec des LH et LL consécutifs confirmant la dominance des vendeurs. Le prix a testé et cassé plusieurs supports intermédiaires, démontrant une pression vendeuse importante. La zone autour de 1 725$ apparaît comme un support temporaire clé, à court terme pour limiter la casse. Tout retour sous ce niveau validerait l’accélération baissière. Un scénario haussier ne sera crédible qu’en cas de franchissement et maintien au-dessus de la résistance 1 780-1 785$ (ancienne zone de support retournée). Invalidation du biais baissier ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-29-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_05-28-46.png"
+  }
+}

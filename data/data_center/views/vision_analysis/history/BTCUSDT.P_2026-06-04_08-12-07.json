@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_121216_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T08:12:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_08-12-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente au rejet de résistance 64400, objectif support 61800, stop au-dessus 65000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance nette baissière sur le 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure claire de baisse sans signe de retournement fort à court terme.\n- Zone clé support proche ~61 800 USDT, résistance immédiate autour de 64 400 USDT.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nOn observe une forte dynamique vendeuse avec des creux et sommets décalés à la baisse (LL/LH). Le prix teste actuellement un support horizontal vers 61 800 USDT suite à une vague de baisse accélérée. Une tentative de rebond est visible mais faible, en résistance majeure vers 64 400 USDT. Le scénario privilégié reste la poursuite baissière tant que ce dernier niveau de résistance n’est pas franchi avec force. Invalidation du scénario baissier possible à la cassure claire de 65 000 USDT (ex-HL). Un pullback vers support peut offrir des entrées vendeuses avec un stop serré peu au-dessus des 64 400 USDT.\n\nC) DeskPro  \n{\"run_id\":\"20240604-1212\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baiss",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_08-12-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_08-11-56.png"
+  }
+}

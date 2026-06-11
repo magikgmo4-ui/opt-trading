@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_090100_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T05:00:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-00-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1615.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1665.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat proche support 1615-1620, viser résistance 1665-1670",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage sous 1615",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance court terme: haussière avec des creux plus hauts (HL) récents.\n- Structure marquée par une tentative de reprise après un repli significatif.\n- Zone clé résistance autour de 1 665-1 670, support solide vers 1 615-1 620.\n\nB) Chart unique (ETHUSDT.P 15m): Le prix a formé une structure haussière en passant de creux plus bas à creux plus hauts (HL). La tendance montre une dynamique positive suite à un rebond solide sur le support 1 615-1 620. La résistance immédiate est identifiée entre 1 665 et 1 670, zone d’invalidation du scénario haussier si franchie à la baisse. Le scénario préconisé est une prise de position acheteuse autour du support avec objectif à la résistance, stop placé sous le dernier HL invalidant.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL en formation\",\"supports\":[1615,1620],\"resistances\":[1665,1670],\"plan\":\"achat proche support 1615-1620, viser résistance 1665-1670\",\"invalidation\":\"passage sous 1615\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-00-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-11_05-00-34.png"
+  }
+}

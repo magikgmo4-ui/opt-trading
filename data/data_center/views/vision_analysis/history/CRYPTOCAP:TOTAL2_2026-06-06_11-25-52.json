@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_152606_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T11:26:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-25-52",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 850B pour short continuation. Stop strict au-dessus 1T en cas de rebond.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rupture claire au-dessus de 1T avec HH/HL par la suite.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale clairement baissière avec structure en LL (plus bas plus bas) validée depuis plusieurs mois.  \n- Pas de signe de renversement, les supports proches sont régulièrement testés et cassés, confirmant la faiblesse.  \n- Volume en hausse sur les dernières chandelles rouges, ce qui renforce la pression vendeuse à court terme.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe graphique montre une tendance baissière nette avec des structures de prix en lower lows (LL) et lower highs (LH). Plusieurs supports clés ont été dépassés, la dernière zone autour de 850B est testée et risque de céder si la pression vendeuse persiste. Les résistances à surveiller sont proches des 1T (1000B) niveau où de précédents rebonds ont eu lieu. Le scénario le plus plausible reste une poursuite de la baisse tant que le prix reste sous les récents plus hauts (LH). Une inversion haussière exigerait une rupture claire au-dessus de 1T avec changement de structure vers HH/HL. L’invali",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-25-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-06_11-25-40.png"
+  }
+}

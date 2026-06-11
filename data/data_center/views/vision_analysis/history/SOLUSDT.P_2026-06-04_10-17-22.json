@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_141742_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T10:17:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-17-22",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "scénario de continuation baissière après rejet à résistance; vigilance si franchissement 73 pour retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable au-dessus de 73",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur ce timeframe 15m avec des lower highs (LH) et lower lows (LL).\n- Structure baissière dominante, tentative récente de rebond avec un higher low (HL) potentiel.\n- Zone clé résistance autour de 72.5-73 USD, support immédiat vers 68.5-69 USD.\n\nB) Chart unique (SOLUSDT.P 15m):\nLe marché évolue dans une tendance baissière marquée par une succession de LH et LL depuis le début de la période visible. Un léger rebond crée un HL récent, mais la structure globale reste baissière. La zone autour de 72.5-73 USD agit comme résistance forte, bloquant le prix. Support notable détecté autour de 68.5-69 USD. Le scénario probable est un test de cette résistance avec rejet et continuation baissière si invalidation du HL. Invalidation du biais baissier possible en cas de franchissement net au-dessus de 73 USD avec nouveau HH.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL récent\",\"supports\":[\"68.5-69\"],\"re",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-17-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_10-17-15.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_013618_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:36:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-36-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat à maintien au-dessus de 750 avec objectif vers 760 et plus haut",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure franche sous 750",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le 1h avec structure de HH (Higher High) et HL (Higher Low) bien marquée.  \n- Zones clés à surveiller : support autour de 750, résistance forte proche de plus haut vers 760.  \n- Scénario privilégié : continuation de la hausse si maintien du support, invalidation en cas de cassure franche sous 750.\n\nB) Chart unique (SPY 1h) :  \nLe graphique montre une série claire de Higher Highs et Higher Lows traduisant une dynamique acheteuse stable. La structure supporte une poursuite de la tendance haussière. La zone 750 sert de support critique, tandis que 760 apparaît comme une résistance récente à dépasser pour accélérer la hausse. La réaction après chaque repli confirme une pression acheteuse dominante. Une cassure sous 750 invaliderait le scenario haussier et pourrait signaler un retournement ou une consolidation plus profonde.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[750",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-36-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_21-35-55.png"
+  }
+}

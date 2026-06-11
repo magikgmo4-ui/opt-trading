@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_073303_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T03:33:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-32-52",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "acheter rebond support, viser résistance, short si cassure résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché du XAUUSD présente une volatilité notable avec des oscillations marquées entre support et résistance.  \n- La structure oscille entre des points hauts et bas plus ou moins définis, sans tendance claire haussière ou baissière dominante.  \n- Plusieurs zones clés sont observables autour des niveaux 4450 (support) et 4510-4520 (résistance), à surveiller pour validation de scénario.  \n\nB) Chart 1 (haut-gauche):  \n- Timeframe 1h, symbole XAUUSD confirmé.  \n- Structure: alternance HH/HL et LH/LL, tendance latérale dominante.  \n- Support clé vers 4450-4460, résistance forte vers 4510-4520.  \n- Volume modéré, pics sur les mouvements baissiers.  \n- Scénario: un rebond sur support valide un mouvement haussier court terme vers résistance. Invalidation en cassure claire sous 4450.  \n- Attention à un possible retournement si résistance confirmée, pouvant enclencher chute vers 4400.  \n\nC) Chart 2 (haut-droit):  \n- Timeframe et symbole illisibles, analyse impossible sans ",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-32-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_03-32-41.png"
+  }
+}

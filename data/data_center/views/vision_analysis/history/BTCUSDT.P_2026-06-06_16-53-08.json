@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_205316_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T16:53:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-53-08",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre la tendance, short sur rebond résistance ou cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "+64000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence dominante d'une tendance baissière marquée sur les graphiques visibles.  \n- Structures principalement de type LH/LL (Lower Highs / Lower Lows), confirmant la pression vendeuse.  \n- Zones clés de supports faibles, testant régulièrement des niveaux proches. Scénarios baissiers privilégiés, prudence à la cassure des plus bas récents (invalidation).\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance clairement baissière avec une série de LL et LH.  \n- Structure récente stable à plat mais sans confirmation d'inversion.  \n- Support clé proche des 60,000$, résistance autour des 64,000$.  \n- Scénario principal : poursuite de la baisse sous le support, avec un risque de continuation.  \n- Invalidation : franchissement clair des 64,000$ et création d'un HH.\n\nC) Chart 2 (haut-droit): inconnu (pas lisible)  \n- Analyse non possible faute d’identification du symbole et timeframe.  \n- Recommandation : vérifier symboles/timeframe pour analyse correcte.\n\nD) Chart 3 (bas-gau",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-53-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_16-52-59.png"
+  }
+}

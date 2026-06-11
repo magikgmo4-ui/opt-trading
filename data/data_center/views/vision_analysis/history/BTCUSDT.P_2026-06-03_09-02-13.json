@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_130225_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:02:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-02-13",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vente en cas de rebond sans franchissement 2,4T",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour au-dessus 2,4T avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- La majorité des indices et actions majeures (SPX, NDQ, DJ) affichent une tendance haussière modérée.  \n- Le marché crypto (TOTAL) montre une forte correction récente, structure baissière en place.  \n- Matières premières (or, argent) en légère baisse, pétrole en hausse, signe de rotation sectorielle possible.  \n\nB) Chart 1 (haut-gauche): TOTAL (Crypto Total Market Cap, 1D)  \nTendance clairement baissière sur le daily, avec une structure HL/LL récente cassée par la chute marquée de fin de graphique. La prise en charge faible après ce drop suggère pression vendeuse forte. Zones clés identifiées autour de 2,4T (support devenu résistance) et 2,15T support potentiel. Scénario prioritaire : continuation baisse vers 2,15T. Invalidation si retour au-dessus de 2,4T avec volume fort.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe illisible)  \nLe graphique n’est pas clair, les données ne permettent pas d’établir une lecture fiable.  \n\nD) Chart 3 (bas-gauche): inconnu (",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-02-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-03_09-02-03.png"
+  }
+}

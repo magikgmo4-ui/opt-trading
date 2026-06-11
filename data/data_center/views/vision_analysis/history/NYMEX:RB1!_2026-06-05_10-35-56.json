@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_143607_NYMEX:RB1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:36:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-35-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.18,
+      "confidence": 0.7,
+      "note": "s 3.18"
+    },
+    {
+      "type": "support_level",
+      "value": 3.02,
+      "confidence": 0.7,
+      "note": "s 3.02,"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.18,
+      "confidence": 0.7,
+      "note": "résistance 3.18"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.18,
+      "confidence": 0.7,
+      "note": "résistance 3.18"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale 1h baissière, avec structure en LL (Lower Lows) et LH (Lower Highs) nettes.  \n- Point bas récent proche de 3.02 USD, zone support clé à monitorer pour rebond potentiel.  \n- Résistance vers 3.18-3.20 USD, break au-dessus invaliderait le biais baissier court terme.  \n\nB) Chart unique (NYMEX:RB1! 1h) :  \nLa tendance principale est baissière, marquée par une série de plus bas et plus bas (LL/LH). Le prix teste actuellement un support horizontal proche de 3.02. En cas de rebond, un pullback à la résistance 3.18-3.20 serait attendu. Un franchissement clair de cette résistance remettrait en cause la structure baissière. En revanche, sous 3.02, l'accélération baissière pourrait reprendre. Volume en légère hausse sur les rebonds, attention à la confirmation.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240605_RB1H\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[3.02],\"resistances\":[3.18,3.20],\"plan\":\"Vendre sur échec résistance 3.18-3.2",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-35-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_1h_2026-06-05_10-35-46.png"
+  }
+}

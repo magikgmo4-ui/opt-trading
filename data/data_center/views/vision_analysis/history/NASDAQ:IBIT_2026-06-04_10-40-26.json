@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_144033_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T10:40:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-40-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 35.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 37.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 38.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher des opportunités de vente proche de 37.50 avec stop serré au-dessus de 38",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 38",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de lower highs (LH) et lower lows (LL).  \n- Structure actuelle en déclin marqué par un volume relativement élevé dans les mouvements baissiers.  \n- Zones clés à surveiller autour de 37.50 en résistance (ancien support devenu résistance) et 35.50 comme support proche.  \n\nB) Chart unique (NASDAQ:IBIT 1h) :  \nLa tendance dominante est baissière avec une structure de LH et LL validée depuis fin-mai. Le prix chute fortement depuis environ 46 jusqu’à 36, formant une dynamique négative forte. Le dernier mouvement montre un léger rebond technique mais reste sous une zone de résistance clé vers 37.50, maintenant la pression vendeuse. La zone de support la plus immédiate se situe vers 35.50, qui doit tenir pour éviter une accélération baissière. Tout retour au-dessus de 38 invaliderait ce scénario baissier court terme.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-40-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-04_10-40-16.png"
+  }
+}

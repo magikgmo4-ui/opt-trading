@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_094531_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:45:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-45-18",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support pour vente, rebond possible au-dessus résistance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable >73000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "données insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "données insuffisantes",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "données insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "données insuffisantes",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "données insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "données insuffisantes",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte pression vendeuse visible sur la principale paire BTC/USDT en 1h.  \n- Structure baissière claire avec séries de Lower High (LH) et Lower Low (LL) sur la plupart des graphes.  \n- Zones clés de support sous pression, aucune tendance haussière confirmée à court terme.  \n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \n- Tendance actuelle : baissière nette.  \n- Structure : LL et LH formés depuis plusieurs jours, tendance claire de baisse.  \n- Zones clés : résistance majeure vers 72 500-73 000, support important autour de 66 000-66 500 confirmé.  \n- Scénario : continuation baissière possible si le support 66 000 casse.  \n- Invalidation : franchissement durable au-dessus des 73 000 pourrait invalider le bearish et signaler rebond.  \n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu (non lisible)  \n- Tendance : indéfinie faute de lisibilité.  \n- Structure : non identifiable.  \n- Zones clés : non identifiables.  \n- Scénario et invalidation : informations insuffisantes pou",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-45-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_05-45-09.png"
+  }
+}

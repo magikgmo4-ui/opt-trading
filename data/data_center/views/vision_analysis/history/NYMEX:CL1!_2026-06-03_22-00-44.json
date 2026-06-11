@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_020055_NYMEX:CL1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:CL1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:00:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-00-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 92.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 97.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur retracement proche support 92 avec objectif vers 97. Stop sous 91.50 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break sous support 92",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente haussière visible depuis 29 mai avec série de HH/HL.  \n- Structure en formation de creux et sommets plus hauts (HL/HH), signal de reprise.  \n- Zone clé support autour de 92 USD à surveiller pour maintien, résistance proche vers 97 USD.  \n\nB) Chart unique (NYMEX:CL1! 1h):  \nLe graphique montre qu'après une forte chute début mai, le prix a construit une nouvelle structure haussière avec des creux plus hauts à partir du 29 mai. La tendance intra-journalière est haussière avec des points hauts et bas en progression (HH/HL). Le prix bute actuellement sur une résistance importante autour de 97 USD, validant un potentiel range ou ralentissement. Le support majeur est à 92 USD, zone où le prix a rebondi plusieurs fois et doit tenir pour garder la dynamique haussière. Une cassure sous 92 invaliderait ce scénario et pourrait relancer une correction.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"92",
+  "symbols_found": [
+    "NYMEX:CL1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-00-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-03_22-00-33.png"
+  }
+}

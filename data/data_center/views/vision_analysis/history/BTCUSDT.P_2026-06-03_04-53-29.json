@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_085341_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T04:53:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_04-53-29",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur support avec cible 1900",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 1830",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière visible sur le 15m avec structure en LH/LL.  \n- Rebond en cours marqué par un HL en formation, possible correction.  \n- Zone clé de support autour de 1,830-1,840, résistance proche à 1,900.  \n\nB) Chart 1 (haut-gauche): ETHUSDT 15m  \nLa tendance dominante est baissière avec une succession de points hauts et bas décroissants (LH/LL). Un récent retournement haussier forme un HL, indiquant un possible rebond. Le prix a touché un support majeur proche de 1,830-1,840 (zone d’achat probante). La résistance à surveiller est à 1,900, où le prix a précédemment buté. Scénario: Rebond possible vers 1,900, invalidé si baisse sous 1,830.  \n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non lisibles, analyse impossible.  \n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole et timeframe non lisibles, analyse impossible.  \n\nE) Chart 4 (bas-droit): inconnu  \nSymbole et timeframe non lisibles, analyse impossible.  \n\nF) DeskPro  \n{\"run_id\":\"001\",\"charts",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_04-53-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_04-53-22.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_043713_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T00:37:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-37-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 59,200 pour poursuite baisse. Rebond possible sur ce niveau. Rejet résistance 61,400 confirme pression vendeuse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture durable au-dessus de 61,500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globalement baissière sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure actuelle : le prix fait un retracement puis reprend la baisse, validant la pression vendeuse.\n- Zone clé de support vers 59,200 USDT à surveiller, invalidation au-dessus du dernier HH proche de 61,500 USDT.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nLa tendance est baissière avec une structure en Lower Highs et Lower Lows. Après une tentative de rebond vers 61,400-61,500, le prix a repris la descente, signant un rejet sous ce niveau de résistance. Le volume de vente est dense sur les dernières chandelles baissières, confirmant la pression vendeuse. Le support actuel se situe autour de 59,200 USDT, zone à surveiller pour un éventuel rebond. En cas de cassure de ce support, la tendance baissière se renforcerait. Le scénario haussier ne serait validé qu’au franchissement et maintien au-dessus de 61,500 USDT (dernier haut significatif).\n\nC) DeskPro  \n{\"run_id\":\"001\",\"ch",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-37-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_00-36-57.png"
+  }
+}

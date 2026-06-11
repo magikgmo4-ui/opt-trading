@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_193008_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:28:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-28-29",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "scalping rebond sur support ou short sous 1800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 1920",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché global très baissier, forte pression vendeuse sur ETHUSDT.  \n- Structure nette de baisse avec séquence de Lower Highs et Lower Lows.  \n- Importance d’identifier zones S/R clés pour planifier des entrées sur rebonds ou continuation.\n\nB) Chart 1 (haut-gauche): ETHUSDT 1h (Binance)  \nTendance : Baissière claire, série de Lower Highs (LH) et Lower Lows (LL).  \nStructure : Le prix casse les supports progressivement, formation d’un point bas récent vers 1810.  \nZones clés : Résistance récente autour des 1900-1920, support clé test en zone 1800-1810.  \nScénario : Possibilité de rebond technique vers 1850-1900 en cas d’effort acheteur, sinon poursuite de la baisse sous 1800.  \nInvalidation : Clôture au-dessus de 1920 invaliderait la pression vendeuse dominante.  \nPlan : Attendre confirmation rebond sur support 1800 pour scalping, sinon préparer short sous 1800.\n\nC) Chart 2 (haut-droit): Inconnu  \nSymbol/timeframe non lisible, pas d’analyse possible.\n\nD) Chart 3 (bas",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-28-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_15-28-21.png"
+  }
+}

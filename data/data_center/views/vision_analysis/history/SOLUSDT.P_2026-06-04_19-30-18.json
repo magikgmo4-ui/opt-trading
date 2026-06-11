@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_233028_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T19:30:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-30-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 67.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 67.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68.8,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 69.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rejet résistance, cible 67.00, stop 69.50",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break out 69.50 volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte fortement baissière avec une série de Lower Highs (LH) et Lower Lows (LL) bien identifiée.  \n- Structure actuelle fragile avec tentative de rebond vers 68.50-69.00 mais sans cassure de résistances clés.  \n- Scénario actionnable: surveiller un nouveau rejet sous résistance pour renforcer shorts, invalidation en cas de franchissement clair des 69.50.\n\nB) Chart unique (SOLUSDT.P 15m):  \nTendance: Baissière  \nStructure: Lower Highs (LH) et Lower Lows (LL) constants, tentative de consolidation récente avec HL potentielle mais non confirmée.  \nZones clés: Support autour de 67.00-67.50, résistance intraday 68.80-69.50.  \nPlan: Privilégier les ventes sur confirmation de rejet à résistance, cibler retour vers les 67.00, stop tight au-dessus de 69.50.  \nInvalidation: Clôture nette au-dessus de 69.50 avec volume, pouvant signaler une reprise de momentum haussier.\n\nC) DeskPro  \n{\"run_id\":\"unique230423\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-30-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_19-30-10.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_021655_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T22:16:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-16-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller réaction sur support 62000, prise de position short à la cassure confirmée. Prise de profit partielle en approche de 60000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 64000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de HH/HL invalidés, structure en LH/LL.  \n- Prix a fortement chuté, avec un volume en hausse sur les dernières bougies baissières.  \n- Zone clé à surveiller autour de 62 000 (support potentiel) pour réaction ou poursuite du mouvement.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure est baissière avec des Lower Highs et Lower Lows bien définis, confirmant la pression vendeuse dominante. Le prix vient de marquer un rebond modéré sur la zone support vers 62 000, mais la tendance reste fragile. Une cassure sous ce support serait un signal de poursuite de la baisse. À court terme, la résistance notable se situe proche des 64 000. Scénario actionnable : surveiller le maintien du support; un retour au-dessus de 64 000 pourrait signaler un test de retournement, tandis qu’une cassure des 62 000 valide la continuation baissière. Invalidation du biais baissier si le prix forme un Higher High net au-dessus de 64 000.  \n\nC)",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-16-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_22-16-31.png"
+  }
+}

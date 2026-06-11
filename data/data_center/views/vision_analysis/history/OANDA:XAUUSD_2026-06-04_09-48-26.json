@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_134833_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:48:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-48-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller une cassure au-dessus de 4520-4540 pour un scénario haussier. En l'absence, viser short idéalement sous 4440.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 4540 invalide le biais baissier actuel.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le 1h avec des structures de bas en haut HL/LL.  \n- Renversement récent visible avec un dernier rebond fort, création d’un HL proche des 4510$.  \n- Zone de résistance à 4520-4540$ à surveiller pour valider continuation haussière.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe prix évolue dans une tendance baissière claire caractérisée par des plus hauts et plus bas descendants (LH/LL). Toutefois, un récent mouvement haussier a constitué un plus bas supérieur (HL) autour de 4440$, suivi d’un rallye vers 4510-4520$, zone de résistance précédente. Ce dernier rebond pourrait signaler un début de retournement ou une correction. Un franchissement clair de la résistance 4520-4540$ invaliderait la structure baissière avec potentiel pour un retour haussier. Le support clé reste sur 4440$, invalidation en dessous signifierait reprise baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec potentiel rebond\",\"structu",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-48-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_09-48-07.png"
+  }
+}

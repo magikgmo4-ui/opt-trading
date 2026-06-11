@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_144520_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:45:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-45-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4340.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre une cassure sous 4340 avec stop au-dessus de 4450.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragile, nouvelle chute brutale en clôture récente, renforce momentum vendeur.\n- Zone clé de support visible vers 4340, à surveiller pour un possible rebond ou poursuite baissière.\n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLa paire évolue en tendance baissière marquée par une série de LH/LL depuis fin mai. Le dernier mouvement accentue la baisse avec une forte bougie rouge, cassant probablement un support intermédiaire. Volume en hausse lors de la chute, confirmant la vigueur vendeuse. Résistance immédiate autour de 4450 ayant servi de plafond local, support principal proche de 4340. Scénario prioritaire: poursuite de la baisse sous 4340. Invalidation si retour au-dessus de 4450 avec bonne dynamique acheteuse.\n\nC) DeskPro  \n{\"run_id\":\"20240605-1430\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"4340\"],\"resistances\":[\"4450\"],\"plan\":\"Ve",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-45-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_10-44-48.png"
+  }
+}

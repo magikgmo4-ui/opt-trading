@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_024404_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T22:44:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_22-43-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur retour résistance 62000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "TT > 63500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long si cassure résistance confirmée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous support",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure support",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "monitor signal retournement avant achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "dépassement des résistances",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principalement baissière nette visible sur la majorité des graphiques.  \n- Structure en LL (Lower Lows) et LH (Lower Highs) dominante, signalant une pression vendeuse persistante.  \n- Zones clés à surveiller notamment pour possiblement saisir un rebond technique autour des supports récents.\n\nB) Chart 1 (haut-gauche) :  \n- Symbol / timeframe : Bitcoin / TetherUS - 1h  \n- Tendance baissière claire avec série de LL et LH depuis fin mai.  \n- Structure: LL avec pressions vendeuses régulières.  \n- Supports clés : ~59 000 et 60 000 USD (zones de rebond potentiel).  \n- Résistances : 62 000 puis 63 500 USD.  \n- Scénario : Poursuite du bearish tant que 62k n’est pas clairement dépassé. Entrée short possible sur retour résistance.  \n- Invalidation : franchissement stable au-dessus de 63 500 USD.\n\nC) Chart 2 (haut-droit) :  \n- Symbole / timeframe inconnu.  \n- Tendance incertaine, structure plate avec HH/HL récents, possible reprise haussière.  \n- Supports : zone basse",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_22-43-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_22-43-44.png"
+  }
+}

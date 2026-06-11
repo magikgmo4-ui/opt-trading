@@ -1,0 +1,65 @@
+{
+  "contract_version": "v1",
+  "module_id": "collector_binance_spot",
+  "provider_id": "binance_spot",
+  "run_id": "20260608T060015Z-356a4447",
+  "generated_at": "2026-06-08T06:00:17Z",
+  "request": {
+    "path": "/api/v3/ticker/24hr",
+    "params": {
+      "symbols": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "type": "FULL"
+    }
+  },
+  "response": [
+    {
+      "symbol": "BTCUSDT",
+      "priceChange": "1009.55000000",
+      "priceChangePercent": "1.635",
+      "weightedAvgPrice": "62535.38798777",
+      "prevClosePrice": "61762.45000000",
+      "lastPrice": "62772.00000000",
+      "lastQty": "0.08801000",
+      "bidPrice": "62771.99000000",
+      "bidQty": "0.33942000",
+      "askPrice": "62772.00000000",
+      "askQty": "2.29661000",
+      "openPrice": "61762.45000000",
+      "highPrice": "64234.68000000",
+      "lowPrice": "61184.00000000",
+      "volume": "26565.00621000",
+      "quoteVolume": "1661252970.23993160",
+      "openTime": 1780812017009,
+      "closeTime": 1780898417009,
+      "firstId": 6381225415,
+      "lastId": 6386241354,
+      "count": 5015940
+    },
+    {
+      "symbol": "ETHUSDT",
+      "priceChange": "49.54000000",
+      "priceChangePercent": "3.088",
+      "weightedAvgPrice": "1645.69793245",
+      "prevClosePrice": "1604.22000000",
+      "lastPrice": "1653.76000000",
+      "lastQty": "0.01000000",
+      "bidPrice": "1653.75000000",
+      "bidQty": "10.76850000",
+      "askPrice": "1653.76000000",
+      "askQty": "16.30420000",
+      "openPrice": "1604.22000000",
+      "highPrice": "1721.93000000",
+      "lowPrice": "1598.54000000",
+      "volume": "481189.22570000",
+      "quoteVolume": "791892113.85042000",
+      "openTime": 1780812017009,
+      "closeTime": 1780898417009,
+      "firstId": 4102002024,
+      "lastId": 4107557522,
+      "count": 5555499
+    }
+  ]
+}

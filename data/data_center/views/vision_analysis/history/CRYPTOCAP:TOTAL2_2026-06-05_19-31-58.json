@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_233207_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T19:32:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_19-31-58",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la tenue du support 850B pour un rebond potentiel. Si cassure à la baisse confirmée, viser continuation baissière avec prises de bénéfices rapides. En cas de rebond, cibler résistance 1T US",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus des derniers highs à 1T USD validant un potentiel changement de tendance.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec série de lower highs (LH) et lower lows (LL) sur le graphique journalier.  \n- Structure claire de bearish continuation après un rebond temporaire en avril-mai.  \n- Zone clé support potentielle autour de 850B USD, à surveiller pour un possible rebond ou rupture.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe graphique montre une tendance baissière bien établie depuis fin 2025 avec des lower highs et lower lows. Après une phase de consolidation et un rebond technique fin avril, le prix rechute fortement depuis fin mai vers la zone des 850B USD, qui apparaît comme support historique. La rupture en clôture sous ce palier pourrait confirmer une accélération baissière. Un retournement haussier nécessiterait la formation de higher lows (HL) et la cassure à la hausse des derniers sommets vers 1T USD. La volatilité est élevée, ce qui impose prudence dans l’exécution.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"s",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_19-31-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-05_19-31-47.png"
+  }
+}

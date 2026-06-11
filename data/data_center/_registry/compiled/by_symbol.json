@@ -1,0 +1,360 @@
+{
+  "BTCUSDT": {
+    "available_data_keys": {
+      "open_interest": {
+        "producers": {
+          "derivatives_collector__bitget": {
+            "last_write": null,
+            "value": null
+          },
+          "derivatives_collector__binance": {
+            "last_write": null,
+            "value": null
+          },
+          "bot_vision_headless__coinglass": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "funding_rate": {
+        "producers": {
+          "derivatives_collector__bitget": {
+            "last_write": null,
+            "value": null
+          },
+          "derivatives_collector__binance": {
+            "last_write": null,
+            "value": null
+          },
+          "bot_vision_headless__coinglass": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "volume_futures": {
+        "producers": {
+          "derivatives_collector__bitget": {
+            "last_write": null,
+            "value": null
+          },
+          "derivatives_collector__binance": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "long_short_ratio": {
+        "producers": {
+          "derivatives_collector__bitget": {
+            "last_write": null,
+            "value": null
+          },
+          "derivatives_collector__binance": {
+            "last_write": null,
+            "value": null
+          },
+          "bot_vision_headless__coinglass": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "liquidations_long": {
+        "producers": {
+          "derivatives_collector__bitget": {
+            "last_write": null,
+            "value": null
+          },
+          "derivatives_collector__binance": {
+            "last_write": null,
+            "value": null
+          },
+          "bot_vision_headless__coinglass": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "liquidations_short": {
+        "producers": {
+          "derivatives_collector__bitget": {
+            "last_write": null,
+            "value": null
+          },
+          "derivatives_collector__binance": {
+            "last_write": null,
+            "value": null
+          },
+          "bot_vision_headless__coinglass": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "last_price": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "open_price_24h": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "high_price_24h": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "low_price_24h": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "volume_24h": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "quote_volume_24h": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "price_change_24h": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "price_change_pct_24h": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "trading_status": {
+        "producers": {
+          "collector_binance_spot": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "support_level": {
+        "producers": {
+          "bot_vision_headless": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "resistance_level": {
+        "producers": {
+          "bot_vision_headless": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "trend_direction": {
+        "producers": {
+          "bot_vision_headless": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "key_level": {
+        "producers": {
+          "bot_vision_headless": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "invalidation_level": {
+        "producers": {
+          "bot_vision_headless": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "price_target": {
+        "producers": {
+          "bot_vision_headless": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "liquidation_heatmap_level": {
+        "producers": {
+          "bot_vision_headless__coinglass": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "open_interest_change_24h": {
+        "producers": {
+          "bot_vision_headless__coinglass": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "stock_price": {
+        "producers": {
+          "bot_vision_headless__screener": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "stock_change_pct": {
+        "producers": {
+          "bot_vision_headless__screener": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "stock_volume": {
+        "producers": {
+          "bot_vision_headless__screener": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "sentiment_score": {
+        "producers": {
+          "bot_vision_headless__news_sentiment": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "article_count": {
+        "producers": {
+          "bot_vision_headless__news_sentiment": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "positive_count": {
+        "producers": {
+          "bot_vision_headless__news_sentiment": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "negative_count": {
+        "producers": {
+          "bot_vision_headless__news_sentiment": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "neutral_count": {
+        "producers": {
+          "bot_vision_headless__news_sentiment": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_081446_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T04:14:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-14-38",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short under 680B avec prise partielle vers 660B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "reprise au-dessus de 720B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière sur le moyen terme, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente en range latéral entre 720B (résistance) et 680B (support), cassée récemment à la baisse vers 666B.  \n- Risque d’accélération baissière si le support 660B est invalidé, zone clé à surveiller.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière durable avec structure en Lower Highs (LH) et Lower Lows (LL). Les prix ont oscillé en range latéral sur 720B-680B de mars à début juin 2026. Une rupture nette du support à 680B vient de se produire, la prochaine zone support importante se situant autour de 660B. Le scénario privilégié est une poursuite baissière sous 680B avec un test possible des 660B, support critique à maintenir pour éviter une accélération. Une invalidation du scénario survient si les prix remontent au-dessus de 720B, signalant une possible reprise haussière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\"",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-14-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_04-14-27.png"
+  }
+}

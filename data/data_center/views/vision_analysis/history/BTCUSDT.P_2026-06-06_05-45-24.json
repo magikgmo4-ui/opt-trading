@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_094532_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T05:45:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-45-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vérifier rebond ou cassure du support 59000 pour short, ou breakout 61600 pour inversion",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus de 61600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante confirmée par une série de HH/HL cassés en LH/LL.  \n- Structure récente : tentative de rebond avec un HL mais résistances proches autour de 61 300/61 600 non franchies.  \n- Zone support clé identifiée vers 59 000, à surveiller pour un potentiel rebond ou nouvelle accélération baissière.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché est en tendance baissière claire, caractérisée par des plus hauts et plus bas descendants (LH/LL). On note un rebond récent avec un HL vers 59 000 mais un plafond autour de 61 300-61 600 bloque la progression. Le prix stagne sous cette résistance majeure qui fait office de zone de blocage. Tant que cette résistance tient, le biais reste baissier avec un risque de reprise baissière à l’approche du support. Invalidation du scénario baissier possible en cas de franchissement franc au-dessus de 61 600.\n\nC) DeskPro  \n{\"run_id\":\"20240607_0945\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec ten",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-45-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_05-45-16.png"
+  }
+}

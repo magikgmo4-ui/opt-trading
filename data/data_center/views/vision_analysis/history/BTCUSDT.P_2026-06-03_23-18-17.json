@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_031827_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:18:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-18-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure support pour continuation short; rebond intra sous résistance possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire > 66500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette et marquée sur le timeframe 1h.  \n- Structure en lower lows (LL) et lower highs (LH) confirmée, sans signe clair de retournement.  \n- Zone de support proche vers 62 000-63 000 USDT à surveiller pour rebond ou cassure.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa paire BTCUSDT.P évolue clairement dans une tendance baissière avec une série de lower highs et lower lows. Le prix a récemment testé une zone de support autour de 62 000-63 000 USDT où un rebond technique s’est amorcé. La résistance la plus proche est à 66 500 USDT, correspondant à un précédent lower high. Le volume augmente lors des baisses, confirmant la pression vendeuse. Le scénario prioritaire reste la poursuite de la baisse en cas de cassure du support. Un retour au-dessus de 66 500 invaliderait la continuité baissière court terme.  \n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[62000,63000],\"resistances\":[66500],\"plan\":\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-18-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_23-18-09.png"
+  }
+}

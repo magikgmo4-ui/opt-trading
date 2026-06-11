@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_125312_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T08:53:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_08-53-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure résistance à 64000 pour signal d'achat, sinon continuation baisse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure au-dessus de 64000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent signifiant un pullback/try de correction, potentiel test de résistance.  \n- Zone clé proche vers 64 000 USDT à surveiller comme résistance; invalidation au-dessus confirmerait un possible changement de structure.\n\nB) Chart unique (BTCUSDT.P 15m):  \nStructure en baisse dominante (LH/LL) depuis plusieurs séances, signalant une pression vendeuse persistante. Un retracement haussier a démarré récemment, faisant un plus haut temporaire proche de 64 000 USDT (résistance proche). Le prix tente un rebond après un plus bas vers 61 700 USDT (support immédiat). La cassure au-dessus de 64 000 USDT invaliderait la structure baissière et ouvrirait un scénario de reprise haussière. En dessous du dernier plus bas, on reste dans un contexte baissier.  \n\nC) DeskPro  \n{\"run_id\":\"20240606_1253\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL avec tentative de pullback\",\"su",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_08-53-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_08-52-56.png"
+  }
+}

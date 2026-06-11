@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_113149_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T07:31:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-31-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s 62"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s 64"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s 64"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s 62"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "support 62"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "résistance à 64"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "résistance 64"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec une tentative de rebond récente mais sans confirmation de retournement haussier.  \n- Zone clé de support vers 62 500 USDT à surveiller; résistance importante vers 64 200 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance dominante est baissière, marquée par une succession de LH et LL. Le prix a récemment rebondi au support autour de 62 500 USDT mais peine à franchir la résistance à 64 200 USDT, confirmant la structure baissière. Un franchissement net au-dessus des 64 200 invaliderait le scénario bearish court terme. A contrario, une cassure des 62 500 entraînerait une poursuite de la baisse vers de nouveaux plus bas.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[62500],\"resistances\":[64200],\"plan\":\"Vendre sur rejet résistance 64 200 ou cassure support 62 500 pour poursuite baisse\",\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-31-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_07-31-29.png"
+  }
+}

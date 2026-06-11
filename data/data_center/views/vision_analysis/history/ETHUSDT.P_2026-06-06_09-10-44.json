@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_131052_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T09:10:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-10-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "préférer ventes sur rebond proche résistance 1600-1625, viser retour proche 1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement soutenu au-dessus de 1625",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière, avec une série de HH et LH, dominante la structure baissière.  \n- Zones clés : support près de 1520$ (testé récemment), résistance autour de 1600-1625$.  \n- Scénario principal : recherche de continuation à la baisse sous résistance 1600$, invalidation si franchissement clair et soutenu au-dessus.  \n\nB) Chart unique (ETHUSDT.P 1h) : Le graphique montre une forte tendance baissière avec une succession de Lower Highs (LH) et Lower Lows (LL). Après un rebond proche de 1520$, la paire tente de remonter vers 1600-1625$, zone de résistance immédiate. La structure actuelle reste baissière tant que les niveaux clés ne sont pas cassés à la hausse. Un retour sous 1520$ renforcerait la pression vendeuse. La prudence est requise avant un retournement clair.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH, LL\",\"supports\":[1520],\"resistances\":[1600,1625],\"plan\":\"préférer ventes sur rebond proche résistance 1",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-10-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_09-10-34.png"
+  }
+}

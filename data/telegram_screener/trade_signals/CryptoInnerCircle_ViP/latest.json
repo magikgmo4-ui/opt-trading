@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_CryptoInnerCircle_ViP_7155_2026-05-03T04:50:41+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "CryptoInnerCircle_ViP",
+    "parsed_at": "2026-05-03T04:50:41+00:00",
+    "produced_at": "2026-06-06T11:30:54.577732+00:00",
+    "pair": "XAUUSDUSDT",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "FIGHTUSDT SPOT BUY 0.00493"
+  }
+]

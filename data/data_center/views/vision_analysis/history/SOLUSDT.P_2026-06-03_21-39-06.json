@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_013915_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T21:39:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-39-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 69.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 73.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 74.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond/zone résistance 73-74 avec stop si cassure support 69",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus de 74",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière en 15m, avec une succession de creux et sommets plus bas (LL et LH).\n- Structure en déclin net, sans signe de renversement pour le moment.\n- Zone clé support à 69 USDT à surveiller, potentielle zone de rebond, mais risque de poursuite baissière si cassure.\n\nB) Chart unique (SOLUSDT.P 15m): La tendance est baissière avec une série de Lower Highs (LH) et Lower Lows (LL), indiquant une pression vendeuse persistante. Le prix teste actuellement un support important vers 69 USDT, qui avait servi de support/résistance par le passé. Un rebond technique est possible ici mais la force baissière reste dominante. En cas de cassure nette sous 69 USDT, la structure sera invalidée à la baisse et la baisse pourrait s’accélérer. La résistance immédiate se situe autour de 73-74 USDT, zone clé pour un éventuel retour haussier. À court terme, privilégier les stratégies de vente sous résistance, en gardant l’invalidation sous 69 USDT.\n\nC) DeskPro {\"run_id\":\"",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-39-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-03_21-38-58.png"
+  }
+}

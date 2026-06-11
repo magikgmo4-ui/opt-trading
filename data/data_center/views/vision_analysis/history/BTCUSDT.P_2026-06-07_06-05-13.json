@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_100522_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T06:05:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-05-13",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond et réaction à 63,000. Acheter si cassure avec confirmation HH, sinon rester vendeur en échec.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire au-dessus de 63,000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale: baissière marquée sur la période récente.\n- Structure en baisse avec des Lower Highs (LH) et Lower Lows (LL).\n- Début possible de reprise court terme suite à un rebond, à confirmer.\n\nB) Chart unique (BTCUSDT.P 1h) :\nLe graphique montre une forte tendance baissière depuis fin mai/début juin avec des mouvements en Lower Highs et Lower Lows. Un support clé semble visible autour de 59 000-60 000 USDT, où un rebond s’est amorcé. Une résistance immédiate se situe vers 63 000 USDT, zone à surveiller. Le scénario prioritaire reste baissier sauf si le prix franchit clairement 63 000 USDT en formant un Higher High, ce qui invaliderait une poursuite baissière à court terme.\n\nC) DeskPro\n{\"run_id\":\"20240607_1000\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"59,000-60,000\"],\"resistances\":[\"63,000\"],\"plan\":\"Surveiller rebond et réaction à 63,000. Acheter si cassure avec confirmation HH, sinon rester vendeur en échec.\",\"invalidat",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-05-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_06-04-58.png"
+  }
+}

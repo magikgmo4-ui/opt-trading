@@ -1,0 +1,82 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_angela_xauusd_6584_2026-06-08T12:04:01+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "angela_xauusd",
+    "parsed_at": "2026-06-08T12:04:01+00:00",
+    "produced_at": "2026-06-11T10:00:14.100767+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4334.0,
+    "sl": 4344.0,
+    "tp": 4314.0,
+    "tps": [
+      4314.0,
+      4324.0
+    ],
+    "leverage": null,
+    "raw_text": "GOLD SELL 4334\nTP1 4324\nTP2 4314\nSL 4344"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_angela_xauusd_6589_2026-06-09T13:32:59+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "angela_xauusd",
+    "parsed_at": "2026-06-09T13:32:59+00:00",
+    "produced_at": "2026-06-11T10:00:14.100911+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4329.0,
+    "sl": 4319.0,
+    "tp": 4339.0,
+    "tps": [
+      4339.0,
+      4349.0
+    ],
+    "leverage": null,
+    "raw_text": "GOLD BUY 4329\nTP1 4339\nTP2 4349\nSL 4319"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_angela_xauusd_6592_2026-06-10T12:34:18+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "angela_xauusd",
+    "parsed_at": "2026-06-10T12:34:18+00:00",
+    "produced_at": "2026-06-11T10:00:14.101042+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4157.0,
+    "sl": 4147.0,
+    "tp": 4167.0,
+    "tps": [
+      4167.0,
+      4177.0
+    ],
+    "leverage": null,
+    "raw_text": "GOLD BUY 4157\nTP1 4167\nTP2 4177\nSL 4147"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_angela_xauusd_6598_2026-06-10T15:51:10+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "angela_xauusd",
+    "parsed_at": "2026-06-10T15:51:10+00:00",
+    "produced_at": "2026-06-11T10:00:14.101129+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4111.0,
+    "sl": 4101.0,
+    "tp": 4121.0,
+    "tps": [
+      4121.0,
+      4131.0
+    ],
+    "leverage": null,
+    "raw_text": "GOLD BUY 4111\nTP1 4121\nTP2 4131\nSL 4101"
+  }
+]

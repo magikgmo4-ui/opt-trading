@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_235439_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T19:54:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-54-33",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Chercher vente sous résistance 1850-1880 avec stop au-dessus.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement et maintien au-dessus de 1880",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL) sur le 1h.\n- Action de prix volatile, test récent d’une zone support vers 1760-1780 USDT, avec légère réaction haussière.\n- Scénario principal baissier sous résistance 1850-1880 USDT, invalidation si franchissement et maintien au-dessus.\n\nB) Chart unique (ETHUSDT.P 1h) : \nLe graphique montre une tendance baissière bien marquée avec structure en LH et LL. Le prix a cassé plusieurs supports intermédiaires et testé récemment la zone 1760-1780 USDT qui agit comme support crucial. Le rebond actuel reste fragile, la zone 1850-1880 USDT fait résistance. Le scénario privilégié reste une reprise de la baisse si cette résistance tient, avec invalidation forte au-dessus de 1880 USDT confirmant un possible retournement haussier.\n\nC) DeskPro \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1760-1780\"],\"resistances\":[\"1850-1880\"],\"plan\":\"Chercher ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-54-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_19-54-25.png"
+  }
+}

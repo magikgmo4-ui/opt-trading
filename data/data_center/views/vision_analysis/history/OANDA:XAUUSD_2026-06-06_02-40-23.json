@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_064032_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T02:40:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-40-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur cassure 4300",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Les charts montrent une forte volatilité avec une nette pression vendeuse sur certains actifs.  \n- Des zones clés de support sont testées, indiquant de potentiels retournements ou relais baissiers.  \n- Structures de type HL/HH alternent avec LH/LL, signalant des hésitations sur la tendance dominante.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \nTendance baissière sur le court terme, structure avec des lows plus bas (LL) visibles sur les deux derniers jours.  \nZones clés : support vers 4300, résistance principale à 4450.  \nVolume en hausse lors des chutes, validant la pression vendeuse forte.  \nScénario prioritaire : continuation baissière en cas de cassure sous 4300.  \nInvalidation : retour au-dessus du dernier haut à 4450.\n\nC) Chart 2 (haut-droit): inconnu  \nImpossible de déterminer la paire ni timeframe. Pas d’analyse possible.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole et timeframe non lisibles, aucune lecture possible.\n\nE) Chart 4 (bas-droit): inconnu  \nDonnées non ",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-40-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_02-40-10.png"
+  }
+}

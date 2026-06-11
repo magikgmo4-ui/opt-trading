@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_133924_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T09:39:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_09-39-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher un breakout au-dessus de 1650 pour amplifier la hausse, stop sous 1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassage franc sous 1580 avec volumes confirmés",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m récente : haussière avec structure HL/HH visible depuis le creux vers 1530.  \n- Zone clé support proche : 1580-1590, résistance importante à 1640-1650.  \n- Potentiel scénario : poursuite haussière si breakout 1650, sinon risque de correction vers 1580.\n\nB) Chart unique (ETHUSDT.P 15m):  \nSur ce 15 minutes, ETHUSDT.P a initié un bas significatif vers 1530 (plus bas récent), suivi de plusieurs point hauts et bas relatifs plus élevés (HL/HH) indiquant une reprise haussière. La structure est donc haussière. Le prix teste une résistance autour de 1640-1650 où il bute plusieurs fois. En cas de franchissement clair de cette zone, la tendance haussière pourrait s’amplifier. En revanche, une rechute sous 1580 confirmerait une invalidation temporaire du scénario haussier et un retour possible vers les 1530. Le volume montre un intérêt accru sur les mouvements haussiers récents.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_09-39-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_09-38-54.png"
+  }
+}

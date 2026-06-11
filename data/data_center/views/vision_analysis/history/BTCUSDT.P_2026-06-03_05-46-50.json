@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_094702_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:47:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-46-50",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur cassure support ou attendre higher high au-dessus 1.04T pour retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture quotidienne > 1.04T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d’une tendance globale baissière claire sur le marché total crypto excluant BTC, avec rebonds temporaires.  \n- Structure de prix caractérisée par des Lower Highs (LH) et Lower Lows (LL) dominants.  \n- Zones clés à surveiller autour de 920B (support) et 1.04T (résistance) pour valider un retournement ou poursuite.  \n\nB) Chart 1 (haut-gauche): Crypto Total Market Cap Excluant BTC (1D)  \n- Bias : Baissier  \n- Structure : Succession de Lower Highs et Lower Lows, démontrant une tendance baissière claire.  \n- Supports : Zone autour de 920 milliards USD, à surveiller comme potentiel point de rebond.  \n- Résistances : 1.04 trillions USD, zone de congestion/rencontre de prix recentrée.  \n- Plan : Vendre ou rester à l’écart si la zone de support cède. Attendre confirmation haussière par un higher high au-dessus de 1.04T pour envisager un retournement.  \n- Invalidation : Clôture quotidienne au-dessus de 1.04T, invalidant la structure baissière actuelle.  \n\nC) Chart 2",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-46-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-03_05-46-40.png"
+  }
+}

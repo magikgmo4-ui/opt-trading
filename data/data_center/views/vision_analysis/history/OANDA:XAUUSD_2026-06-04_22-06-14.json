@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_020626_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:06:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-06-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4420.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4460.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4470.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat breakout 4470 stop 4450 ou vente sous 4415 stop 4470",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 4410",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance récente en range, avec des hauts et bas relativement égaux (structure latérale).\n- Zones clés identifiées autour de 4460 (résistance) et 4420 (support).\n- Scénario privilégié : attente d'une cassure nette pour définir direction (rupture des 4460 ou 4420).\n\nB) Chart unique (OANDA:XAUUSD 1h) : \nLe XAUUSD sur 1h montre une structure oscillante sans claire tendance haussière ou baissière marquée (HH/HL vs LH/LL non confirmés). La résistance clé est à 4460-4470, où les prix butent régulièrement. Le support majeur est à 4420, testée plusieurs fois. Le volume reste modéré mais densifie en rebond sous résistance. Le plan serait une entrée en breakout si cassure 4470 en cloture avec stop sous 4450, ou un short sous 4415 avec stop au-dessus du dernier sommet local. Invalidation d’un scénario haussier à une fermeture sous 4410.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre/range\",\"structure\":\"latérale HH/HL = LH/LL\",\"supports\":[4420],\"resistance",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-06-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_22-05-56.png"
+  }
+}

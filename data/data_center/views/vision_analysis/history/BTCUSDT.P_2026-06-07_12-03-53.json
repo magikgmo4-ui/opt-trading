@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_160405_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T12:04:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-03-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien support 59,000 pour rebond; confirmation hausse en break 63,000 possible retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 59,000, poursuite tendance baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Plusieurs phases de tendance baissière marquées, avec des tentatives sporadiques de rebond.  \n- Structures principalement en Lower Highs (LH) et Lower Lows (LL), indiquant un marché sous pression vendeuse.  \n- Zones clés à surveiller proches des points de retournement récents pour valider un éventuel retournement ou poursuite.\n\nB) Chart 1 (haut-gauche) : Bitcoin / TetherUS PERPETUAL, 1h  \n- Tendance principale : baissière nette, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure : baisse claire jusqu’à un point bas vers 59 000 suivie d’un léger rebond.  \n- Supports clés : 59 000 - 60 000 (zone de rebond local).  \n- Résistances clés : 63 000 - 64 000 (plusieurs tentatives de franchissement échouées).  \n- Scénario : poursuite potentielle du rebond tant que les 59 000 restent support, viser une confirmation au-delà de 63 000 pour envisager un renversement.  \n- Invalidation : chute sous 59 000 confirmerait la poursuite de la tendance baissière.\n\nC) Ch",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-03-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_12-03-42.png"
+  }
+}

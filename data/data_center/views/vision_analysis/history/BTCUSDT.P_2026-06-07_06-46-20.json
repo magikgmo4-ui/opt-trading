@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_104629_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T06:46:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-46-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rejet 63000 ou entrée sur cassure 60000. Prendre profit partiel sur 58000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale clairement baissière sur le 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Légère reprise récente avec tentative de pullback après un plus bas majeur.  \n- Zone résistante clé vers 63 000 USDT à surveiller pour valider un retournement ou reprise baissière.  \n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique montre une forte tendance baissière caractérisée par une structure de Lower Highs et Lower Lows depuis fin mai jusqu’au début de juin. Récemment, un rebond technique a eu lieu avec un HL à proximité de 60 000 USDT puis une tentative de retour vers la zone des 63 000 USDT, qui joue désormais le rôle de résistance clé. L’invalidation du scénario baissier se ferait via un franchissement clair au-dessus de ce niveau, suggérant un possible changement de dynamique vers une phase de consolidation ou haussière. En revanche, un rejet à cette résistance et un retour sous 60 000 USDT confirmeraient la poursuite de la tendance baissière",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-46-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_06-46-06.png"
+  }
+}

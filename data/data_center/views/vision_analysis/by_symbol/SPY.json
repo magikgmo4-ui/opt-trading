@@ -1,0 +1,979 @@
+[
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_013741_SPY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T21:37:39-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_21-37-31",
+    "signals": [
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "chercher rebond sur support et continuation hausse",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "<735",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indisponible",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indisponible",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indisponible",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indisponible",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indisponible",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indisponible",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Les marchés actions présentent une légère correction après une forte tendance haussière.  \n- Structure majoritairement de hausse avec présence de HH/HL, mais signaux de prudence sur les plus hauts récents.  \n- Zones clés de support à surveiller pour éviter retournement plus marqué.\n\nB) Chart 1 (haut-gauche): SPY 1h  \nTendance haussière claire avec structure HH/HL. La dernière impulsion montre un léger repli, possible prise de profit. Zone clé support autour de 740-745 à surveiller. Résistance majeure proche des plus hauts à 760. Scénario principal : rebond sur support avec poursuite de la hausse. Invalidation sous 735-738.\n\nC) Chart 2 (haut-droit): INCONNU  \nInformations du symbole et timeframe non identifiables. Impossible d’analyser précisément.\n\nD) Chart 3 (bas-gauche): INCONNU  \nSans éléments lisibles sur le marché et timeframe, l’analyse détaillée n’est pas possible.\n\nE) Chart 4 (bas-droit): INCONNU  \nDonnées non identifiables donc pas de lecture possible.\n\nF)",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_21-37-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-03_21-37-20.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_014917_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T21:49:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_21-49-07",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 745.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 748.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 762.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée long sur rebond support 745-748, viser 760+ pour extension. Stop sous 745.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure nette sous 745 confirmée par volume, pivot vers baisse potentielle.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h avec une série de HH (Higher Highs) et HL (Higher Lows).  \n- Structure récemment en forme de correction avec un léger retracement mais toujours au-dessus des supports clés.  \n- Zone de support principale autour de 745-748, résistance proche vers 760-762 à surveiller pour validation ou retournement.  \n\nB) Chart unique (SPY 1h):  \nLe graphique montre une dynamique haussière nette caractérisée par des HH et HL formés régulièrement depuis fin avril. Un repli récent teste un support dynamique vers 745-748, ce qui est un niveau crucial pour maintenir la tendance haussière. La résistance majeure à court terme se situe autour de 760-762, zone à franchir pour poursuivre la hausse. Le volume reste globalement stable, avec un pic récent qui pourrait indiquer un intérêt élevé sur ce dernier retracement. Scénario principal: rebond sur support pour continuation haussière. Invalidation en cas de cassure franche sous 745 avec poursuite vers 735.",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_21-49-07",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-03_21-48-57.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_025137_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T22:51:35-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-51-29",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 753.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 746.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 765.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur rebond support 753-754 avec objectif 760+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte du support 746 (invalidation tendance haussière)",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière claire avec une série de HH et HL bien définis depuis fin avril.\n- Récente correction intraday qui teste une zone de support intermédiaire vers 753-754.\n- Scénario actionnable : achat sur support avec objectif nouveau plus haut, perte de ce support invalide la structure haussière.\n\nB) Chart unique (SPY 1h):\nLe graphique montre une structure en tendance haussière avec des sommets et creux ascendantes (HH/HL). Après un plus haut autour de 760, une légère correction test une zone support vers 753-754, niveau à surveiller. Si ce support tient, la probabilité d’un rebond vers les précédents plus hauts est élevée. En dessous, la structure haussière serait invalidée avec potentiels retests des niveaux plus bas vers 746. Les résistances se concentrent autour de 760 et 765. Le volume reste stable, indiquant une correction saine.\n\nC) DeskPro\n```json\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[753,746],\"resistanc",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-51-29",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-03_22-51-19.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_035212_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T23:52:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_23-52-04",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Reprise d'achat au support confirmé. Prise de bénéfice partielle proche résistance.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure sous 748 avec volume, signe de retournement court terme",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière clairement établie avec une série de HH (Higher Highs) et HL (Higher Lows) jusqu'au récent sommet.  \n- Correction en cours marquée par une structure potentielle de retracement, avec une première zone de support testée.  \n- Surveiller la rupture des HL récents pour valider un retournement ou envisager une reprise de la hausse.  \n\nB) Chart unique (SPY 1h):  \nLa structure montre une série de HH/HL bien définie, confirmant une tendance haussière sur ce timeframe. Le prix corrige actuellement après avoir atteint un sommet autour de 760. Une zone clé de support est visible vers 748-750, correspondant à un HL précédent et un niveau psychologique. Le scénario prioritaire est une reprise vers les 760-765 tant que le support tient. En cas de cassure sous 748, cela invaliderait la dynamique haussière et ouvrirait un scénario de correction plus profonde vers 735-740. La vigilance est recommandée à ces niveaux pour ajuster la prise de position.  \n\nC) DeskPro ",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_23-52-04",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-03_23-51-53.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_133530_SPY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T09:35:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_09-35-14",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "acheter sur rebond support avec cible vers résistance",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture sous 747",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "informations manquantes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "informations manquantes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "informations manquantes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Le dashboard montre des tendances majoritairement haussières avec des structures de plus hauts et bas élevés (HH/HL) sur plusieurs timeframe.  \n- Plusieurs zones clés support et résistance sont identifiées, indiquant des points d’intérêt pour gestion du risque.  \n- Les opportunités d’entrée sont à privilégier sur rebonds en support ou cassures validées, avec une vigilance sur les invalidations potentielles.  \n\nB) Chart 1 (haut-gauche): SPY 1h  \n- Tendance dominante haussière avec structure en HH/HL claire.  \n- Prix proche d’un sommet récent, léger pullback visible.  \n- Zone support clé vers 747-750, zone résistance à 760-762.  \n- Scénario principal: continuation haussière après retracement, cible zone résistante.  \n- Invalidation en clôture sous 747, signalant possible retournement ou consolidation.  \n\nC) Chart 2 (haut-droit): symbole/timeframe inconnu  \n- Lecture impossible, informations de symbole/timeframe non visibles.  \n- Pas d’analyse fiable possible sans ces",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_09-35-14",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_09-35-03.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_133655_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T09:36:52-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_09-36-47",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 750.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 748.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 765.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur rebond proche support 750-748, viser extension 760-765, stop sous 748",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte close sous 748",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h avec des structures de HH (Higher Highs) et HL (Higher Lows) bien marquées.  \n- Récente correction visible avec un pullback depuis le plus haut vers un niveau autour de 750, potentielle zone de support.  \n- Scénario principal : attendre maintien du support pour relance haussière, invalidation sous 748-750 à surveiller.  \n\nB) Chart unique (SPY 1h):  \nOn observe une dynamique nette de hausse avec des creux et sommets ascendants (HL/HH). La phase corrective amorcée montre une perte momentanée de momentum, avec un support clé immédiat entre 750 et 748. Ce niveau sera déterminant pour la poursuite ou non de la tendance haussière. La cassure en dessous de ce support invaliderait le scénario haussier court terme et signalerait une possible inversion ou consolidation plus large. En revanche, un rebond confirmerait la force du cycle haussier.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_09-36-47",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_09-36-37.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_144906_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T10:49:03-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_10-48-55",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 750.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur support 750 avec objectif 760. Stop sous 745 pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure franche sous 745 avec volume.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec une structure de prix formant des HH (Higher Highs) et HL (Higher Lows).  \n- Récente correction depuis le dernier sommet, test potentiel de support à 750$.  \n- Zone clé de support à 750$ et résistance majeure au niveau du dernier sommet vers 760$.\n\nB) Chart unique (SPY 1h):  \nLe graphique SPY en 1h montre une nette tendance haussière avec des hauts et bas ascendants, validant une structure acheteuse (HH/HL). Le prix corrige actuellement après un point haut proche de 760$. Le support immédiat à surveiller se situe autour de 750$, zone où un rebond confirmerait la poursuite de la tendance. Une cassure solide sous 750$ invaliderait ce scénario haussier et pourrait annoncer une structure en retournement avec potentiels bas plus bas (LL). La résistance principale reste le récent sommet vers 760$, dont le franchissement pousserait la dynamique à la hausse. Le volume reste soutenu, ce qui rend le scénario de continuation plus probable, sous ",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_10-48-55",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_10-48-45.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_155030_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T11:50:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_11-50-21",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 750.0,
+        "confidence": 0.7,
+        "note": "support 750"
+      },
+      {
+        "type": "support_level",
+        "value": 750.0,
+        "confidence": 0.7,
+        "note": "s 750."
+      },
+      {
+        "type": "support_level",
+        "value": 750.0,
+        "confidence": 0.7,
+        "note": "s 750,"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.7,
+        "note": "résistance à 760"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.7,
+        "note": "résistance 760"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière claire avec une succession de HH/HL sur le timeframe 1h.\n- Structure solide, pullbacks well contained sans rupture majeure des supports.\n- Zone clé de support identifiée autour de 750, résistance majeure proche de 760-762.\n\nB) Chart unique (SPY 1h):\nLe SPY évolue en tendance haussière depuis plusieurs semaines, marquée par une alternance de hauts plus hauts (HH) et bas plus hauts (HL). La structure indique un contrôle acheteur solide malgré quelques corrections intermédiaires. Le dernier rebond depuis le support 750 montre un possible nouveau test de la résistance à 760-762. Une invalidation du scénario haussier se produirait sous les 750. Pour le moment, le bias reste haussier, avec opportunité de swing longs sur pullbacks vers le support clé.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[750],\"resistances\":[760,762],\"plan\":\"rester long sur pullbacks vers 750, viser résistance 760-762\",\"in",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_11-50-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_11-50-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_165239_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T12:52:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_12-52-31",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 760.0,
+        "confidence": 0.7,
+        "note": "s 760."
+      },
+      {
+        "type": "support_level",
+        "value": 752.0,
+        "confidence": 0.7,
+        "note": "s 752."
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.7,
+        "note": "r 760"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec des structures de HH (Higher Highs) et HL (Higher Lows).  \n- Récente correction ramenant le prix vers un support majeur avant rebond.  \n- Zone de résistance autour de 760 à surveiller pour continuation ou inversion potentielle.  \n\nB) Chart unique (SPY 1h) :  \nLe graphique montre une tendance haussière dominante matérialisée par une succession de HH/HL. Le prix a corrigé récemment, formant un HL autour de 752-753, zone d'accumulation visible sur le volume. Rebond en cours indiquant une reprise probable du momentum haussier. La résistance principale se situe sur la zone 758-760, avec un double sommet latent vers 760. Un franchissement net de cette zone validerait la poursuite du uptrend. Invalidation du scénario haussier si le prix casse sous le dernier HL significatif vers 752.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[752],\"resistances\":[758,760],\"plan\":\"acha",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_12-52-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_12-52-21.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_013325_SPY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T21:33:22-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-33-15",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 745.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 735.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 765.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur support avec prise de profit proche résistance, stop sous 735",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "BTC sous 735 invalide scénario haussier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance globale haussière avec plusieurs retournements ponctuels.\n- Structures majoritaires HH/HL indiquant une dynamique d’achat persistante.\n- Zones clés à surveiller sur derniers niveaux hauts et supports intermédiaires pour confirmation ou invalidation.\n\nB) Chart 1 (haut-gauche): SPY 1h\nTendance: Haussière\nStructure: HH/HL clair, récente consolidation autour 757\nSupports: 745, 735\nRésistances: 760, 765 (zone récente de rejet)\nScénario: Reprise possible vers 760-765 si support 745 tient, sinon retournement vers 735\nInvalidation: Passage en dessous de 735 confirmerait un changement structurel vers LH/LL\n\nC) Chart 2 (haut-droit): inconnu\nImpossible d’identifier symbole ni timeframe, lecture non-actionnable.\n\nD) Chart 3 (bas-gauche): inconnu\nImpossible d’identifier symbole ni timeframe, lecture non-actionnable.\n\nE) Chart 4 (bas-droit): inconnu\nImpossible d’identifier symbole ni timeframe, lecture non-actionnable.\n\nF) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"1\",\"bi",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-33-15",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_21-33-05.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_013618_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T21:36:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-36-06",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 750.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat à maintien au-dessus de 750 avec objectif vers 760 et plus haut",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure franche sous 750",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le 1h avec structure de HH (Higher High) et HL (Higher Low) bien marquée.  \n- Zones clés à surveiller : support autour de 750, résistance forte proche de plus haut vers 760.  \n- Scénario privilégié : continuation de la hausse si maintien du support, invalidation en cas de cassure franche sous 750.\n\nB) Chart unique (SPY 1h) :  \nLe graphique montre une série claire de Higher Highs et Higher Lows traduisant une dynamique acheteuse stable. La structure supporte une poursuite de la tendance haussière. La zone 750 sert de support critique, tandis que 760 apparaît comme une résistance récente à dépasser pour accélérer la hausse. La réaction après chaque repli confirme une pression acheteuse dominante. Une cassure sous 750 invaliderait le scenario haussier et pourrait signaler un retournement ou une consolidation plus profonde.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[750",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-36-06",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_21-35-55.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_023806_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T22:38:04-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_22-37-58",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 750.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur rebond au support 750 avec objectif 760+. Stop sous 750 pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Perte durable sous 750 invalide la tendance haussière.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante sur le timeframe 1h avec des HH et HL clairement formés.  \n- Structure récente marquée par une légère correction mais sans rupture des supports clés, signalant un pullback.  \n- Zone clé de support autour de 750 USD, résistance intraday proche vers 760 USD.\n\nB) Chart unique (SPY 1h):  \nLa tendance est haussière, avec une série de Higher Highs (HH) et Higher Lows (HL) validant la structure bullish. Récemment, on observe une correction qui a testé le support vers 750 USD sans le casser, indiquant une zone de demande solide. Le prix tente de reprendre vers la résistance immédiate à environ 760 USD. Un passage au-dessus de cette résistance confirmerait le retournement haussier post-correction, avec un potentiel extension vers de nouveaux sommets. En cas de cassure en dessous du support 750 USD, la structure haussière serait invalidée, ouvrant la porte à un retracement plus profond.\n\nC) DeskPro  \n{\"run_id\":\"202406\",\"charts\":[{\"slot\":\"single\",",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_22-37-58",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_22-37-42.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_033839_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T23:38:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_23-38-31",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 750.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 745.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur support 750 avec stop sous 745, viser résistance 760 puis plus haut.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "casse sous 745",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h, avec une série de HH et HL bien formés.  \n- Dernier mouvement montre une correction mais le support des récents HL tient, indiquant une possible reprise.  \n- Zone de résistance clé autour de 760, zone support majeure proche de 750.\n\nB) Chart unique (SPY 1h):  \nLe graphique montre une structure de tendance haussière (HH/HL). Après une forte dynamique ascendante, une correction est visible mais sans dépasser le dernier creux HL, validant la poursuite probable de la hausse. Résistance importante vers 760, plafond à surveiller pour une cassure confirmant l'élan. Support notable autour de 750, zone d’achat potentielle. Le scénario favori est une reprise haussière à partir de ce support. Invalidation du bullish si le prix casse en dessous de 745, signalant un changement possible de structure (passage en LH/LL).\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[750,745],\"resistance",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_23-38-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_23-38-20.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_044144_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T00:41:42-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_00-41-36",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 755.0,
+        "confidence": 0.7,
+        "note": "s 755."
+      },
+      {
+        "type": "support_level",
+        "value": 760.0,
+        "confidence": 0.7,
+        "note": "s 760"
+      },
+      {
+        "type": "support_level",
+        "value": 748.0,
+        "confidence": 0.7,
+        "note": "s 748,"
+      },
+      {
+        "type": "support_level",
+        "value": 748.0,
+        "confidence": 0.7,
+        "note": "support 748"
+      },
+      {
+        "type": "price_target",
+        "value": 760.0,
+        "confidence": 0.5,
+        "note": "objectif 760"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec une série de HH et HL formés sur le 1h.  \n- Structure récente marquée par un rejet sous résistance proche de 760, consolidation en cours.  \n- Zone de support clé identifiée autour de 748-750, nécessaire à maintenir pour préserver la dynamique.\n\nB) Chart unique (SPY 1h):  \nLe SPY évolue dans une tendance haussière nette avec des sommets et creux ascendants (HH/HL). Dernière phase montre un rejet à 760 (résistance), suivi d'un retracement vers 755. Le support autour de 748-750 est fondamental pour éviter un retournement structurel. Scénario privilégié : maintien au-dessus du support et reprise vers 760+ pour viser un nouveau sommet. Invalidation sous 748, ce qui signalerait potentiellement un début de correction ou une pause plus profonde.\n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[748,750],\"resistances\":[760],\"plan\":\"Acheter au support 748-750 avec objectif 760+\",\"invalid",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_00-41-36",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-05_00-41-25.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_140625_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T10:06:22-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-06-16",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Pas de plan possible sans graphique",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Pas d'invalidation définissable",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Inconnu (aucun graphique visible).  \n- Impossible d’évaluer tendance, structure ou zones clés sans données.  \n- Veuillez fournir un graphique visible pour analyse.  \n\nB) Chart unique (SPY 1h): Inconnu  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"unknown\",\"structure\":\"unknown\",\"supports\":[],\"resistances\":[],\"plan\":\"Pas de plan possible sans graphique\",\"invalidation\":\"Pas d'invalidation définissable\"}]}",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-06-16",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-05_10-06-04.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_150854_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T11:08:52-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_11-08-45",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 740.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur rebond à support 740, viser la résistance 760",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure claire sous 740",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante avec une série de HH et HL visibles depuis fin avril.  \n- Récente correction marquée par un pullback important, structure incertaine à court terme entre HL et possible LR.  \n- Zone clé autour de 740 en support, résistance immédiate vers 760.  \n\nB) Chart unique (SPY 1h) :  \nLa structure montre une tendance haussière claire, avec des hauts plus hauts et des bas plus hauts. Néanmoins, la cassure baissière récente vers 749 a créé une incertitude structurelle, possible début de renversement ou simple retracement. Le support principal est identifié vers 740, à surveiller pour maintenir la dynamique acheteuse. Résistance notable vers 760, plafond récent. Le scénario favori reste la reprise du mouvement haussier tant que 740 tient, invalidation si cassure sous ce niveau.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL avec dernière bougie baissière forte, possible pullback\",\"supports\":[\"740\"],\"res",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_11-08-45",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-05_11-08-34.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_170020_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T13:00:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_13-00-10",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 740.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 742.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller support 740-742 pour rebond; achat si confirmation haussière; short si cassure support.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "> 742 en clôture pour scénario baissier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière de fond avec une structure de HH et HL antérieurs bien formée.  \n- Correction nette en cours avec une cassure récente de HL vers le bas (structure LH).  \n- Zone de support possible vers 740/742, à surveiller pour un rebond ou poursuite baissière.  \n\nB) Chart unique (SPY 1h) :  \nLe graphique montre une tendance haussière claire matérialisée par des hauts plus hauts (HH) et des bas plus hauts (HL) jusqu’au début de juin. Récemment, on observe une cassure de structure haussière (plus bas plus bas - LB), indiquant un possible retournement ou une correction plus profonde. La zone clé de support à 740/742 est critique : un rebond ici confirmerait une continuation du range haussier, en revanche une cassure en clôture sous ce niveau activerait un scénario baissier vers 732 et possiblement plus bas. La résistance majeure se situe autour du dernier plus haut vers 760. Plan d’action : surveiller la réaction sur support 740-742, prendre position acheteuse en",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_13-00-10",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-05_12-59-58.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_035853_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T23:58:51-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_23-58-43",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 735.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Rechercher une cassure sous 735 pour short, avec prise de bénéfices partielle si réaction sur support. Alternativement, attendre confirmation de retour haussier au-dessus de 760 pour envisager un acha",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": ">760",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance intraday passant d'une phase haussière à un retournement baissier marqué.  \n- Structure récente montre une série de HH/HL avant une rupture vers un LH suivi d'un LL.  \n- Zone clé de support autour de 735, invalidation du scénario baissier au-dessus de 760.\n\nB) Chart unique (SPY 1h):  \nLa tendance principale sur ce graphique 1h était haussière avec une structure de hauts et bas haussiers (HH/HL) bien marquée. Cependant, une forte bougie baissière a brisé la dernière structure, créant un plus bas plus bas (LL), confirmant un début de retournement baissier. Le prix test actuellement un support clé proche de 735, qui pourrait offrir une réaction. La résistance immédiate se situe autour de 760, niveau du dernier sommet. Le scénario envisagé est un pullback baissier si la zone support cède, sinon un retour de la tendance haussière si 760 est dépassé.\n\nC) DeskPro  \n{\"run_id\":\"20240607_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"HL puis LH, LL ré",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_23-58-43",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-05_23-58-32.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_045319_SPY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-11T00:53:17-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_00-53-08",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond support 720 pour entrée long sinon attendre consolidation",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Franchissement au-dessus de 755",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "impossible à définir",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "impossible à définir",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "impossible à définir",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Forte correction sur l'indice SPY visible sur le graphique principal avec volumes en hausse sur les baisses.  \n- Tendance de fond haussière battue, structure potentiellement en changement vers un cycle baissier.  \n- Importance des zones de support majeures à surveiller pour détection d'un rebond ou poursuite du mouvement.  \n\nB) Chart 1 (haut-gauche) : SPY 1h  \nStructure : Passage d’une série de HH/HL à LH/LL, signalant un possible retournement baissier.  \nSupports : Zone clé autour de 720-725, déjà testée plusieurs fois récemment.  \nRésistances : 750-755, borne haute de la chute récente.  \nTendance : Haussière fracturée, en transition vers une séquence baissière.  \nScénario : Attendre confirmation d’un rebond sur 720 ou consolidation avant prise de position.  \nInvalidation : Reprise rapide au-dessus de 755 invalide la pression baissière courte terme.  \n\nC) Chart 2 (haut-droit) : Inconnu (données non lisibles)  \nImpossible d'analyser, symboles ou timeframe non ident",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_00-53-08",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-11_00-52-53.png"
+    }
+  }
+]

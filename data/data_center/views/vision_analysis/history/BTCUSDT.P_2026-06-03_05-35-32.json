@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_093542_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:35:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-35-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0945,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.095,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur maintien rebond au-dessus HL, sinon vendre sur cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fermeture sous 0.09100",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- L'ensemble montre des mouvements baissiers marqués avec quelques signes initiaux de rebond.  \n- La structure met en avant des bas plus bas (LL) et des hauts plus bas (LH) notamment sur la période récente, indiquant une tendance court terme baissière.  \n- Zones clés proches autour de 0.091 (support) et 0.094-0.095 (résistance) à surveiller pour prise de décision.  \n\nB) Chart 1 (haut-gauche): DOGEUSDT T15  \n- Tendance: baissière dominante avec un début de rebond.  \n- Structure: Série de LL/ LH bien marquée, puis recent HL possible sur rebond.  \n- Supports: 0.09100 (point bas récent).  \n- Résistances: 0.09450 - 0.09500 (plafond du dernier retracement).  \n- Scénario: Attendre confirmation du maintien au-dessus du HL (rebond) pour envisager achat ciblé, sinon poursuite baisse si ce support lâche.  \n- Invalidation: Rejet sous 0.09100 confirmerait poursuite de baisse.  \n\nC) Chart 2 (haut-droit): Inconnu (pas affiché clairement)  \n- Tendance, structure et niveaux non lisib",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-35-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_05-35-24.png"
+  }
+}

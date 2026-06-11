@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_153416_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T11:34:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-34-06",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short sur rupture 60 000, protection au-dessus de 64 000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture > 65 000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une succession de plus bas (LL) et plus bas que les précédents (LH non validés).  \n- Structure irréfutablement baissière visible sur le 1h, sans signe de retournement immédiat.  \n- Zones clés : résistance autour de 64 000-65 000 USD, support à 60 000 USD à surveiller pour un stabilisation ou cassure.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance principale est baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL). Après une forte chute, un support provisoire semble se former autour des 60 000 USD, où le prix tente de se stabiliser. La zone de résistance majeure à court terme se situe vers 64 000-65 000 USD, correspondant aux derniers rebonds avortés. Le scénario à privilégier reste la poursuite de la baisse en cas de rupture du support 60 000 USD. Confirmation de retournement possible si le prix franchit durablement la résistance 65 000 USD avec structure HH formée. Invalidation de la tendance baissière si ce nivea",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-34-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_11-33-57.png"
+  }
+}

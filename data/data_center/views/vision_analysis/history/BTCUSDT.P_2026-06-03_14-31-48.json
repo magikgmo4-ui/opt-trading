@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_183158_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T14:31:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_14-31-48",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vente en cas de break support, viser continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture > 1885",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence dominante d'une tendance baissière sur les graphiques visibles.  \n- Structures de bas niveau signalées avec plusieurs creux et sommets plus bas (LH/LL).  \n- Plusieurs zones clés de support testées, à surveiller la réaction prix.\n\nB) Chart 1 (haut-gauche): Ethereum 15min (ETHUSDT.P)  \nTendance baissière confirmée avec structure en LH/LL marquée depuis plusieurs heures. La réaction récente tente une correction mais sans franchissement clair de rallye haussier. Zone clé (support) proche de 1820-1825 à surveiller, car un break pourrait accélérer la chute. Résistance actuelle autour des 1880. Scénario prioritaire: poursuite baisse sous le support validée. Invalidation si le prix dépasse 1885 en clôture.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non lisibles, impossible d'analyser précisément. Nécessite de valider ces informations pour fournir une lecture pertinente.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole/timeframe non identifiés, aucun comme",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_14-31-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_14-31-40.png"
+  }
+}

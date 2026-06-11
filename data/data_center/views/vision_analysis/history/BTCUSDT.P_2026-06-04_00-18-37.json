@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_041847_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T00:18:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_00-18-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sur rebond viser résistance 65600-65800; invalidation si rechute sous 61700",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casser 61700 à la baisse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Rejet récent agressif à la baisse sur zone basse vers 61 700-62 000, amorce de rebond.\n- Scénario possible: retour haussier à court terme vers résistance à 65 600-65 800, invalidé en cas de nouvelle cassure sous support à 61 700.\n\nB) Chart unique (BTCUSDT.P 15m):\nLa structure montre clairement une tendance baissière avec succession de LH et LL. Un support clé se situe autour de 61 700-62 000 (dernier creux), où un fort volume a aidé à lancer un rebond marqué. Le prix remonte actuellement vers une zone de résistance autour de 65 600-65 800 (anciennes zones de congestion/résistance). Si le prix casse cette résistance, il pourrait inverser la tendance court terme. En revanche, un retour sous 61 700 invaliderait le rebond et relancerait la dynamique baissière.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier court terme rebond possible\",\"structure\":\"LL LH baissier",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_00-18-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_00-18-30.png"
+  }
+}

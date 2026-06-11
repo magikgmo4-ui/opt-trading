@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_173622_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T13:36:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-36-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller holding support 59,000 pour envisager prise de position longue avec target 63,000. Stop sous support 59,000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break clair sous 59,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière claire sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de rebond en bas visible, potentiel début de retour d’Higher Lows (HL), à confirmer.  \n- Zones clés identifiables pour support autour de 59,000 USDT et résistance court terme vers 63,000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe marché est dans une tendance baissière marquée avec succession de LH et LL. Après un creux marqué vers 59,000, on note un rebond initiant possiblement un changement de structure. La zone de support clé est validée aux alentours de 59,000. Résistance immédiate à 63,000, niveau à franchir pour valider un scénario de reprise haussière. Invalidation du scénario haussier en cas de nouveau break sous 59,000. En l’état, prudence, le biais reste baissier jusqu’à confirmation claire d’une inversion.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL en tendance baissière, possible ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-36-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_13-36-06.png"
+  }
+}

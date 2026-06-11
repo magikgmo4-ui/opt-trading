@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_163624_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:36:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-36-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 98.9,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 99.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 99.54,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur cassure confirmée de 99.54 avec stop sous 98.90",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte nette sous 98.90",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Concentration sur le DXY (Dollar Index) en timeframe 1h, en phase de reprise haussière fine.  \n- Structure oscillante avec plusieurs points hauts et bas, mais tendance récente plutôt haussière.  \n- Zones clés à surveiller autour de 99.50 (résistance) et 98.90 (support) pour valider continuation ou retournement.  \n\nB) Chart 1 (haut-gauche):  \nDXY 1h, structure oscillante avec HL/HH depuis fin mai. Tendance haussière récente marquée par nouveaux sommets locaux. Zone de résistance proche à ~99.54 (test en cours), support clé vers 99.00-98.90. Scénario principal bullish avec poursuite possible au-dessus de 99.54. Invalidation si cassure franche sous 98.90, ce qui remettrait en cause la dynamique haussière. Attention à la volatilité et fausses cassures.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non identifiable sur cette image).  \n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non identifiable sur cette image).  \n\nE) Chart 4 (bas-droit): inconnu (symb",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-36-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_12-35-55.png"
+  }
+}

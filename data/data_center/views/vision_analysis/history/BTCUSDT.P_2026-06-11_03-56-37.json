@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_075646_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T03:56:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-56-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur support avec objectif 62800-63000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 61300",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme haussière : structure de retournement depuis un creux vers 61 000, avec HL et un HH récent vers 62 800.  \n- Support clé à 61 300-61 400 formant un plancher multiple, résistance à 62 800-63 000.  \n- Scénario privilégié : poursuite de la hausse au-delà de 62 800 avec nouveau HH possible, invalidation en clôture sous 61 300 qui remettrait en cause la reprise haussière.  \n\nB) Chart unique (BTCUSDT.P 15m) :  \nLe graphique montre une tendance baissière initiale, suivie d’une consolidation marquée par des HL et un premier HH vers 62 800. Le prix évolue dans un canal haussier court terme. Volume en hausse sur les reprises. Les supports majeurs sont situés autour de 61 300-61 400, résistance clé immédiatement sous les 63 000. La structure récente est un HL suivi d’un HH, ce qui valide la tendance haussière court terme. La stratégie serait d’acheter sur retracement proche du support en visant la résistance. Invalidation si le prix casse clairement le sup",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-56-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-11_03-56-29.png"
+  }
+}

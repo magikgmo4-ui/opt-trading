@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_062314_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T02:23:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-23-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4530.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4550.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée longue sur cassure résistance 4550 ou retest support 4440 avec confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close sous 4440",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance actuelle en rebond haussier après un plus bas récent, avec structure formant un HL (Higher Low).  \n- Zones clés identifiées à 4440 (support) et 4530-4550 (résistance importante).  \n- Scénario probable : poursuite du rallye si la résistance 4550 est franchie, sinon risque de retour en consolidation vers 4440. Invalidation si cassure en close sous 4440.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure présente un creux marqué suivi d’un rebond formant un HL, avec un sommet local vers 4530-4550 en résistance. La cassure de ce dernier niveau serait un signal fort de continuation haussière. Le support autour de 4440 tient pour l’instant, validant la tendance positive en 1h. La dynamique reste volatile, et un retour en structure baissière serait acté par un LL si le support cède.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL en formation, potentiel HH si résistance franchie\",\"supports\":[4440],\"resistances\":[4530",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-23-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_02-22-49.png"
+  }
+}

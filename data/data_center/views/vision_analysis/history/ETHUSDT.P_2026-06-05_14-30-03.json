@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_183147_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T14:30:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-30-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1560.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1565.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente en cassure du support 1560-1565 avec stop au-dessus de 1620",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Reprise durable au-dessus de 1620",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée sur le 15m avec une série de creux et sommets plus bas (LH/LL).  \n- Structure technique dégradée, absence de retournement clair ni signaux d’accumulation.  \n- Zones clés à surveiller : support vers 1560-1565, résistance à 1600-1610, invalidation en franchissant durablement 1620.  \n\nB) Chart unique (ETHUSDT.P 15m): Le prix subit une forte pression vendeuse avec une série de lower highs et lower lows, confirmant un momentum baissier. La dernière tentative de rebond est faible, stoppée sous la résistance autour de 1600-1610. La zone 1560-1565 sert de support provisoire, mais un break en dessous pourrait accélérer la chute. Le volume augmente lors des baisses, signe d’intensification vendeuse. Le scénario préféré reste la poursuite du bearish jusqu’à nouvel signal de retournement validé.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1560,1565],\"resistances\":[1600,1610],\"plan",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-30-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_14-29-56.png"
+  }
+}

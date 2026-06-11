@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_211555_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T17:15:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-15-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1790.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attente breakout range pour trade directionnel, vente sur échec résistance ou achat sous support si rebond confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break clair au-dessus de 1790 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL) jusqu’au début de la dernière phase.  \n- Structure récente montre un possible bas et début de range horizontal ou tentative de rebond avec plusieurs HH/HL.  \n- Zone clé de support autour de 1740-1750, résistance majeure proche à 1780-1790; un break de ces niveaux validera la direction courte ou une reprise.\n\nB) Chart unique (ETHUSDT.P 15m):  \nTendance baissière principale validée par structure LL/LH. Dernière zone de congestion/réaccumulation visible entre 1740 et 1790. Attentisme conseillé avec prise de position opportuniste en cas de breakout clair. Invalidation à la hausse si franchissement durable de 1790, suggestif d’un retournement. Scénario favori: correction/rebond technique mais maintien du biais baissier dans un contexte macro.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH avec tentative HH/HL récente\",\"supports\":[17",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-15-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_17-15-39.png"
+  }
+}

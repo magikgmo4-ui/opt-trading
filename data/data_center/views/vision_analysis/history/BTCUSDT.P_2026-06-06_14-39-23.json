@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_183930_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T14:39:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-39-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente en cas de rejet sur la résistance; attente sur support avec prise de position prudente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure haussière au-dessus de 62000 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h clairement baissière, avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure actuelle fragile, tentative de stabilisation autour des 60 000$, sans confirmation claire d'un retournement.  \n- Zones clés à surveiller : support majeur vers 59 000$, résistance immédiate autour de 62 000$.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe marché montre une forte dynamique vendeuse depuis plusieurs jours, marquée par des sommets et creux déclinants (LH et LL). Après une dernière chute rapide jusqu'en dessous de 60 000$, le prix tente une consolidation latérale. La structure présente une zone de support temporaire vers 59 000$, qui constitue actuellement un point pivot critique. La résistance vers 62 000$ doit être franchie pour envisager une correction haussière. Le scénario principal reste baissier tant que la résistance n’est pas cassée avec volume. Une invalidation du scénario baissier se fera par une rupture claire à la hausse au-delà des 62 000$.\n\nC) De",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-39-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_14-39-14.png"
+  }
+}

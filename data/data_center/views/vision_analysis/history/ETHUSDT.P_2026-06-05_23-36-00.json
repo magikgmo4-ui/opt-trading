@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_033609_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T23:36:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-36-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance du support 1550, vente à la cassure et confirmation. Stop loss au-dessus de 1750 en cas de retournement.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1750 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le timeframe 1h, avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure en déclin continu depuis plusieurs jours, sans signal clair de retournement.\n- Zone clé support vers 1550 USDT, résistance importante proche des 1700 USDT.\n\nB) Chart unique (ETHUSDT.P 1h) : \nLe graphique montre une forte dynamique baissière avec une structure en Lower Highs et Lower Lows confirmée. Le prix teste actuellement un support majeur autour de 1550 USDT ; ce niveau est crucial car une casse ouvrirait la voie à un prolongement baissier vers les 1500 USDT et potentiellement plus bas. La résistance immédiate se trouve vers 1700 USDT, où la formation de Lower Highs empêche tout rebond significatif. Le scénario privilégié reste la poursuite de la baisse tant que la structure n’affiche pas un Higher High clair au-dessus de 1700 USDT. Invalidation du scénario baissier si le prix casse et tient au-dessus de 1750 USDT.\n\nC) DeskPro\n{\"run_id\":\"001\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-36-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_23-35-52.png"
+  }
+}

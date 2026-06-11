@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_233758_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T19:37:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-37-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 71.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 75.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 71.50 avec stop au-dessus de 75.00, viser poursuite de la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Remontée nette au-dessus de 75.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière confirmée sur ce timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière solide avec point bas récent vers 71.00-71.50 servant de support clé.  \n- Scénario privilégié : poursuite de la baisse si le support autour de 71.50 est cassé, invalidation avec remontée au-dessus de 75.00.  \n\nB) Chart unique (SOLUSDT.P 15m) :  \nLe graphique montre une domination claire des vendeurs. On observe une succession de plus bas et plus bas (LH/LL), typique d’une tendance baissière. Le volume augmente sur les chandeliers rouges ce qui valide la pression vendeuse. Support actif vers 71.50, zone à surveiller pour un possible rebond technique ou rupture pour accélération baissière. Résistance majeure vers 75.00, niveau de dernier swing high important pour invalider le scénario baissier. En l’état, priorité à la stratégie vendeuse avec prudence sur les réactions à 71.50.  \n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"singl",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-37-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-03_19-37-42.png"
+  }
+}

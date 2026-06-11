@@ -1,0 +1,18 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "XAUUSDGOLDsignals",
+  "total": 1,
+  "signals": [
+    {
+      "id": "tg_10142_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4441.0,
+      "sl": 4420.0,
+      "tp": 4473.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-03T17:01:33+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

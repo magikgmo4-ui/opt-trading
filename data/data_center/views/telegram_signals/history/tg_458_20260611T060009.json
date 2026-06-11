@@ -1,0 +1,29 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_458_20260611T060009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "btcusdt_xauusd_eurusd_signal",
+  "channel_priority": "P0",
+  "channel_type": "trade_signal",
+  "parsed_at": "2026-06-10T11:51:21+00:00",
+  "produced_at": "2026-06-11T06:00:09.423042+00:00",
+  "pair": "EURUSD",
+  "direction": "SHORT",
+  "entry_price": 1.15378,
+  "sl": 1.15597,
+  "tp": 1.0,
+  "tps": [
+    1.0,
+    2.0,
+    3.0,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udcca EURUSD SELL ENTRY \ud83d\udcca\nEntry: 1.15378\n\nTake Profit Targets\nTP1: 1.15268\nTP2: 1.15159\nTP3: 1.14940\n\nStop Loss: 1.15597",
+  "summary": "EURUSD SHORT"
+}

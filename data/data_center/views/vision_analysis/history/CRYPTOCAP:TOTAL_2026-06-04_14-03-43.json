@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_180352_CRYPTOCAP:TOTAL_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T14:03:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-03-43",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le test du support 2.1T pour trade de retournement ou continuation de la baisse. Acheteur à 2.1T, vendeur à rupture du support pour viser 1.8T.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour franc au-dessus de 2.5T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière marquée par une série de LL (Lower Lows) et LH (Lower Highs) depuis le sommet.  \n- Structure actuelle en dégradation avec rupture nette des supports récents, signalant une accélération du mouvement baissier.  \n- Zone clé support proche des 2.1T USD, à surveiller pour un possible rebond ou poursuite du déclin.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1d):  \nLe graphique montre une tendance baissière clairement établie avec des creux et des pics de plus en plus bas (LH/LL). Après un rebond modéré début 2026, la récente cassure en clôture sous le support vers 2.3T indique une reprise forte de la dynamique baissière. Le volume augmente lors des baisses, confirmant la pression vendeuse. Zone de support critique vers 2.1T à tester en prochain, une cassure de ce niveau ouvrirait la voie à une poursuite baissière majeure. Le scénario alternatif serait un rebond technique sur ce support, mais la structure reste fragile. Invalidation du biais baissier s",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-03-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-04_14-03-33.png"
+  }
+}

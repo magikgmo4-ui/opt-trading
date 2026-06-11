@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_035602_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T23:56:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-55-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la zone 60000 pour un rebond ou cassure, privilégier positions short sous 62500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus durable de 62500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 1h avec une succession de lower highs (LH) et lower lows (LL).  \n- Structure dégradée sans signe de retournement confirmé, pression vendeuse dominante.  \n- Zone de support proche vers 60 000 USDT, résistance immédiate autour de 62 500 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h): la tendance est baissière avec une série de LH et LL, indiquant un momentum vendeur soutenu. La zone support clé est autour de 60 000 USDT, à surveiller pour un rebond potentiel ou une cassure. La résistance majeure à court terme se situe vers 62 500 USDT, correspondant à un dernier sommet partiel. Le scénario privilégié reste la poursuite du downtrend tant que la structure n’invalide pas ce biais par un HH clair au-dessus de 62 500 USDT. Invalidation confirmée en cas de break net et durable au-dessus de cette résistance.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"60000\"],\"resistances\":[\"62500",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-55-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_23-55-47.png"
+  }
+}

@@ -1,0 +1,188 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_143_2024-03-28T10:57:46+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-03-28T10:57:46+00:00",
+    "produced_at": "2026-06-11T10:00:14.679517+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2211.0,
+    "sl": 2215.0,
+    "tp": 2200.0,
+    "tps": [
+      2200.0,
+      2204.0,
+      2207.0
+    ],
+    "leverage": null,
+    "raw_text": "__XAUUSD SELL NOW 2211/2212\nTP 2207\nTP 2204\nTP 2200\nSL 2215\n(SL Only 30 Pips )__"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_153_2024-04-02T07:56:13+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-04-02T07:56:13+00:00",
+    "produced_at": "2026-06-11T10:00:14.680547+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2257.7,
+    "sl": 2265.0,
+    "tp": 2245.0,
+    "tps": [
+      2245.0,
+      2250.0,
+      2255.0
+    ],
+    "leverage": null,
+    "raw_text": "__XAUUSD SELL 2257.700 2261\nTP 2255 \nTP 2250 \nTP 2245 \nSL 2265\nScalping__"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_157_2024-04-02T08:35:15+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-04-02T08:35:15+00:00",
+    "produced_at": "2026-06-11T10:00:14.680649+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2262.0,
+    "sl": 2268.0,
+    "tp": 2250.0,
+    "tps": [
+      2250.0,
+      2258.0
+    ],
+    "leverage": null,
+    "raw_text": "__XAUUSD SELL 2262\nSL 2268\nTP 2258\nTP 2250__"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_158_2024-04-03T12:35:08+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-04-03T12:35:08+00:00",
+    "produced_at": "2026-06-11T10:00:14.680698+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2271.0,
+    "sl": 2281.0,
+    "tp": 2250.0,
+    "tps": [
+      2250.0,
+      2258.0,
+      2265.0,
+      2281.0
+    ],
+    "leverage": null,
+    "raw_text": "__XAUUSD SELL NOW 2271\nTP 2265\nTP 2258\nTP 2250\nTP OPEN\nSL 2281__"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_161_2024-04-11T09:24:13+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-04-11T09:24:13+00:00",
+    "produced_at": "2026-06-11T10:00:14.681107+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2330.0,
+    "sl": 2320.0,
+    "tp": 2335.0,
+    "tps": [
+      2335.0,
+      2340.0,
+      2350.0
+    ],
+    "leverage": null,
+    "raw_text": "__XAUUSD BUY 2330/2325\nTP 2335\nTP 2340\nTP 2350\nSL 2320__"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_165_2024-04-12T11:27:26+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-04-12T11:27:26+00:00",
+    "produced_at": "2026-06-11T10:00:14.681225+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2391.0,
+    "sl": 2400.0,
+    "tp": 2350.0,
+    "tps": [
+      2350.0,
+      2360.0,
+      2380.0
+    ],
+    "leverage": null,
+    "raw_text": "__#XAUUSD____ SELL 2391\nTP 2380\nTP 2360\nTP 2350\nSL 2400__"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_168_2024-04-12T16:33:32+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-04-12T16:33:32+00:00",
+    "produced_at": "2026-06-11T10:00:14.681312+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2377.0,
+    "sl": 2390.0,
+    "tp": 2259.0,
+    "tps": [
+      2259.0,
+      2340.0,
+      2360.0
+    ],
+    "leverage": null,
+    "raw_text": "__#XAUUSD____ SELL 2377\nTP 2360\nTP 2340\nTP 2259\nSL 2390__"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_171_2024-04-15T02:09:35+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-04-15T02:09:35+00:00",
+    "produced_at": "2026-06-11T10:00:14.681760+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2354.0,
+    "sl": 2343.0,
+    "tp": 2358.0,
+    "tps": [
+      2358.0,
+      2362.0,
+      2367.0,
+      2374.0
+    ],
+    "leverage": null,
+    "raw_text": "__\ud83d\udcc8 XAUUSD BUY NOW 2354\nOTHER BUY 2351\n\n\u231bTP 2358\n\u231bTP 2362\n\u231bTP 2367\n\u231bTP 2374\n\n\u274cSL 2343\n\n\ud83d\udcafCONFIRM SIGNAL__"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_signals_172_2024-04-16T07:02:05+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_signals",
+    "parsed_at": "2024-04-16T07:02:05+00:00",
+    "produced_at": "2026-06-11T10:00:14.681799+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2370.0,
+    "sl": 2360.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "__#Gold____ buy @ 2370\n\nSl:\u00a0 @ 2360\nTP:\u00a0 @ 2380__"
+  }
+]

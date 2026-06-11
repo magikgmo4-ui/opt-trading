@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_172209_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T13:22:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-21-59",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rupture 1.19 pour inversion possible, sinon chercher short sous 1.14 pour continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture significative au-dessus 1.19",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le timeframe 15m, avec une série de lower highs (LH) et lower lows (LL).  \n- Rebond récent formant un higher low (HL) potentiel, susceptible d’indiquer un début de correction ou consolidation.  \n- Zone de support clé autour de 1.14-1.15 USDT, résistance présente vers 1.18-1.19 USDT.\n\nB) Chart unique (XRPUSDT.P 15m): La structure est majoritairement baissière, caractérisée par un enchaînement de LH et LL. Le prix a récemment rebondi sur la zone de support vers 1.14 USDT, marquant un HL intermédiaire. Ce rebond est suivi d’une nette résistance autour de 1.18-1.19 USDT, où le prix bute plusieurs fois. Le scénario prioritaire reste baissier, à confirmer par rupture du HL (> 1.19 USDT) pour invalider la tendance ou retour sous 1.14 USDT pour renforcer la pression vendeuse. Volume important lors des chutes, indication de forte conviction vendeuse.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL ",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-21-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_13-21-52.png"
+  }
+}

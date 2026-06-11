@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_152325_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T11:23:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-23-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rebond vers 1580-1600, stop au-delà de 1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1600 avec forte impulsion",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière en 15m avec une structure à LL et LH successifs.\n- Zone clé support vers 1520-1530, résistance majeure autour de 1580-1600.\n- Scénario prioritaire: poursuite du downtrend tant que 1580 n’est pas dépassé, invalidation au-dessus de 1600.\n\nB) Chart unique (ETHUSDT.P 15m) : La tendance baissière domine avec une série de creux plus bas et sommets plus bas (LL/LH). Le prix teste actuellement une zone de support proche de 1540, proche d’un support majeur à 1520-1530. Résistance visible à 1580-1600 qui a déjà bloqué plusieurs corrections. La pression vendeuse reste forte, un rebond serait une opportunité pour vendre sur rejet vers résistance. Invalidation si la zone 1600 est franchie avec force.\n\nC) DeskPro {\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL LH\",\"supports\":[1520,1530],\"resistances\":[1580,1600],\"plan\":\"vente sur rebond vers 1580-1600, stop au-delà de 1600\",\"invalidation\":\"clôture au-dessus de 1600 avec fort",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-23-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_11-23-07.png"
+  }
+}

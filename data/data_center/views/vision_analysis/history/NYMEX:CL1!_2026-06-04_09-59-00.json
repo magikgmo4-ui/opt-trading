@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_135909_NYMEX:CL1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:CL1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:59:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-59-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 91.65,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 91.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 96.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 96.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond vers supports, viser rupture résistances",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 91.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale 1h clairement haussière avec une série de HH et HL depuis fin mai.  \n- Résistance clé vers 96,16-96,50, dernier sommet visible.  \n- Support immédiat important autour de 91,65 et zone de congestion 91,00-91,80.\n\nB) Chart unique (NYMEX:CL1! 1h) :  \nLa structure montre une reprise haussière nette avec formation de HH/HL sur le timeframe 1h. Après un creux vers 86,60 fin mai, le prix a rebondi pour faire plusieurs points hauts en hausse, dernier sommet vers 96,16. Les retracements récents ramènent le prix vers des supports autour de 91,65-91,80, zone à défendre pour conserver la dynamique. La résistance proche à 96,16-96,50 semble être un pivot majeur à casser pour viser une extension haussière. Un break sous 91,00 invaliderait ce scénario et pourrait ré-ouvrir une correction plus profonde.\n\nC) DeskPro  \n{\"run_id\":\"20240604_1358\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"91.65\",\"91.00\"],\"resistances\":[\"96.16\",\"96.50\"",
+  "symbols_found": [
+    "NYMEX:CL1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-59-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-04_09-58-50.png"
+  }
+}

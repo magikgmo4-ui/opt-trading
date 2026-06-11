@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_034737_CRYPTOCAP:BTC.D_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:BTC.D",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T23:47:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-47-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 58.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 59.8,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 60.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller réaction à résistance 59.80-60.00 pour prise de position; possible short si rejet",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable au-dessus de 60.00 et maintien au-dessus",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance de court terme clairement baissière avec une succession de LH et LL depuis le pic de fin mai.  \n- Rebond récent en cours après un fort mouvement baissier aigu, possible retracement ou correction.  \n- Zone de résistance immédiate vers 59.80% à surveiller pour validation d’un retournement ou poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d) :  \nLa structure montre un sommet local fin mai suivi d’une série de Lower Highs (LH) et Lower Lows (LL) indiquant une tendance baissière. Le marché a fortement chuté ces derniers jours, avec un volume en augmentation lors de la chute, signe d’une forte pression vendeuse. Un rebond puissant amorcé actuellement suggère un retracement. La zone 59.80%-60.00% apparaît comme une résistance clé à court terme, à franchir pour invalider ce scénario baissier. Support notable autour de 58.00%, en dessous invalidant un rebond durable.\n\nC) DeskPro  \n{\"run_id\":\"run_CRYPTOCAP_BTC.D_1d_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"ba",
+  "symbols_found": [
+    "CRYPTOCAP:BTC.D"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-47-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_23-47-18.png"
+  }
+}

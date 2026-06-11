@@ -1,0 +1,384 @@
+[
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_020055_NYMEX:CL1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T22:00:52-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-00-44",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 92.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 97.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur retracement proche support 92 avec objectif vers 97. Stop sous 91.50 pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Break sous support 92",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente haussière visible depuis 29 mai avec série de HH/HL.  \n- Structure en formation de creux et sommets plus hauts (HL/HH), signal de reprise.  \n- Zone clé support autour de 92 USD à surveiller pour maintien, résistance proche vers 97 USD.  \n\nB) Chart unique (NYMEX:CL1! 1h):  \nLe graphique montre qu'après une forte chute début mai, le prix a construit une nouvelle structure haussière avec des creux plus hauts à partir du 29 mai. La tendance intra-journalière est haussière avec des points hauts et bas en progression (HH/HL). Le prix bute actuellement sur une résistance importante autour de 97 USD, validant un potentiel range ou ralentissement. Le support majeur est à 92 USD, zone où le prix a rebondi plusieurs fois et doit tenir pour garder la dynamique haussière. Une cassure sous 92 invaliderait ce scénario et pourrait relancer une correction.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"92",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-00-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-03_22-00-33.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_023010_NYMEX:CL1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-03T22:30:07-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-30-01",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 96.0,
+        "confidence": 0.7,
+        "note": "s 96"
+      },
+      {
+        "type": "support_level",
+        "value": 90.0,
+        "confidence": 0.7,
+        "note": "s 90"
+      },
+      {
+        "type": "support_level",
+        "value": 86.0,
+        "confidence": 0.7,
+        "note": "s 86"
+      },
+      {
+        "type": "support_level",
+        "value": 90.0,
+        "confidence": 0.7,
+        "note": "s 90"
+      },
+      {
+        "type": "support_level",
+        "value": 96.0,
+        "confidence": 0.7,
+        "note": "s 96"
+      },
+      {
+        "type": "price_target",
+        "value": 102.0,
+        "confidence": 0.5,
+        "note": "objectif 102"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente haussière après un creux proche de 86, indiquant une possible reprise du mouvement acheteur.  \n- Structure globalement baissière marquée par des Lower Highs (LH) et Lower Lows (LL) récents, freinant la confirmation d’un retournement clair.  \n- Zone clé de résistance proche des 96-97 USD, zone testée plusieurs fois sans franchissement net.\n\nB) Chart unique (NYMEX:CL1! 4h):  \nOn observe une tendance de fond baissière (LH/LL), balayée momentanément par un rebond technique qui a formé un plus bas plus haut (HL). Le prix teste actuellement une résistance autour de 96 USD; un rejet ici renforcerait la continuation baissière vers 90 puis 86 USD. En cas de cassure convaincante au-dessus de 97, un scénario haussier s’enclencherait avec objectif 102 USD et plus. Support clé initial à 90 USD. Invalidation du biais haussier sous 90 USD.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"LH/LL avec HL récent\",\"supports\"",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-30-01",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-03_22-29-50.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_135909_NYMEX:CL1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T09:59:07-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_09-59-00",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 91.65,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 91.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 96.16,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 96.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur rebond vers supports, viser rupture résistances",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "break sous 91.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale 1h clairement haussière avec une série de HH et HL depuis fin mai.  \n- Résistance clé vers 96,16-96,50, dernier sommet visible.  \n- Support immédiat important autour de 91,65 et zone de congestion 91,00-91,80.\n\nB) Chart unique (NYMEX:CL1! 1h) :  \nLa structure montre une reprise haussière nette avec formation de HH/HL sur le timeframe 1h. Après un creux vers 86,60 fin mai, le prix a rebondi pour faire plusieurs points hauts en hausse, dernier sommet vers 96,16. Les retracements récents ramènent le prix vers des supports autour de 91,65-91,80, zone à défendre pour conserver la dynamique. La résistance proche à 96,16-96,50 semble être un pivot majeur à casser pour viser une extension haussière. Un break sous 91,00 invaliderait ce scénario et pourrait ré-ouvrir une correction plus profonde.\n\nC) DeskPro  \n{\"run_id\":\"20240604_1358\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"91.65\",\"91.00\"],\"resistances\":[\"96.16\",\"96.50\"",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_09-59-00",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-04_09-58-50.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_140826_NYMEX:CL1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-04T10:08:24-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_10-08-17",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Vendre sur rejet à résistance 96-97 avec stop au-dessus de 97. Achat possible en cas de cassure haussière claire au-dessus de 97.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture 4h au-dessus de 97",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante neutre à légèrement baissière avec structure en LH/LL récents.  \n- Zones clés identifiées autour de 96-97 en résistance et 88-89 en support.  \n- Scénario prioritaire : surveiller rejet sous résistance pour retour baissier, invalidation à clôture au-dessus de 97.\n\nB) Chart unique (NYMEX:CL1! 4h):  \nLe marché montre une série de sommets plus bas (LH) et creux proches de leurs précédents ou plus bas (LL), signe d'une pression vendeuse. Le prix teste actuellement le support intermédiaire autour de 92-93. La résistance majeure se situe vers 96-97, où plusieurs rebonds ont eu lieu depuis fin mai. Une cassure claire du support à 88-89 ouvrirait une potentielle poursuite baissière. Un retour au-dessus de 97 invaliderait la pente baissière et pourrait signaler un regain de momentum haussier.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier-neutre\",\"structure\":\"LH-LL\",\"supports\":[\"88-89\",\"92-93\"],\"resistances\":[\"96-97\"],\"plan\":\"Ven",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_10-08-17",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-04_10-08-06.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_015742_NYMEX:CL1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T21:57:41-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-57-31",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 91.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 92.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 96.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 97.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée acheteuse sur support 91-92 avec stop sous 90.5. Objectif 96-97 puis extension possible au-dessus.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retournement baissier sous 90.5 confirmant un break de structure.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante sur 1h : haussière récente, avec un enchaînement de HH/HL depuis fin mai-début juin.  \n- Structure marquée par un creux autour de 87-88$ et un sommet récent vers 96-97$, suivie d’une correction latérale.  \n- Zone clé support proche autour de 91-92$, résistance principale à 96-97$ ; scénario haussier valide au-dessus de 92$.\n\nB) Chart unique (NYMEX:CL1! 1h) :  \nLa tendance est haussière depuis un rebond début juin, avec des HH et HL confirmés entre 87$ et 96-97$. Actuellement, on observe une légère consolidation après la tentative de rupture des 96-97$. La zone 91-92$ agit comme support clé et zone d’achat en cas de retour. Un retour sous 91$ invaliderait la structure haussière court terme, favorisant potentiellement un retour vers 87$. Une cassure franche au-dessus de 97$ relancerait la dynamique acheteuse vers de nouveaux sommets.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"91\",\"92\"",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-57-31",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-04_21-57-15.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_023916_NYMEX:CL1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-04T22:39:13-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_22-39-07",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 90.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 88.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 96.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 98.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Vendre proche résistance 96-98 avec stop au-dessus de 98, viser 90 puis 88",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture 4h au-dessus de 98",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente globalement baissière avec séries de LH (Lower Highs) et LL (Lower Lows) sur 4h.  \n- Reprise haussière récente forme un HL (Higher Low), possible tentative de retournement ou rebond technique.  \n- Zone clé résistance vers 96-98 USD, support important autour de 88-90 USD.\n\nB) Chart unique (NYMEX:CL1! 4h):  \nLe graphique montre un marché baissier dominant avec des structures LH/LL marquées. Le dernier swing semble avoir stoppé la chute avec un HL autour de 89-90, suivi d’une remontée jusqu’à environ 94. La zone 96-98 agit comme résistance forte sur les précédents sommets. Le volume ne montre pas d’impulsion claire pour une cassure haussière. Scénario principal reste donc une correction baissière tant que la résistance tient, invalidée si 98 est franchi en clôture. Support solide à 88-90 à surveiller pour nouveau rebond ou reprise de baisse.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-baissier\",\"structure\":\"LH/LL avec dernier",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_22-39-07",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-04_22-38-51.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_141641_NYMEX:CL1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T10:16:39-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-16-32",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 90.5,
+        "confidence": 0.7,
+        "note": "s 90.5"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance 1h globalement neutre à court terme, avec structure récente en HH/HL sur le rebond début juin.  \n- Rejet actuel à la baisse avec cassure possible des derniers niveaux de support, signal d’un potentiel retournement vers une structure LH/LL.  \n- Zones clés à surveiller : support majeur vers 90.5-91 USD et résistance autour de 95-96 USD.  \n\nB) Chart unique (NYMEX:CL1! 1h):  \nLe prix a formé une série de HH/HL depuis fin mai début juin, traduisant une reprise haussière après un creux proche de 86. À présent, le prix corrige violemment, avec un dernier plus bas qui remet en cause ce momentum. Le support autour de 91 USD est testé avec une perte possible ce qui invaliderait la structure haussière et pourrait entraîner une rotation vers une tendance baissière (LH/LL). La résistance clé à 95-96 USD constitue la zone à dépasser pour valider un nouveau rallye haussier. Le volume semble plus élevé sur la baisse récente, renforçant la pression vendeuse. Scénario à pri",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-16-32",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-05_10-16-22.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_142720_NYMEX:CL1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-05T10:27:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-27-08",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la cassure du range pour prise de position. Achat sur rebond support avec stop sous 89. Vente en breakout sous 89 ou résistance 96-97 avec confirmation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure franche sous 89 pour scénario baissier renforcé",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance 4h en consolidation avec structure en range entre 89 et 96.  \n- Structure récente avec des HH/HL et LH/LL alternants, signalant une hésitation.  \n- Zones clés de support autour de 89-90 et résistance majeure à 96-97.  \n\nB) Chart unique (NYMEX:CL1! 4h):  \nLe marché du pétrole brut NYMEX CL1! montre une tendance baissière amorcée fin mai, avec une succession de HL cassés (LH/LL). Les prix oscillent en range dans la zone 89-96 USD actuellement, sans clair breakout. La structure est donc indécise avec des mouvements latéraux, signant une phase de consolidation. Le support principal se situe vers 89-90 USD, zone à surveiller pour un rebond potentiel. La résistance clé est vers 96-97 USD, une rupture valide ce scénario haussier à court terme. L’invalidation du scénario haussier serait une cassure claire sous 89 USD, relançant la tendance baissière.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240606-ny4h-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre/consolidation\",\"str",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-27-08",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-05_10-26-53.png"
+    }
+  }
+]

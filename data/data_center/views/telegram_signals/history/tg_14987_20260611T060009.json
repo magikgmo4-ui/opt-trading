@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_14987_20260611T060009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "robertcroakgoldsignals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T06:30:38+00:00",
+  "produced_at": "2026-06-11T06:00:09.423042+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4211.0,
+  "sl": 4220.0,
+  "tp": 4205.0,
+  "tps": [
+    4205.0,
+    4200.0,
+    4195.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD SELL 4211/4213\n\nSL: 4220\n\nTP 1: 4205\nTP 2: 4200\nTP 3: 4195",
+  "summary": "XAUUSD SHORT"
+}

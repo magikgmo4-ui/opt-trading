@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_140221_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T10:02:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_10-02-08",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sur rebond",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1920",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente info",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente info",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente info",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Momentum global baissier confirmé par l’ensemble des graphiques, continuité probable de la pression vendeuse.  \n- Structures de prix principalement en lower highs (LH) et lower lows (LL), signe d’une tendance baissière claire.  \n- Zones clés identifiées pour possibles relances ou invalidations, à surveiller pour ajustement rapide des scénarios.\n\nB) Chart 1 (haut-gauche) : ETHUSDT 15 min  \nTendance baissière nette avec série de LH et LL. La structure montre une forte dynamique vendeuse à partir de la moitié du graphique. Zone de support clé vers 1820-1840, résistance majeure autour de 1900-1920. Scénario prioritaire : attente d’une vente sur rebond. Invalidation si franchissement clair des 1920 avec volumes.\n\nC) Chart 2 (haut-droit) : Inconnu (symbole/timeframe non visible)  \nStructure et tendance impossible à déterminer précisément. Absence d’informations fiables sur supports ou résistances. Nécessité de vérifier les données source avant prise de position.\n\nD) Char",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_10-02-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_10-02-00.png"
+  }
+}

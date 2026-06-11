@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_110150_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T07:01:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-01-40",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sous résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure > 4440",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Plusieurs actifs en baisse notable (indices, actions, pétrole) tandis que l'or et l'argent montrent un rebond court terme.  \n- Volatilité (VIX) en légère hausse, signe d'une incertitude de marché.  \n- Dollar (DXY) stable légèrement baissier, soutenant l'or qui réagit inversement.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \n- Tendance court terme baissière globale (LH/LL), avec un récent retracement haussier (HL).  \n- Structure marquée par plusieurs vagues de baisse suivies de petits rebonds.  \n- Zone clé support vers 4430-4440 USD, résistance vers 4490-4500 USD.  \n- Scénario préféré: attendre une confirmation d’échec sous résistance pour vendre.  \n- Invalidation sous 4440 en cas de cassure haussière significative.\n\nC) Chart 2 (haut-droit): inconnu (non visible)  \n- Symbole et timeframe non lisibles, aucune analyse possible.\n\nD) Chart 3 (bas-gauche): inconnu (non visible)  \n- Symbole et timeframe non lisibles, aucune analyse possible.\n\nE) Chart 4 (bas-droit): inconnu (no",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-01-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_07-01-29.png"
+  }
+}

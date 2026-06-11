@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_173012_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T13:30:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-30-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1730.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1730 pour continuation baissière, scenario de retournement avec break 1780",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Prix au-dessus de 1780 en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le 15m avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure de price action en range récent entre 1730 et 1780, marquant une zone de consolidation.  \n- Risque de continuation baissière sur cassure sous 1730; scénario haussier possible en cas de franchissement clair au-dessus de 1780.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance baissière claire avec la formation répétée de plus bas et plus hauts relatifs décroissants (LL/LH). Après une chute significative, le prix évolue dans un range de consolidation 1730-1780, zone clé de support et de résistance à court terme. Le volume reste globalement stable. Un break en dessous du support 1730 validerait la poursuite du mouvement baissier. À l'inverse, un franchissement du haut de range 1780 pourrait initier une correction haussière. Invalidation du biais baissier si le prix dépasse durablement 1780. Zones clés à surveiller : support 1730, résistance ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-30-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_13-29-56.png"
+  }
+}

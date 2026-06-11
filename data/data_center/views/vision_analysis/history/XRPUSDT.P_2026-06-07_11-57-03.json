@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_155711_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T11:57:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_11-57-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.115,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.17,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 1.1150 pour entrée long, viser 1.14 puis 1.17. En cas de cassure sous 1.1150, sortie et attendre retour haussier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire sous 1.1150",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière visible avec une série de HL puis un sommet local (HH) marqué avant repli.  \n- Structure récemment cassée à la baisse; possible correction ou basculement de tendance à court terme.  \n- Zone de support clé autour de 1.1150 à surveiller pour validation du scénario haussier.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLa structure montre initialement une succession de HL et HH, confirmant une tendance haussière. Une forte impulsion a mené à un sommet vers 1.17, suivi d’un rejet net amenant un retournement partiel avec formation de LH. À court terme, le prix tente un rebond mais reste sous la résistance intraday autour de 1.14. La zone 1.1150 sert de support critique; la cassure sous ce niveau invaliderait le biais haussier et pourrait installer un retournement baissier.\n\nC) DeskPro  \n{\"run_id\":\"20240607-1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier avec risque de correction\",\"structure\":\"HL puis HH confirmé, récemment LH formée\",\"supports\":[\"1.1150\"],\"resi",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_11-57-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_11-56-55.png"
+  }
+}

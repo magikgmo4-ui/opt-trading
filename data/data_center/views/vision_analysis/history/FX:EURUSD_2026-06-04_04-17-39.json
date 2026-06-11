@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_081748_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T04:17:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_04-17-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1635,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Ventes sur retour proche résistance 1.1635 avec stop serré au-dessus 1.1650. Objectif 1.1590 et suivi sous ce niveau.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière depuis le récent sommet à 1.1685.  \n- Structure en LH (Lower High) et LL (Lower Low) validée, signe d'une pression vendeuse dominante.  \n- Supports clés proches de 1.1600 à 1.1590, résistances identifiées vers 1.1635-1.1650.  \n\nB) Chart unique (FX:EURUSD 1h): La paire montre une tendance baissière claire sur ce 1h, matérialisée par une succession de sommets et creux plus bas (LH/LL). On note un test du support à 1.1600, zone importante à défendre par les acheteurs pour éviter une accélération baissière. La structure suggère qu’un rebond est possible, mais reste fragile face à la dominante vendeuse. Le scénario préféré reste une poursuite du mouvement baissier en présence d’une cassure sous 1.1590. Invalidation sous ce niveau ouvrirait une phase de consolidation ou un retournement à court terme.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.1600\",\"1.1590\"],\"resistance",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_04-17-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_04-17-28.png"
+  }
+}

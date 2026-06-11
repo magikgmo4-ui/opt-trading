@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_172604_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T13:26:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-25-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 58000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "monitorer rebond sur support pour long tactique ou cassure résistance pour confirmation de retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix sous 58,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "nécessite clarification symbole/timeframe",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "données insuffisantes pour analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "données insuffisantes pour analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- La tendance dominante sur le dashboard est une forte phase baissière, avec un début de rebond sur quelques unités de temps.  \n- La structure montre majoritairement des Lower Highs (LH) et Lower Lows (LL), confirmant la dominance vendeuse, mais certaines unités de temps plus courtes esquissent des Higher Lows (HL) en début de correction.  \n- Zones clés stratégiques à surveiller autour de 60 000 USDT comme support et 64 000-65 000 USDT comme résistance principale d’une potentielle reprise.  \n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \n- Tendance clairement baissière sur la dernière semaine, avec une succession de Lower Highs et Lower Lows.  \n- Support clé autour de 58 000 USDT avec tests multiples confirmés.  \n- Résistance immédiate à 63 000-64 000 USDT, zone d’invalidation du rebond.  \n- Scénario actionnable : attente d’un retour sur support pour envisager un trade long tactique ou monitoring d’une cassure franche de la résistance pour confirmer un retournement.  \n- In",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-25-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_13-25-44.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_182251_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T14:22:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_14-22-41",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short en cassure de 65k, viser 63-64k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 68k",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière globale sur les actifs majeurs observés.  \n- Structure claire de baisse avec des bas plus bas (LL) et des hauts plus bas (LH) sur la plupart des graphiques.  \n- Zones clés de support à surveiller pour un potentiel rebond ou poursuite de la chute.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance nette baissière avec une succession de LH et LL confirmant la pression vendeuse.  \nPlusieurs tentatives de rebond stoppées par des résistances proches (~67k USDT).  \nZone clé support immédiate proche de 65k USDT à surveiller pour maintien ou rupture.  \nScénario préféré : poursuite de la baisse vers 63-64k si support cassé.  \nInvalidation : retour durable au-dessus de 68k avec structure de retournement.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole/timeframe non lisible. Impossible d’analyser structure, supports et résistances.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole/timeframe non lisible. Analyse non réalisable.\n\nE) Chart 4 (bas-droit): inconnu  \nS",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_14-22-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_14-22-27.png"
+  }
+}

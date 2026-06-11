@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_170711_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T13:07:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-07-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.162,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short à la cassure du support 1.1520 avec ciblage de zones inférieures, gestion serrée au dessus de 1.1620.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rejet et clôture au-dessus 1.1620",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur la dernière période avec un fort momentum vendeur.  \n- Structure en LH/LL (Lower High / Lower Low) visible à court terme, confirmant la faiblesse.  \n- Zone clé de support proche des 1.1520, à surveiller pour un rebond ou poursuite baissière.\n\nB) Chart unique (FX:EURUSD 1h):  \nLe graphique montre une dynamique baissière marquée par une chute rapide des prix, formant une série de hauts et bas décalés à la baisse (LH/LL). Le prix casse plusieurs supports intermédiaires et s'approche d'une zone de support clé autour de 1.1520. Le volume augmente fortement lors de la chute, indiquant une pression vendeuse significative. Scénario principal : poursuite possible de la baisse en cas de cassure du support. Invalidation : rebond marqué au-dessus des derniers LH autour de 1.1620 pourrait signaler une reprise temporaire.\n\nC) DeskPro  \n{\"run_id\":\"eurusd_1h_20240607\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-07-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-07_13-06-51.png"
+  }
+}

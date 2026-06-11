@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_165512_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T12:55:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-55-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61900.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure 62800, stop sous 61300",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse 61300",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- BTCUSDT.P en 15m montre une reprise haussière après une forte baisse initiale.  \n- Structure récente avec un plus bas relatif (HL) formé suivi d’un plus haut relatif (HH), signant un début de tendance haussière.  \n- Zone clé résistance autour de 62 800 USDT à surveiller pour validation du scénario haussier.  \n\nB) Chart unique (BTCUSDT.P 15m) : Le graphique présente une tendance baissière initiale marquée par des lower lows et lower highs, puis un retournement avec un higher low autour de 61 300 USDT. La structure devient haussière avec un higher high visible à environ 62 800 USDT. Le prix consolide actuellement à 62 150 USDT, proche d’un support intermédiaire vers 61 900 USDT. Le scénario principal privilégie une poursuite de la hausse si la résistance à 62 800 USDT est franchie. Invalidation du scénario haussier si le prix casse le support à 61 300 USDT, signalant un potentiel retour baissier.  \n\nC) DeskPro  \n{\"run_id\":\"0\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-55-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_12-54-47.png"
+  }
+}

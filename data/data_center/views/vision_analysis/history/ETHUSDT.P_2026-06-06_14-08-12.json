@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_180820_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T14:08:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-08-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.7,
+      "note": "s 1530"
+    },
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.7,
+      "note": "s 1580."
+    },
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.7,
+      "note": "s 1530."
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de bas plus bas (LL) et de hauts plus bas (LH).  \n- Structure actuelle en consolidation latérale après une forte chute, avec des oscillations entre 1530 et 1580 environ.  \n- Zones clés à surveiller : support vers 1530 et résistance vers 1580. Invalidation au-dessus de 1580 pour retour possible à une reprise haussière.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance dominante est baissière avec les prix qui forment des lower highs et lower lows. La structure se stabilise en zone de congestion entre 1530 (support) et 1580 (résistance), avec un volume qui diminue lors de la consolidation. Le scénario le plus probable reste une poursuite du mouvement baissier si le support aux alentours de 1530 cède. En revanche, un break au-dessus de 1580 invaliderait la tendance baissière et pourrait signaler un renversement.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[1530],\"r",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-08-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_14-08-04.png"
+  }
+}

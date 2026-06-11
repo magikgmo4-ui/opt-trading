@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_112834_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T07:28:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-28-25",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1470.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance cassure 1650-1660 pour reprise haussière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1520 maintien baisse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante visible sur le timeframe 1h avec des creux et sommets de plus en plus bas (LH/LL).  \n- Structure récente montre un possible retournement avec une poussée haussière formant un creux plus élevé (HL).  \n- Zones clés identifiées : support autour de 1 520, résistance immédiate vers 1 650-1 660; scénario haussier à tester en cassure de cette résistance.\n\nB) Chart unique (ETHUSDT.P 1h):  \n- Bias : neutre-baissier en transition vers possible reprise haussière.  \n- Structure : forte tendance baissière avec points bas et hauts décroissants (LH/LL), suivie récemment d’un HL léger à court terme.  \n- Supports : 1 520 (zone testée plusieurs fois), 1 470 (plus bas récent).  \n- Résistances : 1 650-1 660 (résistance immédiate), 1 700 (ancien support devenu résistance).  \n- Plan : surveiller la cassure claire au-dessus de 1 660 pour valider reprise haussière à court terme.  \n- Invalidation : retour sous 1 520 confirmerait la poursuite de la tendance bais",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-28-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_07-28-09.png"
+  }
+}

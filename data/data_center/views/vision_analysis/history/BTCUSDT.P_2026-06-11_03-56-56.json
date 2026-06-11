@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_075705_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T03:57:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-56-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance test résistance, entrée long si cassure avec confirmation, sinon attente range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 1h sous 60500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le plus long, avec recentrage latéral sur le court terme.  \n- Structure récente en range entre 60 500 USDT (support) et 64 300 USDT (résistance).  \n- Scénario actionnable: probabilité de test à court terme de la résistance à 64 300, avec invalidation sous 60 500.\n\nB) Chart unique (BTCUSDT.P 1h):  \nOn note un mouvement baissier fort marqué jusqu’au 5e jour, suivi d’une consolidation latérale formant une série de hauts et bas proches (pas de HH ou HL clairs), caractéristique d’une phase neutre/range. Les supports clés sont autour de 60 500 USDT, les résistances autour de 64 300 USDT. Le prix teste actuellement la borne haute du range, attention à un rejet possible. Invalidation du scénario haussier si passage net sous 60 500 USDT.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre avec potentiel haussier\",\"structure\":\"range avec LL puis stabilisation HL/LL proches\",\"supports\":[\"60500\"],\"resistances\":[\"64300\"],\"plan\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-56-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_03-56-49.png"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_060148_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T02:01:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_02-01-35",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1.155,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente à retest de 1.1550 avec confirmation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire > 1.1550",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière claire avec formation de plusieurs LL (Lower Lows) sur le timeframe 1h.  \n- Structure dégradée avec rupture nette de support majeur vers 1.1550, confirmant pression vendeuse forte.  \n- Scénario privilégié : poursuite de la baisse avec cible potentielle sur zone 1.1500-1.1480, invalidation au-dessus de 1.1550.\n\nB) Chart unique (FX:EURUSD 1h) :  \n- Structure : Bearish, avec plusieurs Lower Highs (LH) et Lower Lows (LL) après rupture d’un support clé.  \n- Supports clés : zone 1.1500-1.1480 à court terme.  \n- Résistances clés : 1.1550 (ancienne zone support désormais résistance).  \n- Plan : chercher des opportunités de vente en retest de la résistance 1.1550 avec confirmation (ex : chandelier baissier ou rejeu de volume).  \n- Invalidation : clôture 1h au-dessus de 1.1550 durablement qui remettrait en cause la poursuite forte de la baisse.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_02-01-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-07_02-01-22.png"
+  }
+}

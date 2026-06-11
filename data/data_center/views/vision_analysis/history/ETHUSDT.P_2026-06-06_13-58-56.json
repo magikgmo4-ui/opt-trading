@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_175906_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:59:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-58-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la rupture du support 1525 pour une continuation baissière. Si rebond au-dessus de 1600, envisager correction temporaire.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL) marqués.  \n- Structure baissière dominante, sans signe de retournement confirmé à court terme.  \n- Zone clé de support vers 1 525-1 550, résistance immédiate autour de 1 600.\n\nB) Chart unique (ETHUSDT.P 1h): La paire montre une structure baissière nette caractérisée par des Lower Highs et Lower Lows successifs depuis début juin. Le prix consolide actuellement sous une résistance majeure à 1 600, testant un support proche de 1 525-1 550. Le volume reste globalement stable, mais la pression vendeuse prédomine. Un rebond au-dessus de 1 600 ouvrirait la possibilité d’une correction haussière, tandis qu’une cassure en dessous de 1 525 validerait la poursuite de la baisse. L’invalidation du biais baissier se ferait par une clôture horaire claire au-dessus du dernier LH vers 1 600.\n\nC) DeskPro  \n{\"run_id\":\"trade_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-58-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_13-58-48.png"
+  }
+}

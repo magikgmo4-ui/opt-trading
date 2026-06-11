@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_095627_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T05:56:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-56-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1660.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rejet résistance 1720-1740, stop au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable >1740 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière confirmée par une succession de Lower Highs (LH) et Lower Lows (LL) sur ce timeframe 15m.  \n- Tentative de rebond récent avec un pullback sur zone de support vers 1640-1660, possible début de consolidation ou correction.  \n- Scénario prioritaire: retour baissier si nouvelle Lower High se forme en résistance avant 1720-1740, invalidation au-dessus de ce seuil.\n\nB) Chart unique (ETHUSDT.P 15m):  \nStructure : série de LH/LL marquée indiquant une tendance baissière.  \nSupports clés : 1640-1660 (zone récente de rebond), 1600 psychologique.  \nRésistances clés : 1720-1740 (zone de retracement et précédent support devenu résistance), 1800.  \nPlan : privilégier les entrées short sur rechute sous résistance avec stop serré si franchissement résistance.  \nInvalidation : franchissement durable au-dessus de 1740 avec HH confirmant une possible reprise haussière.\n\nC) DeskPro  \n{\"run_id\":\"20240607_ethusdtp_15m_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bear",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-56-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_05-56-09.png"
+  }
+}

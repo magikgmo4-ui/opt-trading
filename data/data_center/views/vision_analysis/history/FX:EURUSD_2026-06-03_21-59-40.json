@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_015949_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T21:59:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-59-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1635,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur rebond au support 1.1600, viser la résistance 1.1635-1.1650 pour confirmation haussière. En cas de franchissement, surveiller poursuite haussière. En dessous de 1.1600, travailler un scénario vend",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture du support 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h baissière remise en cause après un plus bas récent suivi d'un petit rebond.\n- Structure récente en Lower Highs (LH) et Lower Lows (LL) mais tentative de Higher Low (HL) à confirmer.\n- Zone clé support autour de 1.1600 ; résistance immédiate proche de 1.1635-1.1650.\n\nB) Chart unique (FX:EURUSD 1h):\nLa paire EURUSD montre une dynamique baissière avec une série de LL et LH, indiquant une pression vendeuse dominante. Le marché teste actuellement un support majeur vers 1.1600, niveau sur lequel un rebond est visible donnant un HL provisoire. Si la paire consolide ou casse au-dessus de 1.1635-1.1650 (résistance précédente), cela validerait une possible inversion vers une tendance haussière. En revanche, une rupture claire sous 1.1600 invaliderait ce scénario et relancerait la baisse vers de nouveaux plus bas. À court terme, privilégier la prudence et attendre confirmation structurelle avant d'entrer.\n\nC) DeskPro \n{\"run_id\":\"eurusd_1h_20240604\",\"charts\":[{\"slot\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-59-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_21-59-30.png"
+  }
+}

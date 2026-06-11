@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_081815_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T04:18:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-18-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 58500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter en cassure claire des 63 000 USDT avec stop sous 61 000 USDT",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 61 000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale récente baissière, cassure nette de structure haussière précédente.\n- Stabilisation et début de reprise avec formation de HL sur le court terme.\n- Zone clé résistance autour de 63 000 USDT, cassure nécessaire pour scénario haussier.\n\nB) Chart unique (BTCUSDT.P 1h) : \nLa paire BTCUSDT.P en 1h montre une forte tendance baissière initiale (série de LL et LH), puis une inversion partielle débutant avec un HL formé depuis le 6 avril. La structure évolue vers un biais neutre-haussier avec un travail de la résistance forte à ~63 000 USDT. Un breakout confirmerait une reprise haussière, tandis que le retour sous 61 000 USDT invaliderait ce scénario, signalant le retour à une dynamique baissière. Supports importants autour de 60 000 USDT et 58 500 USDT.\n\nC) DeskPro\n{\"run_id\":\"20240411_0818\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL formé après série LL/LH\",\"supports\":[\"60000\",\"58500\"],\"resistances\":[\"63000\"],\"plan\":\"Acheter en cas",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-18-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_04-17-57.png"
+  }
+}

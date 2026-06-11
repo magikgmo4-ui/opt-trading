@@ -1,0 +1,17 @@
+{
+  "contract": "telegram_context.v1",
+  "id": "ctx_101123_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "crypto_flow",
+  "channel": "whale_alert_io",
+  "channel_priority": "P1",
+  "channel_type": "whale_alert",
+  "parsed_at": "2026-06-09T20:40:30+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "asset": "BTC",
+  "direction": null,
+  "entry_price": null,
+  "amount": "830",
+  "value_usd": "51593438",
+  "raw_text": "\ud83d\udea8 \ud83d\udea8 \ud83d\udea8  830 $BTC (51,593,438 USD) transferred from Coinbase Institutional to unknown wallet\n[Details](https://whale-alert.io/transaction/bitcoin/3e4124100a47f3e717449b4a2b3bd272654cc65661e05a65a7eb23b7ea97c5a7)"
+}

@@ -1,0 +1,29 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_161_20260611T073009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "xauusd_trading_signals",
+  "channel_priority": "P0",
+  "channel_type": "xau_signal",
+  "parsed_at": "2024-04-11T09:24:13+00:00",
+  "produced_at": "2026-06-11T07:30:09.190099+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 2330.0,
+  "sl": 2320.0,
+  "tp": 2335.0,
+  "tps": [
+    2335.0,
+    2340.0,
+    2350.0,
+    2335.0,
+    2340.0,
+    2350.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "__XAUUSD BUY 2330/2325\nTP 2335\nTP 2340\nTP 2350\nSL 2320__",
+  "summary": "XAUUSD LONG"
+}

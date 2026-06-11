@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_173019_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T13:30:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-30-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 640000000000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 700000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 780000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous résistance 700B après retour, viser 640B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 700B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière classique avec une succession de structures HH/HL puis inversion récente en LH/LL.\n- Forte baisse récente marquant une rupture potentielle de la zone de support 700B, accélération baissière.\n- Scénario baissier privilégie poursuite vers 640B, invalidation en cas de retour au-dessus de 700B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) :  \nTendance dominante passée haussière sur période récente (HH/HL), mais cassure nette à la baisse avec nouveaux plus bas (LL), structure baissière en place. Zones clés principales : résistance autour 780B et support majeur sous pression vers 700B, actuellement dépassé à la baisse. Volume en augmentation sur la chute, confirmant pression vendeuse. Plan optimal : attendre retracement sous résistance 700B pour short, ou attendre invalidation si reprise au-dessus. Invalidation au-dessus de 700B avec retour sous résistance récente.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-30-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_13-29-58.png"
+  }
+}

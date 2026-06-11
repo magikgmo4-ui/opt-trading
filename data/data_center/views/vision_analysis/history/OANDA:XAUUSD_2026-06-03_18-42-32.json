@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_224240_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T18:42:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-42-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4420.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4460.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4490.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur retracement vers 4460-4490",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement 4490 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- L’actif XAUUSD montre une structure baissière dominante sur le court terme avec des fluctuations ponctuelles de rebond.\n- Plusieurs niveaux clés de support et résistance à surveiller pour définir entrées et invalidations.\n- La volatilité reste modérée, signalée par les volumes en légère diminution.\n\nB) Chart 1 (haut-gauche) : XAUUSD 1h\n- Tendance : baissière depuis le pic local, structure en LH (Lower High) et LL (Lower Low).\n- Supports : autour de 4420 (plusieurs touches sur rebond), zone clé à 4400.\n- Résistances : 4460 (ancienne zone de HH), 4490 (plus haute récente).\n- Scénario principal : attendre un pullback vers résistance 4460-4490, puis prise de position vendeuse.\n- Invalidation : franchissement clair au-dessus de 4490 avec volume fort remettra en cause la structure baissière.\n\nC) Chart 2 (haut-droit) : inconnu\n\nD) Chart 3 (bas-gauche) : inconnu\n\nE) Chart 4 (bas-droit) : inconnu\n\nF) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"baissier\",\"s",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-42-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_18-42-22.png"
+  }
+}

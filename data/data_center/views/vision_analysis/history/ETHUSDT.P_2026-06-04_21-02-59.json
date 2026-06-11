@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_010312_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:03:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-02-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1730.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente à la cassure du support 1730 USDT, stop loss au-dessus de 1820 USDT",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 1820 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de baisse dominante, avec tentative de consolidation récente autour de 1750 USDT.  \n- Zone de support clé vers 1730 USDT à surveiller, rupture pourrait confirmer poursuite du trend baissier.  \n\nB) Chart unique (ETHUSDT.P 1h): Tendance baissière avec structure en LH/LL affirmée sur plusieurs sessions. Après une forte chute, le prix consolide horizontalement entre 1750 et 1780 USDT. Les résistances majeures sont situées vers 1780 et 1820 USDT. Support critique autour de 1730 USDT; invalidation du scénario baissier si le prix parvient à casser les 1820 USDT en clôture horaire. Scénario principal : reprise du mouvement baissier à la cassure de 1730 USDT, avec comme objectif un nouveau plus bas.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1730],\"resistances\":[1780,1820],\"plan\":\"Vente à la cassu",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-02-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_21-02-47.png"
+  }
+}

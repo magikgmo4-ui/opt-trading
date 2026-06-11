@@ -1,0 +1,48 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "angela_xauusd",
+  "total": 4,
+  "signals": [
+    {
+      "id": "tg_6598_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4111.0,
+      "sl": 4101.0,
+      "tp": 4121.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T15:51:10+00:00"
+    },
+    {
+      "id": "tg_6592_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4157.0,
+      "sl": 4147.0,
+      "tp": 4167.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T12:34:18+00:00"
+    },
+    {
+      "id": "tg_6589_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4329.0,
+      "sl": 4319.0,
+      "tp": 4339.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-09T13:32:59+00:00"
+    },
+    {
+      "id": "tg_6584_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 4334.0,
+      "sl": 4344.0,
+      "tp": 4324.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T12:04:01+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

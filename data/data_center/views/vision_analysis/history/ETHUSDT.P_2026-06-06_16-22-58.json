@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_202306_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T16:23:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-22-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher short sous 1600$, viser 1500$. Stop loss si franchissement 1600$ confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure forte >1600$ avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière marquée sur ETHUSDT.P en 1h avec succession de plus bas (LL) et plus bas secondaires (LH)\n- Structure clairement en bear market, consolidation récente après une forte chute\n- Zone clé support autour de 1500$, résistance majeure vers 1600$; cassure support prolongerait la baisse\n\nB) Chart unique (ETHUSDT.P 1h): marché en tendance baissière dominante (LL/LL), structure fragile en attente de la prochaine impulsion. Support visible vers 1500$ qui stabilise momentanément. Résistance à 1600$ contrôle toute tentative de rebond. Scénario principal: consolidation sous résistance, risque de reprise de la baisse en cas de cassure 1500$. Invalidation du scénario baissier si franchissement durable au-dessus de 1600$ avec HH.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LL\",\"supports\":[1500],\"resistances\":[1600],\"plan\":\"Chercher short sous 1600$, viser 1500$. Stop loss si franchissement 1600$ confirmé\",\"invalidation\":\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-22-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_16-22-49.png"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_235145_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T19:51:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-51-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 1.1600 pour entrée long intraday, sinon chercher confirmation de continuation baissière sous 1.1600.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">1.1660",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente baissière avec structure en LL (Lower Lows) et LH (Lower Highs).  \n- Zone clé de support autour de 1.1600 testée plusieurs fois, fournissant un pallier important.  \n- Résistance notable entre 1.1640 et 1.1660, freinant les tentatives de rebond.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLa paire EURUSD montre une tendance baissière sur le timeframe 1h avec une succession de Lower Highs et Lower Lows, indiquant une pression vendeuse. Le support majeur est identifié vers 1.1600, où le prix rebondit plusieurs fois, offrant un point d'entrée potentiel en cas de rebond. En revanche, la résistance entre 1.1640 et 1.1660 bloque la progression haussière, formant une zone clé de retournement. Le scénario dominant reste la poursuite possible de la baisse avec invalidation au-dessus de 1.1660. Une cassure claire sous 1.1600 renforcerait la tendance baissière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL, LH\",\"supports",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-51-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_19-51-24.png"
+  }
+}

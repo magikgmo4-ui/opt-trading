@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_195339_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T15:53:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_15-53-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rester vendeur à court terme sur rebond vers 1800-1820, viser retour support 1720",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 1820 renversement potentiel du biais baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 15m avec une série de bas plus bas (LL) et de hauts plus bas (LH).\n- Présence d'une tentative de rebond récent avec un sommet local plus haut (HL), mais sans confirmer un changement de structure.\n- Zone clé support proche des 1720-1740, résistance majeure autour de 1800-1820.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe marché est dans une tendance baissière dominante, caractérisée par une succession de LL/LH. Dernièrement, une correction haussière forme un HL, mais la structure globale reste baissière. Les volumes augmentent sur les replis baissiers, confirmant la pression vendeuse. Un retour sous 1740 invaliderait la tentative de rebond. Le scénario principal reste short en zone de résistance 1800-1820 avec objectif vers 1720. Une cassure nette au-dessus de 1820 annulerait ce biais et pourrait signaler une reprise haussière.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH avec HL récent\",\"support",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_15-53-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_15-53-23.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_003044_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T20:30:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-30-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure 64000 avec stop sous 62400, sinon privilégier prudence en range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fermeture sous 62400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante court terme : baissière avec structure de bascule vers latéral.\n- Structure récente : plusieurs lower highs (LH) et lower lows (LL) signant un bearish, suivi d’un range horizontal.\n- Zones clés : support autour 62,400 ; résistance à 64,000. Scénario haussier possible si cassure résistance, invalidation sous support.\n\nB) Chart unique (BTCUSDT.P 15m) : La tendance est baissière avec la formation d’un creux plus bas récent (LL). La structure montre des lower highs marqués, indiquant la domination des vendeurs. Toutefois, une phase de consolidation latérale s’installe actuellement entre 62,400 (support) et 64,000 (résistance). Un breakout net au-dessus de 64,000 pourrait inverser la tendance vers une reprise haussière. En dessous de 62,400, la pression vendue resterait en priorité, avec potentielle poursuite baissière.\n\nC) DeskPro {\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish transitioning to neutral\",\"structure\":\"LH/LL puis range\",\"supports",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-30-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_20-30-22.png"
+  }
+}

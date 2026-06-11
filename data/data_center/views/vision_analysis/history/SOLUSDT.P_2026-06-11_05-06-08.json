@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_090617_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T05:06:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-06-08",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62.8,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Achat sur cassure et maintien au-dessus de 65.50 avec stop sous 62.80",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture en 15m sous 62.80",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente baissière avec structure de Lower Highs (LH) et Lower Lows (LL) jusqu'à environ 62.50.  \n- Rebond marqué et tentative de reprise haussière formant un Higher Low (HL) vers 62.80 et un push vers 65.50, zone de résistance testée.  \n- Structure incertaine en transition, surveiller franchissement clair des 65.50 pour confirmation de retournement ou rejet possible pour reprise baissière.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nLa tendance principale visible sur ce 15m est baissière avec une série de LH et LL jusqu’au creux à 62.50. Un point bas majeur amorce un rebond qui valide un HL vers 62.80. Depuis, la structure montre un possible début de retournement haussier mais le sommet à 65.50 marque une résistance clé. Volume en hausse sur le rebond confirme intérêt acheteur. La cassure claire au-dessus de 65.50 serait le signal d’une reprise haussière confirmée. En-dessous du HL à 62.80, le scénario baissier reprendrait le dessus.  \n\nC) DeskPro  \n{\"run_id\":\"0",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-06-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-11_05-05-56.png"
+  }
+}

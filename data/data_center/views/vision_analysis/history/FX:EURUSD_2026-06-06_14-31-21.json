@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_183130_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T14:31:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-31-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 1.1520 avec target suivant momentum. Achat possible en rebond technique sur 1.1520 si volume acheteur significatif.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour franc au-dessus de 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le dernier segment graphique avec forte chute de prix.\n- Structure de retournement visible: des HH/HL précédents ont été cassés, formant LH puis LL.\n- Zone clé de support testée actuellement autour de 1.1520, à surveiller pour confirmation ou rebond.\n\nB) Chart unique (FX:EURUSD 1h): Tendance baissière dominante avec structure récente en LH puis LL indiquant une pression vendeuse forte. La chute accélérée sur les dernières bougies montre un fort momentum vendeur. Support majeur à 1.1520 environ, zone à surveiller pour un potentiel rebond ou poursuite baissière. Résistance à 1.1600, zone qui a agi comme support devenu résistance après fracture. Scénario principal: poursuite de la baisse si le support 1.1520 est cassé avec volume, sinon possibilité de rebond technique. Invalidation en cas de retour au-dessus de 1.1600, ce qui remettrait en question la dominance vendeuse.\n\nC) DeskPro\n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-31-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_14-30-58.png"
+  }
+}

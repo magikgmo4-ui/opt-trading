@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_083511_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T04:35:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_04-35-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur retest résistance, viser supports",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 4580 confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre signal clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Plusieurs actifs surveillés, avec focus sur XAUUSD (or) en 1h.  \n- Tendance globale baissière pour l’or, avec plusieurs cycles de fracturation de structure.  \n- Volume variable, accent sur zones de retournement clés et prudence sur confirmation.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \n- Tendance baissière claire, structure en LH/LL, pas de HH visible.  \n- Plusieurs points de résistance marqués autour de 4540-4550 et 4570-4580.  \n- Supports clés à 4430 et 4400, zones à surveiller pour rebond potentiel.  \n- Scénario principal : continuation baissière avec retest des supports.  \n- Invalidation si franchissement confirmé au-dessus de 4580 (HH).  \n- Volumes en hausse lors des baisses, confirmant la pression vendeuse.\n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non identifiable)  \n- Pas assez d’informations visibles pour analyse fiable.  \n- Recommandation : attendre plus de clarté sur structure.  \n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non identifia",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_04-35-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_04-34-50.png"
+  }
+}

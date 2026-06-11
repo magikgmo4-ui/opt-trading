@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_024601_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:45:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-45-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1775.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond entre 1760-1780, viser 1700-1720, stop loss au-dessus de 1790",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure et clôture au-dessus de 1780 avec nouvelle structure HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 1h avec séquence de Lower Highs (LH) et Lower Lows (LL).  \n- Structure dégradée sans signe immédiat de reprise, pression vendeuse persistante.  \n- Zone clé support majeure autour de 1700-1720 USDT à surveiller, invalidation possible au-dessus de 1780 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa paire ETHUSDT.P évolue en tendance baissière forte, avec une succession de sommets et creux descendants (LH/LL). Après un repli marqué début juin, un léger rebond correctif stagne vers 1770-1780, constituant une résistance dynamique. Les volumes sont soutenus lors des baisses, indiquant pression vendeuse persistante. Le support principal à court terme se situe vers 1700-1720 USDT, zone à tester prochainement. Un rebond durable ne pourra être envisagé qu’en cassant durablement la résistance vers 1780, sinon le scénario baissier reste valide. L’invalidation du scénario baissier sera donc une consolidation au-dessus de ce seuil.  \n\nC) DeskPro",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-45-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_22-45-45.png"
+  }
+}

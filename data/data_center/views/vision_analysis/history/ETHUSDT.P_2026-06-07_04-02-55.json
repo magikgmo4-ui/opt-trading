@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_080304_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T04:03:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-02-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1675.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance du franchissement des résistances pour un potentiel retournement. Protection en dessous de 1500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture nette au-dessus de 1675",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec une série de LH et LL.  \n- Structure récente montre un possible retournement avec un HL formé sur le rebond actuel.  \n- Zones clés à surveiller: support aux environs de 1500, résistance majeure proche de 1650-1675.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une forte baisse nette amorcée début juin, avec succession de plus bas (LL) et plus hauts (LH) déclinants, validant la tendance baissière. Sur les dernières heures, un retournement potentiel se dessine avec la formation d'un plus bas plus haut (HL) sur le rebond. La résistance immédiate se situe vers 1650-1675, niveau pivot à valider pour confirmer une reprise. Le support significatif est situé autour de 1500, base du récent creux. Scénario principal baissier tant que les résistances ne sont pas dépassées. Invalidation du bearish si rupture claire au-dessus de 1675.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec tentat",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-02-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_04-02-47.png"
+  }
+}

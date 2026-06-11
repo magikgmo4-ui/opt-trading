@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_024542_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:45:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-45-31",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sur cassure 62,000$",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rebond franc au-dessus de 64,000$",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Fort mouvement baissier dominant sur la période observée.  \n- Structure claire de creux et sommets descendants (LL/LH) signalant une tendance baissière confirmée.  \n- Plusieurs zones de support sous pression, vigilance sur la rupture pour prise de position short rapide.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière nette avec des LL/LS confirmés, la structure montre une compression avant test des supports majeurs vers 62,000-62,500$. Zone clé de support à 62,000$ testée plusieurs fois. Résistance proche vers 64,000$ (ancien support devenu résistance). Scénario privilégié : continuation de la baisse vers 60,000$ en cas de cassure. Invalidation : franchissement clair au-dessus de 64,000$ avec volumétries.  \n\nC) Chart 2 (haut-droit): inconnu  \nDonnées non lisibles, symbole/timeframe non identifié. Impossible d’analyser.  \n\nD) Chart 3 (bas-gauche): inconnu  \nDonnées non lisibles, symbole/timeframe non identifié. Impossible d’analyser.  \n\nE) Chart 4 (bas-",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-45-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_22-45-19.png"
+  }
+}

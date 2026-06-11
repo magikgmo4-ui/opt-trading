@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_143411_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:34:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-33-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance de la cassure des 60000 pour entrée short. En cas de rebond, envisager un long si HH > 64000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 64000 confirmant potentielle reprise haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière affirmée sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure dégradée sans signe de reprise; volume en phase de baisse accroit la pression vendeuse.\n- Zone clé de support vers 60 000 USDT en train d’être testée, fort risque de cassure.\n\nB) Chart unique (BTCUSDT.P 1h): La structure montre un mouvement baissier net avec des sommets et creux descendants (LH/LL). La dernière phase indique une tentative de rebond ayant échoué sous un point de résistance vers 64 000 USDT. Le support critique à 60 000 est en test, avec une augmentation du volume traduisant une possible accélération baissière. Un break sous 60 000 invaliderait le scénario de stabilisation et pourrait entraîner une poursuite vers des creux plus bas. Objectif probable dans ce cas proche des 58 000 USDT. Pour une reprise, il faudrait observer un HH au-dessus de 64 000.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-33-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_10-33-35.png"
+  }
+}

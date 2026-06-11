@@ -1,0 +1,101 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_192004_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:20:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-19-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 65500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rebond en résistance, target supports",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement 68500 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre rupture baissière après test résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure haussière avec HL/HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur retour à résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement sommet intermédiaire",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur rebond en résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure HH zone résistance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière nette sur l’ensemble des graphiques.  \n- Structure en séries de Lower Highs (LH) et Lower Lows (LL), signalant un marché sous contrôle des vendeurs.  \n- Zones clés de support sont à surveiller pour possible rebond ou rupture confirmant la continuation baissière.  \n\nB) Chart 1 (haut-gauche):  \nInstrument: Bitcoin/TetherUS, timeframe 1h.  \nTendance baissière claire avec des LL et LH multiples. La structure actuelle confirme un fort momentum vendeur.  \nSupports clés autour de 65,300 / 65,500 USD, à surveiller pour un rebond potentiel.  \nRésistances identifiées entre 67,500 et 68,500 USD, zone d’invalidation pour scénario baissier.  \nScénario: Rebond technique possible sur support, suivi d’une rechute probable si les résistances tiennent.  \nInvalidation en cas de franchissement clair au-dessus de 68,500 USD avec HH formé.  \n\nC) Chart 2 (haut-droit):  \nSymbole/timeframe inconnu. Visuellement, tendance baissière avec formations de lower highs.",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-19-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_15-19-38.png"
+  }
+}

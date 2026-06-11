@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_200938_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:09:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-09-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 15.0,
+      "confidence": 0.7,
+      "note": "s 15"
+    },
+    {
+      "type": "support_level",
+      "value": 1790.0,
+      "confidence": 0.7,
+      "note": "s 1790"
+    },
+    {
+      "type": "support_level",
+      "value": 1850.0,
+      "confidence": 0.7,
+      "note": "s : 1850"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte tendance baissière dominante en données 15 minutes, avec structure baissière claire.\n- Plusieurs tentatives de rebond mais structure HH/HL inexistante, zones de résistance majeures fermes.\n- Scénario baissier renforcé par volume élevé sur les baisses, vigilance sur invalidation si retour au-dessus de 1850-1860.\n\nB) Chart 1 (haut-gauche) : Ethereum / USDT 15m\n- Tendance : Baissière marquée.\n- Structure : Series de Lower Highs (LH) / Lower Lows (LL).\n- Supports : Vers 1790-1800 (test en cours).\n- Résistances : 1850-1860 zone clé forte.\n- Plan : Chercher des opportunités de vente en retest des résistances, privilégier la baisse tant que structure LL/LH intacte.\n- Invalidation : Retour clair au-dessus de 1860, milieu de range potentiel.\n\nC) Chart 2 (haut-droit) : symbole et timeframe inconnu\n- Tendance : Inconnue.\n- Structure : Inconnue.\n- Supports : Inconnus.\n- Résistances : Inconnues.\n- Plan : Impossible à définir sans données.\n- Invalidation : Inconnue.\n\nD) Char",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-09-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_16-09-21.png"
+  }
+}

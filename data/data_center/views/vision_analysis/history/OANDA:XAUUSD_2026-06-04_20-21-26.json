@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_002138_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T20:21:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-21-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4435.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4480.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4510.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller rebonds/sorties de range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout au-dessus 4520 ou sous 4400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- XAUUSD montre une structure en range / consolidation sur l’échelle 1h, avec plusieurs mouvements latéraux.  \n- Plusieurs zones de support et résistance intermédiaires se dessinent, à surveiller pour une reprise de tendance ou un breakout.  \n- Volume stable mais faible en pointe, signalant prudence sur continuation de tendance ou retournement.  \n\nB) Chart 1 (haut-gauche) : XAUUSD 1h  \nTendance : neutre / range  \nStructure : immuable, oscillation entre HL et LH sans vrai breakout  \nZones clés support : ~4435, ~4400  \nZones clés résistance : ~4480, ~4510  \nScénario principal : maintien dans la fourchette, entrées possibles sur rebond en support confirmé  \nInvalidation : cassure nette et suivie d’un des 2 côtés, soit au-dessus de 4520 ou sous 4400, signalant nouvelle impulsion  \n\nC) Chart 2 (haut-droit) : inconnu (détail illisible)  \nTendance : inconnu  \nStructure : inconnu  \nZones clés : inconnues  \nScénario : inconnu  \nInvalidation : inconnue  \n\nD) Chart 3 (bas-gauch",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-21-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_20-21-15.png"
+  }
+}

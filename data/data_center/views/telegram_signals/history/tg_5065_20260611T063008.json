@@ -1,0 +1,32 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_5065_20260611T063008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "XAUUSDSIGNALSG1",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T22:49:38+00:00",
+  "produced_at": "2026-06-11T06:30:08.195206+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4065.0,
+  "sl": 4078.0,
+  "tp": 4060.0,
+  "tps": [
+    4060.0,
+    4055.0,
+    4050.0,
+    4045.0,
+    4078.0,
+    4060.0,
+    4055.0,
+    4050.0,
+    4045.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**#XAUUSD**** SELL NOW 4065\n\nTP\u00b9\u00a0\u00a04060\nTP\u00b2\u00a0\u00a04055\nTP\u00b3\u00a0\u00a04050\nTP\u2074\u00a0 4045\nTP\u2075\u00a0 OpeN\n\nStop loss 4078**",
+  "summary": "XAUUSD SHORT"
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "coinglass_alerts",
+    "role": "LIQUIDITY_OI",
+    "messages_total": 20,
+    "parsed_count": 15,
+    "claims_count": 0,
+    "needs_review_count": 15,
+    "unknown_raw_count": 5,
+    "noise_count": 0,
+    "dominant_message_types": [
+      "MARKET_STRUCTURE",
+      "UNKNOWN_RAW"
+    ],
+    "avg_parser_score": 0.764,
+    "supported_formats": [
+      "MARKET_STRUCTURE",
+      "UNKNOWN_RAW"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  }
+]

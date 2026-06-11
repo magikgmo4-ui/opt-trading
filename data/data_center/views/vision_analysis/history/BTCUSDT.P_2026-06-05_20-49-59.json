@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_005009_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T20:50:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_20-49-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la tenue du support à 60000, possibilité de rebond à court terme. Vendre si cassure du support. Achat possible sur cassure claire du niveau 63000 pour signal de reprise haussière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage durable au-dessus de 63000 avec structure HH.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le 1h avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Structure fragile avec tentative de rebond sur la zone des 60 000 USDT.\n- Zone clé support autour de 60 000 USDT, résistance immédiate vers 63 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h) : \nLe graphique montre une tendance baissière nette, caractérisée par des lower highs et lower lows depuis plusieurs jours. Après une forte chute, le prix teste un support proche de 60 000 USDT, avec un petit rebond observé. La zone autour de 63 000 USDT fait office de résistance à court terme. Le scénario prioritaire reste la poursuite de la baisse si le support est invalidé. Un rebond plus marqué serait confirmé au franchissement clair des 63 000 USDT avec un changement potentiel de structure (HH).\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"60000\"],\"resistances\":[\"63000\"],\"plan\":\"Surveiller la tenue du support à 60000, possib",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_20-49-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_20-49-47.png"
+  }
+}

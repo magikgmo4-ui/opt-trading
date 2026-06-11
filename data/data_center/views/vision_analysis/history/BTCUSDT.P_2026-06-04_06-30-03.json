@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_103011_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T06:30:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-30-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 62000 pour continuation baisse. Rebond possible si maintien au-dessus. Confirmation bullish uniquement si dépassement 64500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m > 64500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en chute libre malgré quelques tentatives de rebond, qui restent faibles et ne modifient pas la dynamique.  \n- Zone clé de support intermédiaire autour de 62 000 USDT à surveiller pour un potentiel rebond, invalidée en cas de cassure franche.\n\nB) Chart unique (BTCUSDT.P 15m):  \nTendance baissière dominante avec structure en LL/LH. Support important repéré vers 62 000 USDT, résistance immédiate entre 64 000 et 64 500 USDT. Scénario prioritaire : poursuite du downtrend tant que la résistance n’est pas dépassée avec un nouveau pivot HL. Invalidation du bearish si le prix revient au-dessus de 64 500 USDT en clôture 15m.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[\"62000\"],\"resistances\":[\"64000-64500\"],\"plan\":\"Surveiller cassure support 62000 pour continuation baisse. Rebond possible si maintien au-d",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-30-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_06-29-51.png"
+  }
+}

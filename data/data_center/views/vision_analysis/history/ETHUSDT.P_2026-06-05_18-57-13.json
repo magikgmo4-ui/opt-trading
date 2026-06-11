@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_225752_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T18:57:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-57-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien du support 1550 et réaction sur résistance 1620-1640. Vente sur échec rebond ou pullback près résistance. Achat limité à cassure confirmée au-dessus de 1640.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture durable au-dessus de 1640",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Rebond récent sur un support majeur autour de 1550 USDT, suggestif d’un retracement ou d’une consolidation.\n- Zone de résistance clé vers 1620-1640 USDT ; cassure au-dessus nécessaire pour renversement de tendance.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe graphique montre une structure baissière confirmée (LH/LL), avec un dernier creux marqué près de 1540 USDT. Un rebond technique a suivi mais la résistance précédente autour de 1620-1640 USDT freine la progression. Le volume augmente sur les replis baissiers et sur le récent rebond, indiquant un fort intérêt au support. Le scénario prioritaire reste la continuation baissière en cas de retour sous 1550 USDT. Invalidation de ce bearish case avec clôture soutenue au-dessus de 1640 USDT, indiquant possiblement un début de reprise.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1550\",\"1",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-57-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_18-57-01.png"
+  }
+}

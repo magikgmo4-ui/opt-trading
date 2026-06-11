@@ -1,0 +1,122 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_paulgoldhunterfxsignals_81471_2026-05-22T13:59:44+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "paulgoldhunterfxsignals",
+    "parsed_at": "2026-05-22T13:59:44+00:00",
+    "produced_at": "2026-06-11T05:30:21.146237+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4515.5,
+    "sl": 4530.5,
+    "tp": 4506.0,
+    "tps": [
+      4506.0,
+      4511.5
+    ],
+    "leverage": null,
+    "raw_text": "Sell Gold 4515.5-4525.5\n\nSl :4530.5\n\nTp1:4511.5\nTp2:4506\n\nEnter Slowly"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_paulgoldhunterfxsignals_81474_2026-05-25T07:53:05+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "paulgoldhunterfxsignals",
+    "parsed_at": "2026-05-25T07:53:05+00:00",
+    "produced_at": "2026-06-11T05:30:21.146807+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4560.0,
+    "sl": 4570.0,
+    "tp": 4550.0,
+    "tps": [
+      4550.0,
+      4555.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold Sell Now: 4560 - 4565\n\nSL: 4570\n\nTP1: 4555\nTP2: 4550"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_paulgoldhunterfxsignals_81476_2026-05-27T16:34:35+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "paulgoldhunterfxsignals",
+    "parsed_at": "2026-05-27T16:34:35+00:00",
+    "produced_at": "2026-06-11T05:30:21.146873+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4448.5,
+    "sl": 4462.5,
+    "tp": 4439.0,
+    "tps": [
+      4439.0,
+      4444.5
+    ],
+    "leverage": null,
+    "raw_text": "Sell Gold  4448.5-4458.5\n\nSl :4462.5\n\nTp1:4444.5\nTp2:4439\n\nEnter Slowly"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_paulgoldhunterfxsignals_81479_2026-06-01T12:48:48+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "paulgoldhunterfxsignals",
+    "parsed_at": "2026-06-01T12:48:48+00:00",
+    "produced_at": "2026-06-11T05:30:21.147923+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4508.0,
+    "sl": 4522.0,
+    "tp": 4500.0,
+    "tps": [
+      4500.0,
+      4504.0
+    ],
+    "leverage": null,
+    "raw_text": "Sell Gold \n4508-4518\n\nSl :4522\n\nTp1:4504\nTp2:4500\n\nEnter Slowly"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_paulgoldhunterfxsignals_81507_2026-06-02T14:47:18+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "paulgoldhunterfxsignals",
+    "parsed_at": "2026-06-02T14:47:18+00:00",
+    "produced_at": "2026-06-11T05:30:21.150184+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4504.2,
+    "sl": 4518.3,
+    "tp": 4497.0,
+    "tps": [
+      4497.0,
+      4500.2
+    ],
+    "leverage": null,
+    "raw_text": "Sell Gold 4504.2-4514.2\n\nSl :4518.3\n\nTp1:4500.2\nTp2:4497\n\nEnter Slowly"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_paulgoldhunterfxsignals_81513_2026-06-03T12:38:35+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "paulgoldhunterfxsignals",
+    "parsed_at": "2026-06-03T12:38:35+00:00",
+    "produced_at": "2026-06-11T05:30:21.150425+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4452.5,
+    "sl": 4467.5,
+    "tp": 4445.0,
+    "tps": [
+      4445.0,
+      4448.5
+    ],
+    "leverage": null,
+    "raw_text": "Sell Gold 4452.5-4462.5\n\nSl :4467.5\n\nTp1:4448.5\nTp2:4445\n\nEnter Slowly"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "contract": "telegram_signal.v1",
+  "id": "tg_22970_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "goldmarket67",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-11T03:45:16+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4067.0,
+  "sl": 4057.0,
+  "tp": 4070.0,
+  "tps": [
+    4070.0,
+    4073.0,
+    4076.0,
+    4079.0,
+    4070.0,
+    4073.0,
+    4076.0,
+    4079.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**XAUUSD BUY 4067\n\nTP 4070\nTP 4073\nTP 4076\nTP 4079\n\nSL 4057**",
+  "summary": "XAUUSD LONG"
+}

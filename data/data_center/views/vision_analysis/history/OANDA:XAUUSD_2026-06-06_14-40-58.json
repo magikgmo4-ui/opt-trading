@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_184106_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T14:41:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-40-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.7,
+      "note": "support 4320"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière marquée par une succession de Lower Highs (LH) et Lower Lows (LL) sur le 1h.  \n- Forte chute récente avec un volume en hausse, validant la pression vendeuse dominante.  \n- Zone support clé entre 4320-4330 USD à surveiller pour un potentiel rebond ou poursuite baissière.\n\nB) Chart unique (OANDA:XAUUSD 1h): Le marché s’inscrit dans une structure baissière claire avec des pics de prix de plus en plus bas (LH) et creux de plus en plus bas (LL). La chute rapide des dernières heures avec un volume croissant illustre une forte pression vendeuse, cassant plusieurs supports intermédiaires. La zone 4320-4330 USD apparaît comme un support important où un potentiel rebond technique peut émerger. Si ce support cède, la baisse pourrait s’accélérer vers des niveaux plus bas. Invalidation du scénario baissier attendue au-dessus des derniers LH proches de 4400 USD.\n\nC) DeskPro  \n```json\n{\"run_id\":\"20240606_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-40-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_14-40-45.png"
+  }
+}

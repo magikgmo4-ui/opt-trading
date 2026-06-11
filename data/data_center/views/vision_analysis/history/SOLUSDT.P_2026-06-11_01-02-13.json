@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_050223_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T01:02:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-02-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure 65.5 avec stop sous 62.5, viser 67-68.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chute sous 62.5 met fin au scénario haussier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance court terme hésitante avec une séquence récente de structure HL puis HH confirmant un retournement haussier.\n- Zones clés : support autour de 62.5-63.0 USDT, résistance immédiate vers 65.5 USDT.\n- Scénario probable d’extension haussière au-dessus de 65.5, invalidé sous 62.5.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLe graphique montre initialement une tendance baissière marquée (LL/LH). Puis, une reprise haussière s’établit avec un HL vers 62.5 suivi d’un HH récent à 65.5, confirmant un début de retournement de tendance. Le prix teste actuellement la zone de résistance 65.5. En cas de rupture, poursuite probable vers 67-68. En cas d’échec et repli sous 62.5, la structure haussière sera invalidée, retour possible vers support plus bas. Volume en légère augmentation sur la poussée haussière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL puis HH\",\"supports\":[\"62.5\"],\"resistances\":[\"65.5\"],\"plan\":\"Acheter sur cassure 65.5 ",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-02-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-11_01-02-00.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_163420_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T12:34:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-34-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat à cassure de 62800 avec stop sous 60400",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m sous 60400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance de court terme haussière confirmée avec une série de HH/HL depuis le creux.\n- Structure en reprise après un fort épisode baissier, zone support majeure vers 60 400 USDT.\n- Zone de résistance clé proche des 62 800 USDT à surveiller pour une cassure haussière.\n\nB) Chart unique (BTCUSDT.P 15m):\nLe graphique montre une reprise haussière avec des creux et sommets de plus en plus hauts, validant une structure de tendance haussière. Le prix a rebondi depuis la zone support majeure autour de 60 400 USDT, et est actuellement en train de tester une résistance aux environs de 62 800 USDT. Le scénario privilégié reste une continuation haussière au-dessus de cette résistance, avec un invalidation en clôture sous 60 400 USDT pouvant relancer la pression vendeuse.\n\nC) DeskPro (JSON compact)\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"60400\"],\"resistances\":[\"62800\"],\"plan\":\"achat à cassure de 62800 avec stop sous 60400\",\"inv",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-34-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_12-34-02.png"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_22972_20260611T063008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "goldmarket67",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-11T04:40:56+00:00",
+  "produced_at": "2026-06-11T06:30:08.195206+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": null,
+  "sl": null,
+  "tp": 1.0,
+  "tps": [
+    1.0,
+    1.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**XAUUSD BUY \n\nTP 1 \ud835\udc07\ud835\udc08\ud835\udc13 30+ PIPS PROFIT ****\u2714\ufe0f****\u2714\ufe0f****\ud83d\udd25****\ud83d\udd25****\ud83d\udd25**",
+  "summary": "XAUUSD LONG"
+}

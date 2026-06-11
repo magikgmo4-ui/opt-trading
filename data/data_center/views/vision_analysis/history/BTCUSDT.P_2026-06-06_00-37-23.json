@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_043730_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T00:37:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-37-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sur cassure de 59000, viser continuation baissière, sinon rebond possible en zone support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable de 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Zones clés avec support principal proche de 59 000 USDT et résistance vers 63 000 USDT.  \n- Scénario probable de poursuite de la baisse en cas de rupture du support 59 000, avec possibilité de rebond technique à surveiller.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa structure montre un enchaînement régulier de LH et LL indiquant une pression vendeuse constante. Le prix teste actuellement le support vers 59 000 USDT ; une cassure nette confirmerait la continuation baissière. Résistance visible autour de 63 000 USDT qui pourrait bloquer une tentative de rebond. Volume en hausse lors des baisses majeures, renforçant la validité de la tendance. Invalidation de ce scénario si le prix franchit durablement et avec momentum 63 000 USDT, signalant un possible retournement ou consolidation.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"str",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-37-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_00-37-15.png"
+  }
+}

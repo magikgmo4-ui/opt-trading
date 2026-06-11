@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_013633_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T21:36:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-36-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1785.0,
+      "confidence": 0.7,
+      "note": "s 1785"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.7,
+      "note": "s 1750"
+    },
+    {
+      "type": "support_level",
+      "value": 1805.0,
+      "confidence": 0.7,
+      "note": "s 1805"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1785.0,
+      "confidence": 0.7,
+      "note": "résistance 1785"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1750.0,
+      "confidence": 0.7,
+      "note": "r 1750,"
+    },
+    {
+      "type": "invalidation_level",
+      "value": 1805.0,
+      "confidence": 0.55,
+      "note": "invalidation au dessus de 1805."
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire confirmée par une série de lower highs (LH) et lower lows (LL) sur ce 15m.  \n- Structure actuelle fragile avec tentative de rebond vers 1785-1790, zone clé de résistance immédiate.  \n- Scénario baissier privilégié si le range 1790-1800 n’est pas franchi, invalidation au dessus de 1805.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance est baissière avec des LH/LL bien formés. Le prix a chuté fortement, marqué par une succession de creux et sommets de plus en plus bas. La zone 1750-1760 agit comme support intermédiaire, tandis que la zone 1785-1790 représente la première résistance à surveiller sur ce rebond technique. La structure indique un potentiel retour vers les 1750 en cas d’échec à franchir cette résistance. Un break au-dessus des 1805 invaliderait la dynamique baissière à court terme.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1750,1760],\"resistances\":[1785,1790,1805],\"pl",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-36-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_21-36-17.png"
+  }
+}

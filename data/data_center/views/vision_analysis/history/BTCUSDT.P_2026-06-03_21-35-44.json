@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_013553_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T21:35:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-35-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la tenue du support en 62700-63000 pour un potentiel rebond court terme. En cas de cassure, viser poursuite baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture claire au-dessus de 66000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure clairement orientée à la vente, sans signe de retournement visible à court terme.  \n- Zone de support partielle vers 62 700-63 000 USD à surveiller pour un potentiel rebond ou continuation du breakdown.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une tendance baissière solide sur 15 minutes avec une structure en LH/LL. Le prix a formé un nouveau plus bas local proche de 62 670 USD, après avoir échoué à dépasser les 66 000 USD la veille. Volume globalement plus élevé lors des baisses, signe d’une pression vendeuse. À court terme, le prix teste une zone de support majeure autour de 62 700-63 000 USD. Une cassure nette en dessous renforcerait le scénario baissier, tandis qu’un rebond permettrait une correction technique vers 64 800-65 000 USD. Invalidation du biais baissier au-dessus des 66 000 USD.\n\nC) DeskPro  \n{\"run_id\":\"20240604_0135\",\"charts\":[{\"slot",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-35-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_21-35-37.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_221728_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T18:17:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_18-17-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cibler short sur rebond proche résistance 62.50 avec stop serré au-dessus de 63.00. Objectif 61.00, revoir position si cassure support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 63.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Prix en phase de consolidation latérale basse récemment, après forte chute.  \n- Zones clés autour de 62.50 en résistance et 61.00 en support à court terme.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLa structure montre une nette séquence baissière avec des Lower Highs puis des Lower Lows. Après une série de vagues baissières, le prix a formé une zone de stabilisation entre 61 et 62.50, indiquant un possible ralentissement ou préparation d’un rebond technique. Le scénario probable reste baissier tant que le prix ne franchit pas clairement la résistance à 62.50 avec un nouveau High plus haut. L'invalidation de ce biais baissier sera une clôture solide au-dessus de 63.00. En cas de cassure du support 61.00, la chute pourrait se prolonger.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"61.00\"],\"resistances\":[\"62.50\"],\"plan\":\"Cib",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_18-17-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_18-17-11.png"
+  }
+}

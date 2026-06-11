@@ -1,0 +1,39 @@
+[2026-06-07T19:00:01Z] Telegram production capture start
+--- coinglass_alerts limit=20 ---
+database is locked
+Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<Connection._send_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/connection/connection.py:316> wait_for=<Future cancelled>>
+Exception ignored in: <coroutine object Connection._recv_loop at 0x7fe55969f010>
+RuntimeError: coroutine ignored GeneratorExit
+Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<Connection._recv_loop() running at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/connection/connection.py:361> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<MTProtoSender._send_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/mtprotosender.py:452> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<MTProtoSender._recv_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/mtprotosender.py:503> wait_for=<Future cancelled>>
+
+--- whale_alert_io limit=20 ---
+database is locked
+Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<Connection._send_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/connection/connection.py:316> wait_for=<Future cancelled>>
+Exception ignored in: <coroutine object Connection._recv_loop at 0x7fb4d1097010>
+RuntimeError: coroutine ignored GeneratorExit
+Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<Connection._recv_loop() running at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/connection/connection.py:361> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<MTProtoSender._send_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/mtprotosender.py:452> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<MTProtoSender._recv_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/mtprotosender.py:503> wait_for=<Future cancelled>>
+
+--- cryptoquant_official limit=20 ---
+database is locked
+Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<Connection._send_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/connection/connection.py:316> wait_for=<Future cancelled>>
+Exception ignored in: <coroutine object Connection._recv_loop at 0x7fa30f09f010>
+RuntimeError: coroutine ignored GeneratorExit
+Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<Connection._recv_loop() running at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/connection/connection.py:361> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<MTProtoSender._send_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/mtprotosender.py:452> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<MTProtoSender._recv_loop() done, defined at /home/fantome/opt-trading-clean/venv/lib/python3.11/site-packages/telethon/network/mtprotosender.py:503> wait_for=<Future cancelled>>

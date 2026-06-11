@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_221349_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T18:13:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-13-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1665,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 1.1590 avec objectif bas ultime. En cas de rebond, prudence near résistance 1.1665 pour short sur rejeu.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus 1.1665",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ce timeframe avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en déclin sans signe de retournement confirmé, la dernière bougie proche d’un support potentiel.  \n- Zone clé support vers 1.1590 à surveiller pour un possible rebond ; résistance majeure autour de 1.1665.\n\nB) Chart unique (FX:EURUSD 1h): La paire EURUSD évolue dans une tendance baissière marquée par une série de LH et LL, validant une structure baissière. Le prix teste actuellement un support clé à 1.1590. Une cassure sous ce niveau accentuerait la pression vendeuse. En cas de rebond, la résistance à 1.1665, dernier sommet significatif, sera la zone de référence pour invalider ce scénario baissier. Volume modéré en baisse récente, vigilance sur le maintien ou non du support. \n\nC) DeskPro  \n{\"run_id\":\"20240604_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.1590\"],\"resistances\":[\"1.1665\"],\"plan\":\"Vente sous 1.1590 avec ob",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-13-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_18-13-27.png"
+  }
+}

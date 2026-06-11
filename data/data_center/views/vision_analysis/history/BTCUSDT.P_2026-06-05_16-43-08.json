@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_204317_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T16:43:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-43-08",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d’un rebond technique jusqu’à 62200-62400 pour prise de profit ou entrée short potentielle",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure sous 59200",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante : baissière avec une série de LH (Lower Highs) et LL (Lower Lows) bien marqués.  \n- Structure actuelle : tentative de rebond depuis un LL récent sur le support vers 59 200-59 600.  \n- Scénario : possible retour haussier technique à court terme jusqu’à la résistance vers 62 200-62 400, à surveiller pour un rejet ou une rupture.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nLe marché est dans une tendance baissière claire, avec une succession de Lower Highs et Lower Lows. La dernière vague a formé un LL proche de 59 200, zone de support clé. Depuis, un rebond haussier dynamique s’est enclenché, testant actuellement une zone de résistance à 62 200-62 400. Le scénario favori est un rebond technique dans ce range, mais la tendance reste baissière tant que ce dernier niveau ne sera pas franchi durablement. Invalidation du scénario haussier en dessous du dernier low à 59 200.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"L",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-43-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_16-42-56.png"
+  }
+}

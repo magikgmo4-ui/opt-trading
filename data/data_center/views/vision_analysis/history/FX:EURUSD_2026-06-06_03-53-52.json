@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_075400_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T03:53:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-53-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Survente proche du support 1.1520, envisager short sous ce niveau avec objectif bas, stop au-dessus de 1.1650. En cas de rebond, cible 1.1580 pour prise de profits.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix franchit et tient au-dessus de 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette en 1h, avec une chute marquée sur les dernières bougies.  \n- Structure récente : séries de Lower High (LH) et Lower Low (LL), confirmation du biais vendeur.  \n- Zone clé support autour de 1.1520, à surveiller pour un rebond potentiel ou poursuite baissière.\n\nB) Chart unique (FX:EURUSD 1h) :  \nSur le timeframe 1h, EURUSD montre une structure baissière claire, formant des Lower High et Lower Low. Le prix a fortement chuté sur les dernières heures, rompant plusieurs supports intermédiaires. Le volume a augmenté significativement sur la baisse, signalant une forte pression vendeuse. La zone 1.1520 constitue un support immédiat à surveiller, car un break sous ce niveau entraînerait une accélération baissière. En cas de rebond, un retour vers 1.1580-1.1600 servirait de résistance importante. Invalidation du biais baissier au-dessus du dernier sommet à environ 1.1650.\n\nC) DeskPro  \n```json\n{\"run_id\":\"eurusd_1h_230606\",\"charts\":[{\"slot\":\"single\",\"b",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-53-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_03-53-41.png"
+  }
+}

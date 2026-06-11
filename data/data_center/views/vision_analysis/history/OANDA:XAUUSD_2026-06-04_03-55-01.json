@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_075515_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T03:55:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_03-55-01",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sur cassure 4450, cible 4350-4330; rebond possible jusqu’à 4600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 4600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière sur le moyen terme, avec plusieurs swings HL/LL confirmant la faiblesse structurelle.  \n- Présence de zones clés importantes vers 4450 (support) et 4600 (résistance) à surveiller pour prise de décision.  \n- Le contexte est propice à un scénario de continuation baissière en cas de rupture de support, ou rebond correctif vers résistance en cas de maintien.  \n\nB) Chart 1 (haut-gauche) : XAUUSD 1h  \nTendance baissière dominante avec structure en LL/HL récente indiquant un pullback. Les plus hauts et plus bas sont globalement orientés à la baisse (LL et LH). Zone clé support identifiée vers 4430-4450 et résistance majeure vers 4580-4600. Scénario principal vaut pour poursuite de la baisse si cassure de 4450, avec potentiel rebond jusqu’à 4600 avant rejet baissier. Invalidation si clôture nette au-dessus de 4600.\n\nC) Chart 2 (haut-droit) : inconnu  \nSymbole/timeframe non lisible, analyse impossible.  \n\nD) Chart 3 (bas-gauche) : inconnu  \nSymbo",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_03-55-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_03-54-50.png"
+  }
+}

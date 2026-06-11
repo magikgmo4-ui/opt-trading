@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_221530_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T18:15:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_18-15-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vigilance sur cassure support 1550 pour continuation baissière. Reprise haussière à confirmer par dépassement 1600.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Stabilisation récente en range horizontal entre 1550$ et 1570$, zone potentielle de support.  \n- Nécessité de confirmer la rupture du range pour valider un changement de structure.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché est dans une forte tendance baissière, avec un enchaînement clair de LL et LH. Après un mouvement de baisse marqué, le prix consolide autour d’une zone clé entre 1550$ (support) et 1570$ (résistance). Ce range marque une possible pause ou préparation de rebond, mais la structure baissière n’est pas encore invalidée tant que le sommet local sous 1600$ n’est pas franchi. Le scénario prioritaire reste la continuation baissière avec un probable nouveau LL si le support casse. Une invalidation nette s’observerait au-dessus des 1580-1600$, signalant un retour potentiel de la pression acheteuse.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bai",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_18-15-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_18-15-14.png"
+  }
+}

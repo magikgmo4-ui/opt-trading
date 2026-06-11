@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_030529_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T23:05:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-05-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1710.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1770.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre cassure support 1710 pour vente; viser nouveau bas; prudence à résistance 1780",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "reprise au-dessus de 1790-1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente MIDI montre tentative de consolidation mais rejet à la baisse vers les 1720-1730 USD.  \n- Zone clé support vers 1710 USD à surveiller ; cassure potentielle renforcerait la baisse.\n\nB) Chart unique (ETHUSDT.P 15m):  \nPrix en tendance baissière avec structure de continuation (LH/LL). La pression vendeuse est dominante, malgré quelques rebonds temporaires. Le support majeur à 1710 USD est un pivot critique. Un repli sous ce niveau ouvrirait la voie à une poursuite du mouvement baissier. Résistance intermédiaire visible autour des 1770-1780 USD, zone où les vendeurs ressortent. Scénario principal : poursuite de la baisse en cas de break des 1710. Invalidation si reprise claire above 1790-1800 USD.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1710],\"resistances\":[1770,1780],\"plan\":\"suivre cassure",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-05-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_23-05-12.png"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_3616_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "xauusd_signals",
+  "channel_priority": "P2",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-09T14:10:12+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "DXYUSDT",
+  "direction": "LONG",
+  "entry_price": null,
+  "sl": null,
+  "tp": 99.642,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udcca**DXY**: **Strong Bullish Bias! Buy!**\n\n\ud83c\udd93**SIGNAL DETAILS \n**__\u2014\u2014\u2014\u2014\u2014\u2014__\n**ENTER: **#DXY  long trade**  **\n**CURRENT PRICE:** 99.498\n**STOP LOSS**: 99.407\n**TAKE PROFIT**: 99.642**\n**__\u2014\u2014\u2014\u2014\u2014\u2014__\n\ud83d\udd14**SUGGESTED RISK:**\n1% of the account for each trade\n\n\ud83d\udc51Wish you good luck in trading to you all!**\n__\u2014\u2014\u2014\u2014\u2014\u2014__\n**\u2708\ufe0f **CONTACT TO JOIN GOLD SIGNALS VIP**\ud83d\udc49\ud83c\udffb **@goldvip_contact**",
+  "summary": "DXY LONG"
+}

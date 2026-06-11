@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_134933_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T09:49:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_09-49-25",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre confirmation de cassure de 62700 avant d’envisager une entrée longue, stop sous 60600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse en clôture sous 60600 annule le biais haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- La tendance récente est une reprise haussière après une phase de baisse marquée.  \n- Structure en 15m: plusieurs Higher Lows (HL) indiquant une dynamique d'achat progressive.  \n- Zone clé support autour de 60 600-60 800, résistance immédiate proche de 62 700.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure montre une zone de support robuste vers 60 600-60 800 avec des HL formés, confirmant une base d’achat. La pression haussière s’est manifestée par un mouvement de reprise jusqu’à 62 700, formant un High récent. Actuellement, le prix corrige légèrement mais reste au-dessus du support clé, ménageant un potentiel nouveau test de résistance. Scénario préféré: revenir tester la résistance et la casser pour viser un nouveau HH. Invalidation sous 60 600.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL en cours après un plus bas récent, tendance haussière de court terme\",\"supports\":[60600,60800],\"resistances\":[62700],\"plan\":",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_09-49-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_09-49-11.png"
+  }
+}

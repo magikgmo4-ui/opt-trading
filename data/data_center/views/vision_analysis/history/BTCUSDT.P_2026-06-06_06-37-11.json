@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_103721_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T06:37:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-37-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre retest résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire > 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte tendance baissière généralisée sur plusieurs actifs majeurs et crypto.\n- Structures de prix marquées par des Lower Highs (LH) et Lower Lows (LL), signalant un marché clairement en baisse.\n- Zones clés de support testées, avec des scénarios baissiers privilégiés à moins d’une cassure haussière invalidante.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h\n- Structure: nette tendance baissière avec succession de LH et LL.\n- Supports: proche de 60 000, zone testée plusieurs fois.\n- Résistances: vers 62 000-63 000, ancien support devenu résistance.\n- Scénario: opportunité de continuation baissière tant que 63k ne tient pas.\n- Invalidation: clôture horaire fermée au-dessus de 63 000 avec volume fort.\n- Plan: vendre à retest de résistance pour viser retest ou cassure du support 60k.\n\nC) Chart 2 (haut-droit): inconnu (indicateurs/divers non assez lisibles)\n- Structure, supports, résistances et timeframe non identifiables.\n- Pas d’analyse actionnable possible.\n\nD) Chart 3 (bas-gau",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-37-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_06-36-50.png"
+  }
+}

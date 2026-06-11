@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_064322_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T02:43:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-43-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rebond sur 1.10, prise de position short sur échec résistance 1.15-1.16, cible vers nouveau creux sous 1.10.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture durable au-dessus de 1.16",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur ce 15m avec des creux et sommets décalés à la baisse (LL, LH minoritaires).  \n- Structure fragile, sans signe net de retournement à court terme malgré rebond récent sur support majeur.  \n- Zone clé support autour de 1.10, résistance à surveiller proche des 1.15-1.16 pour invalidation de la pression vendeuse.\n\nB) Chart unique (XRPUSDT.P 15m): La paire montre une pression baissière nette via une série de lower lows (LL) et lower highs (LH), confirmant la tendance. Le prix a marqué un creux important vers 1.10, niveau support sur lequel un rebond technique modéré est en cours. Aucune structure haussière significative (HH/HL) n’est visible pour valider un retournement. La zone 1.15-1.16 fait office de résistance à franchir pour invalider la baisse. Un retour sous 1.10 accentuerait la faiblesse et relancerait la tendance vers le bas.\n\nC) DeskPro {\"run_id\":\"r1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL, LH\",\"supports\":[",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-43-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-05_02-43-06.png"
+  }
+}

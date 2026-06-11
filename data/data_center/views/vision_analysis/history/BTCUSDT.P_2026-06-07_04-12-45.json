@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_081255_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T04:12:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-12-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "recherche de short proche résistance 63,000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure au-dessus de 63,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre clarification avant prise de position",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non définie",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure hors range avant trade",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non définie",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "entrer long si confirmation HL",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous support clé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière nette sur le plus court terme, avec un retracement récent en cours.  \n- Structure fragilisée, avec absence de HH significatifs et série de LH et LL confirmée.  \n- Zones clés proches autour de 60 000 (support) et 63 000 (résistance).\n\nB) Chart 1 (haut-gauche):  \n- Symbole inconnu, timeframe 1h.  \n- Tendance clair de baisse marquée, structure en LH (Lower High) et LL (Lower Low) dominantes.  \n- Support autour de 60 000 testée plusieurs fois, résistance immédiate proche de 63 000.  \n- Scénario principal : continuation baissière si rejet sous 63 000, avec possibilité de viser 60 000 à nouveau.  \n- Invalidation si le prix casse et se stabilise durablement au-dessus de 63 000, signe d’un potentiel renversement ou correction plus forte.\n\nC) Chart 2 (haut-droit):  \n- Symbole/timeframe inconnu.  \n- Graphique difficilement lisible, mais présence possible d’une consolidation ou range.  \n- Structure floue, vigilance sur apparition d’un breakout.  ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-12-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_04-12-37.png"
+  }
+}

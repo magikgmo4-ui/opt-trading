@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_002201_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T20:21:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-21-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1830.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rupture du support 1760 pour entrées vendeuses. Attention à rebond possible jusqu'à 1830-1850 en pullback. Long si retournement confirmé (HH+HL) au-dessus de 1850.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire stable au-dessus de 1850",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une succession de plus bas et plus bas (LL) clairement visibles.  \n- Structure montre une dominante de vendeurs, absence de retournement haussier clair.  \n- Zone clé importante autour de 1760-1780 USDT comme support court terme, résistance vers 1830-1850 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance est baissière, avec des structures en succession de LL (Lower Lows) et LH (Lower Highs). Le prix a reculé fortement depuis la zone 2100 USDT, avec de multiples chandeliers rouges allongés. La zone de support récent autour de 1760 USDT a freiné la chute mais sans signe clair d'inversion. La résistance à court terme se situe autour de 1830-1850 USDT, dernier point de rebond raté. Le scénario principal reste donc une poursuite possible de la baisse sous 1760. Invalidation en cas de franchissement clair au-dessus de 1850 USDT.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structur",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-21-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_20-21-40.png"
+  }
+}

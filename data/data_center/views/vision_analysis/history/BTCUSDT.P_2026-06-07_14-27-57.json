@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_182811_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T14:28:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-27-57",
+  "signals": [
+    {
+      "type": "raw_analysis",
+      "value": "A) Résumé global  \n- Présence d’un fort mouvement baissier global visible sur plusieurs instruments, avec tentative de stabilisation récente sur BTC.  \n- Structure de tendance majoritairement baissière avec quelques rebonds de court terme, zones clés à surveiller pour potentielle reprise ou nouvelle chute.  \n- Plusieurs marchés en survente technique, vigilance sur invalidation de scénario bearish en cas de cassure haussière franche.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \nTendance baissière dom",
+      "confidence": 0.5,
+      "note": "Extracted from raw analysis text; no structured signals found"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d’un fort mouvement baissier global visible sur plusieurs instruments, avec tentative de stabilisation récente sur BTC.  \n- Structure de tendance majoritairement baissière avec quelques rebonds de court terme, zones clés à surveiller pour potentielle reprise ou nouvelle chute.  \n- Plusieurs marchés en survente technique, vigilance sur invalidation de scénario bearish en cas de cassure haussière franche.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \nTendance baissière dominante depuis plusieurs jours, avec série de plus bas et plus bas (LL) et probablement plus bas local (série HL cassée). Zone clé de support autour de 59 500 $, résistance autour de 63 000 $. Structure fragile avec tentative de rebond en place, mais sans formation claire de base haussière. Scénario principal: poursuite du range ou reprise baissière si support cassé. Invalidation si franchissement solide de 63 000 $.\n\nC) Chart 2 (haut-droit) : Symbole/timeframe inconnu  \nDifficile de lire le symb",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-27-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_14-27-49.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_083914_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T04:39:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-39-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter à la cassure de 63000 avec stop sous 60500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 60500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière visible sur la première partie du graphique.  \n- Correction haussière amorcée avec structure de bascules HH/HL visibles sur la partie intermédiaire.  \n- Zone de résistance vers 63 000 USDT à tester pour confirmer reprise haussière ou retour baissier.  \n\nB) Chart unique (BTCUSDT.P 1h): La tendance dominante est baissière avec une série de LL/HL depuis le début visible, suivie par une tentative de reprise haussière marquée par plusieurs HH/HL consécutifs. Le prix rencontre toutefois une résistance claire aux environs de 63 000 USDT, niveau clé à surveiller. Support immédiat autour de 60 500 USDT, dernier pivot bas confirmé. Un franchissement clair au-dessus de 63 000 validerait un changement de structure vers une tendance haussière plus affirmée. En cas de retournement sous 60 500, la tendance baissière reprendrait l'avantage.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HH/HL apr",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-39-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_04-38-52.png"
+  }
+}

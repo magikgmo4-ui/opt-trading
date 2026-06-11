@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_053840_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T01:38:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-38-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller franchissement 1620 pour retournement haussier. Short si cassure 1520 validée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture solide au-dessus de 1700 invaliderait la tendance baissière principale.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire confirmée par une succession de LH et LL jusqu'au 6 juin.\n- Après le plus bas autour de 1520, hausse corrective avec HL récents, tentative potentielle de retour haussier.\n- Zones clés majeures à 1520 (support) et 1680-1700 (résistance proche) à surveiller pour confirmation ou invalidation du scénario.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une tendance baissière nette sur plusieurs jours, matérialisée par des Lower Highs (LH) et Lower Lows (LL) réguliers jusqu’à un point bas proche de 1520. Depuis ce point bas, le marché forme des Higher Lows (HL), suggérant une tentative de renversement ou au moins une correction nette. Le prix test actuellement la zone des 1600-1620, avec un objectif potentiel vers la résistance majeure autour de 1680-1700. En cas de rejet sous 1520, la tendance baissière se réactiverait clairement. L’invalidation du momentum haussier est donc fixée sous ce support. La structure reste transitionnelle : prud",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-38-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_01-38-22.png"
+  }
+}

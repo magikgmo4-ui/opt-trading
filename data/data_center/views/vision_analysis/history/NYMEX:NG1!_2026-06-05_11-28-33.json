@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_152841_NYMEX:NG1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T11:28:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-28-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.35,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.4,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d'un rebond sur support majeur pour opportunité long, en cas de cassure sous support envisager shorts.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure ferme sous 3.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance haussière visible sur le début de la période avec une structure de type HH/HL.\n- Repli marqué récemment, formant une séquence de LH/LL indiquant une possible correction ou changement de dynamique.\n- Zone clé de support vers 3.15 et résistance vers 3.35-3.40 à surveiller pour validation du scénario haussier ou basculement baissier.\n\nB) Chart unique (NYMEX:NG1! 1h) :  \nLa tendance principale était haussière, confirmée par des plus hauts et plus bas ascendants (HH/HL) jusqu’à fin mai. Un fort repli a suivi début juin avec formation de hauts plus bas (LH) et bas plus bas (LL), rompant la structure haussière. Le prix teste actuellement une zone support clé autour de 3.15. La résistance majeure se situe actuellement dans la zone 3.35-3.40. Un rebond sur support pourrait relancer la tendance haussière, tandis qu’une cassure sous 3.15 invaliderait ce scénario et favoriserait la poursuite du mouvement baissier.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-28-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-05_11-28-21.png"
+  }
+}

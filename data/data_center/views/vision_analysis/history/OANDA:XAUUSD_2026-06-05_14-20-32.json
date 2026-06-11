@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_182040_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T14:20:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-20-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4460.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous 4320 avec cible 4250, stop au-dessus de 4460",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire au-dessus de 4460",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte baisse récente accompagnée d’un pic de volumes, signe d'une pression vendeuse importante.  \n- Structure baissière claire avec des Lower Highs (LH) et des Lower Lows (LL) sur la période récente.  \n- Zone clé de support à surveiller vers 4320, possible réaction si cette zone tient.  \n\nB) Chart 1 (haut-gauche):  \nGraphique XAUUSD 1h, tendance baissière nette. Structure en LL/ LH bien établie depuis plusieurs jours. La dernière jambe plonge fortement avec un fort volume, indiquant un fort momentum vendeur. Résistance à 4440-4450 (point haut précédent). Zone clé support immédiate autour de 4320, zone de prix où les acheteurs pourraient tenter une réaction. Scénario principal: continuation baissière sous 4320. Invalidation au-dessus du dernier sommet formé vers 4460.\n\nC) Chart 2 (haut-droit):  \nInconnu (symbole/timeframe non lisible sur l’image).  \n\nD) Chart 3 (bas-gauche):  \nInconnu (symbole/timeframe non lisible sur l’image).  \n\nE) Chart 4 (bas-droit):  \nInconnu ",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-20-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_14-20-16.png"
+  }
+}

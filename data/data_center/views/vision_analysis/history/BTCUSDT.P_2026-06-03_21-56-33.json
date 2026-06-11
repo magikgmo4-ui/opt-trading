@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_015643_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T21:56:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-56-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "préférer des positions courtes sur retour proche résistance vers 66500-67000, viser reprise de la baisse vers 62000 voire moins",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable au-dessus de 67000 avec formation de HH sur 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec des LL (Lower Lows) et LH (Lower Highs) confirmés sur le 1h.  \n- Structure sans tentative de retournement significative, maintien du momentum vendeur.  \n- Zones clés : support autour de 62 000, résistance proche de 66 500-67 000.  \n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique montre une chute significative du prix après une phase de consolidation horizontale faible. Les creux et sommets sont de plus en plus bas (LL/LH), confirmant la tendance baissière. La pression vendeuse s’intensifie à l’approche du support des 62k, à surveiller car un franchissement peut accélérer la baisse. Un retour au-dessus des 66 500 formerait une première alerte haussière mais la dynamique reste pour l’instant baissière. Le scénario prioritaire est la continuation de la baisse. Invalidation si le prix passe durablement au-dessus des 67 000 en formant des HH.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"su",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-56-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_21-56-25.png"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_134446_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:44:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-44-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 99.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 99.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 99.6,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond support 99.00, cible 99.60+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 99.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune action recommandée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune action recommandée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune action recommandée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- 4 graphiques présentant des actifs divers avec des unités de temps inconnues (sauf indication claire).\n- Structure et zones clés à analyser pour chaque actif, avec focus sur tendance et momentum.\n- Scénarios clairs en fonction des ruptures ou invalidations des supports/résistances identifiés.\n\nB) Chart 1 (haut-gauche) : DXY, 1h\n- Tendance haussière récente confirmée par une structure HH/HL depuis début juin.\n- Points clés : support autour de 99.00, résistance testée à 99.50.\n- Scénario : poursuite haussière envisagée si maintien au-dessus du support, ciblant nouvelle résistance à 99.60+.\n- Invalidation si le prix descend en dessous de 99.00, indiquant risque de retournement vers un LL.\n- Zones clés S/R bien définies, actionnable sur le rebond en intraday.\n\nC) Chart 2 (haut-droit) : Inconnu (graphique illisible)\n- Symbole et timeframe non lisibles, donc analyse impossible.\n- Recommandation : vérifier les données source avant décision.\n\nD) Chart 3 (bas-gauche) : Inconn",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-44-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_09-44-22.png"
+  }
+}

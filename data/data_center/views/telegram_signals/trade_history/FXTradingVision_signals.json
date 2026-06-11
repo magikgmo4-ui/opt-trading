@@ -1,0 +1,23 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_FXTradingVision_77372_2026-06-11T09:48:00+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "FXTradingVision",
+    "parsed_at": "2026-06-11T09:48:00+00:00",
+    "produced_at": "2026-06-11T10:00:13.873710+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4094.0,
+    "sl": 4060.0,
+    "tp": 4098.0,
+    "tps": [
+      4098.0,
+      4099.0,
+      4130.0
+    ],
+    "leverage": null,
+    "raw_text": "**NEW TRADE IDEA\n**\nXAUUSD** BUY 4094\n**\nTP 1 4098\nTP 2 4099\nTP 3 4130\n\nSL @ 4060\n**\nTrade accordingly and only trade with money you can afford to LOSE.**"
+  }
+]

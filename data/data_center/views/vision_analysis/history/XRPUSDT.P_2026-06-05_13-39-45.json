@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_173954_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T13:39:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-39-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rebond vers résistance 1.14 avec stop loss serré au-dessus, ou short sur cassure du support 1.10.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rupture nette de 1.14 en clôture 15m avec volume.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une série de bas et sommets descendants (structure LL/LH).  \n- Prix actuellement proche d’une zone de support clé autour de 1.10, avec volumétrie en légère augmentation.  \n- Scénario court préconisé à privilégier dans cette zone, avec invalidation en dépassement clair des récents plus hauts vers 1.14.\n\nB) Chart unique (XRPUSDT.P 15m):  \nTendance baissière dominante visible sur timeframe 15m, avec de multiples lower highs (LH) et lower lows (LL) depuis plusieurs sessions. Le prix tente un rebond technique sur support 1.10, zone à surveiller pour un possible rebond ou continuation baissière. Résistance notable située vers 1.140, niveau à dépasser pour invalider la structure baissière. Objectif de continuation vers 1.05/1.06 si support cassé. Volume en légère hausse lors des dernières bougies, indiquant un intérêt accru possible en zone support.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structur",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-39-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-05_13-39-38.png"
+  }
+}

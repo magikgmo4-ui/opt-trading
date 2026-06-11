@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_160731_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T12:07:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-07-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rejection à 64000 pour continuation. Stop si break au-dessus validé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break clair au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière dominante sans signe évident de retournement pour l'instant.  \n- Zones clés identifiées autour de 64 000 (résistance récente) et 61 000 (support à tester).  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre un trend baissier avec des Lower Highs et Lower Lows affirmés, indiquant une pression vendeuse continue. La dernière tentative de rebond bute sur une résistance proche de 64 000, zone à surveiller de près pour valider un éventuel retournement ou un rejet. Le support récent autour de 61 000 constitue la prochaine zone cruciale pour maintenir la structure baissière. Un franchissement clair de la résistance à 64 000 invaliderait à court terme la continuation immédiate de la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"61000\"],\"resistances\":[\"64000\"],\"plan\":\"Surveiller rejecti",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-07-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_12-07-14.png"
+  }
+}

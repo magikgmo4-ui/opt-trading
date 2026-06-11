@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_135407_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T09:54:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_09-53-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1685,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur cassure confirmée sous 1.1570 viser continuation baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clair franchissement au-dessus de 1.1685 avec HH/HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Structure en LH/LL depuis le plus haut récent, tendance globale baissière sur ce 1h.  \n- Support clé visible autour de 1.1570, forte cassure de ce niveau en cours (chute rapide).  \n- Résistance majeure vers 1.1650-1.1685, zone de rejets multiples lors des tentatives de rebond.  \n\nB) Chart unique (FX:EURUSD 1h):  \nTendance baissière nette avec structure de Lower High (LH) et Lower Low (LL) depuis le top du 29 mai. La cassure rapide du support 1.1570 confirme la pression vendeuse, validant un potentiel scénario de poursuite baissière. Les résistances à surveiller sont entre 1.1650 et 1.1685, où le prix a systématiquement buté. En cas de retour au-dessus de 1.1570, scénario de pullback possible avant nouvelle jambe baissière. Invalidation du bearish si dépassement clair au-dessus de 1.1685 avec structure HH/HL.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.1570\"],\"resistances\":[\"1.1650\",\"1.1685\"],",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_09-53-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_09-53-45.png"
+  }
+}

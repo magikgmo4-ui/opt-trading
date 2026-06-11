@@ -1,0 +1,23 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_trading_gold_signals_1711_2026-06-11T06:28:37+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd_trading_gold_signals",
+    "parsed_at": "2026-06-11T06:28:37+00:00",
+    "produced_at": "2026-06-11T10:00:14.678317+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4092.5,
+    "sl": 4110.5,
+    "tp": 4074.5,
+    "tps": [
+      4074.5,
+      4087.1,
+      4089.8
+    ],
+    "leverage": null,
+    "raw_text": "#Gold Sell Setup \ud83d\udcca\n\n#XAUUSD\nEntry Zone: 4092.5 \u2013 4092.5\nStop Loss: 4110.5\n\n\ud83c\udfaf Targets:\n\u27a4 TP1: 4089.8\n\u27a4 TP2: 4087.1\n\u27a4 TP3: 4074.5\n\n\u26a0\ufe0f For educational purposes only. Trade carefully and manage your risk."
+  }
+]

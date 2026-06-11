@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_140514_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T10:05:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_10-05-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller trading range, chercher break 0.08300 pour long, stop under 0.07800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cloture sous 0.07800 confirme baisse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière, avec une série de LL/HL en formation sur le bas du graphique.  \n- Structure récente de rebond avec HL et tentative de franchissement vers 0.08300 (résistance clé).  \n- Zone support majeure autour de 0.07800-0.07900, scénario haussier conditionné à un break clair au-dessus de 0.08300.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe marché présente une tendance baissière claire avec une succession de Lower Highs (LH) et Lower Lows (LL). Plus récemment, la structure montre un bas plus haut (HL) sur 0.07800, indiquant une possible tentative de rebond. La zone de résistance clé se situe autour de 0.08300, où le prix bute actuellement. Un franchissement à la hausse confirmerait un possible changement de tendance court terme, tandis qu'un rejet sous cette zone et retour sous 0.07800 invaliderait ce scénario haussier et relancerait la dynamique baissière.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/HL\",",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_10-05-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_10-04-56.png"
+  }
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Gold_btcusd_xauusd_3429_2026-06-04T04:13:33+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Gold_btcusd_xauusd",
+    "parsed_at": "2026-06-04T04:13:33+00:00",
+    "produced_at": "2026-06-06T11:30:54.818734+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4470.0,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "\ud83d\udccd**SELL GOLD **@4470-4475**\n\n\ud83d\udc51TP1 - 4465\ud83c\udfaf\n\ud83d\udc51TP2 -- 4460\ud83c\udfaf\n\ud83d\udc51TP3 -- 4455\n\ud83d\udc51TP4 -- open\n\n\u2764\ufe0fSL -- PREMIUM \ud83d\udcca\ud83d\ude4f\n\nMANAGE YOUR RISK ALL TIME \ud83d\udcc8\u2764\ufe0f**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Gold_btcusd_xauusd_3452_2026-06-04T13:46:28+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Gold_btcusd_xauusd",
+    "parsed_at": "2026-06-04T13:46:28+00:00",
+    "produced_at": "2026-06-06T11:30:54.819252+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4510.0,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "\ud83d\udccd**BUY GOLD **@4510-4505**\n\n\ud83d\udc51TP1 - 4515\ud83c\udfaf\n\ud83d\udc51TP2 -- 4520\ud83c\udfaf\n\ud83d\udc51TP3 -- 4525\n\ud83d\udc51TP4 -- open\n\n\u2764\ufe0fSL -- PREMIUM \ud83d\udcca\ud83d\ude4f\n\nMANAGE YOUR RISK ALL TIME \ud83d\udcc8\u2764\ufe0f**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Gold_btcusd_xauusd_3455_2026-06-05T04:13:22+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Gold_btcusd_xauusd",
+    "parsed_at": "2026-06-05T04:13:22+00:00",
+    "produced_at": "2026-06-06T11:30:54.819463+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4440.0,
+    "sl": null,
+    "tp": 4425.0,
+    "tps": [
+      4425.0,
+      4430.0,
+      4435.0
+    ],
+    "leverage": null,
+    "raw_text": "\ud83d\udcc8**GOLD SELL NOW****\ud83d\udcc8****\n\n****\ud83c\udf81**** GOLD SELL ZONE 4440 - 4445****\ud83c\udf81****\n\n\n****\ud83d\udc51****TP1 : 4435****\ud83d\udcca****\n****\ud83d\udc51****TP2 : 4430****\ud83d\udcca****\n****\ud83d\udc51****TP3 : 4425****\ud83d\udcca****\n****\ud83d\udc51****TP4 : Hold****\u2705****\n\n****\ud83d\udd25****SL : PREMIUM****\u2764\ufe0f****\ud83d\udcca****\n\n****\ud83d\udca5****USE SUITABLE LOT SIZES BASED ON YOUR CAPITAL. ****\ud83d\ude4f****MANAGE YOUR RISK ALL TIME MONEY MANAGEMENT IS \ud83d\udd11****\ud83d\udc4d****\ud83d\udc90****\ud83c\udf89**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Gold_btcusd_xauusd_3476_2026-06-05T08:31:10+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Gold_btcusd_xauusd",
+    "parsed_at": "2026-06-05T08:31:10+00:00",
+    "produced_at": "2026-06-06T11:30:54.819996+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4470.0,
+    "sl": null,
+    "tp": 4455.0,
+    "tps": [
+      4455.0,
+      4460.0,
+      4465.0
+    ],
+    "leverage": null,
+    "raw_text": "\ud83d\udcc9**GOLD SELL NOW**\ud83d\udcc9**\n\n****\ud83c\udf81**** GOLD SELL ZONE 4470 - 4475****\ud83c\udf81****\n\n\n****\ud83d\udc51****TP1 : 4465****\ud83d\udcca****\n****\ud83d\udc51****TP2 : 4460****\ud83d\udcca****\n****\ud83d\udc51****TP3 : 4455****\ud83d\udcca****\n****\ud83d\udc51****TP4 : Hold****\u2705****\n\n****\ud83d\udd25****SL : PREMIUM****\u2764\ufe0f****\ud83d\udcca****\n\n****\ud83d\udca5****USE SUITABLE LOT SIZES BASED ON YOUR CAPITAL. ****\ud83d\ude4f****MANAGE YOUR RISK ALL TIME MONEY MANAGEMENT IS \ud83d\udd11****\ud83d\udc4d****\ud83d\udc90****\ud83c\udf89**"
+  }
+]

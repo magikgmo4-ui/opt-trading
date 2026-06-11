@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_193100_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T15:30:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-30-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le support 4320 pour opportunité de rebond. En cas de cassure baissière confirmée sous 4320, chercher continuation short.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 4440 invaliderait la tendance baissière actuelle.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h, avec des structures de plus en plus faibles (LH/LL).  \n- Forte chute finale marquant une accélération vendeuse, suivi d’un léger rebond.  \n- Zone clé support actuelle autour de 4320 USD à surveiller pour un potentiel rebond ou cassure.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe graphique montre une succession de swings où les hauts sont de plus en plus bas (LH) et les bas aussi de plus en bas (LL), confirmant une structure baissière. On note une forte pression vendeuse fin de la période visible, avec une grande bougie rouge suivie d’un petit rebond sur zone de support vers 4320. On garde en tête la résistance proche autour de 4400-4440, qui reste un pivot important à franchir pour envisager un retournement.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"4320\"],\"resistances\":[\"4400\",\"4440\"],\"plan\":\"Surveiller le support 4320 pour opportunité de rebond. En cas de cassure ba",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-30-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_15-30-37.png"
+  }
+}

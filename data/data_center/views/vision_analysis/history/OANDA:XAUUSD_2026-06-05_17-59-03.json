@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_215912_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T17:59:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-59-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4460.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 4320 pour trade court terme, sinon vente à la cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure haute au-dessus de 4460",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec des Lower Highs (LH) et Lower Lows (LL) formés depuis fin mai.  \n- Forte chute récente avec accélération baissière marquée, volume en hausse sur la baisse.  \n- Zone support clé proche des 4320 à surveiller pour un rebond ou poursuite baissière.\n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLe graphique montre une dynamique baissière dominante avec une structure principalement en Lower Highs et Lower Lows. Le prix a fortement chuté le 5 juin, cassant plusieurs supports intermédiaires, pour venir tester une zone de support critique proche de 4320. Le volume confirme la pression vendeuse. Un rebond sur ce support pourrait lancer un moindre mouvement correctif, sinon la rupture de ce niveau validera une poursuite baissière. L’invalidation du scénario baissier serait une cassure solide au-dessus des 4460 (dernier sommet significatif).\n\nC) DeskPro  \n{\"run_id\":\"1686120000\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH, LL\",",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-59-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_17-58-49.png"
+  }
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_WhaleTank_9381_2026-06-04T13:20:56+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "WhaleTank",
+    "parsed_at": "2026-06-04T13:20:56+00:00",
+    "produced_at": "2026-06-11T10:00:14.059985+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 1691.57,
+    "sl": 1100.0,
+    "tp": 2029.89,
+    "tps": [
+      2029.89
+    ],
+    "leverage": 1,
+    "raw_text": "#ETHUSDT\n\nBUY 1691.57\n\nTP 2029.89 2537.36 3044.83 3890.62 4957.67\n\nSL 1100\n\nLeverage 1x"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_WhaleTank_9388_2026-06-08T13:18:28+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "WhaleTank",
+    "parsed_at": "2026-06-08T13:18:28+00:00",
+    "produced_at": "2026-06-11T10:00:14.063021+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 1631.52,
+    "sl": 1601.99,
+    "tp": 1648.29,
+    "tps": [
+      1648.29
+    ],
+    "leverage": 4,
+    "raw_text": "#ETHUSDT\n\nBUY 1631.52 - 1617.67\n\nTP 1648.29 1669.97 1698.96 1721.57\n\nSL 1601.99\n\nLeverage 4x"
+  }
+]

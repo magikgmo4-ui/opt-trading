@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_131516_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T09:15:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-15-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.145,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.185,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.19,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short potentiel à proximité résistance, cible support. Rester prudent sur rebond, confirmation nécessaire.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cloture stable au-dessus 1.1900 confirme invalidation tendance baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière avec une succession de creux et sommets plus bas (LL, LH)  \n- Tentative récente de rebond haussier qui marque un HL potentiel à court terme  \n- Zone clé support vers 1.1450-1.1500, résistance majeure immédiate autour de 1.1850-1.1900  \n\nB) Chart unique (XRPUSDT.P 15m): Baissier, structure de baisse dominante (LL/LH). Après une chute marquée, le prix forme un niveau bas récent vers 1.1450, suivi d’un rebond avec un HL. La résistance autour de 1.1850-1.1900 reste un obstacle important à franchir pour confirmer un changement de tendance. Le scénario principal reste la poursuite de la baisse si le support est cassé. Invalidation du biais baissier à valider par une cassure propre au-dessus de 1.1900.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":[\"LL\",\"LH\",\"HL\"],\"supports\":[\"1.1450\",\"1.1500\"],\"resistances\":[\"1.1850\",\"1.1900\"],\"plan\":\"short potentiel à proximité résistance, cible support. Rester prud",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-15-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_09-14-58.png"
+  }
+}

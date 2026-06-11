@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_090434_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T05:04:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-04-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "scénario principal maintien tendance baissière; potentiel range entre 59500 et 61750; suivi cassure résistance pour inverser biais",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette de 61750 confirmée en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Rebond récent qui forme un HL partiel mais non validé par un HH, potentielle correction dans la tendance baissière.  \n- Zones clés à surveiller pour trading range ou continuation : support vers 59 500 et résistance vers 61 750.\n\nB) Chart unique (BTCUSDT.P 15m):  \nOn observe une structure baissière marquée (LH, LL), avec un léger reflux haussier tentant de reconstruire un HL. La dynamique reste baissière tant que la résistance vers 61 750 n’est pas cassée. Le support clé confirmé autour de 59 500 a tenu récemment. Scénario privilégié : trading range ou continuation baissière autour de ces niveaux. Invalidation en cas de dépassement franc de 61 750, viser alors un retournement haussier.\n\nC) DeskPro  \n{\"run_id\":\"run_unique_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL, LH, HL partiel\",\"supports\":[59500],\"resistances\":[61750],\"plan\":\"scénario principal mainti",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-04-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_05-04-17.png"
+  }
+}

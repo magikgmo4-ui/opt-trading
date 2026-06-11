@@ -1,0 +1,162 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_vasilytradersignalforex_30590_2026-06-08T10:04:29+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "vasilytradersignalforex",
+    "parsed_at": "2026-06-08T10:04:29+00:00",
+    "produced_at": "2026-06-11T10:00:14.606494+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4288.5,
+    "sl": 4228.5,
+    "tp": 4298.5,
+    "tps": [
+      4298.5,
+      4308.5
+    ],
+    "leverage": null,
+    "raw_text": "Gold buy @ 4288.50 - 4283.50\n\nSl : 4228.50\n\ntp1 : 4298.50\ntp2 : 4308.50"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_vasilytradersignalforex_30591_2026-06-08T10:06:32+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "vasilytradersignalforex",
+    "parsed_at": "2026-06-08T10:06:32+00:00",
+    "produced_at": "2026-06-11T10:00:14.606562+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4288.5,
+    "sl": 4278.5,
+    "tp": 4298.5,
+    "tps": [
+      4298.5,
+      4308.5
+    ],
+    "leverage": null,
+    "raw_text": "Correction............\n\n\nGold buy @4288.50 - 4283.50\n\nSl : 4278.50\n\ntp1 : 4298.50\ntp2 : 4308.50"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_vasilytradersignalforex_30595_2026-06-09T13:33:21+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "vasilytradersignalforex",
+    "parsed_at": "2026-06-09T13:33:21+00:00",
+    "produced_at": "2026-06-11T10:00:14.606707+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4332.0,
+    "sl": 4342.0,
+    "tp": 4312.0,
+    "tps": [
+      4312.0,
+      4322.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell @ 4332 - 4337\n\nSl : 4342\n\ntp1 : 4322\ntp2 : 4312"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_vasilytradersignalforex_30598_2026-06-09T13:51:31+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "vasilytradersignalforex",
+    "parsed_at": "2026-06-09T13:51:31+00:00",
+    "produced_at": "2026-06-11T10:00:14.606831+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4352.0,
+    "sl": 4362.0,
+    "tp": 4332.0,
+    "tps": [
+      4332.0,
+      4342.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell @ 4352 - 4357\n\nSl : 4362\n\ntp1 : 4342\ntp2 : 4332"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_vasilytradersignalforex_30601_2026-06-09T14:11:23+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "vasilytradersignalforex",
+    "parsed_at": "2026-06-09T14:11:23+00:00",
+    "produced_at": "2026-06-11T10:00:14.606956+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4328.0,
+    "sl": 4338.0,
+    "tp": 4308.0,
+    "tps": [
+      4308.0,
+      4318.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell @ 4328 - 4333\n\nSl : 4338\n\ntp1 : 4318\ntp2 : 4308"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_vasilytradersignalforex_30605_2026-06-10T08:23:05+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "vasilytradersignalforex",
+    "parsed_at": "2026-06-10T08:23:05+00:00",
+    "produced_at": "2026-06-11T10:00:14.607156+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4170.0,
+    "sl": 4160.0,
+    "tp": 4180.0,
+    "tps": [
+      4180.0,
+      4190.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold buy @ 4170 - 4165\n\nSl : 4160\n\ntp1 : 4180\ntp2 : 4190"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_vasilytradersignalforex_30608_2026-06-10T09:16:51+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "vasilytradersignalforex",
+    "parsed_at": "2026-06-10T09:16:51+00:00",
+    "produced_at": "2026-06-11T10:00:14.607259+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4168.0,
+    "sl": 4178.0,
+    "tp": 4148.0,
+    "tps": [
+      4148.0,
+      4158.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell @ 4168 - 4173\n\nSl : 4178\n\ntp1 : 4158\ntp2 : 4148"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_vasilytradersignalforex_30613_2026-06-10T12:32:22+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "vasilytradersignalforex",
+    "parsed_at": "2026-06-10T12:32:22+00:00",
+    "produced_at": "2026-06-11T10:00:14.607392+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4170.0,
+    "sl": 4180.0,
+    "tp": 4150.0,
+    "tps": [
+      4150.0,
+      4160.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell @ 4170 - 4175\n\nSl : 4180\n\ntp1 : 4160\ntp2 : 4150"
+  }
+]

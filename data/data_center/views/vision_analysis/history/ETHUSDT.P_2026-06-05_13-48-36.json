@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_174844_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T13:48:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-48-36",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure 1570 pour viser continuation baissière, ou cassure 1625 pour scénario d'invalidation et possible rebond",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus de 1625",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 15m avec des segments de retracement faible.  \n- Structure en Lower Highs (LH) et Lower Lows (LL) bien marquée, confirmant la pression vendeuse.  \n- Zones clés à 1620 USDT en résistance, 1570 USDT en support court terme; break des 1570 ouvrirait porte pour continuation baissière.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLa paire montre une dynamique nette de baisse avec des sommets et creux déclinants (LH/LL). Après une chute marquée vers 1570 USDT, un rebond technique s’est produit mais reste faible, stoppé vers 1620 USDT. La structure ne montre pas d’inversion claire, indiquant une poursuite probable de la baisse. Le volume s’est accru sur les plus bas, signifiant une pression vendeuse forte. Une invalidation du scénario baissier serait la cassure au-dessus des derniers LH vers 1625 USDT en clôture 15m.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1570\"],\"resistanc",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-48-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_13-48-29.png"
+  }
+}

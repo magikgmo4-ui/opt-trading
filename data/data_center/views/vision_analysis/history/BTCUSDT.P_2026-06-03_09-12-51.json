@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_131259_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:12:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-12-51",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "invalide - changer symbole",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "invalide - changer symbole",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "invalide - changer symbole",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "invalide - changer symbole",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Impossible d'analyser les graphiques car le symbole BZUSDT est invalide et aucun graphique visible.  \n- Absence totale de données, tendance et structure non identifiables.  \n- Conseillé de changer le symbole pour obtenir un dashboard opérationnel.\n\nB) Chart 1 (haut-gauche): Symbole invalide, graphique vide. Analyse impossible.  \nC) Chart 2 (haut-droit): Symbole invalide, graphique vide. Analyse impossible.  \nD) Chart 3 (bas-gauche): Symbole invalide, graphique vide. Analyse impossible.  \nE) Chart 4 (bas-droit): Symbole invalide, graphique vide. Analyse impossible.\n\nF) DeskPro  \n{\"run_id\":\"inconnu\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"invalide - changer symbole\",\"invalidation\":\"inconnu\"},{\"slot\":\"haut-droit\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"invalide - changer symbole\",\"invalidation\":\"inconnu\"},{\"slot\":\"bas-gauche\",\"bias\":\"inconnu\",\"structure\":\"inconn",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-12-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BZUSDT_1h_2026-06-03_09-12-41.png"
+  }
+}

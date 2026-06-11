@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_204224_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:42:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-42-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à la cassure de 65000 avec stop au-dessus de 67000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 67000 en HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation structurelle",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non applicable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure support pour vente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout haussier résistance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sortie range et changement de tendance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Pression vendeuse dominante sur le dashboard avec tendance baissière marquée sur l’actif principal (Bitcoin).  \n- Pas de retournement clair, les supports sont testés régulièrement avec un risque de continuation à la baisse.  \n- Zones clés à surveiller pour invalidation ou rebond avec volume important.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière nette, structure en LH (Lower High) et LL (Lower Low) confirmée.  \nSupports à court terme autour de 65 000$, résistances proches vers 67 000$.  \nVolume en hausse sur baisse, signal de continuation potentielle du mouvement baissier.  \nScénario principal: poursuite de la baisse si support 65k cassé.  \nInvalidation: retour au-dessus de 67 000$ avec structure HL.  \n\nC) Chart 2 (haut-droit): symbol/timeframe inconnu  \nTendance difficile à lire précisément, structure indéfinie (pas d’HH/HL/LH/LL clair).  \nZones clés non identifiables clairement sur cette vue.  \nBesoin d’une meilleure résolution des supports/résistan",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-42-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_16-42-00.png"
+  }
+}

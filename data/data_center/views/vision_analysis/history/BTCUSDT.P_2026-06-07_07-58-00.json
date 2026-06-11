@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_115808_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T07:58:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-58-00",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur résistance, attendre rebond ou cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement des plus hauts locaux",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière nette sur l’actif principal (Bitcoin).  \n- Premiers signes de rebond en unité de temps 1h avec formation potentielle de bas niveaux.  \n- Attention aux zones clés de résistance proches qui risquent d’arrêter la correction.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance clairement baissière (LH/LL) dominante sur la période récente.  \n- Structure fractale baissière forte, avec des plus bas et plus bas intermédiaires qui s’enchaînent.  \n- Zone de support clé identifiée vers 58 000-60 000 USDT, forte zone d'absorption.  \n- Résistance notable proche à 63 000 USDT, zone validant un potentiel changement de structure haussière si franchie.  \n- Scénario principal : poursuite baissière si résistance tenue, scénario alternatif : rebond confirmé si cassure résistance.  \n- Invalidation : franchissement clair des plus hauts locaux (rupture structure LH).\n\nC) Chart 2 (haut-droit) : inconnu  \n- Le symbole et timeframe ne sont pas lisibles.\n\nD) Chart 3",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-58-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_07-57-52.png"
+  }
+}

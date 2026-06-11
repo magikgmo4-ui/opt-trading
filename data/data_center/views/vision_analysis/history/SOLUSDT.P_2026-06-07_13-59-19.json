@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_175926_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T13:59:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-59-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure de 66.50 avec stop sous 61.50",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix sous 61.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance haussière claire sur le 15m avec formation de HL et HH récents.\n- Zone de support clé autour de 61.50-62.00 USDT, bien tenue lors des replis.\n- Résistance importante à 66.50 USDT à surveiller pour une continuation haussière.\n\nB) Chart unique (SOLUSDT.P 15m) : Le graphique présente une structure en tendance haussière depuis le creux vers 60.00, avec des plus bas (HL) et plus hauts (HH) progressifs. Le prix consolide légèrement sous la résistance à 66.50 USDT avant la possible reprise. Les supports notables sont visibles autour des 61.50-62.00 USDT, zones validant le rebond actuel. Une cassure franche au-dessus de 66.50 validera la poursuite du mouvement haussier, alors qu’une retombée sous 61.50 invalidera ce scénario et pourrait signaler un retour baissier.\n\nC) DeskPro {\"run_id\":\"run1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL et HH récents\",\"supports\":[\"61.50\",\"62.00\"],\"resistances\":[\"66.50\"],\"plan\":\"Acheter sur cassure de 66.50 avec stop",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-59-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-07_13-59-11.png"
+  }
+}

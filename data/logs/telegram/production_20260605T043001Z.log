@@ -1,0 +1,37 @@
+[2026-06-05T04:30:01Z] Telegram production capture start
+--- coinglass_alerts limit=20 ---
+{
+  "module_id": "collector_telegram",
+  "run_id": "20260605T043001Z-74c30167",
+  "channels": [
+    "coinglass_alerts"
+  ],
+  "messages_total": 20,
+  "channel_results_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/channel_results/channel_results_20260605T043001Z-74c30167.json",
+  "status_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/status.json"
+}
+
+--- whale_alert_io limit=20 ---
+{
+  "module_id": "collector_telegram",
+  "run_id": "20260605T043002Z-150d2aeb",
+  "channels": [
+    "whale_alert_io"
+  ],
+  "messages_total": 20,
+  "channel_results_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/channel_results/channel_results_20260605T043002Z-150d2aeb.json",
+  "status_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/status.json"
+}
+
+--- cryptoquant_official limit=20 ---
+{
+  "module_id": "collector_telegram",
+  "run_id": "20260605T043003Z-8dccebca",
+  "channels": [
+    "cryptoquant_official"
+  ],
+  "messages_total": 20,
+  "channel_results_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/channel_results/channel_results_20260605T043003Z-8dccebca.json",
+  "status_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/status.json"
+}
+[2026-06-05T04:30:04Z] Telegram production capture end

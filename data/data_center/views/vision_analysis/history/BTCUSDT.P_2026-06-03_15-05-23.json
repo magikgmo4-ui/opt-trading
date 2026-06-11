@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_190533_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:05:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-05-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short en dessous du support 65500 avec cible 64500, stop au-dessus de 67500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fracture et maintien au-dessus de 67500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- La dynamique générale est baissière sur la majorité des actifs visibles.  \n- Plusieurs indices et actions clés confirment une pression vendeuse persistante.  \n- Zones de support sont testées avec risque de cassure, surveiller les invalidations pour ajuster le plan.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière nette, structure en LL (Lower Lows) et LH (Lower Highs).  \nVolume en hausse lors des baisses, confirme pression vendeuse.  \nZone clé support autour de 65 500 testé, si cassure possible extension baissière vers 64 500.  \nRésistance forte proche de 67 500, clé pour invalidation du bearish si franchie.  \nScénario principal: poursuite baisse tant que HH non formé.  \nInvalidation: franchissement clair et maintien au-dessus de 67 500.\n\nC) Chart 2 (haut-droit): inconnu (car symbole / timeframe non lisible)  \nImpossible d’analyse précise, informations insuffisantes pour lecture fiable.\n\nD) Chart 3 (bas-gauche): inconnu (car symbole / timeframe non lisibl",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-05-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_15-05-15.png"
+  }
+}

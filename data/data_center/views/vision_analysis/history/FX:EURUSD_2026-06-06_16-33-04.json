@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_203313_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T16:33:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-33-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente à confirmation de la cassure sous 1.1520 avec stop au-dessus du dernier LH",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour au-dessus de 1.1640",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h, structure en LL (Lower Lows) et LH (Lower Highs) confirmée récemment.  \n- Forte cassure à la baisse avec volume important, indiquant un fort momentum vendeur.  \n- Zone clé support vers 1.1520 testée, potentiel rebond ou continuation baissière si cette zone est franchie.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLa structure forme une succession de HH puis inversion en LH suivie de LL, typique de renversement baissier. La baisse est brusque sur les dernières bougies avec un volume notable, ce qui valide la force des vendeurs. La zone de 1.1520 est un support clé immédiat à surveiller. Un retour au-dessus des récents LH invaliderait ce scénario baissier à court terme.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"eurusd_1h_20240606\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH-LL\",\"supports\":[\"1.1520\"],\"resistances\":[\"1.1600\",\"1.1640\"],\"plan\":\"Vente à confirmation de la cassure sous 1.1520 avec stop au-dessus du dernier LH\",\"invali",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-33-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_16-32-52.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_151434_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T11:14:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-14-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rallyes sous résistance, viser continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cours > 63,200 avec hold",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire depuis le début du graphique avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Présence de supports intermédiaires vers 60 500 USDT, zones clés à surveiller pour un rebond potentiel.  \n- Scénario privilégie la continuation baissière sauf cassure franche des résistances vers 62 800-63 200 USDT (invalidation du bearish).  \n\nB) Chart unique (BTCUSDT.P 15m):  \nTendance baissière définie par structure LH/LL. Les prix n’arrivent pas à confirmer de Higher Highs ni Higher Lows. Le support majeur identifié est autour de 60 500 USDT, zone où plusieurs bougies ont trouvé un socle. Résistances visibles vers 62 800-63 200 USDT, qui correspondent à des sommets intermédiaires. Le plan est de rester vendeur tant que le price action se maintient sous ces résistances. Invalidation si le cours dépasse 63 200 USDT avec consolidation haute.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"60,5",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-14-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_11-14-13.png"
+  }
+}

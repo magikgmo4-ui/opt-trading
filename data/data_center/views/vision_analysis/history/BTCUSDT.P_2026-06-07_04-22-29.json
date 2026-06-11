@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_082237_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T04:22:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-22-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur cassure de 62300 ou rebond sur 60800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte de 60800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte nette de reprise haussière après un fort mouvement baissier sur le timeframe 15m.  \n- Structure en creux et sommets plus hauts (HL et HH) formée depuis le point bas récent.  \n- Zone clé résistance vers 62 500 USDT à surveiller pour validation de poursuite haussière.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nSur ce graphique 15 minutes, l’actif montre une structure de retournement haussier avec une succession de plus bas (HL) et plus hauts (HH) relatifs depuis un creux proche de 58 800 USDT. La tendance initiale était baissière marquée par une série de plus bas et plus bas (LL), puis la dynamique s’est inversée. Le prix teste actuellement la résistance importante autour de 62 300-62 500 USDT. Un franchissement avec volume confirmerait la continuation haussière. Invalidation du scénario haussier si le support autour de 60 800 USDT est perdu.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL/HH\",\"supports\":[\"60800\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-22-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_04-22-21.png"
+  }
+}

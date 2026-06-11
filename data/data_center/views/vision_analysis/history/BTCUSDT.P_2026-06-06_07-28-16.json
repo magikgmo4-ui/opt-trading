@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_112824_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T07:28:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_07-28-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 61750 avec cible 59500-60000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec une série de lower highs (LH) et lower lows (LL).  \n- Structure volatile marquée par plusieurs rebonds de court terme mais sans reprise haussière durable.  \n- Zone clé de support vers 59,500-60,000 USD, résistance majeure vers 61,750-62,000 USD.  \n\nB) Chart unique (BTCUSDT.P 15m): La tendance court terme est baissière avec une succession de LH/LL. Le prix teste la zone de support proche de 59,500 USD avec plusieurs rebonds. La zone 61,750-62,000 USD agit comme résistance après chaque tentative de rebond. Scénario prioritaire: continuation baissière sous résistance, avec un point d'invalidation en cas de franchissement clair des 62,000 USD qui signalerait un potentiel retournement haussier.  \n\nC) DeskPro  \n{\"run_id\":\"btc_15m_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"59500\",\"60000\"],\"resistances\":[\"61750\",\"62000\"],\"plan\":\"vente sous 61750 avec cible 59500-60000\",\"invalidation\":\"clôture au-",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_07-28-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_07-28-07.png"
+  }
+}

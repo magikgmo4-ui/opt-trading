@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_031526_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T23:15:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-15-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher continuation short à cassure 62000, stop si franchissement 64000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close 15m au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante short sur ce 15m, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière claire, avec rebonds techniques sans franchissement significatif de résistance.  \n- Zone clé à surveiller proche de 62 000 en support, invalidation du bearish si break soutenu au-dessus de 64 000.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance est baissière sur ce timeframe, marquée par une succession de LH et LL qui confirme la structure short. Plusieurs rebonds intermédiaires ont eu lieu entre 62 000 et 64 000, ces zones jouent respectivement le rôle de support majeur et résistance clé. Le price action actuel teste à nouveau le support vers 62 300. Un scénario viable est une continuation vers 61 500 si ce support casse. En revanche, un retour au-dessus de 64 000 invaliderait le biais baissier et annoncerait potentiellement une reprise haussière.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"support",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-15-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_23-15-11.png"
+  }
+}

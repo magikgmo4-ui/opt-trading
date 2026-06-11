@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_193_20260611T070009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "LexatyCryptoSignals",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2026-02-28T14:49:46+00:00",
+  "produced_at": "2026-06-11T07:00:09.465499+00:00",
+  "pair": "BTCUSDT",
+  "direction": "LONG",
+  "entry_price": 63522.0,
+  "sl": 62852.0,
+  "tp": 64367.0,
+  "tps": [
+    64367.0,
+    65601.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udfe2 Buy/Long signal #BTCUSDT\nEntry range: 63522\nTargets: 64367_ 65601\nStop: 62852\nLeverage: 20X\nBalance: 6% of capital",
+  "summary": "BTCUSDT LONG"
+}

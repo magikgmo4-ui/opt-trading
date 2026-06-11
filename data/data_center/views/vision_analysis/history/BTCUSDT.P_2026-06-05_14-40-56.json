@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_184109_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T14:41:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-40-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le support à 60000 USDT pour un rebond, sinon viser la continuation à la baisse. Confirmation d'un retour acheteur si cassure des résistances 62500-63000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "hausse au-dessus de 63000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur le 1h avec une série de LH (Lower High) et LL (Lower Low).  \n- Structure dégradée sans signal clair de rebond durable malgré quelques mèches basses.  \n- Zone clé de support à 60 000 USDT, à surveiller pour un éventuel rebond ou poursuite de la chute.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est baissière avec structure en LH/LL persistante. Le prix casse régulièrement ses bas précédents, confirmant la faiblesse du marché. La zone autour de 60 000 USDT agit comme support provisoire, mais un break clair en dessous pourrait accentuer la baisse vers des niveaux inférieurs. Point de résistance autour de 62 500-63 000 USDT, zone à franchir pour invalider le biais baissier. Le scénario principal reste une poursuite du mouvement baissier, à moins d’un retour au-dessus des résistances mentionnées.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"60000\"],\"resistances\":[\"62500\",\"6300",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-40-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_14-40-44.png"
+  }
+}

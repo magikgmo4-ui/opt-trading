@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_203341_CRYPTOCAP:BTC.D_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:BTC.D",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T16:33:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-33-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 58.2,
+      "confidence": 0.7,
+      "note": "s 58.20"
+    },
+    {
+      "type": "support_level",
+      "value": 57.8,
+      "confidence": 0.7,
+      "note": "s 57.80"
+    },
+    {
+      "type": "support_level",
+      "value": 59.6,
+      "confidence": 0.7,
+      "note": "s 59.60"
+    },
+    {
+      "type": "support_level",
+      "value": "57.80.",
+      "confidence": 0.7,
+      "note": "s 57.80."
+    },
+    {
+      "type": "resistance_level",
+      "value": 59.6,
+      "confidence": 0.7,
+      "note": "résistance 59.60"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière récente avec cassure franche du support vers 58.20%.\n- Structure en LH/LL confirmée sur les dernières semaines.\n- Rebond court terme en cours, test possible de la zone résistance 59.60%-60.00%.\n\nB) Chart unique (CRYPTOCAP:BTC.D 1d): Le graphique montre une nette tendance baissière initiée depuis la fin mai, marquée par une chute rapide suivie d’un petit rebond technique. La dominance du Bitcoin est en phase de correction depuis un sommet proche de 61.2%. La structure est baissière avec une série de Lower Highs et Lower Lows. Le support clé invalidant ce scénario se situe autour de 60.20%, zone à franchir pour un retour d’une dynamique haussière. Le repli récent a bénéficié d'un fort volume et la zone 58.20% a servi de point d’appui. Le scénario privilégié reste celui d’une continuation baissière, avec une consolidation/rebond court terme possible avant de tester à nouveau les supports vers 57.80%.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"sing",
+  "symbols_found": [
+    "CRYPTOCAP:BTC.D"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-33-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-06_16-33-15.png"
+  }
+}

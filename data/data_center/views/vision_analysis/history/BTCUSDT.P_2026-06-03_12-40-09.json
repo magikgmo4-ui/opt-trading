@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_164020_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:40:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-40-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 65500, viser 63000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">68000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante visible notamment sur le graphique BTC/USDT 1h.  \n- Structure de marché en forte dégradation avec plusieurs Lower High (LH) et Lower Low (LL).  \n- Zones clés support proches vers 65 500 USDT et résistance autour de 67 500 USDT, tendance à la baisse à confirmer.  \n\nB) Chart 1 (haut-gauche): BTC/USDT 1h  \nTendance baissière claire avec structure HL/HH brisée, succession de LH et LL. Volume en hausse lors des baisses, signe de pression vendeuse. Support clé autour de 65 500 USDT, résistance immédiate vers 67 500 USDT. Scénario principal: poursuite de la baisse sous 65 500 avec objectif 63 000+. Invalidation au-dessus de 68 000 USDT.  \n\nC) Chart 2 (haut-droit): inconnu (symbole et timeframe non lisibles)  \nImpossible d’analyser sans identification claire de l’actif et timeframe.  \n\nD) Chart 3 (bas-gauche): inconnu (symbole et timeframe non lisibles)  \nDonnées insuffisantes, pas d’analyse possible.  \n\nE) Chart 4 (bas-droit): inconnu (symbole",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-40-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_12-40-01.png"
+  }
+}

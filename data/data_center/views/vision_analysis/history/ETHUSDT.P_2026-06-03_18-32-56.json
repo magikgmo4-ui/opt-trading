@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_223304_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T18:33:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-32-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rebond avec sortie près de résistance, surveiller cassure support pour accélération",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close au-dessus de 1850",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière avec suite de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile autour de 1800-1850 USDT avec rebond récent sur support proche de 1750.  \n- Scénario baissier dominant sauf retour au-dessus des 1850 invalidant la poursuite à court terme.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance est nettement baissière confirmée par une série de LH et LL. Les prix accélèrent leur chute depuis début juin, avec un fort volume lors de la dernière baisse. Un support clé se dessine autour de 1750 USDT, d’où un rebond technique actuel. La résistance immédiate à surveiller se situe vers 1850 USDT, correspondant aux derniers points hauts locaux. En cas de franchissement, le scénario baissier pourrait être remis en question. L’invalidation se situerait au-dessus de 1850, où la structure de baisse casserait. La vigilance reste de mise car la pression vendeuse reste dominante.   \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-32-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_18-32-49.png"
+  }
+}

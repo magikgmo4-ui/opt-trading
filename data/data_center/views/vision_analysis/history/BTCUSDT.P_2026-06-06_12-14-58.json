@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_161510_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T12:15:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_12-14-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 60000 avec target nouveau low ou achat local sur support pour rebond vers 62000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour klar au-dessus de 63000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de LL et LH baissiers.  \n- Structure fragile avec petits consolidations, signe de lutte entre vendeurs et acheteurs.  \n- Zone de support clé autour de 60,000$ à surveiller pour un rebond ou casse possible.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance: Baissière sur le timeframe 1h, caractérisée par des Lower Highs (LH) et Lower Lows (LL).  \nStructure: La série d’HL est absente, indiquant une pression vendeuse dominante. Un léger range montre une pause, sans inversion manifeste.  \nSupports: 60,000$–60,500$ zone psychologique et horizontale de support récente.  \nRésistances: 62,000$–63,000$, ancien support devenu résistance potentielle.  \nPlan: En cas de rebond sur 60,000$, chercher un retour vers 62,000$ avec prise de bénéfices partielle. En cas de cassure sous 60,000$, se positionner à la vente en visant un nouveau low.  \nInvalidation: Retour rapide au-dessus de 63,000$ avec des HH clairs invaliderait la setup baissière.  \n\n",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_12-14-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_12-14-49.png"
+  }
+}

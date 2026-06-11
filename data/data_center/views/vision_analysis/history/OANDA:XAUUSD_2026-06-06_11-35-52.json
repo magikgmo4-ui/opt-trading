@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_153602_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T11:35:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-35-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur pullback sous résistance, viser continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture franche au-dessus de 4440",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure technique claire avec forte rupture baissière récente, confirmant la domination vendeuse.  \n- Zone clé de support actuelle autour de 4320, résistance immédiate vers 4400-4430.\n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLa tendance est clairement baissière avec des points bas plus bas (LL) et des points hauts plus bas (LH) depuis plusieurs jours. La chute brutale visible sur la droite confirme un momentum vendeur fort. Le support à 4320 tient temporairement, avec une possible réaction technique avant une nouvelle pression baissière. La résistance à 4400-4430 correspond aux derniers HL cassés, servant de zone S/R clé. Scénario principal : attendre un pullback sous résistance pour re-shorter. Invalidation au-dessus de 4440 avec prise en compte possible d’une correction plus ample.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"struct",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-35-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_11-35-37.png"
+  }
+}

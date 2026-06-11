@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_210555_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T17:05:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-05-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond proche résistance 1.1570-1.1600 ou à cassure du support 1.1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture consolidée au-dessus de 1.1600, structure invalidée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette réalisée sur la dernière zone avec forte accélération.  \n- Structure récente en LH (Lower Highs) et LL (Lower Lows), confirmant un biais vendeur.  \n- Zone clé support 1.1520 testée avec fort volume ; potentiel rebond ou poursuite sous ce niveau à surveiller.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa paire EURUSD montre une structure baissière claire sur l’heure. Après plusieurs hauts décroissants (LH) et bas décroissants (LL), la tendance est baissière. Le prix a cassé un support important autour de 1.1570 en forte impulsion, illustrée par un pic de volume, et teste actuellement 1.1520. Cette zone est un pivot clé de support sensible qui pourrait temporairement stopper la chute. En cas de rebond, attention à une résistance proche vers 1.1570-1.1600. La invalidation du scénario baissier serait une cassure au-dessus des 1.1600 avec création d’un HH.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"su",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-05-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_17-05-25.png"
+  }
+}

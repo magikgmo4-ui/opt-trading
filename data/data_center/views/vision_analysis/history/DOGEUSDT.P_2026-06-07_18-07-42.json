@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_220750_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T18:07:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-07-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0857,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller tenue support 0.0830 pour achat; confirmer cassure 0.0857 pour relance haussière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassage net sous 0.0825",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte neutre à légèrement haussière avec alternance de HL/HH et quelques corrections  \n- Structure récente marquée par un sommet local (HH) suivi d'un léger reflux (LH)  \n- Zones clés à surveiller : support vers 0.0830 et résistance vers 0.0857\n\nB) Chart unique (DOGEUSDT.P 15m) :  \nOn observe une structure de tendance haussière modérée caractérisée par des HH et HL jusqu’au sommet récent autour de 0.0857. La paire a ensuite formé un pivot descendant légèrement plus bas (LH), signalant une correction potentielle. Support clé identifié à 0.0830, base des derniers HL, à surveiller pour maintien de la dynamique. Résistance durable à 0.0857, seuil important à dépasser pour reprendre l’impulsion haussière. Le scénario prioritaire est une consolidation dans cette fourchette avant reprise haussière ou cassure baissière si support 0.0830 cédé. Invalidation nette sous 0.0825.\n\nC) DeskPro  \n{\"run_id\":\"r1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structur",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-07-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-07_18-07-33.png"
+  }
+}

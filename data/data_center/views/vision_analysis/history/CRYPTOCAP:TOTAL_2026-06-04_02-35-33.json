@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_063543_CRYPTOCAP:TOTAL_1w",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1w",
+  "analysis_ts": "2026-06-04T02:35:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-35-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4.5,
+      "confidence": 0.7,
+      "note": "s 4.5"
+    },
+    {
+      "type": "support_level",
+      "value": 2.6,
+      "confidence": 0.7,
+      "note": "s 2.6"
+    },
+    {
+      "type": "support_level",
+      "value": 2.2,
+      "confidence": 0.7,
+      "note": "s 2.2"
+    },
+    {
+      "type": "resistance_level",
+      "value": 2.2,
+      "confidence": 0.7,
+      "note": "r à 2.2"
+    },
+    {
+      "type": "resistance_level",
+      "value": 2.2,
+      "confidence": 0.7,
+      "note": "r 2.2"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance actuelle bearish sur le timeframe 1w avec formation de plus bas significatifs (LH, LL).  \n- Structure en bascule depuis les sommets vers 4.5T, avec rupture des supports intermédiaires vers 2.6-2.8T.  \n- Zone clé de support majeur autour de 2.2T à surveiller pour potentielle réaction, invalidation en cas de cassure nette sous ce niveau.  \n\nB) Chart unique (CRYPTOCAP:TOTAL 1w):  \nLa tendance globale est baissière avec une structure de type Lower High (LH) et Lower Low (LL) clairement définie. Après un pic à environ 4.5T, le marché a enchaîné des vagues de baisse et de rebonds faibles. Le support clé autour de 2.6T a été cassé récemment, validant un mouvement baissier. Le niveau actuel est proche d’un autre support majeur à 2.2T qui joue un rôle critique. Une cassure sous ce support provoquerait une accélération baissière, tandis qu’un rebond offrirait un point d'entrée opportuniste pour un retournement ou un range. Le volume reste stable, avec une légère aug",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-35-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-04_02-35-22.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_223819_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T18:38:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-38-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4480.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "recherche vente sur rebond en zone de résistance 4450-4480",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair et durable de 4480 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette visible avec une série de Lower Highs (LH) et Lower Lows (LL) confirmant la structure.  \n- Action de prix récente en forte baisse depuis la zone 4480/4500, avec tentative de rebond mineure près de 4320.  \n- Zone clé support vers 4320 à surveiller, résistance majeure vers 4450-4480 à valider pour un retour haussier.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe graphique montre une structure clairement baissière avec des Lower Highs et Lower Lows bien marqués. La tendance est donc baissière sur ce timeframe 1h. La dernière forte chute a formé un nouveau plus bas sous les 4350, testant le support à 4320. Résistance à court terme entre 4450-4480, correspondant à un ancien support devenu résistance. Scénario principal baissier, un pullback sur résistance permettrait de shorter. Invalidation si prix franchit durablement 4480 avec HH clair.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL-LH\",\"supports\"",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-38-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_18-37-33.png"
+  }
+}

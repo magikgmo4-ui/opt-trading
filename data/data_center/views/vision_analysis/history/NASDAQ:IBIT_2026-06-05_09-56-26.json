@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_135634_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T09:56:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_09-56-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 34.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 37.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous résistance 37.5 avec cible 34.5 puis extension baissière possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et close au-dessus de 37.5",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée, les prix font des Lower Highs et Lower Lows (LH/LL) sur le timeframe 1h.  \n- Structure de retournement haussier absente, momentum baissier soutenu par des volumes en forte augmentation sur les baisses.  \n- Zone clé de support autour de 34.5 USD, tentative de rebond faible ; résistance immédiate à 37.5 USD devient zone d'invalidation pour scénario baissier prolongé.  \n\nB) Chart unique (NASDAQ:IBIT 1h):  \nLe graphique montre une structure clairement baissière avec une série de LH et LL marqués depuis fin mai. Le prix a chuté violemment récemment, avec un pic de volumes lors des dernières baisses, traduisant une pression vendeuse renforcée. Une tentative de rebond est visible vers 34.5 USD mais reste faible. La zone entre 37.5 et 38 USD est la résistance majeure à surveiller pour voir si le Bearish Bounce peut être invalidé. Le scénario favori reste la poursuite de la baisse sous support 34.5 USD, invalidée si break clair au-dessus ",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_09-56-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-05_09-56-16.png"
+  }
+}

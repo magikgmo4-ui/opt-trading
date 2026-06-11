@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_183144_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T14:31:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-31-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rebond proche résistance ou attendre cassure 1820 pour achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette résistance 1820 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur ce timeframe 15m avec séquence de LH et LL.  \n- Structure fragmentée avec quelques tentatives de rebond sous forme de HL partiels, mais sous résistance forte au niveau 1800-1820.  \n- Zone clé support identifiée autour de 1750, zone résistance majeure vers 1800-1820. Scénario baissier dominant tant que résistance non cassée.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance baissière nette matérialisée par une série de Lower Highs (LH) et Lower Lows (LL), indiquant une pression vendeuse constante. Malgré quelques mouvements de reprise localisés (higher lows partiels), le prix bute régulièrement contre la zone de résistance entre 1800 et 1820. Le support proche à retenir se situe vers 1750, où plusieurs chandeliers ont formé un plancher temporaire. Pour envisager un retournement haussier, il faudra une cassure claire et confirmation au-dessus de cette résistance 1800-1820. En l’état, le plan d’action privilégie les v",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-31-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_14-31-27.png"
+  }
+}

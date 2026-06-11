@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_110714_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T07:07:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-07-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure et retest de 1650 avec cible 1750 puis 1850",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1500 consolide la pression baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière avec une succession de Lower Highs (LH) et Lower Lows (LL) jusqu’à début juin.  \n- Depuis le 6 juin, tentative de retournement avec la formation de Higher Lows (HL) et Higher Highs (HH) sur le court terme.  \n- Zone clé support vers 1500 USD, résistance immédiate autour de 1650 USD à surveiller pour la suite.\n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance principale baissière confirmée par des LL et LH jusqu’à ces derniers bougies. Structure d’inversion en potentiel en cours avec HL/HH récents. Le prix teste actuellement une résistance vers 1650 USD suite à un rebond depuis le support des 1500 USD. Scénario haussier envisageable si la résistance casse avec confirmation HH, sinon retour possible vers le support. Invalidation du scénario haussier sous les 1500 USD.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL/HH récents après LL/LH\",\"supports\":[\"1500\"],\"resistances\":[\"1650\"],\"plan\":\"Achete",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-07-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_07-06-57.png"
+  }
+}

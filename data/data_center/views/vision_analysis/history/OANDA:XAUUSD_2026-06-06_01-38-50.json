@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_053900_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T01:38:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-38-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rebond sur support ou vente à cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">4430",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d’une forte pression vendeuse récente sur l’or (XAUUSD) sur ce timeframe 1h.  \n- Structure montre un pattern baissier avec des bas plus bas et des hauts plus bas (LL/LH).  \n- Attention aux zones clés de support autour de 4300 et résistance proche de 4430 pour une possible réaction.  \n\nB) Chart 1 (haut-gauche):  \nSymbole: XAUUSD | Timeframe: 1h  \nTendance: Baissière dominante  \nStructure: Séquence LL (Lower Low), LH (Lower High) claire depuis fin mai.  \nSupports: Zone vers 4300 (ancien support potentiel à surveiller).  \nRésistances: Entre 4400-4430, zone où la dernière réaction majeure a échoué.  \nScénario: Potentiel rebond technique sur support ou poursuite du mouvement baissier si cassure en dessous de 4300.  \nInvalidation: Retour significatif au-dessus de 4430 invaliderait la continuité baissière.  \n\nC) Chart 2 (haut-droit):  \nSymbole/Timeframe: Inconnu  \nTendance: Inconnue  \nStructure: Inconnue  \nSupports/Résistances: Non identifiables sans info lisible",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-38-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_01-38-36.png"
+  }
+}

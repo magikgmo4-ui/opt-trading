@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_194005_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T15:40:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-39-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d’un rebond au support 61000 pour reprendre position long, ou attente de relaxation baissière en cas de franchissement du support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 61000 avec clôture confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance intraday globalement haussière avec une série de HH/HL jusqu’au plus haut récent vers 62,900.\n- Correction en cours depuis ce sommet, structure en train de basculer avec un retracement significatif vers 61,265.\n- Zone support clé autour de 61,000 à surveiller pour valider un rebond ou rupture baissière.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nSur ce timeframe 15 minutes, la structure montre une reprise haussière nette après une longue consolidation et range. On identifie une séquence HH/HL jusqu’à un sommet à environ 62,900. Depuis ce sommet, une correction (potentiellement un swing de retracement) remet en cause cette dynamique avec un retour vers 61,265, proche d’une zone support structurelle vers 61,000, précédent support et pivot. Un breakout sous 61,000 invaliderait le scénario haussier court terme, favorisant un changement de tendance vers une structure LH/LL. La zone 61,000-61,300 est donc clé pour un scénario d’achat ou de prudence.\n\nC) DeskPro  \n{\"run_",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-39-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_15-39-47.png"
+  }
+}

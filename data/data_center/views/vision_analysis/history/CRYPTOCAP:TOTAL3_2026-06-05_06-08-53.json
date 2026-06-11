@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_101032_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T06:09:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_06-08-53",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur résistance 680B cassée, viser 640B. Stop si retour au-dessus 760B.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour au-dessus 760B stable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le moyen terme avec une série de LH (Lower Highs) et LL (Lower Lows) confirmée.  \n- Structure latérale à court terme entre environ 680B et 760B, avec récemment une cassure baissière sous support.  \n- Zone clé (S) proche des 680B, si elle casse durablement, risque d’accélération baissière vers les 640B et plus bas.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d): La structure générale reste baissière avec un échec à reprendre les hauts précédents autour de 800B. Depuis plusieurs semaines, on observe un range horizontal avec plusieurs tentatives de rebond sans confirmation, culminant en une sortie par le bas. Le support majeur cassé vers 680B devient maintenant résistance. La dynamique actuelle favorise une poursuite baissière vers les 640B voire 620B. La invalidation de cette tendance passerait par un retour durable au-dessus des 760B, ce qui n’est pas encore visible.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240601-crypto-total3\",\"charts\":[{\"slot\":",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_06-08-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-05_06-08-36.png"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_064411_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T02:44:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-44-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0778,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond actuel et test résistance 0.0820-0.0830 ; entrée possible short si rejet confirmé. Stop au-dessus de 0.0835.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure et maintien au-dessus de 0.0835",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière avec une structure de bas en haut en LH (Lower High) et LL (Lower Low) sur ce 15m.  \n- Support clé récent autour de 0.0778-0.0780 USD, rebond technique en cours.  \n- Résistance majeure vers 0.0820-0.0830 USD à surveiller, une rupture confirmerait la correction; invalidation si dépassement franc et maintien au-dessus.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa paire DOGEUSDT.P évolue dans une tendance baissière marquée, avec des creux et sommets déclinants (LL, LH). Après un nouveau plus bas vers 0.0778, le prix rebondit fortement mais bute sur une zone de résistance entre 0.0820 et 0.0830, zone d’anciens supports. Le volume augmente sur la reprise, ce qui peut signaler une correction court terme. Un maintien sous cette résistance laisse le biais baissier intact. Une cassure à la hausse invaliderait le scénario baissier et pourrait annoncer un retournement ou une consolidation plus neutre. Le support clé pour ce scénario est le plus bas ",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-44-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_02-43-47.png"
+  }
+}

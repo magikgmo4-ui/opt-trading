@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_215511_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T17:55:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-54-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1535.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure résistance 1640 pour acheteurs, sinon préparer shorts en retest du support 1535",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1645 valide un changement structurel haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent formant un Higher Low (HL) potentiel proche de 1535, avec tentative de retracement haussier.  \n- Zone de résistance clé vers 1630-1640, pivot pour valider un changement structurel.\n\nB) Chart unique (ETHUSDT.P 15m):  \nSur le timeframe 15 minutes, le marché est dans une dynamique baissière confirmée par la succession de LH et LL. Le prix a rebondi depuis un creux autour de 1535 (HL potentiel), signalant une prise de support. Cependant, la structure n’est pas encore validée de manière claire pour un retournement haussier. La zone 1630-1640 est un niveau clé de résistance, où le prix bute actuellement. Un franchissement clair de cette zone validerait une possible bascule vers tendance haussière avec un nouveau HH. En-dessous de 1535, le scénario baissier reste dominant.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec potentiel rebond\",\"s",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-54-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_17-54-47.png"
+  }
+}

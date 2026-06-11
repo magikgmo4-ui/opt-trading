@@ -1,0 +1,1 @@
+{"contract_version": "v1", "module_id": "collector_binance_spot", "provider_id": "binance_spot", "run_id": "20260605T113033Z-26794d02", "generated_at": "2026-06-05T11:30:33Z", "event_id": "8f7905735c0a45a6a6a884ad91f37499", "event_at": "2026-06-05T11:30:33Z", "event_type": "run_started", "level": "INFO", "message": "Binance Spot oneshot run started", "state_after": "running"}

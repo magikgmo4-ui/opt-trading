@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_194315_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T15:43:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-43-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4310.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4460.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente possible à proximité de la résistance 4460 avec objectif vers 4310. Stop au-dessus de 4460 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture 1h au-dessus de 4460.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance toujours baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL) bien marquée.  \n- Structure cassée récemment à la baisse avec accélération baissière notable les dernières bougies.  \n- Zones clés identifiées autour de 4 460 (résistance récente) et 4 310 (support actuel à surveiller).\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nSur ce graphique en 1h, la tendance dominante est clairement baissière avec formation régulière de LH et LL. Le prix a rompu un support intermédiaire autour de 4 460 qui devient résistance majeure. La structure montre un net affaiblissement vendeur sur les derniers mouvements avec une chute rapide jusqu’au niveau de 4 310, support clef à court terme. Un rebond technique pourrait avoir lieu ici, mais en cas de nouvelle cassure, le scénario baissier sera renforcé. L’invalidation de ce biais interviendrait si le prix repasse durablement au-dessus de 4 460.\n\nC) DeskPro  \n```json  \n{\"run_id\":\"20240606_01\",\"charts\":[{\"slot\":\"si",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-43-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_15-42-52.png"
+  }
+}

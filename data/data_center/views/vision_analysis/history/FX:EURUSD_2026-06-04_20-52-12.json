@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_005224_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T20:52:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-52-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.161,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure solide >1.1650 avec stop sous 1.1630. Alternativement, rebond possible sur 1.1600, viser 1.1640.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette sous 1.1590",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h globalement neutre à légèrement haussière avec alternance de HH/HL puis LH/LL récents.\n- Structure récente montre des résistances vers 1.1640-1.1650 et supports autour de 1.1600-1.1610.\n- Scénario actionnable : attendre cassure claire au-dessus de 1.1650 pour prise de position long, ou retour vers 1.1600 en cas de baisse pour un potentiel rebond.\n\nB) Chart unique (FX:EURUSD 1h): \nLe graphique montre une série de hauts et bas relatifs alternés, avec des plus hauts (HH) autour de 1.1685 fin mai, suivis par des plus bas (LL) proches de 1.1590 début juin. La zone 1.1640-1.1650 correspond à une résistance notable récente, testée plusieurs fois sans percée nette. Le support majeur à court terme se situe autour de 1.1600-1.1610. La tendance 1h reste indécise avec possible rebond dans ce range. Invalidation d'un biais haussier serait une cassure nette sous 1.1590.\n\nC) DeskPro \n{\"run_id\":\"20240605_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-52-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_20-52-02.png"
+  }
+}

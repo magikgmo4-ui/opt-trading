@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_192427_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T15:24:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-24-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond sous résistance ou cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "claire rupture au-dessus de 1700",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte tendance baissière en place, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure clairement baissière confirmée récemment par une accélération des volumes à la baisse.\n- Zone clé support proche des 1 550 USD à surveiller pour possibilité de rebond ou cassure.\n\nB) Chart unique (ETHUSDT.P 1h) : \nTendance dominante : baissière.\nStructure : suite de LH et LL marqués, confirmation du momentum vendeur.\nSupports : 1 550 (actuel), puis 1 500 USD.\nRésistances : 1 600, 1 700 USD.\nPlan : vendre sur rebond sous résistance ou cassure de support pour continuer la baisse.\nInvalidation : franchissement clair et durable au-dessus de 1 700 USD.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1550\",\"1500\"],\"resistances\":[\"1600\",\"1700\"],\"plan\":\"vendre sur rebond sous résistance ou cassure support\",\"invalidation\":\"claire rupture au-dessus de 1700\"}]}",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-24-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_15-24-08.png"
+  }
+}

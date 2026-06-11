@@ -1,0 +1,48 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "XAUUSDUSDJPYEURUSDfx",
+  "total": 4,
+  "signals": [
+    {
+      "id": "tg_3111_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 1968.0,
+      "sl": 1963.0,
+      "tp": 1966.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-11-07T08:20:15+00:00"
+    },
+    {
+      "id": "tg_3107_20260611T100009",
+      "pair": "GBPAUD",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-11-07T07:05:19+00:00"
+    },
+    {
+      "id": "tg_3105_20260611T100009",
+      "pair": "GBPAUD",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-11-07T07:05:19+00:00"
+    },
+    {
+      "id": "tg_3102_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 1974.0,
+      "sl": 1969.0,
+      "tp": 1976.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-11-07T07:05:19+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

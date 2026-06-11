@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_133836_TVC:US10Y_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "TVC:US10Y",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:38:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-38-27",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support pour un trade haussier court terme. En cas de cassure support, viser poursuite short.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus de 4.53-4.54%",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante mais signe de consolidation plate depuis quelques sessions.  \n- Structure mixte avec des bas et des hauts relativement égaux (HL/HH manquants clairement).  \n- Zone clé support vers 4.44-4.45%, résistance autour de 4.50-4.52%.\n\nB) Chart unique (TVC:US10Y 1h) :  \nSur ce timeframe 1h, la tendance principale reste baissière, marquée par une série de LH (Lower Highs) et LL (Lower Lows) depuis fin mai. Depuis début juin, la structure montre une phase de range/consolidation avec des points hauts et bas proches, indiquant une indécision. La zone de support significative se situe vers 4.44-4.45%, ayant été testée plusieurs fois récemment. La résistance clé récente est autour de 4.50-4.52%. Un rebond du support pourrait entrainer une contre-tendance haussière ciblant cette résistance, tandis qu’une cassure en-dessous du support validerait la poursuite baissière. Invalidation du scénario baissier en cas de franchissement clair au-dessus de 4.53-4.",
+  "symbols_found": [
+    "TVC:US10Y"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-38-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:US10Y_1h_2026-06-04_09-38-12.png"
+  }
+}

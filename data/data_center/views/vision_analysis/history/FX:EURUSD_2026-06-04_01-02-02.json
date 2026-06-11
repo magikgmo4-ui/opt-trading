@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_050211_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T01:02:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_01-02-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.163,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter proche support 1.1600 avec objectif 1.1630-1.1650, stop sous 1.1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture nette sous 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globalement baissière sur le 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente montre un retracement haussier après un plus bas local vers 1.1600 (HL potentiel).  \n- Zone clé support proche 1.1600, résistance immédiate vers 1.1630-1.1650.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa paire EURUSD évolue dans une tendance baissière depuis fin mai, validée par des points de structure LL et LH. Le prix a formé un plus bas significatif vers 1.1600, puis a rebondi, créant un possible Higher Low (HL). Le défi actuel est de dépasser la résistance entre 1.1630 et 1.1650 pour envisager un retournement ou une reprise haussière. En dessous de 1.1600, invalidation du scénario haussier avec renforcement du biais baissier. La prise de position peut être envisagée à l’approche de la zone support 1.1600 avec un stop sous ce niveau, et prise de profit proche de la résistance identifiée.\n\nC) DeskPro  \n```json\n{\"run_id\":\"eurusd_1h_analysis\",\"charts",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_01-02-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_01-01-51.png"
+  }
+}

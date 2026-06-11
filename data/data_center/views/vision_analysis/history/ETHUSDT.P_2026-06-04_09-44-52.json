@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_134502_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T09:45:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-44-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 1790-1800 avec cible 1720/1680",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m clairement baissière avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente montre un rebond sur un support vers 1720 USDT, suivi d’un petit pullback.\n- Scénario principal : poursuite probable de la baisse si résistance 1790-1800 USDT tient, invalidation au-dessus.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nTendance : Baissière  \nStructure : LL/ LH confirmés, léger rebond recent, pas encore de fracturation haussière  \nSupports clés : 1720 (rebond actuel), 1760 (zone intermédiaire)  \nRésistances clés : 1790-1800 (zone de pullback et probable résistance forte)  \nPlan : Surveiller la réaction sous 1790-1800 pour un retour short avec cible vers 1720 et potentiellement 1680 si break dessous  \nInvalidation : Clôture durable au-dessus de 1800, avec prise de HH, annulerait scénario baissier court terme.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH avec rebond local\",\"supports\":[\"1720\",\"1760\"],\"r",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-44-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_09-44-40.png"
+  }
+}

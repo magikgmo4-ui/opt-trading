@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_104649_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T06:46:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-46-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller breakout au-dessus de 1675 pour scénario haussier. Sinon, viser short sous résistance avec objectif vers 1500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte du HL à 1565 ou breakout clair au-dessus de 1675",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière nette avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Rebond récent formant un HL (Higher Low) potentiel, indiquant un début possible de correction ou consolidation.  \n- Zone clé de résistance autour de 1 660-1 675$ à surveiller; invalidation si dépassement clair avec HH (Higher High).  \n\nB) Chart unique (ETHUSDT.P 1h):  \nSur ce timeframe 1h, ETHUSDT.P évolue dans une structure baissière claire marquée par des LL et LH depuis plusieurs jours. Un rebond se dessine cependant depuis un plus bas proche de 1 500$, marquant un HL intermédiaire. Ce rebond pousse les prix vers une résistance visible entre 1 660 et 1 675$, niveau crucial qui pourrait freiner la dynamique. La tendance reste baissière tant que cet obstacle n’est pas franchi avec un HH. En cas de rejet, un retour vers le support à 1 500-1 520$ est probable. Le scénario haussier s’activerait sur un breakout haussier avec prise de HH au-dessus de 1 675$. Invalidation de l",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-46-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_06-46-32.png"
+  }
+}

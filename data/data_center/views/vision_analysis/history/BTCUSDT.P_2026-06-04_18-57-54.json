@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_225803_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T18:58:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-57-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 66.0,
+      "confidence": 0.7,
+      "note": "s 66"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière confirmée sur timeframe 1h avec séries de Lower Highs (LH) et Lower Lows (LL).  \n- Stabilisation récente autour de 63 000-64 000 USDT, zone clé potentielle de support court terme.  \n- Scénario baissier dominant, un rebond technique possible mais invalidé au-dessus de 66 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa structure montre clairement une séquence de baisse avec des Lower Highs et Lower Lows formés tout au long de la période visible. La pression vendeuse est forte, matérialisée par des chandeliers rouges prolongés et un volume soutenu sur les baisses. Le prix semble chercher à consolider autour de la zone 63 000-64 000 USDT, qui doit être suivie comme support clé. Un passage au-dessus des 66 000 USDT représenterait une première invalidation de la tendance baissière actuelle et pourrait ouvrir un rebond plus conséquent. En l'état, la tendance intra-journalière reste baissière.\n\nC) DeskPro  \n```json\n{\n  \"run_id\":\"001\",\n  \"charts\":[\n",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-57-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_18-57-41.png"
+  }
+}

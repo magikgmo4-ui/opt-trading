@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_090858_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T05:08:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-08-48",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0825,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0855,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur retour vers support ou breakout résistance 0.0855 avec prise de profits partielle en zone résistance. Stop sous 0.0825.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture sous 0.0825",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme haussière visible après un creux récent.  \n- Structure récente en HH/HL après un précédent cycle baissier (LH/LL).  \n- Zones clés à surveiller pour scénario break-out ou retournement.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une reprise haussière marquée par une série de creux et sommets de plus en plus hauts (HL/HH), confirmant un retournement après une phase baissière. La structure baissière antérieure est invalidée par ces nouveaux plus hauts. Les supports majeurs se situent autour de 0.0825-0.0830, zone de dernier creux significatif. La résistance immédiate à surveiller est proche de 0.0855, ancien sommet à franchir pour accélérer la tendance haussière. En cas de rejet sous ce niveau, un retour vers le support pourrait se produire. Invalidation du scénario haussier sous 0.0825.\n\nC) DeskPro  \n{\"run_id\":\"20240611_0908\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"0.0825\",\"0.0830\"],\"resistances\"",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-08-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-11_05-08-36.png"
+  }
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_indextradingnitin_44023_2026-06-11T08:50:53+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "indextradingnitin",
+    "parsed_at": "2026-06-11T08:50:53+00:00",
+    "produced_at": "2026-06-11T10:00:14.492212+00:00",
+    "pair": "NIFTYUSDT",
+    "asset": "NIFTY",
+    "direction": "LONG",
+    "entry_price": 23300.0,
+    "sl": 100.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "BUY NIFTY  23300 STRIKE CALLS  120-126 SL 100 TARGET 175"
+  }
+]

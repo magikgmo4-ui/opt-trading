@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_133102_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:30:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-30-50",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rejet résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break au-dessus 4.525",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière ou neutre selon les graphiques, avec des signes possibles de retournement à court terme sur certains actifs.  \n- Structures majoritairement en séquences de creux et sommets plus bas (LL/LH), typiques d’un marché en correction ou consolidation.  \n- Zones clés de support et résistance identifiées, à surveiller pour valider poursuite ou retournement.\n\nB) Chart 1 (haut-gauche): US Government Bonds 10 YR Yield 1h  \nTendance baissière prédominante avec une structure en LH et LL confirmée.  \nRécente tentative de rebond visible, mais résistance forte autour de 4.52% à valider pour changement de bias.  \nSupports clefs vers 4.43% et 4.40%, zones pour prises de profit ou entrée si rebond confirmé.  \nScénario principal: continuation de la baisse sous résistance, invalidation si break au-dessus de 4.525.  \nPlan: vendre sur rejet en zone résistance, viser supports basses.\n\nC) Chart 2 (haut-droit): inconnu (pas visible)  \nImpossible d’analyser, symbole",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-30-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:US10Y_1h_2026-06-03_09-30-40.png"
+  }
+}

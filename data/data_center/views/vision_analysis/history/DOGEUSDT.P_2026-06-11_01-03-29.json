@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_050340_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T01:03:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-03-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0825,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0855,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.086,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance d’un breakout au-dessus 0.0855 pour entrer au long avec stop sous 0.0825",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture-dessous 0.0825 invalidant un retournement haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur la période observée avec une série de LH (Lower Highs) et LL (Lower Lows).  \n- Rebond récent significatif formant un HH temporaire, indiquant un possible retour haussier à court terme.  \n- Zone clé de résistance vers 0.0855-0.0860 à surveiller, invalidation du scénario haussier si prix repasse sous 0.0825.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe marché est dans une structure principale baissière (LH/LL) depuis plusieurs sessions, mais vient de créer un creux plus bas suivi d’un fort rebond qui génère un premier Higher High (HH). Cela suggère un changement potentiel de dynamique vers un mouvement haussier court terme, à confirmer. La zone de support clé récente est vers 0.0825, qui a servi de point de retournement. La résistance majeure à court terme se situe autour de 0.0855-0.0860, zone à franchir pour valider un nouveau biais haussier. En cas d’échec sous 0.0825, la pression vendeuse pourrait reprendre.\n\nC) DeskPro  \n{\"run_id\":\"au",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-03-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-11_01-03-18.png"
+  }
+}

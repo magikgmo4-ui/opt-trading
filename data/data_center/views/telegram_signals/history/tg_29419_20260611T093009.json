@@ -1,0 +1,33 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_29419_20260611T093009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "goldtradermofxx",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2024-10-24T06:24:46+00:00",
+  "produced_at": "2026-06-11T09:30:09.615356+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 2731.0,
+  "sl": 2742.0,
+  "tp": 2727.0,
+  "tps": [
+    2727.0,
+    2724.0,
+    2720.0,
+    2715.0,
+    2710.0,
+    2727.0,
+    2724.0,
+    2720.0,
+    2715.0,
+    2710.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD SELL NOW 2731-35\n\nTP 2727\nTP 2724\nTP 2720\nTP 2715\nTP 2710\n\nSL 2742",
+  "summary": "XAUUSD SHORT"
+}

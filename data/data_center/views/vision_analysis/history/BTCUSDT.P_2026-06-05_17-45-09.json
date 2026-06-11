@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_214519_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T17:45:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-45-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 58000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur résistance 64k, stop si franchissement 64k, viser 58k en objectif.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair de 64,000 USDT en clôture 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance nette baissière sur le dernier segment visible avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure bearish claire, malgré un rebond récent vers 61 800 USDT qui pourrait marquer un support court terme.\n- Zone clé de résistance identifiée autour de 64 000 USDT; invalidation du scénario bearish si ce niveau est franchi.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLa tendance est baissière avec une série claire de LH/LL confirmant la faiblesse. Un support intermédiaire semble se former vers 61 000 USDT, matérialisé par un rebond en volume. La zone de 64 000 USDT a servi de résistance sur plusieurs tentatives de reprise du prix, consolidant sa validité. Le scénario principal reste une poursuite baissière tant que la zone 64 000 USDT n’est pas franchie, avec pour invalidation une cassure nette et suivie de ce seuil. En cas de confirmation de la descente, la zone proche de 58 000 USDT serait à surveiller comme prochain support.\n\nC) DeskPro  \n{\"run_id\":\"20240",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-45-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_17-44-57.png"
+  }
+}

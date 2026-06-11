@@ -1,0 +1,17 @@
+{
+  "contract": "telegram_context.v1",
+  "id": "ctx_101118_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "crypto_flow",
+  "channel": "whale_alert_io",
+  "channel_priority": "P1",
+  "channel_type": "whale_alert",
+  "parsed_at": "2026-06-09T18:18:06+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "asset": "BTC",
+  "direction": null,
+  "entry_price": null,
+  "amount": "1625",
+  "value_usd": "100311422",
+  "raw_text": "\ud83d\udea8 \ud83d\udea8 \ud83d\udea8 \ud83d\udea8 \ud83d\udea8  1,625 $BTC (100,311,422 USD) transferred from unknown wallet to #Robinhood\n[Details](https://whale-alert.io/transaction/bitcoin/2be0c4c14f73d170f928b6995550f56f3fd88727aab4a3239607d3c1ea525be9)"
+}

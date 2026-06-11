@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_023806_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:38:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-37-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur rebond au support 750 avec objectif 760+. Stop sous 750 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Perte durable sous 750 invalide la tendance haussière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante sur le timeframe 1h avec des HH et HL clairement formés.  \n- Structure récente marquée par une légère correction mais sans rupture des supports clés, signalant un pullback.  \n- Zone clé de support autour de 750 USD, résistance intraday proche vers 760 USD.\n\nB) Chart unique (SPY 1h):  \nLa tendance est haussière, avec une série de Higher Highs (HH) et Higher Lows (HL) validant la structure bullish. Récemment, on observe une correction qui a testé le support vers 750 USD sans le casser, indiquant une zone de demande solide. Le prix tente de reprendre vers la résistance immédiate à environ 760 USD. Un passage au-dessus de cette résistance confirmerait le retournement haussier post-correction, avec un potentiel extension vers de nouveaux sommets. En cas de cassure en dessous du support 750 USD, la structure haussière serait invalidée, ouvrant la porte à un retracement plus profond.\n\nC) DeskPro  \n{\"run_id\":\"202406\",\"charts\":[{\"slot\":\"single\",",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-37-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_22-37-42.png"
+  }
+}

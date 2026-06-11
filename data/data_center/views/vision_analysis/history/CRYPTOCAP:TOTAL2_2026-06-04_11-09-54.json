@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_151002_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T11:10:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-09-54",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la cassure confirmée sous 920B, viser 860-880B. Stop-loss si retour durable au-dessus de 950B.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Maintien au-dessus de 950B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante en baisse depuis plusieurs mois, avec une série de bas plus bas (LL) et de hauts plus bas (LH).  \n- Structure récente latérale à baissière, avec support rompu vers 920B USD.  \n- Scénario baissier confirmé, attention à une possible accélération vers les 860-880B USD.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe marché montre une structure baissière claire (LH/LL). Après une longue phase de baisse, une consolidation latérale s’est mise en place entre 1 020B et 920B USD. La cassure récente sous la zone de support à ~920B valide la continuation baissière. Le volume augmente sur la rupture, renforçant la pression vendeuse. Résistance forte validée désormais vers 920B-950B USD. Le prochain support à surveiller se situe autour de 860-880B USD. Invalidation du scénario baissier si retour et maintien au-dessus de 950B USD dans les prochains jours.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240603-crypto-total2\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"st",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-09-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-04_11-09-39.png"
+  }
+}

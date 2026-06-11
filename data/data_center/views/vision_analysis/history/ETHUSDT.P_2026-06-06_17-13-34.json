@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_211342_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T17:13:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-13-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure support 1540 pour continuation baissière, breakout 1600 pour retournement potentiel",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1600 fortement marquée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 15m avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Stabilisation récente avec structure plutôt latérale sur les derniers chandeliers, sans nouveau point bas significatif.  \n- Zone clé de support proche de 1540-1550 USDT, résistance immédiate autour de 1580-1600 USDT.  \n\nB) Chart unique (ETHUSDT.P 15m): Tendance baissière marquée via une succession de LL/LH. Dernière consolidation latérale autour de 1560 USDT, montrant un équilibre temporaire entre acheteurs et vendeurs. À court terme, il faut surveiller la cassure du support 1540 USDT pour confirmer la poursuite baissière, ou une rupture au-dessus de 1600 USDT pour un potentiel retour d’une dynamique haussière corrective. Invalidation du bearish si le prix dépasse 1600 USDT avec force.  \n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH avec consolidation latérale\",\"supports\":[\"1540\"],\"resistances\":[\"1580\",\"1600\"],\"plan\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-13-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_17-13-26.png"
+  }
+}

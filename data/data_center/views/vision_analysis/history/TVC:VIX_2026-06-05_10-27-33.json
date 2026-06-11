@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_142745_TVC:VIX_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "TVC:VIX",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:27:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-27-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 15.4,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 15.8,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 16.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 16.8,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 17.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur retest support 15.80 avec objectif 16.80-17.00",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 15.80",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière visible sur la période mais avec un récent rebond fort.  \n- Structure récente de retournement potentielle : HL suivi d’un breakout haussier sur la résistance locale.  \n- Zone clé de résistance autour de 16.80-17.00 à surveiller pour valider la poursuite haussière.\n\nB) Chart unique (TVC:VIX 1h) :  \nLe VIX évoluait dans une tendance baissière avec une série de LH et LL depuis la mi-mai. Récemment, une zone de support autour de 15.40-15.60 a tenu, permettant un HL suivi d’un mouvement agressif à la hausse. La cassure au-dessus des 16.40-16.50 ouvre un scénario haussier à court terme, visant la résistance majeure vers 16.80-17.00. Invalidation si le prix retombe sous le HL récent à 15.80. La structure suggère prudence mais possible hausse dans la volatilité.\n\nC) DeskPro  \n{\"run_id\":\"unique_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier court terme\",\"structure\":\"HL récent, breakout résistance locale\",\"supports\":[\"15.40\",\"15.80\"],\"resistan",
+  "symbols_found": [
+    "TVC:VIX"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-27-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:VIX_1h_2026-06-05_10-27-22.png"
+  }
+}

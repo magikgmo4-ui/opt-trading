@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_103648_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T06:36:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-36-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rester short sous 1600, viser 1500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break et close au-dessus de 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière, avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure en déclin continu, sans signal visible de retournement pour le moment.\n- Zone clé de support proche des 1500, résistance majeure sous 1600.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe graphique montre une tendance baissière marquée avec une série de LH et LL, confirmant la pression vendeuse. Le prix a tenté un rebond sous les 1600 (résistance), mais a échoué à créer un higher low. La zone des 1500 agit comme support important à surveiller pour un potentiel rebond ou rupture. Le scénario principal reste une poursuite de la baisse tant que la résistance sous 1600 tient, avec invalidation possible en cas de dépassement solide de 1600.\n\nC) DeskPro \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1500\"],\"resistances\":[\"1600\"],\"plan\":\"rester short sous 1600, viser 1500\",\"invalidation\":\"break et close au-dessus de 1600\"}]}",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-36-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_06-36-31.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_234700_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T19:46:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-46-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.094,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la cassure de 0.091, ciblant la poursuite de la baisse. Surveiller rebond technique à 0.091 pour prise de bénéfice partielle. Revoir la stratégie à la cassure haussière claire au-dessus de 0.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure de résistance 0.094 en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec série de plus bas et plus bas (LL) confirmée.\n- Structure baissière nette sans signe de retournement, rebonds ponctuels ne franchissent pas les résistances intermédiaires.\n- Zone clé de support proche autour de 0.091 à surveiller, invalidation en cas de franchissement haussier au-dessus de 0.094.\n\nB) Chart unique (DOGEUSDT.P 15m) :  \nLa structure en 15m montre une tendance baissière forte avec une série de LL (lower low) et LH (lower high) réguliers. Le prix teste actuellement un support important proche de 0.091, qui a déjà fait l’objet de quelques rebonds. La pression vendeuse reste dominante, avec des volumes soutenus lors des phases de baisse. La résistance principale à court terme est située autour de 0.094, niveau où le prix a à plusieurs reprises buté sans confirmation de reprise haussière. Le scénario prioritaire est poursuite de la baisse sous 0.091, avec risque d’accélération. En cas de cassure claire au-dessus de 0.094, inval",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-46-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_19-46-44.png"
+  }
+}

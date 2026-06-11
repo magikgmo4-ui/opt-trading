@@ -1,0 +1,42 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_solusdtcryptosignalss_4502_2026-01-12T07:48:14+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "solusdtcryptosignalss",
+    "parsed_at": "2026-01-12T07:48:14+00:00",
+    "produced_at": "2026-06-11T10:00:14.561007+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4584.0,
+    "sl": 4577.0,
+    "tp": 4590.0,
+    "tps": [
+      4590.0,
+      4595.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold Buy Now @ 4584-4579\n\nsl:4577\n\ntp1:4590\ntp2:4595"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_solusdtcryptosignalss_4504_2026-01-12T12:04:06+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "solusdtcryptosignalss",
+    "parsed_at": "2026-01-12T12:04:06+00:00",
+    "produced_at": "2026-06-11T10:00:14.561095+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4586.0,
+    "sl": 4592.0,
+    "tp": 4580.0,
+    "tps": [
+      4580.0,
+      4583.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold Sell Now @ 4586-4590\n\nsl:4592\n\ntp1:4583\ntp2:4580"
+  }
+]

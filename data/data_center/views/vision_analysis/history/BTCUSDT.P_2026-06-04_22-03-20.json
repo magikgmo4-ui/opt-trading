@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_020331_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:03:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-03-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller support 63000. Short sous ce niveau, stop au-dessus de 65000. Possible rebond technique si consolidation prolongée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 1h au-dessus de 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée sur 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Consolidation temporaire visible en bas de mouvement vers 63 300 USDT, zone à surveiller comme support.  \n- Risque principal : poursuite de la baisse si le support des 63 000 USDT est cassé.  \n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique montre une structure clairement baissière avec une succession de LH/LL sans signe de retournement clair. La récente pause dans la chute semble être une consolidation sous une zone résistante autour de 64 500-65 000 USDT. Le support clé à court terme se trouve autour des 63 000 USDT, zone à défendre pour éviter un nouvel élan baissier. Un franchissement marqué au-dessus de 65 000 USDT serait le premier signe d’un potentiel renversement ou d’une correction significative. En l’état, le scénario prioritaire reste la continuation de la baisse tant que le support des 63 000 USDT tient, avec invalidation en cas de retour au-dessus des ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-03-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_22-03-06.png"
+  }
+}

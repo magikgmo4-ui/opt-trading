@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_152021_NYMEX:NG1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T11:20:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-20-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 2.85,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.4,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur cassure 3.40 avec stop sous 3.10",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse confirmée sous 3.10",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance haussière claire sur le 4h avec structure de hauts et bas plus hauts (HH/HL).\n- Plusieurs zones de support identifiées autour de 2.85 et 3.10 USD.\n- Résistance clé récente testée vers 3.40 USD; cassure inviterait à poursuivre le long.\n\nB) Chart unique (NYMEX:NG1! 4h):\nLe graphique présente une dynamique haussière soutenue depuis fin avril avec une série de HH/HL. Le prix a rebondi sur plusieurs supports majeurs, notamment vers 2.85 USD, validant la structure bullish. La zone résistance à 3.40 USD a été récemment testée avec un pullback mais le prix reste au-dessus de 3.30 USD dans une consolidation ascendante. Un scénario d’extension haussière est privilégié sur cassure ferme de 3.40 USD, avec un premier objectif à 3.50-3.60 USD. La perte du support 3.10 USD invaliderait ce biais bullish.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"2.85\",\"3.10\"],\"resistances\":[\"3.40\",\"3.50\"],\"plan\":\"acheter sur cass",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-20-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_11-20-03.png"
+  }
+}

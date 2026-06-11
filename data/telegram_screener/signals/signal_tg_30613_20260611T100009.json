@@ -1,0 +1,24 @@
+{
+  "contract": "telegram_signal.v1",
+  "id": "tg_30613_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "vasilytradersignalforex",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T12:32:22+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4170.0,
+  "sl": 4180.0,
+  "tp": 4160.0,
+  "tps": [
+    4160.0,
+    4150.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "Gold sell @ 4170 - 4175\n\nSl : 4180\n\ntp1 : 4160\ntp2 : 4150",
+  "summary": "XAUUSD SHORT"
+}

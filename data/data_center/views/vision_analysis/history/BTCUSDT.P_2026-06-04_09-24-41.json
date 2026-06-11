@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_132451_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:24:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-24-41",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sous résistance, prise profit vers support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire de 67 000 à la hausse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière nette sur l’ensemble des graphiques.  \n- Structure actuelle marquée par des Lower Highs (LH) et Lower Lows (LL) indiquant un marché en tendance baissière confirmée.  \n- Zones clés à surveiller : support actuellement testé autour de 62 000-63 000, résistance potentielle vers 67 000.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance baissière claire avec structure en Lower Highs et Lower Lows.  \n- Volume en augmentation sur les derniers replis, signe de pression vendeuse forte.  \n- Zone clé support proche de 62 000-63 000 USDT, testée actuellement.  \n- Résistance à 67 000 USDT, zone de dernière consolidation avant la chute.  \n- Scénario haussier immédiatement invalidé tant que la résistance est respectée.  \n- Plan court/vente privilégié sous résistance, avec prise de profit proche support.\n\nC) Chart 2 (haut-droit): inconnu  \n- Symbole et timeframe illisibles, impossible d’analyser.  \n- Aucune donnée exploitable à ce stade.\n\nD) Chart 3 (",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-24-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_09-24-34.png"
+  }
+}

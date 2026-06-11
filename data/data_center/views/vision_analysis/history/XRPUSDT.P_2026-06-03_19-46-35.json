@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_234642_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T19:46:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-46-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.195,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.21,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.235,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance 1.2100 avec stop above 1.2350, viser test 1.1950 voire plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sustained above 1.2350",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante en 15m avec une série de HH/HL cassés pour former LH puis LL.  \n- Zone clé de support testée vers 1.1950, rebond faible visible mais sans structure haussière claire.  \n- Scénario privilégié : continuation baissière sous 1.2100, invalidation si retour au-dessus de 1.2350.\n\nB) Chart unique (XRPUSDT.P 15m) :  \nLa structure en 15 minutes montre un marché baissier clair avec des Lower Highs (LH) et Lower Lows (LL) bien marqués. La zone 1.1950 agit comme support temporaire mais le faible rebond ne forme pas encore un Higher Low (HL). La résistance clé à 1.2100 doit tenir pour éviter un vrai renversement. La dynamique reste baissière sous ce seuil, avec un potentiel de retest à la baisse. Scénario alternatif haussier invalidé si cassure sous 1.1950.  \n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH-LL\",\"supports\":[1.1950],\"resistances\":[1.2100,1.2350],\"plan\":\"vendre sous résistance 1.2100 avec stop above",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-46-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-03_19-46-27.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_124353_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T08:43:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_08-43-21",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rejet sous résistance pour shorts",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 64 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendances baissières marquées sur plusieurs actifs.  \n- Bitcoin 1h montre une structure de baisse avec des lower highs (LH) et lower lows (LL).  \n- Rebond récent sur BTC à surveiller pour un possible retracement ou reprise baissière.  \n\nB) Chart 1 (haut-gauche): BTCUSDT, 1h  \n- Tendance : Baissière nette avec cassure de plusieurs supports.  \n- Structure : LH/LL claire sur le graphique, sans formation de renversement évidente.  \n- Zones clés : Support autour de 62 000 USDT, résistance proche de 64 000 USDT.  \n- Scénario : Reprise baissière possible si le prix ne franchit pas la résistance.  \n- Invalidation : Passage au-dessus de 64 000 USDT consolide une potentielle reprise haussière à court terme.  \n\nC) Chart 2 (haut-droit): inconnu (pas visible)  \n\nD) Chart 3 (bas-gauche): inconnu (pas visible)  \n\nE) Chart 4 (bas-droit): inconnu (pas visible)  \n\nF) DeskPro  \n{\"run_id\":\"20240604-1243\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_08-43-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_08-43-13.png"
+  }
+}

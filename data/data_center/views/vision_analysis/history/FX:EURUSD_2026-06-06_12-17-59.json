@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_161807_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T12:18:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_12-17-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.155,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.162,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher des opportunités short sur retest de 1.1550 ou après pullback vers 1.1550-1.1620. Objectif proche sur 1.1500. S’assurer de la dynamique baissière avant entrée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 1.1620",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée avec une forte cassure récente de support.  \n- Structure passée de HH/HL à un net LH/LL, indiquant un renversement baissier.  \n- Zone clé support cassée vers 1.1550, prochaine résistance probable autour de 1.1620.  \n\nB) Chart unique (FX:EURUSD 1h): La paire EURUSD évoluait en oscillation avant juin, formant HH et HL marquant une phase neutre/haussière légère. Depuis début juin, la structure s’inverse avec un LH puis un LL marqué par un drop violent vers 1.1520, sous un support clé à 1.1550. Volume en forte hausse sur la chute, confirmant la pression vendeuse. Scénario de continuation baissière validé sauf si retour au-dessus de 1.1550. Invalidation du biais baissier au-dessus de 1.1620 (dernier top important).  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\",\"1.1500\"],\"resistances\":[\"1.1550\",\"1.1620\"],\"plan\":\"Chercher des opportunités short sur retest de 1.1550 o",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_12-17-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_12-17-48.png"
+  }
+}

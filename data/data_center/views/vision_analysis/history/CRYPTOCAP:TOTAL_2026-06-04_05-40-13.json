@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_094021_CRYPTOCAP:TOTAL_1w",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1w",
+  "analysis_ts": "2026-06-04T05:40:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-40-13",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillez un breakout sous 2.1T pour des prises de positions baissières ; un retour vers 2.8T-3T pourrait offrir des opportunités de vente si la résistance est confirmée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture hebdo au-dessus de 3T invalidant la tendance baissière actuelle.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominant baissière sur le long terme avec recent LL confirmée.\n- Structure en échec haussier: after un sommet à 4.6T, succession de LH et LL.\n- Zone clé support proche 2.1T testée, zone de résistance majeure autour 2.8T-3T.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1w):\nLe graphique montre une tendance de fond baissière avec une série de Lower Highs (LH) et Lower Lows (LL) bien marqués depuis le pic à environ 4.6T. Actuellement, le prix teste un support clé situé autour de 2.1T, qui a déjà servi de pivot en 2023. La rupture en clôture en dessous de ce niveau pourrait activer un scénario baissier plus marqué. La structure ne montre pas de Higher High (HH) ou Higher Low (HL) confirmés qui indiqueraient une reprise haussière. La résistance principale est identifiée entre 2.8T et 3T, niveau où des retournements précédents ont été observés.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"2.1T\"],\"resistances\":[\"2.8T",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-40-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-04_05-40-03.png"
+  }
+}

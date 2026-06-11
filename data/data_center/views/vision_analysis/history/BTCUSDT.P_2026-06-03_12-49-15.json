@@ -1,0 +1,107 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_164928_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:49:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-49-15",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre réaction support pour entrer long ou vendre sur rebond faible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">2.7T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse fiable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 7400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 7600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 7800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "trading intraday niveaux clés, stop serré",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">7,800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 95.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 98.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prudence, trade cassure ou rebond confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "dépassement résistance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Cassure récente en tendance baissière sur la majorité des marchés principaux (crypto, indices et matières premières)  \n- Structure globale de marché en baisse avec des HH/HL contestés, bascule vers LH/LL sur plusieurs graphes  \n- Zones clés (S/R) à surveiller pour un potentiel rebond ou poursuite de tendance baissière, volume en légère augmentation confirmant pression vendeuse  \n\nB) Chart 1 (haut-gauche): Crypto Total Market Cap 1D  \n- Tendance: baissière nette depuis le pic de novembre, avec structure en LH/LL bien établie  \n- Supports clés vers 2.2T USD, résistances en zone 2.7T - 2.6T USD (ancien gap)  \n- Scénario: poursuite du repli vers support régional possible, attention à un éventuel rebond si volume baisse  \n- Invalidation au-dessus de 2.7T avec retour d’une structure HL  \n- Plan: attendre réaction sur support pour une entrée; sinon vendre sur rebond faible  \n\nC) Chart 2 (haut-droit): symbole/timeframe inconnu (graph non lisible)  \n- Données incomplètes, p",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-49-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-03_12-49-05.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_211553_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T17:15:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-15-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0825,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 0.0800 pour tentative breakout haussier >0.0825 en confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m sous 0.0800 avec volume confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de plus bas (LL) et plus bas relatifs (LH) sur 15m.  \n- Structure fragile, tentative de stabilisation en range horizontal sur la partie droite du graphique.  \n- Zone clé de support vers 0.0800 USDT, résistance à 0.0825 USDT à surveiller pour un breakout.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe marché montre une dynamique baissière clairement établie par des LL et LH. La cassure des plus bas circa 0.0800 n’est pas confirmée encore, offrant un support temporaire. La zone entre 0.0800 et 0.0825 USDT forme un range serré indiquant un potentiel ralentissement ou préparation d’un retournement. Un rebond durable au-dessus de 0.0825 serait le premier signal haussier confirmant un changement de structure. Invalidation du scénario haussier par une clôture sous 0.0800 avec volume.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"0.0800\"],\"resistances\":[\"0.0825\"],\"plan\":\"Surveill",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-15-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_17-15-33.png"
+  }
+}

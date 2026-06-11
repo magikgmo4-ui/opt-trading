@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_060916_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T02:09:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-09-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 57500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur résistance ou break support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "HH au-dessus de 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Majorité des indices US en baisse significative, impact baissier global.  \n- Bitcoin montre une forte tendance baissière sur 1h, avec tentative de rebond récent.  \n- La volatilité (VIX) augmente fortement, signe de nervosité marché; attention aux retournements brutaux.  \n\nB) Chart 1 (haut-gauche) - Bitcoin / TetherUS PERPETUAL (1h) :  \nTendance très baissière nette, structure en LH et LL marqués, absence de HL.  \nSupports clés vers 59,000 et zone 57,500 (à confirmer).  \nRésistance immédiate autour de 61,500-62,000.  \nScénario principal : poursuite de la correction tant que 62,000 n’est pas franchi en cloture.  \nInvalide le scénario baissier si un HH se forme au-dessus de 63,000 avec un volume support.  \nPlan : attendre pullback vers résistance pour vendre ou break support pour renforcer la vente.  \n\nC) Chart 2 (haut-droit) : inconnu (numéro du graphique et symbole non visible)  \n\nD) Chart 3 (bas-gauche) : inconnu (numéro du graphique et symbole non visible)  \n\nE) C",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-09-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_02-08-57.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_185824_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T14:58:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-58-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur support 61,800 avec cible 62,900+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break < 61,800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire depuis le point bas vers 59,500, marquée par une série de HH/HL.  \n- Structure récente légèrement latérale, consolidation après un pic à 62,900.  \n- Zone clé support proche de 61,800, résistance immédiate vers 62,900-63,000.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance est haussière, visible par la séquence HH/HL depuis le plus bas récent vers 59,500. On observe une forte remontée jusqu'à un sommet local à environ 62,900, suivi d'une correction puis stabilisation. La structure est donc haussière, mais avec une phase de consolidation latérale qui laisse place à un scénario de possible reprise ou nouvelle correction. Support clé à 61,800, important pour maintenir la structure haussière. Résistance majeure à valider par une cassure nette au-dessus de 62,900-63,000 pour relancer le mouvement. Invalidation en cas de cassure en dessous du support 61,800, ce qui pourrait casser la structure de tendance haussière et initier un retour baissier.\n",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-58-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_14-58-07.png"
+  }
+}

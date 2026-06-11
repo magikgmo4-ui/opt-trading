@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_061954_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T02:19:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-19-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rechercher confirmation du rebond à court terme, viser short si résistance tient ou breakdown support 1500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire au-dessus de 1625 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure baissière dominante sans signe de retournement confirmé.  \n- Zone de support clé autour de 1500$ testée récemment, possible rebond technique en cours.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une tendance baissière nette à 1h, caractérisée par une succession de plus bas et plus bas (LL) et plus hauts et plus bas (LH). Le prix a testé la zone de support autour de 1500$, générant un rebond à court terme vers 1570$. La structure ne montre pas encore de basculement haussier (pas de HH ou HL formés). La résistance clé se situe autour de 1600-1625$, zone à surveiller pour une éventuelle rupture haussière ou poursuite baissière. Le scénario principal reste la poursuite de la baisse si le support 1500$ est invalidé.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1500\"],\"resistances\":[\"1600\",\"1625\"],\"plan\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-19-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_02-19-37.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_102533_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T06:25:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-25-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur achat sur support 61800 avec objectif resistance 62850-63000. Stop sous 61800.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 61800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance récente haussière visible après un creux vers 59 400.\n- Structure actuelle en HH/HL suite à la cassure des 61 800, indiquant une reprise de la dynamique acheteuse.\n- Zones clés à surveiller : support majeur vers 61 800 et résistance immédiate autour de 62 850-63 000.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nLe graphique montre une tendance haussière en construction avec une série de creux plus hauts (HL) et de hauts plus hauts (HH) depuis le point bas vers 59 400. La zone de support à 61 800 est respectée, servant de base pour les achats. Le prix s’est récemment replié légèrement après un sommet local à environ 62 850-63 000, zone de résistance courte terme à surveiller pour une possible continuation versus un retrait. Un retour sous 61 800 invaliderait la structure haussière et signalerait un risque de retournement à plus court terme.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"61800\"],\"resistances\":",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-25-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_06-25-10.png"
+  }
+}

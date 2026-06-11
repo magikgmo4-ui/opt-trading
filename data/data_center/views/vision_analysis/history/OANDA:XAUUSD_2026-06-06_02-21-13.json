@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_062123_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T02:21:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-21-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher opportunités vendeuses sur rebond vers résistance 4370-4380",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 4380 valide reprise haussière possible",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière sur ce timeframe 1h, avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure clairement baissière, récente forte cassure sous support intermédiaire.\n- Zone clé support proche autour de 4 320, résistance possible vers 4 370-4 380.\n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLe marché montre une structure en baisse composée de LH et LL, ce qui valide un biais vendeur clair. Après un retracement haussier modéré, une chute rapide a emporté les supports intermédiaires. La zone autour de 4 320 agit comme un support potentiel à court terme; un rebond technique est envisageable mais fragile. La résistance à surveiller se situe vers 4 370-4 380, où les vendeurs pourraient reprendre la main. Le scénario prioritaire reste la poursuite de la baisse sous invalidation en clôture au-dessus des 4 380.\n\nC) DeskPro  \n{\"run_id\":\"run_unique_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"4320\"],\"resistances\":[\"43",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-21-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_02-20-58.png"
+  }
+}

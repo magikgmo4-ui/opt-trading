@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_170_20260611T090008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "LexatyCryptoSignals",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2025-02-04T18:46:06+00:00",
+  "produced_at": "2026-06-11T09:00:08.542296+00:00",
+  "pair": "BANUSDT",
+  "direction": "SHORT",
+  "entry_price": 0.0591,
+  "sl": 0.0644,
+  "tp": 0.0557,
+  "tps": [
+    0.0557,
+    0.0519,
+    0.442
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "RISKY SCALP\u203c\ufe0f\n\ud83d\udd34sell/short signal #BANUSDT\nEntry range: 0.0591\nTargets: 0.0557_ 0.0519_ 0.442\nStop: 0.0644\nLeverage: 2-3X\nBalance: 5% of capital",
+  "summary": "BANUSDT SHORT"
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_073809_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T03:38:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_03-38-00",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 700B avec cible 680B. Surveiller rebond au-dessus de 760B pour invalidation du biais.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture journalière au-dessus de 760B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale clairement baissière depuis plusieurs mois, avec des séries de Lower Highs (LH) et Lower Lows (LL).  \n- Structure latérale entre février et mai avec support vers 700B USD, récemment invalidée à la baisse.  \n- Scénario vendeur dominant à court terme, avec risque potentiel de poursuite de la baisse en cas de maintien sous 700B.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché est en tendance baissière (LH/LL). Après un range latéral autour de 700-760B, la cassure récente du support à 700B confirme une faiblesse structurelle. Volume en légère hausse à la baisse, validant la pression vendeuse. Résistance clé à 730-760B, ancien plafond du range. Invalidation en cas de rebond robuste au-dessus de 760B qui remettrait en question la poursuite baissière. Objectif potentiel à court terme vers les 680B voire plus bas si momentum persiste.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"700B\",\"",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_03-38-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_03-37-46.png"
+  }
+}

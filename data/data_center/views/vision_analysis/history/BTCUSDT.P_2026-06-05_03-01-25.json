@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_070137_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T03:01:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-01-25",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond proche résistance ou cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable 63 600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de plus bas et plus bas (LL) successifs.  \n- Structure fragile avec une consolidation latérale mais sans inversion significative.  \n- Zone clé support autour de 61 600 USDT, si cassée, nouvelle accélération baissière probable.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance est baissière avec des LL confirmés. La structure montre que les derniers rebonds ne parviennent pas à créer de HL, signalant une pression vendeuse dominante. Le prix teste une zone support importante vers 61 600 USDT, couplée à un volume en hausse, ce qui peut provoquer une décision forte. Une rupture sous ce niveau invaliderait un possible rebond et renforcerait la poursuite du mouvement baissier. Résistance présente autour de 63 600 USDT, qui fait office de plafond. Scénario principal : vente sur rejets, invalidation si franchissement durable de 63 600 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"stru",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-01-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_03-01-10.png"
+  }
+}

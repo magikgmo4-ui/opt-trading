@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_210523_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T17:05:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-05-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.079,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.084,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre au rejet autour 0.0830 avec stop au-dessus 0.0840. Acheter en cas de cassure et pullback confirmé au-dessus de 0.0840.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture ferme au-dessus de 0.0840",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante visible avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Dernière réaction haussière marquée par un rebond depuis un point bas récent, structure en possible retracement.  \n- Zone de résistance clé proche à 0.0830-0.0835 à surveiller pour valider soit rebond baissier, soit potentielle inversion.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une structure baissière claire avec des Lower Highs et Lower Lows formés sur plusieurs sessions. Le prix vient de rebondir depuis un plus bas proche de 0.0790, remontant vers la zone de résistance située autour de 0.0830-0.0835. Ce point sera crucial : s’il est rejeté, cela confirmera la poursuite de la tendance baissière. En revanche, une cassure claire et une succession de Higher Highs et Higher Lows valideraient une inversion. L’invalidation du scénario baissier sera une clôture significative au-dessus de 0.0840.\n\nC) DeskPro  \n{\"run_id\":\"20240605_2105\",\"charts\":[{\"slot\":\"single",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-05-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-05_17-04-54.png"
+  }
+}

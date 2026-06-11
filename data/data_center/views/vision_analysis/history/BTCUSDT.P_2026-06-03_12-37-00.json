@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_163713_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:37:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-37-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.35,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.375,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur confirmation au-dessus de 3.22 pour viser 3.35+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage sous 3.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le dashboard montre un actif \"Natural Gas Futures\" en timeframe 1h, tendance globale haussière récente après un rebond marqué.\n- Multiples zones de support et résistance identifiées autour des 3.10-3.15 (support) et 3.35 (résistance).\n- Volatilité importante à court terme avec structure mixte, prudence recommandée avant prise de position.\n\nB) Chart 1 (haut-gauche): Natural Gas Futures 1h - NYMEX\n- Tendance : Haussière depuis le 27 mai avec balayage des plus hauts précédents.\n- Structure : Séquence HH (Higher High) et HL (Higher Low) visible jusqu’au plus haut vers 3.375.\n- Supports : 3.15 (zone de rebond visible), 3.00 (plus bas récent).\n- Résistances : 3.35-3.375 (plus haut récent et zone d’arrêt).\n- Scénario : Sur correction actuelle autour des 3.20-3.22, chercher une confirmation haussière pour viser un nouveau HH.\n- Invalidation : Baisse sous 3.15 pourrait indiquer retour de pression vendeuse.\n\nC) Chart 2 (haut-droit) : Inconnu  \n(L’image ne montre pas clairement",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-37-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-03_12-36-50.png"
+  }
+}

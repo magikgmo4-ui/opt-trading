@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_182313_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T14:23:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_14-23-04",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "recharger symboles",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "recharger symboles",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "recharger symboles",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "recharger symboles",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Aucun des graphiques ne charge les données, symboles invalides ou incomplets.  \n- Impossibilité d'analyser tendance, structure ou zones clés sans graphiques opérationnels.  \n- Recommandation : vérifier les symboles et recharger les données pour une analyse précise.  \n\nB) Chart 1 (haut-gauche) : Inconnu (symboles non chargés, pas d’analyse possible).  \nC) Chart 2 (haut-droit) : Inconnu (symboles non chargés, pas d’analyse possible).  \nD) Chart 3 (bas-gauche) : Inconnu (symboles non chargés, pas d’analyse possible).  \nE) Chart 4 (bas-droit) : Inconnu (symboles non chargés, pas d’analyse possible).  \n\nF) DeskPro  \n{\"run_id\":\"2024-06-23-001\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"recharger symboles\",\"invalidation\":\"inconnu\"},{\"slot\":\"haut-droit\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"recharger symboles\",\"invalidation\":\"inconnu\"},{\"slot\":\"bas-gauche\",\"bias\":\"inc",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_14-23-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BZUSDT_1h_2026-06-03_14-22-53.png"
+  }
+}

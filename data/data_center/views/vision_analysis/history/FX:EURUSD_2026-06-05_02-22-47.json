@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_062257_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T02:22:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-22-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1645,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond sous 1.1650, viser 1.1600 puis 1.1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire persistante > 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL) depuis le sommet début juin.  \n- Structure récente : tentative de rebond avec un Higher Low (HL) formé sur 1.1600, mais résistance clé vers 1.1645-1.1650 limite la hausse.  \n- Scénario prioritaire : poursuite de la baisse sous résistance 1.1645 validée, avec un premier support à 1.1600; invalidation au-dessus de 1.1650.  \n\nB) Chart unique (FX:EURUSD 1h) :  \nLe graphique montre une tendance baissière modérée, avec une structure de prix composée de LH/LL jusqu’au 4 juin, suivi d’un HL récent à 1.1600. Les zones clés sont la résistance 1.1645-1.1650 et le support à 1.1600. Un échec sous résistance laisse présager une continuation baissière vers 1.1580. En cas de franchissement et maintien au-dessus de 1.1650, la tendance pourrait se retourner vers un scénario haussier avec un prochain objectif à 1.1685.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-22-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_02-22-36.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_065200_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T02:51:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-51-50",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sous 61,000 USD, stop au-dessus 64,000 USD",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable 64,000 USD avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Bitcoin montre une forte tendance baissière sur l’unité 1H avec structure en LL/LH évidente.  \n- Volumes en hausse lors des baisses accentuent la pression vendeuse.  \n- Plusieurs zones clés de support autour de 61 000-62 000 USD à surveiller pour potentielle réaction.  \n\nB) Chart 1 (haut-gauche) : BTCUSDT - 1H  \nTendance clairement baissière avec une structure de creux et sommets plus bas (LL, LH).  \nSupport clé à 61 000 USD où le prix a déjà rebondi plusieurs fois.  \nRésistance notable autour de 64 000 USD, zone de rechute après tentative de rebond.  \nScénario principal : poursuite vers le bas si le support casse.  \nPlan : vendre sous 61 000 USD avec stop au-dessus de 64 000 USD.  \nInvalidation : franchissement net de 64 000 USD suivi de HH.  \n\nC) Chart 2 (haut-droit) : inconnu  \nSymbole et timeframe non lisibles, analyse non possible.  \n\nD) Chart 3 (bas-gauche) : inconnu  \nSymbole et timeframe non lisibles, analyse non possible.  \n\nE) Chart 4 (bas-droit) : inconn",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-51-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_02-51-43.png"
+  }
+}

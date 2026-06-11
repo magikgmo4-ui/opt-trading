@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_053834_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T01:38:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-38-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien support 59000. Achat possible sur HL si rebond. Stop sous 59000. En cas de break 62000, revoir scénario.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break sous 59000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile, tentative de rebond local actuellement, mais la pression vendeuse domine.  \n- Zones clés : support vers 59 000, résistance immédiate autour de 62 000.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est baissière avec des Lower Highs et Lower Lows bien marqués. Le prix a cassé plusieurs supports intermédiaires et cherche à se stabiliser entre 59 000 (S) et 62 000 (R). Le momentum vendeur reste fort, mais une consolidation autour du support peut offrir une opportunité de swing court terme à l’achat si un Higher Low se forme. Invalidation du scénario baissier sous 59 000. En cas de cassure haussière confirmée au-dessus de 62 000, revoir la structure pour une possible inversion.\n\nC) DeskPro  \n```json\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"59000\"],\"resistances\":[\"62000\"],\"plan\":\"Surveiller maintien supp",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-38-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_01-38-13.png"
+  }
+}

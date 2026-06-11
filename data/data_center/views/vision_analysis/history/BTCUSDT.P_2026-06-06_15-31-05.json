@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_193117_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T15:31:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-31-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre cassure 63000 pour reprise haussière, sinon poursuite baisse vers 58000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à analyser",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à analyser",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à analyser",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Prépondérance d’une tendance baissière claire sur la plupart des graphiques.  \n- Structures de prix caractérisées par des Lower Highs (LH) et Lower Lows (LL), confirmant la faiblesse.  \n- Zones clés de support à surveiller entre 59 000 et 60 000 ; résistance proche des 62 000-63 000.\n\nB) Chart 1 (haut-gauche): Bitcoin / USDT, 1h  \nTendance : Baissière nette.  \nStructure : LH et LL réguliers depuis début Juin.  \nSupports : 59 000 – 60 000 (zone de rebond potentiel).  \nRésistances : 62 000 – 63 000 à franchir pour envisager une correction haussière.  \nScénario : Attendre une cassure claire au-dessus de 63 000 pour une possible reprise haussière ; sinon, risque de continuation vers 58 000.  \nInvalidation : Franchissement au-dessus des derniers HH locaux autour de 64 000.\n\nC) Chart 2 (haut-droit): Inconnu (symbole illisible)  \nTendance : Inconnu.  \nStructure : Inconnue.  \nSupports : Inconnus.  \nRésistances : Inconnues.  \nScénario : Analyse impossible.  \nInvalidation : ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-31-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_15-30-56.png"
+  }
+}

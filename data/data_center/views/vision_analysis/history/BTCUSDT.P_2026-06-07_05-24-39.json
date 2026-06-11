@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_092457_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T05:24:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-24-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Observer franchissement 63000 pour entrée long, sinon privilégier shorts",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 59000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière marquée par une série de LL (Lower Lows) et LH (Lower Highs).  \n- Rebond récent sur support local autour de 59 000 USD, tentative de correction haussière en cours.  \n- Scénario possible d’inversion si seuil 63 000 USD est franchi avec structure HH, sinon poursuite du biais baissier.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance 1h est baissière claire avec des Lower Highs et Lower Lows sans interruption notable jusqu'à début juin. Depuis le 6 juin, le prix forme un support vers 59 000 USD (S), déclenchant un rebond jusqu’à 63 000 USD (R) qui fait résistance pour le moment. La structure montre un potentiel HL récent si la résistance est dépassée, signalant une possible inversion de tendance à moyen terme. Invalidation du scénario haussier si le support 59 000 USD est cassé.  \n\nC) DeskPro  \n{\"run_id\":\"20240607_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec tentative de rebond\",\"structure\":\"LH/LL en tendance baissière puis HL pot",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-24-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_05-24-31.png"
+  }
+}

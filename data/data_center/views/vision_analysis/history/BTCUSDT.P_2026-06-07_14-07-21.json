@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_180731_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T14:07:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-07-21",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller pullback, vente proche résistance avec stop au franchissement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "HH > 63k",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière dominante sur l'ensemble des graphiques observés.  \n- Présence de structures de creux et sommets plus bas (LH et LL) principalement en 1H et 4H.  \n- Quelques signes potentiels de rebond court terme à confirmer avec invalidations précises.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1H  \n- Tendance baissière claire avec structure LH/LL visible.  \n- Rebond récent mais structure de base pas encore invalidée, potentiellement un pullback.  \n- Zone résistance clé autour de 63k USDT à surveiller.  \n- Support proche à 59k USDT, rupture renverrait vers nouveaux plus bas.  \n- Scénario privilégié: continuation baissière sauf franchissement confirmé de la résistance.  \n- Invalidation en cas de HH au-dessus des 63k.  \n\nC) Chart 2 (haut-droit): inconnu  \n- Symbole/timeframe illisible, pas d’analyse possible.  \n\nD) Chart 3 (bas-gauche): inconnu  \n- Symbole/timeframe illisible, pas d’analyse possible.  \n\nE) Chart 4 (bas-droit): inconnu  \n- Symbole/timeframe illis",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-07-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_14-07-13.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_164042_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:40:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-40-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4410.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4540.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur pullback vers 4470-4480 avec stop au-dessus de 4540",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 4540",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché du XAUUSD en tendance baissière short terme, avec structure de plus bas (LL) et plus bas relatif (LH) récents.  \n- Plusieurs zones clés de support testées et à surveiller pour un rebond potentiel ou poursuite de la baisse.  \n- Volume en hausse sur baisses confirme pression vendeuse, attention au scénario de cassure ou retournement.  \n\nB) Chart 1 (haut-gauche) : XAUUSD 1h  \nTendance : Baissière  \nStructure : Succession de LH et LL depuis le sommet le 29 mai, confirmant une phase corrective / baissière.  \nSupports : Zone 4430-4440 USD testée régulièrement, support mineur à 4410 USD.  \nRésistances : 4470-4480 USD, résistance structurelle forte à 4540 USD.  \nPlan : Sur pullback vers résistance 4470-4480, envisager vente avec stop serré au-dessus de 4540.  \nInvalidation : Clôture claire au-dessus de 4540 USD invalide le biais baissier.  \n\nC) Chart 2 (haut-droit) : inconnu (pas lisible)  \nTendance : Inconnue  \nStructure : Inconnue  \nSupports : Inconnus  \nRésistanc",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-40-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_12-40-22.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_211531_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T17:15:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-15-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller test résistance 1.10-1.11 pour potentielle reprise haussière; stop sous 1.06",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure durable sous 1.06",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente indécise avec tentative de stabilisation et consolidation latérale entre 1.08 et 1.11.  \n- Zone clé de support majeure autour de 1.06, résistance immédiate proche à 1.10-1.11, à surveiller pour validation d’un rebond ou poursuite baissière.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLa tendance est baissière avec une succession claire de LH et LL. La structure récente montre une horizontalisation des prix entre 1.08 et 1.11, zone de congestion avec support à 1.06 sous-jacent. Scénario principal : retour vers 1.10-1.11 pour test résistance. En cas de cassure haute, possible retournement haussier vers 1.14+. Invalidation de ce scénario si cassure nette du support 1.06, ce qui ouvrirait la voie à une poursuite baissière.\n\nC) DeskPro  \n{\"run_id\":\"20240610_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish-to-neutral\",\"structure\":\"LH/LL en tendance, consolidation récente",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-15-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_17-15-15.png"
+  }
+}

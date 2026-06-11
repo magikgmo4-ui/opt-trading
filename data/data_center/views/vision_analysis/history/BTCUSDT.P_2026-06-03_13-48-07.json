@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_174817_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:48:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-48-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support pour continuation baissière. Invalidation au-dessus de 67000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">67000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse non réalisable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse non réalisable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse non réalisable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière nette sur le graphique principal (BTCUSDT 15m) avec structure de baisse bien établie (LH/LL).  \n- Présence de zones clés de support vers 65 000 USDT, mais risque de poursuite baissière si elles cassent.  \n- Volume élevé sur les baisses, indicateur de pression vendeuse dominante.\n\nB) Chart 1 (haut-gauche): Bitcoin BTCUSDT - 15 minutes  \nTendance clairement baissière avec une structure en Lower Highs (LH) et Lower Lows (LL). Le prix a formé plusieurs points hauts inférieurs et points bas inférieurs sur la période. Zone clé de support visible vers 65 000 USDT, à surveiller pour rebond potentiel. Résistance notable aux alentours de 67 000 USDT, zone à franchir pour invalider la baisse. Volume soutenu sur les chandelles baissières. Scénario principal : poursuite de la baisse si le support cède, sinon consolidation/rebond local. Invalidation en cas de franchissement clair des plus hauts récents vers 67 000 - 67 200 USDT.\n\nC) Chart 2 (haut-droit):",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-48-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_13-48-00.png"
+  }
+}

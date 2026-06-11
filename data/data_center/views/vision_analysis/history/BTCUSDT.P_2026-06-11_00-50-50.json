@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_045108_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T00:51:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_00-50-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond avec confirmation breakout résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 60000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente à la résistance, suivi baisse indices",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse résistance haut",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente breakout valide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fausse sortie retour latéral",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivi support, vente sous cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "maintien support",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Plusieurs actifs majeurs (indices US, tech, or, pétrole) en correction ou consolidation.\n- BTC sur 1h montre tentative de rebond après forte baisse, structure latérale récente.\n- Vigilance sur zones clés pour décider continuation baissière ou début retournement, volatilité présente.\n\nB) Chart 1 (haut-gauche):\n- Actif: BTCUSDT, timeframe: 1h\n- Structure: baisse dominante puis consolidation latérale (HH/HL incertains)\n- Supports: ~60 000 (plusieurs rebonds marqués), 61 200 récent\n- Résistances: 63 000-63 200 zone clé à surveiller pour breakout\n- Scénario: rebond possible vers 63k pour tester la résistance, si cassure poursuite haussière modérée. En dessous de 60k, reprise forte tendance baissière.\n- Invalidation: franchissement durable sous 60 000 invalide scénario de rebond.\n\nC) Chart 2 (haut-droit):\n- Symbole/timeframe: inconnu (graphique indices et autres actifs sans prix visible)\n- Structure: tendance baissière marquée sur indices US (SPX, NQ)\n- Supports: zones aut",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_00-50-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_00-50-38.png"
+  }
+}

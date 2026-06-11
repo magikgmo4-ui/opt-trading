@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_024055_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:40:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-40-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 36.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 41.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 42.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur pullback sous 41.50, cible 36.00",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus 42.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière confirmée par une série de HH suivis de LH puis LL sur le graphique 1h.  \n- Structure montrant une perte de support autour de 41.00-41.50, désormais zone de résistance clé.  \n- Scénario vendeur privilégié avec poursuite probable du downtrend vers 36.00 ; invalidation au-dessus de 42.50.  \n\nB) Chart unique (NASDAQ:IBIT 1h): La tendance est baissière nette, marquée par une succession de Lower Highs et Lower Lows. Le prix a cassé plusieurs supports intermédiaires, notamment autour de 41.00, qui devient résistance. La chute accélère récemment avec une forte dynamique vendeuse. La zone 36.00 représente un support psychologique et technique à court terme. On privilégie une pression vendeuse avec un plan d’entrée sur pullback sous 41.50, ciblant 36.00, et stop placé au-dessus de 42.50 en invalidation du scénario baissier.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[36.00],\"resis",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-40-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-03_22-40-30.png"
+  }
+}

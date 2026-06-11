@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_164641_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T12:46:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-46-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1620.0,
+      "confidence": 0.7,
+      "note": "s 1620"
+    },
+    {
+      "type": "support_level",
+      "value": 1620.0,
+      "confidence": 0.7,
+      "note": "s 1620"
+    },
+    {
+      "type": "support_level",
+      "value": 1560.0,
+      "confidence": 0.7,
+      "note": "support à 1560"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile entre 1560 et 1580 USDT, zone à surveiller comme support potentiel.  \n- Scénario principal baissier à garder, avec invalidation possible au-delà des 1620 USDT.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une dominance des mouvements baissiers avec des phases de consolidation courtes. On observe des volumes en hausse sur certaines chandelles baissières, indiquant une pression vendeuse forte. La structure de prix récente forme un LH suivi d’un LL, confirmant la continuation du biais bearish. Support clé autour de 1560 USDT, résistance majeure près de 1620 USDT. Un retour au-dessus de ce niveau invaliderait le biais short et pourrait annoncer un rebond.\n\nC) DeskPro  \n{\"run_id\":\"eth_15m_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1560],\"resistances\":[1620],\"plan\":\"Privilégier les positions vendeuses sou",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-46-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_12-46-24.png"
+  }
+}

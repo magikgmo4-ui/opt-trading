@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_30605_20260611T060009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "vasilytradersignalforex",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T08:23:05+00:00",
+  "produced_at": "2026-06-11T06:00:09.423042+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4170.0,
+  "sl": 4160.0,
+  "tp": 4180.0,
+  "tps": [
+    4180.0,
+    4190.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "Gold buy @ 4170 - 4165\n\nSl : 4160\n\ntp1 : 4180\ntp2 : 4190",
+  "summary": "XAUUSD LONG"
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_110928_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-07T07:09:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-09-19",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "prendre position courte sous 920B avec cible 840B, ou attendre clôture journalière >1 040B pour scénario longue",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture journalière stable au-dessus 1 040B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière bien marquée avec série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente montre un rebond potentiel sur support majeur vers 840B, mais toujours sous pression baissière.  \n- Zone de résistance clé autour de 1 040B à surveiller pour invalider scénario baissier.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe graphique illustre une tendance baissière claire sur le timeframe journalier, avec une succession de creux et sommets descendants (LH/LL). Un support important vers 840B a été atteint récemment, provoquant un rebond technique. La zone entre 920B et 1 040B fait office de résistance à court terme. Le prix doit dépasser 1 040B pour envisager un renversement ou une consolidation plus positive. En dessous de 840B, la pression vendeuse pourrait s’accentuer avec un nouveau plus bas. Le volume en hausse sur le rebond montre un intérêt acheteur modéré, à confirmer.  \n\nC) DeskPro  \n{\"run_id\":\"20240610\",\"charts\":[{\"slot\":\"single\",\"bias",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-09-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-07_07-09-07.png"
+  }
+}

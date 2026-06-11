@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_101610_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T06:16:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-16-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond en résistance, viser support, protection sous 1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture nette au-dessus de 1620 avec nouveau HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible sur le 15m avec une série de plus bas plus bas (LL) et plus hauts plus bas (LH).  \n- Structure fragile : tentative de rebond mais sans rupture nette de la tendance baissière.  \n- Zones clés à surveiller : support vers 1520-1540, résistance vers 1600-1620 pour valider un revirement.\n\nB) Chart unique (ETHUSDT.P 15m)  \nLe graphique montre un mouvement baissier clair avec un pattern de LH/LL. Le prix teste actuellement une zone de support intermédiaire vers 1540. Un rejet clair sous ce support pourrait relancer la pression vendeuse. A contrario, un franchissement des résistances autour de 1600-1620 indiquerait une potentielle inversion vers une tendance haussière nascent. La structure incite donc à privilégier les positions vendeuses en cas de réaction baissière sur les résistances, avec une invalidation en cas de cassure haussière du dernier HL.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"L",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-16-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_06-15-53.png"
+  }
+}

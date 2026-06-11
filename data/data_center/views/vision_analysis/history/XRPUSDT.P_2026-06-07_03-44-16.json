@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_074424_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T03:44:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_03-44-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.07,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.09,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.135,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance pour cassure résistance 1.1350 en daily confirmation haussière. Stop sous 1.0700 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1.0700",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante avec une série de LL/LH visibles en début et milieu du graphique.\n- Récente inversion avec une structure de HH/HL formée sur les dernières bougies indiquant une reprise haussière.\n- Zone clé de résistance autour de 1.1350, support sous 1.0700 pour maintien de la nouvelle dynamique.\n\nB) Chart unique (XRPUSDT.P 15m): Sur le timeframe 15 minutes, la paire XRPUSDT.P a d'abord consolidé en tendance baissière avec des creux plus bas (LL) et des sommets plus bas (LH), avant de former un creux plus haut (HL) et un sommet plus haut (HH), signalant un début de retournement haussier. La récente montée des prix montre un momentum acheteur qui vise la zone de résistance majeure vers 1.1350, zone à surveiller pour valider la reprise. En cas de rejet à ce niveau, un retour vers le support à 1.0700 invaliderait le scénario haussier.\n\nC) DeskPro {\"run_id\":\"xrp_20240607_07\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier court terme\",\"structure\":\"HH/HL récent ",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_03-44-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_03-44-07.png"
+  }
+}

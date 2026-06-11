@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_163521_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T12:35:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-35-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1575.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long above 1650 with stop below 1575",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "below 1525",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ce timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent sur zone support proche de 1 525 USDT, initiant une courte reprise (HL formé).  \n- Scénario haussier envisagé en cas de franchissement et maintien au-dessus de 1 650 USDT, sinon continuation du downtrend.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance dominante : baissière avec structure LH/LL bien marquée.  \nSupports clés : ~1 525 USDT (zone de rebond récent), ~1 575 USDT (pivot intermédiaire).  \nRésistances clés : ~1 650 USDT (dernier top local), puis zone 1 700-1 725 USDT.  \nPlan : attendre confirmation de franchissement du 1 650 USDT pour envisager un swing long avec stop sous 1 575 USDT. Invalidation en cas de retest à la baisse sous 1 525 USDT.  \nLa prise de risque reste élevée à court terme, préférence à la prudence.  \n\nC) DeskPro  \n{\"run_id\":\"run-eth-1h-20240607\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish with short-term relief\",\"structure\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-35-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_12-35-04.png"
+  }
+}

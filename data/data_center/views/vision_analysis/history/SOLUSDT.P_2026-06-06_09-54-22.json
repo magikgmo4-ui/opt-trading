@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_135431_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T09:54:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-54-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure à la baisse du support 61.00 pour poursuite baissière. Stop si franchissement 64.00 confirmé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement net de la résistance 64.00 avec formation de HH.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 15m avec une série de LH/LL.  \n- Structure fragile, tentative de rebond visible mais sans formation de HH significative.  \n- Zone clé support vers 61.00 à 60.50 ; résistance notable proche de 64.00.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nLe marché est dans une tendance baissière, marquée par des Lower Highs (LH) et Lower Lows (LL) répétés, indiquant une structure fragile.  \nDernier rebond qui se forme vers 62.50-63.00 sans créer de Higher High (HH), restant donc une possible correction dans la tendance baissière.  \nSupports clés à observer autour de 61.00-60.50, zone où le prix a rebondi plusieurs fois. Résistance à 64.00, un niveau à dépasser pour invalider la baisse.  \nScénario principal : continuation possible de la baisse sur cassure du support 61.00.  \nInvalidation : franchissement clair et confirmé au-dessus de 64.00 avec HH, signifiant un potentiel retournement ou au moins un range.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\"",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-54-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_09-54-12.png"
+  }
+}

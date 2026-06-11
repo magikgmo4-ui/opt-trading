@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_025058_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T22:50:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-50-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.22,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la cassure des 1.20 pour signal d’achat sinon garder le biais baissier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure franche au-dessus de 1.22 avec maintien",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m baissière persistante avec une série de creux et sommets plus bas (LH/LL) confirmée.  \n- Rebond récent net sur support proche de 1.15$, mais la structure baissière n’est pas encore invalidée.  \n- Zones clés identifiées vers 1.15$ en support et 1.20-1.22$ en résistance à court terme.  \n\nB) Chart unique (XRPUSDT.P 15m) : La paire est dans une forte tendance baissière avec une succession claire de Lower Highs et Lower Lows. Après un dernier plus bas marqué autour de 1.15$, un rebond technique vigoureux est en cours, testant la résistance à 1.19-1.20$. La cassure de ce niveau sera nécessaire pour envisager un retour haussier. En l’absence de cela, la pression vendeuse devrait se poursuivre vers le récent support majeur. Invalidation du scénario baissier sous la cassure solide du plus bas à 1.15$.  \n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec rebond sur support\",\"supports\":[\"1.15\"],\"resistances\":[\"1.20\",\"",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-50-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-03_22-50-44.png"
+  }
+}

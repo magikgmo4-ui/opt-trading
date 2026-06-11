@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_190259_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T15:02:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-02-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1575,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.162,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher short sur cassure support 1.1520 avec stop au-dessus 1.1620",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 1.1620",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une série de plus bas (LL) et plus bas relatifs (LH) sur le 1h.  \n- Structure initiale haussière puis retournement avec chute rapide et forte augmentation du volume sur la dernière bougie.  \n- Zone clé de support vers 1.1520 à surveiller pour potentielle réaction ou poursuite du bearish.  \n\nB) Chart unique (FX:EURUSD 1h): Le graphique montre une tendance haussière initiale avec formation de HH/HL jusqu’au 29 mai, suivie d’un renversement marqué par un LH puis LL. Le prix vient de chuter brutalement avec un volume élevé, cassant un support intermédiaire autour de 1.1575 et visant la zone 1.1520. Scénario principal : poursuite baissière si support 1.1520 cassé, invalidation au-dessus du dernier LH à 1.1620.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LH/LL après HH/HL initial\",\"supports\":[\"1.1520\"],\"resistances\":[\"1.1575\",\"1.1620\"],\"plan\":\"Chercher short sur cassure support 1.1520 av",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-02-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_15-02-35.png"
+  }
+}

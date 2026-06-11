@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_041659_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T00:16:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-16-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62250.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64250.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous résistance, attendre confirmation cassure support pour accélération, long possible si cassure claire résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture stable au-dessus 64,250",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance de fond baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente latérale entre 62 250 et 64 250, en mode correction/consolidation.\n- Zone de support clé vers 62 250, résistance immédiate vers 64 250; invalidation du biais baissier si franchissement clair au-dessus.\n\nB) Chart unique (BTCUSDT.P 15m):\nLe graphique présente une dynamique en baisse nette sur le timeframe 15 minutes avec une succession de sommets et creux descendants (LH/LL), confirmant un biais baissier. Actuellement, le prix oscille entre un support solide autour de 62 250 USDT et une résistance autour de 64 250 USDT. Cette zone intermédiaire marque une phase de consolidation après la chute importante, suggérant prudence avant un nouveau mouvement décisif. Un break au-dessus de 64 250 invaliderait potentiellement la tendance baissière à court terme et ouvrirait la porte à une reprise haussière. À l’inverse, une cassure sous 62 250 renforcerait la pression vendeuse et",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-16-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_00-16-44.png"
+  }
+}

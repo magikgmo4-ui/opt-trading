@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_094402_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T05:44:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-43-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre breakout résistance 1720 pour achat, ou repli confirmé sous 1580 pour vente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière nette depuis le début avec une tentative de sortie de zone basse.  \n- Structure récente en range entre 1600 et 1700, avec plusieurs HH/HL sur ce micro-trend haussier intraday.  \n- Zone clé support vers 1580-1600, résistance clé vers 1700-1720, breakout attendu pour confirmation.\n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance principale: Baissière (LL précédents sur long terme)  \nStructure récente: Range avec HL et HH formés depuis le 5e juin, fluctuation entre 1580-1700.  \nSupports: 1580-1600 (zone de rebond multiple)  \nRésistances: 1700-1720 (zone de plafond de range)  \nScénario: En cas de dépassement clair des 1720, reprise haussière possible avec nouvelle impulsion. A l’inverse, retour sous 1580 invaliderait cette mini-réaccumulation.  \nInvalidation: Clôture en dessous de 1580 pour scénario haussier.  \n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec tentative haussière\",\"structure\":\"range avec HL/HH\",\"su",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-43-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_05-43-42.png"
+  }
+}

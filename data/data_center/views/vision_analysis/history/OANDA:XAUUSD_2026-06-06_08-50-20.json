@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_125030_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T08:50:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-50-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4310.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4360.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur cassure support 4310, repli possible vers 4270+. En cas de rebond, chercher confirmation breakout 4380.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 4380 durable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le graphique visible (XAUUSD 1h) avec retracement récent.  \n- Structure de prix en séquence HL/LH typique d’un marché en correction ou consolidation après une impulsion baissière.  \n- Zones clés à surveiller autour des récents plus hauts (résistances) et bas récents (supports) pour valider un scénario baissier ou un potentiel rebond.  \n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \nTendance dominante : baissière.  \nStructure : séquence HL/LL (plus hauts et bas décroissants), mais tentative de stabilisation récente avec un HL.  \nSupports clés : 4,310 / 4,300 USD (bas récent et zone volume élevé).  \nRésistances clés : 4,360 / 4,380 USD (points de rebond intermédiaires).  \nScénario principal : continuation baissière si la zone 4,310 est cassée, retour possible vers 4,270+.  \nScénario alternatif : rebond si maintien au-dessus de 4,310, viser breakout des résistances pour renverser la tendance.  \nInvalidation : franchissement clair et durable au-des",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-50-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_08-50-08.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_050748_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T01:07:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-07-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à la cassure du support 1540 avec stop au-dessus de 1620, viser extension baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure claire et tenue au-dessus de 1620",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière claire sur le 15m avec structure en Lower Highs (LH) et Lower Lows (LL)  \n- Zones clés proches vers 1540 en support potentiel et résistance autour de 1600-1620  \n- Scénario principal : poursuite de la baisse sous 1540, invalidation si cassure marquée au-dessus de 1620  \n\nB) Chart unique (ETHUSDT.P 15m) :  \nLe graphique montre une tendance baissière affirmée avec des phases de consolidation et retracements faibles. La structure est en LH/LL sans signe de renversement. Le support actuel autour de 1540 a été testé plusieurs fois; le prix peine à rebondir durablement au-dessus de 1600-1620 qui fait office de résistance court terme. Un passage sous le support 1540 pourrait accélérer la baisse. En revanche, un dépassement clair de la résistance 1620 invaliderait la pression vendeuse et pourrait ouvrir vers un rebond.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1540],\"resistances",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-07-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_01-07-31.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_205153_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:51:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-51-44",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente ou attente sur cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 2.8T avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Pression baissière forte sur le marché crypto, valeur totale en baisse notable.  \n- Structure baissière claire à moyen terme, avec des plus bas plus bas (LL) et plus hauts plus bas (LH).  \n- Zones clés de support à surveiller autour des 2.2T, invalidation sous ces niveaux risque d’accélérer la chute.\n\nB) Chart 1 (haut-gauche) : Crypto Total Market Cap, weekly  \n- Tendance : baissière  \n- Structure : succession de LH et LL depuis le sommet, tendance baissière dominante.  \n- Supports clés : zone autour de 2.2T (maintenue pour l’instant mais fragile)  \n- Résistances : zone 2.6-2.8T, ancienne zone de congestion.  \n- Scénario : repli vers support principal, possible rebond technique si ce support tient.  \n- Invalidation : franchissement solide au-dessus de 2.8T avec volume confirmerait un rebond haussier.  \n- Plan : rester vendeur ou en attente, protéger le capital si support cassé.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe illisible)  \n- Impossible d’analys",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-51-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-03_16-51-33.png"
+  }
+}

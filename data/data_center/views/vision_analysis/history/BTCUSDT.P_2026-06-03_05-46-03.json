@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_094616_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:46:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-46-03",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 2.2T pour short. Rebond à 2.5-2.6T pour prise de profit ou long.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Hausse confirmée au-dessus de 2.6-2.7T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans symbole/timeframe",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans symbole/timeframe",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans symbole/timeframe",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le marché crypto global montre une structure baissière avec une forte chute récente proche de 2.28T.\n- Les volumes sont en hausse sur la dernière séance, suggérant un intérêt fort à la vente ou capitulation.\n- Un support majeur proche des 2.2T semble se tester, avec un potentiel rebond ou cassure à surveiller.\n\nB) Chart 1 (haut-gauche) : Crypto Total Market Cap, daily\n- Tendance : baissière.\n- Structure : LL (lower low) récent par rapport à la phase de consolidation Mars-Mai.\n- Zones clés : support autour de 2.2T, résistance vers 2.5-2.6T.\n- Scénario : poursuite possible de la baisse si le support 2.2T casse, avec risque de baisse importante.\n- Invalidation : rebond significatif au-dessus de 2.6-2.7T invaliderait le biais baissier actuel.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non lisible)\n- Impossible d’analyser précisément, données insuffisantes.\n- Nécessité de clarifier le symbole et timeframe pour analyse.\n\nD) Chart 3 (bas-gauche) : inconnu (symbol",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-46-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-03_05-45-53.png"
+  }
+}

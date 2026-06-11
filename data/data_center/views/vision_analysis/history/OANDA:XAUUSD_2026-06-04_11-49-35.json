@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_154942_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:49:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-49-35",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation de sortie de range pour entrée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close sous 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance courte terme consolidative avec alternance de hauts et bas descendants (LH/LL) puis tentative de rebond.\n- Structure actuelle en recherche de support autour de 4460-4480 USD, résistance notable proche des 4520-4540 USD.\n- Scénario potentiel de range avant validation d’un nouveau trend, invalidation en clôture sous 4450 USD.\n\nB) Chart unique (OANDA:XAUUSD 1h): \nLa tendance récente montre une succession de Lower Highs (LH) et Lower Lows (LL), indiquant un biais baissier. Un rebond a débuté sur la zone de support 4460-4480 USD, mais une résistance forte se situe autour de 4520-4540 USD, où les prix ont déjà buté plusieurs fois. La structure est incertaine, avec la possibilité d’un range entre ces niveaux, en attente d’une cassure décisive. La prise de position doit être prudente, validée par un franchissement de zone clé. En cas de rupture sous 4450 USD, le scénario bullish est invalidé et une poursuite baissière s’impose.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-49-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_11-49-22.png"
+  }
+}

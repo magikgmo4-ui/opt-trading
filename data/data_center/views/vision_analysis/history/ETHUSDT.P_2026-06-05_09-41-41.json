@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_134151_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T09:41:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_09-41-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 1640, envisager vente si résistance 1680-1700 confirme. Stop loss au-delà de 1700 pour invalidation de la tendance baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair supérieur à 1700 avec structure HH/HL.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Zone de support temporaire vers 1640 USDT, rebond technique en cours.\n- Résistance à 1680-1700 USDT à surveiller pour confirmation de reprise ou poursuite baissière.\n\nB) Chart unique (ETHUSDT.P 15m):\nLa structure présente des Lower Highs et Lower Lows indiquant une pression vendeuse dominante. Le prix teste actuellement une zone de support vers 1640, avec un rebond visible mais sans franchissement clair des résistances intermédiaires. Une invalidation de la baisse serait un franchissement au-dessus de 1700, point clé pour revenir à une structure de type HH/HL. Scénario principal reste la poursuite de la baisse tant que les résistances tiennent.\n\nC) DeskPro \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1640,1600],\"resistances\":[1680,1700],\"plan\":\"Surveiller rebond sur support 1640, envisager vente si résistance 1680-1700 confirme. St",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_09-41-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_09-41-33.png"
+  }
+}

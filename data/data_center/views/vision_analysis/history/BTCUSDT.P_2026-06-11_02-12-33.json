@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_061241_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T02:12:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-12-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Suivre réaction sur 63k : breakout haussier ou rejet baissier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable au-dessus de 63,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale baissière avec formation récente de range latéral sous résistance clé.\n- Structure en bascule avec plusieurs HH/HL apparents depuis le 5ème, mais toujours inférieure aux sommets précédents (LH).\n- Zone clé de résistance autour de 63 000 USDT à surveiller pour breakout/échec.\n\nB) Chart unique (BTCUSDT.P 1h):\nOn observe un net mouvement baissier jusqu’au 5, suivi d’un rebond avec formations de HL et HH localisés. Cependant, la structure reste globalement baissière car les sommets restent plus bas que ceux des premiers jours (LH). Le prix évolue en range entre ~60 500 et ~63 000 USDT, avec une résistance marquée vers 63 000. Un franchissement clair de cette zone invaliderait la faiblesse dominante et ouvrirait un scénario haussier. Inversement, un rejet à ce niveau renforcerait la continuité de la tendance baissière. Le support immédiat est vers 60 500. Volume plus élevé sur certains replis indiquant intérêt acheteur.\n\nC) DeskPro\n{\"run_id\":\"001\",\"cha",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-12-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_02-12-21.png"
+  }
+}

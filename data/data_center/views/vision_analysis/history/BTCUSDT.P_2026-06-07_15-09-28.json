@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_190939_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T15:09:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-09-28",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveillez rupture 63k pour rebond, invalidation sous 61k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "baud sous 61,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Pression baissière dominante sur le BTC en 1h, tentative de rebond actuelle sous résistance.  \n- Structure de tendance clairement baissière avec séries de LH et LL avant un recent HL possible.  \n- Zones clés à surveiller : support autour de 61k USDT, résistance proche des 63k USDT pour valider un rebond.  \n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \nTendance nette baissière depuis début juin, avec formation de Lower Highs (LH) et Lower Lows (LL). Dernière bougie montre une tentative de rebond avec un Higher Low (HL) qui reste à confirmer. Volume soutenu sur les baisses, signe de pression vendeuse. Zone clé support visible vers 61 000 USDT, résistance dynamique au niveau 63 000 USDT suite au dernier top. Scénario privilégié : si maintien au-dessus de 61k et romp la résistance 63k, possible retournement court terme. Invalidation sous 61k, retour baissier fort.  \n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non lisible)  \nAnalyse impossible, données manquantes o",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-09-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_15-09-08.png"
+  }
+}

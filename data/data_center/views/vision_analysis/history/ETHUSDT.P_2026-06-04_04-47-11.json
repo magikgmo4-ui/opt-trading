@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_084718_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T04:47:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_04-47-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1820.0,
+      "confidence": 0.7,
+      "note": "s 1820."
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.7,
+      "note": "s 1750"
+    },
+    {
+      "type": "support_level",
+      "value": 1820.0,
+      "confidence": 0.7,
+      "note": "s 1820"
+    },
+    {
+      "type": "support_level",
+      "value": 1820.0,
+      "confidence": 0.7,
+      "note": "s 1820"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.7,
+      "note": "support 1750"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec structure de Lower Highs (LH) et Lower Lows (LL).  \n- Prix tente un rebond récent mais reste sous résistance marquée vers 1820.  \n- Zones clés à surveiller : support proche vers 1750 et résistance vers 1820-1840.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une dominance baissière avec succession de LH et LL indiquant une pression vendeuse constante. Le plus récent rebond cotentinue de buter sur une zone de résistance horizontale vers 1820-1840. Le support immédiat s’observe autour de 1750, une cassure en dessous confirmerait la poursuite de la baisse. Le volume reste globalement soutenu lors des baisses, soutenant le biais vendeur. Un retour au-dessus de 1840 serait nécessaire pour invalider ce scénario baissier.\n\nC) DeskPro  \n{\"run_id\":\"20240604-0848\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1750],\"resistances\":[1820,1840],\"plan\":\"Sur surveillance du support 1750 pour entrées vendeuses, ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_04-47-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_04-47-04.png"
+  }
+}

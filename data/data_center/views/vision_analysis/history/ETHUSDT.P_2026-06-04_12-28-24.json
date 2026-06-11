@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_162832_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T12:28:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-28-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1790.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation du rejet en résistance pour envisager vente / casser 1800 invalide le scénario baissier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1800 durable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le 15m, avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure récente montre un retracement haussier avec un HL (Higher Low), possible correction ou début de reflux.  \n- Zone clé de support observée autour de 1 740-1 750 USD, résistance importante vers 1 790-1 800 USD.  \n\nB) Chart unique (ETHUSDT.P 15m): La tendance principale est baissière, marquée par une succession de bas et hauts descendants (LL/LH). Une correction a eu lieu avec la formation d’un HL après un plus bas vers 1 720 USD. Le prix teste actuellement une résistance proche de 1 780-1 790 USD. Un franchissement clair de cette résistance validerait un rebond, tandis qu’un rejet confirmerait la poursuite du trend baissier. Support principal à surveiller autour de 1 740 USD. Invalidation de la tendance baissière si le prix dépasse durablement 1 800 USD.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH avec récent",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-28-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_12-28-17.png"
+  }
+}

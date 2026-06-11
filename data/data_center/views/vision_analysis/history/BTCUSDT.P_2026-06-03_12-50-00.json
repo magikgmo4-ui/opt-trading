@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_165013_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:50:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-50-00",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 925B pour continuation, rebond 975B pour possible inversion.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture durable au-dessus de 1T.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le marché cryptos hors BTC est en tendance baissière à moyen terme avec structure LL confirmée.\n- Les volumes montrent une augmentation sur les phases de baisse, signalant une pression vendeuse accrue.\n- La zone proche des 950B USD correspond à un support clé à surveiller pour valider ou invalider le scénario baissier.\n\nB) Chart 1 (haut-gauche) : TOTAL2 - 1D\n- Biais : baissier\n- Structure : LL (Lower Low) et LH (Lower High) visibles depuis début 2026.\n- Supports : 925B (plus bas récent), 900B psychologique\n- Résistances : 975B-1T zone de congestion récente\n- Plan : surveiller la réaction sous 925B pour continuation bear ; un rebond au-dessus de 975B invaliderait temporairement le scénario.\n- Invalidation : clôture durable au-dessus de 1T USD.\n\nC) Chart 2 (haut-droit) : inconnu (détail non lisible)\n- Impossible d’analyser précisément faute d’informations sur le symbole/timeframe\n- Recommander de vérifier la structure et présence de zones clés avant prise de position.\n",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-50-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-03_12-49-50.png"
+  }
+}

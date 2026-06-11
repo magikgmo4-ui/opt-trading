@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_220731_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T18:07:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-07-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.175,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller soutien 1.120 pour entrées longues, viser 1.175",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 1.120 confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance haussière dominante visible sur le timeframe 15m avec une série de HH (Higher Highs) et HL (Higher Lows).\n- Structure formant un sommet local autour de 1.175, suivi d'une correction avec un début d'inversion potentielle.\n- Zones clés à surveiller : support autour de 1.120 et résistance majeure autour de 1.175.\n\nB) Chart unique (XRPUSDT.P 15m) : La paire montre une dynamique positive forte jusqu'à un pic récent (HH) près de 1.175, suivi d'une chute rapide marquant un LH, suggérant une possible prise de profit ou début de renversement. Le prix consolide actuellement entre 1.120 (support solide) et 1.140, en latéralisation. Scénario haussier maintenu si le support 1.120 tient, avec un potentiel rebond vers 1.145-1.175. Invalidation du bullish si la cassure nette sous 1.120 se confirme, indiquant un risque de poursuite baissière vers 1.080.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier avec risque de correction\",\"structure\":\"HH puis pre",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-07-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_18-07-15.png"
+  }
+}

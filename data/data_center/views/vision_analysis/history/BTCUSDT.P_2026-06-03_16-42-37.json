@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_204245_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:42:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-42-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur signaux baissiers, stop au-dessus de 4500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 1h > 4500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d’une tendance baissière récente confirmée sur 1h.  \n- Structure montrant une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Zones clés de support autour de 4430 et résistance vers 4480-4500 USD.  \n\nB) Chart 1 (haut-gauche):  \nSymbole : XAUUSD - Timeframe : 1h  \nTendance : Baissière court terme  \nStructure : Succession clair de LH et LL, confirmant une dynamique vendeuse  \nSupports : 4430 USD (zone de rebond potentiel)  \nRésistances : 4480-4500 USD (blockage vendeur à franchir pour reprise haussière)  \nScénario : Rebond possible sur support à 4430 pour un court pullback, sinon continuation baissière  \nInvalidation : Clôture horraire au-dessus de 4500 USD invaliderait le biais baissier  \n\nC) Chart 2 (haut-droit):  \nInconnu (graphique non visible)  \n\nD) Chart 3 (bas-gauche):  \nInconnu (graphique non visible)  \n\nE) Chart 4 (bas-droit):  \nInconnu (graphique non visible)  \n\nF) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":1,\"bias\":\"baissier\",\"structure\":\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-42-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_16-42-26.png"
+  }
+}

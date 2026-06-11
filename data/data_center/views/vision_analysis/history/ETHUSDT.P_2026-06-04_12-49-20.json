@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_164929_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T12:49:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-49-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.7,
+      "note": "s 1720"
+    },
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.7,
+      "note": "s 1760"
+    },
+    {
+      "type": "support_level",
+      "value": 1800.0,
+      "confidence": 0.7,
+      "note": "s 1800"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.7,
+      "note": "s 1720"
+    },
+    {
+      "type": "support_level",
+      "value": 1800.0,
+      "confidence": 0.7,
+      "note": "s 1800"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.7,
+      "note": "s 1720"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Repli plus récent avec tentative de rebond mais structure toujours baissière.  \n- Zone clé résistance autour de 1800-1820, support important vers 1720-1740.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance principalement baissière, caractérisée par des Lower Highs et Lower Lows réguliers. On observe une tentative de reprise vers 1760-1780, mais le prix reste sous la résistance vers 1800-1820, ce qui maintient un biais baissier. Les supports clés se situent autour de 1720-1740, où le prix a rebondi plusieurs fois. Un cassure nette au-dessus de 1820 invaliderait le scénario baissier et pourrait marquer un changement de tendance. En revanche, une rechute sous 1720 renforcerait la poursuite de la baisse.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1720,1740],\"resistances\":[1800,1820],\"plan\":\"Sui",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-49-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_12-49-13.png"
+  }
+}

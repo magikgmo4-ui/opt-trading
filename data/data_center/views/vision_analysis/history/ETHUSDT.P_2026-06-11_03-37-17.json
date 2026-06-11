@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_073725_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T03:37:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-37-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Achat à support 1580-1600 avec stop sous ce niveau, cibler 1700-1720",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec un pivot de reprise haussière récente en 1h.  \n- Structure récente en HH puis HL montre un début de tentative de retournement ou consolidation.  \n- Zone clé support autour de 1580-1600, résistance forte à 1700-1720; invalidation du scénario haussier sous 1580.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance globale reste baissière visible par les LH et LL marqués avant le 6 du mois. Depuis, un rebond s’est initié avec un HH suivi d’un HL sur le timeframe 1h, formant une structure potentiellement haussière ou de range. La zone 1580-1600 sert de support clé, validant ce rebond. La résistance à court terme est autour de 1700-1720, seuil à surveiller pour confirmer la poursuite haussière. Un retour sous 1580 invaliderait ce scénario et relancerait la tendance baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HH puis HL récent vs LL précédent\",\"supports\":[1580,1600],\"resistances\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-37-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_03-37-05.png"
+  }
+}

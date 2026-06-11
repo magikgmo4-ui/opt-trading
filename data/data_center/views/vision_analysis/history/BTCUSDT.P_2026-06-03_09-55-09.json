@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_135519_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:55:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-55-09",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Aucun plan, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucun plan, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucun plan, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucun plan, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Aucun graphique valide présent sur le dashboard, symbole invalide (\"ARKB\").  \n- Pas d’analyse possible, absence totale de données.  \n- Nécessaire de choisir un ou plusieurs symboles valides pour procéder à l’analyse.  \n\nB) Chart 1 (haut-gauche): Inconnu - symbole invalide, aucune donnée graphique affichée.  \n\nC) Chart 2 (haut-droit): Inconnu - symbole invalide, aucune donnée graphique affichée.  \n\nD) Chart 3 (bas-gauche): Inconnu - symbole invalide, aucune donnée graphique affichée.  \n\nE) Chart 4 (bas-droit): Inconnu - symbole invalide, aucune donnée graphique affichée.  \n\nF) DeskPro  \n```json\n{\"run_id\":\"N/A\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"N/A\",\"structure\":\"N/A\",\"supports\":[],\"resistances\":[],\"plan\":\"Aucun plan, symbole invalide\",\"invalidation\":\"N/A\"},{\"slot\":\"haut-droit\",\"bias\":\"N/A\",\"structure\":\"N/A\",\"supports\":[],\"resistances\":[],\"plan\":\"Aucun plan, symbole invalide\",\"invalidation\":\"N/A\"},{\"slot\":\"bas-gauche\",\"bias\":\"N/A\",\"structure\":\"N/A\",\"supports\":[]",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-55-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:ARKB_1h_2026-06-03_09-54-59.png"
+  }
+}

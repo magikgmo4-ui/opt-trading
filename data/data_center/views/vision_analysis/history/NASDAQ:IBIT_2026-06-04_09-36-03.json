@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_133611_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:36:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-36-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 37.0,
+      "confidence": 0.7,
+      "note": "s 37.00"
+    },
+    {
+      "type": "support_level",
+      "value": 40.5,
+      "confidence": 0.7,
+      "note": "s 40.50"
+    },
+    {
+      "type": "support_level",
+      "value": 35.5,
+      "confidence": 0.7,
+      "note": "s 35.50"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière appliquée depuis fin mai avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en déclin clair, absence de signaux de retournement à court terme.  \n- Zones clés de support vers 37.00 et 35.50; résistances immédiates vers 40.50 et 42.50.  \n\nB) Chart unique (NASDAQ:IBIT 1h) :  \nLe graph montre une forte tendance baissière confirmée par la formation continue de Lower Highs et Lower Lows. La structure du prix est orientée vers un biais bearish, soutenu par des volumes en légère hausse sur les baisses. Le prix teste actuellement un support autour de 36.00, zone clé à surveiller pour un potentiel rebond technique ou poursuite de la chute. Un franchissement durable au-dessus de 40.50 pourrait invalider ce scénario baissier, tandis qu’une cassure sous 35.50 renforcerait la tendance descendante.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH-LL\",\"supports\":[37.00,35.50],\"resistances\":[",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-36-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-04_09-35-53.png"
+  }
+}

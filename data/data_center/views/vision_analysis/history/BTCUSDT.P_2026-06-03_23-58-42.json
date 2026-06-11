@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_035850_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:58:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-58-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond actuel. Entrée possible long si cassure 67000 confirmée. Prendre profit ou stopper en cas de retour sous 62000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 62000 sur forte pression vendeuse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le 1h avec une série de LH et LL marquée.  \n- Rebond actuel sur volume important, possible correction ou début de bascule à confirmer.  \n- Zones clés à surveiller proches de 63 000 en support et 67 000 en résistance.\n\nB) Chart unique (BTCUSDT.P 1h): La structure montre clairement une succession de Lower Highs (LH) et Lower Lows (LL), caractéristique d'une tendance baissière solide. Le cours a fortement chuté récemment puis marque un rebond vif autour des 63 000, soutenu par un volume en forte hausse, signal potentiel d’épuisement vendeur ou correction. La résistance majeure à court terme est à 67 000, qui a tenu plusieurs fois précédemment. En cas de dépassement de ce niveau avec confirmation, on pourra envisager un changement de biais vers une structure plus neutre ou haussière (Higher High). L'invalidation de ce scénario serait une nouvelle cassure baissière sous 62 000.\n\nC) DeskPro  \n{\"run_id\":\"run_0001\",\"charts\":[{\"slot\":\"single",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-58-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_23-58-34.png"
+  }
+}

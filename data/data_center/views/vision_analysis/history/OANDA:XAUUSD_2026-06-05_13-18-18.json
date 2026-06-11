@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_171831_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T13:18:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-18-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4330.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4340.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4420.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre rebond ou cassure support pour suivre la tendance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "plus haut > 4420 avec HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché du XAUUSD en nette pression vendeuse sur le court terme avec une baisse accélérée récente.  \n- Structure en tendance baissière 1h, succession de LH et LL marquée, absence de HL récent.  \n- Zone de support à surveiller proche de 4330-4340, potentielle zone de rebond ou de consolidation.  \n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \n- Bias : Baissier  \n- Structure : Succession de Lower Highs (LH) et Lower Lows (LL) confirmée, tendance clairement baissière.  \n- Supports : Zone clé vers 4330-4340 USD, support psychologique important.  \n- Résistances : 4400-4420 USD (anciens points de bascule entre phases de rebond et retours vendeurs).  \n- Plan : Attendre confirmation sur le support avant d’envisager un rebond technique, sinon poursuite du mouvement baissier.  \n- Invalidation : Passage au-dessus des 4420 USD avec structure de HL formée invaliderait la tendance baissière court terme.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \n- Impossible de",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-18-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_13-18-03.png"
+  }
+}

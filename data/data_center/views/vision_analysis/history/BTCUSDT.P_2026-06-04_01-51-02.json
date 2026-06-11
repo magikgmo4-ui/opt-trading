@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_055117_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T01:51:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_01-51-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rebond en résistance ou breakout support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break au-dessus 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "observer pour clarifier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement critiques",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d'entrée sans setup clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Fort momentum baissier global visible avec une série d’HH/HL dégradée vers LH/LL sur le graphique principal (1h BTC/USDT).  \n- Volumes en nette augmentation lors des phases de baisse prononcée, signalant une pression vendeuse dominante.  \n- Petite réaction haussière récente possible mais à confirmer, zones clés à surveiller pour invalidation.\n\nB) Chart 1 (haut-gauche): BTC/USDT 1h  \nTendance baissière claire avec structure en Lower Highs / Lower Lows (LH/LL) bien dessinée.  \nZones clés : support vers 63 000 USDT, résistance vers 65 000 USDT.  \nScénario principal : continuation de la baisse tant que la résistance n’est pas franchie.  \nPlan : chercher entrée short sur rebond en résistance ou breakout support.  \nInvalidation : franchissement marqué au-dessus de 65 000 USDT avec volume.\n\nC) Chart 2 (haut-droit): symbole/timeframe inconnu  \nTendance difficile à définir précisément, structure peu lisible.  \nSupports et résistances non identifiables clairement.  \nScénario",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_01-51-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_01-50-55.png"
+  }
+}

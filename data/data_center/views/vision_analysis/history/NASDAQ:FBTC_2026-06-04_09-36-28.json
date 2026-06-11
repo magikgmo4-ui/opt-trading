@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_133635_NASDAQ:FBTC_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:FBTC",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:36:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-36-28",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Pas d’analyse possible, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas applicable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le symbole NASDAQ:FBTC est invalide ou inexistant.  \n- Aucun graphique ni données disponibles pour analyse.  \n- Impossible de déterminer tendance, structure ou zones clés.  \n\nB) Chart unique (NASDAQ:FBTC 1h): Symbole invalide, pas de données affichées.  \n\nC) DeskPro  \n{\"run_id\":\"202406\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"Pas d’analyse possible, symbole invalide\",\"invalidation\":\"Pas applicable\"}]}",
+  "symbols_found": [
+    "NASDAQ:FBTC"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-36-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:FBTC_1h_2026-06-04_09-36-14.png"
+  }
+}

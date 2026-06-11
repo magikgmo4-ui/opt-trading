@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_215751_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T17:57:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-57-43",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure support pour continuation baissière ou rebond technique",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage au-dessus 66 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence dominante d’une tendance baissière sur le premier graphique (BTCUSDT 1h).  \n- Volatilité et volume en forte hausse sur les replis récents, signe d’une potentielle zone de support.  \n- Analyse impossible pour les autres graphiques (symbole/timeframe non lisibles).\n\nB) Chart 1 (haut-gauche):  \n- Tendance baissière claire avec structure en LH (Lower High) et LL (Lower Low) sur le timeframe 1h.  \n- Zone clé de support proche de 62 000-63 000 USDT où le prix semble se stabiliser en volume.  \n- Résistance identifiée autour de 66 000 USDT, dernier point de rebond stoppé net.  \n- Scénario principal : attente d’une cassure claire en dessous du support pour suivi de la baisse ou rebond technique possible.  \n- Invalidation à la remontée au-dessus des 66 000 USDT validant un retournement structurel possible.\n\nC) Chart 2 (haut-droit): inconnu symbole/timeframe, analyse impossible.  \n\nD) Chart 3 (bas-gauche): inconnu symbole/timeframe, analyse impossible.  \n\nE) Chart 4 ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-57-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_17-57-30.png"
+  }
+}

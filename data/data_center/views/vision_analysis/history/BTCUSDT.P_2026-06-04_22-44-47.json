@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_024455_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:44:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-44-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous résistance ; surveiller rupture support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable > 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur le timeframe 1h avec une série de plus bas (LL) et plus bas relatifs (LH).  \n- Structure sans signe de retournement, les tentatives de rebond sont faibles et les résistances restent solides.  \n- Zone clé de support autour de 62 000 USDT à surveiller, zone de résistance majeure près de 64 500-65 000 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance dominante est baissière, marquée par une structure de type LL (Lower Lows) et LH (Lower Highs). Le prix tente quelques rebonds mais reste bloqué sous d’importantes résistances vers 64 500-65 000. Le support principal à court terme se situe autour de 62 000, en dessous duquel la chute pourrait s’accélérer. Le scénario prioritaire est une poursuite de la baisse tant que le prix ne dégage pas un HH (Higher High) clair au-dessus de 65 000. Invalidation du biais baissier en cas de franchissement durable au-dessus de cette résistance.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"b",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-44-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_22-44-35.png"
+  }
+}

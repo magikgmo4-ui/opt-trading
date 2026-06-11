@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_163939_TVC:DXY_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "TVC:DXY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T12:39:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-39-25",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 99.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 99.3,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 100.05,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur retracement vers support ou breakout continuation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 99.10",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’action sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’action sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre meilleure visibilité",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte poussée haussière brutale visible sur le DXY, signal potentiel de shift de sentiment macro.  \n- Plusieurs indices US majeurs en baisse nette, divergence marquée entre Dollar fort et actions faibles.  \n- Attention zones clés à identifier pour confirmation structurelle avant prise de position.\n\nB) Chart 1 (haut-gauche) :  \nSymbole : DXY, Timeframe : 1h  \nTendance dominante : haussière nette sur dernière séquence avec forte impulsion.  \nStructure : formée de HH/HL avant la cassure brutale, confirmant départ d’une nouvelle jambe up.  \nZones clés : support vers 99.10-99.30 (anciens HL), résistance immédiate testée à 100.05+ (nouveau sommet)  \nScénario : continuation de la hausse probable si maintien au-dessus de 99.30. Possibilité de retracement technique si rejet sous 100.05.  \nInvalidation : repli durable sous 99.10 invaliderait la structure haussière.\n\nC) Chart 2 (haut-droit) :  \nSymbole/timeframe inconnu (non lisible sur l'image)  \nTendance & structure : non d",
+  "symbols_found": [
+    "TVC:DXY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-39-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_12-39-10.png"
+  }
+}

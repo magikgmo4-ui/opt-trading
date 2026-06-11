@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_123006_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T08:30:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-29-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre en échec de rebond sur résistance, viser retour support 1550 ou cassure pour direction baissière prolongée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 4h stable au-dessus de 1625",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec une série de plus bas et plus bas (LL/LL).  \n- Structure clairement orientée à la baisse avec absence de retour haussier significatif.  \n- Zones clés détectées autour de 1550 en support et 1600-1625 en résistance récente.  \n\nB) Chart unique (ETHUSDT.P 1h): La paire évolue dans une tendance baissière forte depuis plusieurs jours, marquée par des plus bas (LL) et plus hauts (LH) descendants. Le price action montre une tentative de rebond vers la zone 1600-1625, qui tient pour l’instant de résistance solide. Le support sur la zone 1550 semble stabiliser temporairement le prix, mais la pression vendeuse reste dominante. Un passage sous 1550 confirmerait la poursuite de la baisse avec potentiellement un nouveau support plus bas à chercher.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1550\"],\"resistances\":[\"1600\",\"1625\"],\"plan\":\"Vendre en échec de rebond sur résistance",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-29-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_08-29-49.png"
+  }
+}

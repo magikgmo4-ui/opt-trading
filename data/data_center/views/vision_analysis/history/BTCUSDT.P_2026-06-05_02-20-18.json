@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_062029_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T02:20:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-20-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur rejet résistance 64000, viser support 61500 puis 61000. Stop au-dessus de 64000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break > 64000 avec HV",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière avec une succession de Lower High (LH) et Lower Low (LL).\n- Rejets confirmés sur les zones proches de 64 000 USDT, résistance clé intacte.\n- Volume en forte augmentation sur les dernières bougies baissières, appui sur un support vers 61 500 USDT.\n\nB) Chart unique (BTCUSDT.P 15m)\nLe marché montre une structure baissière bien définie avec des sommets et creux de plus en plus bas. Le prix a tenté une remontée vers 64 000 USDT mais a été rejeté net, indiquant une forte pression vendeuse aux résistances. La zone de 61 500 USDT semble jouer un rôle de support court terme, mais le risque d’une poursuite vers 60 000 USDT est à surveiller si ce support cède. Le scénario prioritaire reste la continuation baissière tant que la résistance à 64 000 USDT n’est pas franchie. Invalidation du scénario si le prix établit un Higher High au-dessus de 64 000 USDT.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supp",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-20-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_02-20-10.png"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_9385_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "WhaleTank",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2026-06-05T13:34:27+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "pair": "BTCUSDT",
+  "direction": "SHORT",
+  "entry_price": null,
+  "sl": null,
+  "tp": 200.0,
+  "tps": [
+    200.0,
+    9.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "#BTCUSDT.P 1W Chart\nPrice has broken below the ascending channel and continues to respect the bearish flag structure. The 59.8K swing low remains unswept, making it a likely target before a meaningful reversal can develop. Below current price, multiple major support levels converge with the 200-week moving average, a level that has historically provided strong support during previous Bitcoin market crashes. In addition, a potential bullish SMT-style divergence is beginning to form on the RSI, similar to the setup seen near the 2022 market bottom. Given the current volatility and highly unpredictable market conditions, no trades should be taken until a short-term relief rally or clear confirmation emerges.\n\nhttps://www.tradingview.com/x/Ag9I4azu/",
+  "summary": "BTC SHORT"
+}

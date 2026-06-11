@@ -1,0 +1,19 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "test_dry_run_001",
+  "symbol": "BTCUSDT",
+  "timeframe": "15m",
+  "analysis_ts": "2026-05-31T02:29:25Z",
+  "source_module": "bot_vision_headless_poc",
+  "freshness_state": "fresh",
+  "signals": [
+    {
+      "type": "trend_direction",
+      "value": "neutral",
+      "confidence": 0.5,
+      "note": "Dry run — no analysis performed"
+    }
+  ],
+  "raw_analysis": "(dry run)",
+  "image_ref": "modules/bot_vision/headless_capture/capture_headless.js"
+}

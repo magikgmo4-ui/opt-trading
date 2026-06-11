@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_215100_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T17:50:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-50-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "support à 64"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "support à 64"
+    },
+    {
+      "type": "support_level",
+      "value": 74.0,
+      "confidence": 0.7,
+      "note": "s 74"
+    },
+    {
+      "type": "support_level",
+      "value": 67.0,
+      "confidence": 0.7,
+      "note": "s 67"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s 64"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "support à 64"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s 64"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de Lower High (LH) et Lower Low (LL).  \n- Structure récente d’effondrement marqué autour de 72k-67k, suivi d’une tentative de rebond modéré sur zone de support à 64k.  \n- Risque élevé de poursuite baissière si le support à 64k est brisé, invalidation du rebond actuel en cas de retour sous ce seuil.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre clairement une tendance baissière avec succession de LH et LL. Le prix a chuté fortement depuis 74k jusqu’à un minimum proche de 64k, zone clé de support. Volumes en hausse lors des baisses indiquent une pression vendeuse forte. Le rebond actuel semble faible et pourrait être une simple correction avant reprise de la baisse. Résistance immédiate vers 67k-68k, support majeur vers 64k. Le scénario dominant reste baissier tant que 67-68k n’est pas franchi avec conviction.\n\nC) DeskPro  \n{\"run_id\":\"20240604_2150\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":[\"LH\",\"LL\"],\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-50-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_17-50-45.png"
+  }
+}

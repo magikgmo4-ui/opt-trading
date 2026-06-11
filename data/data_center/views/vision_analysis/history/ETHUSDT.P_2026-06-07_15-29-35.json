@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_192943_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T15:29:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-29-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1645.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur support 1600 si maintien, viser 1645-1650, envisager vente si rejet confirmé en zone résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte ferme du support 1600 en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Après une forte chute initiale, ETHUSDT a amorcé une reprise marquée par une série de HH et HL.  \n- La structure actuelle est haussière à moyen terme, malgré la baisse récente qui pourrait signaler un retracement.  \n- Zones clés identifiées autour de 1600 (support) et 1645 (résistance) pour les prochains scénarios.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nTendance récente haussière confirmée par une structure HL/HH. La chute initiale a clairement formé un bottom autour de 1520, suivi d’un rebond. La récente fracturation sous une zone de support partielle vers 1600 pourrait annoncer une première alerte de retour baissier. Une invalidation du scénario haussier sera confirmée si le niveau des 1600 est franchi à la baisse en clôture 15m. Un nouveau test des résistances 1645-1650 pourrait offrir une opportunité de vente à la confirmation d’un rejet. En l’absence d’invalidation, le biais reste haussier avec une attente d’un nouveau HH au-dessus de 1650.  \n\nC) DeskPro  \n{\"ru",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-29-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_15-29-26.png"
+  }
+}

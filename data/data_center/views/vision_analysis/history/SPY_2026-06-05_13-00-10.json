@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_170020_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T13:00:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-00-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 742.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller support 740-742 pour rebond; achat si confirmation haussière; short si cassure support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "> 742 en clôture pour scénario baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière de fond avec une structure de HH et HL antérieurs bien formée.  \n- Correction nette en cours avec une cassure récente de HL vers le bas (structure LH).  \n- Zone de support possible vers 740/742, à surveiller pour un rebond ou poursuite baissière.  \n\nB) Chart unique (SPY 1h) :  \nLe graphique montre une tendance haussière claire matérialisée par des hauts plus hauts (HH) et des bas plus hauts (HL) jusqu’au début de juin. Récemment, on observe une cassure de structure haussière (plus bas plus bas - LB), indiquant un possible retournement ou une correction plus profonde. La zone clé de support à 740/742 est critique : un rebond ici confirmerait une continuation du range haussier, en revanche une cassure en clôture sous ce niveau activerait un scénario baissier vers 732 et possiblement plus bas. La résistance majeure se situe autour du dernier plus haut vers 760. Plan d’action : surveiller la réaction sur support 740-742, prendre position acheteuse en",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-00-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-05_12-59-58.png"
+  }
+}

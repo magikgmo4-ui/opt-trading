@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_003750_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T20:37:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_20-37-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 70.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 72.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 75.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond proche résistance 72.00 avec objectif proche support 70.00. Achat limité après rebond confirmé au-dessus de 72.00.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable au-dessus de 75.00 invaliderait la tendance baissière court terme.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec multiples tentatives de rebond formant des Lower Highs, mais sans inversion confirmée.  \n- Zone clé de support autour de 70.00 à surveiller pour scénario de rebond ou rupture baissière.\n\nB) Chart unique (SOLUSDT.P 15m): La paire évolue dans une dynamique baissière nette. La structure montre des phases de retracement qui échouent à former des HH, confirmant la dominance des vendeurs (Lower Highs et Lower Lows). Un support important se situe sur la zone 70.00; une cassure en clôture sous ce niveau pourrait accélérer la pression vendeuse. En revanche, un rebond solide au-dessus de 71.50/72.00 remettrait en question la continuité baissière et pourrait ouvrir un potentiel de correction. Volume en légère hausse lors des baisses, confirmant la force vendeuse.\n\nC) DeskPro {\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH-LL\",\"su",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_20-37-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-03_20-37-35.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_025846_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T22:58:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-58-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1730.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1790.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 1730-1740, vente sous résistance 1780-1790, possible retournement en cas de breakout à la hausse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 1725",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m, avec une série de lower lows (LL) et lower highs (LH).  \n- Structure baissière confirmée avec rebonds ponctuels marquant des résistances dynamiques.  \n- Zone clé support vers 1730-1740, tentative de rebond en cours mais sous pression.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance dominante est baissière, confirmée par une succession de LL et LH nets. Les supports majeurs se situent autour de 1730-1740, où un rebond est observé mais le prix reste sous la résistance récente vers 1780-1790. Un retour sous le support invaliderait le scénario de rebond et pourrait entraîner une accélération baissière. Le plan est de surveiller un éventuel franchissement des résistances sur 1780-1790 pour valider un retournement, sinon rester vendeur sous ce niveau. L'invalidation se situe sous 1725.  \n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"1730\",\"1740\"],\"resistances\":[\"1780\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-58-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_22-58-31.png"
+  }
+}

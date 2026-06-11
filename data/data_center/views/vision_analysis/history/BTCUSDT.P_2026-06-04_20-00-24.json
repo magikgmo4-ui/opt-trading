@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_000035_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T20:00:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-00-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 62000 pour vente proche résistance 65000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement 66500 à la hausse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- La tendance principale est baissière claire sur la majorité des graphiques.\n- Structures marquées par des bas plus bas (LL) et des hauts plus bas (LH).\n- Zones clés proches pour des rebonds ou continuation, importance du suivi des supports immédiats.\n\nB) Chart 1 (haut-gauche):\nBTCUSDT.P 1h, tendance baissière nette avec structure LH/LL.\nS/R courts termes vers 62 000 (support récent) et 65 000 (résistance).\nScénario majoritaire: retracement possible vers résistance à 65 000, suivi d’une reprise du mouvement baissier.\nInvalidation en cas de franchissement clair à la hausse de 66 500, signalant un renversement potentiel.\n\nC) Chart 2 (haut-droit): inconnu (non visible)\n\nD) Chart 3 (bas-gauche): inconnu (non visible)\n\nE) Chart 4 (bas-droit): inconnu (non visible)\n\nF) DeskPro \n{\"run_id\":\"2024-06-05-001\",\"charts\":[{\"slot\":\"1\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"62000\"],\"resistances\":[\"65000\"],\"plan\":\"Surveiller rebond sur 62000 pour vente proche résistance 650",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-00-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_20-00-12.png"
+  }
+}

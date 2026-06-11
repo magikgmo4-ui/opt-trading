@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_134308_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T09:43:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_09-42-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4520.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond local ou cassure 4380 avec stop au-dessus de 4440",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus 4440",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière marquée par une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en dégradation nette avec cassure récente d’un support clé vers 4 400 USD.  \n- Scénario bearish dominant à court terme avec risque d’accélération baissière si 4 380 USD est franchi.  \n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLe graphique révèle une claire tendance baissière au timeframe 1h, caractérisée par une série de LH/LL depuis fin mai. La zone autour de 4 520-4 530 USD a joué le rôle de résistance majeure. Le prix a récemment cassé le support vers 4 400 USD avec un fort volume, validant la pression vendeuse. Prochain support visible vers 4 380 USD qui sera la zone clé d’invalidation du scénario baissier actuel. En cas de rebond technique, une résistance intermédiaire à 4 440-4 450 USD peut limiter la reprise. Le setup favorise une continuation à la baisse tant que 4 380 USD ne tient pas.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bea",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_09-42-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_09-42-44.png"
+  }
+}

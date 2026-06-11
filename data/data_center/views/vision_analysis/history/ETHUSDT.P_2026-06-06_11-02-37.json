@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_150248_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T11:02:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-02-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher vente sous 1530 en cas de rupture, sinon opportunité d'achat en range entre 1530 et 1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement de la résistance 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 15m avec une série de LL (Lower Lows) et LH (Lower Highs) confirmés.  \n- Structure latéralisante en fin de graphique, possible formation d'une base avant prochaine impulsion.  \n- Zones clés : support majeur vers 1530$, résistance à 1580$, pivot à surveiller pour invalider la tendance baissière.  \n\nB) Chart unique (ETHUSDT.P 15m): La tendance est baissière avec une succession de Lower Highs (LH) et Lower Lows (LL). Un mini range de consolidation se forme autour des 1550$, indiquant une pause dans la chute. Le niveau de 1530$ constitue un support significatif, testé plusieurs fois, rendant potentielle une réaction haussière si ce support tient. La résistance à 1580$ agit comme barrière immédiate sur un rebond. Un franchissement clair au-dessus de 1580$ invaliderait le bearish. Le scénario principal reste donc une continuation de la baisse en dessous de 1530$, avec un possible rebond technique en cas de test.  \n\nC) DeskPro  \n{\"run_",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-02-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_11-02-27.png"
+  }
+}

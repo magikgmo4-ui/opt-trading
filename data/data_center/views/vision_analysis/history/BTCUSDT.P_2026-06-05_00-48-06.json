@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_044818_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:48:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-48-06",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sous 66k avec stop 66.5k, cible support 62k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cours > 66.5k",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucun",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucun",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucun",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Dominance claire d’une tendance baissière sur le BTCUSDT en 1h.\n- Structure de prix à majorité de Lower Highs (LH) et Lower Lows (LL), confirmant la pression vendeuse.\n- Présence de zones clés potentielles autour de 63k (support fragile) et 66k (résistance) à surveiller pour un retournement ou poursuite.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h\n- Tendance baissière nette, structure en série LH/LL.\n- Le prix a cassé plusieurs supports intermédiaires avec volume soutenu côté vente.\n- Zone clé support vers 62k-63k testée, possible tentative de rebond court terme.\n- Scénario principal : poursuite de la baisse si support 62k cassé, première résistance à 66k - invalidation haussière au dessus de 66.5k.\n- Planning de trading : vente sous 66k avec stop serré, prise de profits près des supports.\n\nC) Chart 2 (haut-droit) : symbol/timeframe inconnu\n- Impossible d’établir tendance ni structure par manque de lisibilité.\n- Pas de supports/résistances identifiables.\n- Aucun plan ni s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-48-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_00-47-59.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_144351_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T10:43:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-43-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente à l’échec sur résistance ou break support 1580 pour continuation baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1730 en UT 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte clairement baissière avec une série de HH/HL cassés, formant des LH puis LL.  \n- Zone de support récente vers 1580-1600 testée plusieurs fois, pourrait engendrer un rebond technique.  \n- Résistance majeure autour de 1700-1720 confirmée par plusieurs échecs de reprise.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLe graphique illustre une nette dominante baissière avec structure de baisse bien installée (LH et LL). Le prix a brutalisé un support important vers 1580 ce qui fragilise la tendance haussière à court terme. Volume en hausse lors des chutes indiquant la pression vendeuse. Rebond technique possible à court terme mais scénario confirmé baissier si support 1580 perdu en clôture. Rejet sur zones 1700-1720 syndrome d’un range baissier.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LH, LL\",\"supports\":[1580,1600],\"resistances\":[1700,1720],\"plan\":\"Vente à l’échec sur résistance ou break support 1580 pour continuati",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-43-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_10-43-31.png"
+  }
+}

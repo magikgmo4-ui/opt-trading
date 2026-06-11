@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_155526_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T11:55:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-55-13",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure support pour continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement hausse LH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "trade cassure range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour range après cassure",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation structure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure dernier plus haut",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre réaction support pour continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement plus hauts récents",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- La tendance dominante sur la période observée est baissière avec des impulsions nettes vers le bas.  \n- La structure montre une série de Lower Highs (LH) et Lower Lows (LL), confirmant la pression vendeuse.  \n- Zones clés proches à surveiller pour un potentiel rebond ou poursuite baissière.\n\nB) Chart 1 (haut-gauche):  \nSymbole inconnu, timeframe inconnu.  \nTendance clairement baissière avec un enchaînement de Lower Highs et Lower Lows.  \nStructure actuelle impeccable: LH/LL formés.  \nSupports clés à identifier aux récents creux locaux (non précisés par l’image).  \nRésistances autour des derniers sommets locaux marquant les Lower Highs.  \nScénario principal: poursuite de la baisse si support actuel cassé.  \nInvalidation: franchissement clair au-dessus des derniers Lower High.\n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe non lisibles.  \nTendance latérale avec oscillations entre supports et résistances marqués.  \nStructure mixte, pas de HH/HL ou LH/LL clairs.  \nSu",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-55-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_11-55-01.png"
+  }
+}

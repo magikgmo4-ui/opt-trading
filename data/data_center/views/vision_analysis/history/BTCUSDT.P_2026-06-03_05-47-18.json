@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_094735_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:47:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-47-18",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre breakout >780B ou cassure <700B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 700B pour haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché des cryptos hors BTC/ETH est en phase de range horizontal avec absence claire de tendance haussière ou baissière marquée.  \n- Plusieurs tests de zones clés (environ 700B support, 760-780B résistance) avec structure de bas de range (HL/HH local dans range).  \n- Scénario principal : attendre cassure claire hors range pour prendre position, invalidation sous 700B pour scénario haussier.  \n\nB) Chart 1 (haut-gauche): Crypto Total Market Cap Excl. BTC & ETH, quotidien  \n- Structure générale en range, avec support autour des 700B (plusieurs rebonds).  \n- Résistance clé sur 760-780B non validée (plusieurs échecs).  \n- Tendance neutre, structure HH/HL intermittente dans range.  \n- Plan : surveiller breakout clair au-dessus de 780B pour scenario haussier, ou cassure sous 700B pour scenario baissier.  \n- Invalidation haussière sous 700B.\n\nC) Chart 2 (haut-droit): Inconnu (symbole non lisible)  \n- Tendance : inconnu, graphique non lisible.  \n- Structure et zones clés",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-47-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_05-47-03.png"
+  }
+}

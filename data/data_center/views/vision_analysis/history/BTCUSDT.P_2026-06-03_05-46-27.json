@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_094639_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:46:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-46-27",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rejet support 2.2T pour test rebond, confirmer avant achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure durable sous 2.15T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes, pas de trade",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes, pas de trade",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes, pas de trade",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché total crypto montre une tendance baissière hebdomadaire après un sommet récent, avec une structure passant des hauts et bas haussiers à potentiellement baissiers.  \n- Importance d’identifier la zone support autour de 2.2T$, clé pour valider un rebond ou la continuation baissière.  \n- Scénario prudent conseillé : attendre une confirmation structurelle avant prise de position, invalidation sous 2.15T$.\n\nB) Chart 1 (haut-gauche) : Crypto Total Market Cap, Weekly  \n- Tendance dominante : baissière avec série de HL cassés en LH plus prononcés.  \n- Structure visible : derniers hauts plus bas (LH), derniers bas possiblement HL mais fragiles, fragile équilibre.  \n- Zones clés : résistance majeure vers 3.1-3.2T$ (ancien support devenu résistance), support critique autour de 2.2T$ (plus bas récent).  \n- Scénario : rejet possible au niveau support actuel, à surveiller un test de ce niveau pour rebond ou rupture.  \n- Invalidation : rupture claire durable sous 2.15T$ ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-46-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-03_05-46-17.png"
+  }
+}

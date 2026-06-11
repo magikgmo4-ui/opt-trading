@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_142313_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T10:23:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-22-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 1680 avec cible 1580-1600, stop si franchissement 1720",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair des 1720 en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur ce 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière confirmée par des résistances multiples entre 1680 et 1720, zones clés à surveiller.  \n- Volume en forte hausse sur les dernières chandelles baissières, renforçant la dynamique vendeuse.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa structure montre une dynamique baissière forte, avec une série de LH/LL, indiquant la pression vendeuse dominante. Deux zones de support clés vers 1580 et 1600 peuvent offrir un premier pallier de rebond, mais leur tenue est incertaine au vu des volumes. Résistances majeures identifiées vers 1680-1720, invalidant la tendance baissière en cas de franchissement clair. Le scénario prioritaire reste la continuation baissière, avec repli sous 1600 pour viser un nouveau plus bas. Invalidation si retour soutenu au-dessus de 1720.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"sup",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-22-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_10-22-52.png"
+  }
+}

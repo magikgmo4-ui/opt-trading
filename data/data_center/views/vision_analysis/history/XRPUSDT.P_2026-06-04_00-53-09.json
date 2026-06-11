@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_045318_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T00:53:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_00-53-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.22,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre breakout clair >1.22 ou retest support 1.15 pour position longue ou short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture <1.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière marquée par une série de LL et LH.\n- Rebond récent significatif mais pas encore de structure haussière confirmée (pas de HH).\n- Zone clé de résistance autour de 1.22 USDT, support important vers 1.15 USDT.\n\nB) Chart unique (XRPUSDT.P 15m): Le marché évolue en tendance baissière avec une succession claire de Lower Highs (LH) et Lower Lows (LL). Le prix a récemment rebondi fortement depuis un support vers 1.15, ce qui a créée une structure de retracement haussier sur le court terme. Toutefois, le dernier sommet autour de 1.22 fait office de résistance solide. Pour envisager un scénario haussier fiable, il faudra valider un break clair de ce niveau avec un Higher High. Invalidation si le prix retombe sous le récent bas à 1.15. En attendant, la stratégie privilégiée reste prudente avec une possible continuation baissière d’ici rupture ou rejet confirmé sur résistance.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"str",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_00-53-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_00-53-01.png"
+  }
+}

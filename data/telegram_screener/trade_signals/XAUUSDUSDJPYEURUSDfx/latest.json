@@ -1,0 +1,42 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_XAUUSDUSDJPYEURUSDfx_3102_2023-11-07T07:05:19+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "XAUUSDUSDJPYEURUSDfx",
+    "parsed_at": "2023-11-07T07:05:19+00:00",
+    "produced_at": "2026-06-11T10:00:14.082234+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 1974.0,
+    "sl": 1969.0,
+    "tp": 1976.0,
+    "tps": [
+      1976.0,
+      1979.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold buy now @ 1974-1971\n\nSl : 1969\n\nTp1 : 1976\nTp2 : 1979"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_XAUUSDUSDJPYEURUSDfx_3111_2023-11-07T08:20:15+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "XAUUSDUSDJPYEURUSDfx",
+    "parsed_at": "2023-11-07T08:20:15+00:00",
+    "produced_at": "2026-06-11T10:00:14.082560+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 1968.0,
+    "sl": 1963.0,
+    "tp": 1964.0,
+    "tps": [
+      1964.0,
+      1966.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell now @ 1968-1965\n\nSl : 1963\n\nTp1 : 1966\nTp2 : 1964"
+  }
+]

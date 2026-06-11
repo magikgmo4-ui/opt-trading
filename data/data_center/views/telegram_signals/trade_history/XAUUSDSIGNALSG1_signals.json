@@ -1,0 +1,118 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_XAUUSDSIGNALSG1_4979_2026-06-09T02:41:43+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "XAUUSDSIGNALSG1",
+    "parsed_at": "2026-06-09T02:41:43+00:00",
+    "produced_at": "2026-06-11T10:00:14.079802+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4333.0,
+    "sl": 4323.0,
+    "tp": 4323.0,
+    "tps": [
+      4323.0,
+      4336.0,
+      4339.0,
+      4342.0,
+      4345.0,
+      4348.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** BUY NOW 4333\n\nTP\u00b9\u00a0\u00a04336\nTP\u00b2\u00a0\u00a04339\nTP\u00b3\u00a0\u00a04342\nTP\u2074\u00a0 4345\nTP\u2075\u00a0 4348\nTP\u2076\u00a0 OpeN\n\nStop loss 4323**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_XAUUSDSIGNALSG1_5025_2026-06-10T03:15:06+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "XAUUSDSIGNALSG1",
+    "parsed_at": "2026-06-10T03:15:06+00:00",
+    "produced_at": "2026-06-11T10:00:14.080099+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4178.0,
+    "sl": 4.0,
+    "tp": 4161.0,
+    "tps": [
+      4161.0,
+      4164.0,
+      4167.0,
+      4170.0,
+      4173.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD** SELL** NOW 4178\n\nTP\u00b9\u00a0\u00a04173\nTP\u00b2\u00a0\u00a04170\nTP\u00b3\u00a0\u00a04167\nTP\u2074\u00a0 4164\nTP\u2075\u00a0 4161\nTP\u2076\u00a0 OpeN\n\nStop loss 4**188"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_XAUUSDSIGNALSG1_5030_2026-06-10T07:43:31+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "XAUUSDSIGNALSG1",
+    "parsed_at": "2026-06-10T07:43:31+00:00",
+    "produced_at": "2026-06-11T10:00:14.080261+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4150.0,
+    "sl": 4063.0,
+    "tp": 4063.0,
+    "tps": [
+      4063.0,
+      4130.0,
+      4135.0,
+      4140.0,
+      4145.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** SELL NOW 4150\n\nTP\u00b9\u00a0\u00a04145\nTP\u00b2\u00a0\u00a04140\nTP\u00b3\u00a0\u00a04135\nTP\u2074\u00a0 4130\nTP\u2075\u00a0 OpeN\n\nStop loss 4063**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_XAUUSDSIGNALSG1_5065_2026-06-10T22:49:38+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "XAUUSDSIGNALSG1",
+    "parsed_at": "2026-06-10T22:49:38+00:00",
+    "produced_at": "2026-06-11T10:00:14.080510+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4065.0,
+    "sl": 4078.0,
+    "tp": 4045.0,
+    "tps": [
+      4045.0,
+      4050.0,
+      4055.0,
+      4060.0,
+      4078.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** SELL NOW 4065\n\nTP\u00b9\u00a0\u00a04060\nTP\u00b2\u00a0\u00a04055\nTP\u00b3\u00a0\u00a04050\nTP\u2074\u00a0 4045\nTP\u2075\u00a0 OpeN\n\nStop loss 4078**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_XAUUSDSIGNALSG1_5075_2026-06-11T04:45:48+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "XAUUSDSIGNALSG1",
+    "parsed_at": "2026-06-11T04:45:48+00:00",
+    "produced_at": "2026-06-11T10:00:14.080770+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4080.0,
+    "sl": 4067.0,
+    "tp": 4067.0,
+    "tps": [
+      4067.0,
+      4085.0,
+      4090.0,
+      4095.0,
+      4100.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** BUY NOW 4080\n\nTP\u00b9\u00a0\u00a04085\nTP\u00b2\u00a0\u00a04090\nTP\u00b3\u00a0\u00a04095\nTP\u2074\u00a0 4100\nTP\u2075\u00a0 OpeN\n\nStop loss 4067**"
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_154018_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:40:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-40-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 36.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 38.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 40.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher rebond potentiel sur 36.00 avec risque de continuation baissière sous 35.80. Confirmation haussière si break 38.00.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture significative au-dessus de 38.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire de baisse avec des Lower Highs (LH) et Lower Lows (LL) établis régulièrement.  \n- Structure baissière renforcée par une rupture nette des supports précédents.  \n- Possible rebond technique sur support mineur autour de 36.00 USD, mais scénario haussier invalidé sous 35.80 USD.  \n\nB) Chart unique (NASDAQ:IBIT 1h): La tendance dominante est baissière, marquée par une succession de tops et creux décroissants (LH/LL). L’action a cassé plusieurs zones de support clés vers 38.00 USD puis 37.00 USD, accentuant la pression vendeuse. Un support réactif semble se former autour de 36.00 USD avec un léger rebond actuel, qui pourrait offrir une opportunité de consolidation ou de pullback. Toutefois, la structure restera baissière tant que le prix ne franchira pas à la hausse les 38.00 USD (ancienne zone de résistance). Invalidation du scénario baissier en cas de regain au-dessus de 38.00 USD confirmé.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"sin",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-40-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-04_11-39-57.png"
+  }
+}

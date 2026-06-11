@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_075742_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T03:57:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_03-57-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 68.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 71.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 72.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond vers résistance ou cassure support à 68",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "dépassement clair de 72.5 maintien au-dessus",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière marquée par une succession de creux et sommets plus bas (LH/LL).\n- Structure sinueuse avec quelques rebonds temporaires, mais sans inversion de tendance confirmée.\n- Zones clés à surveiller : support proche vers 68.00 USD, résistance intermédiaire vers 71.50-72.00 USD.\n\nB) Chart unique (SOLUSDT.P 15m) : Structure baissière en LH/LL, tendance nette baissière. Support clé à 68.00 USD testé récemment avec rebond, résistance à 71.50-72.00 USD où les prix butent régulièrement. Scénario principal baissier, favoriser les ventes sur rebond ou cassure de support. Invalidation en cas de dépassement marqué de 72.50 USD avec maintien au-dessus. Volume en légère hausse sur les replis ce qui valide la pression vendeuse.\n\nC) DeskPro {\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[68],\"resistances\":[71.5,72],\"plan\":\"vendre sur rebond vers résistance ou cassure support à 68\",\"invalidation\":\"dépassement clair de ",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_03-57-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_03-57-25.png"
+  }
+}

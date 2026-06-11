@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_224031_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T18:38:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-38-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.0,
+      "confidence": 0.7,
+      "note": "s 1"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile en phase de consolidation récente autour de 1 750-1 800 USD, zone de support provisoire.  \n- Scénario privilégié : poursuite de la baisse sous 1 740 USD, invalidation possible au-dessus de 1 810 USD.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance est clairement baissière avec des structures de type LH/LL confirmées. La force vendeuse a repris début juin, poussant le prix vers des plus bas locaux. Une zone clé de support se situe entre 1 740 et 1 750 USD où le prix consolide. La résistance immédiate est autour de 1 800-1 810 USD. Une cassure sous le support actuel pourrait relancer la baisse vers des niveaux plus bas, tandis qu’une rupture à la hausse invaliderait le biais baissier court terme.  \n\nC) DeskPro  \n{\"run_id\":\"20240604-01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1740,1750],\"resistances\":[1800",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-38-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_18-38-45.png"
+  }
+}

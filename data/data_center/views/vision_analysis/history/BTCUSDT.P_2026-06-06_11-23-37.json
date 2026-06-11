@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_152346_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T11:23:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-23-37",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 60k. Vendre à la confirmation de nouvelle baisse. Achat si breakout 62,500 confirmé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable au-dessus de 62,500.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données claires.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données claires.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible sans données claires.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Fort mouvement baissier sur l’actif inconnu, tendance dominante baissière consolidée sur 1h.  \n- Structure claire de Lower Highs (LH) et Lower Lows (LL), signalant une pression vendeuse constante.  \n- Zone de support à court terme proche des 60 000, résistance proche de 62 000, breakout nécessaire pour renverser la tendance.\n\nB) Chart 1 (haut-gauche):  \nTendance : Baissière sur 1h avec fortes chandelles rouges, absence de pullback significatif.  \nStructure : Succession de LH et LL bien marquée, indiquant une dynamique baissière solide.  \nZones clés : Support majeur entre 60 000-60 350, résistance à 62 000-62 500.  \nScénario : Rebond possible sur support à 60k, mais pression vendeuse encore dominante. Un franchissement clair des 62k invaliderait ce biais baissier court terme.  \nInvalidation : Clôture au-dessus des 62 500 confirme potentielle reprise haussière.  \n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe : Inconnu (graphique non lisible de l’image fournie).  \n",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-23-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_11-23-28.png"
+  }
+}

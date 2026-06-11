@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_214638_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T17:46:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-46-28",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 62800-63000 USDT pour potentielle continuation baissière. Entrée short à la cassure confirmée du support. Stop loss au-dessus de 64400, zone résistance clé à franchir pou",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement et clôture au-dessus de 64400 avec structure HH (Higher High)",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 15m avec une structure de creux et sommets plus bas (LL/LH).  \n- Zone de support temporaire vers 62 800-63 000 USDT, testée plusieurs fois sans cassure nette.  \n- Résistance clé autour de 64 400 USDT, nécessaire à franchir pour invalider la pression vendeuse.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nLe graphique montre une tendance baissière claire avec des Lower Highs (HL) et Lower Lows (LL), confirmant la structure baissière. La paire semble consolider autour d’un support intermédiaire 62 800-63 000 USDT, qui retient les prix mais pourrait casser à la baisse si la pression persiste. Une zone de résistance lourde se situe à 64 400 USDT, qui fait actuellement barrière aux tentatives de rebond. Le scénario principal reste donc la poursuite de la baisse sous réserve de casse du support actuel. Une invalidation est envisagée en cas de franchissement clair des 64 400 USDT avec des Higher Highs qui repasseraient.\n\nC) DeskPro  \n{\"run",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-46-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_17-46-15.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_132432_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T09:24:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-24-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rejet résistance 1780-1800, stop above 1805 / buy si cassure et retest valide au-dessus 1800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "trade bullish si HH au-dessus 1800 confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 15m, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure actuelle montre une reprise haussière mineure récente, potentiellement un retracement, après un plus bas récent.  \n- Zone clé support vers 1720-1740, résistance probable autour de 1780-1800, à surveiller pour scénario de continuation baissière ou rupture.\n\nB) Chart unique (ETHUSDT.P 15m):  \nTendance : Baissière dominante  \nStructure : Plusieurs LH et LL, tentative de HL partiel sur le dernier rebond  \nSupports : 1740 (plus bas récent), 1720 (zone de volume important)  \nRésistances : 1780-1800 (plusieurs sommets intermédiaires)  \nPlan : Vendre à proximité de la résistance 1780-1800 si la baisse reprend, stop loss au-dessus de 1805. Alternative : achat si cassure et retest valide au-dessus de 1800.  \nInvalidation : Passer en bullish si prix s’installe durablement au-dessus de 1800 avec HH confirmé.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"singl",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-24-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_09-24-13.png"
+  }
+}

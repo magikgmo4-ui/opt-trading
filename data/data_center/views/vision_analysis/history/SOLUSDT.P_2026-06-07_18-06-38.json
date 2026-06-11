@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_220647_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T18:06:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-06-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Achat sur rebond support 61.50-62.00.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure sous 61.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intermédiaire haussière avec structure de HH/HL bien visible depuis le creux vers 61.  \n- Zones clés de support autour de 61.50-62.00 et de résistance majeure vers 66.50-67.00.  \n- Scénario actionnable à l’achat sur rebond proche support, avec invalidation en dessous des 61.50.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLe graphique présente une tendance haussière nette depuis le rebond autour de 61, avec une série de creux plus hauts (HL) et de sommets plus hauts (HH). La zone de support clé se situe entre 61.50 et 62.00, où le prix a clairement marqué un pivot. En face, la résistance principale est observée vers 66.50-67.00, niveau testé plusieurs fois sans rupture franche. Le prix est actuellement en phase de consolidation après un rejet sur la résistance haute, ce qui suggère un potentiel rebond à moyen terme. Un invalidation du scénario haussier serait une cassure nette sous 61.50, point support à protéger. Le plan est donc d’acheter sur retracement vers le ",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-06-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-07_18-06-30.png"
+  }
+}

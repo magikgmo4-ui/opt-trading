@@ -1,0 +1,25 @@
+[
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "cryptoquant_official",
+    "role": "FUNDING_OI_ALERT",
+    "messages_total": 20,
+    "parsed_count": 20,
+    "claims_count": 0,
+    "needs_review_count": 12,
+    "unknown_raw_count": 0,
+    "noise_count": 8,
+    "dominant_message_types": [
+      "NEWS_CATALYST",
+      "NOISE"
+    ],
+    "avg_parser_score": 0.54,
+    "supported_formats": [
+      "NEWS_CATALYST",
+      "NOISE"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  }
+]

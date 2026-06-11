@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_090511_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T05:05:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-05-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1660.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1675.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous résistance 1660-1675, cible 1500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1675",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le timeframe 1h avec une succession de creux et sommets plus bas (LL/LH).\n- Structure baissière dominante, le marché reste sous pression vendeuse malgré une tentative de rebond récent.\n- Zones clés à surveiller : résistance autour de 1 660-1 675 USD, support vers 1 500 USD.\n\nB) Chart unique (ETHUSDT.P 1h) : \nLa structure révèle des lower highs et lower lows, validant une dynamique bearish. Après un fort mouvement descendant, un rebond local tente de se construire vers 1 590-1 600 USD. Cette reprise est à considérer comme un pullback. Scénario principal : poursuite de la baisse sous 1 660 USD (ancienne zone de support récente transformée en résistance). Invalidation si les prix dépassent clairement 1 675 USD avec volumes, ce qui pourrait indiquer un changement de structure haussière. Support solide en zone 1 500 USD en cas de nouvelle pression vendeuse.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-05-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_05-04-54.png"
+  }
+}

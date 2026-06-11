@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_17320_20260611T090008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "GolddExpert",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-08T13:50:57+00:00",
+  "produced_at": "2026-06-11T09:00:08.542296+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": null,
+  "sl": null,
+  "tp": 2.0,
+  "tps": [
+    2.0,
+    2.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**#XAUUSD**** ****#GOLD**** SELL 90+ PIPS PROFIT DONE \nCheck here accuracy  WOOHOO****\u2705****\u2705****\u2705****\u2705****\u2705****\n ENJOY PROFITS \nTP 2 HIT \ud83c\udfaf \ud83c\udfaf ****\ud83d\udd25****\ud83d\udd25****\ud83d\udca5****\ud83d\udca5****\ud83d\udca5****\ud83d\udca5****\nSTAY TUNED**",
+  "summary": "XAUUSD SHORT"
+}

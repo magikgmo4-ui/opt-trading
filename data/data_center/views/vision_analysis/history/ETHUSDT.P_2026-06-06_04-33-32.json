@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_083341_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T04:33:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-33-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short si rejet sur résistance 1600-1620, cible support 1520-1540",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture en H15 au-dessus de 1620",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ce 15m avec une série de LH (Lower Highs) et LL (Lower Lows).  \n- Structure de retournement encore incertaine, tentative de rebond visible mais pas de HH formé à ce stade.  \n- Zones clés à surveiller : support autour de 1520-1540, résistance immédiate vers 1600-1620.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe prix évolue dans une tendance baissière marquée, avec une succession de creux et sommets décalés à la baisse (LH/LL). Après un plus bas proche de 1520, un rebond technique a lieu, mais pas encore validé par un nouveau HH. La résistance autour de 1600 reste un obstacle important pour un éventuel changement de tendance. Le volume confirme l’intensité des mouvements baissiers précédents et un regain d’intérêt sur le rebond. Scénario privilégié : poursuite baissière si prix ne franchit pas la zone 1600-1620 rapidement, invalidation au-delà.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH-LH-LL\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-33-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_04-33-24.png"
+  }
+}

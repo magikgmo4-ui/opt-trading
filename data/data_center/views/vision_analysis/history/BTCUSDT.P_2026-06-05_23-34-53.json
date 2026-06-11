@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_033507_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T23:35:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-34-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur cassure 60000 avec stop au-dessus de 61600. Long idem inverse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire et stable au-dessus de 61600.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragile, récente tentative de rebond stoppée sous un plus haut local, signalant potentielle continuation du downtrend.\n- Zone clé support proche de 60 000 USDT à surveiller pour réaction; invalidation en cas de breakout haute > 61 600 USDT.\n\nB) Chart unique (BTCUSDT.P 15m): La paire évolue dans un canal descendant marqué par des LH/LL. Après un rebond significatif depuis un point bas vers 58 800, le prix fait face à une résistance vers 61 600 (dernier HH rejeté). Le niveau 60 000 agit comme support immédiat. La dynamique des volumes accentue la pression vendeuse. Notre scénario privilégie une reprise de la tendance baissière si le support casse. En revanche, un retour durable au-dessus de 61 600 invaliderait ce scénario et pourrait indiquer une correction plus large voire un changement de phase.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-34-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_23-34-46.png"
+  }
+}

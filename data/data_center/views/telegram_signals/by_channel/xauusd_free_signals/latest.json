@@ -1,0 +1,28 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "xauusd_free_signals",
+  "total": 2,
+  "signals": [
+    {
+      "id": "tg_1475_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 1910.0,
+      "sl": null,
+      "tp": null,
+      "confidence": "LOW",
+      "parsed_at": "2023-03-14T12:44:27+00:00"
+    },
+    {
+      "id": "tg_1453_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 1828.0,
+      "sl": 1820.0,
+      "tp": 1839.0,
+      "confidence": "LOW",
+      "parsed_at": "2023-03-07T14:52:37+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

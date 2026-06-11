@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_004945_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T20:49:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_20-49-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long si breakout 61,600, stop sous 60,700",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 59,800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière via une série de LH (Lower Highs) et LL (Lower Lows).  \n- Structure récente montre un retracement haussier avec un HL (Higher Low), signalant un possible rebond court terme.  \n- Zone clé support autour de 59,800 USDT supporte la reprise, résistance immédiate vers 61,600 USDT à surveiller.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nTendance : baissière globalement, avec un retracement haussier en cours.  \nStructure : LL + LH confirmés, dernièrement un HL sur le rebond.  \nSupports : 59,800 (zone de creux récent et volume élevé).  \nRésistances : 61,600 (plusieurs rejets), 62,800 (plus haut intermédiaire).  \nPlan : envisager une position longue si franchissement clair des 61,600 avec maintien, stop sous HL récent (~60,700).  \nInvalidation : rupture baissière sous 59,800 avec accélération baissière, retour dans tendance baissière confirmée.  \n\nC) DeskPro {\"run_id\":\"20240606_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond\",\"structure\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_20-49-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_20-49-27.png"
+  }
+}

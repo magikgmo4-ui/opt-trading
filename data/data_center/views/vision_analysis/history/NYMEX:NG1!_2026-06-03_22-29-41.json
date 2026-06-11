@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_022948_NYMEX:NG1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:29:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-29-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.25,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.35,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur cassure 3.250, viser 3.350 puis plus haut",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 3.150 avec confirmation",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h haussière récente avec une structure de prix en HH (plus haut) et HL (plus bas).\n- Zones clés importantes : support majeur autour de 3.150 et résistance autour de 3.350.\n- Scénario prioritaire : poursuite de la hausse si le prix casse 3.250 avec confirmation au-dessus de 3.350, invalidation en dessous de 3.150.\n\nB) Chart unique (NYMEX:NG1! 1h) :  \nLa tendance 1h montre des rebonds réguliers avec une série de HL clairs depuis le 27 mai, indiquant une dynamique haussière. Le prix a atteint un pic vers 3.350 (réserve de résistance) avant de subir un retracement vers 3.150 (support). Actuellement, le cours rebondit autour de 3.230-3.250, cherchant un catalyseur pour une nouvelle impulsion. Structure dominante : HH/HL, plafond du range à surveiller à 3.350. En cas de cassure claire au-dessus, continuation haussière probable. En cas de retour sous 3.150, risque de renversement baissier (LH/LL).\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"ha",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-29-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-03_22-29-27.png"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_061306_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T02:13:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-12-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1655.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1665.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien support 1610-1620 pour tentative hausse. Prendre position après confirmation franchissement 1670. En cas de cassure support 1610, envisager shorts.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perforation nette support 1610 invalide scénario haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme indécise avec structure oscillante entre points hauts et bas sans claire cassure.  \n- Structure récente de type HL suivie d’un LH, marquant absence de tendance haussière confirmée.  \n- Zones clés à surveiller : support prox. 1610-1620, résistance vers 1665-1670, à franchir pour dynamisme.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLa structure montre des mouvements en vagues avec des HH/HL partiels qui butent sur un plafond à 1665, puis retour à des LH/LL. Le prix a rebondi autour de 1615-1620 et teste actuellement une résistance intermédiaire vers 1655. Le volume est modéré, soutenant un potentiel scénario de range ou de consolidation avant choix de direction. Invalidation haussière si le support 1610 est perforé, scénario baissier en anticipation de nouveaux LL. En cas de breakout au-dessus de 1670, possibilité de reprise haussière plus nette.\n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre\",\"structure\":\"oscillante HH/HL pu",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-12-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-11_02-12-44.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_175113_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T13:51:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-51-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur cassure 1740 avec cible vers 1700. Long possible si rupture 1820 valide avec cible 1850+.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture stable >1820",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire depuis plusieurs sessions, avec une série de HH/HL cassée vers le bas, structure baissière installée (LH/LL).  \n- Zone support autour de 1740-1750 USDT testée plusieurs fois, agitation visible mais pas de rebond significatif à ce stade.  \n- Résistance majeure vers 1800-1820 USDT, une rupture claire au-dessus serait nécessaire pour invalider la tendance baissière dominante.  \n\nB) Chart unique (ETHUSDT.P 15m): Tendance baissière nette avec structure en LH/LL confirmée. Supports clés autour de 1740-1750 USDT, résistances à 1800-1820 USDT. Le scénario principal reste la poursuite de la baisse en cas de nouvelle cassure du support sous 1740. Invalidation du biais baissier au-dessus de 1820 USDT avec un retour possible vers 1850+.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1740\",\"1750\"],\"resistances\":[\"1800\",\"1820\"],\"plan\":\"Short sur cassure 1740 avec cible vers 1700. Long possible",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-51-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_13-50-56.png"
+  }
+}

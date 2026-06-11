@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_043014_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:28:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-28-37",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "chercher un rebond ou un setup short sur rejet de résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 1h ferme au-dessus de 1860",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de consolidation courte latérale observée avant poursuite de la chute.  \n- Zone clé support à 1700-1720, résistance majeure autour de 1840-1860.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une dominante tendance baissière marquée par des Lower Highs et Lower Lows successifs, confirmant une structure de marché baissière. Après une consolidation horizontale entre 1950 et 2000, la pression vendeuse s’est intensifiée avec une accélération des volumes à la baisse. Les supports majeurs se situent autour de 1700-1720 USD, zone à surveiller pour un possible rebond. Une cassure en dessous validerait la poursuite du bear market. A l’inverse, un retour au-dessus de la résistance 1840-1860 invaliderait le scénario baissier court terme et annoncerait une potentielle reprise haussière.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-28-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_00-28-30.png"
+  }
+}

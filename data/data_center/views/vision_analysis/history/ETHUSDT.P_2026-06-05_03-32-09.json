@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_073219_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T03:32:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-32-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Survente proche support, surveiller rebond vers résistance 1700. Stop sous 1640 pour minimiser risque.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus 1700 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire en 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure faiblement corrective dans les derniers bougies, possible rebond technique.  \n- Zone clé support actuelle vers 1640-1650 USDT à surveiller, résistance à 1700 USDT.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché montre une dynamique baissière nette avec une succession de creux et sommets décalés à la baisse (LH/LL). Le prix a subi une chute rapide et importante récemment, accompagné d’un pic de volume élevé, indiquant une forte pression vendeuse. Un rebond technique se forme proche de la zone 1640-1650 USDT, niveau à valider comme support. En cas de tenue, une correction vers 1700 USDT serait possible. Le scénario baissier sera invalidé si le prix dépasse nettement 1700 USDT avec volume.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1640\",\"1650\"],\"resistances\":[\"1700\"],\"plan\":\"Survente proche support, surv",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-32-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_03-32-01.png"
+  }
+}

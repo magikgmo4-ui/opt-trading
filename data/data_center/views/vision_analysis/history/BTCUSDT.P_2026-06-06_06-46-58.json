@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_104706_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T06:47:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-46-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59250.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short si cassure support 59250 confirmée, sinon observation rebond jusqu'à résistance 61500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 61500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une série de LH (Lower Highs) et LL (Lower Lows) bien marquées.  \n- Structure hésitante en fin de graphique, possible tentative de rebond suite à un creux près de 59 250.  \n- Zones clés à observer : support majeur vers 59 250 et résistance autour de 61 500, scénario baissier validé sous cette résistance.  \n\nB) Chart unique (BTCUSDT.P 15m): Tendance baissière claire avec structure en LH/LL. Le prix teste actuellement une zone proche de support important (~59 250). Si ce support casse, poursuite baissière probable. En cas de rebond, la résistance à 61 500 sera un niveau clé d’invalidation du scénario baissier.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[59250],\"resistances\":[61500],\"plan\":\"Short si cassure support 59250 confirmée, sinon observation rebond jusqu'à résistance 61500\",\"invalidation\":\"au-dessus de 61500\"}]}",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-46-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_06-46-47.png"
+  }
+}

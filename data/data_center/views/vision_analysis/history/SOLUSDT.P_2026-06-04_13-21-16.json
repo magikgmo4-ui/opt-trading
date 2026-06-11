@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_172124_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T13:21:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-21-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 68.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 69.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 71.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur rebonds à proximité de la résistance 71.00, stop au-dessus de 71.00. Acheter uniquement après formation HH/HL claire.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture 15m au-dessus de 71.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur ce timeframe 15m, avec une série de bas plus bas (LL) et hauts plus bas (LH).\n- Structure claire de baisse avec plusieurs rebonds correctifs, mais sans inversion solide.\n- Zone clé de support proche des 68.50-69.00, résistance vers 71.00.\n\nB) Chart unique (SOLUSDT.P 15m):\nOn observe une dominance baissière marquée avec des creux et sommets déclinants (LL/LH). Le dernier mouvement semble être un rebond technique sans franchissement d’un précédent sommet important autour de 71.00 qui fait résistance. Le seuil 68.50-69.00 sert de support à court terme, il est à surveiller pour validation ou rupture qui confirmera la poursuite de la baisse. Scénario privilégié : conserver un biais baissier en attendant une structure de retournement (HH/HL) claire pour envisager un achat. Invalidation du scénario baissier si le prix franchit durablement 71.00 en clôture 15m.\n\nC) DeskPro\n{\"run_id\":\"20240604-1721\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"str",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-21-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_13-21-04.png"
+  }
+}

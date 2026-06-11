@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_171631_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T13:16:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-16-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61250.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la cassure 60500 pour continuation baissière avec stop au-dessus de 61250",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette de 61250 entraînant un possible retour haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance de fond baissière confirmée par une série de LH (Lower Highs) et LL (Lower Lows) sur le timeframe 15m.  \n- Structure en range/basculement entre 60,500 (S) et 61,250 (R) sur les dernières chandelles, montrant une consolidation après chute.  \n- Scénario privilégié : continuation baissière en cas de cassure du support 60,500, avec invalidation du scénario baissier si franchissement clair de la résistance 61,250.  \n\nB) Chart unique (BTCUSDT.P 15m) :  \nLe graphique affiche une tendance baissière nette avec des points hauts de plus en plus bas (LH) et des points bas également décroissants (LL). Après une forte descente, le prix semble se stabiliser dans une zone de consolidation entre 60,500 et 61,250, oscillant dans un range étroit. Le volume est modéré, sans forte impulsion récente. La structure montre un basculement possible vers une reprise ou une continuation, à surveiller sur la cassure des zones clés.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"sin",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-16-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_13-16-13.png"
+  }
+}

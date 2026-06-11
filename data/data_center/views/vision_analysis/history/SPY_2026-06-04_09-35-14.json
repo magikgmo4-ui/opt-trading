@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_133530_SPY_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:35:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-35-14",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "acheter sur rebond support avec cible vers résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous 747",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le dashboard montre des tendances majoritairement haussières avec des structures de plus hauts et bas élevés (HH/HL) sur plusieurs timeframe.  \n- Plusieurs zones clés support et résistance sont identifiées, indiquant des points d’intérêt pour gestion du risque.  \n- Les opportunités d’entrée sont à privilégier sur rebonds en support ou cassures validées, avec une vigilance sur les invalidations potentielles.  \n\nB) Chart 1 (haut-gauche): SPY 1h  \n- Tendance dominante haussière avec structure en HH/HL claire.  \n- Prix proche d’un sommet récent, léger pullback visible.  \n- Zone support clé vers 747-750, zone résistance à 760-762.  \n- Scénario principal: continuation haussière après retracement, cible zone résistante.  \n- Invalidation en clôture sous 747, signalant possible retournement ou consolidation.  \n\nC) Chart 2 (haut-droit): symbole/timeframe inconnu  \n- Lecture impossible, informations de symbole/timeframe non visibles.  \n- Pas d’analyse fiable possible sans ces",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-35-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_09-35-03.png"
+  }
+}

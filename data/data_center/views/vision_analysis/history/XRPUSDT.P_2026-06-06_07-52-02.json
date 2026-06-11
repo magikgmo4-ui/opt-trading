@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_115214_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T07:52:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_07-52-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller rebond sur support 1.06, viser cassure 1.10 puis 1.14 pour scénario haussier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 1.05 pour continuation baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière clairement établie avec des bas et des hauts de plus en plus bas (LH/LL).\n- Structure en range en bas de graphique, avec un potentiel début de reprise si franchissement des résistances.\n- Zone clé support vers 1.05-1.06, résistances immédiates vers 1.10 puis 1.14.\n\nB) Chart unique (XRPUSDT.P 15m):\nLe marché montre une tendance baissière forte sur le timeframe 15m, avec des sommets (LH) et creux (LL) décroissants confirmant la pression vendeuse. Une consolidation/range se forme autour de 1.06-1.10, indiquant une possible latéralisation ou un rebond technique. La zone de support 1.05-1.06 a été testée plusieurs fois, renforçant sa validité. Un signal acheteur clair serait un franchissement net des résistances 1.10 et 1.14. L’invalidation du scénario haussier se ferait en cassure sous le dernier creux à 1.05, relançant la tendance baissière dominante.\n\nC) DeskPro {\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec range ",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_07-52-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_07-51-54.png"
+  }
+}

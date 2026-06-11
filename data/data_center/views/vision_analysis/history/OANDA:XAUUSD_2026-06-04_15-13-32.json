@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_191343_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T15:13:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_15-13-32",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sur break support 4430, long potentiel sur rebond vers resistance 4520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close au-dessus 4530",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "à affiner",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "à préciser",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Chaque graphique présente des tendances et structures distinctes, nécessitant une analyse spécifique par timeframe.  \n- Plusieurs zones clés (supports et résistances) identifiées, importantes pour définir les scénarios opérationnels.  \n- Les scénarios demeurent conditionnels à la validation ou invalidation des niveaux structuraux mentionnés.\n\nB) Chart 1 (haut-gauche) : XAUUSD 1h  \n- Tendance récente baissière avec structure en LL (Lower Low) et LH (Lower High).  \n- La zone résistance majeure se situe vers 4520/4530, support actuel autour de 4430/4440.  \n- Scénario : une rupture claire du support 4430 validerait un continuation baissière, tandis qu’un rebond vers 4520 ouvrirait un potentiel retour haussier.  \n- Invalidation : break clair au-dessus de 4530 avec volume pour changer de biais.\n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu  \n- Structure et tendance non identifiables clairement, données insuffisantes.  \n- Zones clés à définir dès que timeframe/symb",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_15-13-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_15-13-21.png"
+  }
+}

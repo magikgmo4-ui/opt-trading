@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_105612_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T06:56:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-56-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1575.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Achat zone 1575-1600 avec objectif 1640 puis 1700 à confirmer",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure sous 1575 avec bas plus bas",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente dominante baissière suivie d’une inversion vers une dynamique haussière depuis le creux autour de 1515.  \n- Structure en HH/HL se met en place sur le dernier segment avec des supports confirmés vers 1575 et 1600.  \n- Zone de résistance clé actuelle vers 1640, testée récemment, constitue le niveau à surveiller pour la poursuite du mouvement haussier.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une première forte chute des prix, créant une structure baissière (LL). Ensuite, le marché forme un dernier creux plus bas autour de 1515, suivi d’une succession de hauts et bas plus hauts (HH/HL) marquant un début de reprise haussière. Les supports à 1575 puis 1600 sont des points d’appui importants. La zone 1640 a été testée récemment sans franchissement net, indiquant une résistance à dépasser pour confirmer la poursuite haussière. L’invalidation du scénario haussier serait une cassure sous 1575 avec maintien baissier.\n\nC) DeskPro  \n{\"run_id\":\"0",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-56-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_06-55-55.png"
+  }
+}

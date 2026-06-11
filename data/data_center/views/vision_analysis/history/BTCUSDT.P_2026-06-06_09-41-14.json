@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_134129_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T09:41:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-41-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre pullback ou continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte pression vendeuse observée sur le chart principal (BTCUSDT 1h) avec une tendance baissière claire.  \n- Pas d’autres symboles/timeframes visibles, analyse concentrée sur ce graphique.  \n- Attention aux zones clés de support qui peuvent offrir un rebond ou une pause dans la chute.\n\nB) Chart 1 (haut-gauche): BTCUSDT, 1h  \nTendance baissière dominante sur la période analysée avec une structure en LH (Lower High) et LL (Lower Low). Le prix a cassé plusieurs supports clés vers 65000 et 62000, renforçant la dynamique vendeuse. Actuellement petite consolidation autour des 61000 - 60500, zone à surveiller comme support potentiel. Un retour au-dessus de 62000 invaliderait la poursuite baissière à court terme. Volume en augmentation sur les baisses, confirmation du biais vendeur. Scénario prioritaire: attendre un pullback ou une continuation vers de nouveaux creux. Invalidation: franchissement clair et durable des 62000.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole/timef",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-41-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_09-41-06.png"
+  }
+}

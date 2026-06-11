@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_010823_CRYPTOCAP:TOTAL_1w",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1w",
+  "analysis_ts": "2026-06-03T21:08:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-08-13",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sous résistance avec objectif 2.1T; long uniquement si rebond confirmé sur 2.1T",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture hebdo au-dessus de 3.0T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- La tendance long terme est baissière après un pic majeur marqué début 2025.\n- Structure montrant une alternance de lower highs et lower lows depuis ce sommet, confirmant la faiblesse.\n- Zone clé de support vers 2.1T USD, zone de résistance autour de 2.8-3.0T USD.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1w) : \nLe marché crypto global présente une structure baissière claire avec plusieurs lower highs (LH) et lower lows (LL) depuis le plus haut à environ 4.3T début 2025. Le prix est en phase de rechute vers une zone de support clé proche de 2.1T. Si ce support casse, cela invaliderait un potentiel rebond. La zone 2.8-3.0T agit désormais comme résistance majeure, interdisant toute dynamique haussière forte tant qu’elle tient. Volumes modérés, sans signe de retournement net à court terme. Scénario prioritaire : poursuite de la baisse avec invalidation sous 2.1T. Scénario alternatif : rebond à partir de ce support pour retourner chercher la résistance 2.8-3.0T. \n\nC) DeskPro \n{\"r",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-08-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-03_21-08-03.png"
+  }
+}

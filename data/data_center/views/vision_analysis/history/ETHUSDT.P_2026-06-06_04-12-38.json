@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_081246_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T04:12:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-12-38",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "achat sur cassure 1600 ou vente à rejet 1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cours > 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL) sur le timeframe 15m.  \n- Structure de rebond récent visible avec un HL local autour de 1520-1540 suivi d’un retour vers résistance à 1580-1600.  \n- Scénario actionnable : surveiller une cassure au-dessus de 1580-1600 pour un possible changement de dynamique haussière, sinon continuation baissière en cas de rejet.  \n\nB) Chart unique (ETHUSDT.P 15m):  \n- Tendance : Baissière  \n- Structure : LL/HL/LH récente indiquant un pullback dans la tendance.  \n- Supports clés : 1520-1540 (HL sur rebond)  \n- Résistances clés : 1580-1600 (zone de fort rejet)  \n- Plan d’action : Acheter sur cassure confirmée de 1600 ou vendre à rejet proche 1580 avec stop au-dessus.  \n- Invalidation : dépassement clair au-dessus de 1600 invalide le biais baissier court terme.  \n\nC) DeskPro  \n{\"run_id\":\"20240606-0812\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/HL/LH\",\"supports\":[\"1520-1540\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-12-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_04-12-30.png"
+  }
+}

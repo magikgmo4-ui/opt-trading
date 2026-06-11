@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_201631_CRYPTOCAP:TOTAL_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T16:16:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-16-18",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur résistance 2.3-2.5T, viser 2.0T, coupler avec suivi volume",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 2.5T en clôture",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire depuis le sommet annuel, avec une série de LH (Lower Highs) et LL (Lower Lows).  \n- Structure dégradée, la chute actuelle casse plusieurs supports intermédiaires importants autour de 2.5T.  \n- Zone clé à surveiller en support proche vers 2.0T, en dessous invalidation forte qui relancerait la tendance baissière.  \n\nB) Chart unique (CRYPTOCAP:TOTAL 1d):  \nLe marché du total crypto est en tendance baissière nette, caractérisée par une succession de HL cassés suivis de LL. Le dernier mouvement est une accélération baissière avec forte volumétrie. Les anciens supports autour de 2.5T ont été franchis en force, confirmant la faiblesse. Un support immédiat se trouve vers 2.0T, zone psychologique et technique. Un franchissement en clôture sous ce niveau renforcerait un scénario baissier prolongé. Le plan prioritaire serait donc de rester vendeur en retracements à résistance 2.3-2.5T, avec une invalidation en cas de retour au-dessus de cette zone.  ",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-16-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-05_16-16-03.png"
+  }
+}

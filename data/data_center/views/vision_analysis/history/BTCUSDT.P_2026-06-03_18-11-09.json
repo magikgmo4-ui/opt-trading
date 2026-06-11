@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_221118_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T18:11:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-11-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond proche résistance, chercher cassure support pour renforcer shorts",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 66800 avec HH confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de LL (Lower Lows) et LH (Lower Highs) marqués.  \n- La structure montre un enchaînement clair de rebonds faibles sans inversion.  \n- Zone clé de support vers 64,200 USDT, résistance proche autour de 66,800 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché montre une tendance baissière dominante confirmée par des plus bas (LL) et plus hauts (LH) descendants. Le dernier mouvement souligne une tentative de rebond vers 65,600 USDT, mais sans franchissement des résistances antérieures. Le volume accompagne les phases de baisse, montrant une pression vendeuse continue. La zone de support à 64,200 USDT est cruciale pour éviter une poursuite de la chute. Scénario privilégié: poursuite du downtrend si ce support est cassé. Invalidation du biais baissier en cas de passage net au-dessus de 66,800 USDT et formation de HH (Higher Highs).\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL-LH\",\"supp",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-11-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_18-10-57.png"
+  }
+}

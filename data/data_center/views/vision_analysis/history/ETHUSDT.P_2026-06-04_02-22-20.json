@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_062229_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T02:22:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-22-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1830.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher opportunité short sur rejet zone résistance 1820-1830, stop au-delà de 1830",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement net au-dessus de 1830 + HL confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure actuelle fragile avec tentative de rebond depuis un récent plus bas autour de 1740.  \n- Zone de résistance majeure identifiée vers 1820-1830, zone support à 1740-1750.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance dominante sur ce timeframe est baissière (LH/LL). Le prix est en chute progressive depuis un sommet proche de 2000 jusqu’à un creux vers 1740. Un rebond tente de se former mais reste faible, avec un plus haut local sous les précédents points hauts (LH). Les zones clés sont le support autour de 1740, important à tenir pour éviter une accélération baissière, et la résistance vers 1820-1830, zone à franchir pour un possible retournement haussier. Scénario principal court terme : pullback vers 1820-1830 avant potentielle reprise baissière. Invalidation en cas de franchissement clair au-dessus de 1830 avec structure HL sur 15m.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-22-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_02-22-12.png"
+  }
+}

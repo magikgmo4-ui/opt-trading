@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_093329_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:33:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-33-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 66.0,
+      "confidence": 0.7,
+      "note": "s 66"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67.0,
+      "confidence": 0.7,
+      "note": "résistance à 67"
+    },
+    {
+      "type": "resistance_level",
+      "value": 15.0,
+      "confidence": 0.7,
+      "note": "r 15"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67600.0,
+      "confidence": 0.7,
+      "note": "résistance 67600,"
+    },
+    {
+      "type": "price_target",
+      "value": 66400.0,
+      "confidence": 0.5,
+      "note": "target 66400"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Prévalence d’une tendance baissière sur la majorité des graphiques observés.  \n- Plusieurs zones clés de support testées ou à proximité, attention aux ruptures.  \n- Scénarios prudents privilégiés en attente de confirmation de structure haussière ou reprise claire.\n\nB) Chart 1 (haut-gauche): BTCUSDT 15m  \n- Tendance baissière claire, structure en LL (Lower Lows) et LH (Lower Highs) bien définie.  \n- Zones clés de support vers 66 400 USDT, résistance à 67 600 USDT.  \n- Scénario principal : surveillance d’un refus à la résistance pour short avec cible support.  \n- Invalidation : cassure au-dessus de 67 600 USDT en clôture sur 15m, structure baissière remise en question.\n\nC) Chart 2 (haut-droit): inconnu  \n- Symbole et timeframe non lisibles, impossible d’analyser.  \n- Absence de données, aucun plan possible.\n\nD) Chart 3 (bas-gauche): inconnu  \n- Symbole et timeframe non identifiés, analyse non réalisable.  \n- Pas d’information exploitable disponible.\n\nE) Chart 4 (bas-",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-33-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_05-33-12.png"
+  }
+}

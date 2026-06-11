@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_071153_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T03:11:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-11-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur pullback vers 1650 avec objectif 1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1670",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante clairement baissière sur ce timeframe 15m, marquée par une série de bas et hauts plus bas (LH, LL).  \n- Structure en décomposition avec cassure nette du support majeur vers 1 650-1 660 USDT, accélération baissière récente.  \n- Zone clé importante autour de 1 650 USDT (ancien support, potentielle résistance désormais), prochain support vers 1 600 USDT à surveiller.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance est baissière avec une structure de baisse claire (LH, LL). Le prix a rompu un support clé vers 1 650 USDT, ce qui valide un nouveau mouvement descendant. Les volumes augmentent sur la chute, confirmant la pression vendeuse. Un scénario actionnable serait de chercher des vendeurs sur rebond vers 1 650 USDT (consolidation ou pullback) avec un objectif proche à 1 600 USDT. L'invalidation de ce scénario passerait par un retour au-dessus de 1 660-1 670 USDT, signalant potentielle pause ou retournement.\n\nC) DeskPro  \n{\"run_id\":\"20240605_0711\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-11-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_03-11-35.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_234835_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T19:48:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-48-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller réaction sur 60k. Achat potentiel si maintien avec stop sous 60k, ou vente à la cassure baissière. Bull case au-delà de 63-64k.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close journalier au-dessus de 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL) formée depuis la dernière semaine.  \n- Structure actuelle proche d’une consolidation avec un petit creux récent vers 60k, possible base de support court terme.  \n- Résistance visible autour de 63k-64k, niveau à franchir pour envisager un renversement ou un retracement plus sérieux.\n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance baissière clairement établie (LH/LL). Après un fort mouvement à la baisse, prix trouve un support provisoire vers 60 000 USDT avec quelques rebonds limités. La structure montre un possible test ou double creux, mais les plus hauts restent décroissants, ce qui maintient la pression vendeuse. Si le support 60k casse, le scénario baissier se renforce vers 58k et plus bas. Un franchissement confirmé au-dessus de 63 000–64 000 ouvrirait la porte à un rebond plus ample. Invalidation du scénario baissier actuel uniquement au-dessus des derniers highs ver",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-48-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_19-48-19.png"
+  }
+}

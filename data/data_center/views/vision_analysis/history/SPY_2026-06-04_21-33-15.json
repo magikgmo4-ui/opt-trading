@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_013325_SPY_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:33:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-33-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 745.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 735.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 765.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur support avec prise de profit proche résistance, stop sous 735",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "BTC sous 735 invalide scénario haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale haussière avec plusieurs retournements ponctuels.\n- Structures majoritaires HH/HL indiquant une dynamique d’achat persistante.\n- Zones clés à surveiller sur derniers niveaux hauts et supports intermédiaires pour confirmation ou invalidation.\n\nB) Chart 1 (haut-gauche): SPY 1h\nTendance: Haussière\nStructure: HH/HL clair, récente consolidation autour 757\nSupports: 745, 735\nRésistances: 760, 765 (zone récente de rejet)\nScénario: Reprise possible vers 760-765 si support 745 tient, sinon retournement vers 735\nInvalidation: Passage en dessous de 735 confirmerait un changement structurel vers LH/LL\n\nC) Chart 2 (haut-droit): inconnu\nImpossible d’identifier symbole ni timeframe, lecture non-actionnable.\n\nD) Chart 3 (bas-gauche): inconnu\nImpossible d’identifier symbole ni timeframe, lecture non-actionnable.\n\nE) Chart 4 (bas-droit): inconnu\nImpossible d’identifier symbole ni timeframe, lecture non-actionnable.\n\nF) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"1\",\"bi",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-33-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_21-33-05.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_081306_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T04:13:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-12-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 58000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rejet résistance 63000/64000, cible 58000, stop franchissement 64000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 1h au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché global en tendance baissière marquée par des séries de plus bas (LL) et plus hauts (LH) descendants.  \n- Présence de zones clés de support vers 58 000 et résistance à 63 000-64 000.  \n- Recherche de confirmation d’un retournement ou poursuite de la baisse selon franchissement ou rejet des zones clés.\n\nB) Chart 1 (haut-gauche): Bitcoin / TetherUS 1h  \n- Tendance dominante baissière sur le timeframe 1h, structure de plus bas (LL) et plus hauts (LH) clairement visible.  \n- Zone support clé autour de 58 000-59 000 (plus bas récent) testée plusieurs fois.  \n- Résistance immédiate vers 63 000-64 000, zone à franchir pour invalider le bearish.  \n- Scénario principal: poursuite de la baisse tant que 63 000 ne tient pas, avec un risque de retest à la baisse de 58 000.  \n- Invalidation du biais baissier si franchissement solide au-dessus de 64 000.\n\nC) Chart 2 (haut-droit): inconnu  \n- Symbole/timeframe non lisible, pas d’analyse possible.\n\nD) Chart 3 (bas-gauche): in",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-12-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_04-12-48.png"
+  }
+}

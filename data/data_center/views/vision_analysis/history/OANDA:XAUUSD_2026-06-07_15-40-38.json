@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_194053_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T15:40:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-40-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 4320, objectif 4300+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 4440",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation breakout",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre sortie range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "mouvement hors consolidation",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur support, stop sous support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure support majeur",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte volatilité observée avec une tendance baissière claire sur le court terme.  \n- Présence de niveaux supports testés récemment, pression vendeuse importante.  \n- Nécessité de surveiller l’invalidation du scénario baissier en cas de franchissement de résistances clés.  \n\nB) Chart 1 (haut-gauche):  \n- Symbole : XAUUSD, timeframe : 1h.  \n- Tendance baissière en structure de lower highs (LH) et lower lows (LL) confirmée.  \n- Zone support clé autour de 4320 USD, testée plusieurs fois avec rebond temporaire.  \n- Résistance majeure autour 4400-4440 USD, correspond à derniers sommets relatifs.  \n- Scénario principal : poursuite de la baisse sous 4320 avec retour vers 4300 ou plus bas.  \n- Invalidation : franchissement solide et maintien au-dessus de 4440 avec construction de HL.  \n\nC) Chart 2 (haut-droit):  \n- Symbole/timeframe inconnu, visuel d’un indice ou actif fortement corrélé à XAUUSD.  \n- Tendance mixte récente, avec oscillations et absence claire de structure h",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-40-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_15-40-27.png"
+  }
+}

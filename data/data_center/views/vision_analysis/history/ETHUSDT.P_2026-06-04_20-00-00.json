@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_000009_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T20:00:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-00-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond entre 1780-1800 avec stop au-dessus 1820",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable au-dessus 1820 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL) sur le timeframe 15m.  \n- Structure récente latérale entre 1750 et 1800, zone de support temporaire testée plusieurs fois.  \n- Scénario privilégié : poursuite possible de baisse si le support 1750 lâche, sinon rebond technique vers 1800-1820.  \n\nB) Chart unique (ETHUSDT.P 15m): Tendance baissière claire avec confirmation de structure LL et LH, zones clés autour de 1750 (support) et 1800-1820 (résistance). Actionnaire prudent à court terme : préférence pour ventes sur rebond, stop-loss serré au-dessus de 1820. Invalidation en cas de franchissement durable au-dessus de 1820 avec HH formé.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL LH\",\"supports\":[\"1750\"],\"resistances\":[\"1800\",\"1820\"],\"plan\":\"vendre sur rebond entre 1780-1800 avec stop au-dessus 1820\",\"invalidation\":\"franchissement durable au-dessus 1820 avec HH\"}]}",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-00-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_19-59-52.png"
+  }
+}

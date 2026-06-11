@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_183809_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T14:38:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-38-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Observer confirmation du HL pour prise de position haussière sinon attendre continuation baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix < 60000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible avec une série de LL et LH instables.  \n- Structure récente montre un possible setup de rebond avec HL sur timeframe 1h.  \n- Zone clé de résistance vers 63 000 USDT ; support à valider autour de 60 000 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h): La paire BTCUSDT.P sur l’unité 1h montre une pression vendeuse prédominante avec une succession claire de Lower Highs (LH) et Lower Lows (LL) depuis début juin, confirmant la tendance baissière. Néanmoins, une tentative récente de reprise dessine un Higher Low (HL) vers 60 000 USDT accompagné d’un léger rebond. La zone vers 63 000 USDT fait office de résistance importante à court terme. Le scénario principal reste une vigilance sur la confirmation du HL pour un retournement potentiel, sinon poursuite de la baisse si invalidation sous ce support. Invalidation du scénario haussier sous 60 000 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-38-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_14-37-53.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_132050_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:20:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-20-38",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure 1890 avec cible 1950, ou attendre retest 1820",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte durable 1820",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière confirmée sur le court terme (15m).  \n- Les zones clés support autour de 1820-1830 montrent un premier rebond.  \n- Volumes à la hausse sur les replis indiquent intérêt acheteur possiblement naissant.\n\nB) Chart 1 (haut-gauche): ETHUSDT 15m  \nStructure: Séquence de LH/LL bien établie, avec rebond en HL récent.  \nSupports: 1820-1830 (zone validée par volume).  \nRésistances: 1890-1900 (point haut local + ancien support).  \nPlan: Sur confirmation de cassure résistance 1890, viser un retour vers 1950. Sinon, attente de retest support 1820.  \nInvalidation: Perte durable 1820 annulerait le scénario de reprise.\n\nC) Chart 2 (haut-droit): Inconnu  \nSymbole/timeframe non lisible. Pas d’analyse possible.\n\nD) Chart 3 (bas-gauche): Inconnu  \nSymbole/timeframe non lisible. Pas d’analyse possible.\n\nE) Chart 4 (bas-droit): Inconnu  \nSymbole/timeframe non lisible. Pas d’analyse possible.\n\nF) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-20-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_09-20-31.png"
+  }
+}

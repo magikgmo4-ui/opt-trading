@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_222735_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T18:27:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-27-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "scénario prioritaire vente sur rebond sous résistance 64400 avec stop au-dessus de cette résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus de 64400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Consolidation récente entre 62 800 et 64 400 semble marquer une pause, zone de support testée.  \n- Scénario prioritaire : reprise baissière après cette zone, invalidation en cas de franchissement durable au-dessus de 64 400.  \n\nB) Chart unique (BTCUSDT.P 15m) :  \nLe marché montre une très nette tendance baissière caractérisée par des Lower Highs et Lower Lows qui confirment la structure baissière. La zone clé de support entre environ 62 800 et 63 000 a été testée plusieurs fois et tient pour l’instant. La résistance principale à surveiller est située vers 64 400, niveau qui empêche une reprise haussière. Le scénario le plus probable est un nouvel élan baissier si le support lâche. En revanche, un break et close au-dessus de 64 400 invaliderait ce scénario et pourrait signaler un retournement ou une correction plus large.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"si",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-27-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_18-27-09.png"
+  }
+}

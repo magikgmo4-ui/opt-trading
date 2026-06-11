@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_194843_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:48:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-48-32",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.7,
+      "note": "résistance 67000"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte dynamique baissière générale visible sur les graphiques, avec rupture claire de structures haussières.  \n- Multiples niveaux de support testés, susceptible de consolider ou accentuer la baisse selon réaction.  \n- Importance de surveiller invalidations pour anticiper potentiels retournements ou accélérations.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \n- Tendance baissière nette, avec structure en série de lower lows (LL) et lower highs (LH).  \n- Supports clés autour de 65 000 USDT, récemment testés plusieurs fois.  \n- Résistances notables près de 67 000 USDT, zone où les vendeurs reprennent contrôle.  \n- Scénario principal: poursuite de la baisse tant que les résistances ne sont pas cassées.  \n- Invalidation si franchissement clair au-dessus de 67 500 USDT avec volume soutenu.\n\nC) Chart 2 (haut-droit) : inconnu (symbol/timeframe non lisible)  \n- Impossible d’analyser faute de visibilité claire du symbole et timeframe.  \n- Recommander de fournir info plus précise",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-48-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_15-48-24.png"
+  }
+}

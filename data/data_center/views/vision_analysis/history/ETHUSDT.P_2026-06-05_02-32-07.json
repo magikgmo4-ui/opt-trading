@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_063217_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T02:32:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-32-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous résistance 1680-1700 avec stop above 1700. Objectif 1600 puis 1500 si momentum persiste.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Reprise haussière confirmée au-dessus de 1700 avec HH.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière 1h avec une structure de creux et sommets descendants (LH/LL) depuis plusieurs jours.  \n- Cassure nette d’une zone de support clé vers 1 680 USDT avec accélération baissière sur gros volume.  \n- Scénario principal : poursuite probable du mouvement baissier tant que le prix reste sous 1 680-1 700 USDT (ancien support devenu résistance).  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nLa tendance dominante est baissière, caractérisée par une série de Lower Highs (LH) et Lower Lows (LL). Une zone de support importante autour de 1 680 USDT vient d’être cassée à la baisse avec forte augmentation du volume, ce qui valide la pression vendeuse. La structure actuelle indique un momentum baissier soutenu. Une résistance valide est la zone 1 680-1 700 USDT qui devrait barrer la route à une reprise haussière tant qu’elle tiendra. L’invalidation du scénario baissier serait une remontée et maintien au-dessus de 1 700 USDT avec création de HH.  \n\nC) DeskPro  \n",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-32-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_02-31-59.png"
+  }
+}

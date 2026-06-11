@@ -1,0 +1,29 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_969_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "xauusd_trading_free",
+  "channel_priority": "P0",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T11:55:38+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "pair": "EURUSD",
+  "direction": "SHORT",
+  "entry_price": 1.15378,
+  "sl": 1.15597,
+  "tp": 1.0,
+  "tps": [
+    1.0,
+    2.0,
+    3.0,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udea8 EURUSD SELL SIGNAL \ud83d\udea8\n\n\ud83d\udcc9 Entry Price: 1.15378\n\n\ud83c\udfaf Take Profit Targets:\n\ud83c\udfc1 TP1: 1.15268\n\ud83c\udfc1 TP2: 1.15159\n\ud83c\udfc1 TP3: 1.14940\u2714\ufe0f\n\n\ud83d\uded1 Stop Loss: 1.15597\n\n\ud83d\udc8e Trade smart, stay disciplined, and secure your profits! \ud83d\udcca",
+  "summary": "EURUSD SHORT"
+}

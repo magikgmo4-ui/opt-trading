@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_114857_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T07:48:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_07-48-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond au contact résistance, viser retest zone support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close net au-dessus de 65000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale clairement baissière sur le 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Price action marquée par une tentative de rebond depuis un bas proche de 60,000, mais structure baissière dominante.\n- Zone clé de support autour de 60,000, résistance immédiate vers 64,000-65,000, scénario de short privilégié en absence de franchissement clair.\n\nB) Chart unique (BTCUSDT.P 1h):\nLe marché est en tendance baissière définie par une suite de LH/LL. Le récent rebond depuis 60,000 semble être un retracement technique et la structure n’a pas encore validé un changement de tendance. La zone 64,000-65,000 agit comme résistance importante. Invalidation du biais baissier sur dépassement net de ce range et formation de HH. Support clé identifié à 60,000, sous lequel la casse des plus bas récents renforcerait la pression vendeuse.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"60000\"],\"resistances",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_07-48-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_07-48-41.png"
+  }
+}

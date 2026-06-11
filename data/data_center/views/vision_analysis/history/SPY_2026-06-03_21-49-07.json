@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_014917_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T21:49:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-49-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 745.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 748.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 762.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée long sur rebond support 745-748, viser 760+ pour extension. Stop sous 745.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette sous 745 confirmée par volume, pivot vers baisse potentielle.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h avec une série de HH (Higher Highs) et HL (Higher Lows).  \n- Structure récemment en forme de correction avec un léger retracement mais toujours au-dessus des supports clés.  \n- Zone de support principale autour de 745-748, résistance proche vers 760-762 à surveiller pour validation ou retournement.  \n\nB) Chart unique (SPY 1h):  \nLe graphique montre une dynamique haussière nette caractérisée par des HH et HL formés régulièrement depuis fin avril. Un repli récent teste un support dynamique vers 745-748, ce qui est un niveau crucial pour maintenir la tendance haussière. La résistance majeure à court terme se situe autour de 760-762, zone à franchir pour poursuivre la hausse. Le volume reste globalement stable, avec un pic récent qui pourrait indiquer un intérêt élevé sur ce dernier retracement. Scénario principal: rebond sur support pour continuation haussière. Invalidation en cas de cassure franche sous 745 avec poursuite vers 735.",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-49-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-03_21-48-57.png"
+  }
+}

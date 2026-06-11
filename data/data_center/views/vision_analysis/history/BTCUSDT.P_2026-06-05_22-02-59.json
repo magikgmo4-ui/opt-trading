@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_020500_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T22:03:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_22-02-59",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sur cassure 60 000 avec stop au-dessus 63 000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "HH au-dessus 63 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Structure baissière clairement établie sur l’ensemble des charts avec des LH/LL dominants.  \n- Présence de zones clés baissières en résistance, les tentatives de rebond sont faibles.  \n- Scénario majoritaire favorise la continuation baissière sauf invalidation par un HH clair au-dessus des résistances majeures.  \n\nB) Chart 1 (haut-gauche): Bitcoin / USDT 1h  \nTendance baissière dominante avec une série de Lower Highs (LH) et Lower Lows (LL) visibles. La structure indique un momentum vendeur fort. Zone clé résistance vers 62 000-63 000$. Support important autour de 60 000$. Scénario principal: cassure du support 60 000$ pour accélération baissière. Invalidation si stabilisation et création d’un Higher High (HH) au-dessus de 63 000$.  \n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non lisibles, impossible de fournir une analyse fiable.  \n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole et timeframe non lisibles, analyse non réalisable.  \n\nE) Chart 4 (bas-droit)",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_22-02-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_22-02-44.png"
+  }
+}

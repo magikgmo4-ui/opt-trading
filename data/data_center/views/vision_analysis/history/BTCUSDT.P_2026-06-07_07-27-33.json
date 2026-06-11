@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_112741_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T07:27:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-27-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur breakout 64000, stop sous 60000; vente sur rejet 63000 avec stop au-dessus 64000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 59000 pour continuation baissière, cassure claire au-dessus 64000 pour confirmation rebond",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière marquée par une série de plus bas (LL) et plus hauts (LH) décroissants.  \n- Structure récente montre tentative de rebond avec un higher low (HL) formé autour de 60 000.  \n- Zone clé résistance à 63 000-64 000 testée, un break confirmerait un potentiel retournement court terme.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance longue est clairement baissière avec la formation continue de LL et LH. Cependant, depuis le point bas proche de 59 000, on observe un HL qui montre un possible début de reprise. La résistance immédiate se situe autour de 63 000-64 000, zone à surveiller pour valider une inversion de tendance. Un échec à cette résistance ferait retourner le prix vers le support à 60 000 ou même 59 000, confirmant la poursuite du bearish. Le plan d’action serait d’acheter en cassure franche de la résistance avec un stop sous 60 000, ou de vendre en rejet avec un stop au-dessus de 64 000.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-27-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_07-27-23.png"
+  }
+}

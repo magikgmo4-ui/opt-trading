@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_085641_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T04:56:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-56-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.162,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher ventes sur rebond sous résistance 1.1620-1.1640, stop si franchissement 1.1645",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "1.1645",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière nette, confirmée par une cassure rapide sur fort volume.  \n- Structure passée en séquence de LH/LL après un sommet local début juin, signalant une pression vendeuse dominante.  \n- Zone clé résistance proche vers 1.1620-1.1640, support actuel autour de 1.1520 à monitorer pour une potentielle stabilisation ou sortie baissière.\n\nB) Chart unique (FX:EURUSD 1h):  \nLe graphique montre une baisse franche avec une structure récente de Lower Highs et Lower Lows, validant la tendance baissière. La rupture volumineuse vers 1.1560 a accéléré la chute jusqu’à environ 1.1520. La zone 1.1640-1.1620 agit désormais en résistance forte, à valider en cas de rebond. Le scénario prioritaire reste une continuation baissière sous ce niveau, avec un point d’invalidation au-dessus de 1.1645, qui remettrait en cause ce biais court terme.\n\nC) DeskPro  \n{\"run_id\":\"01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"],\"resistances\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-56-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_04-56-21.png"
+  }
+}

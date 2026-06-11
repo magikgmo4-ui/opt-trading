@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_020416_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:04:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-04-01",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prévoir continuation baissière, short sur rejet résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fermeture et maintien >67 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière claire sur le principal graphique observé (BTCUSDT 1h).  \n- Structure de marché marquée par des Lower Highs (LH) et Lower Lows (LL), sans signe de retournement immédiat.  \n- Zones clés importantes autour de 66 000 en résistance à court terme et 62 000 en support, à surveiller pour scénario d’entrée ou invalidation.  \n\nB) Chart 1 (haut-gauche): inconnu (symbol/timeframe non visible)  \n- Impossible de déterminer le biais ou la structure, informations manquantes.\n\nC) Chart 2 (haut-droit): inconnu (symbol/timeframe non visible)  \n- Pas assez d’informations sur le graphique pour analyse pertinente.\n\nD) Chart 3 (bas-gauche): BTCUSDT - 1h (Binance)  \n- Tendance dominante : baissière confirmée par une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure solide avec pullbacks vifs vers la résistance 66 000 avant nouvelle chute.  \n- Supports clés vers 62 000 testés plusieurs fois récemment.  \n- Scénario : continuer à envisager des shorts ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-04-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_22-03-53.png"
+  }
+}

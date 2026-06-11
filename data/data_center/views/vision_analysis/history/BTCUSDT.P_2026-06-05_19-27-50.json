@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_232759_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T19:27:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_19-27-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 58400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente à rejet sur résistances 61,600-62,200, cible 59,000/58,400",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m above 62,200",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance short-term clairement baissière sur ce 15m, avec une série de HH/HL brisée et début de LH/LL.  \n- Structure de baisse confirmée par de multiples retracements ratés sur des zones de résistance vers 61 600 et 62 200.  \n- Scénario opportuniste de continuation short sur rejet actuel, invalidation sous 62 200 en clôture 15m.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre un mouvement baissier dominant en structure LH/LL sur le court terme. Les prix ont tenté un rebond qui a buté sur une résistance clé située entre 61 600 et 62 200, formant un point de retournement. Le volume accentue la pression vendeuse récente. L'invalidation du scénario baissier se ferait sur franchissement clair et maintien au-dessus de 62 200. Le plan d'action est donc conservateur à la vente, avec un stop serré au-dessus de la résistance mentionnée, visant un retour vers 59 000 / 58 400.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_19-27-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_19-27-37.png"
+  }
+}

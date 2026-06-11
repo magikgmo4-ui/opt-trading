@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_184812_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T14:48:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-47-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1595.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure 1640 ou pullback sur 1600-1595 avec stop sous 1595",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1595",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière initiale nette, suivie d’un retournement marqué vers une tendance haussière.\n- Structure récente en HH/HL suggère une reprise haussière.\n- Zones clés identifiées ~1600 en support et ~1640 en résistance majeure à surveiller.\n\nB) Chart unique (ETHUSDT.P 15m) : Après une forte chute formant des LL, le prix a trouvé un support vers 1550-1570, puis a amorcé une séquence haussière composée de HH et HL jusqu’à 1630-1640. On observe un léger range dans cette zone, point de décision clé entre continuation haussière ou retour sous 1600. La cassure au-dessus de 1640 validerait la poursuite de la hausse. Invalidation si retour sous le dernier HL vers 1595.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1595\",\"1600\"],\"resistances\":[\"1640\"],\"plan\":\"Acheter sur cassure 1640 ou pullback sur 1600-1595 avec stop sous 1595\",\"invalidation\":\"retour sous 1595\"}]}",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-47-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_14-47-44.png"
+  }
+}

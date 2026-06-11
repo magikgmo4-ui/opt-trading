@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_132018_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T09:20:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-20-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 1580 avec objectif 1520, stop loss au-dessus de 1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante : baissière sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente : rebond technique autour de 1520-1540, tentative de retour vers 1580-1600.\n- Zones clés à surveiller : support majeur proche de 1520, résistance immédiate vers 1580; invalidation du scénario baissier sous 1520.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nTendance baissière claire avec une succession de LH et LL confirmée. Actuellement, une zone de support vers 1520-1540 provoque un rebond, ouvrant un potentiel retour vers la résistance intermédiaire à 1580-1600. Le scénario privilégie une continuation à la baisse sous invalidation support, mais un franchissement clair des 1600 renverserait la structure. À court terme, privilégier prise de profits sur rebond proche résistance ou entrée vendeuse sous 1580 avec cible 1520.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1520,1540],\"resistances\":[1580,160",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-20-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_09-20-01.png"
+  }
+}

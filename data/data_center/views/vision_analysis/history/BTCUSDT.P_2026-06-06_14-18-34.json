@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_181843_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T14:18:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-18-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur cassure du support 60400",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 61300",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance court terme clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente montre un range de consolidation entre 60 400 (S) et 61 300 (R), sans reprise haussière confirmée.\n- Scénario actionnable : surveiller cassure du support 60 400 pour continuation baissière, invalidation au-dessus de 61 300.\n\nB) Chart unique (BTCUSDT.P 15m): Le graphique illustre une tendance baissière dominée par des Lower Highs et Lower Lows. Un pallier de support important se situe vers 60 400, où plusieurs bougies montrent des rebonds. La résistance à passer pour une reprise haussière se situe autour de 61 300. Une consolidation latérale est en cours avec faible volume, indiquant hésitation. Le plan serait d’attendre un retour sous 60 400 avec une cassure nette pour viser un mouvement baissier. L’invalidation se fait par franchissement clair avec clôture au-dessus du niveau 61 300.\n\nC) DeskPro {\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissie",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-18-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_14-18-25.png"
+  }
+}

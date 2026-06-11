@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_084304_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T04:43:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-42-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59.0,
+      "confidence": 0.7,
+      "note": "s 59"
+    },
+    {
+      "type": "support_level",
+      "value": 59.0,
+      "confidence": 0.7,
+      "note": "s 59"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente en rebond haussier après un creux marqué vers 59 000.  \n- Structure de retournement visible avec un HL suivi de HH sur le 15m.  \n- Zone clé résistante autour de 62 600, possible point de décision.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une phase initiale de baisse forte, avec des bas et des hauts de plus en plus bas (LH/LL), suivie d'une inversion structurelle où l'on note un HL sur les creux et un HH sur les sommets récents, indiquant un début de tendance haussière. La zone de support clé se situe vers 59 000-59 200, tandis qu’une résistance majeure se présente aux alentours de 62 600. Le scénario privilégié est une poursuite du rebond si le prix encaisse la résistance, sinon un retour vers le support invaliderait la hausse. Invalidation sous le HL à 60 200 environ.    \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL/HH\",\"supports\":[59200,60200],\"resistances\":[62600],\"plan\":\"Attendre cass",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-42-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_04-42-47.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_180226_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T14:02:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-02-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.07,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente possible sur rejet résistance 1.1100, objectif 1.0700",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Breakout au-dessus de 1.1100",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure instable avec rebonds ponctuels mais incapacité à créer un Higher Low (HL) significatif.  \n- Zone clé de support vers 1.0700, résistance clé vers 1.1100 à surveiller pour repères breakout ou rejet.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nLa tendance est clairement baissière avec un enchaînement de Lower Highs et Lower Lows. La structure montre un mouvement de rebond sans inversion claire. Support majeur à 1.0700 où les prix ont rebondi plusieurs fois, résistance à 1.1100 marquant des plafonds multiples. Le scénario préféré est une continuation baissière sous la résistance, avec possibilité de test du support. Invalidation du scénario baissier en cas de franchissement durable du niveau 1.1100.  \n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"Lower Highs / Lower Lows\",\"supports\":[\"1.0700\"],\"resistances\":[\"1.1100\"]",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-02-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_14-02-07.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_213017_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T17:30:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-30-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance 66000$, viser test support 64500$, surveiller rebond technique",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair et durable de 66000$ avec hausse du volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante clairement établie sur ce 15m avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Structure actuelle sans signe évident de retournement, retracement récent limité et rebond potentiellement technique.\n- Zones clés : support à surveiller autour des 64 500$, résistance immédiate près de 66 000$ pour une éventuelle pause/rebond.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nLe graphique montre une tendance baissière bien marquée avec des Lower Highs et Lower Lows. Le prix est en repli continu depuis plusieurs sessions avec un rebond technique modéré en cours, sans rupture claire de structure haussière. Le support majeur autour de 64 500$ est crucial, sa cassure renforcerait la tendance baissière. La résistance autour de 66 000$ doit être validée pour envisager un retournement ou une consolidation plus neutre. Le volume reste stable sans pics forts de force acheteuse. Le scénario privilégié reste une poursuite baissière sous 66 000$, avec invaldia",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-30-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_17-30-00.png"
+  }
+}

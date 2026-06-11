@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_060855_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T02:08:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-08-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure résistances pour bullish, sinon short sur rejet",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement franc des 1600 en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette confirmée par une série de Lower Highs (LH) et Lower Lows (LL).\n- Récente reprise haussière sur un pullback vers la zone des 1520-1540, possible tentative de rebond.\n- Attention à la zone de résistance proche 1580-1600 à surveiller pour valider une inversion ou poursuite baissière.\n\nB) Chart unique (ETHUSDT.P 15m):  \nL’ETH évolue dans une tendance baissière marquée avec des structures LH/LL bien formées. Après un plus bas vers 1500, un rebond technique s’installe jusqu’à 1570 environ, franchissant un précédent HL intermédiaire. Cette reprise reste cependant faible face à la pression vendeuse visible sur les hauts alentours de 1580-1600, zone de résistance clé. Un franchissement et maintien au-dessus de 1600 consoliderait un scénario de retour haussier. En revanche, un rejet suivi d’un nouveau break des 1500 validerait la poursuite de la baisse. Invalidation du bearish si plus haut significatif >1600.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"sl",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-08-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_02-08-37.png"
+  }
+}

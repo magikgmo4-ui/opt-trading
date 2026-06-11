@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_132508_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:25:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-25-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cherchez à vendre sur rejets en résistance, viser casse 1720 pour reprise short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable >1850 avec structure HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 1h avec des creux et sommets décroissants (LH / LL).\n- Structure fragile avec une tentative de rebond suivie d’un nouveau rejet près des 1800.\n- Zone clé de support majeure autour de 1720 à surveiller, invalidation en cas de break significatif haussier.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance est baissière (Lower Highs, Lower Lows) depuis plusieurs jours. Après un rebond temporaire vers 1800, le prix marque un rejet avec un fort volume vendeur. La structure montre un dernier HL cassé à la baisse. Supports cruciaux autour de 1720 (antérieurs plus bas), résistances à 1800 puis 1850. Scénario privilégié: poursuite du mouvement baissier en cas de break sous 1720. Invalidation si retour au-dessus de 1850 avec des sommets plus hauts.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1720\"],\"resistances\":[\"1800\",\"1850\"],\"plan\":\"cherchez à vendre sur rejets en résistance, viser ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-25-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_09-24-53.png"
+  }
+}

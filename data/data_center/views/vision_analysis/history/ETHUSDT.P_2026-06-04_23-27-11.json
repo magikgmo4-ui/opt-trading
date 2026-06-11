@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_032727_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T23:27:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-27-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 1720 pour possiblement scalper, sinon chercher short à la rupture 1710 confirmée. Invalidation si clôture horaire au-dessus de 1760.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture > 1760",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 1h avec une série de lower highs (LH) et lower lows (LL).\n- Structure en déclin avec des pics de volume lors des baisses impulsives, indiquant une pression vendeuse forte.\n- Zone clé support proche des 1 720 USDT à surveiller, invalidation baissière au-dessus des 1 760 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):\nLe graphique montre une tendance baissière bien établie via une succession de lower highs et lower lows. Le dernier plus bas en cours est testé vers 1 720 USDT, qui constitue une zone clé de support. Un rebond de court terme est possible si ce niveau tient, mais la structure reste fragile. La rupture claire en dessous des 1 710-1 720 USDT confirmerait la poursuite de la tendance baissière avec un nouveau lower low. Un retournement haussier serait envisagé uniquement si le prix franchit durablement les 1 760 USDT, invalidant la dynamique baissière actuelle.\n\nC) DeskPro\n{\"run_id\":\"eth1h-20240605\",\"charts\":[{\"slot\":\"single\",\"bias\":\"be",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-27-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_23-27-03.png"
+  }
+}

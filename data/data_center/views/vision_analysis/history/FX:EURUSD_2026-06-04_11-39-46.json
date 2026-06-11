@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_153955_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:39:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-39-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1.1600 pour continuation baissière. Pullback possible avant repli.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture solide au-dessus de 1.1655",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance neutre à légèrement baissière sur le 1h, avec alternance de HH/HL et LH/LL.  \n- Structure récente montre un rejet à la hausse autour de 1.1650, suivie d’un repli vers 1.1620.  \n- Zone clé support proche 1.1600, résistance clé à 1.1650 ; confirmation d’une cassure valide le biais baissier.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLa structure est mixte : on observe un plus haut local (LH) vers 1.1650 et plus bas (HL) vers 1.1600. La tendance principale est latérale mais penche vers un scénario baissier suite au rejet sur la résistance 1.1650. Le support autour de 1.1600 est clé, un break sous ce niveau confirmerait la tendance baissière. La présence d’un volume accru lors du rejet sur 1.1650 soutient le scénario. Invalidation si prix repasse au-dessus de 1.1655 avec conviction.  \n\nC) DeskPro  \n{\"run_id\":\"eurusd_1h_20240604\",\"charts\":[{\"slot\":\"single\",\"bias\":\"légèrement baissier\",\"structure\":\"LH/HL mixed, rejet résistance 1.1650\",\"supports\":[\"1.1600\"],\"resistanc",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-39-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_11-39-35.png"
+  }
+}

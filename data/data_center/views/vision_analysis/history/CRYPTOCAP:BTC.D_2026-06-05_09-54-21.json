@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_135432_CRYPTOCAP:BTC.D_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:BTC.D",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T09:54:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_09-54-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 58.4,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 58.2,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 59.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 58.4 avec extension vers 57.8-57.6. Monitorer rebond possible au support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture journalière au-dessus de 59.5 avec nouveau HL confirmé.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1d après un pic vers 61.2%, structure de bascule claire.  \n- Structure en cours : série de HH/HL jusqu’à fin mai, suivie d’un fort renversement avec break de HL récents.  \n- Zone clé support vers 58.4-58.2% testée actuellement, résistance notable au plus haut vers 61.2%.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe marché du dominance BTC montre une rupture majeure de la structure haussière récente avec des Lower Highs et Lower Lows formés depuis fin mai. La zone 58.4-58.2% apparaît comme un support critique, déjà testée, sous laquelle la baisse pourrait s’accélérer. Résistance principale identifiée autour du dernier plus haut à ~61.2%. Le volume augmente significativement à la baisse, confirmant la pression vendeuse. Le scénario majoritaire est un bearish continuation tant que 58.4% ne tient pas. Invalidation en cas de retour au-dessus des 59.5% avec un nouveau HL.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_1354\",\"charts\":[{\"slot\":\"single",
+  "symbols_found": [
+    "CRYPTOCAP:BTC.D"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_09-54-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_09-54-10.png"
+  }
+}

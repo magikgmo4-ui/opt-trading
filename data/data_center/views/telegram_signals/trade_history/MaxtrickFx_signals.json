@@ -1,0 +1,21 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_MaxtrickFx_1191_2026-05-11T15:14:51+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "MaxtrickFx",
+    "parsed_at": "2026-05-11T15:14:51+00:00",
+    "produced_at": "2026-06-11T10:00:13.951094+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4730.0,
+    "sl": 4740.0,
+    "tp": 4710.0,
+    "tps": [
+      4710.0
+    ],
+    "leverage": null,
+    "raw_text": "**\ud83d\udc68\u200d\ud83d\udcbb** SELL XAUUSD 4730\n\ud83d\udd38SL 4740\n\ud83d\udd39TP 4710\n**ID Real - ****T.me/MaxtrickSP**"
+  }
+]

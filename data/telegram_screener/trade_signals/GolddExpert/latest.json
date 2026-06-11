@@ -1,0 +1,140 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GolddExpert_17302_2026-06-05T03:20:40+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GolddExpert",
+    "parsed_at": "2026-06-05T03:20:40+00:00",
+    "produced_at": "2026-06-11T10:00:13.915055+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4437.0,
+    "sl": 4430.0,
+    "tp": 4440.0,
+    "tps": [
+      4440.0,
+      4444.0,
+      4448.0,
+      4455.0,
+      4462.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** ****#GOLD**** BUY 4437-4435\n\nTP 4440\nTP 4444\nTP 4448\nTP 4455\nTP 4462\n\nSL 4430**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GolddExpert_17308_2026-06-05T07:45:10+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GolddExpert",
+    "parsed_at": "2026-06-05T07:45:10+00:00",
+    "produced_at": "2026-06-11T10:00:13.916263+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4460.0,
+    "sl": 4450.0,
+    "tp": 4463.0,
+    "tps": [
+      4463.0,
+      4467.0,
+      4471.0,
+      4477.0,
+      4482.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** ****#GOLD**** BUY 4460-4458\n\nTP 4463\nTP 4467\nTP 4471\nTP 4477\nTP 4482\n\nSL 4450**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GolddExpert_17317_2026-06-08T07:28:32+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GolddExpert",
+    "parsed_at": "2026-06-08T07:28:32+00:00",
+    "produced_at": "2026-06-11T10:00:13.916690+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4315.0,
+    "sl": 4323.0,
+    "tp": 4291.0,
+    "tps": [
+      4291.0,
+      4297.0,
+      4303.0,
+      4308.0,
+      4312.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** ****#GOLD**** SELL 4315/ 4318\n\nTP 4312\nTP 4308\nTP 4303\nTP 4297\nTP 4291\n\nSL 4323**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GolddExpert_17318_2026-06-08T13:34:33+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GolddExpert",
+    "parsed_at": "2026-06-08T13:34:33+00:00",
+    "produced_at": "2026-06-11T10:00:13.916758+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4340.0,
+    "sl": 4353.0,
+    "tp": 4217.0,
+    "tps": [
+      4217.0,
+      4225.0,
+      4329.0,
+      4333.0,
+      4337.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** ****#GOLD**** SELL 4340-4344\n\nTP 4337\nTP 4333\nTP 4329\nTP 4225\nTP 4217\n\nSL 4353**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GolddExpert_17323_2026-06-09T12:17:36+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GolddExpert",
+    "parsed_at": "2026-06-09T12:17:36+00:00",
+    "produced_at": "2026-06-11T10:00:13.917203+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4345.0,
+    "sl": 4353.0,
+    "tp": 4322.0,
+    "tps": [
+      4322.0,
+      4330.0,
+      4335.0,
+      4339.0,
+      4343.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** ****#GOLD**** SELL 4345-4347\n\nTP 4343\nTP 4339\nTP 4335\nTP 4330\nTP 4322\n\nSL 4353**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GolddExpert_17331_2026-06-10T13:03:37+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GolddExpert",
+    "parsed_at": "2026-06-10T13:03:37+00:00",
+    "produced_at": "2026-06-11T10:00:13.918510+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4146.0,
+    "sl": 4136.0,
+    "tp": 4149.0,
+    "tps": [
+      4149.0,
+      4154.0,
+      4158.0,
+      4163.0,
+      4170.0
+    ],
+    "leverage": null,
+    "raw_text": "**#XAUUSD**** ****#GOLD**** BUY  4146/4143\n\nTP 4149\nTP 4154\nTP 4158\nTP 4163\nTP 4170\n\nSL 4136**"
+  }
+]

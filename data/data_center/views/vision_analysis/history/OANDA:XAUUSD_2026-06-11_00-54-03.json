@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_045415_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T00:54:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_00-54-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4050.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4125.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4150.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillez un short sur cassure du support 4050, avec un stop au-dessus de 4150. En cas de franchissement haussier de 4150, envisager un retournement/buy.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair et stable au-dessus de 4150",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de lower highs (LH) et lower lows (LL) confirmée sur le timeframe 1h.  \n- Structure récente montrant un pullback haussier court terme après un fort mouvement baissier.  \n- Zone de support clé proche de 4 050 USD à surveiller pour un rebond ou rupture majeure.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe XAUUSD affiche une tendance baissière claire avec des points hauts descendants (LH) et des points bas également descendants (LL). Après une forte chute, le prix effectue une correction haussière pouvant constituer un retracement technique. Le support principal se situe autour des 4 050 USD, zone d’achat potentielle. La résistance à court terme se trouve vers 4 125-4 150 USD, correspondant à un précédent niveau de congestion. Le scénario préféré reste la reprise de la baisse si le support cède, tandis qu’une cassure haussière au-dessus de 4 150 invaliderait cette pression vendeuse.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_00-54-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-11_00-53-46.png"
+  }
+}

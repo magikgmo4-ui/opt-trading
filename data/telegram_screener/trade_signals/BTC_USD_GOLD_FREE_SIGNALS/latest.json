@@ -1,0 +1,92 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_BTC_USD_GOLD_FREE_SIGNALS_15652_2025-12-12T16:21:11+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "BTC_USD_GOLD_FREE_SIGNALS",
+    "parsed_at": "2025-12-12T16:21:11+00:00",
+    "produced_at": "2026-06-11T05:30:19.111780+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4280.0,
+    "sl": 4268.0,
+    "tp": 4285.0,
+    "tps": [
+      4285.0,
+      4290.0,
+      4295.0,
+      4300.0,
+      4310.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold buy at 4280\nSL 4268\nTP 4285\nTP 4290\nTP 4295\nTP 4300\nTP 4310"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_BTC_USD_GOLD_FREE_SIGNALS_15656_2025-12-12T16:25:18+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "BTC_USD_GOLD_FREE_SIGNALS",
+    "parsed_at": "2025-12-12T16:25:18+00:00",
+    "produced_at": "2026-06-11T05:30:19.111849+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4271.0,
+    "sl": 4259.0,
+    "tp": 4276.0,
+    "tps": [
+      4276.0,
+      4280.0,
+      4285.0,
+      4290.0,
+      4295.0,
+      4300.0,
+      4310.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold buy at 4271\nSL 4259\nTP 4276\nTP 4280\nTP 4285\nTP 4290\nTP 4295\nTP 4300\nTP 4310"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_BTC_USD_GOLD_FREE_SIGNALS_15657_2025-12-12T16:45:19+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "BTC_USD_GOLD_FREE_SIGNALS",
+    "parsed_at": "2025-12-12T16:45:19+00:00",
+    "produced_at": "2026-06-11T05:30:19.111906+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4271.0,
+    "sl": 4259.0,
+    "tp": 4276.0,
+    "tps": [
+      4276.0,
+      4280.0,
+      4285.0,
+      4290.0,
+      4295.0,
+      4300.0,
+      4310.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold buy at 4271\nSL 4259\nTP 4276\nTP 4280\nTP 4285\nTP 4290\nTP 4295\nTP 4300\nTP 4310"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_BTC_USD_GOLD_FREE_SIGNALS_15711_2025-12-23T14:29:39+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "BTC_USD_GOLD_FREE_SIGNALS",
+    "parsed_at": "2025-12-23T14:29:39+00:00",
+    "produced_at": "2026-06-11T05:30:19.118804+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 8221.9,
+    "sl": 48111.9,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "US30 BUY  48221.90\n\nSL: 48111.90\nTP: 48521.90\n--Trade by Lucas"
+  }
+]

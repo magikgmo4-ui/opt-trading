@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_VerifiedCryptoNews_12348_2026-06-01T09:41:19+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "VerifiedCryptoNews",
+    "parsed_at": "2026-06-01T09:41:19+00:00",
+    "produced_at": "2026-06-11T05:30:19.870761+00:00",
+    "pair": "INJUSDT",
+    "asset": "INJ",
+    "direction": "LONG",
+    "entry_price": 3.19,
+    "sl": 2.51,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "#INJUSDT #LONG\n\nEntry:  3.19  2.85\n\nTP: 3.4  3.7  4.5  5.45  6.33\n\nSL: 2.51\n\n#SMITH"
+  }
+]

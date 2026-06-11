@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_152755_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:27:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-27-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à proximité résistance 1850, viser 1700 ou moins",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure 1850 en clôture 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec plusieurs Lower Highs (LH) et Lower Lows (LL) validés.  \n- Structure fragile de rebond récent, sans confirmation de retournement haussier (pas de HH clair).  \n- Zone de support autour de 1700 USDT, résistance clé proche de 1850 USDT, scenario baissier privilégié si résistance confirmée.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une tendance baissière claire caractérisée par des structures LH et LL successives. Le prix a récemment tenté un rebond depuis une zone support vers 1700, sans encore franchir une résistance majeure vers 1850, ce qui valide la poursuite possible de la baisse. Le volume augmente lors des baisses, soutenant la pression vendeuse. Un dépassement clair des derniers sommets locaux (vers 1850) invaliderait ce biais baissier et pourrait amorcer un retournement. L’invalidation principale serait une cassure haussière durable au-dessus de 1850.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-27-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_11-27-37.png"
+  }
+}

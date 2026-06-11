@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_200451_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T16:04:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-04-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à chaque récupération vers résistance, viser cassure 1.1520.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 1h au-dessus de 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance actuelle clairement baissière sur le 1h avec une cassure nette des supports précédents.\n- Structure récente en Lower High (LH) et Lower Low (LL) confirmant la pression vendeuse.\n- Zone clé de support autour de 1.1520, failure sous cette zone ouvrirait vers une accélération baissière.\n\nB) Chart unique (FX:EURUSD 1h): Le graphique montre un retournement baissier net avec une impulsion vendeuse forte, marquée par un volume en hausse sur la descente. La structure est en baisse avec une série de LH suivie d’un LL récent. Le support actuel à 1.1520 est un niveau à surveiller pour un rebond potentiel ou poursuite baissière. Résistance intraday autour 1.1600-1.1640 (anciens supports et points hauts locaux). Scénario principal reste short avec cible sous 1.1520, invalidation en clôture horaire au-dessus de 1.1650.\n\nC) DeskPro \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"],\"resistances\":[\"1.1600\",\"1.1640\"],\"p",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-04-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_16-04-28.png"
+  }
+}

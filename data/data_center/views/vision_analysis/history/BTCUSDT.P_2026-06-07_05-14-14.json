@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_091423_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T05:14:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-14-14",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller break de résistance 63k pour achat, invalide sous 59k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Surveillance d’une possible correction haussière après forte tendance baissière sur BTC.\n- Zones clés de support confirmées vers 59,000 - 60,000 USD, résistances proches en 63,000 - 64,000 USD.\n- Besoin d’une validation structurelle pour envisager un rebond ou poursuite baissière.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h\n- Tendance dominante : baissière marquée avec cassures de supports.\n- Structure : série de Lower Highs (LH) et Lower Lows (LL), mais tentative récente de Higher Low (HL) en bas around 59,000.\n- Zones clés : support majeur 59,000-60,000, résistance initiale 63,000.\n- Scénario : rebond possible vers 63,000-64,000 avant décision.\n- Invalidation : retour au-dessous de 59,000 confirmerait poursuite baissière.\n\nC) Chart 2 (haut-droit): inconnu (pas visible sur l’image)\n\nD) Chart 3 (bas-gauche): inconnu (pas visible sur l’image)\n\nE) Chart 4 (bas-droit): inconnu (pas visible sur l’image)\n\nF) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"baissi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-14-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_05-14-05.png"
+  }
+}

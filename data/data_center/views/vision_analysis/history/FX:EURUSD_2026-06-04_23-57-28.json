@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_035737_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T23:57:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-57-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.167,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller breakout ou repli sur support pour prise de position",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout au-dessus de 1.1670 invalide la tendance baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière récente avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure actuelle en phase de consolidation avec un possible rebond après un plus bas local proche de 1.1600.\n- Zone clé résistante vers 1.1650-1.1670 à surveiller pour validation d'un retournement ou poursuite baissière.\n\nB) Chart unique (FX:EURUSD 1h) : \nLe graphique montre une dynamique baissière marquée par des Lower Highs et Lower Lows sur les dernières séances. Un support intermédiaire est visible autour de 1.1600, ayant fait office de plancher lors du rebond récent. La structure est neutre à court terme, oscillant entre support à 1.1600 et résistance vers 1.1650. Un breakout au-dessus de 1.1650 invaliderait la phase baissière récente et pourrait engager une reprise haussière. A contrario, une cassure sous 1.1600 renforcerait la tendance baissière. Plan d’action : surveiller la réaction prix sur ces zones clés pour entrer en position.\n\nC) DeskPro\n```json\n{\n  \"run_id\": \"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-57-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_23-57-17.png"
+  }
+}

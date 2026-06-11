@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_052816_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T01:28:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-28-06",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 62K pour tentative retour haussier, sinon relance baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">64,000 USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Les marchés affichent une pression baissière nette sur plusieurs actifs majeurs, avec des baisses significatives par exemple sur indices US et matières premières.\n- Le BTC montre une possible tentative de rebond après une forte chute depuis les plus hauts récents.\n- Volume reste modéré, surveillance des zones clés pour confirmer une reprise ou continuation baissière.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h\nStructure: tendance baissière claire avec des Lower Highs (LH) et Lower Lows (LL) bien marqués depuis fin mai.\nSupports: zone autour de 59 000-60 000 USD (plusieurs rebonds).\nRésistances: 62 000 USD et surtout 63 500 USD.\nScénario: si cassure au-dessus de 62 000 USD, tentative de retour vers 63 500 USD (zone clé). Sinon, continuation baissière probable avec retest des supports vers 59 000 USD.\nInvalidation: franchissement durable au-dessus de 64 000 USD confirmerait un changement de tendance.\n\nC) Chart 2 (haut-droit): Inconnu (symbole et timeframe non lisibles claire",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-28-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_01-27-58.png"
+  }
+}

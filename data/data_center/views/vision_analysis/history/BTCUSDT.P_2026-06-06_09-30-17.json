@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_133025_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T09:30:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-30-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60250.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente à rejet résistance 61300",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure 61750 volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière sur le 15m, avec des creux et sommets de plus en plus bas (LH, LL)  \n- Structure actuelle en phase de légère correction haussière, avec des HH et HL locaux mais sans franchissement clair de résistance majeure  \n- Zones clés identifiées autour de 61 300 (résistance) et 59 750 (support), scénario possible de continuation baissière si support cassé  \n\nB) Chart unique (BTCUSDT.P 15m):  \nTendance : Baissière globale avec correction haussière récente  \nStructure : LH (plus bas), LL (plus bas), puis HL/HH locaux en rebond  \nSupports : 59 750 (plus bas récent), 60 250 (plus bas intermédiaire)  \nRésistances : 61 300 (plus haut récent), 61 750 (points de retournement courts)  \nPlan : Surveiller test de la résistance 61 300, vendre en rebond si rejet confirmé  \nInvalidation : Cassure nette de 61 750 avec volume, signal de possible reprise haussière  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH, LL av",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-30-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_09-30-08.png"
+  }
+}

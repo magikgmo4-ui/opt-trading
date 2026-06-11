@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_235122_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T19:51:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-51-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.087,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0895,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond proche résistance 0.0895 avec stop serré au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire et clôture au-dessus 0.0895",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance de court terme baissière dominante sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure volatile avec rebond récent créant un plus bas relatif (Higher Low partiel) sans confirmer un retournement clair.\n- Zone de support clé proche de 0.0870 et résistance autour de 0.0895 à surveiller pour validation scénario haussier ou poursuite du bearish.\n\nB) Chart unique (DOGEUSDT.P 15m):\nOn observe une structure baissière claire avec des Lower Highs et Lower Lows bien visibles jusqu'à l'échelle actuelle. Un rebond a formé un Higher Low provisoire vers 0.0870, stoppant la chute brutale précédente. La zone 0.0870 représente donc un support crucial, tandis que le sommet local à 0.0895 fait office de résistance à franchir pour un retournement haussier. Le volume reste relativement fort sur les baisses, signe de pression vendeuse dominante. Le scénario prioritaire reste la continuation baissière sous 0.0895, avec invalidation du biais si cette résist",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-51-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_19-51-05.png"
+  }
+}

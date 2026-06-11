@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_105107_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T06:51:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-50-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.09,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "monitorer rebond sur 1.075-1.080 pour opportunité short avec stop above 1.110, ciblant 1.060",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire et suivie au-dessus de 1.110",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une succession de lower highs (LH) et lower lows (LL).  \n- Structure marqué par des tentatives de rebond limitées, invalidant tout retournement haussier.  \n- Zones de support autour de 1.060 et résistance notable proche de 1.110.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLa paire XRPUSDT.P évolue dans une dynamique baissière avec une série de LH et LL, absence de higher lows (HL). Les dernières chandelles montrent un retour vers un support court terme vers 1.075, après un rejet marqué au-dessus de 1.090-1.100. Volume en augmentation lors des baisses, confirmant la pression vendeuse. Résistance clé à 1.110, invalidation du scénario baissier si la paire casse ce niveau avec impulsion. Support majeur identifié vers 1.060, à surveiller en cas de cassure pour accélération baissière.\n\nC) DeskPro  \n{\"run_id\":\"xrp_15m_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.060\"],\"resistances\":[\"1.090\",\"1.110\"",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-50-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_06-50-51.png"
+  }
+}

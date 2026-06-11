@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_055926_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T01:59:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-59-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1675.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 1500, viser cassure 1675-1700 pour confirmation retournement haussier. Sinon, continuer vente sur replis.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement net à la hausse de 1700.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur ce timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de marché en chute libre sans signe de retournement clair visible.  \n- Zones clés à surveiller pour potentielle réaction : support autour de 1500, résistance à 1675-1700.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa dynamique est baissière avec des plus bas et plus bas relatifs confirmés (structure LH/LL). Le cours descend régulièrement depuis environ 2100 jusqu'à toucher le niveau proche de 1500. La dernière bougie montre une tentative de rebond sur cette zone de support. La résistance immédiate se situe autour de 1675-1700, zone précédemment testée comme support devenu résistance. Le plan est d'observer une confirmation de rebond au-dessus des 1675 pour envisager un retournement haussier, sinon poursuite de la baisse vers les 1500. Invalidation du scénario baissier en cas de franchissement clair et durable au-dessus de 1700.  \n\nC) DeskPro  \n```json  \n",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-59-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_01-59-06.png"
+  }
+}

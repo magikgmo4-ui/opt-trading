@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_180914_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T14:09:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-09-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur pullback ou continuation en cassure sous 1.15200",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire >1.15700",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette en 1h avec cassure rapide et forte impulsion vendeuse.\n- Structure en cours montrant des Lower Highs (LH) et Lower Lows (LL) marqués sur les dernières données.\n- Zone clé support à 1.15200 proche, possible réaction, invalidation du scénario baissier au-dessus de 1.15700.\n\nB) Chart unique (FX:EURUSD 1h): La paire EURUSD évolue clairement en tendance baissière avec des chandeliers rouges puissants et une forte accélération à la baisse. La structure forme une série de LH/LL avec break du niveau support intermédiaire vers 1.15700, confirmant la faiblesse. Volume en hausse lors de la chute, signalant un fort momentum vendeur. Le support proche à 1.15200 pourrait offrir un pallier temporaire. Un rebond avec HH au-dessus de 1.15700 invaliderait le biais baissier court terme.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.15200\"],\"resistances\":[\"1.15700\"],\"plan\":\"Vente sur pullback ou continu",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-09-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-07_14-08-53.png"
+  }
+}

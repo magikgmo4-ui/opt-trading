@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_045045_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T00:50:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-50-37",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sous 920B avec stop au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 920B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance majoritairement baissière marquée par une série de lower highs (LH) et lower lows (LL).  \n- Structure récente en forte accélération baissière avec cassure d'un support clé vers 920B.  \n- Scénario baissier à privilégier avec vigilance sur zone de support 820-840B pouvant offrir un rebond technique.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLa structure est clairement bearish avec une succession de lower highs et lower lows. La dernière baisse rapide confirme la pression vendeuse, notamment avec la cassure en clôture du support à 920B. Le volume est en nette augmentation indiquant une forte participation vendeuse. Résistance immédiate à 920B (ancien support devenu résistance), support potentiel vers 820B-840B où une réaction de prix pourrait se produire. Le plan est de rester short tant que le prix reste sous 920B avec un stop serré au-dessus de cette zone pour invalidation.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-50-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-06_00-50-26.png"
+  }
+}

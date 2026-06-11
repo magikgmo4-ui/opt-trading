@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_173733_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:37:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-37-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rebond en zone résistive 62000-63000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire au-dessus de 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante clairement baissière avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure actuelle indique un possible creux local autour de 60 000, zone de support clé à surveiller.  \n- Scénario actionnable : chercher opportunités vendeuses sur rejets à résistances vers 62 000 / 63 000, invalidation si rupture convaincante de 63 000.\n\nB) Chart unique (BTCUSDT.P 1h): La tendance est baissière avec série prononcée de LH et LL. Le prix a formé un dernier LL autour de 60 000, zone de support majeur. Un rebond technique tente de s’installer mais peine à dépasser les 62 000-63 000, ce qui rejoint une zone de résistance importante. Le volume confirme la pression vendeuse. Le scénario préféré reste donc un maintien de la pression vendeuse tant que ce noeud de résistances ne cède pas. La rupture au-dessus des 63 000 invaliderait ce biais bearish et pourrait initier une correction plus ample.\n\nC) DeskPro  \n{\"run_id\":\"auto001\",\"charts\":[{\"slot\":\"singl",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-37-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_13-37-17.png"
+  }
+}

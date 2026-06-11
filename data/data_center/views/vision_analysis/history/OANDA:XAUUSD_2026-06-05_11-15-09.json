@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_151522_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T11:15:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-15-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4350.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 4350 avec target 4320",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">4380",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attente signal clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long si confirmation, sinon wait",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "<4345",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Pression vendeuse nette visible sur plusieurs timeframes, tendance globale baissière.  \n- Structure marquée par des Lower Highs (LH) et Lower Lows (LL), confirmation de la tendance négative.  \n- Zones clés identifiées autour des 4 370 (résistance récente) et 4 350 (support potentiel à court terme).  \n\nB) Chart 1 (haut-gauche):  \nTendance 1h en baisse avec structure LH et LL prononcée.  \nSupport clé autour de 4 350, zone importante à surveiller pour une potentielle réaction acheteuse.  \nRésistance immédiate vers 4 370-4 380, a servi de point de rebond baissier récent.  \nScénario préférentiel: poursuite de la baisse sous 4 350 avec extension vers 4 320.  \nInvalidation: franchissement et maintien au-dessus de 4 380.  \n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe inconnus (légende partielle).  \nAnalyse non réalisable sans données claires visibles.  \n\nD) Chart 3 (bas-gauche):  \nSymbole et timeframe inconnus, graphique majoritairement plat avec doute sur la tendance ",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-15-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_11-14-58.png"
+  }
+}

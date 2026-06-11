@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_audiobooks_business101_380_2025-11-07T14:08:21+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "audiobooks_business101",
+    "parsed_at": "2025-11-07T14:08:21+00:00",
+    "produced_at": "2026-06-06T11:30:55.425496+00:00",
+    "pair": "XAUUSDUSDT",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "25 AI tools you need to be using daily in 2025\n\n 1. Perplexity.ai \u2013 answers with cited sources\n 2. Descript.com \u2013 edits video like a document\n 3. Jasper.ai \u2013 writes marketing copy that converts\n 4. RunwayML.com \u2013 creates stunning video effects\n 5. ElevenLabs.io \u2013 generates realistic voice clones\n 6. Notion.ai \u2013 organizes your entire workspace\n 7. Otter.ai \u2013 transcribes meetings instantly\n 8. Copy.ai \u2013 writes sales emails that sell\n 9. Beautiful.ai \u2013 designs pitch decks automatically\n 10. Photoroom.com \u2013 removes backgrounds perfectly\n 11. Speechify.com \u2013 turns text into audiobooks\n 12. ChatPDF.ai \u2013 analyzes documents for insights\n 13. Bardeen.ai \u2013 automates repetitive tasks\n 14. Zapier.com \u2013 connects all your apps\n 15. Writesonic.com \u2013 creates blog posts fast\n 16. Lumen5.com \u2013 turns blogs into videos\n 17. Fliki.ai \u2013 generates videos from text\n 18. Tome.app \u2013 builds storytelling presentations\n 19. Simplified.com \u2013 all-in-one content creation\n 20. Vidyo.ai \u2013 repurposes content for social\n 21. Lexica.art \u2013 generates unique AI images\n 22. Beatoven.ai \u2013 creates custom soundtracks\n 23. Murf.ai \u2013 produces professional voiceovers\n 24. Fireflies.ai \u2013 records and summarizes calls\n 25. Chatbase.co \u2013 builds custom AI chatbots"
+  }
+]

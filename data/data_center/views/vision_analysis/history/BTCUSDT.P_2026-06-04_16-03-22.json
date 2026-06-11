@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_200331_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T16:03:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-03-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher shorts sur rejet de la résistance 64400 ou longs en cas de break HH validé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 62000 pour les longs ou break au-dessus de 64400 pour les shorts",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 15m avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure récente montre un rebond technique mais sans cassure de structure haussière (HH/HL manquants).  \n- Zone clé de support vers 62 000 et résistance immédiate autour de 64 400 à surveiller pour validation d’un retournement ou poursuite baissière.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché évolue globalement en tendance baissière avec une succession de HL cassés et LL formés, indiquant une structure faible. Une consolidation avec tentative de rebond s’est dessinée récemment entre 62 000 et 64 400. Le biais reste baissier tant que le prix ne franchit pas un HH au-dessus de 64 400. Un retour sous 62 000 invaliderait toute tentative haussière pour continuer le downtrend. Scénario classique: chercher des shorts sur rejets en zone résistance, ou attendre un break structure pour envisager un swing long.  \n\nC) DeskPro  \n{\"run_id\":\"20240608-1\",\"charts\":[{\"slo",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-03-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_16-03-12.png"
+  }
+}

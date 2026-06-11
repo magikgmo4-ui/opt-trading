@@ -1,0 +1,27 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_92228_20260611T093009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "GOLD_FOREX_SIGN",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-09T12:14:39+00:00",
+  "produced_at": "2026-06-11T09:30:09.615356+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4340.0,
+  "sl": 4346.0,
+  "tp": 4332.0,
+  "tps": [
+    4332.0,
+    4325.0,
+    4315.0,
+    4306.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "#Gold Sell NOW\u00a0XAUUSD\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 4340/4344  Again \nTp1\u00a0 4332\nTp2\u00a0 4325\nTp3\u00a0 4315\nTp4\u00a0 4306\nTp5\u00a0 Open \n\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 SL 4346...\n\nMust Use Proper M-Management",
+  "summary": "XAUUSD SHORT"
+}

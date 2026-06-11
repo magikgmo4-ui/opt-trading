@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_055926_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T01:59:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-59-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1630.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher confirmation à la résistance 1620-1630 pour revenir short, prudence au-delà pour inversion possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1630$",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette depuis plusieurs sessions avec une série de LL et LH baissiers.  \n- Structure récente en tentative de rebond avec un HL formé autour de 1530$ et une montée vers 1600$.  \n- Zone clé résistance proche à 1620-1630$, invalidation du rebond si cassure sous 1530$.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance principale est baissière avec des lower highs (LH) et lower lows (LL) marqués. Dernièrement, un creux à environ 1500$ suivi d’un rebond a formé un higher low (HL) vers 1530$, indiquant une tentative de retournement court terme. Le prix s’approche d’une résistance claire autour de 1620-1630$, zone de congestion antérieure. Le scénario à privilégier reste la continuation baissière si cette résistance tient. En revanche, une cassure claire au-dessus de 1630$ invaliderait ce scénario et pourrait ouvrir la voie à un changement de tendance.  \n\nC) DeskPro  \n{\"run_id\":\"20240607-eth1h\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-59-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_01-59-10.png"
+  }
+}

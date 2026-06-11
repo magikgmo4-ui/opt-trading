@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_222623_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T18:26:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-26-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rejet zone résistance 63000, target vers 59000; scaling out si inversion structure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement et maintien au-dessus de 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Support majeur proche de 59 000 USDT testé récemment avec rebond.\n- Résistance clé autour de 63 000 USDT, zone de congestion avant nouvelle potentielle impulsion.\n\nB) Chart unique (BTCUSDT.P 1h) : \nLe graphique montre une dominante structure baissière (LH/LL) depuis plusieurs jours. La tendance est clairement baissière. Après un drop significatif, une zone de support autour de 59 000 USDT a provoqué un rebond. Le prix bute actuellement sur une résistance à 63 000 USDT. Scénario principal : une reprise baissière si résistance confirmée, avec invalidation en cas de franchissement clair et maintien au-dessus de 63 000. Le volume augmente sur les creux, signe d'accumulation possible mais prudence.\n\nC) DeskPro\n{\"run_id\":\"20240605_2250\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"59000\"],\"resistances\":[\"63000\"],\"plan\":\"Short sur rejet zone résistance 63000, ta",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-26-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_18-26-02.png"
+  }
+}

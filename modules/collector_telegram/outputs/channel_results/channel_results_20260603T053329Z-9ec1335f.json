@@ -1,0 +1,27 @@
+[
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "glassnode",
+    "role": "ONCHAIN_STRUCTURE",
+    "messages_total": 20,
+    "parsed_count": 19,
+    "claims_count": 0,
+    "needs_review_count": 12,
+    "unknown_raw_count": 1,
+    "noise_count": 7,
+    "dominant_message_types": [
+      "NEWS_CATALYST",
+      "NOISE",
+      "UNKNOWN_RAW"
+    ],
+    "avg_parser_score": 0.58,
+    "supported_formats": [
+      "NEWS_CATALYST",
+      "NOISE",
+      "UNKNOWN_RAW"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  }
+]

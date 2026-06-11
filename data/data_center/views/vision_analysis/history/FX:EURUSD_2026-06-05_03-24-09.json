@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_072416_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T03:24:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-24-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.167,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rebond possible sur 1.1600, viser 1.1650. Si cassure 1.1670, réévaluer scénario haussier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1.1670",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h neutre à baissière avec séquence récente de LH/LL confirmée.  \n- Structure récente cassure de HL, puis formation d’un nouveau LH, signal de faiblesse.  \n- Zone clé support majeure vers 1.1600, résistance proche à 1.1650-1.1670.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa paire EURUSD montre sur 1h un changement de structure avec un plus bas plus bas (LL) et un plus haut plus bas (LH) récent, confirmant une pression vendeuse. Le prix teste actuellement une zone de support autour de 1.1600, à surveiller pour un rebond potentiel. En cas de franchissement à la hausse du dernier sommet vers 1.1650-1.1670, scénario haussier possible. Invalidation du biais baissier si le prix dépasse 1.1670.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier/neutre\",\"structure\":\"LH/LL récent, cassure HL antérieur\",\"supports\":[\"1.1600\"],\"resistances\":[\"1.1650\",\"1.1670\"],\"plan\":\"Rebond possible sur 1.1600, viser 1.1650. Si cassure 1.1670, réévaluer scéna",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-24-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_03-23-58.png"
+  }
+}

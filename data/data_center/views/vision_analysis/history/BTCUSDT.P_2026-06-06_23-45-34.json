@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_034542_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T23:45:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-45-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rejet sous 61,600 pour shorts",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break >63,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas de lecture",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas de lecture",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas de lecture",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas de lecture",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas de lecture",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas de lecture",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière sur le court terme avec présence de lower highs (LH) et lower lows (LL).  \n- Premiers signes de tentative de rebond vers 61 600, zone potentiellement clé.  \n- Scénario principal baissier invalidé si break clair au-dessus des 63 000.\n\nB) Chart 1 (haut-gauche) : Bitcoin / TetherUS, 1h  \nTendance : baissière dominante.  \nStructure : en chaîne de lower highs et lower lows, confirmant un mouvement de baisse.  \nSupports : vers 60 000 / 59 000 zones psychologiques.  \nRésistances : 61 600 - 62 000 zone clé de réaction intermédiaire, puis 63 000.  \nPlan : surveiller la réaction sous 61 600, envisager des shorts si rechute confirmée.  \nInvalidation : clôture claire au-dessus de 63 000, rupture de structure baissière.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non lisible)  \nLecture impossible, pas assez d’information.\n\nD) Chart 3 (bas-gauche) : inconnu (symbole/timeframe non lisible)  \nLecture impossible, pas assez d’information.\n\nE) Chart",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-45-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_23-45-26.png"
+  }
+}

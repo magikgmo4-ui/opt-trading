@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_095755_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T05:57:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-57-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.163,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher short sur rebond résistance, viser retest supports. Attention invalidation à franchissement 1.1650.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus 1.1650 sur 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h suite à une cassure franche avec volume en forte hausse.  \n- Structure: succession de HH/HL puis passage en LH/LL confirmant un changement de polarité en tendance baissière.  \n- Zones clés: résistance proche vers 1.1630-1.1650, support immédiat vers 1.1500-1.1520, à surveiller pour rebond ou poursuite.  \n\nB) Chart unique (FX:EURUSD 1h): La paire est en tendance baissière nette après une longue phase de range/un peu haussière. La structure montre un dernier sommet avec lower high, suivi d'une cassure baissière majeure (lower low). Volume en forte augmentation à la baisse. Support à court terme observé vers 1.1520, zone psychologique 1.1500 à tester. Résistance désormais autour des 1.1630-1.1650 où le prix a buté avant la chute. Scénario principal: poursuite du repli sous 1.1520, invalidation sur retour franc au-dessus des 1.1650.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LH/LL\",\"supp",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-57-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_05-57-35.png"
+  }
+}

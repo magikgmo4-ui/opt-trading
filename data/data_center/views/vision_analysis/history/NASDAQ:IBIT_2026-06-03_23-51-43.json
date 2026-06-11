@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_035151_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:51:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-51-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 37.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 38.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 37 avec cible 35-36, stop au-dessus de 38.5",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture > 38.5",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière sur le 1h avec une série de lower highs (LH) et lower lows (LL).  \n- Structure affaiblie, sans signe de rebond significatif, prix proche d’un support récent vers 37 USD.  \n- Scénario principal : poursuite de la baisse sous résistance clé à 38.50 USD, invalidation en clôture au-dessus.\n\nB) Chart unique (NASDAQ:IBIT 1h):  \nLe titre évolue dans une configuration baissière claire, marquée par des sommets et creux déclinants (LH/LL). La dernière consolidation près de 37 USD représente une zone de support court terme. La résistance majeure à court terme se situe autour de 38.50 USD, niveau où plusieurs rejets sont apparus. L'absence de creux plus hauts (HL) soutient l'hypothèse d'une pression vendeuse continue. La prise de position pourrait s’envisager à la baisse sous 37 USD avec comme invalidation une clôture au-dessus de 38.50 USD.\n\nC) DeskPro  \n{\"run_id\":\"202406\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[37],",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-51-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-03_23-51-31.png"
+  }
+}

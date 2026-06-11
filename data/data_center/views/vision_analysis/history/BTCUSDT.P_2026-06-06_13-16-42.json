@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_171652_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:16:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-16-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 60000 pour continuation baissière. En cas de dépassement 64000, reconsidérer scénario haussier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cloture au-dessus de 64000 en données 1h.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le timeframe 1h avec des lower highs (LH) et lower lows (LL) marqués.\n- Structure actuelle en consolidation latérale autour de 60 700 $ après une chute rapide.\n- Zone clé de résistance proche de 64 000 $ et support important sous 60 000 $ à surveiller.\n\nB) Chart unique (BTCUSDT.P 1h) : Le graphique montre un marché en tendance baissière bien établie avec une série de LH et LL. Une phase de consolidation s’installe entre 60 000 $ (support) et 62 000 $ (résistance immédiate). Le volume reste élevé lors de la descente, indiquant une forte pression vendeuse. Un rebond vers 64 000 $ constituerait un test important pour invalider la tendance. En revanche, une cassure sous le support à 60 000 $ relancerait la dynamique baissière.\n\nC) DeskPro\n{\"run_id\":\"20240607_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL avec consolidation\",\"supports\":[\"60000\"],\"resistances\":[\"62000\",\"64000\"],\"plan\":\"Surveiller cassure support 60000 pour",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-16-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_13-16-34.png"
+  }
+}

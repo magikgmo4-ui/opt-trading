@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_145449_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:54:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-54-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1590.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 1590 avec stop au-dessus de 1650, viser extension baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1650 confirmant un changement de tendance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette et claire sur le 1h, avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Accélération récente de la chute avec un volume en hausse, sinon signal d'une panique ou sortie rapide.  \n- Zone support importante à surveiller autour de 1 590, potentiel rebond possible, sinon poursuite baissière.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa structure est baissière avec des Lower Highs et Lower Lows marqués, validant une tendance baissière. Le prix a chuté brutalement ces dernières heures avec un pic de volume, cassant des supports intermédiaires. Zone clé support vers 1 590, à valider pour un rebond technique. Résistance repoussée à la dernière Lower High proche de 1 640-1 650. Scénario principal: continuation baissière sous 1 590 avec potentiel de nouveau creux. Invalidation du scénario bearish si retour au-dessus de 1 650 avec structure HH/HL confirmée.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"BAISSIER\",\"structu",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-54-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_10-54-26.png"
+  }
+}

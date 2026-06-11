@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_104815_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T06:48:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-48-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "trading short sous 1580 avec cible 1500, vigilance en cas de cassure 1580 pour un retournement possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1580 sur 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante clairement baissière sur ce timeframe 1h.\n- Structure en LH (Lower Highs) et LL (Lower Lows) confirmée avec plusieurs vagues de baisse successives.\n- Zones clés sous surveillance : support proche vers 1 500 USD, résistance immédiate vers 1 580 USD.\n\nB) Chart unique (ETHUSDT.P 1h):\nLe graphique montre une forte dynamique baissière avec une série de hauts et bas déclinants (LH/LL). Après un rebond technique entre 1 500 et 1 580 USD, le prix a repris sa chute. La pression vendeuse reste importante, amplifiée par les volumes en hausse lors des phases baissières. Un retournement haussier nécessiterait la cassure franche au-dessus des derniers LH vers 1 580 USD. L’invalidation du scénario baissier se ferait par le passage au-dessus de ce niveau clé. Le support majeur à 1 500 USD est la dernière zone à tenir pour éviter une accélération vers des plus bas.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-48-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_06-47-56.png"
+  }
+}

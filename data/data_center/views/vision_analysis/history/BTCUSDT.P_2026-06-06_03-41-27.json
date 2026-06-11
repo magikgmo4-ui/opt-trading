@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_074135_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T03:41:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-41-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance breakout résistance ou rechute support, achat breakout ou vente rejet",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse support 59600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m globalement baissière avec une succession de creux et sommets plus bas (LH/LL).  \n- Structure récente en reprise haussière avec formation de HL depuis le plus bas local.  \n- Zone clé support identifiée autour de 59,600 ; résistance importante vers 61,600-61,800 à surveiller.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché affiche une structure baissière classique avec des Lower Highs et Lower Lows, indiquant une pression vendeuse continue. Cependant, un pivot haussier semble se construire depuis le plus bas vers 59,600, avec des hauts qui remontent modérément. Le prix teste actuellement une zone de résistance vers 61,200-61,600, où un break pourrait signaler une tentative de retournement ou un pullback. L’invalidation de ce scénario haussier se ferait sous 59,600, ce qui relancerait la tendance dominante vers le bas. Le plan court terme privilégie une surveillance du test de résistance pour un éventuel setup vendeur ou achat en cas de breakout confirmé",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-41-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_03-41-18.png"
+  }
+}

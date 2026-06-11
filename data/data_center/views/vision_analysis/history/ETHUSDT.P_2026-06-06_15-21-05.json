@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_192114_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T15:21:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-21-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1575.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond vers 1575-1600 avec stop above 1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair au-dessus de 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance nette baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragile avec début de consolidation sous 1 575, zone clé de résistance.\n- Scénario baissier privilégié, invalidation via franchissement clair au-dessus de 1 600.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe marché s’inscrit dans une tendance baissière marquée, avec des séquences claires de LH/LL depuis début juin. Une zone de support importante autour de 1 525 est testée plusieurs fois, induisant une phase de consolidation avec des volumes en baisse. La résistance principale se situe vers 1 575-1 600, niveau bloquant la reprise. La structure actuelle invite à privilégier les ventes sur rebond, en attente d’une potentielle cassure du support pour continuation baissière. Le scénario bullish ne sera envisagé qu’en cas de retournement affiché avec un HH au-dessus de 1 600.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-21-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_15-20-56.png"
+  }
+}

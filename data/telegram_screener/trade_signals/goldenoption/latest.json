@@ -1,0 +1,36 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldenoption_6301_2022-08-11T10:35:17+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldenoption",
+    "parsed_at": "2022-08-11T10:35:17+00:00",
+    "produced_at": "2026-06-06T11:30:56.291318+00:00",
+    "pair": "OMUSDT",
+    "asset": "OM",
+    "direction": "LONG",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "SPECIAL SUMMER PROMO \ud83d\udea8\nTHE VYBE IS HOT & TROPICAL \ud83c\udfdd\ud83c\udf79\ud83c\udf4d\ud83d\udc20\n\nWould You Like To Make Daily **$100 - $500 Profits** Trading Just 30-60 Minutes Per Day ?\n\nTrading is the new way to be working from home or anywhere in the world and make a full-time income from your cellphone/laptop \ud83d\udcf2\ud83d\udcbb\n\nJOIN THE FOREX MILLIONAIRES TEAM! \ud83d\udd25\n\nClick the link below and start living the laptop lifestyle \ud83c\udf34\ud83c\udfdd\n\nGet 96% OFF! Here:\nhttps://goldenoptiontrading.com/enroll\nFor Payment With Crypto Here:\nhttps://commerce.coinbase.com/checkout/2f6bcedc-3ced-461f-836c-18cbef6850bf\n\n**Lifetime Bundle: Get All We Offer At One Discounted Price and Save $10,231\n\n**\u2022 Lifetime VIP Forex Signals\n\n\u2022 Lifetime Mentoring Group Chat + Worldwide Community\n\n\u2022 Up Level Trading Program 3.0\n\n\u2022 The Trading Accelerator Program\n\n\u2022 40+ Trading Session Recording\n\n\u2022 4-LIVE Webinar recording with a certified Golden Option mentor\n\n\u2022 20+ Recorded Live Q & A\n\n\u2022 100+ Technical Analysis Video\n\n\u2022 Lifetime Access to the Trading Academy\n\n\u2022 Lifetime Access to our Affiliate Program\n\n\ud83c\udf03 Don't sleep on this!\n\u23f3Time is very limited!\n\n**UpLevel Trading Program 3.0 - Create An Online Income Through Passive Investing and Forex Trading!\n\n**Enroll in the most comprehensive and knowledge packed Investing & Trading course on the market. Gain instant access to 10 Life Changing Modules covering everything from Long Term Passive Investing to Short Term Forex Trading."
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldenoption_6347_2022-08-23T16:34:31+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldenoption",
+    "parsed_at": "2022-08-23T16:34:31+00:00",
+    "produced_at": "2026-06-06T11:30:56.296528+00:00",
+    "pair": "XAUUSDUSDT",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Close XAUUSD BUY +160 pip \u2705\ud83e\udd0c"
+  }
+]

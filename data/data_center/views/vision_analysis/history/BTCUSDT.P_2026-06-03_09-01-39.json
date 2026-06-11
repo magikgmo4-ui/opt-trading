@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_130201_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:01:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-01-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "recherche rebond court terme à support, viser résistance, short si cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse sous 4430",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Plusieurs actifs majeurs en contexte mixte avec tendances diverses : or (XAUUSD) en correction baissière nette.  \n- Indices US en légère hausse sur le court terme, volatilité (VIX) en légère hausse.  \n- Actions tech mitigées : AAPL et TSLA montrent un rebond, NFLX en repli.  \n\nB) Chart 1 (haut-gauche): XAUUSD 1H  \nTendance globale baissière avec structure de lower highs (LH) et lower lows (LL) depuis le 26 mai.  \nPrix récent en rebond technique sur support à ~4450 USD.  \nRésistance clé à ~4500-4520 USD (ancienne zone de support devenu résistance).  \nVolume en baisse sur rebond, prudence sur reprise haussière.  \nScénario: attente zone support, si cassure rebond valide viser 4500.  \nInvalidation si retour sous 4430 USD, poursuite baisse probable.  \n\nC) Chart 2 (haut-droit): Symbole/timeframe inconnu  \nImpossible de déterminer avec précision l’actif et timeframe.  \nLecture non réalisable sans données.  \n\nD) Chart 3 (bas-gauche): Symbole/timeframe inconnu  \nImpossible ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-01-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_09-01-28.png"
+  }
+}

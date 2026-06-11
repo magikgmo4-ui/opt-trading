@@ -1,0 +1,76 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_wfr_analysis_31370_2026-06-05T12:40:19+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "wfr_analysis",
+    "parsed_at": "2026-06-05T12:40:19+00:00",
+    "produced_at": "2026-06-11T10:00:14.628804+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4465.0,
+    "sl": 4480.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "XAUUSD sell now @ 4465\n\nTp @ 4441\n\nSl @ 4480"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_wfr_analysis_31389_2026-06-09T08:50:56+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "wfr_analysis",
+    "parsed_at": "2026-06-09T08:50:56+00:00",
+    "produced_at": "2026-06-11T10:00:14.630598+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4328.5,
+    "sl": 4344.0,
+    "tp": 4305.0,
+    "tps": [
+      4305.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD sell now @ 4328.5\nTp @ 4305\nTp2 @ 4281\n\nSl @ 4344"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_wfr_analysis_31391_2026-06-09T12:15:16+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "wfr_analysis",
+    "parsed_at": "2026-06-09T12:15:16+00:00",
+    "produced_at": "2026-06-11T10:00:14.630663+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4342.0,
+    "sl": 4353.0,
+    "tp": 4321.0,
+    "tps": [
+      4321.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD sell again @ 4342\nTp @ 4321\nTp2 @ 4305\n\nSl @ 4353"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_wfr_analysis_31399_2026-06-10T13:03:54+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "wfr_analysis",
+    "parsed_at": "2026-06-10T13:03:54+00:00",
+    "produced_at": "2026-06-11T10:00:14.631608+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4152.0,
+    "sl": 4171.0,
+    "tp": 4125.0,
+    "tps": [
+      4125.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD sell now @ 4152\nTp @ 4125\nTp2 @ 4100\n\nSl @ 4171"
+  }
+]

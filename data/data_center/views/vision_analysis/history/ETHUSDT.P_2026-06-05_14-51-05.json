@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_185113_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T14:51:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-51-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur cassure du support 1550 avec stop strict au-dessus de 1620.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1620 confirmant un retournement potentiel.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de continuation baissière claire, sans rebond significatif pour invalider le mouvement.  \n- Zone clé support proche des 1550 USDT à surveiller pour un possible rebond ou continuation.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLe graphique montre une nette pression vendeuse. La structure fait apparaître des LH et LL réguliers, confirmant une impulsion baissière. Les volumes augmentent sur les phases de baisse, validant le momentum vendeur. Le prix consolide légèrement autour de 1560-1580 USDT, zone de support provisoire testée plusieurs fois. Le scénario privilégié reste une poursuite du trend baissier si cette zone casse. Invalidation des hypothèses baissières à la remontée avec un HH au-dessus des 1620 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH / LL\",\"supports\":[\"1550\"],\"resistances\":[\"1620\",\"1700",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-51-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_14-50-53.png"
+  }
+}

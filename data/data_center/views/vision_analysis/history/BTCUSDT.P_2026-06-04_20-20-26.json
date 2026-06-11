@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_002035_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T20:20:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-20-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 62000 ou casse confirmée pour short; inversion si franchissement 65000 valide un HH",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire en 1h avec succession de Lower Highs (LH) et Lower Lows (LL)  \n- Structure fragile en cours, légère consolidation après chute marquée autour de 63 800 USDT  \n- Zone clé support vers 62 000 USDT, résistance à 65 000 USDT pour valider un potentiel rebond\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLa tendance dominante est baissière, confirmée par une série de LH et LL. Après une chute rapide jusqu’au niveau de support proche de 62k, une phase de range s’installe, indiquant une pause avant potentielle continuation ou correction. La zone des 65k représente une résistance importante à surveiller pour invalider la baisse. Un franchissement au-dessus de 65k indiquerait un changement de structure avec un HH potentiel. En cas de cassure sous 62k, la tendance bearish serait renforcée avec poursuite vers de nouveaux LL. Le plan serait donc d’attendre confirmation claire du scénario selon franchissement ou tenue des zones clés.\n\nC) DeskPro  \n{\"run_id\":\"uuid2",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-20-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_20-20-14.png"
+  }
+}

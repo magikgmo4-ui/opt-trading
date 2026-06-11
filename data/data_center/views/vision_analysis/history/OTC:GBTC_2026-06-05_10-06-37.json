@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_140644_OTC:GBTC_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "OTC:GBTC",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:06:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-06-37",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "impossible à établir sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global:\n- Le symbole affiché n'existe pas ou n'a pas de données disponibles.\n- Impossible de réaliser une analyse graphique sur ce timeframe.\n- Vérifier le symbole ou choisir un autre actif pour analyse.\n\nB) Chart unique (OTC:GBTC 1h): Symbole introuvable, données indisponibles. Aucun élément graphique analysable.\n\nC) DeskPro {\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible à établir sans données\",\"invalidation\":\"aucune donnée\"}]}",
+  "symbols_found": [
+    "OTC:GBTC"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-06-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OTC:GBTC_1h_2026-06-05_10-06-26.png"
+  }
+}

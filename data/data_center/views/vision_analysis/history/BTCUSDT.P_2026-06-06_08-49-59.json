@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_125006_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T08:50:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-49-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur retour proche résistance si refus, viser retest support 60000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure durable au-dessus de 64000.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h clairement baissière avec une longue série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière dominante sans signe clair de retournement pour l'instant.  \n- Zone clé support vers 60 000, zone de résistance vers 63 000-64 000.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est baissière nette avec une succession de creux et sommets décroissants (LH/LL). Après un rapide rebond autour des 60 000, le prix semble buter sur la résistance vers 63 000. Cette zone est un point de contrôle clé pour décider de la poursuite ou non du retracement. Le scénario principal reste la reprise de la baisse sous confirmation d’une invalidation à casser le récent sommet à environ 63 500-64 000. En cas de cassure de ce niveau, un retournement potentiel sera à reconsidérer à moyen terme. L’invalidation se situe donc au-dessus de 64 000.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"60000\"],\"resistances\":[\"6",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-49-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_08-49-50.png"
+  }
+}

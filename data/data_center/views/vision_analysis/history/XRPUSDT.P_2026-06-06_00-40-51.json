@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_044057_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T00:40:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-40-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.055,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.09,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher opportunité short sur rebond proches résistances, gérer stop serré au-dessus 1.0900",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture hors résistance 1.0900",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière 15m avec structure HH/HL cassée et série de LL récents.  \n- Zone de support proche vers 1.0550 testée actuellement, volume en augmentation.  \n- Scénario baissier privilégié sauf rebond net au-dessus du dernier HL vers 1.0900.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nLe prix montre une structure principalement baissière avec une succession de Lower Highs (LH) et Lower Lows (LL). La dernière cassure en force vers 1.0550 avec un fort volume confirme la pression vendeuse. Une zone de support immédiat est visible autour de 1.0550. La structure n’indique pas de reprise claire tant que le prix reste sous le dernier HL à 1.0900. Un rebond doit être validé par un franchissement de cette résistance, sinon le risque est une poursuite baissière. Invalidation du biais si clôture au-dessus de 1.0900.  \n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.0550\"],\"resistances\":[\"1.0900\"],\"plan\":\"cherch",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-40-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_00-40-42.png"
+  }
+}

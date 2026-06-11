@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_225414_CRYPTOCAP:TOTAL_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-03T18:54:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-54-01",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur cassure du support 2.2T, viser 2.0T",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix supérieur et stable au-dessus de 2.6T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière depuis le plus haut visible avec une série de HH/HL cassée, maintenant des LH et LL.  \n- Structure de marché fragilisée à court terme, le prix retombe vers un support proche autour de 2.2T USD.  \n- Risque accru d’accélération baissière si le support clé des 2.2T est cassé, scénario baissier privilégié jusqu'à preuve du contraire.  \n\nB) Chart unique (CRYPTOCAP:TOTAL 1d):  \nLe marché crypto total cap affiche une tendance baissière dominante visible par la succession de plus bas et plus bas (LH/LL). Un redressement intermédiaire a créé quelques HL, mais ce mouvement a été stoppé et le prix retombe brutalement en dessous de 2.3T vers 2.2T, zone support majeur immédiate. La cassure de ce support ouvrirait une poursuite baissière vers 2.0T voire plus bas. En revanche, une réaction haussière sur ce niveau permettrait un retour possible vers la résistance autour de 2.6T. Le scénario prudent reste la vente sous confirmation de rupture du suppor",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-54-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-03_18-53-51.png"
+  }
+}

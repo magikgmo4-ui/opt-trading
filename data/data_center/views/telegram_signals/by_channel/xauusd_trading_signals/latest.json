@@ -1,0 +1,128 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "xauusd_trading_signals",
+  "total": 12,
+  "signals": [
+    {
+      "id": "tg_172_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 2370.0,
+      "sl": 2360.0,
+      "tp": 2380.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-16T07:02:05+00:00"
+    },
+    {
+      "id": "tg_171_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 2354.0,
+      "sl": 2343.0,
+      "tp": 2358.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-15T02:09:35+00:00"
+    },
+    {
+      "id": "tg_168_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 2377.0,
+      "sl": 2390.0,
+      "tp": 2360.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-12T16:33:32+00:00"
+    },
+    {
+      "id": "tg_165_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 2391.0,
+      "sl": 2400.0,
+      "tp": 2380.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-12T11:27:26+00:00"
+    },
+    {
+      "id": "tg_161_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 2330.0,
+      "sl": 2320.0,
+      "tp": 2335.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-11T09:24:13+00:00"
+    },
+    {
+      "id": "tg_158_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 2271.0,
+      "sl": 2281.0,
+      "tp": 2265.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-03T12:35:08+00:00"
+    },
+    {
+      "id": "tg_157_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 2262.0,
+      "sl": 2268.0,
+      "tp": 2258.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-02T08:35:15+00:00"
+    },
+    {
+      "id": "tg_153_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 2257.7,
+      "sl": 2265.0,
+      "tp": 2255.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-02T07:56:13+00:00"
+    },
+    {
+      "id": "tg_152_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 2257.0,
+      "sl": null,
+      "tp": 2260.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-04-01T09:17:58+00:00"
+    },
+    {
+      "id": "tg_148_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 2.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-03-28T14:09:19+00:00"
+    },
+    {
+      "id": "tg_147_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": null,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-03-28T14:07:49+00:00"
+    },
+    {
+      "id": "tg_143_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 2211.0,
+      "sl": 2215.0,
+      "tp": 2207.0,
+      "confidence": "LOW",
+      "parsed_at": "2024-03-28T10:57:46+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

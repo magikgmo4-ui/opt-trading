@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_084453_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T04:44:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-44-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4460.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur résistance, viser continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 4460",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale clairement baissière avec une série de lower highs (LH) et lower lows (LL) sur le timeframe 1h.  \n- Prix vient de tester un support récent vers 4320, zone clé à surveiller pour un potentiel rebond ou poursuite baissière.  \n- Scénario principal : continuation baissière sous la résistance autour de 4400, invalidation sur franchissement clair de 4450-4460.  \n\nB) Chart 1 (haut-gauche):  \nSymbole: XAUUSD / Timeframe: 1h  \nTendance: Baissière  \nStructure: LH/LL confirmés, dernier point bas vers 4320 (LL)  \nZones clés: Support 4320, résistance 4400-4460  \nScénario: Vente possible sur retour en zone résistance, viser extension basse sous 4320  \nInvalidation: Clôture horaire au-dessus de 4460  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \nImpossible d’analyser, données insuffisantes.  \n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non lisible)  \nImpossible d’analyser, données insuffisantes.  \n\nE) Chart 4 (bas-droit): inconnu (s",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-44-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_04-44-30.png"
+  }
+}

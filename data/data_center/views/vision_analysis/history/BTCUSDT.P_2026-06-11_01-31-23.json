@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_053152_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:31:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-31-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Long au-dessus 63000 avec stop sous 60000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette sous 60000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente baissière nette jusqu’au 5 mai.  \n- Depuis le 5 mai, structure en range avec HL et HH partiels, sans cassure claire.  \n- Zone clé autour de 63 000 USD (résistance) et support proche des 60 700 USD.\n\nB) Chart unique (BTCUSDT.P 1h): La tendance principale est baissière (LH/LL) avant le 5 mai, suivie d’une consolidation avec HL et HH formés, indiquant un possible retournement ou pause. Le prix teste actuellement la résistance à 63 000 USD à plusieurs reprises sans pouvoir la dépasser. Supports notables aux alentours de 60 700 USD et 60 000 USD. Scénario haussier confirmé au-dessus de 63 000 USD avec impulsion; invalidation sous 60 000 USD qui confirmerait reprise baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL/HH dans range\",\"supports\":[\"60700\",\"60000\"],\"resistances\":[\"63000\"],\"plan\":\"Long au-dessus 63000 avec stop sous 60000\",\"invalidation\":\"Cassure nette sous 60000\"}]}",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-31-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_01-31-12.png"
+  }
+}

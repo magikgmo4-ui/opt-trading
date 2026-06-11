@@ -1,0 +1,33 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_17323_20260611T063008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "GolddExpert",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-09T12:17:36+00:00",
+  "produced_at": "2026-06-11T06:30:08.195206+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4345.0,
+  "sl": 4353.0,
+  "tp": 4343.0,
+  "tps": [
+    4343.0,
+    4339.0,
+    4335.0,
+    4330.0,
+    4322.0,
+    4343.0,
+    4339.0,
+    4335.0,
+    4330.0,
+    4322.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**#XAUUSD**** ****#GOLD**** SELL 4345-4347\n\nTP 4343\nTP 4339\nTP 4335\nTP 4330\nTP 4322\n\nSL 4353**",
+  "summary": "XAUUSD SHORT"
+}

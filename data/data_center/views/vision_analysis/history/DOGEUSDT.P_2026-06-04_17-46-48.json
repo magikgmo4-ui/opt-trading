@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_214656_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T17:46:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-46-48",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.087,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.09,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 0.087 avec ciblage de nouveaux plus bas; attendre confirmation HH/HL au-dessus de 0.090 pour envisager achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prise durable au-dessus de 0.091 valide une potentielle inversion haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière nette sur le 15m, avec des creux et sommets plus bas (LL, LH non confirmés);  \n- Structure marquée par une série de HH/HL temporaires dans un mouvement global descendant;  \n- Zones clés à surveiller : support majeur autour de 0.087, résistance immédiate vers 0.090-0.091.  \n\nB) Chart unique (DOGEUSDT.P 15m) :  \nLe graphique montre une tendance baissière dominante, matérialisée par une succession d'Lower Highs (LH) et Lower Lows (LL). On observe néanmoins plusieurs tentatives de rebond formant des Higher Highs (HH) et Higher Lows (HL) sur des intervalles courts, sans renversement durable de structure. La cassure claire des supports proches vers 0.087 invaliderait un scénario haussier intermédiaire. Une attente sur une stabilisation ou un retournement formant une structure claire HH/HL au-dessus de 0.090 serait nécessaire avant d’envisager un plan long. Le scénario principal reste donc le maintien de la pression vendeuse avec prise de pro",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-46-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_17-46-41.png"
+  }
+}

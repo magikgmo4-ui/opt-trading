@@ -1,0 +1,68 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "gold_forex_signals",
+  "total": 6,
+  "signals": [
+    {
+      "id": "tg_35_20260611T100009",
+      "pair": "EURUSD",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": 1.1,
+      "tp": 1.12,
+      "confidence": "LOW",
+      "parsed_at": "2019-08-01T15:31:51+00:00"
+    },
+    {
+      "id": "tg_29_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 1244.3,
+      "sl": 1248.5,
+      "tp": 1235.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-12-13T04:15:02+00:00"
+    },
+    {
+      "id": "tg_26_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 1227.0,
+      "sl": 1224.0,
+      "tp": 1241.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-11-22T06:49:13+00:00"
+    },
+    {
+      "id": "tg_22_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 1221.76,
+      "sl": 1223.45,
+      "tp": 1205.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-11-20T23:52:50+00:00"
+    },
+    {
+      "id": "tg_18_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 1223.3,
+      "sl": 1227.0,
+      "tp": 1205.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-11-20T10:23:44+00:00"
+    },
+    {
+      "id": "tg_5_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 1216.14,
+      "sl": 1212.2,
+      "tp": 1230.0,
+      "confidence": "LOW",
+      "parsed_at": "2018-11-16T10:20:19+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

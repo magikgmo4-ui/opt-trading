@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_084513_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T04:45:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_04-45-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller un retour vendeur en résistance 1.15. Vente possible en échec de franchissement avec stop tight au-dessus. Rebond sur support 1.10 valide la zone pour un point d'entrée short.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement franc et tenue au-dessus de 1.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec succession de LH et LL.  \n- Rebond récent sur support vers 1.10-1.11 mais avec faiblesse, cassure précédente non invalidée.  \n- Zone clé résistance proche autour de 1.15 ; inversion haussière conditionnée à un HH au-dessus.\n\nB) Chart unique (XRPUSDT.P 15m)  \nLa structure présente des Lower Highs (LH) et Lower Lows (LL) indiquant une dynamique vendeuse dominante. Un support immédiat est visible vers 1.10-1.11, où un rebond technique s’est formé, mais la tentative de relief reste faible en volume et ne modifie pas la structure baissière. La zone des 1.15 constitue une résistance majeure à valider pour envisager un retournement vers une tendance haussière. En l’absence de franchissement clair de cette résistance, le scénario principal reste une poursuite du mouvement baissier. Invalidation à surveiller au-dessus de 1.15.\n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_04-45-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-05_04-44-51.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_060144_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T02:01:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-01-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rebond/résistance, prise de profit sur support, stop au-dessus résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair à la hausse de 66,500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en déclin net sans signe de renversement visible.  \n- Zone de support court terme autour de 62 500 USDT, résistance proche à 66 500 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une baisse prolongée avec des swings baissiers marquant des LH et des LL. Après un récent creux vers 62 500 USDT, un rebond technique à environ 64 000 USDT se produit mais reste faible en volume. La résistance clé à 66 500 USDT bloque toute tentative haussière. Le biais reste vendeur tant que le prix ne franchit pas ce seuil à la hausse. Une cassure sous 62 500 USDT relancerait la tendance baissière. Scénario actionnable : rester short ou neutre avec prise de profit proche de 62 500 et stop à invalidation au-dessus de 66 500 USDT.\n\nC) DeskPro  \n{\"run_id\":\"20240604_0601\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH, LL\",\"supports\":[\"62,500\"],\"resis",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-01-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_02-01-27.png"
+  }
+}

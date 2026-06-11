@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_181822_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T14:18:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-18-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller franchissement de résistance pour possible retournement haussier, sinon opportunité de vente sur échec",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix ferme et valide au-dessus de 1670-1700",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante clairement baissière sur le timeframe 1h.\n- Structure: succession de Lower Highs (LH) et Lower Lows (LL) jusqu’à début juin.\n- Repli récent avec tentative de bascule haussière, formation de Higher Lows (HL) sur les dernières bougies.\n\nB) Chart unique (ETHUSDT.P 1h)\nLa dynamique principale est une baisse marquée visible par une série de LH et LL nets jusqu’au 6 juin. Depuis, on observe une reprise partielle, avec des mouvements latéraux et un début de structure HL indiquant un possible creux. Zones clés à surveiller : résistance vers 1650-1670 (points hauts récents) et support autour de 1500 (plus bas du 6 juin). Scénario principal : rebond limitant la chute, mais le biais reste baissier tant que la résistance des 1650-1670 n’est pas franchie. Invalidation du scénario baissier si prix dépasse durablement et valide les 1670-1700.\n\nC) DeskPro\n{\"run_id\":\"20240607_ethusdt_h1_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec tentative de rebond\",\"stru",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-18-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_14-18-03.png"
+  }
+}

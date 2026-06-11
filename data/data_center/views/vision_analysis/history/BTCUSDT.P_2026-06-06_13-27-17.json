@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_172727_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:27:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-27-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur cassure 60000 ou long sur cassure 62000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure 62000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "unknown",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale claire : baissière sur le timeframe 1h (BTCUSDT.P).  \n- Structure en phase de creusement de creux, présence de succession de LH et LL.  \n- Zones clés proches des 60 000 (support) et 62 000 (résistance) à surveiller pour un rebond ou continuation.  \n\nB) Chart 1 (haut-gauche):  \n- Symbole/Timeframe : BTCUSDT.P / 1h  \n- Tendance : Baissière net depuis début juin.  \n- Structure : Structure en LH (Lower Highs) et LL (Lower Lows) dominante, confirmant un marché baissier.  \n- Supports : Zone vers 60 000 USD, testée plusieurs fois, support clé court terme.  \n- Résistances : Environ 62 000 USD, niveau à franchir pour invalider la baisse.  \n- Scénario : Attendre un rejet sur résistance ou cassure du support 60 000 pour entrée short ou long.  \n- Invalidation : Cassure claire au-dessus de 62 000 avec HH (Higher High) remettrait en cause la tendance baissière actuelle.  \n\nC) Chart 2 (haut-droit):  \nInconnu (graphique non visible)  \n\nD) Chart 3 (bas-gauche): ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-27-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_13-27-08.png"
+  }
+}

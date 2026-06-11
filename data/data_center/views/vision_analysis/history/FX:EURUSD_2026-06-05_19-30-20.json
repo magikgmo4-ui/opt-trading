@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_233032_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T19:30:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_19-30-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.169,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la réaction sur support 1.1520. En cas de rebond, possibilité d'un pullback vers 1.1600 pour vente. En cassure baissière du support, viser extension baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour significatif au-dessus de 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance actuelle baissière marquée par une chute rapide et brutale des prix.\n- Structure récente en séquence de Lower High (LH) et Lower Low (LL), confirmant la faiblesse.\n- Zone clé de support vers 1.1520 à surveiller pour un possible rebond ou poursuite baissière.\n\nB) Chart unique (FX:EURUSD 1h): La paire EUR/USD montre une nette dominance vendeuse après un sommet vers 1.1690. La structure se caractérise par des Lower High suivis de Lower Low, validant la tendance baissière court terme. Le volume monte fortement lors de la chute, indiquant forte pression vendeuse. La zone de support important à 1.1520 est la prochaine barrière. Un rebond ici validerait un scénario de correction, tandis qu’une cassure confirmerait la poursuite baissière. L’invalidation du biais baissier serait un retour au dessus des récents Lower High vers 1.1600.\n\nC) DeskPro\n{\"run_id\":\"eurusd_1h_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"],\"resistance",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_19-30-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_19-30-04.png"
+  }
+}

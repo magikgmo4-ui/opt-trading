@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_234118_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T19:41:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-41-11",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre ou rester baissier tant que sous 900B, viser 800B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 900B durable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante clairement baissière avec structure de bas en haut en LL (Lower Lows) et LH (Lower Highs)  \n- Break récent sous zone de support clé aux environs de 900B USD, validant la poursuite de la baisse  \n- Risque de continuation baissière tant que le prix reste sous les anciens supports devenus résistances  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe graphique montre une succession claire de plus bas plus bas (LL) et plus hauts plus bas (LH), confirmant la tendance baissière. Le prix vient de casser à la baisse un support horizontal majeur vers 900B USD, maintenant ce niveau comme résistance. Le volume d’échange s’est accentué sur cette rupture, signe d’engagement vendeur. Les zones clés sont le support invalidé vers 900B (devenu résistance) et la prochaine zone de support vers 800B. Le scénario privilégie une poursuite de la baisse vers 800B minimum, avec une invalidation si le prix remonte durablement au-dessus de 900B.  \n\nC) DeskPro  \n{\"run_id\":\"2024",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-41-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-06_19-40-36.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_014834_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T21:48:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-48-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.17,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.21,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rechercher opportunité short sur cassure 1.17, target nouveaux creux, stop si retour >1.21",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix > 1.21",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière avec une succession de HL/LL indiquant une structure fragile et un momentum vendeur fort.  \n- Zone clé de support proche à 1.17, à surveiller pour un rebond potentiel ou poursuite du breakout baissier si cassée.  \n- Scénario privilégié : continuation baissière sous 1.17 avec recherche de nouveaux creux ; invalidation sur retour clair au-dessus des 1.21.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique présente une structure baissière bien installée, marquée par des lower highs (LH) et lower lows (LL). La tendance est nette, les vendeurs dominent et le prix s’éloigne des résistances vers des niveaux plus faibles. Le dernier support visible autour de 1.17 agit comme zone clé, avec potentielle amorce de rebond mais faibles volumes de retournement qui renforcent la probabilité d’une cassure. Un retour au-dessus de 1.21 invaliderait temporairement la pression vendeuse. En résumé, la configuration est orientée short, avec un stop clair au-de",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-48-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-03_21-48-16.png"
+  }
+}

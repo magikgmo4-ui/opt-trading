@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_023653_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T22:36:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-36-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.17,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 1.15 avec cible 1.13, stop invalidation > 1.18",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 1.18",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de Lower Highs (LH) et Lower Lows (LL) clairement établis.  \n- Structure fragile en bas autour de 1.14, zone de support partielle.  \n- Scénario prioritaire: recherche de continuation short sous 1.15, invalidation au-dessus du dernier High vers 1.18.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLa tendance est baissière confirmée par la succession de LH et LL depuis le pic vers 1.24. Le prix teste actuellement une zone de support clé vers 1.14. Une cassure sous ce support confirmerait la poursuite de la baisse vers 1.13 voire 1.12. Un rebond possible doit être surveillé jusqu’à 1.17-1.18, zone de résistance à franchir pour invalider la tendance baissière courante. À court terme, privilégier les shorts sur retest des résistances avec stop serré au-dessus de 1.18.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.14\"],\"resistances\":[\"1.17\",\"1.18\"],\"plan\":\"short sous 1.15 avec cibl",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-36-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_22-36-35.png"
+  }
+}

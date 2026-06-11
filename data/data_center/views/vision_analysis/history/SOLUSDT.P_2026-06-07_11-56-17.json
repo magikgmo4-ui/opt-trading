@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_155628_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T11:56:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_11-56-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Long possible sur breakout 65.50 avec stop sous 61.50",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et clôture 15m sous 61.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- La tendance sur ce timeframe 15m montre une reprise haussière après une phase de baisse marquée.\n- Structure récente en HH et HL depuis le creux, validant un retournement haussier.\n- Zone clé de support autour de 61.50, résistance immédiate proche de 65.50-66.00.\n\nB) Chart unique (SOLUSDT.P 15m):\nOn observe une forte baisse initiale confirmée par une série de LL et LH. Puis, un pivot bas majeur crée un HL, suivi de HH consécutifs, indiquant un changement de dynamique vers une tendance haussière. La structure est claire avec reprise progressive. Le prix teste actuellement une résistance entre 65.50 et 66.00, zone à surveiller pour un breakout. Le support majeur à garder est le creux autour de 61.50. Invalidation du scénario haussier si le prix casse ce support clé en clôture 15m.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL, HH récents après LL/LH\",\"supports\":[\"61.50\"],\"resistances\":[\"65.50\",\"66.00\"],\"plan\":\"Long possible ",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_11-56-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-07_11-56-09.png"
+  }
+}

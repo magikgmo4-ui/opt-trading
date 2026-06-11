@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_232850_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T19:28:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-28-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "ATTENDRE cassure range pour prise de position, préférence short en cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassage forte résist. 64800 confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière claire avec une série de LH et LL sur le 15m.  \n- Structure récente en range, indécision après test de support vers 62 800 USD.  \n- Zones clés identifiées : support vers 62 800 USD, résistance proche à 64 300-64 400 USD.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance dominante est baissière, marquée par des Lower Highs (LH) et Lower Lows (LL). La dernière jambe baisse s’est arrêtée sur un support vers 62 800 USD, où le prix a rebondi en formant un range latéral. Ce range délimite une zone de support sensible entre 62 800 et 63 000 USD et une résistance à 64 300-64 400 USD. Le scénario probable en cas de cassure claire du range à la hausse serait un test des 64 800 USD, invalidant une reprise baissière immédiate. À l’inverse, une cassure sous 62 800 renverrait vers de nouveaux creux (LL). La structure actuelle reste fragile, nécessitant confirmation d’une cassure pour prise de position actionnable.  \n\nC) DeskPro  \n{\"run_id\":\"20240605",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-28-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_19-28-34.png"
+  }
+}

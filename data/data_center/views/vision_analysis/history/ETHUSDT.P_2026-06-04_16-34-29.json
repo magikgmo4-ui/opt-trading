@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_203437_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T16:34:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-34-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1780 pour long, rupture 1740 pour retour fort baissier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 1740 pour haussier, au-dessus 1780 pour baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le 15m, avec séquence de Lower Highs (LH) et Lower Lows (LL) confirmée.  \n- Structure récente montre tentative de rebond avec un HL (Higher Low) mais en consolidation horizontale sous résistance clé.  \n- Zone clé support proche des 1740 USDT, résistance intermédiaire vers 1780 USDT, scénario en attente de rupture claire.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance est clairement baissière avec une série de sommets et creux déclinants (LH/LL). Après un point bas vers 1740, le prix forme un HL, indiquant un possible ralentissement baissier ou un début de range. L’ETHUSDT.P évolue désormais en range entre 1740 (support) et 1780 (résistance). Une rupture au-dessus de 1780 validerait une reprise haussière à court terme, tandis qu’une cassure sous 1740 reconfirmerait la tendance baissière majeure. Volume stable, signalant absence d’impulsion forte pour l’instant. Invalidation haussière : chute sous 1740. Invalidation baissière : franc",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-34-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_16-34-20.png"
+  }
+}

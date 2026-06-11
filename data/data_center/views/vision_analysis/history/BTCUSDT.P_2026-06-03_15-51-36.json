@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_195151_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:51:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-51-36",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveille support 700-715B, short si cassure, long si rebond confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 760B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- L’ensemble des graphiques montre surtout des consolidations après des tendances baissières longues.  \n- Les structures HH/HL manquent de clarté, le biais est donc conservateur neutre ou légèrement baissier.  \n- Zones clés horizontales de support et résistance à surveiller pour activation d’un break-out ou d’un rejet important.  \n\nB) Chart 1 (haut-gauche): TOTAL3 Crypto Excl. BTC+ETH D1  \n- Tendance : neutre-baissier, après une forte chute puis range horizontal.  \n- Structure : série de LL et HL moyens, cassure récente proche d’un support.  \n- Supports : zone 700-715B USD (potentiel pivot).  \n- Résistances : 740-760B, plafond à casser pour confirmer reprise.  \n- Scénario : repli sous 700B possible si le support lâche, sinon tentative de rebond.  \n- Invalidation : franchissement clair au-dessus de 760B invaliderait la pression baissière.  \n\nC) Chart 2 (haut-droit) : inconnu (pas visible)  \n- Données du symbole/timeframe non lisibles.  \n- Pas d’analyse possible.  \n\nD)",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-51-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_15-51-26.png"
+  }
+}

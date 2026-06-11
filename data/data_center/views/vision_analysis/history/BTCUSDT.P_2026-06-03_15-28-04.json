@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_192820_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:28:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-28-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1810.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1860.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1880.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sur poursuite de la baisse sous 1810 vers 1780",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1880",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "consolidation, attendre breakout",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure contraire",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre sortie de range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure opposée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "scalp ou breakout",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout fort",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante visible sur la majorité des graphiques, avec structure de creux et sommets descendants (LL/LH).  \n- Plusieurs zones clés de support fragiles, à surveiller pour un possible rebond technique ou cassure.  \n- Scénarios prudents à privilégier avec des invalidations claires sous objectifs de structure baissière.  \n\nB) Chart 1 (haut-gauche):  \n- Symbole: ETHUSDT, Timeframe: 15m  \n- Tendance clairement baissière en cours, structure HH/HL cassée, on observe un pattern LL/HL puis LL confirmant la faiblesse.  \n- Volume en hausse sur les baisses, signe d’une pression vendeuse dominante.  \n- Zones clés de support autour de 1810 et 1780 USDT à surveiller.  \n- Résistances autour de 1860-1880, hauteur récente rejetée.  \n- Scénario privilégié: poursuite de la baisse sous 1810 avec extension vers 1780.  \n- Invalidation: clôture stable au-dessus de 1880 avec retour d’une structure HL/HV.  \n\nC) Chart 2 (haut-droit):  \n- Symbole/timeframe inconnu (le détail",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-28-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_15-27-57.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_232820_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T19:28:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_19-28-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur échec résistance 63k, viser test 60k et plus bas. Attention à invalidation si cassure 63k.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure et clôture au-dessus de 63,000 USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL) bien marqués.  \n- Structure actuelle en tentative de rebond après un fort sell-off, avec un dernier HL potentiellement formé.  \n- Zone clé de résistance autour des 63 000 USD, support majeur actuellement testé vers 60 000 USD.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe marché est dans une tendance baissière dominante, marquée par une succession de Lower Highs et Lower Lows. Le prix a récemment formé un possible double bottom vers 59 600-60 000 USD, déclenchant un léger rebond. Ce rebond fait face à une résistance importante autour de 63 000 USD, zone de précédents supports cassés. La structure est fragile : un dépassement clair du dernier HL invaliderait la tendance baissière, tandis qu’une cassure sous 60 000 USD relancerait la chute. Scénario prioritaire: poursuite de la baisse avec rebonds ponctuels dans la zone 60-63k. Invalidation du biais si le prix casse 63 000 USD avec volu",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_19-28-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_19-28-01.png"
+  }
+}

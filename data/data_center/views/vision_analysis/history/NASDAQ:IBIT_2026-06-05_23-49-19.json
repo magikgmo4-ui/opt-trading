@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_034926_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T23:49:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-49-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 35.0,
+      "confidence": 0.7,
+      "note": "s 35"
+    },
+    {
+      "type": "support_level",
+      "value": 33.0,
+      "confidence": 0.7,
+      "note": "s 33"
+    },
+    {
+      "type": "support_level",
+      "value": 35.0,
+      "confidence": 0.7,
+      "note": "s 35"
+    },
+    {
+      "type": "support_level",
+      "value": 33.0,
+      "confidence": 0.7,
+      "note": "s 33"
+    },
+    {
+      "type": "support_level",
+      "value": 33.0,
+      "confidence": 0.7,
+      "note": "s 33,"
+    },
+    {
+      "type": "resistance_level",
+      "value": 36.5,
+      "confidence": 0.7,
+      "note": "r 36.5"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette en 1h avec une série de plus bas (LL) et plus bas relatifs (LH) confirmée.  \n- Structure affaiblie, cassure rapide des supports clés sur 36.5 puis 35 USD.  \n- Scénario dominant : poursuite de la baisse vers 33 USD, invalidation au-dessus de 36 USD.\n\nB) Chart unique (NASDAQ:IBIT 1h) :  \nLa tendance est clairement baissière avec une série de sommets et creux déclinants (LH et LL). La structure a rompu plusieurs zones de support clés autour de 36.5 USD puis 35 USD, confirmant la faiblesse. Le prix est actuellement autour de 34.14 USD, au plus bas récent. La volumétrie montre des pics à la baisse, ce qui renforce le biais vendeur. Le scénario le plus probable est une poursuite vers les 33 USD. Une remontée au-dessus de 36 USD invaliderait ce biais baissier.\n\nC) DeskPro  \n```json\n{\"run_id\":\"20240608_0350\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[33,35],\"resistances\":[36,37],\"plan\":\"short vers 33, stop au-dessus",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-49-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-05_23-49-09.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_035910_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T23:59:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-59-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la réaction près de 1820-1840. Achat possible en cas de cassure haussière validée, stop sous 1760. Sinon, attendre nouvelle baisse sous 1760 pour vendre en tendance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire au-dessus de 1840",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière en place, tentative de rebond récent au-dessus de 1760 USDT.  \n- Zone clé résistance vers 1820-1840 USDT à surveiller pour valider un retournement ou poursuite baissière.\n\nB) Chart unique (ETHUSDT.P 15m):  \nOn observe une structure baissière nette marquée par plusieurs Lower Highs et Lower Lows indiquant une pression vendeuse dominante. Le prix a rebondi depuis un plus bas autour de 1720 USDT, formant un HL provisoire proche de 1800 USDT. La zone 1820-1840 USDT apparait comme une résistance clé, car un rejet est visible sur les dernières chandelles. Un franchissement clair de cette résistance invaliderait la dynamique baissière court terme et ouvrirait un scénario de reprise haussière. L'invalidation de ce rebond serait une nouvelle baisse sous 1760 USDT pour reprendre la tendance baissière dominante.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-59-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_23-58-52.png"
+  }
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gbpusd_gbpnzdforex_5219_2026-06-11T07:20:41+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gbpusd_gbpnzdforex",
+    "parsed_at": "2026-06-11T07:20:41+00:00",
+    "produced_at": "2026-06-11T10:00:14.399292+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4103.0,
+    "sl": 4093.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Gold Buy Now slowly @ 4103 - 4097\n\nSl: 4093\n\nTP: 50/100Pips"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gbpusd_gbpnzdforex_5226_2026-06-11T08:27:47+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gbpusd_gbpnzdforex",
+    "parsed_at": "2026-06-11T08:27:47+00:00",
+    "produced_at": "2026-06-11T10:00:14.399785+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4103.0,
+    "sl": 4113.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Gold Sell Now slowly @ 4103 - 4108\n\nSl: 4113\n\nTP: 50/100Pips"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gbpusd_gbpnzdforex_5234_2026-06-11T08:51:30+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gbpusd_gbpnzdforex",
+    "parsed_at": "2026-06-11T08:51:30+00:00",
+    "produced_at": "2026-06-11T10:00:14.400206+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4089.0,
+    "sl": 4079.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Gold Buy Now @ 4089 - 4083\n\nSl: 4079\n\nTP: 100/200Pips"
+  }
+]

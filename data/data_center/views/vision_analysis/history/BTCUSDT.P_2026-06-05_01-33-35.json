@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_053343_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T01:33:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_01-33-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62250.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "SELL sous 62250 avec TP 61000, ou BUY au-dessus 64000 avec TP 65500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte fortement baissière initiée par une série de LH et LL marqués.  \n- Structure récente latérale avec oscillations entre supports autour de 62 250 et résistances proche de 64 000.  \n- Scénario plausible de range avec possible reprise baissière si support 62 250 cassé, invalidation en clôture au-dessus de 64 000.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché présente une tendance baissière nette avec une séquence HH/HL non établie, on observe une suite de Lower Highs et Lower Lows. Ces dernières heures montrent une consolidation latérale entre 62 250 (support clé) et 64 000 (résistance clé). Le volume fluctue sans signe clair d'accumulation ou de distribution. Le plan est d’attendre la cassure d’une des zones clés pour envisager un trade directionnel : short sous 62 250 avec prise de profits vers 61 000, ou long au-dessus de 64 000 avec objectif autour de 65 500. L’invalidation du scénario baissier serait une clôture nette au-dessus de 64 000.  \n\nC) D",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_01-33-35",
+    "source_screenshot": "/opt/trading/data/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_01-33-23.png"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_191210_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T15:12:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-12-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous résistance avec gestion proche du support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 62000 avec HH formé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Pression baissière nette dominante sur plusieurs actifs/indices majeurs.  \n- Bitcoin montre une structure de baisse claire sur 1h, sans signe de retournement immédiat.  \n- Volatilité élevée sur certains marchés, attention aux niveaux clés avant prise de position.  \n\nB) Chart 1 (haut-gauche): Bitcoin / USDT 1h  \nTendance baissière forte, structure caractérisée par des LH (Lower Highs) et LL (Lower Lows) constants.  \nVolumes en augmentation confirmaient la force des ventes.  \nZone clé support proche des 59 000 USDT à surveiller, zone de résistance vers 62 000 USDT.  \nScénario actionnable : stratégie vendeuse sous résistance, possible rebond technique sur support.  \nInvalidation : dépassement franc des 62 000 USDT avec structure de HH (Higher High) formée.  \n\nC) Chart 2 (haut-droit): inconnu (pas visible sur la capture)  \n\nD) Chart 3 (bas-gauche): inconnu (pas visible sur la capture)  \n\nE) Chart 4 (bas-droit): inconnu (pas visible sur la capture)  \n\nF) DeskPro  \n{\"run",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-12-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_15-11-53.png"
+  }
+}

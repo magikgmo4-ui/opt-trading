@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_162001_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T12:19:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-19-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1675.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rupture de 1540 avec stop 1675, viser 1400 en extension",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1675",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Zone clé de support proche des 1540-1550 USD testée avec rebond temporaire, mais pression vendeuse dominante.  \n- Scénario principal : poursuite de la baisse en cas de rupture nette du support à 1540 USD, invalidation en cas de dépassement franc des 1675 USD (dernier niveau de LH).\n\nB) Chart unique (ETHUSDT.P 1h): Analyse d’une tendance baissière structurée par un enchaînement de LH et LL. Le cours a cassé plusieurs supports intermédiaires, accentuant la pression vendeuse. Le plus récent support important à 1540-1550 USD a été testé et tenu brièvement, suivi d’un rebond technique. Cependant, l’absence de HH ou HL montre que la tendance de fond reste baissière. Résistance clé vers 1675 USD à surveiller car un retour au-dessus invaliderait la tendance baissière court terme.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"sup",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-19-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_12-19-18.png"
+  }
+}

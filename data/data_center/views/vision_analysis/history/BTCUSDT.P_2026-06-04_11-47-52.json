@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_154804_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:48:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-47-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller pullback sur résistance 64500 pour vente. Break 64500 invalide baisse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 64500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas d’analyse, symbole/timeframe illisible.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas d’analyse, symbole/timeframe illisible.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas d’analyse, symbole/timeframe illisible.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché crypto (BTCUSDT) sur 1h montre une forte pression vendeuse avec un rebond récent.  \n- Structure baissière claire, besoin de confirmer retournement avant achat.  \n- Zones clés vers 62 000$ (support) et 64 500$ (résistance) à surveiller.  \n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \nTendance : Baissière sur le timeframe 1h.  \nStructure : Séquence de Lower Highs (LH) et Lower Lows (LL) confirmée. Rebond récent crée un Lower High partiel à valider.  \nZones clés (S/R) : Support majeur vers 62 000$, résistance intermédiaire vers 64 500$.  \nScénario : Rebond possible en pullback sur résistance avant continuation baissière. Alternativement, dépassement de 64 500$ invalide la baisse à court terme et pourrait initier une structure HL.  \nInvalidation : Clôture stable au-dessus de 64 500$ (résistance haute).  \n\nC) Chart 2 (haut-droit) : Inconnu  \nSymbole/timeframe non lisible. Pas d’analyse possible.  \n\nD) Chart 3 (bas-gauche) : Inconnu  \nSymbole/timeframe non lisible. Pas",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-47-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_11-47-45.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_151456_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T11:14:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-14-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short privilégié sous 64,000 avec objectif 60,000 voire 58,000. Stop au-dessus de 64,000 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et hold au-dessus de 64,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière avec une série de Lower Highs (LH) et Lower Lows (LL) bien formés.  \n- Structure fragile sans rebond significatif, test des zones autour de 60 000 USDT.  \n- Zone de support clé actuellement testée vers 60 000 USDT, résistance immédiate vers 64 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique montre une tendance baissière robuste sur l’heure, marquée par une succession de Lower Highs et Lower Lows, confirmant la pression vendeuse dominante. Les prix sont descendus d’environ 75 000 USDT à un creux proche de 60 000 USDT. La zone des 60 000 USDT agit comme un support psychologique important, avec un volume en hausse lors des baisses, indiquant une forte dynamique vendeuse. Un rebond au-dessus de 64 000 USDT serait nécessaire pour invalider ce scénario baissier. La structure reste donc baissière tant que le support ne tient pas et que les Lower Highs persistent.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"20240605_1514\",\"charts\":[{\"slot\":\"si",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-14-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_11-14-36.png"
+  }
+}

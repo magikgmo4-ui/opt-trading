@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_194115_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T15:41:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-41-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance cassure support pour vente, ou cassure résistance pour achat avec confirmation HH/HL",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement support 60000 invalide reprise haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible avec une série de bas plus bas (LL) et de points hauts plus bas (LH).  \n- Structure latérale de consolidation récente avec des mouvements amplitude réduite autour de 60 500 - 61 000.  \n- Zone clé support proche de 60 000, résistance proche de 61 000.  \n\nB) Chart unique (BTCUSDT.P 15m): La tendance est baissière sur le timeframe 15m avec une structure LL/LH clairement établie. Actuellement, le prix évolue en phase de consolidation latérale entre un support vers 60 000 et une résistance vers 61 000. Ce range peut annoncer un possible rebond technique ou la continuation de la baisse si le support est cassé. Scénario haussier validé par dépassement clair de 61 000 avec structure HH/HL. Invalidation du scénario haussier sous 60 000.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH avec consolidation latérale\",\"supports\":[\"60000\"],\"resistances\":[\"61000\"],\"plan\":\"Surveillance cassure support",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-41-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_15-40-57.png"
+  }
+}

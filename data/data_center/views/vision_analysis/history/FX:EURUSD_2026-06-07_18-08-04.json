@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_220811_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T18:08:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-08-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "trades vendeurs sur pullback 1.1580-1.1600, stop au-dessus 1.1650",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break above 1.1650 confirmed",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le timeframe 1h avec des Lower Highs (LH) et Lower Lows (LL) formés récemment.\n- Structure en rupture claire après un fort gap et chute verticale, signalant une pression vendeuse intense.\n- Zone clé de support à 1.1500 proche du dernier plus bas, résistance majeure à 1.1650 (ancien pivot haut).\n\nB) Chart unique (FX:EURUSD 1h) :  \nTendance : baissière  \nStructure : Lower Highs / Lower Lows (LH/LL)  \nSupports : 1.1500 (plus bas récent)  \nRésistances : 1.1580 - 1.1650 (anciens points de rebond et sommet précédents)  \nPlan : privilégier trades vendeurs en pullback vers résistance 1.1580-1.1600 avec stops serrés au-dessus de 1.1650.  \nInvalidation : franchissement franc au-dessus de 1.1650 + maintien au-dessus indiquerait reprise de tendance haussière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.1500\"],\"resistances\":[\"1.1580\",\"1.1650\"],\"plan\":\"trades vendeurs sur pullback 1.1580-",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-08-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-07_18-07-52.png"
+  }
+}

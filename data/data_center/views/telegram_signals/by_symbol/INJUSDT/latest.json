@@ -1,0 +1,18 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "INJUSDT",
+  "total": 1,
+  "signals": [
+    {
+      "id": "tg_183_20260611T100009",
+      "channel": "LexatyCryptoSignals",
+      "direction": "LONG",
+      "entry_price": 14.456,
+      "sl": 13.889,
+      "tp": 14.912,
+      "confidence": "LOW",
+      "parsed_at": "2025-02-18T17:00:37+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

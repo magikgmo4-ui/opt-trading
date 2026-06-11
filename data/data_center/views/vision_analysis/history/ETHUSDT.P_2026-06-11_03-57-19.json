@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_075728_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T03:57:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-57-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1665.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la cassure 1665 pour confirmer continuation haussière, gérer le risque sous 1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "repli marqué sous 1600 invalide le scénario haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale récente baissière visible en début de graphique, suivie d’une tentative de reprise.  \n- Structure en cours montre un pattern HL (Higher Lows), début possible d’une inversion haussière.  \n- Zone clé à surveiller autour de 1665 comme résistance prioritaire; support intermédiaire vers 1600.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance passée était clairement baissière avec une série de LH (Lower Highs) et LL (Lower Lows). Depuis environ la moitié du graphique, le prix forme des HL, indiquant un début de structure haussière. Le prix teste actuellement une résistance vers 1650-1665, zone critique pour confirmer la poursuite du rebond. Un breakout au-dessus avec volume renforcerait ce scénario haussier. En cas d’échec et replis sous 1600, la structure haussière en creux serait invalidée, signalant un retour potentiel à la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL en formation après un",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-57-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-11_03-57-07.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_212554_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T17:25:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-25-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation de rejet en zone résistance pour vendre, ou invalidation >64,800 pour reconsidérer haussier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement >64,800 avec HL confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL) sur le timeframe 15m.  \n- Rebond technique visible depuis le plus récent LL vers 62 400, mais la structure reste baissière sans fracturation de HL.  \n- Zone clé de résistance identifiée vers 64 400 à 64 800, support significatif autour de 62 400.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une structure en baisse marquée par des Lower Highs et Lower Lows successifs, confirmant une tendance baissière. Après un plus bas récent vers 62 400, le prix rebondit, mais peine à dépasser la zone de résistance majeure située entre 64 400 et 64 800. Ce niveau agit comme une barrière clé pour une reprise haussière. Le scénario prioritaire reste la poursuite de la baisse, surtout en cas d’échec à franchir cette résistance. Un retournement structurel haussier ne serait validé qu’avec un franchissement clair et un nouveau HL au-dessus de 64 800. L’invalidation du scénario baissier",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-25-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_17-25-31.png"
+  }
+}

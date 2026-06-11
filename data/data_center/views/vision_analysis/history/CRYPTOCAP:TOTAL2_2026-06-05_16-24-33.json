@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_202442_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T16:24:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-24-33",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sous 880B avec target potentielle sur 800B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable au-dessus de 960B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une série de Lower Highs (LH) et Lower Lows (LL)  \n- Structure plus neutre entre fin février et début mai, avec un range horizontal autour de 960-1080B  \n- Reprise baissière récente marquée par un fort drop sous support clé vers 880B  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe graphique affiche une tendance baissière claire depuis plusieurs mois, caractérisée par une succession de LH et LL. Après une phase de consolidation latérale entre 960B (support) et 1080B (résistance), le prix vient de casser le support à 880B avec une forte bougie rouge et volume élevé, signalant un possible nouveau cycle baissier. La structure montre une faiblesse notable, et la poussée actuelle vers 860B ouvre la voie à un scénario de poursuite de la baisse. Invalidation de ce biais baissier possible au-dessus de 960B. Zones clés : support à 880B cassé, résistance à 960-1080B.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bea",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-24-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-05_16-24-23.png"
+  }
+}

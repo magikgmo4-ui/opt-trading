@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_211102_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T17:11:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-10-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1775.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1870.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller tenue support 1775-1780 pour rebond, cassure support -> poursuite baisse, cassure 1870 -> potentiel retournement/conso",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire au-dessus de 1870",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure cassée récemment avec forte chute soutenue par un volume élevé.  \n- Zone de support clé autour de 1775-1780, résistance immédiate proche de 1850-1870.\n\nB) Chart unique (ETHUSDT.P 1h): La paire est en tendance baissière nette avec des rebonds limités. On observe un enchaînement HL/LH et LL qui confirme la faiblesse. La zone 1775-1780 sert de support test actuel, une cassure sous ce niveau pourrait accélérer la baisse. La résistance principale est vers 1850-1870, zone à franchir pour envisager un retournement ou une consolidation. Scénario actionnable : surveiller la tenue du support à 1775 pour un possible rebond de court terme, sinon continuation baissière. L'invalidation du biais sera une cassure claire et durable au-dessus de 1870.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1775\",\"1780\"],\"resistan",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-10-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_17-10-47.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_204727_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T16:47:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-47-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.1575,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1685,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillez cassure 1.1600 pour vente ciblant 1.1575-1.1550. Reprise haussière si retour >1.1650.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">1.1685, invalidation bearish",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance neutre à baissière sur le 1h avec alternance de HH/HL puis LH/LL.\n- Structure récente montre un renversement baissier avec des bas et hauts plus bas.\n- Zone clé support autour de 1.1600, résistance majeure proche de 1.1685.\n\nB) Chart unique (FX:EURUSD 1h) : La paire évolue dans un contexte de retournement baissier après un sommet à environ 1.1685. La structure montre des plus hauts décroissants (LH) et des plus bas également plus bas (LL), indiquant une pression vendeuse. Le support à 1.1600 est testé, servant de zone d’arrêt potentiel ou de point d’entrée pour un rebond. Scénario plausible : poursuite baissière sous 1.1600 vers 1.1575-1.1550, ou reprise haussière si franchissement et maintien au-dessus de 1.1635-1.1650. Invalidation en cas de retour au-dessus de 1.1685 avec nouveaux plus hauts.\n\nC) DeskPro\n{\"run_id\":\"EURUSD_1H_20240604\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1.1600,1.1575],\"resistances\":[1.1650,1.1685],",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-47-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_16-47-05.png"
+  }
+}

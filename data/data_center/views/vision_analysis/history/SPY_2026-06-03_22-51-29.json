@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_025137_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:51:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-51-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 753.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 746.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 765.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond support 753-754 avec objectif 760+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte du support 746 (invalidation tendance haussière)",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance haussière claire avec une série de HH et HL bien définis depuis fin avril.\n- Récente correction intraday qui teste une zone de support intermédiaire vers 753-754.\n- Scénario actionnable : achat sur support avec objectif nouveau plus haut, perte de ce support invalide la structure haussière.\n\nB) Chart unique (SPY 1h):\nLe graphique montre une structure en tendance haussière avec des sommets et creux ascendantes (HH/HL). Après un plus haut autour de 760, une légère correction test une zone support vers 753-754, niveau à surveiller. Si ce support tient, la probabilité d’un rebond vers les précédents plus hauts est élevée. En dessous, la structure haussière serait invalidée avec potentiels retests des niveaux plus bas vers 746. Les résistances se concentrent autour de 760 et 765. Le volume reste stable, indiquant une correction saine.\n\nC) DeskPro\n```json\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[753,746],\"resistanc",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-51-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-03_22-51-19.png"
+  }
+}

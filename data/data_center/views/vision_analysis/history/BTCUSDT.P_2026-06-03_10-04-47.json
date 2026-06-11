@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_140526_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T10:05:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_10-04-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 69000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 70000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher poursuite baisse sous 65k, sinon rebond sous 70k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">70,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre confirmation rebond ou cassure baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break haussier confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Poursuite baisse tant que hauts non dépassés",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure haussière des sommets",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Continuation si support cassé, rebond si support tenu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Passage au-dessus résistance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière nette avec forte pente sur l'ensemble des graphiques.  \n- Structures marquées principalement par des Lower Highs (LH) et Lower Lows (LL), confirmant la pression vendeuse.  \n- Zones clés de support à surveiller sous les prix actuels, zones de résistance proche à confirmer pour un possible retracement.\n\nB) Chart 1 (haut-gauche): Bitcoin / USDT, 1h  \nTendance clairement baissière avec un pattern de Lower Highs/Lower Lows (LH/LL). Le prix chute de 77k à environ 66k. Structure dégradée. Zone support critique à 65k, résistance immédiate vers 69k-70k. Scénario: continuation du downtrend si support cassé, rebond possible si le prix remonte et passe 69k. Invalidation au-dessus de 70k avec changement possible de sentiment.\n\nC) Chart 2 (haut-droit): Inconnu  \nLa structure semble baissière avec des creux et sommets descendants (LL et LH). Plusieurs tentatives de rebonds échouées. Supports clés non identifiables précisément, résistance marquée sur les",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_10-04-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_10-04-40.png"
+  }
+}

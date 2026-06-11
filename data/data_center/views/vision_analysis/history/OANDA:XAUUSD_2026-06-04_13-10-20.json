@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_171032_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T13:10:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-10-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance cassure 4530 pour retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture < 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Structure en unité 1h majoritairement baissière avec des impulsions vives et retracements réguliers.\n- Zones clés S/R potentielles autour de 4480 (actuel), 4450 en bas, et 4530-4550 en haut.\n- Scénario possible de reprise à court terme si dépassement des résistances; invalidation en dessous de 4450.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h\n- Tendance: court terme baissière avec alternance de HL et LH.\n- Structure: succession de plus bas (LL) et quelques plus hauts relatifs (HL) sur retracements.\n- Supports: 4450 zone pivot, 4380 support majeur à surveiller.\n- Résistances: 4530-4550 (plus haut récent) puis 4600-4620.\n- Plan: recherche confirmation de cassure au-dessus de 4530 pour envisager une inversion.\n- Invalidation: clôture sous 4450 durable, revalide une dynamique baissière.\n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non visible)\n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non visible)\n\nE) Chart 4 (bas-droit): inconnu (symbole/timeframe non visibl",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-10-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_13-10-10.png"
+  }
+}

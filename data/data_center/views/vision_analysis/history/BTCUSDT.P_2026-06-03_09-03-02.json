@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_130313_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:03:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-03-02",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Sur rejet résistance, viser shorts avec objectifs support. Rebonds possibles en bas de zone support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture journalière >1.08T USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché crypto ex-BTC en tendance latérale baissière depuis plusieurs mois avec zones clés bien identifiées.  \n- Structures montrant des Lower Highs et Lower Lows fréquents, signalant une pression vendeuse persistante.  \n- Scénarios d’attente à privilégier, avec vigilance sur rupture des supports pour accélération baissière.\n\nB) Chart 1 (haut-gauche): Crypto Total Market Cap Excl. BTC Daily  \n- Tendance globale: latérale à baissière, avec des Lower Highs et Lower Lows.  \n- Structure: succession de creux plus bas (LL) confirmée, pressions vendeuses dominantes.  \n- Zones clés: support majeur autour de 900-920B USD, résistance vers 1.06-1.08T USD.  \n- Scénario: sous résistance, possibilité de nouvelle descente vers support, avec rebond possible en zone de support.  \n- Invalidation: clôture solide au-dessus des 1.08T contre-indique poursuite baissière.\n\nC) Chart 2 (haut-droit): Inconnu (non visible sur l’image)  \n- Informations insuffisantes pour analyse précise.  \n- Ve",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-03-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-03_09-02-47.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_034949_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T23:49:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-49-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur rebond ou cassure support avec stop au-dessus 1.1650",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage au-dessus de 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette en 1h après une rupture violente des supports précédents.  \n- Structure en LH et LL confirmée, signifiant une pression vendeuse forte.  \n- Zones clés à surveiller : résistance autour de 1.1650 (ancien support devenu résistance) et support immédiat vers 1.1520.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa paire EURUSD montre une phase de consolidation initiale suivie d’une cassure nette sous les niveaux support précédents, confirmant une perte de structure haussière (HH/HL remplacée par LH/LL). Le volume augmente fortement à la baisse, renforçant la dynamique vendeuse. Le support à 1.1520 est test actuel, à surveiller pour une possible pause ou rebond technique. En cas de retour au-dessus de 1.1570-1.1600, une correction haussière pourrait s’engager. Invalidation de ce biais baissier si le prix dépasse la résistance 1.1650.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"],\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-49-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_23-49-29.png"
+  }
+}

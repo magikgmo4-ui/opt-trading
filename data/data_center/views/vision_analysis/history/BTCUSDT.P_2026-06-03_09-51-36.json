@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_135154_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:51:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-51-36",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.095,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.096,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre pullback puis shorter sous résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 0.0960",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure pour prise de position",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure en sens opposé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation structure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement haussier net",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur retracement support confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte support",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte volatilité avec une tendance baissière marquée en intraday sur le principal graphique visible (inconnu pour les autres).  \n- Structures de prix indiquant des bas plus bas (LL) et des hauts plus bas (LH), typiques d’une pression vendeuse persistante.  \n- Zones clés restant autour des récents creux et résistances à surveiller pour validation d’un retournement ou poursuite.\n\nB) Chart 1 (haut-gauche):  \n- Actif : Dogecoin (DOGEUSDT), timeframe 15 minutes.  \n- Tendance baissière nette avec structure HL cassée, apparition de LH et LL.  \n- Support clé autour de 0.0910, résistance immédiate autour de 0.0950-0.0960.  \n- Volume en hausse durant les baisses, indiquant pression vendeuse active.  \n- Scénario favori : poursuite du pullback vers résistance avant reprise potentielle de la baisse.  \n- Invalidation en cas de franchissement clair des 0.0960 avec bonne dynamique.\n\nC) Chart 2 (haut-droit):  \n- Symbole/timeframe : inconnu.  \n- Impression générale de range ou conso",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-51-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_09-51-28.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_075224_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T03:52:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_03-52-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller franchissement 63,000 pour long, sinon conserver biais baissier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Support 59,000 cassé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte tendance baissière récente nette sur le graphique BTC/USDT 1h.\n- Structure de plus en plus fragile avec tentative de reprise en cours mais pas encore validée.\n- Zones clés importantes à retenir : support 59 000$, résistance à confirmer vers 63 000$.\n\nB) Chart 1 (haut-gauche): Bitcoin / TetherUS 1h (Binance)\n- Tendance majoritairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- On observe une tentative de rebond après un plus bas local vers 59 000$.\n- Structure fragile avec un HL potentiel mais encore incertain.\n- Supports clés proches de 59 000$ à surveiller.\n- Résistance immédiate vers 62 500-63 000$, zone de congestion préalable.\n- Scénario : si franchissement clair de 63 000$, possible correction plus haute ou début d'inversion.\n- Invalidation : retour sous 59 000$ renforcerait la tendance baissière.\n\nC) Chart 2 (haut-droit) : inconnu (détails illisibles)\n- Symbole/timeframe non lisible, impossible d’analyser précisément.\n- Pas d’infos",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_03-52-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_03-52-07.png"
+  }
+}

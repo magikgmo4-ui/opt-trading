@@ -1,0 +1,36 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_trading_free_35216_2022-05-10T12:28:39+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_trading_free",
+    "parsed_at": "2022-05-10T12:28:39+00:00",
+    "produced_at": "2026-06-11T10:00:14.443452+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 1.95199,
+    "sl": 1.95957,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "GBPNZD SELL @ 1.95199\nTP: 1.93573\nSL: 1.95957"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_trading_free_35233_2022-05-11T12:21:52+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_trading_free",
+    "parsed_at": "2022-05-11T12:21:52+00:00",
+    "produced_at": "2026-06-11T10:00:14.445087+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 5493.0,
+    "sl": 1.05169,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "EURUSD BUY @ 1.05493\nTP: 1.06301\nSL: 1.05169"
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_025601_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:55:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-55-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.1615,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1668,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre un rejet à la résistance 1.1668 pour envisager une vente, ou un break au-dessus pour un test haussier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1.1670 invalide le scénario baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance corrective sur le 1h avec structure en LH et LL récents confirmant un momentum vendeur.\n- Zones clés identifiées entre 1.1615 (S) et 1.1668 (R) servant de support/résistance court terme.\n- Scénario prioritaire de retracement possible vers 1.1668 avant invalidation sous 1.1600.\n\nB) Chart unique (FX:EURUSD 1h):\nLe graphique montre une tendance baissière récente avec plusieurs sommets plus bas (LH) et creux plus bas (LL), validant le bearish bias. Le prix a rebondi sur un support autour de 1.1600-1.1615 (zone clé) et teste une résistance à 1.1668 (dernier HH). Une cassure claire au-dessus de 1.1668 signalerait un possible retournement haussier ou au moins un retracement, tandis qu’un repli sous 1.1600 confirmerait la poursuite de la pression vendeuse. Volumes stables et pas d’anticipation d’accélération franche à court terme.\n\nC) DeskPro\n```json\n{\"run_id\":\"20240605-01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH-LL\",\"supports\":[\"1.1600\",\"1.1615",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-55-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_22-55-31.png"
+  }
+}

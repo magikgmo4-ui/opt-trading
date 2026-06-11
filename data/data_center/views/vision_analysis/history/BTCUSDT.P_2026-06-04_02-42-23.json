@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_064232_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T02:42:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-42-23",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre/shorter sur retour résistance ou rupture support. Surveiller rebond potentiel zone support pour scalp.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break and hold above 66000 for bullish reversal",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire de baisse sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière dominante, signifiant une pression vendeuse forte.  \n- Zone clé de support récente autour de 62 000-63 000 USD testée et tenue, possible rebond court terme.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance baissière nette marquée par une succession de Lower Highs (LH) et Lower Lows (LL) jusqu’à la zone de support aux alentours de 62k-63k USD où le prix montre des signes de rebond avec un volume en hausse. La résistance immédiate se situe vers 66 000 USD, seuil à franchir pour envisager un renversement de tendance court terme. Le scénario principal reste la poursuite de la baisse sous confirmation de rupture de la zone support. Invalidation du scénario baissier si le prix casse durablement les 66k, créant un Higher High (HH).  \n\nC) DeskPro  \n{\"run_id\":\"20240604-0700\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"62000-63000\"]",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-42-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_02-42-16.png"
+  }
+}

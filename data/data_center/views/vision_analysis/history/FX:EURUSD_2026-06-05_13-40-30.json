@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_174042_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T13:40:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-40-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher opportunité short en cassure et retest de 1.1570, viser 1.1520 voire plus bas.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Si retournement et clôture durable au-dessus de 1.1570",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h clairement baissière après rupture nette d’un support important.\n- Structure : succession de HH/HL avant une dernière jambe de baisse avec LH et LL.\n- Zone clé support invalidée vers 1.1570, scénario baissier renforcé, attente d’une continuation vers 1.1520 ou moins.\n\nB) Chart unique (FX:EURUSD 1h):\nLa paire EURUSD a montré une dynamique neutre-haussière avec des HH/HL jusqu’au début juin, avant un retournement marqué. La cassure franche sous 1.1570 (ancien support important en plusieurs points) entraine une forte pression vendeuse, avec un volume en hausse notable. La structure actuelle est baissière (LH puis LL) et la tendance 1h est désormais à la baisse. Résistance immédiate à 1.1570 (ancienne zone support), support à surveiller vers 1.1520. Scénario principal: poursuite de la chute, invalidation si retour au-dessus de 1.1570.\n\nC) DeskPro\n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"],\"resistanc",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-40-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_13-40-20.png"
+  }
+}

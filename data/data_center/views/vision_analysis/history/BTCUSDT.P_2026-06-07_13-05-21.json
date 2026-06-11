@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_170530_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T13:05:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-05-21",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "acheter sur support et confirmation HL/HH, viser résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture sous 59 500$",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché crypto BTC en tentative de rebond après une forte chute sur le court terme.  \n- Volatilité élevée, plusieurs zones clés de support proches à surveiller.  \n- Structure de court terme montre une possible inversion haussière si résistance majeure est cassée.\n\nB) Chart 1 (haut-gauche): BTCUSDT / 1h  \n- Tendance : baissière longue échéance, possible retournement haussier court terme.  \n- Structure : série de LL/LH confirmée mais derniers HL/HH apparents.  \n- Zones clés : support autour de 59 500-60 000$, résistance proche 63 000$.  \n- Scénario : achat à support et confirmation HH, sortie sur résistance ou retournement.  \n- Invalidation : rupture sous 59 500$ relancerait la baisse.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe illisible)  \n- Lecture impossible, symbole/timeframe non identifiable.  \n- Aucune analyse possible sans ces informations.\n\nD) Chart 3 (bas-gauche) : inconnu (symbole/timeframe illisible)  \n- Lecture impossible, symbole/timeframe non ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-05-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_13-05-13.png"
+  }
+}

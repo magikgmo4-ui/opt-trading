@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_104834_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T06:48:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-48-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.17,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur soutiens autour de 1.13-1.14 avec objectif 1.17, stop sous 1.12",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Passage sous 1.12, structure haussière remise en cause",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme haussière clairement établie depuis un creux récent avec une série de HH (Higher Highs) et HL (Higher Lows).  \n- Forte réaction acheteuse sur zone support vers 1.05-1.06, impulsion haussière marquée jusqu'à 1.17.  \n- Correction en cours à partir du plus haut à 1.17, surveiller la tenue du HL autour 1.13-1.14 pour valider la continuité haussière.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nLa structure montre un retournement depuis une tendance baissière en début de période vers une dynamique haussière récente avec HL/HH au-dessus de 1.06. La zone 1.06 est support clé. Le prix a explosé vers 1.17 puis corrige fortement. La tendance court terme reste haussière tant que le support 1.13-1.14 est préservé. En dessous, risque invalidation et retour possible en range ou baisse. Scénario prioritaire: surveiller achat sur support HL autour 1.13 pour viser un nouveau test de 1.17. Invalidation sous 1.12 environ.  \n\nC) DeskPro  \n{\"run_id\":\"20240610-01\",\"charts\"",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-48-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_06-48-15.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_155436_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T11:54:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-54-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.7,
+      "note": "s 60,000"
+    },
+    {
+      "type": "support_level",
+      "value": 61250.0,
+      "confidence": 0.7,
+      "note": "s 61,250"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.7,
+      "note": "s 60,000"
+    },
+    {
+      "type": "support_level",
+      "value": 61250.0,
+      "confidence": 0.7,
+      "note": "s 61250"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61250.0,
+      "confidence": 0.7,
+      "note": "résistance à 61,250,"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante au 15m avec une série de LH (Lower Highs) et LL (Lower Lows).  \n- Structure récente en range latéral autour de 60,500-61,250, montrant un possible moment de consolidation.  \n- Scénario principal : poursuite du repli sous résistance à 61,250, invalidation au-dessus pour un retour haussier.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe prix a validé une tendance baissière avec une succession de creux et sommets décalés à la baisse (LH + LL). Depuis quelques heures, le marché entre dans une phase de consolidation latérale autour de 60,500-61,250. Les supports clés sont vers 60,000 et 59,500, les résistances vers 61,250 et 61,750. Un breakout baissier sous 60,000 confirmerait la reprise de la tendance baissière. Une clôture nette au-dessus de 61,250 invaliderait cette dynamique baissière à court terme et pourrait amener un rebond.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL en baisse puis range\",\"s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-54-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_11-54-13.png"
+  }
+}

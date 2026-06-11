@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_213124_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T17:31:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-31-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1775.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 1775 avec cible 1750/1700, stop above 1900",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close > 1900",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière en 1h, avec une série de HH/HL cassée, structure en LH/LL.  \n- Zones clés de support autour de 1775 USDT, résistance majeure proche à 1900 USDT.  \n- Scénario prioritaire : poursuite de la baisse tant que le support 1775 n'est pas tenu; invalidation si franchissement net au-dessus de 1900.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre une dynamique baissière nette avec une succession de plus bas (LL) et plus hauts (LH) déclinants, signal d’une structure baissière confirmée. Après un rebond vers 1840-1860, la cassure du support 1800 puis 1775 a accéléré la baisse. La structure indique que les vendeurs dominent, avec potentielle extension vers 1750 ou 1700 si le support 1775 cède. La zone entre 1800 et 1900 fait office de résistance solide à surveiller. Il faudra surveiller un retour au-dessus des 1900 pour songer à une inversion ou pause.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-31-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_17-31-01.png"
+  }
+}

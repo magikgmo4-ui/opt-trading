@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_081904_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T04:19:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-18-49",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance du break de 64 000 pour entrée longue; stop sous 59 500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire sous 59 500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Plusieurs graphiques montrent des tendances baissières ou consolidations avec des structures en développement.  \n- Présence récurrente de zones clés en support et résistance à surveiller pour des rebonds ou cassures.  \n- Scénarios de retournement possible à court terme identifiables selon invalidations et franchissements.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière claire sur la période récente avec une structure HL/LL mixte. Le prix a formé une base vers 59 500 USD en support; résistance majeure autour de 64 000. Zone clé à suivre entre 62 500-63 000 pour validation d’un retournement. Scénario haussier si break 64 000 avec retest possible; sinon poursuite baisse sous 59 500 invalidant l’optimisme. Structure à court terme fragile, prudence sur confirmation de reprise.\n\nC) Chart 2 (haut-droit): symbole inconnu  \nInconnu, aucune donnée visible sur titre ou timeframe.\n\nD) Chart 3 (bas-gauche): symbole inconnu  \nInconnu, aucune donnée visible sur titre o",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-18-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_04-18-41.png"
+  }
+}

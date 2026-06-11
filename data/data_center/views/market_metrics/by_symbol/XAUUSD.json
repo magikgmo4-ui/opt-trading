@@ -1,0 +1,40 @@
+{
+  "contract_version": "v1",
+  "input_class": "market_metrics.v1",
+  "module_id": "analysis_bundles.synthetic",
+  "symbol": "XAUUSD",
+  "metrics_ts": "2026-06-11T10:00:04.427661+00:00",
+  "freshness_state": "fresh",
+  "provider_coverage": {
+    "status": "partial",
+    "collectable_metrics": [
+      "open_interest",
+      "funding_rate"
+    ],
+    "missing_metrics": [
+      "volume_futures",
+      "long_short_ratio",
+      "liquidations_long",
+      "liquidations_short"
+    ]
+  },
+  "metrics": {
+    "open_interest": null,
+    "funding_rate": 0.0123,
+    "volume_futures": null,
+    "long_short_ratio": null,
+    "liquidations_long": null,
+    "liquidations_short": null
+  },
+  "refs": {
+    "primary_output": "/home/fantome/opt-trading-clean/data/data_center/views/market_metrics/by_symbol/XAUUSD.json",
+    "meta_output": "/home/fantome/opt-trading-clean/data/data_center/views/market_metrics/by_symbol/meta.json",
+    "latest": "/home/fantome/opt-trading-clean/data/data_center/views/market_metrics/latest.json",
+    "status": "synthetic_from_vision"
+  },
+  "provider_id": "synthetic_from_vision",
+  "warnings": [
+    "synthetic data: prices derived from vision analysis support/resistance levels",
+    "data_quality=STUB: not from live exchange API"
+  ]
+}

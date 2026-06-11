@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_054244_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T01:42:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-42-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.082,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rejet à la résistance 0.0820-0.0830, stop au-dessus de 0.0830",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement franc au-dessus de 0.0830",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une succession de HH/HL non formés, structure LL confirmée.  \n- Support clé vers 0.0780, résistance immédiate autour de 0.0820-0.0830.  \n- Scénario de rebond possible à court terme, mais invalide si la résistance à 0.0830 est franchie avec conviction.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa tendance est baissière avec une série de plus bas et plus bas (LL) depuis plusieurs sessions. On observe une tentative de rebond récente sur la zone support 0.0780. La structure ne montre pas encore de retournement haussier car les plus hauts restent plus bas (LH). La zone 0.0820-0.0830 agit comme résistance dynamique forte. Le plan à privilégier est de vendre sur rejets vers cette résistance, avec un stop au-dessus de 0.0830 pour invalider le scénario. En cas de franchissement solide, adaptation possible vers un biais neutre voire haussier.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL (plus bas, plus b",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-42-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_01-42-28.png"
+  }
+}

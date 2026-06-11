@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_092429_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T05:24:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-24-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur replis vers support 61200 ou break 63000 confirmé avec volumes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette sous 61200",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance récente haussière claire sur le 15m, après une phase de consolidation/basculement.\n- Structure en HL (Higher Low) et HH (Higher High) visible depuis le rebond local, signe d'une dynamique acheteuse.\n- Zones clés identifiées autour de 61 200 en support, résistance majeure Kurzfristig proche des 63 000.\n\nB) Chart unique (BTCUSDT.P 15m):\nLe graphique montre une nette reprise haussière avec une série de HL et HH depuis le creux formé vers 58 800. La résistance testée à 63 000 a freiné la progression, un pullback est possible. Support majeur à 61 200 (zone de précédents creux/volumes). Le scénario privilégie une continuation haussière au-delà de 63 000 avec confirmation d’un nouveau HH, invalide en cas de cassure sous 61 200.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL/HH\",\"supports\":[\"61200\"],\"resistances\":[\"63000\"],\"plan\":\"Acheter sur replis vers support 61200 ou break 63000 confirmé avec volumes\",\"invalidation\":\"Cas",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-24-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_05-24-07.png"
+  }
+}

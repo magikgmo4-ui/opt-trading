@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_150832_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T11:08:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-08-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 34.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 37.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond proche résistance 37.50 avec cible 34.00, scenario alternative: si cassure 37.50, viser 41-43",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">37.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière marquée avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure claire de ralentissement vers la zone 34.00, possible support court terme.\n- Scénario principal baissier à privilégier, invalidation au-dessus de 37.50 avec retour potentiel vers 41-43.\n\nB) Chart unique (NASDAQ:IBIT 1h) :  \nLa dynamique est nettement baissière, la structure montre une série de LH et LL depuis fin mai. Un support semble se dessiner autour de 34.00 USD, correspondant à un niveau de prix précédent à garder à l’œil. La zone de résistance la plus proche se situe vers 37.50, niveau d’un dernier sommet local avant la chute. Le volume augmente sur les baisses, validant la pression vendeuse. Un rebond technique local est possible mais le biais reste baissier tant que 37.50 n’est pas franchi. Invalidation du scénario baissier au-dessus de 37.50, ce qui pourrait alors relancer un retour haussier vers 41-43.\n\nC) DeskPro  \n{\"run_id\":\"run1\",\"charts\":[{\"slot\":\"single\"",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-08-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-05_11-08-05.png"
+  }
+}

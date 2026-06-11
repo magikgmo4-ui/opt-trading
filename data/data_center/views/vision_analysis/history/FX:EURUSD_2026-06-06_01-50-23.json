@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_055030_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T01:50:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-50-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": "1.1600.",
+      "confidence": 0.7,
+      "note": "s 1.1600."
+    },
+    {
+      "type": "support_level",
+      "value": "1.1500.",
+      "confidence": 0.7,
+      "note": "support 1.1500."
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.152,
+      "confidence": 0.7,
+      "note": "r à 1.1520"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur ce 1h avec une cassure dynamique confirmée par un fort volume.  \n- Structure en renversement vers une série de LL et LH après une phase d’oscillation latérale et HH/HL.  \n- Zone clé support testée autour de 1.1520, possible rebond technique ou continuation baissière.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa paire EURUSD montre une chute rapide et significative, marquant un changement de structure après un sommet local (HH) début juin. La structure passe d’une séquence HH/HL à une séquence LL/LH, validant un biais baissier. Le volume augmente fortement sur la chute, renforçant la pression vendeuse. Le support majeur à 1.1520 est testé, sa tenue sera cruciale pour un rebond ou une poursuite vers des niveaux plus bas (~1.1500). Invalidation du biais baissier si le prix revient au-dessus du dernier HL vers 1.1600.\n\nC) DeskPro  \n```json\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":[\"LL\",\"LH\"],\"supports\":[\"1.1520\",\"1.15",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-50-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_01-50-11.png"
+  }
+}

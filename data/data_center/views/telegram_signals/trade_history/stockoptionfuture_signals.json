@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_stockoptionfuture_4382_2020-01-10T07:43:56+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "stockoptionfuture",
+    "parsed_at": "2020-01-10T07:43:56+00:00",
+    "produced_at": "2026-06-11T10:00:14.562500+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2400.0,
+    "sl": 158.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Buy 32400 ce @180 sl 158"
+  }
+]

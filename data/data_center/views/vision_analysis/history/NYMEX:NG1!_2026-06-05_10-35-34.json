@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_143544_NYMEX:NG1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-05T10:35:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-35-34",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond support, viser 3.40 breakout",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close sous 3.10",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale haussière avec une série de HH (Higher Highs) et HL (Higher Lows) bien marquée.  \n- Structure récente tente une correction, avec une consolidation sous la zone de résistance clé autour de 3.40.  \n- Scénario principal haussier en place, vigilance sur maintien des supports sous 3.15 pour valider la poursuite.  \n\nB) Chart unique (NYMEX:NG1! 4h):  \nLe prix évolue en tendance haussière marqué par la formation récurrente de HH et HL. Une zone de résistance majeure se situe vers 3.40-3.45 USD, testée plusieurs fois sans rupture nette. Le support immédiat clé se trouve autour de 3.15-3.20, servant de base à la structure HL. Le volume reste modéré avec des pics sur les mouvements haussiers. Le scénario favori est un rebond à partir du support pour viser une nouvelle tentative haussière. Invalidation sous 3.10 pourrait signaler un changement de structure vers un possible début de correction plus prononcée.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_1435\",\"charts",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-35-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-05_10-35-24.png"
+  }
+}

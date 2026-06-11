@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_084022_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T04:40:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-40-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1660.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur cassure 1680 avec stop sous 1550, viser 1750",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1550",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière depuis début période visible avec une succession de LL et LH baissants.  \n- Structure récente de consolidation latérale-haussière avec HH et HL en formation autour de 1600-1660.  \n- Zone clé résistance proche à 1680-1700 à surveiller pour valider un retournement haussier.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance principale baissière marquée par des Lower Highs et Lower Lows. Récemment, une prise de support vers 1550-1570 a permis l’apparition d’une structure plus neutre à légèrement haussière (HH/HL). Le prix teste une résistance sur 1660-1680 multiple fois sans l’avoir cassée. Break au-dessus de cette résistance validera un scénario bullish de reprise, avec un premier objectif 1750. En revanche, retour sous 1550 invalidera ce scénario haussier et relancera la baisse.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HH/HL formation après LL/LH\",\"supports\":[1550,1570],\"resistance",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-40-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_04-40-02.png"
+  }
+}

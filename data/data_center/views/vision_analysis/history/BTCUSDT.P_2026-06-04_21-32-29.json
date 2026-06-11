@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_013239_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T21:32:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-32-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.7,
+      "note": "s : 62"
+    },
+    {
+      "type": "support_level",
+      "value": 64.0,
+      "confidence": 0.7,
+      "note": "s : 64"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure latérale sur la fin, avec un support autour de 62 800 USDT et résistance proche de 64 000 USDT, traduisant une phase de consolidation.  \n- Scénario actionnable : une cassure du support de 62 800 relancerait la baisse, invalidation en clôture au-dessus de 64 000.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nTendance : Baissière  \nStructure : LL/LH pour la majeure partie du graphique, suivi d’une phase latérale entre 62 800 (S) et 64 000 (R).  \nSupports : 62 800 USDT  \nRésistances : 64 000 USDT  \nPlan : Surveiller la cassure du support pour envisager une poursuite baissière ou la rupture de la borne haute pour signe d’un rebond potentiel.  \nInvalidation : Clôture au-dessus de 64 000 USDT.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH puis latéral\",\"supports\":[62800],\"resistances\":[64000],\"plan\":\"entrée à la cassure du sup",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-32-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_21-32-17.png"
+  }
+}

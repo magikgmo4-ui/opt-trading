@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_224844_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T18:48:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-48-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente possible sur rejet à 65, prise de profit vers 62. Stop au-dessus de 65 pour invalider le scénario baissier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure et maintien au-dessus de 65 avec HH confirmé.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente confirme la faiblesse avec des tentatives de rebonds limités sous la résistance autour de 65.  \n- Volume plus élevé lors des baisses soutenant la pression vendeuse; scénario de reprise haussière incertain.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLe graphique montre un mouvement dominant de baisse avec des sommets et creux déclinants (LH/LL). Une zone de résistance clé se situe sur 65, niveau où les prix butent fréquemment. Le support principal est vers 62, niveau testé et tenu temporairement. Un rebond récent montre une tentative de consolidation mais l’absence de HH valide la continuité possible du downtrend. L’invalidation du scénario baissier serait une cassure claire au-dessus de 65 avec un HH confirmé, ouvrant un retournement possible. Sinon, la structure favorise la prudence sur les longs.\n\nC) DeskPro  \n{\"run_id\":\"20240605_001\",\"charts\":[{\"slot\":\"sing",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-48-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-05_18-48-23.png"
+  }
+}

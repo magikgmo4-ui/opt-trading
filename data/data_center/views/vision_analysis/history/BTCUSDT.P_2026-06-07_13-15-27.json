@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_171536_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T13:15:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-15-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long intraday sous confirmation maintien support 60000, viser 63000; short si cassure 59000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 59000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale baissière nette sur le timeframe 1h, confirmée par une série de plus bas (LL) et plus hauts (LH) descendants.\n- Récente petite correction haussière formant un creux plus haut (HL) en zone 59 000 - 60 000 USDT, signe possible d'un rebond à court terme.\n- Zone clé de résistance autour de 63 000 USDT, zone de support immédiat vers 60 000 USDT à surveiller pour maintien du rebond.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nTendance dominante : baissière avec structure LL/LH bien visible.  \nSupports clés : 60 000 USDT (support récent important) et 59 000 USDT (creux plus bas).  \nRésistances clés : 63 000 USDT (hauts récents puis résistance actuelle) et 65 000 USDT (anciens supports devenu résistance).  \nScénario anticipé : Le prix pourrait continuer la correction haussière dans l’immédiat si le support 60 000 USDT tient, en visant 63 000 USDT. Le retour sous 60 000 invaliderait ce scénario, relançant la tendance baissière.  \nInvalidation : Passage sous 59 000",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-15-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_13-15-19.png"
+  }
+}

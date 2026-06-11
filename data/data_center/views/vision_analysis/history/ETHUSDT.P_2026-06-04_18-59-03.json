@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_225912_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T18:59:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-59-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1870.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous 1750 avec cible 1700 ; surveiller rebond possible vers 1850",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1870",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h clairement baissière, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragile, tentative de stabilisation récente autour de 1750-1770 mais sans création de Higher Low (HL).\n- Zone clé résistance proche 1850-1870, support immédiat vers 1750-1760 ; invalidation sous 1700.\n\nB) Chart unique (ETHUSDT.P 1h) : la tendance courte terme est baissière avec des Lower Highs et Lower Lows bien marqués. Le prix a chuté fortement depuis début juin avant de consolider autour de 1750-1770, zone à surveiller pour une possible tentative de rebond ou de continuation. La résistance à 1850-1870 a été testée sans succès. Scénario principal : poursuite de la baisse sous 1750 avec ciblage des 1700. Scénario alternatif : rebond vers 1850 en cas de dynamique acheteuse confirmée. Invalidation sous 1700 qui ouvrirait potentiellement un point bas.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1750,1700],\"res",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-59-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_18-58-51.png"
+  }
+}

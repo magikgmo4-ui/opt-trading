@@ -1,0 +1,61 @@
+{
+  "status": "DRY_RUN_PASS",
+  "job_id": "INLINE_VALID_READONLY",
+  "validation": {
+    "status": "PASS",
+    "job_id": "INLINE_VALID_READONLY",
+    "task_type": "READ_INVENTORY",
+    "default_worker": "big-pickle",
+    "valid_workers": [
+      "big-pickle"
+    ],
+    "output_file": "/home/fantome/opt-trading-clean/reports/ai/workers/INLINE_VALID_READONLY.md",
+    "autonomy_max": "A1",
+    "required_sections": [
+      "13_ESTABLISHED",
+      "14_HYPOTHESIS",
+      "15_REMAINING_GAP",
+      "16_TODO",
+      "FICHIERS_LUS",
+      "RISQUES",
+      "VERDICT_DRAFT_ONLY"
+    ],
+    "writes_code": false,
+    "allowed_inputs": [
+      "docs/openclaw/INDEX.md"
+    ],
+    "global_invariants": {
+      "no_secrets": true,
+      "no_env_files": true,
+      "no_git_write_ops": true,
+      "no_runtime_write_by_default": true,
+      "requires_external_validation": true,
+      "output_status": "DRAFT_ONLY",
+      "only_verified_models": true
+    },
+    "denied_commands": [
+      "git add",
+      "git commit",
+      "git push",
+      "git rebase",
+      "git merge",
+      "rm -rf",
+      "chmod -R",
+      "chown -R"
+    ],
+    "denied_inputs": [
+      ".env",
+      "**/.env",
+      "**/*secret*",
+      "**/*token*",
+      "**/*credential*",
+      "**/id_rsa",
+      "**/id_ed25519",
+      "**/*.pem",
+      "**/*.key"
+    ],
+    "warnings": []
+  },
+  "dry_run": true,
+  "message": "no operations executed (--dry-run)"
+}

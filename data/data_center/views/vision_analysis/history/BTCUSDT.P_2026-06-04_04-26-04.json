@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_082614_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T04:26:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_04-26-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur un retracement vers résistance, envisager une prise de position short, viser test support. En cas de cassure support, renforcer short. Revoir bias si franchissement résistance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 67000 USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en dégradation, absence de retour significatif au-dessus des résistances précédentes.  \n- Zone clé support vers 62 000 USD teste actuellement, possible rebond ou poursuite du sell-off.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe prix évolue en tendance baissière nette caractérisée par une série de Lower Highs (LH) et Lower Lows (LL). Le dernier mouvement montre une forte baisse avec un volume en augmentation notable, soulignant une pression vendeuse. Le support clé est à 62 000 USD, où se concentre la possibilité d’un rebond technique. La résistance majeure s’établit à 66 000 - 67 000 USD, zone de précédent sommet local. Le scénario principal reste la poursuite de la baisse en cas de cassure sous 62 000 USD. Invalidation du biais baissier en cas de franchissement clair et durable au-dessus de 67 000 USD.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"si",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_04-26-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_04-25-56.png"
+  }
+}

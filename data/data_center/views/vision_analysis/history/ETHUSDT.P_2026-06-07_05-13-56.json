@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_091403_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T05:14:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-13-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur repli vers support 1580-1540, viser cassure résistance 1640-1650 pour poursuite haussière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure sous 1540",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance court terme haussière confirmée par une série de HH et HL après une nette chute initiale.\n- Structure en reprise après un bottom proche de 1500, avec un mouvement de rebond clair.\n- Zone clé de résistance à 1640-1650 à surveiller pour valider la poursuite haussière.\n\nB) Chart unique (ETHUSDT.P 15m) : \nLa tendance initiale est baissière claire avec des LL jusque vers 1500. Puis apparition de HL et HH marquant un retournement puis maintien haussier. La structure montre une reprise dynamique avec cassure potentielle prochaine d’une résistance à 1640-1650. Supports visibles autour de 1580 et 1540 à considérer comme zones d’achat en cas de repli. Invalidation du scénario haussier sous 1540 signifierait retour possible vers 1500.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1580\",\"1540\"],\"resistances\":[\"1640-1650\"],\"plan\":\"Acheter sur repli vers support 1580-1540, viser cassure résistance 1640-1650 pour",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-13-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_05-13-46.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_150313_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T11:03:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-03-00",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre à la cassure du support, viser 58 000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 63 000 avec maintien",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière dominante sur plusieurs unités de temps.  \n- Recherche de zones de support pour un possible rebond ou consolidation.  \n- Vigilance sur invalidation par franchissement haussier clair.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \nTendance baissière claire avec une structure en séries de Lower Highs (LH) et Lower Lows (LL). La zone clé de support se situe autour des 60 000, déjà testée plusieurs fois. Résistance à surveiller vers 62 000-63 000, zone où les prix butent. Scénario privilégié : poursuite de la baisse si le support casse, avec objectif vers 58 000. Invalidation en cas de franchissement et maintien au-dessus des 63 000.  \n\nC) Chart 2 (haut-droit) : Inconnu  \nImpossible de déterminer la tendance, structure ou zones clés en raison de manque de visibilité.  \n\nD) Chart 3 (bas-gauche) : Inconnu  \nImpossible de déterminer la tendance, structure ou zones clés en raison de manque de visibilité.  \n\nE) Chart 4 (bas-droit) : Inconnu  \nImpossible d",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-03-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_11-02-51.png"
+  }
+}

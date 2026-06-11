@@ -1,0 +1,50 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Btcusdtradingdaily_1904_2026-06-10T16:24:51+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Btcusdtradingdaily",
+    "parsed_at": "2026-06-10T16:24:51+00:00",
+    "produced_at": "2026-06-11T10:00:13.796988+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4132.0,
+    "sl": 4147.5,
+    "tp": 4112.5,
+    "tps": [
+      4112.5,
+      4120.5,
+      4125.5,
+      4129.5
+    ],
+    "leverage": null,
+    "raw_text": "**__XAUUSD SELL__**\n\n**__ENTRY: 4132.5__**\n\n**__SL: 4147.5__**\n\n**__TP1 4129.5__**\n\n**__TP2 4125.5__**\n\n**__TP3 4120.5__**\n\n**__TP4 4112.5__**\n\n**__Risk only 1-2% of your balance.__**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Btcusdtradingdaily_1921_2026-06-11T07:33:40+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Btcusdtradingdaily",
+    "parsed_at": "2026-06-11T07:33:40+00:00",
+    "produced_at": "2026-06-11T10:00:13.798241+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4111.0,
+    "sl": 4124.0,
+    "tp": 4087.0,
+    "tps": [
+      4087.0,
+      4090.0,
+      4093.0,
+      4096.0,
+      4099.0,
+      4102.0,
+      4105.0,
+      4108.0
+    ],
+    "leverage": null,
+    "raw_text": "**__XAUUSD SELL__**\n\n**__ENTRY: 4111 / 4114__**\n\n**__SL: 4124__**\n\n**__TP1 4108__**\n\n**__TP2 4105__**\n\n**__TP3 4102__**\n\n**__TP4 4099__**\n\n**__TP5 4096__**\n\n**__TP6 4093__**\n\n**__TP7 4090__**\n\n**__TP8 4087__**\n\n**__Risk only 1-2% of your balance.__**"
+  }
+]

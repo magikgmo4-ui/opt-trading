@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_185440_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T14:54:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_14-54-29",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre stabilisation/fond pour long ou continuation short en cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 61.2%",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence dominante d’une chute marquée sur le graphique haut-gauche, signalant une possible correction forte ou changement de sentiment.  \n- Structure variable sur les autres graphiques, à préciser pour une décision rapide.  \n- Nécessité d’identifier clairement supports et résistances pour valider le scénario du moment.\n\nB) Chart 1 (haut-gauche): BTC Dominance, Daily  \nTendance baissière forte avec une chute rapide des derniers jours. Structure visible HL puis LL récent, indiquant une potentielle inversion ou correction. Résistances autour de 60.8%-61.2%, supports majeurs à 58.4%-58.6% (zone actuellement testée). Scénario : attendre stabilisation pour entrée long, ou continuation de baisse si volume reste élevé. Invalidation si rebond au-dessus du dernier sommet local (61.2%).\n\nC) Chart 2 (haut-droit): inconnu (pas lisible)  \nNe pouvant identifier le symbole ni timeframe, analyse impossible.\n\nD) Chart 3 (bas-gauche): inconnu (pas lisible)  \nNe pouvant identifier le",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_14-54-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_14-54-14.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_191341_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T15:13:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-13-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0825,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure de 0.08250 pour long. En cas de retest et rejet, potentiel short. Stop sous 0.07800.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture claire au-dessus de 0.08250 avec momentum haussier invalide scénario bear",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière confirmée avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure volatile avec rebonds entre 0.07800 (S clé) et 0.08250 (R clé) créant une phase de range court terme.  \n- Scénario en attente d’une cassure claire au-dessus de 0.08250 pour début potentiel de reprise haussière, ou invalidation sous 0.07800 pour poursuite de la baisse.  \n\nB) Chart unique (DOGEUSDT.P 15m): La tendance dominante est baissière avec structure HL/HH cassée, formant LH/LL. Actuellement range entre support 0.07800 et résistance 0.08250. La zone 0.08250 agit comme résistance immédiate, à surveiller une rupture pour un retournement. Le support 0.07800 est zone clé d’invalidation pour les acheteurs. Volume modéré, volume spike baissier récent.  \n\nC) DeskPro {\"run_id\":\"230604-1810\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL avec range court terme\",\"supports\":[\"0.07800\"],\"resistances\":[\"0.08250\"],\"plan\":\"Surveiller cassure de 0.08250 pour long. ",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-13-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_15-13-22.png"
+  }
+}

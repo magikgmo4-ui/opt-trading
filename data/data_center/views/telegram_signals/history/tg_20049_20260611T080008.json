@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_20049_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "aussieforex",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-05-11T19:47:26+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4655.0,
+  "sl": 4639.0,
+  "tp": 4900.0,
+  "tps": [
+    4900.0,
+    4900.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD BUY @4655-4665| TP 4900/ SL 4639\nSL will not work now a days. Liquidity grabber works against retail traders like you. Keep your lot size within range",
+  "summary": "XAUUSD LONG"
+}

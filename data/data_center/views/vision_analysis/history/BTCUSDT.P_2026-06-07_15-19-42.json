@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_191950_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T15:19:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-19-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien au-dessus de 61000 pour envisager un rebond vers 63000. En cas de cassure sous 61000, renforcer biais baissier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 63000 invalide la poursuite baissière court terme.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Récente phase de consolidation avec petits Higher Lows (HL) après un point bas vers 59,000$, suggérant un support local.  \n- Zone clé à surveiller entre 61,500$ (support intermédiaire) et résistance vers 63,000$. Scénario de reprise possible si cassure au-dessus de 63,000$.  \n\nB) Chart unique (BTCUSDT.P 1h): La tendance dominante est baissière avec une structure HL/LL clairement en place. Cependant, on observe une tentative de rebond formant un HL autour de 60,000$-61,000$. La résistance à 63,000$ freine la reprise. Un passage sous 61,000$ invaliderait le scénario haussier local et relancerait la baisse. La zone 61,000-63,000$ est donc une zone clé de décision pour la suite du mouvement.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"HL puis transition incertaine\",\"supports\":[\"61000\",\"59000\"],\"resistances\":[\"63000\"],\"plan\":\"Surveiller ma",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-19-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_15-19-32.png"
+  }
+}

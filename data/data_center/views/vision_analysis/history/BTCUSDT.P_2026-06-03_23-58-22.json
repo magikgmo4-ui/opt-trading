@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_035832_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T23:58:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-58-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre confirmation du franchissement des résistances pour swing haussier, ou short sous 62,000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable sous 62,000.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent fort, possible retour à une correction haussière, test d’une zone de résistance autour de 64 300-64 400.  \n- Scénario clé : invalidation du rebond si prix repart en dessous du dernier point bas ~62 000, signalant reprise baissière.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une structure nette de baisse prolongée caractérisée par des Lower Highs (LH) et Lower Lows (LL) successifs. Le prix vient de sortir d’une forte chute avec un rebond dynamique marqué par un volume en augmentation. Le niveau 64 300-64 400 constitue une résistance de court terme à surveiller. Le scénario bullish reste limité à un pullback technique dans un contexte baissier dominant. En cas de dépassement de cette résistance, un test de la zone 65 000 pourrait se produire. L’invalidation du scénario haussier interviendrait sous le dernier bas vers 62 000, confirmant la poursui",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-58-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_23-58-08.png"
+  }
+}

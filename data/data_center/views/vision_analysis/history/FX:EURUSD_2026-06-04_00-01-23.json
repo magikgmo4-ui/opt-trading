@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_040135_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T00:01:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_00-01-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1615,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.163,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente en zone résistance 1.1615-1.1630, cible 1.1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 1.1640",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance de court terme clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL) formés depuis début juin.  \n- Structure instable avec des tentatives de rebonds vers 1.1620-1.1630, zone de résistance clé.  \n- Scénario principal : poursuivre la prise de position short sous 1.1620 avec objectif vers 1.1580, invalidation au-dessus de 1.1640.  \n\nB) Chart unique (FX:EURUSD 1h) :  \nLe graphique montre une tendance 1h en swing baissier (LH/LL). Le prix a rebondi récemment vers 1.1610-1.1620 (résistance), suivi d'un rejet baissier clair. Le support majeur à court terme se situe vers 1.1580. La structure porteuse d’un retournement haussier n’est pas confirmée, car aucun Higher High (HH) ni Higher Low (HL) significatif n’est formé. Le volume est modéré à élevé sur les baisses récentes. Plan recommandé : envisager des ventes sur zone de résistance avec une invalidation à franchissement net au-dessus de 1.1640.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_00-01-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_00-01-12.png"
+  }
+}

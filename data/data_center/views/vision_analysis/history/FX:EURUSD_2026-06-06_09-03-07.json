@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_130444_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T09:03:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-03-07",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sous 1.1570, viser 1.1520 avec stop au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1.1570",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme clairement baissière avec impulsion forte et structure de lower highs (LH) et lower lows (LL).  \n- Rupture brutale d’un support clé autour de 1.1570 a déclenché une accélération vendeuse significative.  \n- Zone de support immédiate vers 1.1520–1.1530 à surveiller pour un rebond technique ou poursuite baissière.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa tendance récente montre une structure baissière formée de LH et LL. Après un sommet local proche de 1.1690, le prix a cassé un support important à 1.1570 avec un volume élevé, signalant un fort momentum vendeur. La prochaine zone support identifiée se situe autour de 1.1520, correspondant à des creux précédents, à surveiller pour valider un rebond ou préparer une poursuite vers 1.1480. L’invalidation du scénario baissier serait une reprise rapide au-dessus de 1.1570. Le plan d’action est de privilégier des positions vendeuses sous 1.1570 avec objectif cible 1.1520, stop au-dessus.\n\nC) DeskPro  \n{\"run",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-03-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_09-02-56.png"
+  }
+}

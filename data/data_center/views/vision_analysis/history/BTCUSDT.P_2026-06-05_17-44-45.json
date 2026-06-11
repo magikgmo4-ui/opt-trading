@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_214454_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T17:44:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-44-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance break résistance 62000 pour scénario haussier, sinon repli possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et maintien au-dessus de 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente de rebond haussier formant un Higher Low (HL) sur la droite du graphique.\n- Zone clé de résistance proche de 62 000 USDT à surveiller pour valider un retournement.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance est globalement baissière avec des sommets et creux descendants. On note toutefois un rebond sur la zone des 59 200 USDT qui forme un HL, interrompant temporairement la séquence baissière. Le prix teste actuellement une résistance autour de 62 000 USDT, niveau important à franchir pour inverser la structure vers une tendance haussière. En cas de rejet sur cette résistance, le scénario bearish reste valide, avec une possible reprise vers 60 000 voire 59 000 USDT. L’invalidation du scénario baissier sera la confirmation d’un HH au-dessus de 62 000 USDT.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond\",\"structure\":\"LH, LL persista",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-44-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_17-44-36.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_045155_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T00:51:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_00-51-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Achat sur cassure confirmée de 1700 avec stop sous 1550, ou attente d'un nouveau HL",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire sous 1550",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire en amont, cassure successive de supports avec des LL et LH.\n- Actuellement phase de latéralisation/rebond entre 1 550 et 1 700 USDT.\n- Scénario de reprise haussière possible si résistance 1 700 USDT franchie, invalidation sous 1 550 USDT.\n\nB) Chart unique (ETHUSDT.P 1h) : \nLe graphique montre une structure baissière dominante avec des Lower Highs (LH) et Lower Lows (LL) jusqu’à début du range. Ensuite, une phase corrective latéral-haussière prend place avec des Higher Lows (HL) marqués autour de 1 550 USDT. La zone de support clé est située entre 1 550-1 580 USDT. La résistance majeure est à 1 700 USDT, barrière à franchir pour envisager un retournement de tendance vers le haut. Volume modéré en légère hausse sur la tentative de rebond qui demande confirmation. Invalidation du scénario haussier sous la base du range.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"LL-LH puis HL\",\"supports\":[\"1550\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_00-51-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_00-51-35.png"
+  }
+}

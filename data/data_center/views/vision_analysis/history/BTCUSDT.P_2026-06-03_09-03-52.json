@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_130406_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:04:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-03-52",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond sous résistance, short si échec",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement 60.5%",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le dashboard montre des comportements de marché variés, certaines tendances baissières marquées et des structures potentiellement en retournement.  \n- Plusieurs zones clés (supports/résistances) sont identifiées, cruciales pour définir les scénarios d’entrées ou de sorties.  \n- Invalidation définie selon le contexte, priorité à la gestion du risque.\n\nB) Chart 1 (haut-gauche): BTC.D (Daily)  \nTendance baissière claire avec des chandeliers rouges récents significatifs.  \nStructure en LH (Lower High) et LL (Lower Low) sur la dernière période, confirmant la faiblesse.  \nSupport testé autour de 58.5%, zone clé à surveiller pour un rebond ou poursuite baissière.  \nRésistance majeure autour de 60.5%, ancien sommet récent.  \nScénario: repli probable vers 58% puis possible rebond si volume se réduit. Au-delà de 60.5%, invalidation du bearish.  \nPlan: vendre sur rebond ou renforcer short au moindre échec sous résistance majeure.\n\nC) Chart 2 (haut-droit): symbole/timeframe in",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-03-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_09-03-37.png"
+  }
+}

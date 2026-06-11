@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_045955_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T00:59:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_00-59-44",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Chercher opportunités short sur rejet résistance 65000-65200. Prendre profits partiels sur support 61000-62000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Passage au-dessus de 65200 avec formation d'un HH.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent court mais sans changement structurel significatif, potentielle pullback dans la tendance down.  \n- Zone clé de support vers 61 000-62 000, résistance visible autour de 65 000-65 200.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure montre un enchaînement de LH et LL confirmant une tendance baissière. Le dernier mouvement haussier semble être un simple retracement, formant un HL partiel mais non validé par un HH. Le volume augmente sur les baisses majeures, preuve d’une pression vendeuse forte. Résistance immédiate proche de 65 000, zone d’intérêt pour une possible reprise à la baisse. Support clé autour de 61 000-62 000, qui a provoqué un rebond notable. Scénario principal: continuation baissière si la résitance tient, invalidation en cas de franchissement clair des 65 200 avec HH confirmé.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bai",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_00-59-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_00-59-37.png"
+  }
+}

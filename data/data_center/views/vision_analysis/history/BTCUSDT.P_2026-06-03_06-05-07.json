@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_100559_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T06:05:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_06-05-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 69000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller rebond vers résistance puis vente potentielle",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 69,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Bitcoin (BTCUSDT) sur 1h montre une forte tendance baissière récente avec plongeon net et tentative de stabilisation.  \n- Plusieurs supports clés testés, structure de plus bas (LL) confirmée, mais quelques résistances proches limitent le rebond.  \n- Scénario pivot à court terme entre rebond temporaire ou poursuite de la baisse si invalidation après résistance.\n\nB) Chart 1 (haut-gauche): BTCUSDT / 1h  \n- Tendance claire baissière avec structure en Lower High (LH) et Lower Low (LL).  \n- Supports : zone vers 65 000 USDT, support récent testé.  \n- Résistances : zone 68 000 - 69 000 USDT, où le prix rencontre plusieurs barres baissières.  \n- Scénario : rebond limité possible vers résistance, puis rechute probable.  \n- Invalidation : franchissement clair au-dessus de 69 000 USDT invaliderait la poursuite baissière court terme.\n\nC) Chart 2 (haut-droit): inconnu (symbole / timeframe non lisible)  \n- Impossible d’analyser structure et tendances sans informations.  \n- Donnée",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_06-05-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_06-05-00.png"
+  }
+}

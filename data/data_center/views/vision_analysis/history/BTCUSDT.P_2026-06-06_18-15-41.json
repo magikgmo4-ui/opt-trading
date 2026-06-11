@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_221550_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T18:15:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_18-15-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 58000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "scalp rebond zone 60-61k$, sinon continuation baisse vers 58k$",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage au-dessus de 63000 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché crypto (BTCUSDT) en nette tendance baissière sur 1h, structure clairement en LH/LL.  \n- Volumes augmentent sur les baisses, validant la pression vendeuse.  \n- Zone de volatilité récente latérale autour de 60 000$, possible tentative de pause ou de rebond technique.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance : baissière nette.  \nStructure : série de Lower Highs (LH) et Lower Lows (LL) bien marquée.  \nSupports : vers 59 000$ et 58 000$.  \nRésistances : près de 63 000$ (ancienne support devenu résistance).  \nPlan : surveiller un rebond dans zone 60-61 k$ pour un scalp haussier technique, sinon continuation vers 58 k$.  \nInvalidation : franchissement clair des 63 000$ avec volume pour scénario haussier.\n\nC) Chart 2 (haut-droit): inconnu  \nImpossible d’identifier clairement le symbole ou timeframe, analyse impossible.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole/timeframe non lisible, pas d’analyse possible.\n\nE) Chart 4 (bas-droit): inconnu  \nSymbole/timefra",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_18-15-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_18-15-32.png"
+  }
+}

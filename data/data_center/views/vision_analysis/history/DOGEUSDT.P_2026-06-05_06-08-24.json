@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_100834_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T06:08:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_06-08-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0825,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.085,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0855,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre réjection sous 0.0850 pour viser 0.0825 puis 0.0800. En cas de cassure 0.0855, scénario haussier possible.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire au-dessus de 0.0855 confirmée par volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de lower highs (LH) et lower lows (LL).  \n- Structure montrant une pression vendeuse dominante, malgré un petit rebond récent.  \n- Zone clé support autour de 0.0825-0.0830, résistance immédiate vers 0.0850-0.0855.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa tendance est baissière avec une succession de LH/LL confirmée. Le prix a récemment rebondi sur un support vers 0.0825, mais doit casser la résistance à 0.0850 pour invalider la pression vendeuse. Un rejet sous 0.0850 renforcerait le scénario baissier, avec cible possible vers 0.0825 puis extension vers 0.0800. En cas de casse claire au-dessus de 0.0855, une reprise haussière plus nette serait à envisager. Volume en hausse lors des baisses, signe d’une pression vendeuse forte.\n\nC) DeskPro  \n{\"run_id\":\"20240604-1008\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"0.0825\",\"0.0800\"],\"resistances\":[\"0.0850\",\"0.0855\"],\"plan\":\"Attendre réject",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_06-08-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-05_06-08-17.png"
+  }
+}

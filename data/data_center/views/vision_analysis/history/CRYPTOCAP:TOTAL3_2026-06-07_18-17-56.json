@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_221804_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-07T18:18:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-17-56",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Achat court terme sur rebond support 640-660B, cible 740B. Stop sous 640B en invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture sous 640B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec des structures en LL (Lower Lows) et LH (Lower Highs) régulières.  \n- Phase de consolidation visible entre février et mai avec oscillation latérale.  \n- Rejet récent sur zone support proche de 640B, possible rebond technique à court terme.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure montre une tendance baissière claire matérialisée par des Lower Highs et Lower Lows successifs, indiquant une pression vendeuse persistante. La zone clé entre 640B-660B agit comme support majeur, testé plusieurs fois récemment. La résistance immédiate se situe autour de 740B, zone où les vendeurs reprennent souvent la main. Le scénario principal reste baissier tant que le prix ne parvient pas à franchir et confirmer au-dessus de 740B. Le rebond actuel pourrait être une opportunité de trading court terme à l’achat, avec une invalidation en clôture sous le support à 640B.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"b",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-17-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-07_18-17-43.png"
+  }
+}

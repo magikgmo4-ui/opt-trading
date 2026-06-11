@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_193210_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T15:32:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-32-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond proche résistance, viser supports",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1625",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière nette sur le 15m avec une succession de LH (Lower High) et LL (Lower Low).\n- Structure sans signe clair de renversement pour le moment, les tentatives de rebond sont faibles.\n- Zones clés à surveiller pour support autour de 1540 et résistance vers 1600-1620, scénario baissier favorisé tant que ces résistances tiennent.\n\nB) Chart unique (ETHUSDT.P 15m) : \nTendance  : Baissière\nStructure : LH et LL successifs, faibles rebonds\nSupports  : 1540 (court terme), 1500 (psychologique)\nRésistances : 1600-1620 zone de rejet récente\nPlan      : Privilégier vendeurs sur rebond proche résistance, viser support 1540 puis 1500.\nInvalidation : Clôture durable au-dessus de 1625 remettrait en cause la pression vendeuse.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1540\",\"1500\"],\"resistances\":[\"1600-1620\"],\"plan\":\"vendre sur rebond proche résistance, viser supports\",\"invalidation\":\"clôture au-dessu",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-32-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_15-31-54.png"
+  }
+}

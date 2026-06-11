@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_175435_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T13:54:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-54-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4435.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4535.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4540.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure nette des zones S/R pour entrées. Achat possible après breakout résistance 4535 avec stop sous dernier HL. Vente sur rupture support 4435 avec stop au-dessus.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire en chandelier horaire au-dessus de 4540 invalide scénario baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance court terme neutre/baissière avec formation de Lower Highs (LH) et Lower Lows (LL).\n- Support clé identifié vers 4435-4440, résistance majeure à 4535-4540.\n- Scénario principal : attendre confirmation d’une cassure nette du support ou résistance pour définir la prochaine impulsion.\n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLe graphique montre une structure en baisse avec une succession de Lower Highs et Lower Lows depuis fin mai. Les prix testent actuellement la zone des 4475-4480, après un rebond depuis 4440. Le support principal se situe autour de 4435-4440, où les acheteurs ont précédemment limité la chute. La résistance proche est vers 4535-4540, zone où la pression vendeuse se manifeste clairement. En cas de franchissement confirmé de cette résistance, un retournement haussier plus clair serait validé avec potentiels HH. Invalidation du scénario baissier si le support 4435 est cassé avec momentum.\n\nC) DeskPro  \n{\"run_id\":\"20240604-001\",\"charts\":[{\"slot\":\"s",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-54-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_13-54-13.png"
+  }
+}

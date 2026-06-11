@@ -1,0 +1,22 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_binance_FreeCryptoBox_4015_2025-10-24T13:33:39+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "binance_FreeCryptoBox",
+    "parsed_at": "2025-10-24T13:33:39+00:00",
+    "produced_at": "2026-06-06T11:30:55.509854+00:00",
+    "pair": "ETHUSDT",
+    "asset": "ETH",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": 4560.0,
+    "tps": [
+      4560.0,
+      4800.0
+    ],
+    "leverage": null,
+    "raw_text": "\ud83d\udcb0 #ETH Short-Term Setup\n\nAccumulating below $4k Key Level in the form of Symm. Triangle\ud83d\udc40\n\nLooking for a break back above the Support Zone\ud83d\udcc8\u00a0 \n\n\ud83c\udfaf1 Target: $4560\n\ud83c\udfaf2 Target: $4800"
+  }
+]

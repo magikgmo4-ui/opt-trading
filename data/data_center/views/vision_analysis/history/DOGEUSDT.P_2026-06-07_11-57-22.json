@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_155731_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T11:57:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_11-57-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0815,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.082,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0855,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.086,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur breakout confirmé de 0.0855 avec stop sous 0.0810. En cas de repli, envisager achat sur support 0.0815-0.0820.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fermeture sous 0.0810",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière récente après un plus bas marqué, formation de HH/HL sur le court terme.  \n- Zone de support clé vers 0.0815-0.0820, résistance en zone 0.0855-0.0860.  \n- Scénario possible : continuation haussière si 0.0855 est franchi avec volume, sinon correction vers support 0.0815. Invalidation sous 0.0810.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa structure a formé un plus bas (LL) puis a rebondi avec des plus hauts et plus bas relatifs haussiers (HH/HL). La tendance à court terme est haussière, soutenue par un volume en hausse sur les impulsions. Le prix teste une résistance autour de 0.0855-0.0860 après une impulsion nette. Un pullback est possible avant une nouvelle tentative de breakout. La zone 0.0815-0.0820 représente un support structurel important à surveiller.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"0.0815\",\"0.0820\"],\"resistances\":[\"0.0855\",\"0.0860\"],\"plan\":\"Acheter sur breakout co",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_11-57-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-07_11-57-13.png"
+  }
+}

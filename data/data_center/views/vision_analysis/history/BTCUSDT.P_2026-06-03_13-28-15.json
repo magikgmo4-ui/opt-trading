@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_172828_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:28:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-28-15",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short en cassure support, rebond possible en swing",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">1880",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Scénario baissier privilégié, attendre sortie claire",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attente confirmation tendance avant trade",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "trend haussière confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Continuation short ou rebond technique",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour fort au-dessus résistance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marchés très volatils avec dominance d’une tendance baissière claire sur plusieurs actifs.  \n- Plusieurs zones clés support ont été testées, impactant la structure des prix par formation de LL.  \n- Potentiel de rebond technique mais scénario baissier à valider en cas de ruptures supplémentaires.  \n\nB) Chart 1 (haut-gauche):  \n- Symbole: ETHUSDT, timeframe 15m.  \n- Tendance baissière nette avec structure en Lower High (LH) et Lower Low (LL) sur le court terme.  \n- Plusieurs chutes franches avec volume élevé accentuent la pression vendeuse.  \n- Zone clé support vers 1820-1830 USDT testée mais tenue pour l’instant.  \n- Résistance immédiate autour de 1870-1880, seuil à franchir pour invalider le scénario baissier court terme.  \n- Stratégie: surveiller rebond sur support avec confirmation volume, sinon attendre cassure baissière pour nouvelle entrée short.  \n- Invalidation si franchissement et maintien au-dessus de 1880-1890.  \n\nC) Chart 2 (haut-droit):  \n- Symbole/time",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-28-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_13-28-07.png"
+  }
+}

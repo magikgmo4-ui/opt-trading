@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_224757_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T18:47:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-47-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63.0,
+      "confidence": 0.7,
+      "note": "s 63"
+    },
+    {
+      "type": "support_level",
+      "value": 63.0,
+      "confidence": 0.7,
+      "note": "s 63"
+    },
+    {
+      "type": "resistance_level",
+      "value": 15.0,
+      "confidence": 0.7,
+      "note": "r 15"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière claire sur 15m avec succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente cherche un support intermédiaire vers 63 000, avec tentative latérale de stabilisation.\n- Scénario prioritaire: poursuite potentielle de la baisse si 63 000 cassé, sinon range à court terme à monitorer.\n\nB) Chart unique (BTCUSDT.P 15m) : \nLe graphique montre une tendance baissière marquée par des LL/LH successifs. Après un retracement vers environ 64 200 (ancien support devenu résistance), le prix redescend vers 63 000 qui fait office de support provisoire. Les volumes s’intensifient sur les mouvements baissiers, indiquant une forte pression vendeuse. La structure latérale actuelle semble indécise mais dans un contexte global baissier. L’invalidation du scénario baissier se ferait par un franchissement net de 64 500, clé pour un retournement ou une reprise haussière. \n\nC) DeskPro \n{\"run_id\":\"20240604_2247\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-47-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_18-47-37.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_135506_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T09:55:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-54-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d'une cassure à l'achat >1.11 ou prise de position vendeuse avec stop serré au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture nette >1.12",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance de court terme globalement baissière, avec succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure marquée par une tentative récente de rebond mais résistance autour de 1.10-1.11 USDT.\n- Zone support clé vers 1.05 USDT, invalidation du scénario baissier sous ce niveau.\n\nB) Chart unique (XRPUSDT.P 15m) : \nSur ce timeframe 15m, le marché montre une structure baissière avec une série de LH/LL confirmant la pression vendeuse. Un rebond récent s'est formé, remontant depuis un support autour de 1.05 USDT vers la résistance 1.10-1.11 USDT. Le prix bute actuellement sur cette zone de résistance, exprimant un potentiel retournement ou continuation baissière. La gestion des entrées en attente d’une cassure claire à la hausse (>1.11) ou baisse (<1.05) est recommandée. Invalidation en clôture nette au-dessus de 1.12 USDT.\n\nC) DeskPro \n{\"run_id\":\"20240606-1354\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL avec rebond\",\"supports\":[\"1.05\"],\"resista",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-54-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_09-54-33.png"
+  }
+}

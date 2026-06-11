@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_073321_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T03:33:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-33-13",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à résistance, viser retest support. Achat possible en cas de break 1750",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break clair au-dessus de 1750",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le timeframe 1h avec des séries de Lower Highs (LH) et Lower Lows (LL).  \n- Forte chute récente avec un rebond léger sur une zone de support vers 1630-1640$.  \n- Scénario dominant: poursuite probable de la baisse sous résistance 1700$, invalidée si retour au-dessus de 1750$.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre un marché en tendance baissière nette, caractérisée par des Lower Highs et Lower Lows successifs. Après une longue descente, le prix a atteint une zone de support entre 1630$ et 1640$ d’où un rebond technique est en cours. La résistance immédiate se situe autour de 1700$, correspondant à un ancien support devenu résistance. La cassure en dessous de 1630$ relancerait la pression vendeuse. Seul un franchissement clair au-dessus de 1750$ invaliderait le scénario baissier et pourrait signaler un retournement ou une phase de correction plus profonde.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-33-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_03-33-06.png"
+  }
+}

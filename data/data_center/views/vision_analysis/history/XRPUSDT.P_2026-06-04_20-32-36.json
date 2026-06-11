@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_003245_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T20:32:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-32-36",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.155,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.175,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.177,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rejet à résistance 1.1750-1.1770 ou acheter en cas de cassure confirmée pour viser rebond",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure claire et durable >1.1770",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le 15m avec une série de creux plus bas (LL) et de sommets plus bas (LH).  \n- Le prix tente une consolidation latérale sous la résistance autour de 1.1750-1.1770.  \n- Scénario possible de rebond technique à court terme si support vers 1.1550 tient, sinon reprise de la baisse.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique montre une structure baissière claire avec des LL et LH successifs jusqu’à un creux proche de 1.1400. Depuis ce plus bas, le prix rebondit et forme une zone de support vers 1.1550. La résistance clé se situe autour de 1.1750-1.1770, où les vendeurs restent présents. Le cours teste actuellement cette résistance après un léger rebond. Le plan serait d’attendre soit une cassure claire au-dessus de 1.1770 confirmant un changement de structure vers un HH, soit un rejet pour viser la continuation baissière vers 1.1550 voire 1.1400. Invalidation du scénario baissier en cas de franchissement durable au-dessus de 1.1770.\n",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-32-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_20-32-24.png"
+  }
+}

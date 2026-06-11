@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_180711_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T14:07:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-07-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1590.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher achats en pullback vers 1550-1590, viser 1640 puis extension potentielle",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse sous 1540 avec volume significatif",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance de court terme haussière bien installée après une correction marquée.  \n- Structure en HH/HL visible sur la seconde moitié du graphique, confirmant la reprise acheteuse.  \n- Zone clé support majeure vers 1550 USDT, résistance immédiate autour de 1640 USDT.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre un net retournement haussier après une forte baisse initiale. La structure évolue en série de plus hauts et plus bas relatifs (HH/HL), marquant une dynamique d'achat claire. Volume d’achat en hausse lors des reprises. Les prix butent actuellement sur une résistance intermédiaire à 1640 USDT. Un pullback vers 1590-1550 USDT est plausible avant une nouvelle attaque des sommets récents. L’invalidation du scénario haussier se ferait par la cassure sous 1540 USDT, zone pivot support avant le creux majeur.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[1550,1590],\"resistances\":[1640],\"plan\":\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-07-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_14-06-56.png"
+  }
+}

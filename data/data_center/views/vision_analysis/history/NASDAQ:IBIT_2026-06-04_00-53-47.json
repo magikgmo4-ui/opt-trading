@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_045357_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T00:53:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_00-53-47",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance support 36.5-37 pour tentative rebond. Vente en cas de cassure baissière confirmée. Achat seulement si retour au-dessus de 42 USD validé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Casse au-dessus de 42 USD avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée en 1h avec plusieurs lower highs (LH) et lower lows (LL).  \n- Structure clairement dégradée depuis début mai, rupture d’un support majeur vers 41-42 USD.  \n- Zone clé de support immédiat vers 36.5-37 USD, à surveiller pour stabilisation ou poursuite de la chute.  \n\nB) Chart unique (NASDAQ:IBIT 1h):  \nLa tendance est baissière dominante avec une série de LH/LL confirmée depuis mi-mai. Le prix a rompu plusieurs supports intermédiaires sans signe de rebond fort, la dynamique reste négative. La zone 36.5-37 USD représente un support psychologique et technique important à court terme. En cas de maintien, un rebond technique est possible, mais pour inverser la tendance une cassure claire d’un dernier HH serait nécessaire. Invalidation du scénario baissier si le prix revient au-dessus de 42 USD avec volume.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[\"36.5-37\"],\"resistances\":[\"41-42\"]",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_00-53-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-04_00-53-37.png"
+  }
+}

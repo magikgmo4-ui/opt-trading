@@ -1,0 +1,40 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forex_pulse_trading_8394_2026-06-03T10:52:34+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forex_pulse_trading",
+    "parsed_at": "2026-06-03T10:52:34+00:00",
+    "produced_at": "2026-06-11T10:00:14.340053+00:00",
+    "pair": "EURUSD",
+    "asset": "EURUSD",
+    "direction": "SHORT",
+    "entry_price": 1.16224,
+    "sl": 1.16338,
+    "tp": 1.15987,
+    "tps": [
+      1.15987
+    ],
+    "leverage": null,
+    "raw_text": "https://www.tradingview.com/x/rWA9bgSr/\n#Eurusd sell Limit \nEntry : 1.16224\nSl       : 1.16338\nTp      : 1.15987"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forex_pulse_trading_8408_2026-06-10T18:58:50+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forex_pulse_trading",
+    "parsed_at": "2026-06-10T18:58:50+00:00",
+    "produced_at": "2026-06-11T10:00:14.341449+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4168.83,
+    "sl": 4187.773,
+    "tp": 4099.266,
+    "tps": [
+      4099.266
+    ],
+    "leverage": null,
+    "raw_text": "https://www.tradingview.com/x/6maUPYh2/\n#Gold sell limit \nEntry: 4168.830\nSl      : 4187.773\nTp     : 4099.266"
+  }
+]

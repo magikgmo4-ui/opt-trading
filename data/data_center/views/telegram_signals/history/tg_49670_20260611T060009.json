@@ -1,0 +1,32 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_49670_20260611T060009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "goldsnipers11",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T13:01:59+00:00",
+  "produced_at": "2026-06-11T06:00:09.423042+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4149.0,
+  "sl": 4132.0,
+  "tp": 4154.0,
+  "tps": [
+    4154.0,
+    4159.0,
+    4164.0,
+    4184.0,
+    2.0,
+    4154.0,
+    4159.0,
+    4164.0,
+    4184.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD BUY \n\nENTRY 4149-47\nSL 4132\nTP 4154\nTP 4159\nTP 4164\nTP 4184\n    \n\u2b50\ufe0f Deposit **$300** get **FREE VIP**:\n\ud83d\udc49 https://puvip.co/VvQz2e",
+  "summary": "XAUUSD LONG"
+}

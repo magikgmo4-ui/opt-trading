@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_120443_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T08:04:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_08-04-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.7,
+      "note": "s 1.14"
+    },
+    {
+      "type": "support_level",
+      "value": "1.10.",
+      "confidence": 0.7,
+      "note": "s 1.10."
+    },
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.7,
+      "note": "support 1.14"
+    },
+    {
+      "type": "support_level",
+      "value": 1.18,
+      "confidence": 0.7,
+      "note": "s 1.18"
+    },
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.7,
+      "note": "s 1.14"
+    },
+    {
+      "type": "support_level",
+      "value": 1.18,
+      "confidence": 0.7,
+      "note": "s 1.18"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.14,
+      "confidence": 0.7,
+      "note": "r 1.14"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec une succession de Lower High (LH) et Lower Low (LL).  \n- Structure récente qui montre un possible point bas local autour de 1.14-1.15 avec un petit rebond actuel.  \n- Zone clé support vers 1.14-1.15, résistance à surveiller autour de 1.18-1.19 pour valider un potentiel retournement ou simple retracement.\n\nB) Chart unique (XRPUSDT.P 15m): Tendance baissière nette, structure en LH / LL confirmée. Support clé identifié sur 1.14-1.15 servant de zone de potentiel rebond. Si ce support casse, poursuite probable vers 1.10. Rebond actuel à surveiller, la cassure des résistances intermédiaires (1.18-1.19) serait nécessaire pour invalider le biais baissier et envisager un retour d’une dynamique plus neutre ou haussière à court terme.\n\nC) DeskPro {\"run_id\":\"rxp_15m_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.14\",\"1.15\"],\"resistances\":[\"1.18\",\"1.19\"],\"plan\":\"Surveiller rebond sur support 1.14-1.15. ",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_08-04-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_08-04-23.png"
+  }
+}

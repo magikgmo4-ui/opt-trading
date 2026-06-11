@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_152734_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:27:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-27-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure à la hausse des 66k pour entrée buy",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "repli sous 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Fort retracement baissier global visible sur Bitcoin en 1h.  \n- La structure montre principalement des Lower Highs (LH) et Lower Lows (LL) jusqu'à un récent rebond.  \n- Zones clés à surveiller autour de 62k (support) et 66k (résistance) pour valider un retournement ou poursuite baissière.  \n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \n- Tendance: Baissière avec un rebond récent.  \n- Structure: LL et LH jusqu’à la dernière heure où un HL semble se former.  \n- Zones clés: Support vers 62 000, Résistance vers 66 000.  \n- Scénario: Rebond possible en swing long si cassure et maintien au-dessus de 66k.  \n- Invalidation: Retour sous 62k invalide tendance haute, continuation baissière.  \n\nC) Chart 2 (haut-droit) : inconnu (pas lisible)  \n- Données insuffisantes pour analyse.  \n- Pas de structure ou zones identifiables.  \n\nD) Chart 3 (bas-gauche) : inconnu (pas lisible)  \n- Données insuffisantes pour analyse.  \n- Pas de structure ou zones identifiables.  \n\nE) Chart 4 (bas-droi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-27-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_11-27-15.png"
+  }
+}

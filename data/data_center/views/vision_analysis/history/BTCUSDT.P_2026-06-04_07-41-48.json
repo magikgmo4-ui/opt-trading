@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_114202_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T07:41:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-41-48",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short possible sous 62 000 avec stop au-dessus de 65 000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable au-dessus de 65 000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte pression vendeuse sur le marché général, avec un biais baissier dominant.  \n- Structures clairement baissières (LH/LL) sur plusieurs unités, plusieurs zones de support testées et potentiellement fragilisées.  \n- Scénarios baissiers privilégiés, attention à toute invalidation par un franchissement clair de résistances clés.\n\nB) Chart 1 (haut-gauche) : Bitcoin / TetherUS 1h  \n- Tendance nette baissière avec une structure en Lower Highs (LH) et Lower Lows (LL).  \n- Supports clés autour de 62 000-62 500 USDT, en test en ce moment.  \n- Résistances autour de 64 000-65 000 USDT, zone de reprise potentielle pour les vendeurs.  \n- Scénario principal : poursuite de la chute si le support à 62 000 cède.  \n- Invalidation : franchissement et maintien au-dessus de 65 000 USDT.\n\nC) Chart 2 (haut-droit) : Inconnu (symbole/timeframe non lisible)  \n- Impossible de définir la tendance et la structure, infos insuffisantes.  \n- Zones clés S/R non identifiables pour l’analyse rapi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-41-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_07-41-37.png"
+  }
+}

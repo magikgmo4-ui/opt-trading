@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_234819_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T19:48:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_19-48-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rejet à la résistance 61600 ou sur cassure du support 59600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus de 61600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière sur le 15m avec une série de lower highs (LH) et lower lows (LL).  \n- Structure récente indiquant un rebond correctif avec un higher low (HL) autour de 59 600 avant nouveau rejet.  \n- Zone de résistance clé proche de 61 600 à surveiller, invalidation du scénario baissier sous 59 600.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une tendance baissière claire marquée par des LH et LL successifs, avec une tentative de rebond récente formant un HL à environ 59 600. Le prix a rebondi jusqu’à 61 600 avant de redescendre, ce niveau agissant comme résistance significative. Le potentiel scénario reste baissier tant que le prix n’a pas cassé la résistance de 61 600 et que le HL à 59 600 tient comme support. Une cassure sous 59 600 invaliderait ce scénario et ouvrirait la voie à une nouvelle vague baissière.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish avec rebond correctif\",\"structure\":\"LH/LLs avec HL récent\",\"s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_19-48-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_19-48-02.png"
+  }
+}

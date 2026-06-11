@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_110348_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T07:03:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-03-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.13,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.22,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 1.14 avec extension possible. Achat en cas de rebond clair ou rupture 1.22.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture nette au-dessus de 1.22 confirmant un HH et changement de tendance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur 15m avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure de baisse dominante, les tentatives de retracement sont faibles et rapidement corrigées.  \n- Zones clés proches : support majeur vers 1.14, résistance lourde vers 1.20-1.22 (anciens niveaux de rebond temporaire).  \n\nB) Chart unique (XRPUSDT.P 15m): Tendance baissière nette confirmée par structure LH/LL. Support immédiat identifié autour de 1.14, sous pression. La dynamique indique un biais vendeur, avec un possible nouveau test du support. En cas de break sous 1.14, extension probable vers 1.13 et zones plus basses. Résistance principale à 1.20-1.22, niveau à valider pour contrer la tendance. Invalidation du scénario baissier si rupture franche au-dessus de 1.22 avec HH.  \n\nC) DeskPro  \n{\"run_id\":\"xrp_15m_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1.14\",\"1.13\"],\"resistances\":[\"1.20\",\"1.22\"],\"plan\":\"vente sous 1.14 avec exten",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-03-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_07-03-31.png"
+  }
+}

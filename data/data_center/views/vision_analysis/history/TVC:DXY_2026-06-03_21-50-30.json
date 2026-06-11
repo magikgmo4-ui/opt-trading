@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_015038_TVC:DXY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "TVC:DXY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T21:50:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-50-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 99.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 98.85,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 99.55,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur repli support 99.100 ou breakout 99.550",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette sous 99.100",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h haussière confirmée avec une série de HH/HL après un point bas marqué.\n- Structure récemment soutenue par un support majeur autour de 99.100.\n- Scénario haussier à privilégier tant que le support 99.100 tient; invalidation en cas de rupture nette sous ce niveau.\n\nB) Chart unique (TVC:DXY 1h) : \nLa structure montre un bas majeur vers 98.850 suivi d’une reprise en HH/HL jusqu’à 99.550. L’action des prix consolide actuellement légèrement sous la récente résistance à 99.550, qui représente une zone clé de prix à surveiller. Le support principal est identifié vers 99.100, niveau ayant servi de base pour les hausses récentes. La tendance dominante est haussière sur ce timeframe et le momentum semble intact. Un vrai pullback ou renversement serait signalé par une cassure sous 99.100 (invalidation). Le plan consiste à rester acheteur sur repli vers ce support ou en rupture de la zone 99.550 avec volume.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias",
+  "symbols_found": [
+    "TVC:DXY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-50-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_21-50-19.png"
+  }
+}

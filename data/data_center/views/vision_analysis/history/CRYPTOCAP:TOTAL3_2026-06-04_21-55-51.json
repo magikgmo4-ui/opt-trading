@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_015601_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T21:55:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-55-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 680000000000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 620000000000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 700000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 720000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d’une poursuite baissière sous 680B, prise de position short possible après confirmation daily close en dessous. Cible potentielle 620-640B.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture journalière au-dessus de 720B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière de long terme visible avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Depuis début 2026, consolidation latérale/support autour de 680-700B, suivie d'une récente reprise baissière.  \n- Zone clé de support proche des 680B, risque de poursuite de la baisse si cassure confirmée.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe marché montre une structure globalement baissière (LL/LH) depuis plusieurs mois. Une phase de stabilisation latérale s’est déroulée entre 680B et 760B pendant plusieurs semaines, mais le prix vient de casser le support clé à 680B en clôture journalière. Cette cassure, soutenue par une hausse de volume, invalide le scénario de rebond haussier et relance le biais baissier. À court terme, il faut surveiller la réaction sous les 680B pour valider une poursuite baissière, avec potentiellement une accélération vers les 620-640B. Niveau résistance majeur à présent à 700-720B. Invalidation du biais baissier en cas de remontée cl",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-55-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_21-55-40.png"
+  }
+}

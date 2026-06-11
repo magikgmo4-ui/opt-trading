@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_145630_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T10:56:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_10-56-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance cassure résistance 1.11 pour entrée long ou rebond rejeté pour revente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1.08 invalide scénario haussier court terme",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale baissière confirmée par une série de plus bas (LL) et plus hauts (LH).\n- Reprise actuelle en phase de rebond avec formation possible d'un plus haut local (HH) sur le court terme.\n- Zone clé de résistance proche autour de 1.11-1.12, à surveiller pour valider la force du rebond.\n\nB) Chart unique (XRPUSDT.P 15m) :\nLe prix montre une structure baissière dominante caractérisée par des LH et LL, confirmant une tendance baissière. Depuis le plus bas récent vers 1.05, un rebond se construit avec des HL progressifs, testant actuellement une résistance importante située autour de 1.11. Le scénario actionnable est d’attendre une cassure franche de cette résistance pour envisager un retournement ou poursuite du rebond, ou une invalidation par retour sous le dernier support à 1.08. Volume en légère augmentation sur le rebond, à suivre.\n\nC) DeskPro {\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier court terme\",\"structure\":\"LH/LL (tendance bais",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_10-56-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_10-56-13.png"
+  }
+}

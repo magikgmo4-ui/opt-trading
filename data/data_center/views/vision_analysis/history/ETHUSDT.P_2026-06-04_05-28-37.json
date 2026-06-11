@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_092844_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T05:28:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-28-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1715.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1785.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur rebond proche résistance 1760, prise de bénéfices partiels vers 1715, suivre cassure support pour extension de la baisse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1790 confirmant potentielle inversion ou consolidation.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 15m avec formation régulière de LL (Lower Lows) et LH (Lower Highs).  \n- Structure sans signe de retournement, le prix teste et casse des supports locaux.  \n- Zones clés importantes vers 1760 (résistance récente) et 1715-1720 (support actuel à surveiller).\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLe marché s’inscrit dans une tendance baissière dominante, caractérisée par une série de Lower Highs (LH) et Lower Lows (LL), confirmant une structure baissière forte. La dernière jambe montre une forte pression vendeuse avec un break à la baisse sous les supports intermédiaires autour de 1760. Le support clé à 1715-1720 est testé, zone à surveiller pour un possible rebond ou poursuite du mouvement baissier. Un scénario vendeur privilégié tant que les résistances vers 1760 ne sont pas reprises. Invalidation du bearish si le prix repasse durablement au-dessus de 1780/1790 sur ce timeframe.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-28-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_05-28-29.png"
+  }
+}

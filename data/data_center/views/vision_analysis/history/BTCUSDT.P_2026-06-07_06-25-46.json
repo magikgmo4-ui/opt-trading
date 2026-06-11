@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_102554_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T06:25:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-25-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller une cassure de 63000 pour envisager un retournement haussier; sinon viser retest support 59000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 63000 valide scénario haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec une série de HH/HL cassée en LH/LL.\n- Structure récente montre un début de correction haussière après un plus bas significatif.\n- Zone clé résistante proche des 63 000, support majeur à 59 000.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLa tendance dominante est baissière avec des plus bas et plus hauts décalés à la baisse (LH/LL). Une reprise haussière corrective se dessine ces dernières heures, formant un HL après un creux important vers 59 000. La zone résistante à 63 000 est un point clé à surveiller pour valider un potentiel retournement. En cas d'échec, on peut s'attendre à un retour sous le support à 59 000. Le scénario privilégié reste la poursuite de la baisse tant que 63 000 n'est pas franchi clairement.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier-correctif\",\"structure\":\"LH/LL avec récente tentative HL\",\"supports\":[\"59000\"],\"resistances\":[\"63000\"],\"plan\":\"surveiller une cassure de 63000 pour envisager un",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-25-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_06-25-36.png"
+  }
+}

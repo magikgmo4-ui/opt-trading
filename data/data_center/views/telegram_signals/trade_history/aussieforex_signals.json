@@ -1,0 +1,116 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_aussieforex_20045_2026-03-02T03:37:21+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "aussieforex",
+    "parsed_at": "2026-03-02T03:37:21+00:00",
+    "produced_at": "2026-06-11T10:00:14.157088+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 5300.0,
+    "sl": 5250.0,
+    "tp": 6200.0,
+    "tps": [
+      6200.0
+    ],
+    "leverage": null,
+    "raw_text": "58XAUUSD BUY @5300/cmp | TP 6200/ SL 5250"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_aussieforex_20046_2026-03-06T13:18:38+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "aussieforex",
+    "parsed_at": "2026-03-06T13:18:38+00:00",
+    "produced_at": "2026-06-11T10:00:14.157156+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4860.0,
+    "sl": 4800.0,
+    "tp": 5200.0,
+    "tps": [
+      5200.0
+    ],
+    "leverage": null,
+    "raw_text": "**XAUUSD BUY ****@4860****| TP 5200/ SL 4800\nEnter between 4833-4860 (short term entry and **risky)"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_aussieforex_20048_2026-05-11T00:59:11+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "aussieforex",
+    "parsed_at": "2026-05-11T00:59:11+00:00",
+    "produced_at": "2026-06-11T10:00:14.158096+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4530.0,
+    "sl": 4500.0,
+    "tp": 4730.0,
+    "tps": [
+      4730.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY @4530| TP 4730/ SL 4500"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_aussieforex_20049_2026-05-11T19:47:26+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "aussieforex",
+    "parsed_at": "2026-05-11T19:47:26+00:00",
+    "produced_at": "2026-06-11T10:00:14.158164+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4655.0,
+    "sl": 4639.0,
+    "tp": 4900.0,
+    "tps": [
+      4900.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY @4655-4665| TP 4900/ SL 4639\nSL will not work now a days. Liquidity grabber works against retail traders like you. Keep your lot size within range"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_aussieforex_20051_2026-05-27T03:10:50+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "aussieforex",
+    "parsed_at": "2026-05-27T03:10:50+00:00",
+    "produced_at": "2026-06-11T10:00:14.158360+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4486.0,
+    "sl": 4470.0,
+    "tp": 4700.0,
+    "tps": [
+      4700.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY@4486 | TP 4700/4900/ SL 4470"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_aussieforex_20053_2026-06-08T12:04:25+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "aussieforex",
+    "parsed_at": "2026-06-08T12:04:25+00:00",
+    "produced_at": "2026-06-11T10:00:14.158432+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4290.0,
+    "sl": 4266.0,
+    "tp": 4390.0,
+    "tps": [
+      4390.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD buy @4290| TP 4390/4500/ SL 4266"
+  }
+]

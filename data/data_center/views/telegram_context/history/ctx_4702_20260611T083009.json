@@ -1,0 +1,17 @@
+{
+  "contract": "telegram_context.v1",
+  "id": "ctx_4702_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "xau_signal",
+  "channel": "forexsignals",
+  "channel_priority": "P2",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T19:11:11+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "asset": "XAUUSD",
+  "direction": null,
+  "entry_price": 4136.0,
+  "amount": null,
+  "value_usd": null,
+  "raw_text": "**\ud83c\udfdb\ufe0f XAUHQ | GOLD SIGNAL \ud83d\udfe1\n\nDIRECTION: **\ud83d\udcc9 SELL NOW**\nENTRY: 4136/49\nSTOP LOSS:** 4164**\ud83d\udee1\ufe0f\n\nTAKE PROFIT:\n\u2003TP1 \u2192 4116\n\u2003TP2 \u2192 4100\n\u2003TP3 \u2192 4080\n\u2003TP4 \u21924060/40\n(Optional)\n\nRISK: 0.50% - 1% Max\nPatience pays more than prediction.**"
+}

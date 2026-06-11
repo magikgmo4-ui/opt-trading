@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_054140_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T01:41:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-41-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher opportunités short sur rejet des résistances 62.50-63.00. Target sur support 60.00.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break franc au-dessus de 63.00 avec structure HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance générale baissière avec une série de LH (Lower Highs) et LL (Lower Lows) sur ce timeframe 15m.\n- Rebond récent testant une zone de résistance intermédiaire vers 62.50-63.00.\n- Scénario court terme: potentiel retracement ou consolidation avant poursuite de la baisse si résistance confirmée.\n\nB) Chart unique (SOLUSDT.P 15m) :  \nOn observe une structure claire de baisse avec des Lower Highs et Lower Lows depuis le début du chart. Le prix tente un rebound sur le support récent autour de 60.00, mais les résistances vers 62.50 et 63.00 restent clés. La tendance est baissière dominante tant que 63.00 n’est pas franchi avec une structure de HH. Invalidation du biais baissier si dépassement et maintien au-dessus des 63.00.\n\nC) DeskPro {\"run_id\":\"1686060000\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH et LL\",\"supports\":[60.00],\"resistances\":[62.50,63.00],\"plan\":\"Chercher opportunités short sur rejet des résistances 62.50-63.00. Target sur support 60.0",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-41-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_01-41-23.png"
+  }
+}

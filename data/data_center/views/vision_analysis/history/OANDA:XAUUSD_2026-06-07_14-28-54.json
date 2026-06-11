@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_182901_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T14:28:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-28-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.7,
+      "note": "s 4320"
+    },
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.7,
+      "note": "support 4320,"
+    },
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.7,
+      "note": "s 4320"
+    },
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.7,
+      "note": "s 4320"
+    },
+    {
+      "type": "support_level",
+      "value": 4400.0,
+      "confidence": 0.7,
+      "note": "s 4400"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.7,
+      "note": "résistance à 4400"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte fortement baissière avec structure en Lower Highs (LH) et Lower Lows (LL) confirmée sur le 1h.  \n- Zone de support clé proche des 4320 USD après une chute marquée, réactions de rebond possibles à court terme.  \n- Scénario prioritaire: poursuite de la baisse sous invalidation du support 4320, sinon remontée vers résistance à 4400 USD.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure récente montre une succession de Lower Highs et Lower Lows indiquant une tendance baissière claire. Le prix est venu buter sur une zone de support vers 4320 USD avec un léger rebond sous volume, ce qui peut offrir une opportunité de scalping ou trading court terme. Le principal pivot de résistance se situe à environ 4400 USD, niveau à dépasser pour invalider la faiblesse actuelle. On privilégiera la vente sous ce niveau avec un stop serré au-dessus, tandis qu’une cassure des 4320 ouvre la voie vers un prolongement baissier.\n\nC) DeskPro  \n{\"run_id\":\"1686037735\",\"charts\":",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-28-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_14-28-40.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_133712_OTC:GBTC_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "OTC:GBTC",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:37:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-37-07",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Aucune analyse possible, changer le symbole.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le symbole OTC:GBTC en timeframe 1h est non valide ou indisponible.\n- Impossible d’analyser la tendance, structure et zones clés sans données graphiques.\n- Aucune action possible pour le trading sur ce graphique.\n\nB) Chart unique (OTC:GBTC 1h): Symbole invalide, absence de données.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"Aucune analyse possible, changer le symbole.\",\"invalidation\":\"inconnu\"}]}",
+  "symbols_found": [
+    "OTC:GBTC"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-37-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OTC:GBTC_1h_2026-06-04_09-36-56.png"
+  }
+}

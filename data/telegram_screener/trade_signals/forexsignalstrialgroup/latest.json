@@ -1,0 +1,53 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexsignalstrialgroup_18805_2026-06-08T09:23:56+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexsignalstrialgroup",
+    "parsed_at": "2026-06-08T09:23:56+00:00",
+    "produced_at": "2026-06-11T10:00:14.377970+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 3946.0,
+    "sl": 1.3986,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "USDCAD SELL 1.3946\n\nSL:  1.3986\nTP:  1.3826"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexsignalstrialgroup_18807_2026-06-09T06:42:24+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexsignalstrialgroup",
+    "parsed_at": "2026-06-09T06:42:24+00:00",
+    "produced_at": "2026-06-11T10:00:14.378046+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 8933.0,
+    "sl": 1.8883,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "GBPAUD BUY 1.8933\n\nSL:  1.8883\nTP:  1.9083"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexsignalstrialgroup_18813_2026-06-10T07:44:09+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexsignalstrialgroup",
+    "parsed_at": "2026-06-10T07:44:09+00:00",
+    "produced_at": "2026-06-11T10:00:14.378707+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 3387.0,
+    "sl": 1.3437,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "GBPUSD SELL 1.3387\n\nSL:  1.3437\nTP:  1.3237"
+  }
+]

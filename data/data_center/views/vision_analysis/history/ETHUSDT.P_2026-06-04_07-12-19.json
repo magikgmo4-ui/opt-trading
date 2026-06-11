@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_111227_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T07:12:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-12-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1730.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1880.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 1730 pour prise de position short avec stop serré au-dessus de 1850. Bullish si franchissement 1880 avec potentiel retest support devenu résistance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire > 1880",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le timeframe 1h avec série de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragile, tentative de rebond en cours mais sans franchissement de résistances majeures.\n- Zones clés à surveiller pour un potentiel retournement ou poursuite du downtrend.\n\nB) Chart unique (ETHUSDT.P 1h): \nLe graphique montre une tendance baissière nette sur la période récente avec des Lower Highs et Lower Lows confirmés. Le prix vient de tester un support vers 1730-1740 USDT, où un rebond technique est visible. La zone de résistance majeure se situe vers 1850-1880 USDT, niveau non encore dépassé. Le scénario principal reste un maintien de la tendance baissière, avec un risque de poursuite en cas de cassure en dessous du support à 1730 USDT. Le scenario alternatif serait un retour haussier en cas de franchissement clair de la résistance à 1850 USDT. Invalidation du scénario baissier si le prix dépasse durablement 1880 USDT.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-12-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_07-12-11.png"
+  }
+}

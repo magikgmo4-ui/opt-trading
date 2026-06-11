@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_042732_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T00:27:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-27-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1717.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1770.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rejet résistance 1770-1780, target support 1717-1720",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1780",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure claire de baisse sans signe immédiat d’inversion.  \n- Zone clé support vers 1717-1720 USDT, résistance notable proche des 1770 USDT.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance est baissière avec des Lower Highs et Lower Lows successifs indiquant un canal descendant. Le dernier rebond touche la résistance des 1770 USDT sans la franchir. La zone de support majeure actuelle est autour de 1717-1720 USDT. Le scénario privilégié reste la poursuite de la baisse sous cette résistance, avec une invalidation en cas de franchissement clair au-dessus des 1770-1780 USDT. Il est conseillé d’envisager des positions short en rejet sur résistance avec stop serré au-dessus de 1780 USDT.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH-LL\",\"supports\":[1717,1720],\"resistances\":[1770,1780],\"plan\":\"Short sur rejet résistance 1770-1780, ta",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-27-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_00-27-17.png"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_140241_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T10:02:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_10-02-29",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher continuation baissière sous le support, short possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rupture claire au-dessus de 1900 avec formation HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière sur la plupart des graphiques.  \n- Structure principalement en LH/LL, indiquant une pression vendeuse dominante.  \n- Zones clés de support testées avec risque de cassure, vigilance nécessaire.  \n\nB) Chart 1 (haut-gauche) : ETHUSDT 1h  \n- Tendance dominante : baissière avec structure LH/LL.  \n- Support clé autour de 1,830-1,840 USD, test récurrent recent.  \n- Résistance forte vers 1,900 USD, plafond de rebond temporaire.  \n- Scénario principal : continuation baisse en cas de cassure support 1,830.  \n- Invalidation de ce scénario si reprise au-dessus de 1,900 confirmée par HH.  \n\nC) Chart 2 (haut-droit) : inconnu (pas lisible)  \n- Impossible de déterminer la tendance ou la structure.  \n- Pas d’analyse possible sans données précises.  \n- À surveiller dès obtention d’une image claire.  \n\nD) Chart 3 (bas-gauche) : inconnu (pas lisible)  \n- Données non identifiables, aucune lecture possible.  \n- Requiert un graphique clair pour analyse structur",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_10-02-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_10-02-22.png"
+  }
+}

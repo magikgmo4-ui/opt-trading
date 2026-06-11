@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_024028_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T22:40:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-40-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 68.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 75.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short en échec sur résistance, viser 68 en TP, stop hors 75",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break above 75",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière clairement installée avec une série de Lower Highs (LH) et Lower Lows (LL) sur le timeframe 15m.  \n- Structure dégradée sans signe de retournement confirmé, malgré un rebond récent.  \n- Zones clés : support majeur proche de 68, résistance à surveiller autour de 72-73, zone d'invalidation en cas de break au-dessus des derniers LH (~75).  \n\nB) Chart unique (SOLUSDT.P 15m):  \nLa paire montre une dynamique baissière marquée depuis plusieurs séances. On observe une succession de sommets et creux plus bas (LH/LL) indiquant un contrôle vendeur. Le dernier rebond est un pullback technique avec volume important mais reste sous pression face à la résistance vers 72-73. Un break confirmé sous 68 ouvrirait la voie à la poursuite de la baisse. Pour invalider ce scénario bearish, il faudrait un franchissement clair des derniers sommets autour de 75, marquant un possible retour d’une dynamique haussière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-40-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-03_22-40-13.png"
+  }
+}

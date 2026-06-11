@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_055311_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:53:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-52-58",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Entrée long proche support 60 000, prise de profits progressive en résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break sous 59 000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché crypto (BTC/USDT) dans une phase de récupération après une forte baisse, tendance globale baissière toujours dominante sur le moyen terme.  \n- Les zones de support proches de 60 000 USDT joueraient un rôle clé pour un maintien haussier court terme.  \n- Plusieurs résistances intermédiaires en zone 63 000-64 000 USDT à surveiller pour valider un renversement structurel.  \n\nB) Chart 1 (haut-gauche): BTC/USDT 1h  \nTendance: rebond court terme dans un contexte baissier moyen terme.  \nStructure: HL (plus bas relatif plus haut récemment), mais toujours sous HH (plus hauts relatifs) baissiers antérieurs.  \nSupports: 60 000 USDT zone clé où le prix a rebondi.  \nRésistances: 63 000 - 64 000 USDT testées plusieurs fois.  \nPlan: privilégier un engagement long sur retour proche support 60 000, avec objectif partiel en résistance intermédiaire.  \nInvalidation: break net sous 59 000 USDT confirmerait reprise de pression vendeuse.  \n\nC) Chart 2 (haut-droit): Inconnu (pas li",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-52-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_01-52-46.png"
+  }
+}

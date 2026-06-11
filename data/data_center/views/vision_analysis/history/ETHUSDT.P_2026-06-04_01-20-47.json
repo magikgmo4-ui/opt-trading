@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_052055_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T01:20:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_01-20-47",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Privilégier prises de position short sur rebonds vers résistance. Restez prudent sur cassure haussière au-dessus de 1840 pour invalidation scénario",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Bougie H15 avec HH au-dessus de 1840",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le court terme avec une suite de bas plus bas (LL) et de hauts plus bas (LH).\n- Structure baissière renforcée par un rebond correctif limité avant reprise de la baisse.\n- Zones clés à surveiller : support vers 1760-1770 USDT, résistance à 1825-1840 USDT.\n\nB) Chart unique (ETHUSDT.P 15m) : La structure est en séquence de baisse avec une série LL/LH bien visible, signalant un contrôle des vendeurs. Le cours a tenté un rebond à partir d’un support récent aux environs de 1760 USDT, mais sans casser la dynamique baissière. La zone de résistance proche de 1825-1840 USDT correspond à un ancien support devenu résistance, à surveiller pour valider un retournement haussier. Invalidation du scénario baissier si +1 bougie H15 avec HH clair au-dessus de 1840 USDT.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"1760-1770\"],\"resistances\":[\"1825-1840\"],\"plan\":\"Privilégier prises de position ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_01-20-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_01-20-40.png"
+  }
+}

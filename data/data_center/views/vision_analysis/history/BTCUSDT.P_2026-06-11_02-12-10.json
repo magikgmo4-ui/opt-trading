@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_061219_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T02:12:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-12-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure de 62800 avec stop sous 61300",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retomber durablement sous 61300",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme : reprise haussière après un creux marqué  \n- Structure : bas récent en HH suivi de HL, tentative de franchissement à surveiller  \n- Zone clé résistance vers 62 800 USDT, support à 61 300 USDT à valider  \n\nB) Chart unique (BTCUSDT.P 15m) :  \nLa tendance montre une phase de reprise haussière après une baisse nette avec une structure qui passe de LL à HL puis HH sur les derniers points clefs. Le prix teste une zone de résistance à 62 800 USDT, marquée par plusieurs rejets. Le support intermédiaire est situé à 61 300 USDT, servant de plancher pour cette reprise. Un franchissement clair au-dessus des 62 800 confirmerait la poursuite haussière, tandis qu’une rechute sous 61 300 invaliderait ce scénario et pourrait relancer la baisse. Le volume semble accompagner la montée, signe d’intérêt acheteur.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"61300\"],\"resistances\":[\"62800\"],\"plan\":\"Ach",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-12-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-11_02-12-01.png"
+  }
+}

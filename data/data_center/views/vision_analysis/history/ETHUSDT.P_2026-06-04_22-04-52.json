@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_020501_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:04:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-04-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1790.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la cassure sous 1720 pour poursuivre la baisse ou un rebond potentiel en cas de maintien du support. Invalidation à la reprise au-dessus de 1790.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "1790",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière confirmée, le prix ne parvient pas à casser les résistances locales ascendantes.  \n- Zone clé de support autour de 1,720 USD à surveiller pour un potentiel rebond ou poursuite du bearish.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa structure montre un enchaînement de Lower Highs et Lower Lows, confirmant la dominance des vendeurs. Le prix teste actuellement une zone support proche de 1,720 USD, où des volumes légèrement supérieurs suggèrent une possible tentative de stabilisation. Une cassure nette sous ce support validera la poursuite de la baisse vers des seuils plus bas. À l’inverse, un retour au-delà de la dernière résistance à environ 1,780-1,790 USD invaliderait la structure baissière à court terme, ouvrant un scénario de rebond ou correction.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"172",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-04-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_22-04-39.png"
+  }
+}

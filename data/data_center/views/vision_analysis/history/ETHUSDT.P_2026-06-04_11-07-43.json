@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_150753_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:07:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-07-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1840.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur rebond à support 1700 avec objectif première résistance 1800, stop sous 1700",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix sous 1700",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire depuis plusieurs jours avec des Lower Highs (LH) et Lower Lows (LL).  \n- Rebond actuel sur un support proche de 1700 USD, potentielle zone de demande.  \n- Scénario à court terme haussier possible si le prix confirme un Higher High (HH) au-dessus de 1800 USD, sinon reprise de la baisse.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une structure baissière avec une succession de LH et LL sur le timeframe 1h. Le prix est actuellement en train de rebondir après avoir touché un support vers 1700 USD, marquant un possible HL à court terme. La zone de résistance clé se situe autour de 1800-1840 USD, correspondant aux derniers points hauts. La tendance globale reste baissière tant que le prix ne réussit pas à dépasser ce niveau. Invalidation du scénario haussier si le prix retombe sous 1700 USD.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec rebond HL potentiel\",\"supports\":[1700],\"re",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-07-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_11-07-35.png"
+  }
+}

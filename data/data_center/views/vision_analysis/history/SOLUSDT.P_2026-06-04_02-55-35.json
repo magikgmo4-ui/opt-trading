@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_065545_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T02:55:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-55-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 69.0,
+      "confidence": 0.7,
+      "note": "s 69"
+    },
+    {
+      "type": "support_level",
+      "value": 69.0,
+      "confidence": 0.7,
+      "note": "s 69"
+    },
+    {
+      "type": "support_level",
+      "value": 69.0,
+      "confidence": 0.7,
+      "note": "s 69"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une succession de LL (Lower Lows) et LH (Lower Highs).  \n- Structure fragile en bas autour de 69-70 USD, zone de support testée récemment avec un rebond.  \n- Scénario principal baissier, invalidation sous 69 USD avec nouvelle accélération à la baisse possible.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLa paire SOLUSDT.P évolue dans une tendance baissière nette marquée par des Lower Highs et Lower Lows bien formés. Le prix a touché récemment un support intermédiaire vers 69 USD, provoquant un rebond technique jusqu’à 71 USD. La structure reste cependant fragile, car le prix ne parvient pas à créer de Higher High ni Higher Low pour signaler un retour haussier. Le volume reste présent sur les replis. Une cassure en dessous de 69 USD invaliderait le support clé, renforçant la pression vendeuse. Le plan actionnable privilégie la prudence avec un biais baissier, en attendant soit une cassure de support pour renforcer shorts, soit une c",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-55-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_02-55-27.png"
+  }
+}

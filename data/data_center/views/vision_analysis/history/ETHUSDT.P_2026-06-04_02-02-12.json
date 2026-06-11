@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_060222_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T02:02:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_02-02-12",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1860.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rebond vers resistance 1860 avec stop au-dessus, ou sell en cassure support 1740.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cloture au-dessus de 1860 invalidant la structure baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL) sur 1h.  \n- Structure fragile avec tentative récente de rebond sur zone clé vers 1740-1760 USDT.  \n- Scénario principal baissier à privilégier, invalidation en cas de franchissement haussier du dernier LH (~1860 USDT).\n\nB) Chart unique (ETHUSDT.P 1h): La baisse domine avec une structure baissière classique (LH/LL). Le prix a rebondi brièvement sur un support clé autour de 1740-1760 USDT, zone qui a encaissé un volume important. Ce rebond reste pour l’instant un pullback dans la tendance baissière globale. Résistance majeure aujourd’hui autour de 1860 USDT (dernier sommet intermediaire). La cassure en dessous du support 1740 pourrait relancer la baisse, alors que la cassure au-dessus de 1860 invaliderait la tendance baissière court terme.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1740-1760\"],\"resistances\":[\"1860\"],",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_02-02-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_02-02-05.png"
+  }
+}

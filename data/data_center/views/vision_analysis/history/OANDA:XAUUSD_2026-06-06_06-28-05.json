@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_102813_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T06:28:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-28-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4480.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rechercher des ventes aux résistances, viser des extensions vers 4320 voire plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire > 4500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL) bien marquée.  \n- Structure baissière confirmée par des zones de résistance autour de 4480-4500 et support clé proche des 4320.  \n- Scénario de continuation baissière privilégié, à surveiller des réactions proches du support qui pourrait temporairement ralentir la dynamique.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nSur ce graphique 1h de XAUUSD, la tendance dominante est baissière avec une succession claire de Lower Highs et Lower Lows. La structure montre que les vendeurs contrôlent le marché depuis plusieurs sessions. Les volumes augmentent lors des phases de baisse accentuant la pression vendeuse. Une zone de résistance majeure est identifiée entre 4480 et 4500, où les tentatives de rebond ont échoué. Le support actuel vers 4320 est une zone clé à court terme, pouvant agir comme un pallier de stabilisation. Le plan d’action prioritaire ici reste vendeur en entrée proc",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-28-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_06-27-50.png"
+  }
+}

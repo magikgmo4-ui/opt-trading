@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_201348_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T16:13:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-13-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.07,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller un break support 1.07 pour continuation baissière. En cas de franchissement résistance 1.10, envisager retournement haussier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus de 1.10.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure claire de pression vendeuse, les tentatives de rebond sont arrêtées en zone de résistance vers 1.10.  \n- Zone de support clé vers 1.07 à surveiller pour scénario de rebond ou continuation baissière.\n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique montre une dominante pression vendeuse avec une structure en Lower High / Lower Low, confirmant la tendance baissière. La résistance principale est identifiée autour de 1.10, où les rebonds se heurtent systématiquement aux vendeurs. Le support immédiat se trouve vers 1.07, zone où les acheteurs peuvent tenter une reprise. Un break en dessous de 1.07 validerait la poursuite du mouvement baissier. À l’inverse, un franchissement clair à la hausse de 1.10 invaliderait le scénario baissier et ouvrirait la voie à un retour haussier.\n\nC) DeskPro  \n{\"run_id\":\"20240612-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-13-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_16-13-30.png"
+  }
+}

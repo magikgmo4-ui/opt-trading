@@ -1,0 +1,53 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GBPUSDEURUSDXAUUSDFX_Vip1_2361_2026-06-11T06:37:45+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GBPUSDEURUSDXAUUSDFX_Vip1",
+    "parsed_at": "2026-06-11T06:37:45+00:00",
+    "produced_at": "2026-06-11T10:00:13.891729+00:00",
+    "pair": "USDJPY",
+    "asset": "USDJPY",
+    "direction": "LONG",
+    "entry_price": 160.579,
+    "sl": 160.438,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "**\ud83d\udcc8****USDJPY BUY\nEntry: 160.579\n\nTake Profit Targets\nTP1: 160.650\nTP2: 160.720\nTP3: 160.861\n\nStop Loss: 160.438**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GBPUSDEURUSDXAUUSDFX_Vip1_2364_2026-06-11T09:03:51+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GBPUSDEURUSDXAUUSDFX_Vip1",
+    "parsed_at": "2026-06-11T09:03:51+00:00",
+    "produced_at": "2026-06-11T10:00:13.891948+00:00",
+    "pair": "GBPUSD",
+    "asset": "GBPUSD",
+    "direction": "SHORT",
+    "entry_price": 1.33634,
+    "sl": 1.33915,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "**\ud83d\udcc9**** GBPUSD SELL\nEntry: 1.33634\n\nTake Profit Targets\nTP1: 1.33494\nTP2: 1.33353\nTP3: 1.33072\n\nStop Loss: 1.33915**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_GBPUSDEURUSDXAUUSDFX_Vip1_2365_2026-06-11T09:03:59+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "GBPUSDEURUSDXAUUSDFX_Vip1",
+    "parsed_at": "2026-06-11T09:03:59+00:00",
+    "produced_at": "2026-06-11T10:00:13.892030+00:00",
+    "pair": "GBPJPY",
+    "asset": "GBPJPY",
+    "direction": "SHORT",
+    "entry_price": 214.528,
+    "sl": 214.94,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "**\ud83d\udcc9**** GBPJPY SELL\nEntry: 214.528\n\nTake Profit Targets\nTP1: 214.322\nTP2: 214.116\nTP3: 213.704\n\nStop Loss: 214.940**"
+  }
+]

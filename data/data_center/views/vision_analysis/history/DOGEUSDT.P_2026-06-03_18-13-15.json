@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_221324_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T18:13:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-13-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.094,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher un short sur rebond proche résistance 0.0940 avec gestion serrée, viser support 0.0910",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture haussière claire au-dessus 0.0945",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le 15m avec une série de plus bas et plus bas (LL/LH).\n- Structure de retracement avec quelques tentatives de rebond limitées.\n- Zone résistance clé proche de 0.0940, support immédiat autour de 0.0910.\n\nB) Chart unique (DOGEUSDT.P 15m) :  \nLe marché est clairement dans une dynamique baissière, visible par la succession de plus bas sous les précédents (LL) et quelques hauts locaux plus bas (LH). Une zone de support clé se forme vers 0.0910, testée plusieurs fois récemment. La zone de résistance majeure à surveiller est à 0.0940, où les prix butent régulièrement, matérialisant un plafond. Le volume augmente lors des baisses accentuées, signe de pression vendeuse. Le scénario prioritaire est un nouveau test du support 0.0910 avant une éventuelle tentative de rebond vers 0.0940. Invalidation du scénario baissier sous 0.0895.\n\nC) DeskPro  \n{\"run_id\":\"20240602-01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[\"0.09",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-13-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_18-13-08.png"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_083324_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T04:33:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-32-59",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure ou rejet des 63000 pour décider",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Pression baissière dominante sur l’ensemble des actifs majeurs visibles, notamment Bitcoin en fort repli.\n- Tentative de rebond en cours sur BTC en 1h, à surveiller la capacité à dépasser les zones de résistance intermédiaires.\n- Marchés actions et matières premières restent sous forte tension avec indices et futures en baisse significative.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h\nTendance : Baissière\nStructure : Successions de LH/LL indiquant un marché en tendance baissière claire.\nZones clés : Support autour de 59 000-60 000 USD (derniers points bas), résistance vers 63 000 USD.\nScénario : Le rebond actuel pourrait marquer un retracement avant poursuite de la baisse à moins d’une cassure franche au-dessus des 63 000 USD.\nInvalidation : Passage et consolidation au-dessus de 63 000 USD invaliderait la poursuite baissière court terme.\n\nC) Chart 2 (haut-droit) : Inconnu\nImpossible d’identifier clairement le symbole et timeframe.\n\nD) Chart 3 (bas-gauche) : Inconnu\nImposs",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-32-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_04-32-50.png"
+  }
+}

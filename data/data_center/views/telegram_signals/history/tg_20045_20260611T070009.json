@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_20045_20260611T070009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "aussieforex",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-03-02T03:37:21+00:00",
+  "produced_at": "2026-06-11T07:00:09.465499+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 5300.0,
+  "sl": 5250.0,
+  "tp": 6200.0,
+  "tps": [
+    6200.0,
+    6200.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "58XAUUSD BUY @5300/cmp | TP 6200/ SL 5250",
+  "summary": "XAUUSD LONG"
+}

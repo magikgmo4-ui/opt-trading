@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_033839_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T23:38:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-38-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 745.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur support 750 avec stop sous 745, viser résistance 760 puis plus haut.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse sous 745",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h, avec une série de HH et HL bien formés.  \n- Dernier mouvement montre une correction mais le support des récents HL tient, indiquant une possible reprise.  \n- Zone de résistance clé autour de 760, zone support majeure proche de 750.\n\nB) Chart unique (SPY 1h):  \nLe graphique montre une structure de tendance haussière (HH/HL). Après une forte dynamique ascendante, une correction est visible mais sans dépasser le dernier creux HL, validant la poursuite probable de la hausse. Résistance importante vers 760, plafond à surveiller pour une cassure confirmant l'élan. Support notable autour de 750, zone d’achat potentielle. Le scénario favori est une reprise haussière à partir de ce support. Invalidation du bullish si le prix casse en dessous de 745, signalant un changement possible de structure (passage en LH/LL).\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[750,745],\"resistance",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-38-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_23-38-20.png"
+  }
+}

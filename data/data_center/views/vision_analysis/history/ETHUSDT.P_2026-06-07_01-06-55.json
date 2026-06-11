@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_050704_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T01:07:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-06-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1600 pour reprise haussière, stop si cassure 1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 1520 pour poursuite baisse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intraday baissière nette initiale suivie d'une phase de stabilisation et léger rebond.  \n- Structure : succession de LL (Lower Lows) et LH (Lower Highs) jusqu'au creux vers 1520, puis début de construction de HL (Higher Lows) sur la reprise.  \n- Zone clé de résistance proche des 1600 USDT testée plusieurs fois, support majeur autour de 1520 USDT.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLe marché ETHUSDT sur 15m affiche clairement une tendance baissière forte en début de période visible (succession LL/LH) avec un point bas vers 1520 USDT. Suit une phase de range et reprise modérée avec HL apparents, signalant une possible correction ou pause dans la tendance baissière. La zone des 1600 USDT sert de résistance clé à casser pour invalider la dynamique baissière. Support important détecté vers 1520 USDT, zone d'accumulation potentielle. Scénario optimum : confirmation d’un franchissement des 1600 USDT pour viser un retournement ou au moins une reprise plus nette.",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-06-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_01-06-32.png"
+  }
+}

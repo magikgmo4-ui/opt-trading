@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_194346_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T15:43:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-43-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.9,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.7,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 64.7 avec stop au-dessus, viser 61.9 et potentiellement plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus de 64.7 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure clairement baissière sans signe de retournement pour l’instant.\n- Zone clé de support proximate vers 61.9$ à surveiller, résistance immédiate autour de 64.7$.\n\nB) Chart unique (SOLUSDT.P 15m) :\nLa structure affiche une série de LH/LL attestant d'une dynamique de baisse persistante. Le prix a récemment cassé un support vers 63$ et teste actuellement un niveau proche de 61.9$ (support). La résistance majeure puis à 64.7$. Le volume augmente sur les baisses, confirmant la pression vendeuse. Scénario privilégié : poursuite de la baisse tant que 64.7$ (resistance) ne sera pas franchi en clôture 15m. Invalidation en cas de franchissement clair de ce niveau avec création de HH.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL LH\",\"supports\":[\"61.9\"],\"resistances\":[\"64.7\"],\"plan\":\"short sous 64.7 avec stop au-dessus, viser 61.9 e",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-43-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-05_15-43-31.png"
+  }
+}

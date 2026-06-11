@@ -1,0 +1,38 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "BTCUSDGOLDVIP_SIGNALS",
+  "total": 3,
+  "signals": [
+    {
+      "id": "tg_1381_20260611T100009",
+      "pair": "GBPJPY",
+      "direction": "SHORT",
+      "entry_price": 214.528,
+      "sl": 214.94,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T09:02:14+00:00"
+    },
+    {
+      "id": "tg_1380_20260611T100009",
+      "pair": "GBPUSD",
+      "direction": "SHORT",
+      "entry_price": 1.33634,
+      "sl": 1.33915,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T09:02:09+00:00"
+    },
+    {
+      "id": "tg_1377_20260611T100009",
+      "pair": "USDJPY",
+      "direction": "LONG",
+      "entry_price": 160.579,
+      "sl": 160.438,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:32:13+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

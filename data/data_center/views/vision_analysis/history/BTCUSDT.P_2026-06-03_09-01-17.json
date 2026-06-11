@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_130127_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:01:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-01-17",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 68000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d’un HH au-dessus de 68,000 pour signaler un retournement haussier à court terme.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour sous 66,000 maintient la tendance baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence dominante d’une tendance baissière claire sur le marché crypto (BTC/USDT 1h).  \n- Zones clés de support autour de 66 000-67 000 USDT commencent à montrer une consolidation après la chute.  \n- Scénario principal en veille d’une possible reprise haussière si le prix forme un HH au-dessus de 68 000 USDT, avec invalidation sous 66 000 USDT.  \n\nB) Chart 1 (haut-gauche):  \nLe graphique BTCUSDT en 1h montre une tendance baissière forte confirmée par la structure de LH (Lower High) et LL (Lower Low) sur plusieurs sessions. Le prix a chuté rapidement avec un volume en augmentation lors des baisses, signe d’une pression vendeuse dominante. Une zone de support clé est visible autour de 66 000-67 000 USDT où le volume de trading augmente et le prix montre une première consolidation. Le scénario prioritaire est de surveiller une inversion avec la formation d’un HH (Higher High) au-dessus de 68 000 USDT. L’invalidation de ce scénario se fait par un retour sous 66 000 US",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-01-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_09-01-03.png"
+  }
+}

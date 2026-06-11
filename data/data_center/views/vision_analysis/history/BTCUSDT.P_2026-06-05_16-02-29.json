@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_200237_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T16:02:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-02-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le test du support à 59,000 pour un possible rebond. Vente privilégiée sous résistance 61,000 en attendant confirmation de reprise de tendance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage clair au-dessus de 61,000 avec maintien valide d’un higher low",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur ce timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fracturée, tentative de rebond récent mais sans franchissement de forts niveaux de résistance.  \n- Zone clé support vers 59 000-59 200 USDT, résistance immédiate proche de 61 000 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m): La structure montre une baisse claire (LH/LL) marquée par des forts mouvements baissiers. Un rebond limité en fin de graphique se présente, mais la résistance autour de 61 000 USDT n’est pas encore invalidée. La configuration reste bearish tant que ce seuil de résistance tient. Le support vers 59 000 USDT est à défendre pour éviter une nouvelle accélération à la baisse.  \n\nC) DeskPro {\"run_id\":\"20240610-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"59,000\"],\"resistances\":[\"61,000\"],\"plan\":\"Surveiller le test du support à 59,000 pour un possible rebond. Vente privilégiée sous résistance 61,000 en",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-02-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_16-02-16.png"
+  }
+}

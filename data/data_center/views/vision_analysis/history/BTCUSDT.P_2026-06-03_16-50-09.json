@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_205021_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:50:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-50-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 1780, short si break",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage >1850 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Observation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non définie",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non définie",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Observation des prix",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non définie",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte pression vendeuse dominante sur l’actif, tendance baissière claire sur le court terme.  \n- Structure de prix en enchaînement de bas plus bas (LL) et de hauts plus bas (LH), signalant un marché baissier.  \n- Zones clés de support proches du niveau actuel, surveillance importante des réactions ici pour validation ou invalidation du scénario baissier.\n\nB) Chart 1 (haut-gauche):  \n- Symbole: ETHUSDT, timeframe: 15 minutes.  \n- Tendance : Baissière nette, avec une succession claire de LL et LH.  \n- Structure : Confirmée baissière, derniers points bas vers 1780-1790 USDT.  \n- Supports : Zone clé autour de 1780 USDT.  \n- Résistances : Proche des 1850 USDT, sur retracement.  \n- Scénario : Potentiel rebond technique sur support mais risque fort de continuation baissière si break sous 1780 USDT.  \n- Invalidation : Reprise haussière évidente au-dessus des 1850 USDT avec HH formé.\n\nC) Chart 2 (haut-droit):  \n- Symbole et timeframe inconnus (non visible).  \n- Tendance : À",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-50-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_16-50-02.png"
+  }
+}

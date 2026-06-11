@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_155736_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T11:57:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_11-56-56",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "reprise de la baisse après zone résistance, viser supports",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "dépassement confirmé au-dessus de 4590",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans données",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "-",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché du Gold Spot/USD montre une structure en tendance baissière sur le court terme.  \n- Les zones clés à surveiller sont autour de 4,370 (support) et 4,590 (résistance) pour confirmer la dynamique.  \n- Le scénario privilégie une poursuite de la baisse avec des réactions possibles aux zones de support intermédiaires.\n\nB) Chart 1 (haut-gauche) : Gold Spot/USD 1h  \n- Tendance baissière récente, avec une structure principalement LH (Lower High) et LL (Lower Low).  \n- Support clé aux environs des 4,370-4,380 USD (plus bas récent).  \n- Résistance à contrôler vers 4,570-4,590, niveau de sommets précédents.  \n- Le prix teste un support intermédiaire autour de 4,440 USD, zone de réaction possible.  \n- Scénario principal : reprise de la baisse à partir de la résistance, avec ciblage des supports.  \n- Invalidation en cas de dépassement clair et confirmé au-dessus des 4,590 USD.\n\nC) Chart 2 (haut-droit) : inconnu (timeframe et symbole non lisibles)  \n- Impossible d'analy",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_11-56-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_11-56-29.png"
+  }
+}

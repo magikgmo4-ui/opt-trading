@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_235350_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T19:53:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-53-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Privilégier positions short proches résistance à 66800, viser retour support 64000. Stop loss au-dessus 66800 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et maintien au-dessus de 66800 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL)  \n- Structure de marché vendeuse, sans rebond significatif pour invalider la tendance négative  \n- Zone clé support à 64 000 USDT à surveiller pour un possible rebond, résistance proche vers 66 800 USDT  \n\nB) Chart unique (BTCUSDT.P 15m) :  \nLa tendance est clairement baissière avec une succession de creux et sommets décalés à la baisse (LH/LL). Le prix est actuellement proche d’un support psychologique autour de 64 000 USDT. En dessous, la structure reste vulnérable à une poursuite de la baisse. La résistance majeure à court terme se situe vers 66 800 USDT, niveau où les prix ont précédemment échoué à se maintenir. Le scénario prioritaire reste une continuation baissière tant que la zone des 66 800 USDT n’est pas franchie. Invalidation de la baisse si le prix réussit à marquer un Higher High au-dessus de ce dernier.\n\nC) DeskPro  \n{\"run_id\":\"20240604_001\",\"charts\":[{",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-53-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_19-53-32.png"
+  }
+}

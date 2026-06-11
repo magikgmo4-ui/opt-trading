@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_111749_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T07:17:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-17-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 4400 avec stop au-dessus de 4450, viser 4320 voire en dessous à confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable au-dessus de 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ce 1h avec une succession de Lower Highs (LH) et Lower Lows (LL) depuis fin mai.  \n- Structure fragile en bas, avec un support clé vers 4320 USD testé plusieurs fois récemment.  \n- Scénario privilégié : poursuite probable de la baisse si le support des 4320 USD cède, sinon rebond technique avec possible zone de résistance autour de 4400 USD.  \n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLe marché affiche une dynamique baissière dominante avec une série de LH et LL, confirmant une tendance down. La zone majeure de support est identifiée vers 4320 USD, où plusieurs tentatives de rebond sont visibles mais sans force acheteuse marquée. À la hausse, la résistance à court terme se situe autour de 4400 USD, verrouillant les tentatives de reprises. L’invalidation du biais baissier passerait par un franchissement clair et durable au-dessus de 4450 USD.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-17-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_07-17-25.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_144703_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T10:47:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-46-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1840.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher opportunités short sous 1840 en ciblant 1760 comme objectif, prudence sur rebond. Long uniquement si break clair 1840 avec volume.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Stop loss au-dessus de 1840",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur le 1h avec une série de HH/HL cassée, structure en LH et LL confirmée.  \n- Zones clés identifiées entre 1760 (support récent) et 1840 (résistance intermédiaire).  \n- Scénario principal: poursuite de la baisse tant que 1840 n’est pas franchi, invalidation au-dessus de ce niveau.\n\nB) Chart unique (ETHUSDT.P 1h): Le graphique montre une dynamique baissière nette avec des plus bas et plus hauts descendants (LH/LL). Après un rebond sur 1760, le prix tente de reprendre mais bute sur la résistance vers 1835-1840. Le volume s’est accru sur les baisses, signe de pression vendeuse toujours présente. Le scénario favori est une nouvelle phase corrective à la baisse en dessous de 1760. Un retournement haussier serait envisagé uniquement en franchissant durablement 1840 avec un nouveau HH.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1760],\"resistances\":[1840],\"plan\":\"Chercher opportunité",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-46-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_10-46-47.png"
+  }
+}

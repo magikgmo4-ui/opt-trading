@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_212359_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T17:23:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-23-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vigilance sur breakout 61,000 pour signal haussier. En échec, continuation baissière probable.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage sous 59,500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Stabilisation et consolidation visible sur la partie droite, sans structure de retournement haussier confirmée.\n- Zone clé support autour de 59,500 - 60,000 USDT, résistance à 61,000 USDT à surveiller pour un éventuel breakout.\n\nB) Chart unique (BTCUSDT.P 15m):\nLe graphique montre une tendance baissière nette matérialisée par une succession de LH/LL. Depuis le dernier plus bas proche de 59,500, un mouvement de consolidation latérale s’installe entre 60,000 (support intermédiaire) et 61,000 (résistance visible). L’absence de HH (higher high) indique que la structure baissière reste intouchée. Une sortie au-dessus de 61,000 serait le premier signal haussier à confirmer un changement de tendance. L’invalidation de ce scénario haussier se ferait en cas de nouvelle cassure sous 59,500.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL, cons",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-23-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_17-23-43.png"
+  }
+}

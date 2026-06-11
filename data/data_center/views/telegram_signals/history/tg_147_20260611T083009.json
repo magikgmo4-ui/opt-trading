@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_147_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "xauusd_trading_signals",
+  "channel_priority": "P0",
+  "channel_type": "xau_signal",
+  "parsed_at": "2024-03-28T14:07:49+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": null,
+  "sl": null,
+  "tp": 1.0,
+  "tps": [
+    1.0,
+    1.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "__#XAUUSD____ SELL TP1 HIT BOOM BOOM \u2705\u2705\u2705\n\n+50 PIPS PROFIT BOOKED \u2708\ufe0f\ud83d\udd25__",
+  "summary": "XAUUSD SHORT"
+}

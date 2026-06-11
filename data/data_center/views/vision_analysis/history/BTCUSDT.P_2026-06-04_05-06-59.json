@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_090714_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T05:07:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-06-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher short à rebond sur résistance 64,400 ou break support 62,800 pour continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture confirmée au-dessus de 64,400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente de rebond local visible mais en échec vers les 64 400 USDT, ce qui laisse un potentiel retour à la baisse.  \n- Zone clé support vers 62 800 USDT à surveiller, invalidation du scénario baissier si remise au-dessus durable des 64 400 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m): On observe une tendance baissière structurée par des LH/LL marqués. Après un dernier LL autour de 62 800 USDT, un rebond technique a été initié mais s’est heurté à une résistance à environ 64 400 USDT, formant un Lower High. Le volume montre un pic lors du dernier creux, indiquant une tentative d’accumulation locale. Le scénario principal reste baissier tant que la résistance des 64 400 USDT ne cède pas. Un break du support à 62 800 USDT renforcerait la dynamique vendeuse. Invalidation probable en cas de franchissement clair et suivi haussier au-dessus de 64 400 USDT.  \n\nC) DeskPro",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-06-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_05-06-52.png"
+  }
+}

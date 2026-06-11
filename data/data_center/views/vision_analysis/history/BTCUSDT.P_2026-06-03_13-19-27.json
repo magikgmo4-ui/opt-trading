@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_171938_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:19:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-19-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur cassure 65000 avec cible 62500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 67500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte dynamique baissière globale sur les actifs majeurs et crypto, signalée par BTC.  \n- Tendance claire de faiblesse avec absence marquée de structure de retournement favorable.  \n- Zones clés à surveiller pour une potentielle stabilisation ou accélération baissière imminente.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance: Baissière nette, cassure rapide des supports structuraux.  \nStructure: Séquence claire de Lower High (LH) et Lower Low (LL) sur plusieurs sessions.  \nZones clés: Résistance proche à ~67 500 (ancien support devenu résistance), support critique autour de 65 000.  \nScénario: Poursuite probable de la baisse si 65 000 casse, avec porte ouverte vers 62 500.  \nInvalidation: Reprise au-dessus des 67 500 et formation de Higher Low pourrait annuler le scénario baissier.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe illisible)  \nImpossible d’analyser sans visibilité claire.  \n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe illisible)  \nIm",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-19-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_13-19-18.png"
+  }
+}

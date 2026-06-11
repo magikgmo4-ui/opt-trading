@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_095958_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T05:59:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-59-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4420.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4520.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4530.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sur échec rebond sous 4530, viser retour 4420",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure au-dessus de 4530 et HH confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non applicable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non applicable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non applicable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le XAUUSD (or contre dollar) reste sous pression avec une dynamique baissière à court terme.  \n- Structure en 1h dominée par des plus bas et plus hauts descendants (LH, LL), signes de tendance baissière.  \n- Attention aux zones clés de support autour de 4 420 et résistances à 4 520-4 530 pour valider une reprise ou continuation.\n\nB) Chart 1 (haut-gauche):  \nTendance 1h baissière, avec structure HL/HH cassée récemment.  \nOn observe des Lower Highs (LH) et Lower Lows (LL), confirmant la pression vendeuse.  \nZone clé de support vers 4 420 (plus bas récent), zone de résistance vers 4 520-4 530 (rebond antérieur).  \nLe scénario probable reste continuation baissière sous 4 520, avec un potentiel test du support.  \nInvalidation de ce scénario en cassure claire et confirmation d’un Higher High au-dessus de 4 530.\n\nC) Chart 2 (haut-droit):  \nSymbole/timeframe inconnu (non lisible).  \nImpossible d’analyser précisément la tendance ou structure.  \nRecommandé d’obtenir plus d’i",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-59-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_05-59-24.png"
+  }
+}

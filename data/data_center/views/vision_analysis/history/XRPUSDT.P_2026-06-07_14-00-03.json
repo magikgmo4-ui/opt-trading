@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_180013_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T14:00:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-00-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.145,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.175,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur cassure 1.145 avec stop sous 1.120",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cours sous 1.120",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement haussière avec une série de HH/HL depuis un bas marqué vers 1.065 USDT.  \n- Structure récente montre une correction avec un LH suivi d’un rebond vers une zone de résistance à 1.145 USDT.  \n- Zone clé support à 1.120 USDT à surveiller pour validation du scénario haussier ou bascule baissière.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nTendance haussière nette depuis les 1.065 (HL) ; on note une structure HL en construction, avec un dernier sommet à 1.175 (HH) puis une correction (LH). Le prix teste actuellement la résistance majeure autour de 1.145. Le support majeur est à 1.120, zone qui a servi de rebond pour le dernier mouvement haussier. Scénario prioritaire : cassure haussière au-dessus de 1.145 pour viser 1.175+ en extension. Invalidation du biais haussier sous 1.120.  \n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL avec récente correction LH\",\"supports\":[\"1.120\"],\"resistances\":[\"1.145\",\"1.175",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-00-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_13-59-54.png"
+  }
+}

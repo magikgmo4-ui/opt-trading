@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_225046_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T18:50:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-50-34",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond sous 960B ou break de support 900B avec volume confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 960B validé par volume et clôture daily",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente probablement en forte accélération baissière avec un breakout sous zone support clé autour de 940-960B.  \n- Volume en forte hausse sur la dernière baisse, renforçant la validité du mouvement et signalant un potentiel continuation à court terme.\n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLa tendance est baissière claire (LL/LH). Après une consolidation latérale entre 940B et 1,05T, le prix casse nettement à la baisse le support vers 940B. Cette rupture crée un nouveau plus bas significatif (LL), confirmant la structure baissière. Le volume augmente fortement lors de cette chute, validant la rupture. Résistance désormais confirmée autour de 940-960B (ancienne zone de support cassée). Scénario à suivre : continuation de la baisse vers 880-900B si la pression vendeuse persiste. Invalidation de ce scénario si retour au-dessus des 960B avec des signaux achete",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-50-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-04_18-50-23.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_102617_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T06:26:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-26-08",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vise test support 4300 pour possibilité rebond ou cassure à la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 4350",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Pression baissière dominante sur le marché de l’or (XAUUSD) en données 1H.\n- Structure en dégradation visible avec des bas plus bas (LL) et des hauts plus bas (LH).\n- Zones clés à surveiller autour de 4330 (résistance) et 4300 (support temporaire).\n\nB) Chart 1 (haut-gauche) : XAUUSD 1H\n- Tendance : Baissière claire sur le court terme.\n- Structure : Après un sommet local, on observe une série de LH et LL confirmant une faiblesse.\n- Supports : Zone 4300 actuellement testée.\n- Résistances : Ancien support devenu résistance autour de 4330-4340.\n- Scénario : Continuer à viser un test des supports inférieurs ou rebond technique si zone 4300 tient.\n- Invalidation : Reprise au-dessus de 4350 confirmerait un retour potentiel haussier.\n\nC) Chart 2 (haut-droit) : Inconnu (symbole/timeframe non lisible)\n- Impossible d’analyser faute d’informations visibles.\n\nD) Chart 3 (bas-gauche) : Inconnu (symbole/timeframe non lisible)\n- Impossible d’analyser faute d’informations visibles.\n\n",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-26-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_06-25-56.png"
+  }
+}

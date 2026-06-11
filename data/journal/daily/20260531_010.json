@@ -1,0 +1,405 @@
+{
+  "run_id": "20260531_010",
+  "session_id": "bff0ef91-7f1d-492e-be96-4978ede5f94b",
+  "journal_type": "daily_session",
+  "pipeline": "E2E dry-run pipeline daily session journal",
+  "controlled_write": false,
+  "dry_run": true,
+  "paper_mode": true,
+  "started_at": "2026-05-31T03:23:42.923319+00:00",
+  "completed_at": "2026-05-31T03:23:42.956382+00:00",
+  "duration_s": 0.041,
+  "pipeline_duration_s": 0.03,
+  "all_ok": true,
+  "steps": [
+    {
+      "step": "1_signal_router",
+      "timestamp": "2026-05-31T03:23:42.931273+00:00",
+      "result": {
+        "signal_id": "d57c6576-b876-443c-8510-8a7f812dd133",
+        "ticker": "BTCUSDT",
+        "side": "BUY",
+        "price": 65000.0,
+        "timestamp": 1780197822.931195,
+        "strategy_id": "e2e_dry_run",
+        "tf": "1h",
+        "tp": 68000.0,
+        "sl": 63000.0,
+        "reason": "E2E dry-run pipeline test",
+        "source": "tradingview"
+      }
+    },
+    {
+      "step": "1b_desk_pro_dry_run",
+      "timestamp": "2026-05-31T03:23:42.932199+00:00",
+      "result": {
+        "mode": "dry_run",
+        "status": "WARN",
+        "no_trade": true,
+        "no_telegram": true,
+        "no_webhook": true,
+        "no_systemd": true,
+        "signal_event": {
+          "source": "tradingview.webhook",
+          "event_type": "signal_event",
+          "engine": "e2e_dry_run",
+          "symbol": "BTCUSDT",
+          "timeframe": "1h",
+          "direction": "BUY",
+          "timestamp": "2026-05-31T03:23:42.931986+00:00",
+          "status": "accepted",
+          "payload_hash": "3a702a99d9fc4de5052c0bf542295c3a4cd71d324395f465b8bb19cfb52a6fec",
+          "raw_payload_ref": null,
+          "meta": {
+            "price": 65000.0,
+            "tp": 68000.0,
+            "sl": 63000.0,
+            "reason": "E2E dry-run pipeline test"
+          },
+          "risk_context": null,
+          "visual_context_ref": null,
+          "desk_snapshot_ref": null,
+          "errors": []
+        },
+        "visual_context": {
+          "source": "e2e_fixture",
+          "capture_id": "e2e_capture_d57c6576-b876-443c-8510-8a7f812dd133",
+          "symbol": "BTCUSDT",
+          "timeframe": "1h",
+          "captured_at": "2026-05-31T03:23:42.931986+00:00",
+          "image_ref": "fixture://desk_pro/snapshot.png",
+          "status": "ok"
+        },
+        "desk_snapshot": {
+          "symbol": "BTCUSDT",
+          "tf": "1h",
+          "snapshot_ts": "2026-05-31T03:23:42.931986+00:00",
+          "path": "C:/fixtures/desk_pro_snapshot.png"
+        },
+        "join_checks": {
+          "timeframe_match": true,
+          "symbol_match": true,
+          "symbol_normalization_needed": false,
+          "visual_context_ref_match": true
+        },
+        "errors": [],
+        "warnings": [
+          "market_metrics missing: market-context-free synthesis",
+          "vision_analysis missing: vision-context-free synthesis",
+          "telegram_claim missing: telegram-context-free synthesis"
+        ],
+        "market_metrics": null,
+        "vision_analysis": null,
+        "telegram_claim": null,
+        "summary": {
+          "signal_event_present": true,
+          "visual_context_present": true,
+          "desk_snapshot_present": true,
+          "market_metrics_present": false,
+          "vision_analysis_present": false,
+          "telegram_claim_present": false
+        }
+      }
+    },
+    {
+      "step": "1c_notification_dispatcher_dry_run",
+      "timestamp": "2026-05-31T03:23:42.932420+00:00",
+      "result": {
+        "dispatch": [
+          {
+            "ok": false,
+            "skipped": "dispatcher_unavailable"
+          },
+          {
+            "ok": false,
+            "skipped": "dispatcher_unavailable"
+          },
+          {
+            "ok": false,
+            "skipped": "dispatcher_unavailable"
+          }
+        ]
+      }
+    },
+    {
+      "step": "2_proposition_engine",
+      "timestamp": "2026-05-31T03:23:42.940515+00:00",
+      "result": {
+        "request_id": "fc499a0a-4cf1-49c1-873c-a4ba046e32f3",
+        "signal_id": "d57c6576-b876-443c-8510-8a7f812dd133",
+        "action": "BUY",
+        "size_pct": 0.15,
+        "entry": 65000.0,
+        "sl": 63000.0,
+        "tp": 68000.0,
+        "confidence": 0.82,
+        "rationale": "E2E dry-run simulated proposition (bridge not called)",
+        "engines_context": {
+          "probability": {
+            "symbol": "BTCUSDT",
+            "timestamp": "2026-05-31T03:23:42.939328+00:00",
+            "probability_long": 0.68,
+            "probability_short": 0.32,
+            "confidence": 0.36,
+            "directional_bias": "LONG",
+            "raw_score": 0.36,
+            "summary": "Moderate confidence LONG bias driven by: trend (bullish), momentum (bullish).",
+            "derivatives_context": {
+              "used": false,
+              "bias": "NONE",
+              "risk_flag": false,
+              "score_adjustment": 0.0
+            },
+            "derivatives_context_used": false,
+            "derivatives_bias": "NONE",
+            "derivatives_risk_flag": false,
+            "derivatives_score_adjustment": 0.0,
+            "adjusted_confidence": 0.36
+          },
+          "ranker": {
+            "symbol": "BTCUSDT",
+            "opportunity_score": 0.37,
+            "priority": "LOW",
+            "setup_bias": "LONG",
+            "confidence": 0.35,
+            "summary": "LOW priority LONG setup (Score: 0.37). Supported by Scanner, Probability, Liquidation.",
+            "timestamp": "2026-05-31T03:23:42.939912+00:00",
+            "_details": {
+              "scan_score": 0.5,
+              "prob_long": 0.68,
+              "liq_score": 0.2
+            },
+            "rank": 1
+          },
+          "decision": {
+            "symbol": "BTCUSDT",
+            "decision": "WAIT",
+            "confidence": 0.36,
+            "decision_score": 0.37,
+            "directional_bias": "LONG",
+            "review_priority": "LOW",
+            "rationale": "Ranker High (0.37); Prob Long 0.68; Confidence too low.",
+            "timestamp": "2026-05-31T03:23:42.940495+00:00"
+          }
+        },
+        "duration_ms": 1,
+        "dry_run": true,
+        "status": "ok",
+        "error": null
+      }
+    },
+    {
+      "step": "3_validation_gate",
+      "timestamp": "2026-05-31T03:23:42.943336+00:00",
+      "result": {
+        "request_id": "a3c03f81-aa97-4a7b-a792-0d4cae1e69cf",
+        "signal_id": "d57c6576-b876-443c-8510-8a7f812dd133",
+        "verdict": "APPROVED",
+        "reason": "auto_approved",
+        "risk_status": "ALLOW",
+        "risk_reason": "confidence=0.820 >= 0.8",
+        "operator_approved": null,
+        "duration_ms": 0,
+        "dry_run": true,
+        "meta": {}
+      }
+    },
+    {
+      "step": "4_trade_executor",
+      "timestamp": "2026-05-31T03:23:42.946077+00:00",
+      "result": {
+        "request_id": "2bf78ed4-31f3-4919-8161-a3b27666b90e",
+        "signal_id": "d57c6576-b876-443c-8510-8a7f812dd133",
+        "trade_id": "paper_BTCUSDT_4b69bd63",
+        "action": "BUY",
+        "ticker": "BTCUSDT",
+        "fill_price": 65000.0,
+        "fill_qty": 0.15,
+        "size_pct": 0.15,
+        "sl": 63000.0,
+        "tp": 68000.0,
+        "status": "dry_run",
+        "reason": "paper_filled",
+        "duration_ms": 0,
+        "dry_run": true,
+        "meta": {
+          "adapter": {
+            "ok": true,
+            "status": "filled",
+            "execution_id": "paper_BTCUSDT_123",
+            "filled_qty": 0.15,
+            "avg_price": 65000.0,
+            "adapter": "paper"
+          },
+          "notif": {
+            "ok": false,
+            "error": "no_dispatcher"
+          }
+        }
+      }
+    },
+    {
+      "step": "5_result_tracker",
+      "timestamp": "2026-05-31T03:23:42.948832+00:00",
+      "result": {
+        "trade_id": "paper_BTCUSDT_4b69bd63",
+        "request_id": "2bf78ed4-31f3-4919-8161-a3b27666b90e",
+        "signal_id": "d57c6576-b876-443c-8510-8a7f812dd133",
+        "ticker": "BTCUSDT",
+        "action": "BUY",
+        "entry_price": 65000.0,
+        "close_price": 68000.0,
+        "fill_qty": 0.15,
+        "size_pct": 0.15,
+        "sl": 63000.0,
+        "tp": 68000.0,
+        "gross_pnl": 450.0,
+        "net_pnl": 438.03,
+        "fees": 11.97,
+        "duration_s": 0.0,
+        "outcome": "win",
+        "opened_at": "2026-05-31T03:23:42.948750+00:00",
+        "closed_at": "2026-05-31T03:23:42.948750+00:00",
+        "dry_run": true,
+        "meta": {
+          "notif": {
+            "ok": false,
+            "error": "no_dispatcher"
+          }
+        }
+      }
+    },
+    {
+      "step": "6_datasheet_writer",
+      "timestamp": "2026-05-31T03:23:42.950167+00:00",
+      "result": {
+        "ok": true,
+        "dry_run": true,
+        "written": false,
+        "jsonl_path": "",
+        "csv_path": "",
+        "error": ""
+      }
+    },
+    {
+      "step": "7_learning_feeder",
+      "timestamp": "2026-05-31T03:23:42.952969+00:00",
+      "result": {
+        "request_id": "90b9919c-3628-4661-bae5-01c5e0e13af6",
+        "signal_id": "d57c6576-b876-443c-8510-8a7f812dd133",
+        "bridge_status": "dry_run",
+        "brick_stored": false,
+        "brick_id": "",
+        "summary": "=== LEARNING FEEDBACK ===\nsignal_id : d57c6576-b876-443c-8510-8a7f812dd133\nticker    : BTCUSDT  action=BUY\nentry     : 65000.0  \u2192  close=68000.0\noutcome   : WIN\npnl       : gross=450.0000  net=438.0300  fees=11.9700\nsize      : size_pct=15.0%  fill_qty=0.15\nduration  : 0.0s\nconfidence: 0.82\nrationale : E2E dry-run simulated proposition (bridge not called)\nfeedback  : Positive reinforcement \u2014 setup worked as expected.",
+        "duration_ms": 0,
+        "dry_run": true,
+        "meta": {
+          "dry_run": true
+        }
+      }
+    }
+  ],
+  "signal_source": {
+    "engine": "e2e_dry_run",
+    "signal": "BUY",
+    "symbol": "BTCUSDT"
+  },
+  "proposition_summary": {
+    "action": "BUY",
+    "confidence": 0.82
+  },
+  "validation_verdict": "APPROVED",
+  "trade_executor_status": "dry_run",
+  "result_tracker_outcome": "win",
+  "pnl_paper": {
+    "net_pnl": 438.03,
+    "outcome": "win"
+  },
+  "datasheet_writer": {
+    "dry_run": true,
+    "written": false
+  },
+  "learning_feeder": {
+    "bridge_status": "dry_run",
+    "brick_stored": false
+  },
+  "tmux_before": {
+    "error": "tmux rc=1",
+    "stderr": "error connecting to /tmp/tmux-1000/default (No such file or directory)",
+    "active": []
+  },
+  "tmux_after": {
+    "error": "tmux rc=1",
+    "stderr": "error connecting to /tmp/tmux-1000/default (No such file or directory)",
+    "active": []
+  },
+  "localcms": {
+    "/health": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu/state": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/runtime/tmux": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    }
+  },
+  "localcms_ok": false,
+  "localcms_before": {
+    "/health": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu/state": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/runtime/tmux": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    }
+  },
+  "localcms_after": {
+    "/health": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/menu/state": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "/runtime/tmux": {
+      "status": "unreachable",
+      "ok": false,
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    }
+  },
+  "closeout_required": false,
+  "closeout_acknowledged": false
+}

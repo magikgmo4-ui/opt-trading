@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_4980_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "XAUUSDSIGNALSG1",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-09T02:56:18+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": null,
+  "sl": null,
+  "tp": 1.0,
+  "tps": [
+    1.0,
+    1.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "#GOLD** BUY\n\nTP1 \ud835\udc07\ud835\udc08\ud835\udc13 30+PIPS PROFITS****\ud83d\udd25****\u2705****\u2714\ufe0f**",
+  "summary": "XAUUSD LONG"
+}

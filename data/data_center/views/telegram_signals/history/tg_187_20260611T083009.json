@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_187_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "gold_signals_vip",
+  "channel_priority": "P2",
+  "channel_type": "xau_signal",
+  "parsed_at": "2023-09-05T07:16:04+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "GBPUSD",
+  "direction": "LONG",
+  "entry_price": null,
+  "sl": 1.2545,
+  "tp": 1.2685,
+  "tps": [
+    1.2685,
+    1.2685
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**\ud83d\udc68\u200d\ud83d\udcbb** BUY GBPUSD 1.2585\n\ud83d\udd38SL 1.2545\n\ud83d\udd39TP 1.2685",
+  "summary": "GBPUSD LONG"
+}

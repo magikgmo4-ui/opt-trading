@@ -1,0 +1,34 @@
+[2026-06-05T11:30:01Z] Telegram production capture start
+--- coinglass_alerts limit=20 ---
+{
+  "module_id": "collector_telegram",
+  "run_id": "20260605T113001Z-926f9784",
+  "channels": [
+    "coinglass_alerts"
+  ],
+  "messages_total": 20,
+  "channel_results_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/channel_results/channel_results_20260605T113001Z-926f9784.json",
+  "status_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/status.json"
+}
+
+--- whale_alert_io limit=20 ---
+{
+  "module_id": "collector_telegram",
+  "run_id": "20260605T113234Z-518c1b44",
+  "channels": [
+    "whale_alert_io"
+  ],
+  "messages_total": 20,
+  "channel_results_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/channel_results/channel_results_20260605T113234Z-518c1b44.json",
+  "status_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/status.json"
+}
+
+--- cryptoquant_official limit=20 ---
+Server sent a very new message with ID 7647873535045223429, ignoring (see FAQ for details)
+Server sent a very new message with ID 7647873535222177793, ignoring (see FAQ for details)
+Server closed the connection: 0 bytes read on a total of 8 expected bytes
+Attempt 1 at connecting failed: OSError: [Errno 113] Connect call failed ('149.154.175.56', 443)
+Server sent a very new message with ID 7647873954330841093, ignoring (see FAQ for details)
+Server sent a very new message with ID 7647873954355524617, ignoring (see FAQ for details)
+Server sent a very new message with ID 7647873954393122817, ignoring (see FAQ for details)
+Server sent a very new message with ID 7647874038975094785, ignoring (see FAQ for details)

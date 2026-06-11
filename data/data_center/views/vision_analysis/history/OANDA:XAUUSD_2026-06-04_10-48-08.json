@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_144819_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T10:48:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-48-08",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4530.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée long sur rebond support 4430-4440 avec stop sous 4430. Objectif résistance 4530.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure en clôture H1 sous 4430",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h apparente baissière avec structure de HL/LL sur le court terme.\n- Zone support clé vers 4 430 USD, résistance importante autour de 4 530 USD.\n- Scénario principal: recherche rebond possible sur support pour correction haussière, invalidation à la cassure franche en dessous du support.\n\nB) Chart unique (OANDA:XAUUSD 1h) :\nLa tendance est baissière avec une série de lower highs (LH) et lower lows (LL). La structure récente montre des tentatives de rebond au niveau de 4 440-4 430 USD (support horizontal important). La résistance majeure se situe autour de 4 530 USD, où le prix a buté plusieurs fois. Un retour vers le support offre une opportunité d’achat si rebond confirmé. Invalidation du scénario haussier si le prix casse sous 4 430 USD en clôture horaire, ce qui relancerait la tendance baissière. Volume relativement stable avec augmentation sur les mouvements baissiers.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec potentiel",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-48-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_10-47-55.png"
+  }
+}

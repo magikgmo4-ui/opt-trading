@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_230719_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T19:07:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-07-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60250.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61250.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 60250 avec objectif plus bas, sinon attente break 61250 pour achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m au-dessus de 61250",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante en 15m est baissière avec une série de Lower Highs et Lower Lows clairs.  \n- Récente consolidation latérale sans franchissement net de support ni résistance clés.  \n- Scénario probable: poursuite de la baisse sous 60 250 si support cassé, sinon reprise haussière conditionnée à un break au-dessus de 61 250.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure montre une tendance baissière (LH/LL) depuis le début de la séquence visible avec un support clé vers 60 250 et une résistance horizontale vers 61 250. La zone 60 250 agit de support crucial à surveiller. Le prix stagne entre ces deux niveaux, traduisant un équilibre temporaire avant choix directionnel. En cas d’invalidation par clôture au-dessus de 61 250, scénario haussier à envisager.\n\nC) DeskPro  \n{\"run_id\":\"20240607_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"Lower Highs / Lower Lows\",\"supports\":[60250],\"resistances\":[61250],\"plan\":\"Vente sous 60250 avec objectif plus bas,",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-07-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_19-06-54.png"
+  }
+}

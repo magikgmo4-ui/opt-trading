@@ -1,0 +1,111 @@
+{
+  "pair_market_snapshot.v1": {
+    "data_keys": [
+      "close",
+      "high",
+      "last_price",
+      "low",
+      "ohlcv_daily",
+      "open",
+      "spot_price_per_exchange"
+    ],
+    "producers": [
+      "bot_vision_headless__coinglass",
+      "collector_binance_spot",
+      "derivatives_collector__binance",
+      "derivatives_collector__bitget"
+    ],
+    "priority_class": [
+      "P1",
+      "P14"
+    ],
+    "criticality": 3
+  },
+  "vision_context.coinglass.v1": {
+    "data_keys": [
+      "exchange_proof_of_reserves",
+      "exchange_reserves",
+      "exchange_reserves_btc_eth",
+      "liquidation_clusters"
+    ],
+    "producers": [
+      "bot_vision_headless__coinglass",
+      "collector_binance_spot",
+      "derivatives_collector__binance",
+      "derivatives_collector__bitget"
+    ],
+    "priority_class": [
+      "P10",
+      "P14",
+      "P4"
+    ],
+    "criticality": 2
+  },
+  "vision_context.news_sentiment.v1": {
+    "data_keys": [
+      "nlp_sentiment"
+    ],
+    "producers": [
+      "bot_vision_headless__news_sentiment"
+    ],
+    "priority_class": [
+      "P9"
+    ],
+    "criticality": 5
+  },
+  "market_metrics.v1": {
+    "data_keys": [
+      "crypto_liquidation_data",
+      "funding_rate",
+      "funding_rate_crypto",
+      "futures_open_interest",
+      "futures_volume",
+      "liquidation_data",
+      "long_short_ratio",
+      "open_interest_per_venue",
+      "top_trader_ratio"
+    ],
+    "producers": [
+      "bot_vision_headless__coinglass",
+      "collector_binance_spot",
+      "derivatives_collector__binance",
+      "derivatives_collector__bitget"
+    ],
+    "priority_class": [
+      "P10",
+      "P14"
+    ],
+    "criticality": 6
+  },
+  "vision_analysis.v1": {
+    "data_keys": [
+      "breakout_levels",
+      "gap_analysis",
+      "liquidity_zones",
+      "support_resistance",
+      "trendlines",
+      "vwap_bands"
+    ],
+    "producers": [
+      "bot_vision_headless"
+    ],
+    "priority_class": [
+      "P11"
+    ],
+    "criticality": 7
+  },
+  "vision_context.screener.v1": {
+    "data_keys": [
+      "market_cap",
+      "postmarket_price",
+      "premarket_price"
+    ],
+    "producers": [
+      "bot_vision_headless__screener"
+    ],
+    "priority_class": [
+      "P17"
+    ],
+    "criticality": 5
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_023751_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T22:37:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_22-37-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Ventes sur retracements vers 1.1580-1.1600, viser 1.1520 puis 1.1500. Stop au-dessus de 1.1650.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante de court terme baissière, marquée par une forte chute sur la période la plus récente.  \n- Structure en renversement avec une série de Lower Highs (LH) et Lower Lows (LL) confirmée par la cassure nette d’un support.  \n- Zone clé de support rompue vers 1.1580-1.1600, nouvelle résistance à surveiller en cas de rebond technique.\n\nB) Chart unique (FX:EURUSD 1h): La paire EURUSD montre une tendance baissière claire. Après un sommet vers 1.1690 (HH), le prix a amorcé une série de Lower Highs et LL, validant un renversement structurel. Le support majeur sur environ 1.1580 a été fortement cassé avec un gros volume, ce qui renforce le biais baissier. Une stratégie prudente est de viser des points d'entrée à la vente sur retests de la zone 1.1580-1.1600 (résistance désormais). Invalidation possible si le prix remonte durablement au-dessus de 1.1650.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_22-37-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_22-37-29.png"
+  }
+}

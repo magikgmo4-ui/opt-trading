@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_143446_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T10:34:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_10-34-26",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sous 4 320 avec objectif 4 270-4 280",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour clair au-dessus de 4 360",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière caractérisée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rupture récente franche d’un support majeur vers 4 360, renforçant le biais vendeur.  \n- Zone clé de support vers 4 315-4 320 à surveiller pour un possible rebond ou continuation baissière.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure en 1h montre un marché en tendance baissière claire avec des LL et LH qui s’enchaînent. Le prix a cassé avec forte impulsion un support important autour de 4 360 USD, ce qui valide le potentiel de poursuite de la baisse. La zone entre 4 315 et 4 320 agit comme un premier support immédiat. Un retour au-dessus de 4 360 invaliderait la configuration baissière court terme et annoncerait une possible consolidation voire un retracement. Le volume en hausse sur la chute récente confirme la pression vendeuse accrue. Le scénario privilégié est donc la poursuite de la baisse sous 4 320 avec un objectif vers les 4 270 - 4 280.  \n\nC) DeskPro ",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_10-34-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_10-33-58.png"
+  }
+}

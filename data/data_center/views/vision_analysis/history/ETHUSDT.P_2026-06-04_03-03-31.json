@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_070340_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T03:03:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_03-03-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1840.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur échec à la zone résistance, stop sur franchissement 1850, viser retest support 1740 puis extension baisse potentielle.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair et volumineux au-dessus de 1850",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le 15m, avec une série de creux et sommets plus bas (LH/LL).  \n- Rebond technique récent autour de 1740, mais structure baissière inchangée.  \n- Zone de résistance proche des 1820-1840 à surveiller, invalidation si franchissement clair.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa structure est baissière (séquence LH/LL). Le marché montre une tentative de reprise avec un retracement qui bute sur la zone 1820-1840 (résistance majeure court terme). Le support clé se situe autour de 1740, correspondant au dernier plus bas. Un franchissement à la hausse de la résistance invaliderait le biais baissier, tandis qu’une cassure du support confirmerait la poursuite du mouvement baissier. Attention à la faiblesse des volumes sur le rebond, ce qui pourrait indiquer une continuation de la baisse.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1740],\"resistances\":[1820,1840],\"plan\":\"Vente sur éc",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_03-03-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_03-03-23.png"
+  }
+}

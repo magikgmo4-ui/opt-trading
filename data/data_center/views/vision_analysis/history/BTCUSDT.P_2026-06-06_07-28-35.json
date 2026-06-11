@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_112843_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T07:28:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_07-28-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "watch 60000 support for rebound; short on breakdown",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sustained break over 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une succession de structures LH (Lower High) et LL (Lower Low) sur le timeframe 1h.  \n- Les prix ont récemment touché une zone de support autour de 60 000 USDT, avec tentative de rebond.  \n- Scénario principal : continuation baissière si support 60 000$ cassé, sinon possible rebond vers résistance vers 63 000$ à court terme.  \n\nB) Chart unique (BTCUSDT.P 1h) :  \n- Bias : Baissier  \n- Structure : Série de Lower High et Lower Low confirmée, à la recherche d’un bas temporaire.  \n- Supports clés : 60 000$ (zone de support visible récente).  \n- Résistances clés : 63 000$ (rebond possible), 65 000$ (plus haut précédent intermédiaire).  \n- Plan : Surveillez la tenue du support 60 000$ pour décider d'un potentiel rebond. En cas de cassure claire, viser des ventes à la baisse sur pullback.  \n- Invalidation : Retour au-dessus durable des 65 000$ marquerait un potentiel changement de tendance en faveur des acheteurs.  \n\nC) DeskPro  \n{\"run_id\":\"u",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_07-28-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_07-28-26.png"
+  }
+}

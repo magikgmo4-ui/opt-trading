@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_170804_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:08:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-07-53",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur résistance, viser 1750",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">1900",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Prépondérance d’une tendance baissière marquée sur la majorité des graphiques.  \n- Structures dominantes en Lower Highs (LH) et Lower Lows (LL), affichant une nette faiblesse.  \n- Plusieurs zones clés de support à surveiller pour des possibles rebonds ou invalidations.\n\nB) Chart 1 (haut-gauche): ETHUSDT 1h  \nLa tendance est clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL). Structure dégradée sans signe de retournement. Zone clé support vers 1800-1810, à surveiller pour un rebond potentiel. Résistances importantes situées près des 1870-1890. Scénario principal : continuation baissière sous résistance avec objectif vers 1750. Invalidation si franchissement net des 1900.\n\nC) Chart 2 (haut-droit): symbole/timeframe inconnu  \nAnalyse impossible faute d’informations claires sur le symbole ou timeframe. Aucune interprétation fiable à fournir.\n\nD) Chart 3 (bas-gauche): symbole/timeframe inconnu  \nAnalyse impossible faute d’informations claires sur",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-07-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_13-07-45.png"
+  }
+}

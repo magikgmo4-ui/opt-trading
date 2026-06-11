@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_071300_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T03:12:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-12-52",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d'un rebond possible sur support 650-660B avec prise de profits proche de 720-740B. Confirmer la reprise avant d'engager long. Attention à la cassure sous 640B qui invaliderait la remonté",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 640B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante clairement identifiée depuis plusieurs mois avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Action récente marquée par une forte chute ramenant le prix vers un support clé autour de 650-660B, zone à surveiller pour potentielle réaction.  \n- Scénario intermédiaire : rebond possible sur support sinon poursuite de la baisse avec invalidation sous 640B.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLa structure est baissière (LH/LL). Le support important se situe entre 650B et 660B, zone où le prix a déjà rebondi en février. Résistance majeure autour de 780B-800B, niveau des derniers sommets significatifs. Le scénario prioritaire est une tentative de rebond court terme sur support avec un objectif de retour vers 720-740B. L’invalidation du scénario haussier se ferait par une cassure nette sous 640B. Volumes élevés sur la récente baisse indiquent une pression vendeuse forte.\n\nC) DeskPro  \n{\"run_id\":\"20240601-1\",\"charts\":[{\"slot\":\"sing",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-12-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_03-12-40.png"
+  }
+}

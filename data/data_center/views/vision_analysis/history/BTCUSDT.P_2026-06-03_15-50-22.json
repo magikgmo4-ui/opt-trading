@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_195034_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:50:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-50-22",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Sur rebond vers 2.3T, attendre confirmation rebond pour potentielles entrées acheteuses. Vendre sous 2.3T en cas de cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture durable > 2.7T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans identification",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans identification",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans identification",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière marquée sur le total market cap crypto.  \n- Structure en séquence de plus bas et plus bas (LL) avec absence de reversal visible.  \n- Zones clés autour de 2.3T (support potentiel à surveiller) et résistance vers 2.7T.  \n\nB) Chart 1 (haut-gauche): Crypto Total Market Cap / 1D  \nTendance baissière claire, série de Lower Highs (LH) et Lower Lows (LL) confirmée.  \nStructure défensive : cassure d’un support vers 2.55T avec nouvelle accélération vendeuse.  \nZone clé support autour de 2.3T (historique de rebond potentiel), résistance vers 2.7T.  \nScénario principal : anticipation nouvelle tentative haussière uniquement au rebond du support.  \nInvalidation : clôture durable au-dessus des 2.7T pouvant changer la structure vers une reprise.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \nImpossible de fournir une analyse précise sans identification.  \nPréconisation : identifier le symbole et timeframe pour analyse structurelle",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-50-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-03_15-50-07.png"
+  }
+}

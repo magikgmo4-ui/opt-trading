@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_163655_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T12:36:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-36-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support pour entrée short ou cassure résistance pour sortie/long",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement et maintien au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h, avec une série de LH (Lower Highs) et LL (Lower Lows).  \n- Structure de prix sans signal de retournement à court terme, pression vendeuse dominante.  \n- Zone clé de support autour de 60 000 USDT, résistance proche vers 64 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe prix affiche une séquence continue de plus bas et plus bas, confirmant la dominance des vendeurs. On note un rebond récent depuis le support vers 60 000 USDT, mais sans franchissement des précédents hauts, donc toujours sous résistance majeure vers 64 000 USDT. Il faut surveiller la cassure sous le support pour poursuivre la baisse ou un franchissement clair de la résistance pour envisager un changement de biais.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LH/LL\",\"supports\":[\"60000\"],\"resistances\":[\"64000\"],\"plan\":\"Surveiller cassure support pour entrée short ou cassure résistance pour sortie/long\",\"invalidation\":\"Fr",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-36-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_12-36-37.png"
+  }
+}

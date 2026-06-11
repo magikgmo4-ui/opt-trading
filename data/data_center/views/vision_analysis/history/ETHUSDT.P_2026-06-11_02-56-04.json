@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_065614_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T02:56:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-56-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1690.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur breakout 1700 avec stop sous 1580. Vendre ou rester neutre si cassure 1580.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure claire sous 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale court terme: latérale avec légère consolidation après forte baisse  \n- Structure récente: alternance HH-HL suivi de range latéral (pas de HL ou HH clairs)  \n- Zones clés observées autour de 1 580 (support) et 1 690-1 700 (résistance)  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique ETHUSDT.P en 1h montre initialement une forte tendance baissière confirmée par une série de Lower Lows (LL) et Lower Highs (LH). Ensuite, une tentative de reprise s’est traduite par une structure en Higher Highs (HH) et Higher Lows (HL) de courte durée. Cependant, la volatilité augmentée a mené à une phase de consolidation latérale entre environ 1 580 (support clé) et 1 690-1 700 (résistance). Le prix peine à sortir durablement de ce range, indiquant une hésitation entre acheteurs et vendeurs. Un breakout au-dessus de 1 700 validerait un scénario haussier tandis qu’une cassure sous 1 580 invaliderait ce scénario et relancerait la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"20",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-56-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_02-55-52.png"
+  }
+}

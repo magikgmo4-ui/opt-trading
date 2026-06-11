@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_223159_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T18:31:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-31-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rebond vers résistance, viser reprise baisse vers support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair des 67000 avec maintien au-dessus",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière claire sur le timeframe 15m.  \n- Structure en série de Lower Highs (LH) et Lower Lows (LL) confirmée.  \n- Zone de support potentielle autour de 64 800 USDT à surveiller pour un rebond.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique affiche une forte dynamique baissière avec une succession de creux et sommets descendants, indiquant une pression vendeuse constante. Plusieurs tentatives de rebond se soldent par des refus proches des niveaux vers 67 000 USDT, renforçant la zone de résistance. Le volume reste significatif lors des baisses, ce qui valide la force des vendeurs. Un support immédiat se situe vers 64 800 USDT, qui pourrait temporairement stopper la chute. Scénario principal: poursuite de la baisse tant que les résistances vers 66 800-67 000 ne sont pas franchies. Invalidation de ce biais si un creux plus haut (HL) se forme au-dessus des derniers sommets.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-31-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_18-31-45.png"
+  }
+}

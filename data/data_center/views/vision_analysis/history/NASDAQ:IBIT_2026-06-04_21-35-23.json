@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_013534_NASDAQ:IBIT_1h",
+  "screen_type": "ETF_CRYPTO",
+  "symbol": "NASDAQ:IBIT",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:35:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-35-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 35.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 36.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 38.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 35.50-36.00 pour entrées selling sur échec ou short sur cassure sous 35.50. Prendre profit avant résistance 38.50 en cas de pullback haussier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">38.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec une succession de plus bas (LL) et plus bas secondaires (LH cassés).  \n- Structure récente marquée par une tentative de rebond sur zone de support autour de 35.50-36.00 USD.  \n- Résistance notable proche à 38.50 USD, seuil à franchir pour envisager un retournement à la hausse.\n\nB) Chart unique (NASDAQ:IBIT 1h): La structure montre une nette dominance des vendeurs avec une série de creux décroissants (LL) et de sommets descendants (LH). Le prix teste actuellement une zone support clé vers 35.50-36.00 USD, avec un léger rebond visible. La résistance la plus proche à 38.50 USD constitue un palier d’invalidation du scénario baissier si franchi avec conviction. Un repli sous 35.50 USD renforcerait la pression vendeuse. Le volume reste élevé sur les mouvements baissiers, soulignant une pression vendeuse persistante.\n\nC) DeskPro  \n{\"run_id\":\"20240604-01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL,HL cassé",
+  "symbols_found": [
+    "NASDAQ:IBIT"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-35-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-04_21-35-12.png"
+  }
+}

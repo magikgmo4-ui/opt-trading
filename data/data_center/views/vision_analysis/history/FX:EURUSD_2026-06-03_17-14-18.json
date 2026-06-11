@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_211426_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T17:14:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-14-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.163,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 1.1600, stop loss au-dessus de 1.1640. Anticiper extension baissière jusqu'à 1.1580.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture supérieure à 1.1640.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 1h clairement baissière avec une série de lower highs (LH) et lower lows (LL).\n- Structure fragile à court terme, avec un support clé proche de 1.1600 testé plusieurs fois.\n- Scénario probable de continuation baissière sous 1.1600, sinon invalidation si retour au-dessus des résistances intermédiaires.\n\nB) Chart unique (FX:EURUSD 1h):\nLe graphique montre une tendance baissière dominante sur le timeframe 1h, matérialisée par une succession de LH et LL. Le prix a récemment testé et rebondi légèrement sur une zone clé de support proche de 1.1600, niveau crucial à surveiller. Plusieurs tentatives de rebond vers 1.1630-1.1640 (zone de résistance) ont échoué, renforçant la pression vendeuse. Un franchissement clair en dessous du support 1.1600 ouvrirait la voie à une poursuite de la baisse, ciblant potentiellement 1.1580 voire plus bas. En revanche, une remontée au-dessus de 1.1640 invaliderait la baisse et pourrait initier un retournement.\n\nC) DeskPro\n```json\n{\n  ",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-14-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_17-14-02.png"
+  }
+}

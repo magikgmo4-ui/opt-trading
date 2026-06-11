@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_070027_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T03:00:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-00-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.09,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.125,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller entrée long sur HL confirmé avec stop sous 1.09",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix sous 1.09",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière visible sur le 15m avec des séries de Lower Highs (LH) et Lower Lows (LL).  \n- Récente remontée forme un creux plus bas (LL) suivi d’un plus haut relatif (possible Higher Low - HL), signalant un début de tentative de correction.  \n- Zone résistance clé autour de 1.12 - 1.125, zone support sous 1.09 à surveiller.\n\nB) Chart unique (XRPUSDT.P 15m) :  \nStructure baissière dominante avec LH/LL clairs, tentative de retournement en cours avec un HL récent confirmant une possible correction. La cassure au-dessus de 1.125 validerait le scénario haussier court terme. En revanche, repli sous 1.09 invaliderait ce scénario et relancerait la baisse. Le plan est de monitorer un pull-back haussier sur support récent (autour de 1.10-1.11) pour une entrée long avec stop sous 1.09.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish avec correction\",\"structure\":\"LH/LL baissiers, HL récent possible\",\"supports\":[\"1.09\",\"1.10\"],\"resista",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-00-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-11_03-00-02.png"
+  }
+}

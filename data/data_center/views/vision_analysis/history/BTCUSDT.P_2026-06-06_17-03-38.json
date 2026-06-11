@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_210350_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T17:03:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-03-38",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à l'échec sous résistance 63500 ou sur cassure de 60000 avec prise de profit proche",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus de 63500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance nette baissière sur le 1h, avec une succession de Lower Highs et Lower Lows.\n- Structure de marché clairement baissière (LH/LL), signalant une pression vendeuse dominante.\n- Zone clé support à environ 60 000 USDT, résistance immédiate autour de 63 500 USDT.\n\nB) Chart unique (BTCUSDT.P 1h) :\nLe graphique montre une chute structurelle depuis près d’une semaine, avec des mouvements baissiers soutenus. La structure est en Lower Highs et Lower Lows, confirmant la tendance baissière. Le prix teste actuellement une zone de support critique autour de 60 000 USDT. La résistance principale se situe à 63 500 USDT, niveau où la dynamique baissière avait ralenti auparavant. Le scénario le plus probable reste la poursuite de la baisse si ce support cède. Une invalidation de ce scénario se ferait par un franchissement clair au-dessus des 63 500 USDT, entraînant une possible reprise haussière.\n\nC) DeskPro\n{\"run_id\":\"20240607_2140\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-03-38",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_17-03-29.png"
+  }
+}

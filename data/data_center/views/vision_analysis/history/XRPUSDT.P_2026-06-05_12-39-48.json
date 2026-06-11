@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_163959_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T12:39:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-39-48",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.07,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.13,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller support 1.07 pour rebond technique ou cassure pour accélération. Short en rebond sur résistance 1.13 avec stop au-dessus.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1.13 valide scénario haussier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante clairement établie sur le 15m.  \n- Structure en succession de Lower Highs (LH) et Lower Lows (LL), confirmant la pression vendeuse.  \n- Zone de support clé proche de 1.07, à surveiller pour un possible rebond ou accélération baissière en cas de break.\n\nB) Chart unique (XRPUSDT.P 15m) :  \nLe graphique montre une tendance baissière marquée avec une série cohérente de points hauts et bas déclinants (LH/LL). Les tentatives de rebond sont limitées et suivies par des rechutes rapides. Le volume semble augmenter lors des baisses accélérées. La zone de support immédiate vers 1.07 peut offrir une première zone d’arrêt. La résistance la plus proche à 1.13, niveau des récents sommets intermédiaires. Le scénario privilégié reste une poursuite du cycle baissier tant que la zone 1.13 n’est pas franchie/validée à la hausse. Invalidation en cas de clôture solide au-dessus de ce niveau.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"be",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-39-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-05_12-39-41.png"
+  }
+}

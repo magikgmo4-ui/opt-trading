@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_192010_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T15:20:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-20-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1660.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre en résistance, viser support; surveiller invalidation sous 1540 pour confirmer poursuite baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1660",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante nette à la baisse sur le 1h, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Récente correction haussière formant un Higher Low (HL) potentiel mais structure toujours incertaine.  \n- Zone clé soutien autour de 1 520-1 540 USD; résistance proche sur 1 650-1 660 USD.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa paire est en tendance baissière claire, caractérisée par des vagues descendantes et une structure en LH/LL confirmée jusqu’à début juin. Une remontée corrective a permis la formation d’un HL autour de 1 540 USD, stoppée toutefois en zone de résistance vers 1 650 USD. Le scénario principal reste baissier tant que la zone 1 650-1 660 USD ne cède pas. Invalidation du biais baissier avec un repli sous le HL à 1 540 USD.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec récent HL en correction\",\"supports\":[\"1540\",\"1520\"],\"resistances\":[\"1650\",\"1660\"],\"plan\":\"Vendre en résistance, viser supp",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-20-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_15-19-52.png"
+  }
+}

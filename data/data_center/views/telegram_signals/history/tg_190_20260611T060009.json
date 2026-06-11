@@ -1,0 +1,22 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_190_20260611T060009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "gold_signals_vip",
+  "channel_priority": "P2",
+  "channel_type": "xau_signal",
+  "parsed_at": "2023-09-06T08:53:26+00:00",
+  "produced_at": "2026-06-11T06:00:09.423042+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": null,
+  "sl": 1918.0,
+  "tp": null,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "PLAN GOLD 06/09/2023 \ud83d\udcca\n\n\u267b\ufe0f Phi\u00ean \u00c2u\nBUY: 1920-1921 SL: 1918\nSELL: 1935-1936 SL: 1938\n\n\u267b\ufe0fPhi\u00ean M\u1ef9\nBUY: 1915-1916 SL 1913\nSELL: 1939-1940 SL 1942\n\nCH\u00daC M\u1eccI NG\u01af\u1edcI GIAO D\u1ecaCH THU\u1eacN L\u1ee2I @All",
+  "summary": "XAUUSD LONG"
+}

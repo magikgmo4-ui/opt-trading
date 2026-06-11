@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_073602_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T03:35:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_03-35-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "anticiper une poursuite haussière au-dessus de 65 avec gestion serrée sous 61.50",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break < 61.50",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte terme : rebond haussier après phase baissière marquée.  \n- Structure récente : LR en LL/LH, puis transition vers HH/HL visible sur la droite.  \n- Zone clé résistance proche autour de 65,00 USD; support sur 61,50 USD.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nLe graphique montre une longue phase baissière avec un enchaînement de plus bas et hauts plus bas (LL/LH). Depuis le creux vers 60,00, un rebond clair s’installe traduisant une possible reprise haussière structurelle avec des plus hauts et plus bas plus hauts (HH/HL). Le prix approche une zone de résistance horizontale à environ 65,00 USD (anciens supports devenus résistances). Le volume reste stable. Scénario préférentiel d’un pullback vers 65 avant continuation possible haussière. Invalidation si rupture nette en dessous de 61,50 USD (ancien bas).  \n\nC) DeskPro  \n{\"run_id\":\"20240607_0735\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"transition LL/LH en HH/HL\",\"supports\":[61.50],\"resis",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_03-35-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-07_03-35-44.png"
+  }
+}

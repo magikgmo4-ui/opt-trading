@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_165740_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:57:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-57-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0915,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0945,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller breakout 0.0945 pour reprise, sinon poursuite baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 0.0950",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non défini",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non défini",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non défini",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non défini",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non défini",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "non défini",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendances globales baissières sur plusieurs actifs et futures majeurs.\n- Volatilité élevée et structure de marché fragile, notamment sur Dogecoin.\n- Zones clés proches à surveiller pour validation ou invalidation de scénario.\n\nB) Chart 1 (haut-gauche): Dogecoin 15m\n- Tendance baissière claire, structure avec HL puis Baisse forte en LH/LL.\n- Support identifié vers 0.0915, résistance immédiate autour de 0.0945.\n- Scénario principal : reprise corrective possible si franchissement 0.0945, sinon poursuite baisse.\n- Invalidation si clôture significative au-dessus de 0.0950 confirmée.\n- Volume en hausse sur les baisses, confirmation de pression vendeuse.\n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)\n- Structure et tendance non définis, absence de données claires.\n- Zones clés non identifiables.\n- Scénario non défini faute d'informations.\n\nD) Chart 3 (bas-gauche): inconnu (symbole/timeframe non lisible)\n- Données visuelles insuffisantes pour analyse.\n- Pa",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-57-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_12-57-18.png"
+  }
+}

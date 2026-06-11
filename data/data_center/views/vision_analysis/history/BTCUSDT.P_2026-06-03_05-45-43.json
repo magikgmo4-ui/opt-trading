@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_094552_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:45:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-45-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4370.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4360.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4490.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond potentiel sur supports, short sous résistance 4490",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Dépassement 4490",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte volatilité observée sur XAUUSD avec tendance baissière récente sur le court terme.  \n- Structure en séquence de lower highs (LH) et lower lows (LL) suggérant un biais baissier dominant.  \n- Zones clés de support à proximité des 4 370 et 4 360 USD à surveiller pour réaction éventuelle.  \n\nB) Chart 1 (haut-gauche):  \nGraphique en 1h de XAUUSD montre un mouvement baissier clair depuis le 2 juin. La structure est LL et LH, confirmant une tendance baissière. Support notable autour de 4 370 USD. Résistance majeure à 4 490 USD (plus haut récent avant chute). Scénario privilégié : poursuite de la baisse vers les supports, avec un seuil d’invalidation si prix dépasse 4 490 USD. Surveillance des volumes en sommet/bas pour potentiels retournements.  \n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe non lisibles, analyse impossible.  \n\nD) Chart 3 (bas-gauche):  \nSymbole et timeframe non lisibles, analyse impossible.  \n\nE) Chart 4 (bas-droit):  \nSymbole et timeframe non l",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-45-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_05-45-33.png"
+  }
+}

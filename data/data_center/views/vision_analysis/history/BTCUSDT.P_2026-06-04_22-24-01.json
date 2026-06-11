@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_022411_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:24:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-24-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62700.0,
+      "confidence": 0.7,
+      "note": "support 62700,"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de plus bas (LL) et plus bas relatifs (LH) confirmée sur le 1h.  \n- Structure en chute libre sans rebond significatif, mettant en évidence une pression vendeuse dominante.  \n- Zone clé support testée actuellement autour de 62 700-63 000, à surveiller pour un potentiel rebond ou poursuite de la baisse.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une tendance baissière affirmée caractérisée par une succession de Lower Highs (LH) et Lower Lows (LL). Le prix a fortement baissé depuis environ 77 000 à 62 800, sans aucun signe visible d’inversion. La zone support majeure se situe autour de 62 700-63 000, ayant été testée plusieurs fois dernièrement. La résistance récente clé est à 66 800, niveau à franchir si les acheteurs veulent inverser la tendance. Le scénario principal reste la poursuite de la baisse si ce support est invalidé. Invalidation du biais baissier : franchissement durable au-dessus de 67 000.  \n\nC) Des",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-24-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_22-23-54.png"
+  }
+}

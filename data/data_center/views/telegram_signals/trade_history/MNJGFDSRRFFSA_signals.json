@@ -1,0 +1,21 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_MNJGFDSRRFFSA_25435_2026-05-28T07:06:43+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "MNJGFDSRRFFSA",
+    "parsed_at": "2026-05-28T07:06:43+00:00",
+    "produced_at": "2026-06-11T05:30:19.540310+00:00",
+    "pair": "GBPNZDUSDT",
+    "asset": "GBPNZD",
+    "direction": "SHORT",
+    "entry_price": 2.29627,
+    "sl": 2.30885,
+    "tp": 2.26599,
+    "tps": [
+      2.26599
+    ],
+    "leverage": null,
+    "raw_text": "GBPNZD\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 SELL\n\nENTRY\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 2.29627\n\nSL\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 2.30885\n\nTP\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 2.26599"
+  }
+]

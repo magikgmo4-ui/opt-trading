@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_010152_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:01:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-01-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Favoriser shorts sur rejet résistance 65k ou cassure support 62k à confirmer. Surveiller potentiel rebond en support. Invalidation au-dessus 65k avec HH.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 65,000 avec formation de HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série continue de Lower Highs (LH) et Lower Lows (LL).  \n- Structure sans signe de retournement ou de maintien haussier à court terme.  \n- Zone clé de support vers 62,000 USDT suivie de résistance proche à 65,000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une nette dynamique baissière caractérisée par une succession de Lower Highs et Lower Lows confirmant la tendance short-term. Le prix tente de stabiliser autour de la zone des 62,000 USDT, zone de support potentiel à surveiller. La résistance immédiate se situe aux environs des 65,000 USDT, qui correspond à l’ancien niveau de support devenu résistance. Un franchissement ou un rebond sur ces niveaux donnera la prochaine direction. Scénario principal baissier tant que la résistance tient. Invalidation en cas de dépassement clair des 65,000 USDT avec structure haussière (HH).\n\nC) DeskPro  \n```json\n{\"run_id\":\"20240605_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-01-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_21-01-27.png"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "ETHUSDT",
+  "total": 1,
+  "signals": [
+    {
+      "id": "tg_9382_20260611T100009",
+      "channel": "WhaleTank",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": null,
+      "tp": 9.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-04T13:21:02+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

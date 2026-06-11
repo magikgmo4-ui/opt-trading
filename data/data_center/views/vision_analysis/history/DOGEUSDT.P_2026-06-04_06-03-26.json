@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_100343_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T06:03:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-03-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.087,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.091,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous support 0.0870 en confirmant la cassure. Scenario de retour haussier si franchissement du 0.0910 avec volume.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Montée au-dessus durable de 0.0910",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m clairement baissière avec une succession de plus bas et plus bas (LL).\n- Structure sans interruption de HL ni HH, signalant absence de reprise à court terme.\n- Zones clés à surveiller : support vers 0.0870 et résistance autour de 0.0910, niveau de retracement à confirmer.\n\nB) Chart unique (DOGEUSDT.P 15m) :\nLe graphique montre une chute nette du prix sur le timeframe 15 minutes, avec des chandeliers rouges dominants. La structure est composée exclusivement de lower highs (LH) et lower lows (LL), confirmant une dynamique baissière persistante. Le prix teste une zone de support aux alentours de 0.0870, sous laquelle le mouvement baissier pourrait s'amplifier. Une zone de résistance immédiate se situe proche de 0.0910, seuil à franchir pour invalider la tendance baissière et envisager un retournement. Le volume reste élevé lors des phases de baisse, renforçant la pression vendeuse. Le scénario principal reste donc une continuation de la baisse tant que le s",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-03-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_06-02-44.png"
+  }
+}

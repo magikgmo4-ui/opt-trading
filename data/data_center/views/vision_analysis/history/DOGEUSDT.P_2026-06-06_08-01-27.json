@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_120139_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T08:01:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-01-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 0.08300 pour entrée long, protection sous 0.07800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte de 0.07800 confirme poursuite baisse",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale baissière confirmée sur les dernières séances avec une série de LH et LL.  \n- Structure en bascule, oscillations sans HH marqués, mais premiers signaux potentiels de HL sur rebond récent.  \n- Zone clé support vers 0.07800, résistance notable vers 0.08300, range court terme à surveiller.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nTendance baissière dominante avec structure en LH/LL, signe de faiblesse persistante. Le rebond depuis 0.07800 laisse entrevoir une tentative de construction de HL, mais il faut une cassure claire au-dessus de 0.08300 pour valider un possible retournement ou au moins une pause de la baisse. Volume en légère hausse sur rebond, ce qui peut soutenir une phase de correction. Invalidation du scénario haussier si le support 0.07800 est franchi à la baisse. En l’état, privilégier la prudence et attendre confirmation du changement de structure avant de se positionner long.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-01-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_08-01-19.png"
+  }
+}

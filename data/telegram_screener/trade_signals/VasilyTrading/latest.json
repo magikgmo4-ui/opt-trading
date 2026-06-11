@@ -1,0 +1,59 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_VasilyTrading_11856_2026-05-29T06:35:46+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "VasilyTrading",
+    "parsed_at": "2026-05-29T06:35:46+00:00",
+    "produced_at": "2026-06-06T11:30:55.181943+00:00",
+    "pair": "XAUUSDUSDT",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "**#EURUSD****: Bearish Move From Resistance Confirmed** \ud83c\uddea\ud83c\uddfa\ud83c\uddfa\ud83c\uddf8\n\nI think that \ud83d\udcc9**EURUSD** will likely **retrace** from a strong** intraday horizontal resistance.**\n\nA **breakout** of the **neckline** of a **double top pattern** on 1H indicates a strong\n**selling pressure.\n**\n**Goal - 1.1625**\n\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014**\n**1H time frame\n\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n\ud83e\udd13**Learn How to Buy Gold After Pullback**\n\ud83d\udd1chttps://youtu.be/mH1zrQgR8XQ?si=HctY4NDvu-gaDNmI"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_VasilyTrading_11864_2026-05-31T12:23:01+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "VasilyTrading",
+    "parsed_at": "2026-05-31T12:23:01+00:00",
+    "produced_at": "2026-06-06T11:30:55.183818+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 3159.0,
+    "sl": null,
+    "tp": 100.0,
+    "tps": [
+      100.0,
+      500.0,
+      3143.0,
+      3159.0,
+      3222.0
+    ],
+    "leverage": null,
+    "raw_text": "**Check the great winning signals & forecasts that I shared with you here:\n\n**\u2714[\ufe0f](https://t.me/VasilyTrading/3222)[ ](https://www.tradingview.com/chart/GBPJPY/6D1Rqg9t-GBPJPY-FVG-Trade/)[#GOLD Sell Signal](https://www.tradingview.com/chart/XAUUSD/MAot7tOp-GOLD-XAUUSD-Bearish-Outlook-After-Market-Opening/)\n\u2714[\ufe0f](https://t.me/VasilyTrading/3159)[ ](https://www.tradingview.com/chart/EURAUD/UCv1lKPD-EURAUD-Confirmed-Liquidity-Grab/)[#US100 Buy Signal](https://www.tradingview.com/chart/US100/rcdHmHfv-NASDAQ-INDEX-US100-Confirmed-BoS/)\n\u2714[\ufe0f](https://t.me/VasilyTrading/3143)[ ](https://www.tradingview.com/chart/GBPUSD/8f0CWKER-GBPUSD-Bearish-Move-Continues/)[#US500 Buy Signal](https://www.tradingview.com/chart/US500/E633Lmz5-S-P500-INDEX-US500-Bullish-Continuation/)\n\u2714[\ufe0f](https://www.tradingview.com/chart/EURUSD/niQDiOOa-EURUSD-What-to-Expect-Next-Week/)[ ](https://www.tradingview.com/chart/AUDJPY/3Z1aIBCd-AUDJPY-Valid-FVG/)[#CHFJPY Buy Signal](https://www.tradingview.com/chart/CHFJPY/BFK3FJGo-CHFJPY-Strong-Confirmation-After-Pullback/)\n\n**Become a Member of My Premium Signals Channel\n\n**Benefit from:\n\ud83d\udc51 Intraday trading signals\n\ud83d\udc51 Low risk\n\ud83d\udc51 Consistent returns\n\ud83d\udc51 2 to 1 Average risk to reward ratio\n\ud83d\udc51 50%+ return\n\n**More info and look inside the group - \n**https://www.vasilytrader.com/tradingsignals\n\n**Join Via Bot:** [Link](https://t.me/VasilyTraderPremium_bot)\n\n**Contact: **@VasilyTrader"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_VasilyTrading_11880_2026-06-02T14:49:11+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "VasilyTrading",
+    "parsed_at": "2026-06-02T14:49:11+00:00",
+    "produced_at": "2026-06-06T11:30:55.185947+00:00",
+    "pair": "EURUSDUSDT",
+    "asset": "EURUSD",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "**Great winning trade with my VIP Signals Group Members ****\ud83c\udfaf**\n\n#EURUSD Sell Signal +20 pips Made \u2b50\ufe0f \n\nJoin my Signals Group and get trades with Entry/Stop/Target\n\n**Join Via Bot: **[@VasilyTraderPremium_bot](https://t.me/VasilyTraderPremium_bot)**\n**\n\ud83d\udc49More info: https://www.vasilytrader.com/tradingsignals \n\ud83d\udc49Contact: @VasilyTrader"
+  }
+]

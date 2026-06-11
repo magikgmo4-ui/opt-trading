@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_094906_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T05:49:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-48-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur pullback vers résistance 66000-67000, envisager vente. Stop au-dessus de 67000. Cible première vers 62000, puis break possible pour poursuite de la baisse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture 1h au-dessus de 67000 avec momentum haussier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec des bas et des hauts de plus en plus bas (LH/LL).  \n- Structure claire de baisse, absence de rebond haussier significatif, les vendeurs contrôlent le marché.  \n- Zones clés à surveiller : support proche autour de 62 000, résistance majeure vers 66 000-67 000.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est baissière avec une structure de plus bas (LL) et plus bas points hauts (LH). Le prix peine à rebondir durablement et bute sur la zone des 66 000-67 000, maintenant une pression vendeuse forte. Support immédiat autour de 62 000, si cassure en clôture 1h en dessous, la chute pourrait s’accélérer. Un rebond significatif devra dépasser 67 000 pour invalider le scénario baissier à court terme. La volatilité et les volumes augmentent sur les replis, signalant un intérêt vendeur renforcé.  \n\nC) DeskPro  \n{\"run_id\":\"unique\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"62000\"],\"resistances\":[\"660",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-48-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_05-48-48.png"
+  }
+}

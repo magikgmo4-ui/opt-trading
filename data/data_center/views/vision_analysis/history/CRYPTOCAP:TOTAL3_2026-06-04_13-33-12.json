@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_173320_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T13:33:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-33-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 685.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 690.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 770.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la cassure des supports vers 685-690B pour short ou attendre retour en résistance pour vente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 770B avec High Volume et formation de HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure latérale à court terme avec supports proches des 685-690B et résistances autour des 760-770B.  \n- Scénario baissier renforcé par la récente cassure des supports et forte pression vendeuse en volume.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance de fond en baisse marquée par une succession de LL et LH depuis novembre, confirmant la structure baissière. Depuis février, le marché évolue dans une fourchette latérale avec un support critique testé à plusieurs reprises vers 685-690B, puis une résistance formée vers 760-770B. La récente chute sous ce support semble indiquer une possible poursuite baissière. La forte augmentation du volume lors de cette baisse valide la pression vendeuse. Une invalidation du scénario baissier pourrait avoir lieu en cas de retour sous forme de Higher Low (HL) au-dessus de 690B ou dépassement franc des 770B.",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-33-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_13-33-01.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_085508_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T04:53:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-53-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1590.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1645.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur breakout de résistance entre 1640-1645 avec stop sous dernier HL proche de 1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte claire des HL sous 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intraday haussière après une forte baisse initiale.  \n- Structure évolue vers des Higher Lows et Higher Highs récents, signalant une possible reprise.  \n- Zone clé de résistance proche à 1 640-1 645, invalidation au-dessus confirmerait continuation haussière.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une chute nette suivie d'un rebond marqué. La structure a formé plusieurs HL et HH progressifs indiquant une reprise. Le prix approche une résistance intermédiaire vers 1 640-1 645, zone à surveiller pour un breakout. Support clé immédiat autour de 1 580-1 590. Un échec face à cette résistance pourrait réinstaller une phase de consolidation ou reprise baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[1580,1590],\"resistances\":[1640,1645],\"plan\":\"Acheter sur breakout de résistance entre 1640-1645 avec stop sous dernier HL proche de 1580\",\"invalidation\":\"perte claire des HL sous 158",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-53-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_04-53-17.png"
+  }
+}

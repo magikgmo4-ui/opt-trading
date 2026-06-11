@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_074354_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T03:43:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-43-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillez un rebond haussier vers résistance. Vendre sur rejet en zone de résistance. Acheteur possible si cassure haute confirmée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Prix au-dessus de 68.50$",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le timeframe 15m avec une série constante de LH (Lower Highs) et LL (Lower Lows).\n- Prix récemment en rebond, potentielle réaction haussière mais toujours dans la structure baissière.\n- Zone clé support vers 63$ testée, résistance importante proche de 68.50$.\n\nB) Chart unique (SOLUSDT.P 15m) : La structure montre clairement une séquence baissière avec des Lower Highs et Lower Lows, indiquant une tendance baissière prédominante. Le prix vient de frapper une zone de support importante vers 63$, provoquant un rebond technique. Pour une confirmation de retournement, il faut dépasser et valider un plus haut supérieur à environ 68.50$. En dessous du support à 63$, la pression vendeuse devrait s’accentuer avec un risque de poursuite de la baisse. Le scénario le plus probable reste la continuation de la baisse sauf cassure haute. Invalidation du biais baissier au-dessus des 68.50$.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"ba",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-43-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-05_03-43-38.png"
+  }
+}

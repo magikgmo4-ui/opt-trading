@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_210241_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T17:02:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-02-29",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short si cassure support, rebond possible, stop au-dessus résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 67,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globalement baissière forte sur Bitcoin en 1h, avec de nombreuses chandelles rouges consécutives.  \n- Structure en Lower High (LH) et Lower Low (LL), confirmant la pression vendeuse dominante.  \n- Points clés à surveiller autour des zones de support intraday vers 64 900-65 000 et résistance vers 67 000.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance fortement baissière avec structure en LH/LL claire. La mèche basse récente montre une tentative de rebond sur le support vers 64 900-65 000. Volume en légère augmentation suggérant une possible absorption vendeuse ou prise de profit. Zone de résistance immédiate à 67 000, zone clé à dépasser pour invalider le scénario baissier. Plan: surveiller rebond ou cassure du support, prise de position short possible en cas de nouvelle faiblesse. Invalidation au franchissement clair de 67 000 avec hausse conséquente.  \n\nC) Chart 2 (haut-droit): Inconnu (symbole/timeframe non visible)  \nImpossible d’analyser précisémen",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-02-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_17-02-17.png"
+  }
+}

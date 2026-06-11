@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_150501_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T11:04:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-04-52",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.078,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à rejet sous 0.083 avec target 0.078",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture daily > 0.083",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière avec structure en LL et LH persistante.  \n- Présence d'une consolidation récente entre 0.078 et 0.083, zone clé de support/résistance.  \n- Scénario prioritaire de continuation baissière sous résistance à 0.083, invalidation au dessus.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLa tendance est clairement baissière, avec une série de Lower Highs (LH) et Lower Lows (LL). La structure montre une consolidation latérale sur le court terme entre environ 0.078 (support) et 0.083 (résistance). Le prix teste actuellement cette zone médiane vers 0.0815. Un rebond sous 0.083 renforcerait la pression vendeuse, ciblant un nouveau test du support à 0.078 voir plus bas. En revanche, une cassure claire au-dessus de 0.083 invaliderait ce biais et pourrait annoncer une tentative de retournement haussier.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"0.078\"],\"resistances\":[\"0.083\"],\"plan\":\"vendre à ",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-04-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-06_11-04-43.png"
+  }
+}

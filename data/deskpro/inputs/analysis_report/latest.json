@@ -1,0 +1,1597 @@
+{
+  "contract": "analysis_pipeline_report.v1",
+  "produced_at": "2026-06-06T11:32:19.630990+00:00",
+  "pipeline_step": "ANALYZE",
+  "executed_at": "2026-06-06T11:32:18.926354+00:00",
+  "total_sources": 2,
+  "sources": [
+    {
+      "source_id": "vision_analysis",
+      "symbol_count": 24,
+      "freshness": "FRESH",
+      "provenance": "PROVEN",
+      "ingested_at": "2026-06-06T11:32:18.840197+00:00",
+      "files": [
+        "BITGET:BZUSDT",
+        "BTCUSDT.P",
+        "CRYPTOCAP:BTC.D",
+        "CRYPTOCAP:TOTAL",
+        "CRYPTOCAP:TOTAL2",
+        "CRYPTOCAP:TOTAL3",
+        "DOGEUSDT.P",
+        "ETHUSDT.P",
+        "FX:EURUSD",
+        "NASDAQ:ARKB",
+        "NASDAQ:BITB",
+        "NASDAQ:FBTC",
+        "NASDAQ:IBIT",
+        "NYMEX:CL1!",
+        "NYMEX:NG1!",
+        "NYMEX:RB1!",
+        "OANDA:XAUUSD",
+        "OTC:GBTC",
+        "SOLUSDT.P",
+        "SPY",
+        "TVC:DXY",
+        "TVC:US10Y",
+        "TVC:VIX",
+        "XRPUSDT.P"
+      ]
+    },
+    {
+      "source_id": "coinglass_ocr",
+      "symbol_count": 1,
+      "freshness": "STALE",
+      "provenance": "PROVEN",
+      "ingested_at": "2026-06-06T11:32:18.840197+00:00",
+      "files": [
+        "/home/fantome/opt-trading-clean/data/deskpro/inputs/vision_context/coinglass/latest.json"
+      ]
+    }
+  ],
+  "vision_raw": {
+    "BITGET:BZUSDT": {
+      "symbol": "BITGET:BZUSDT",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:11:23-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "Vente \u00e0 retest r\u00e9sistance avec confirmation ou suivi de baisse sous support cl\u00e9.",
+      "invalidation": "Cl\u00f4ture horaire au-dessus de 1900.",
+      "structure": null
+    },
+    "BTCUSDT.P": {
+      "symbol": "BTCUSDT.P",
+      "available": true,
+      "timeframe": "15m",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T04:32:12-04:00",
+      "supports": [
+        {
+          "value": 66000.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 65000.0,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 67200.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 67600.0,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BEARISH",
+      "plan": "inconnu",
+      "invalidation": "inconnu",
+      "structure": null
+    },
+    "CRYPTOCAP:BTC.D": {
+      "symbol": "CRYPTOCAP:BTC.D",
+      "available": true,
+      "timeframe": "1d",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:51:55-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "Surveiller le support \u00e0 58.3%. En cas de tenue, attendre un rebond/reprise. En cassure nette, viser la poursuite baissi\u00e8re.",
+      "invalidation": "Reprise au-dessus de 61.2%, inversion de tendance possible.",
+      "structure": null
+    },
+    "CRYPTOCAP:TOTAL": {
+      "symbol": "CRYPTOCAP:TOTAL",
+      "available": true,
+      "timeframe": "1d",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:52:18-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "Vente possible sur retest de 2.3T cass\u00e9 avec objectif 2.15T. Gestion prudente sous 2.6T. Surveiller rebond potentiel sur support 2.2T-2.15T.",
+      "invalidation": "Cl\u00f4ture quotidienne claire au-dessus de 2.6T.",
+      "structure": null
+    },
+    "CRYPTOCAP:TOTAL2": {
+      "symbol": "CRYPTOCAP:TOTAL2",
+      "available": true,
+      "timeframe": "1d",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:53:02-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "Surveillez la cassure sous 940B pour vendre ou short. Possible rebond si maintien du support avant confirmation de nouvelle baisse.",
+      "invalidation": "Cl\u00f4ture quotidienne au-dessus de 1.06T USD",
+      "structure": null
+    },
+    "CRYPTOCAP:TOTAL3": {
+      "symbol": "CRYPTOCAP:TOTAL3",
+      "available": true,
+      "timeframe": "1d",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:53:24-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "Vendre sur cassure sous 700B avec stop au-dessus de 720B / Achat potentiel en cas de rebond confirm\u00e9 vers 760B",
+      "invalidation": "au-dessus de 780B",
+      "structure": null
+    },
+    "DOGEUSDT.P": {
+      "symbol": "DOGEUSDT.P",
+      "available": true,
+      "timeframe": "15m",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:12:02-04:00",
+      "supports": [
+        {
+          "value": 0.0905,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 0.094,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BEARISH",
+      "plan": "Short sous 0.094 avec objectif 0.0905, stop above 0.094 for invalidation.",
+      "invalidation": "Break above 0.094 with a confirmed higher high.",
+      "structure": null
+    },
+    "ETHUSDT.P": {
+      "symbol": "ETHUSDT.P",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:11:00-04:00",
+      "supports": [
+        {
+          "value": 1775.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 1780.0,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 1850.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 1870.0,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BEARISH",
+      "plan": "Surveiller tenue support 1775-1780 pour rebond, cassure support -> poursuite baisse, cassure 1870 -> potentiel retournement/conso",
+      "invalidation": "Cassure claire au-dessus de 1870",
+      "structure": null
+    },
+    "FX:EURUSD": {
+      "symbol": "FX:EURUSD",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:14:24-04:00",
+      "supports": [
+        {
+          "value": 1.16,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 1.163,
+          "confidence": 0.75
+        },
+        {
+          "value": 1.164,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BEARISH",
+      "plan": "Short sous 1.1600, stop loss au-dessus de 1.1640. Anticiper extension baissi\u00e8re jusqu'\u00e0 1.1580.",
+      "invalidation": "Cl\u00f4ture sup\u00e9rieure \u00e0 1.1640.",
+      "structure": null
+    },
+    "NASDAQ:ARKB": {
+      "symbol": "NASDAQ:ARKB",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "ETF_CRYPTO",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:50:15-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": null,
+      "plan": "impossible de proposer un plan sans graphique",
+      "invalidation": "pas observable",
+      "structure": null
+    },
+    "NASDAQ:BITB": {
+      "symbol": "NASDAQ:BITB",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "ETF_CRYPTO",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:49:51-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": null,
+      "plan": "Pas de donn\u00e9e, pas d'analyse possible",
+      "invalidation": "Pas applicable",
+      "structure": null
+    },
+    "NASDAQ:FBTC": {
+      "symbol": "NASDAQ:FBTC",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "ETF_CRYPTO",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:40:18-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": null,
+      "plan": "impossible \u00e0 d\u00e9finir sans donn\u00e9es",
+      "invalidation": "inconnu",
+      "structure": null
+    },
+    "NASDAQ:IBIT": {
+      "symbol": "NASDAQ:IBIT",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "ETF_CRYPTO",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:40:00-04:00",
+      "supports": [
+        {
+          "value": 36.5,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "Favoriser les positions vendeuses sous 37 avec stop serr\u00e9 au-dessus de 44.50. Objectif vers 36.50 puis plus bas si cassure.",
+      "invalidation": "cl\u00f4ture au-dessus de 44.50",
+      "structure": null
+    },
+    "NYMEX:CL1!": {
+      "symbol": "NYMEX:CL1!",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:00:52-04:00",
+      "supports": [
+        {
+          "value": 92.0,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 97.0,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BULLISH",
+      "plan": "Acheter sur retracement proche support 92 avec objectif vers 97. Stop sous 91.50 pour invalidation.",
+      "invalidation": "Break sous support 92",
+      "structure": null
+    },
+    "NYMEX:NG1!": {
+      "symbol": "NYMEX:NG1!",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:29:46-04:00",
+      "supports": [
+        {
+          "value": 3.15,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 3.25,
+          "confidence": 0.75
+        },
+        {
+          "value": 3.35,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BULLISH",
+      "plan": "achat sur cassure 3.250, viser 3.350 puis plus haut",
+      "invalidation": "retour sous 3.150 avec confirmation",
+      "structure": null
+    },
+    "NYMEX:RB1!": {
+      "symbol": "NYMEX:RB1!",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:31:28-04:00",
+      "supports": [
+        {
+          "value": 3.06,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 3.18,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BEARISH",
+      "plan": "Vendre \u00e0 la rupture de 3.06$, stop au-dessus de 3.18$. Long possible si 3.18$ est cass\u00e9 en cl\u00f4ture.",
+      "invalidation": "Cl\u00f4ture au-dessus de 3.18$ pour sc\u00e9nario baissier",
+      "structure": null
+    },
+    "OANDA:XAUUSD": {
+      "symbol": "OANDA:XAUUSD",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:13:57-04:00",
+      "supports": [
+        {
+          "value": 4430.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 4400.0,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "short sous 4430 avec objectif vers 4400",
+      "invalidation": "cl\u00f4ture au-dessus de 4480",
+      "structure": null
+    },
+    "OTC:GBTC": {
+      "symbol": "OTC:GBTC",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "ETF_CRYPTO",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:49:33-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": null,
+      "plan": "impossible",
+      "invalidation": "symbol invalid",
+      "structure": null
+    },
+    "SOLUSDT.P": {
+      "symbol": "SOLUSDT.P",
+      "available": true,
+      "timeframe": "15m",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:11:23-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "Vente \u00e0 retest r\u00e9sistance avec confirmation ou suivi de baisse sous support cl\u00e9.",
+      "invalidation": "Cl\u00f4ture horaire au-dessus de 1900.",
+      "structure": null
+    },
+    "SPY": {
+      "symbol": "SPY",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "DASHBOARD_MACRO",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:37:39-04:00",
+      "supports": [],
+      "resistances": [
+        {
+          "value": 760.0,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BULLISH",
+      "plan": "indisponible",
+      "invalidation": "indisponible",
+      "structure": null
+    },
+    "TVC:DXY": {
+      "symbol": "TVC:DXY",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "DASHBOARD_MACRO",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:37:16-04:00",
+      "supports": [
+        {
+          "value": 99.05,
+          "confidence": 0.75
+        },
+        {
+          "value": 98.8,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 99.55,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BULLISH",
+      "plan": "inconnu",
+      "invalidation": "inconnue",
+      "structure": null
+    },
+    "TVC:US10Y": {
+      "symbol": "TVC:US10Y",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:00:29-04:00",
+      "supports": [],
+      "resistances": [],
+      "bias": "BEARISH",
+      "plan": "Surveillance de la rupture claire de range, bullish si break >4.53%, bearish sinon.",
+      "invalidation": "Cl\u00f4ture durable <4.43%",
+      "structure": null
+    },
+    "TVC:VIX": {
+      "symbol": "TVC:VIX",
+      "available": true,
+      "timeframe": "1h",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:30:40-04:00",
+      "supports": [
+        {
+          "value": 15.8,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 16.3,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BEARISH",
+      "plan": "Surveiller breakout du range pour prise de position. Short sous 15.80, ou long en cas de franchissement clair de 16.30.",
+      "invalidation": "Cl\u00f4ture significative au-dessus de 16.30 pour le biais baissier.",
+      "structure": null
+    },
+    "XRPUSDT.P": {
+      "symbol": "XRPUSDT.P",
+      "available": true,
+      "timeframe": "15m",
+      "screen_type": "CHART_TECHNICAL",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:11:41-04:00",
+      "supports": [
+        {
+          "value": 1.2,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 1.245,
+          "confidence": 0.75
+        }
+      ],
+      "bias": "BEARISH",
+      "plan": "Surveiller tenue support 1.20, privil\u00e9gier ventes sous 1.245, viser nouveaux plus bas sous 1.20",
+      "invalidation": "Franchissement \u00e0 la hausse 1.245",
+      "structure": null
+    }
+  },
+  "coinglass_raw": {
+    "input_class": "vision_context.coinglass.v1",
+    "symbol": "ETHUSDT.P",
+    "source_id": "coinglass_headless_bot",
+    "capture_id": "cg_liquidity_coinglass_ETHUSDT.P_20260606_112955",
+    "screenshot_ts": "2026-06-06T11:29:54.695Z",
+    "analysis_ts": "2026-06-06T11:29:55Z",
+    "freshness_state": "fresh",
+    "screen_type": "LIQUIDITY_COINGLASS",
+    "coinglass_slug": "LiquidationData",
+    "detection_method": "stub",
+    "detections": [
+      {
+        "extracted_value": 14875000.0,
+        "detected_metric_type": "liquidations_long",
+        "confidence": 0.78,
+        "detection_method": "stub",
+        "unit": "USD"
+      },
+      {
+        "extracted_value": 13370000.0,
+        "detected_metric_type": "liquidations_short",
+        "confidence": 0.76,
+        "detection_method": "stub",
+        "unit": "USD"
+      },
+      {
+        "extracted_value": 23625.0,
+        "detected_metric_type": "liquidation_heatmap_level",
+        "confidence": 0.82,
+        "detection_method": "stub",
+        "unit": "USD"
+      }
+    ],
+    "warnings": [],
+    "refs": {
+      "capture_source": "coinglass",
+      "image_ref": "/srv/sftp/shared_files/shared/vision_inbox/screen_coinglass_ETHUSDT.P_NOW_2026-06-06_07-29-31.png",
+      "requested_real_ocr": false
+    }
+  },
+  "total_tickets": 24,
+  "tickets": {
+    "BITGET:BZUSDT": {
+      "symbol": "BITGET:BZUSDT",
+      "asset": "BRENT",
+      "asset_class": "ENERGY",
+      "product": "PERP",
+      "bias": "BEARISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:11:23-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "Vente \u00e0 retest r\u00e9sistance avec confirmation ou suivi de baisse sous support cl\u00e9.",
+      "invalidation": "Cl\u00f4ture horaire au-dessus de 1900.",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "BTCUSDT.P": {
+      "symbol": "BTCUSDT.P",
+      "asset": "BTC",
+      "asset_class": "CRYPTO_MAJOR",
+      "product": "PERP",
+      "bias": "BEARISH",
+      "timeframe": "15m",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T04:32:12-04:00",
+      "supports": [
+        {
+          "value": 66000.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 65000.0,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 67200.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 67600.0,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "inconnu",
+      "invalidation": "inconnu",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "CRYPTOCAP:BTC.D": {
+      "symbol": "CRYPTOCAP:BTC.D",
+      "asset": "BTC_DOM",
+      "asset_class": "CRYPTO_MARKET",
+      "product": "INDEX",
+      "bias": "BEARISH",
+      "timeframe": "1d",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:51:55-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "Surveiller le support \u00e0 58.3%. En cas de tenue, attendre un rebond/reprise. En cassure nette, viser la poursuite baissi\u00e8re.",
+      "invalidation": "Reprise au-dessus de 61.2%, inversion de tendance possible.",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "CRYPTOCAP:TOTAL": {
+      "symbol": "CRYPTOCAP:TOTAL",
+      "asset": "TOTAL",
+      "asset_class": "CRYPTO_MARKET",
+      "product": "INDEX",
+      "bias": "BEARISH",
+      "timeframe": "1d",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:52:18-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "Vente possible sur retest de 2.3T cass\u00e9 avec objectif 2.15T. Gestion prudente sous 2.6T. Surveiller rebond potentiel sur support 2.2T-2.15T.",
+      "invalidation": "Cl\u00f4ture quotidienne claire au-dessus de 2.6T.",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "CRYPTOCAP:TOTAL2": {
+      "symbol": "CRYPTOCAP:TOTAL2",
+      "asset": "TOTAL2",
+      "asset_class": "CRYPTO_MARKET",
+      "product": "INDEX",
+      "bias": "BEARISH",
+      "timeframe": "1d",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:53:02-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "Surveillez la cassure sous 940B pour vendre ou short. Possible rebond si maintien du support avant confirmation de nouvelle baisse.",
+      "invalidation": "Cl\u00f4ture quotidienne au-dessus de 1.06T USD",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "CRYPTOCAP:TOTAL3": {
+      "symbol": "CRYPTOCAP:TOTAL3",
+      "asset": "TOTAL3",
+      "asset_class": "CRYPTO_MARKET",
+      "product": "INDEX",
+      "bias": "BEARISH",
+      "timeframe": "1d",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:53:24-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "Vendre sur cassure sous 700B avec stop au-dessus de 720B / Achat potentiel en cas de rebond confirm\u00e9 vers 760B",
+      "invalidation": "au-dessus de 780B",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "DOGEUSDT.P": {
+      "symbol": "DOGEUSDT.P",
+      "asset": "DOGE",
+      "asset_class": "CRYPTO_MEME",
+      "product": "PERP",
+      "bias": "BEARISH",
+      "timeframe": "15m",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:12:02-04:00",
+      "supports": [
+        {
+          "value": 0.0905,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 0.094,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "Short sous 0.094 avec objectif 0.0905, stop above 0.094 for invalidation.",
+      "invalidation": "Break above 0.094 with a confirmed higher high.",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "ETHUSDT.P": {
+      "symbol": "ETHUSDT.P",
+      "asset": "ETH",
+      "asset_class": "CRYPTO_MAJOR",
+      "product": "PERP",
+      "bias": "BEARISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:11:00-04:00",
+      "supports": [
+        {
+          "value": 1775.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 1780.0,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 1850.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 1870.0,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "Surveiller tenue support 1775-1780 pour rebond, cassure support -> poursuite baisse, cassure 1870 -> potentiel retournement/conso",
+      "invalidation": "Cassure claire au-dessus de 1870",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "FX:EURUSD": {
+      "symbol": "FX:EURUSD",
+      "asset": "EURUSD",
+      "asset_class": "MACRO_FX",
+      "product": "SPOT",
+      "bias": "BEARISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:14:24-04:00",
+      "supports": [
+        {
+          "value": 1.16,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 1.163,
+          "confidence": 0.75
+        },
+        {
+          "value": 1.164,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "Short sous 1.1600, stop loss au-dessus de 1.1640. Anticiper extension baissi\u00e8re jusqu'\u00e0 1.1580.",
+      "invalidation": "Cl\u00f4ture sup\u00e9rieure \u00e0 1.1640.",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "NASDAQ:ARKB": {
+      "symbol": "NASDAQ:ARKB",
+      "asset": "ARKB",
+      "asset_class": "CRYPTO_ETF",
+      "product": "ETF",
+      "bias": null,
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:50:15-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "impossible de proposer un plan sans graphique",
+      "invalidation": "pas observable",
+      "screen_type": "ETF_CRYPTO"
+    },
+    "NASDAQ:BITB": {
+      "symbol": "NASDAQ:BITB",
+      "asset": "BITB",
+      "asset_class": "CRYPTO_ETF",
+      "product": "ETF",
+      "bias": null,
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:49:51-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "Pas de donn\u00e9e, pas d'analyse possible",
+      "invalidation": "Pas applicable",
+      "screen_type": "ETF_CRYPTO"
+    },
+    "NASDAQ:FBTC": {
+      "symbol": "NASDAQ:FBTC",
+      "asset": "FBTC",
+      "asset_class": "CRYPTO_ETF",
+      "product": "ETF",
+      "bias": null,
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:40:18-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "impossible \u00e0 d\u00e9finir sans donn\u00e9es",
+      "invalidation": "inconnu",
+      "screen_type": "ETF_CRYPTO"
+    },
+    "NASDAQ:IBIT": {
+      "symbol": "NASDAQ:IBIT",
+      "asset": "IBIT",
+      "asset_class": "CRYPTO_ETF",
+      "product": "ETF",
+      "bias": "BEARISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:40:00-04:00",
+      "supports": [
+        {
+          "value": 36.5,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [],
+      "plan": "Favoriser les positions vendeuses sous 37 avec stop serr\u00e9 au-dessus de 44.50. Objectif vers 36.50 puis plus bas si cassure.",
+      "invalidation": "cl\u00f4ture au-dessus de 44.50",
+      "screen_type": "ETF_CRYPTO"
+    },
+    "NYMEX:CL1!": {
+      "symbol": "NYMEX:CL1!",
+      "asset": "WTI",
+      "asset_class": "ENERGY",
+      "product": "FUTURES",
+      "bias": "BULLISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:00:52-04:00",
+      "supports": [
+        {
+          "value": 92.0,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 97.0,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "Acheter sur retracement proche support 92 avec objectif vers 97. Stop sous 91.50 pour invalidation.",
+      "invalidation": "Break sous support 92",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "NYMEX:NG1!": {
+      "symbol": "NYMEX:NG1!",
+      "asset": "NATGAS",
+      "asset_class": "ENERGY",
+      "product": "FUTURES",
+      "bias": "BULLISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:29:46-04:00",
+      "supports": [
+        {
+          "value": 3.15,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 3.25,
+          "confidence": 0.75
+        },
+        {
+          "value": 3.35,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "achat sur cassure 3.250, viser 3.350 puis plus haut",
+      "invalidation": "retour sous 3.150 avec confirmation",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "NYMEX:RB1!": {
+      "symbol": "NYMEX:RB1!",
+      "asset": "GASOLINE",
+      "asset_class": "ENERGY",
+      "product": "FUTURES",
+      "bias": "BEARISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:31:28-04:00",
+      "supports": [
+        {
+          "value": 3.06,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 3.18,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "Vendre \u00e0 la rupture de 3.06$, stop au-dessus de 3.18$. Long possible si 3.18$ est cass\u00e9 en cl\u00f4ture.",
+      "invalidation": "Cl\u00f4ture au-dessus de 3.18$ pour sc\u00e9nario baissier",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "OANDA:XAUUSD": {
+      "symbol": "OANDA:XAUUSD",
+      "asset": "GOLD",
+      "asset_class": "MACRO_COMMODITY",
+      "product": "SPOT",
+      "bias": "BEARISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:13:57-04:00",
+      "supports": [
+        {
+          "value": 4430.0,
+          "confidence": 0.75
+        },
+        {
+          "value": 4400.0,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [],
+      "plan": "short sous 4430 avec objectif vers 4400",
+      "invalidation": "cl\u00f4ture au-dessus de 4480",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "OTC:GBTC": {
+      "symbol": "OTC:GBTC",
+      "asset": "GBTC",
+      "asset_class": "CRYPTO_ETF",
+      "product": "ETF",
+      "bias": null,
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:49:33-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "impossible",
+      "invalidation": "symbol invalid",
+      "screen_type": "ETF_CRYPTO"
+    },
+    "SOLUSDT.P": {
+      "symbol": "SOLUSDT.P",
+      "asset": "SOL",
+      "asset_class": "CRYPTO_ALT_L1",
+      "product": "PERP",
+      "bias": "BEARISH",
+      "timeframe": "15m",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:11:23-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "Vente \u00e0 retest r\u00e9sistance avec confirmation ou suivi de baisse sous support cl\u00e9.",
+      "invalidation": "Cl\u00f4ture horaire au-dessus de 1900.",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "SPY": {
+      "symbol": "SPY",
+      "asset": "SPX",
+      "asset_class": "MACRO_EQUITY",
+      "product": "ETF",
+      "bias": "BULLISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:37:39-04:00",
+      "supports": [],
+      "resistances": [
+        {
+          "value": 760.0,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "indisponible",
+      "invalidation": "indisponible",
+      "screen_type": "DASHBOARD_MACRO"
+    },
+    "TVC:DXY": {
+      "symbol": "TVC:DXY",
+      "asset": "DXY",
+      "asset_class": "MACRO_FX",
+      "product": "INDEX",
+      "bias": "BULLISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T21:37:16-04:00",
+      "supports": [
+        {
+          "value": 99.05,
+          "confidence": 0.75
+        },
+        {
+          "value": 98.8,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 99.55,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "inconnu",
+      "invalidation": "inconnue",
+      "screen_type": "DASHBOARD_MACRO"
+    },
+    "TVC:US10Y": {
+      "symbol": "TVC:US10Y",
+      "asset": "US10Y",
+      "asset_class": "MACRO_RATES",
+      "product": "BOND",
+      "bias": "BEARISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:00:29-04:00",
+      "supports": [],
+      "resistances": [],
+      "plan": "Surveillance de la rupture claire de range, bullish si break >4.53%, bearish sinon.",
+      "invalidation": "Cl\u00f4ture durable <4.43%",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "TVC:VIX": {
+      "symbol": "TVC:VIX",
+      "asset": "VIX",
+      "asset_class": "MACRO_VOL",
+      "product": "INDEX",
+      "bias": "BEARISH",
+      "timeframe": "1h",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T22:30:40-04:00",
+      "supports": [
+        {
+          "value": 15.8,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 16.3,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "Surveiller breakout du range pour prise de position. Short sous 15.80, ou long en cas de franchissement clair de 16.30.",
+      "invalidation": "Cl\u00f4ture significative au-dessus de 16.30 pour le biais baissier.",
+      "screen_type": "CHART_TECHNICAL"
+    },
+    "XRPUSDT.P": {
+      "symbol": "XRPUSDT.P",
+      "asset": "XRP",
+      "asset_class": "CRYPTO_ALT_L1",
+      "product": "PERP",
+      "bias": "BEARISH",
+      "timeframe": "15m",
+      "freshness": "STALE",
+      "analysis_ts": "2026-06-03T17:11:41-04:00",
+      "supports": [
+        {
+          "value": 1.2,
+          "confidence": 0.75
+        }
+      ],
+      "resistances": [
+        {
+          "value": 1.245,
+          "confidence": 0.75
+        }
+      ],
+      "plan": "Surveiller tenue support 1.20, privil\u00e9gier ventes sous 1.245, viser nouveaux plus bas sous 1.20",
+      "invalidation": "Franchissement \u00e0 la hausse 1.245",
+      "screen_type": "CHART_TECHNICAL"
+    }
+  },
+  "regimes": {
+    "macro": "RISK_OFF",
+    "crypto": "BEARISH",
+    "energy": "NEUTRAL"
+  },
+  "class_consensus": {
+    "ENERGY": {
+      "total": 4,
+      "with_bias": 4,
+      "bullish": 2,
+      "bearish": 2,
+      "consensus": "NEUTRAL",
+      "assets": [
+        "BRENT",
+        "WTI",
+        "NATGAS",
+        "GASOLINE"
+      ]
+    },
+    "CRYPTO_MAJOR": {
+      "total": 2,
+      "with_bias": 2,
+      "bullish": 0,
+      "bearish": 2,
+      "consensus": "BEARISH",
+      "assets": [
+        "BTC",
+        "ETH"
+      ]
+    },
+    "CRYPTO_MARKET": {
+      "total": 4,
+      "with_bias": 4,
+      "bullish": 0,
+      "bearish": 4,
+      "consensus": "BEARISH",
+      "assets": [
+        "BTC_DOM",
+        "TOTAL",
+        "TOTAL2",
+        "TOTAL3"
+      ]
+    },
+    "CRYPTO_MEME": {
+      "total": 1,
+      "with_bias": 1,
+      "bullish": 0,
+      "bearish": 1,
+      "consensus": "BEARISH",
+      "assets": [
+        "DOGE"
+      ]
+    },
+    "MACRO_FX": {
+      "total": 2,
+      "with_bias": 2,
+      "bullish": 1,
+      "bearish": 1,
+      "consensus": "NEUTRAL",
+      "assets": [
+        "EURUSD",
+        "DXY"
+      ]
+    },
+    "CRYPTO_ETF": {
+      "total": 5,
+      "with_bias": 1,
+      "bullish": 0,
+      "bearish": 1,
+      "consensus": "BEARISH",
+      "assets": [
+        "ARKB",
+        "BITB",
+        "FBTC",
+        "IBIT",
+        "GBTC"
+      ]
+    },
+    "MACRO_COMMODITY": {
+      "total": 1,
+      "with_bias": 1,
+      "bullish": 0,
+      "bearish": 1,
+      "consensus": "BEARISH",
+      "assets": [
+        "GOLD"
+      ]
+    },
+    "CRYPTO_ALT_L1": {
+      "total": 2,
+      "with_bias": 2,
+      "bullish": 0,
+      "bearish": 2,
+      "consensus": "BEARISH",
+      "assets": [
+        "SOL",
+        "XRP"
+      ]
+    },
+    "MACRO_EQUITY": {
+      "total": 1,
+      "with_bias": 1,
+      "bullish": 1,
+      "bearish": 0,
+      "consensus": "BULLISH",
+      "assets": [
+        "SPX"
+      ]
+    },
+    "MACRO_RATES": {
+      "total": 1,
+      "with_bias": 1,
+      "bullish": 0,
+      "bearish": 1,
+      "consensus": "BEARISH",
+      "assets": [
+        "US10Y"
+      ]
+    },
+    "MACRO_VOL": {
+      "total": 1,
+      "with_bias": 1,
+      "bullish": 0,
+      "bearish": 1,
+      "consensus": "BEARISH",
+      "assets": [
+        "VIX"
+      ]
+    }
+  },
+  "alerts": [],
+  "actionable_signals": [
+    {
+      "asset": "BTC",
+      "class": "CRYPTO_MAJOR",
+      "bias": "BEARISH",
+      "entry_zone": 67200.0,
+      "target": 66000.0,
+      "invalidation": "inconnu",
+      "plan": "inconnu"
+    },
+    {
+      "asset": "DOGE",
+      "class": "CRYPTO_MEME",
+      "bias": "BEARISH",
+      "entry_zone": 0.094,
+      "target": 0.0905,
+      "invalidation": "Break above 0.094 with a confirmed higher high.",
+      "plan": "Short sous 0.094 avec objectif 0.0905, stop above 0.094 for invalidation."
+    },
+    {
+      "asset": "ETH",
+      "class": "CRYPTO_MAJOR",
+      "bias": "BEARISH",
+      "entry_zone": 1850.0,
+      "target": 1775.0,
+      "invalidation": "Cassure claire au-dessus de 1870",
+      "plan": "Surveiller tenue support 1775-1780 pour rebond, cassure support -> poursuite baisse, cassure 1870 -> potentiel retournement/conso"
+    },
+    {
+      "asset": "EURUSD",
+      "class": "MACRO_FX",
+      "bias": "BEARISH",
+      "entry_zone": 1.163,
+      "target": 1.16,
+      "invalidation": "Cl\u00f4ture sup\u00e9rieure \u00e0 1.1640.",
+      "plan": "Short sous 1.1600, stop loss au-dessus de 1.1640. Anticiper extension baissi\u00e8re jusqu'\u00e0 1.1580."
+    },
+    {
+      "asset": "WTI",
+      "class": "ENERGY",
+      "bias": "BULLISH",
+      "entry_zone": 92.0,
+      "target": 97.0,
+      "invalidation": "Break sous support 92",
+      "plan": "Acheter sur retracement proche support 92 avec objectif vers 97. Stop sous 91.50 pour invalidation."
+    },
+    {
+      "asset": "NATGAS",
+      "class": "ENERGY",
+      "bias": "BULLISH",
+      "entry_zone": 3.15,
+      "target": 3.25,
+      "invalidation": "retour sous 3.150 avec confirmation",
+      "plan": "achat sur cassure 3.250, viser 3.350 puis plus haut"
+    },
+    {
+      "asset": "GASOLINE",
+      "class": "ENERGY",
+      "bias": "BEARISH",
+      "entry_zone": 3.18,
+      "target": 3.06,
+      "invalidation": "Cl\u00f4ture au-dessus de 3.18$ pour sc\u00e9nario baissier",
+      "plan": "Vendre \u00e0 la rupture de 3.06$, stop au-dessus de 3.18$. Long possible si 3.18$ est cass\u00e9 en cl\u00f4ture."
+    },
+    {
+      "asset": "DXY",
+      "class": "MACRO_FX",
+      "bias": "BULLISH",
+      "entry_zone": 99.05,
+      "target": 99.55,
+      "invalidation": "inconnue",
+      "plan": "inconnu"
+    },
+    {
+      "asset": "VIX",
+      "class": "MACRO_VOL",
+      "bias": "BEARISH",
+      "entry_zone": 16.3,
+      "target": 15.8,
+      "invalidation": "Cl\u00f4ture significative au-dessus de 16.30 pour le biais baissier.",
+      "plan": "Surveiller breakout du range pour prise de position. Short sous 15.80, ou long en cas de franchissement clair de 16.30."
+    },
+    {
+      "asset": "XRP",
+      "class": "CRYPTO_ALT_L1",
+      "bias": "BEARISH",
+      "entry_zone": 1.245,
+      "target": 1.2,
+      "invalidation": "Franchissement \u00e0 la hausse 1.245",
+      "plan": "Surveiller tenue support 1.20, privil\u00e9gier ventes sous 1.245, viser nouveaux plus bas sous 1.20"
+    }
+  ],
+  "cross_correlation": {
+    "total_pairs": 10,
+    "aligned": 0,
+    "divergent": 0,
+    "unknown": 10,
+    "alignment_pct": 0,
+    "signal": "DIVERGENT",
+    "pairs": [
+      {
+        "label": "BTC-ETH",
+        "class": "CRYPTO_MAJOR",
+        "asset_a": "BTC",
+        "bias_a": "BEARISH",
+        "asset_b": "ETH",
+        "bias_b": "BEARISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "BTC-GOLD",
+        "class": "MACRO_HEDGE",
+        "asset_a": "BTC",
+        "bias_a": "BEARISH",
+        "asset_b": "GOLD",
+        "bias_b": "BEARISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "BTC-DXY",
+        "class": "MACRO_INVERSE",
+        "asset_a": "BTC",
+        "bias_a": "BEARISH",
+        "asset_b": "DXY",
+        "bias_b": "BULLISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "BTC-SPX",
+        "class": "RISK_ON",
+        "asset_a": "BTC",
+        "bias_a": "BEARISH",
+        "asset_b": "SPX",
+        "bias_b": "BULLISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "BTC-IBIT",
+        "class": "ETF_CONFIRM",
+        "asset_a": "BTC",
+        "bias_a": "BEARISH",
+        "asset_b": "IBIT",
+        "bias_b": "BEARISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "ETH-SOL",
+        "class": "CRYPTO_ALT",
+        "asset_a": "ETH",
+        "bias_a": "BEARISH",
+        "asset_b": "SOL",
+        "bias_b": "BEARISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "WTI-GASOLINE",
+        "class": "ENERGY_CHAIN",
+        "asset_a": "WTI",
+        "bias_a": "BULLISH",
+        "asset_b": "GASOLINE",
+        "bias_b": "BEARISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "WTI-NATGAS",
+        "class": "ENERGY_SIBLING",
+        "asset_a": "WTI",
+        "bias_a": "BULLISH",
+        "asset_b": "NATGAS",
+        "bias_b": "BULLISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "DXY-GOLD",
+        "class": "MACRO_INVERSE",
+        "asset_a": "DXY",
+        "bias_a": "BULLISH",
+        "asset_b": "GOLD",
+        "bias_b": "BEARISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      },
+      {
+        "label": "SPX-VIX",
+        "class": "VOL_INVERSE",
+        "asset_a": "SPX",
+        "bias_a": "BULLISH",
+        "asset_b": "VIX",
+        "bias_b": "BEARISH",
+        "status": "UNKNOWN",
+        "fresh_a": false,
+        "fresh_b": false
+      }
+    ]
+  },
+  "multi_tf_consensus": {
+    "BTC": {
+      "asset": "BTC",
+      "available": true,
+      "consensus": false,
+      "score": 0,
+      "timeframes": 0,
+      "detail": {
+        "15m": {
+          "bias": "BEARISH",
+          "freshness": "STALE",
+          "supports": [
+            {
+              "value": 66000.0,
+              "confidence": 0.75
+            },
+            {
+              "value": 65000.0,
+              "confidence": 0.75
+            }
+          ],
+          "resistances": [
+            {
+              "value": 67200.0,
+              "confidence": 0.75
+            },
+            {
+              "value": 67600.0,
+              "confidence": 0.75
+            }
+          ]
+        },
+        "1h": {
+          "bias": "BEARISH",
+          "freshness": "STALE",
+          "supports": [
+            {
+              "value": 66000.0,
+              "confidence": 0.75
+            },
+            {
+              "value": 65000.0,
+              "confidence": 0.75
+            }
+          ],
+          "resistances": [
+            {
+              "value": 67200.0,
+              "confidence": 0.75
+            },
+            {
+              "value": 67600.0,
+              "confidence": 0.75
+            }
+          ]
+        }
+      }
+    },
+    "ETH": {
+      "asset": "ETH",
+      "available": true,
+      "consensus": false,
+      "score": 0,
+      "timeframes": 0,
+      "detail": {
+        "15m": {
+          "bias": "BEARISH",
+          "freshness": "STALE",
+          "supports": [
+            {
+              "value": 1775.0,
+              "confidence": 0.75
+            },
+            {
+              "value": 1780.0,
+              "confidence": 0.75
+            }
+          ],
+          "resistances": [
+            {
+              "value": 1850.0,
+              "confidence": 0.75
+            },
+            {
+              "value": 1870.0,
+              "confidence": 0.75
+            }
+          ]
+        },
+        "1h": {
+          "bias": "BEARISH",
+          "freshness": "STALE",
+          "supports": [
+            {
+              "value": 1775.0,
+              "confidence": 0.75
+            },
+            {
+              "value": 1780.0,
+              "confidence": 0.75
+            }
+          ],
+          "resistances": [
+            {
+              "value": 1850.0,
+              "confidence": 0.75
+            },
+            {
+              "value": 1870.0,
+              "confidence": 0.75
+            }
+          ]
+        }
+      }
+    },
+    "WTI": {
+      "asset": "WTI",
+      "available": true,
+      "consensus": false,
+      "score": 0,
+      "timeframes": 0,
+      "detail": {
+        "1h": {
+          "bias": "BULLISH",
+          "freshness": "STALE",
+          "supports": [
+            {
+              "value": 92.0,
+              "confidence": 0.75
+            }
+          ],
+          "resistances": [
+            {
+              "value": 97.0,
+              "confidence": 0.75
+            }
+          ]
+        },
+        "4h": {
+          "bias": "BULLISH",
+          "freshness": "STALE",
+          "supports": [
+            {
+              "value": 92.0,
+              "confidence": 0.75
+            }
+          ],
+          "resistances": [
+            {
+              "value": 97.0,
+              "confidence": 0.75
+            }
+          ]
+        }
+      }
+    }
+  },
+  "squeeze_alert": {
+    "available": true,
+    "data_quality": "STUB",
+    "oi": null,
+    "funding_rate": null,
+    "alerts": [],
+    "level": "STUB",
+    "note": "Coinglass data is a stub \u2014 no real OCR. Squeeze analysis unavailable."
+  }
+}

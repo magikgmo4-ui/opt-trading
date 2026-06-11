@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_073132_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T03:31:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-31-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1480.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1600-1620 pour changement tendance, confirmation volume. Entrées longues si validé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte 1500 pour poursuite baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante caractérisée par une série de Lower Highs (LH) et Lower Lows (LL).\n- Rebond récent formant un Higher Low (HL) potentiel, créant une incertitude sur la poursuite ou le retour haussier.\n- Zone clé support identifiée autour de 1500, résistance à surveiller vers 1600-1620 pour valider un retournement.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nTendance : baissière avec possible début de consolidation.  \nStructure : succession de LH et LL, dernière zone montre un HL marqué par un rebond.  \nSupports : 1500 (zone de rebond et volume élevé), 1480 niveau plus bas.  \nRésistances : 1580 puis 1600-1620 (obstacle potentiel pour continuation haussière).  \nPlan : surveiller la cassure claire au-dessus de 1600-1620 pour un possible changement de tendance. En intraday, chercher des confirmations (volume, patterns) avant entrées longues.  \nInvalidation : perte du support 1500 invaliderait le scénario de reprise, signalant poursuite forte de la baisse.\n\nC) DeskPr",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-31-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_03-31-14.png"
+  }
+}

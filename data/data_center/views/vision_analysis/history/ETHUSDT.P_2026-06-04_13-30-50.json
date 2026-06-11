@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_173058_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T13:30:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-30-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1730.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente proche résistance 1780-1800, viser support 1730. Stop above 1820 for invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure franche au-dessus de 1820",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ce 1h avec de nombreux Lower Highs (LH) et Lower Lows (LL).  \n- Structure actuelle fragile avec tentative de rebond vers 1780-1800, zone de résistance clé.  \n- Scénario baissier dominant, invalidation en cassure claire au-dessus de 1820.\n\nB) Chart unique (ETHUSDT.P 1h): La paire est dans une tendance baissière marquée depuis plusieurs jours, avec des creux et sommets déclinants (LL/LH). Le prix a formé un plus bas autour de 1730 et tente un rebond vers la zone résistante 1780-1800. Le volume reste soutenu sur les phases baissières, confirmant la pression vendeuse. Un franchissement au-dessus de 1820 invaliderait le biais baissier et pourrait ouvrir un retour vers 1900. En dessous de 1730, la baisse pourrait s’accélérer.\n\nC) DeskPro  \n{\"run_id\":\"20240604-1h\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1730],\"resistances\":[1780,1800,1820],\"plan\":\"Vente proche résistance 1780-1800, viser support 1730. Stop",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-30-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_13-30-38.png"
+  }
+}

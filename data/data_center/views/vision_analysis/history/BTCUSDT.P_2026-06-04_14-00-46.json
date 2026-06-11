@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_180056_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T14:00:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-00-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance support 62000, rebond faible favorise baisse, cassure haute 64400 invalide baisse.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture 15m au-dessus de 64400 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 15m avec des LL et LH plus bas.  \n- Structure dégradée, absence de HH récents ; le prix tente une correction mais sans franchir de résistance clé.  \n- Zones clés à surveiller pour un retournement ou poursuite : support autour de 62 000 USDT, résistance autour de 64 400 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m):  \n- Bias: Baissier  \n- Structure: LH/LL net, aucun HH confirmé sur la période observée.  \n- Supports: ~62 000 (point bas récent), 61 200 possible niveau psychologique.  \n- Resistances: ~64 400 (plus haut récent intermédiaire), 65 200 à surveiller en cas de reprise.  \n- Plan: Surveiller test valide du support 62 000; rebond fail confirmerait poursuite du downtrend. Une cassure nette au-dessus de 64 400 invaliderait la pression baissière et ouvrirait une correction plus large.  \n- Invalidation: Clôture claire au-dessus de 64 400 avec volume.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"st",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-00-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_14-00-36.png"
+  }
+}

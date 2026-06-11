@@ -1,0 +1,64 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_pro_trader_signals_btcusd_8899_2026-05-15T04:51:39+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_pro_trader_signals_btcusd",
+    "parsed_at": "2026-05-15T04:51:39+00:00",
+    "produced_at": "2026-06-11T05:30:20.922215+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4609.0,
+    "sl": 4614.0,
+    "tp": 4600.0,
+    "tps": [
+      4600.0,
+      4606.0
+    ],
+    "leverage": null,
+    "raw_text": "- LET'S GOLD SELL NOW\n\n- SELL ZONE 4609-4612\n\n- SL : 4614\n\n- TP : 4606\n\n- TP : 4600"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_pro_trader_signals_btcusd_8922_2026-05-15T11:53:22+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_pro_trader_signals_btcusd",
+    "parsed_at": "2026-05-15T11:53:22+00:00",
+    "produced_at": "2026-06-11T05:30:20.923413+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4557.5,
+    "sl": 4563.0,
+    "tp": 4535.0,
+    "tps": [
+      4535.0,
+      4547.0,
+      4554.0
+    ],
+    "leverage": null,
+    "raw_text": "- LET'S GOLD SELL NOW\n\n- SELL ZONE 4557.5-4761\n\n- SL : 4563\n\n- TP : 4554\n\n- TP : 4547\n\n- TP : 4535"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_pro_trader_signals_btcusd_8959_2026-05-19T03:14:20+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_pro_trader_signals_btcusd",
+    "parsed_at": "2026-05-19T03:14:20+00:00",
+    "produced_at": "2026-06-11T05:30:20.925461+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4548.0,
+    "sl": 4542.0,
+    "tp": 4551.0,
+    "tps": [
+      4551.0,
+      4563.0,
+      4575.0
+    ],
+    "leverage": null,
+    "raw_text": "- LET'S GOLD BUY NOW \n\n- BUY ZONE 4548-4544\n\n- SL : 4542\n\n- TP : 4551\n\n- TP : 4563\n\n- TP : 4575"
+  }
+]

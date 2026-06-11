@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_180000_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T13:59:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-59-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1675.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vérifier confirmation rebond > 1650 pour potentielle correction haussière, sinon viser continuation baisse si break 1550",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">1675",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière avec des lower highs (LH) et lower lows (LL) marqués.  \n- Repli agressif sur les dernières heures, fragile tentative de rebond sortant de la zone des 1550-1600.  \n- Zone clé support autour de 1550, résistance immédiate proche de 1650-1675.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa structure est baissière avec une série de lower highs et lower lows. Après un fort drop, ETH teste une zone support majeure vers 1550. Le recent volume en hausse lors de la dernière bougie indique un intérêt potentiellement comprador mais la dynamique reste vulnérable. Une validation haussière nécessite la cassure claire de 1650-1675 pour invalider le scénario baissier. En dessous de 1550, la pression vendeuse court terme reste forte.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1550],\"resistances\":[1650,1675],\"plan\":\"Vérifier confirmation rebond > 1650 pour potentielle correction haussière, sinon viser",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-59-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_13-59-44.png"
+  }
+}

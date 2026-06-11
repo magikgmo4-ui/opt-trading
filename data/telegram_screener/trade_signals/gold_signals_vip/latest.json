@@ -1,0 +1,38 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_signals_vip_150_2023-08-21T12:12:46+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_signals_vip",
+    "parsed_at": "2023-08-21T12:12:46+00:00",
+    "produced_at": "2026-06-11T05:30:20.946799+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 1895.0,
+    "sl": 1897.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Gold sell now: 1895\n\nSL: 1897"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_signals_vip_184_2023-09-05T01:29:48+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_signals_vip",
+    "parsed_at": "2023-09-05T01:29:48+00:00",
+    "produced_at": "2026-06-11T05:30:20.952546+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 1932.0,
+    "sl": 1929.0,
+    "tp": 1935.0,
+    "tps": [
+      1935.0
+    ],
+    "leverage": null,
+    "raw_text": "\ud83d\udfe2 CANH BUY XAUUSD 1932-1931 ( 1/2 kh\u1ed1i l\u01b0\u1ee3ng)\n(l\u01b0u \u00fd: n\u1eb1m trong v\u00f9ng gi\u00e1 l\u00e0 BUY \u0111\u01b0\u1ee3c h\u1ebft nh\u00e9)\n\u274c  SL 1929\n \u2705   TP 1935\n\u2705  TP2: 1938"
+  }
+]

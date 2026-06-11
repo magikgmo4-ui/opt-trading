@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_232039_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T19:20:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-20-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vigilance sur cassure 61.00 pour short; invalidation en cas de franchissement 62.20",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">62.20",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le 15m, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente latéralisante avec des bas proches et résistance autour de 62.20.\n- Zone clé support vers 61.00, résistance à 62.20 à surveiller pour décision.\n\nB) Chart unique (SOLUSDT.P 15m):\nOn observe une tendance baissière claire matérialisée par des Lower Highs et Lower Lows successifs. Récemment, le prix a trouvé un support autour de 61.00, formant une base et générant une structure plus neutre (consolidation) entre 61.00 (S) et 62.20 (R). Le scénario prioritaire reste une poursuite de la baisse en cas de cassure du support 61.00. En revanche, un franchissement franc de la résistance 62.20 invaliderait la poursuite baissière immédiate et pourrait ouvrir un rebond vers 63.50. La gestion du risque est clé ici, en plaçant l’invalidation au-dessus de 62.20.\n\nC) DeskPro {\"run_id\":\"trend_solusdt_15m_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL puis",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-20-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_19-19-59.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_213654_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T17:36:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-36-42",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short sous 63,000 avec cibles sur niveaux inférieurs, stop au-dessus de 66,000 USDT",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 66,000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "A définir après identification",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "A définir après identification",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "A définir après identification",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Analyse concentrée sur le marché crypto, notamment BTC/USDT, avec des baisses marquées sur le timeframe 1h.  \n- Structure claire de tendance baissière sur l’ensemble des graphiques visibles.  \n- Zones clés de support testées avec risque d’accélération baissière si invalidation.\n\nB) Chart 1 (haut-gauche) : BTC/USDT 1h  \nGraphique BTC/USDT 1h affichant une forte tendance baissière. Structure en LH (Lower High) et LL (Lower Low) affirmée, sans signe de renversement immédiat. Plusieurs zones de support testées vers 63,000 USDT mais faibles volumes de rebond, faiblesse persistante. Résistance autour de 66,000 USDT. Scénario principal : poursuite de la baisse si le support vers 63,000 USDT casse, avec une invalidation remontée au-delà 66,000 USDT.\n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu  \nSymbole non lisible clairement, analyse impossible. Il est recommandé d’identifier précisément ce graphique pour affiner la lecture. Absent de structure claire et zones clé",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-36-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_17-36-35.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_110905_CRYPTOCAP:TOTAL_1w",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1w",
+  "analysis_ts": "2026-06-07T07:09:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-08-55",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le support 2.0-2.1T pour rebond, privilégier prises de profits à la résistance. En cas de cassure baissière sous 2.0T, renforcer positions short ou prudence accrue.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture hebdo au-dessus de 2.8T ou inversion structurelle HL/HH confirmée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance weekly globalement baissière après un sommet majeur en 2025 (structure LH/LL récente).  \n- Structure de plus bas plus bas (LL) confirmée depuis début 2026, avec des rebonds inefficaces.  \n- Zone de support clé proche autour de 2.0-2.1T USD à surveiller, invalidation si franchissement baissier net.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1w):  \nLe marché crypto total cap montre une forte impulsion haussière fin 2023/début 2024, suivie d’un sommet en 4.4T mi-2025. Depuis, la structure est baissière (LH/LL) avec des sommets et creux déclinants sur le timeframe hebdo. Actuellement, la capitalisation teste une zone support critique autour de 2.0-2.1T USD, dernière zone avant un possible retournement majeur ou poursuite baissière. Un rebond depuis ce support pourrait entraîner un retour vers la résistance vers 2.7-2.8T. L’invalidation se produirait sur une cassure franche sous 2.0T, renforçant un scénario baissier prolongé.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"sl",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-08-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-07_07-08-43.png"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_190138_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:01:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-01-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.2,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.24,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.25,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur resistance 1.24-1.25, stop au-dessus 1.26, target 1.18",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break 1.26",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "n/a",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Configuration principalement baissière sur l’ensemble des graphiques visibles.  \n- Plusieurs mouvements de retracement courts mais sans confirmation haussière solide.  \n- Surveillance des zones clés vers 1.18 en support et résistance vers 1.25 forment pivots majeurs.  \n\nB) Chart 1 (haut-gauche): XRPUSDT / 15m  \nTendance baissière claire avec structure en LH/LL.  \nLe prix est sous résistance majeure vers 1.24-1.25, récente tentative haussière invalidée.  \nVolume en hausse lors des baisses, validant pression vendeuse.  \nSupports clés vers 1.20-1.18 testés plusieurs fois, zone cruciale pour scénario rebond ou continuation.  \nScénario actionnable : entrée short sur retour résistance (1.24-1.25) avec stop serré au-dessus, target 1.18.  \nInvalidation si franchissement net à 1.26.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non visible)  \nLecture impossible, manque de données lisibles.  \nAucune analyse pertinente réalisable dans ces conditions.  \nRecommander de",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-01-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-03_15-01-19.png"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_181147_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T14:11:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-11-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur résistances, viser supports",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture définitive au-dessus de 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le BTC en 1h, avec structure de creux et sommets plus bas (LL/LH).  \n- Zones clés autour de 64 700 en résistance récente et 61 500 en support visible.  \n- Scénario principal vendeur, invalidation en franchissement clair au-dessus de 65 000.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1H  \n- Structure: LL/HL, tendance baissière bien ancrée, retracements faibles.  \n- Supports principaux: 61 500 (bounce récent), 60 000 (psychologique).  \n- Résistances: 64 700 (dernier sommet local), 66 000 (ancien support devenu résistance).  \n- Volume: augmentation lors des baisses, confirme force vendeuse.  \n- Plan: Vendre sur tests des résistances, viser supports pour prises de profit.  \n- Invalidation: Clôture horaire au-dessus de 65 000 confirmerait rebond.\n\nC) Chart 2 (haut-droit): inconnu  \n- Symbole/timeframe illisible, analyse impossible.\n\nD) Chart 3 (bas-gauche): inconnu  \n- Symbole/timeframe illisible, analyse impossible.\n\nE) Chart 4 (bas-droit): in",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-11-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_14-11-27.png"
+  }
+}

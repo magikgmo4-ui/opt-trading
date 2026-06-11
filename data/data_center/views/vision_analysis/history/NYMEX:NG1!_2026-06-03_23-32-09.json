@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_033217_NYMEX:NG1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-03T23:32:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-32-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.35,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.37,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance rebond sur support 3.15, achat si confirmation de tenue avec cible 3.35-3.37",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure sous 3.15 ouvre scénario baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante avec une série de HH/HL bien marqués depuis fin avril.  \n- Correction récente sous forme de retracement, mais support autour de 3.15 USD tenu pour l’instant.  \n- Potentiel rebond à court terme si support confirmé, invalidation en cas de casse sous 3.15 USD.\n\nB) Chart unique (NYMEX:NG1! 4h):  \nLe graphique montre une structure haussière claire avec des hauts et bas ascendants (HH/HL). Après un pic vers 3.37 USD, une correction est en cours avec un léger creux à 3.15 USD, qui agit comme support majeur. Le prix semble stabilisé autour de 3.22 USD. Les résistances notables se situent autour de 3.35-3.37 USD, zones à surveiller pour un éventuel pullback ou une sortie haussière validée. Le scénario privilégie un rebond à partir du support 3.15 USD, mais une cassure sous ce niveau invaliderait la tendance haussière et ouvrirait la porte à un retracement plus profond.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"s",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-32-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-03_23-31-58.png"
+  }
+}

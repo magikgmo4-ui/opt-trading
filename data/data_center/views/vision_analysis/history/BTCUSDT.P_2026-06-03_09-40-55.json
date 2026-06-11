@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_134108_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:41:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-40-55",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 66.5k pour continuation baisse ou rebond avec breakout 70k pour inversion temporaire.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture au-dessus 71.5k",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Sans doute un marché de crypto majeur (BTCUSDT) en timeframe 1h, en forte tendance baissière.  \n- Structure actuelle montre clairement une succession de Lower Highs / Lower Lows (LH/LL), accentuant une pression vendeuse.  \n- Volume en fin de graphique en légère augmentation sur la zone basse, possiblement zone de support à surveiller pour un rebond ou confirmation de rupture.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance baissière nette avec une structure en LH/LL marquée. Le prix a chuté depuis environ 77k jusqu'à 66.8k.  \nZone clé support vers 66.5k-67k où le volume augmente, possible zone de congestion ou rebond. Résistance proche à 70k-71k, ancienne zone de support devenue résistance (S/R).  \nScénario actionnable : surveiller cassure à la baisse du support 66.5k pour poursuite de baisse, ou rebond suivi de breakout au-dessus de 70k pour tentative de retournement.  \nInvalidation : rupture claire au-dessus de 71.5k invaliderait la structure baissière court ter",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-40-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_09-40-48.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_020351_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T22:03:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-03-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1735.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1785.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1790.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure résistances pour retournement haussier, sinon potentiel rebond baissier sous 1740",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture claire au-dessus de 1790",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière récente remise en cause après une forte chute initiale, structure fragile.  \n- Structure mixte avec un bas plus bas (LL) suivi de plusieurs hauts plus bas (LH) et tentatives de HL en consolidation.  \n- Zone clé résistance proche 1 785-1 790, support important autour de 1 735-1 740.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance baissière claire sur la partie gauche, avec un LL visible vers 1 700. Une tentative de rebond crée un HL suivi de mouvements latéraux, stoppés par une résistance forte à ~1 785-1 790. La structure est incertaine, avec plusieurs HL/LL qui traduisent une zone de consolidation sans nette cassure. Le scénario privilégié reste baissier tant que la résistance n’est pas franchie, et on surveillera une invalidation majeure sous 1 735, signalant potentiellement la reprise de la baisse.\n\nC) DeskPro  \n{\"run_id\":\"ethusdtp_15m_20240605\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-baissier\",\"structure\":\"LL puis HL/LH",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-03-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_22-03-33.png"
+  }
+}

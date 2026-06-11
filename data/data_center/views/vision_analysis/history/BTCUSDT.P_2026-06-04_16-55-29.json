@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_205643_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T16:56:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-55-29",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sur break supports ou confirmation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement dernier LH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rebond résistances ou break support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus dernier LH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "poursuite baisse si cassure supports",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus 66,000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cherche shorts sur rebonds résistances ou break supports",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement sommet local",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marchés en tendance baissière nette sur les actifs principaux visibles.  \n- Structures marquées par une série de Lower Highs (LH) et Lower Lows (LL) sur plusieurs graphiques.  \n- Zones clés à surveiller pour potentielle reprise ou continuation baissière, invalidation claire en cas de break des derniers hauts.  \n\nB) Chart 1 (haut-gauche): Inconnu (pas lisible le symbole ni timeframe)  \n- Structure en tendance baissière avec plusieurs LL et LH.  \n- Support identifiable autour d’une zone basse récente à confirmer.  \n- Résistance majeure au dernier plus haut local.  \n- Scénario privilégié : poursuite de la baisse si les supports cassent, sinon range/consolidation.  \n- Invalidation : franchissement clair du dernier LH sur volume.  \n\nC) Chart 2 (haut-droit): Inconnu (pas lisible)  \n- Tendance également baissière avec structure HH/HL absente, dominance des LL/LH.  \n- Supports intermédiaires à surveiller, zone clé marquée par un creux récent.  \n- Résistance à la zone des d",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-55-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_16-55-21.png"
+  }
+}

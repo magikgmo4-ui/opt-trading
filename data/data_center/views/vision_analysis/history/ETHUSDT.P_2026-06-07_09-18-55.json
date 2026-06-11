@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_131906_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T09:19:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_09-18-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1560.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher un achat proche de 1560 avec un objectif proche de 1640-1650",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 1550",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière initiale marquée par une série de LL et LH sur la première moitié.  \n- Renversement progressif en tendance haussière avec une structure HL puis HH sur la seconde moitié.  \n- Zone clé résistance autour de 1640-1650, support clé autour de 1550-1560.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre d’abord une tendance baissière claire, illustrée par la formation de Lower Lows (LL) et Lower Highs (LH). Ensuite, le prix consolide et forme un creux plus élevé (HL) suivi d’un sommet plus élevé (HH), indiquant un début de retournement haussier. La zone entre 1550-1560 est une zone de support solide testée plusieurs fois, tandis que la zone 1640-1650 agit comme une résistance importante pour valider la poursuite de la hausse. Le scénario favori est un pullback sur support puis un nouveau test de la résistance pour une possible cassure. Invalidation du biais haussier sous 1550.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussi",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_09-18-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_09-18-47.png"
+  }
+}

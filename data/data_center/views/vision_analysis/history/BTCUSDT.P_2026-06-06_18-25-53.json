@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_222602_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T18:26:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_18-25-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60250.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 60750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61250.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 60250 avec cible 59500, ou achat si break 61250 pour retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Close daily > 61250",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire depuis les sommets proches de 64 500.\n- Structure de Lower Highs (LH) et Lower Lows (LL) confirmée.\n- Zone de support latérale autour de 60 250-60 500, consolidation avant potentielle poursuite baissière.\n\nB) Chart unique (BTCUSDT.P 15m) : Le graphique montre une dynamique baissière marquée par une série de plus bas et plus bas (LL), avec des rebonds locaux coincés sous des résistances descendantes. La zone clé de support autour de 60 250-60 500 est testée plusieurs fois, signalant une accumulation ou préparation technique à un mouvement net. Le scénario privilégie une continuation baissière si le support 60 250 est cassé, sinon un retournement haussier sera possible avec franchissement des résistances 60 750-61 000. L’invalidation du scénario baissier serait un break et close au-dessus des derniers sommets à 61 250.\n\nC) DeskPro \n{\"run_id\":\"20240606_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[60250,60500],",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_18-25-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_18-25-45.png"
+  }
+}

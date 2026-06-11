@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_150640_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T11:06:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-06-31",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rejet à la résistance, viser retour sur support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break et close au-dessus de 1820 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur ce timeframe 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent qui forme un Higher Low (HL) partiel, susceptible d’être un retracement avant reprise de la baisse.  \n- Zones clés à surveiller : support vers 1740-1750 et résistance immédiate autour de 1800-1820.\n\nB) Chart unique (ETHUSDT.P 15m)  \nLe prix d’ETHUSDT.P évolue dans une structure baissière marquée par des LH/LL successifs. Un léger redressement a formé un HL sur le court terme, mais la tendance dominante reste baissière. La zone 1740-1750 agit comme support important, tandis que le prix bute sur une résistance située autour de 1800-1820. Le scénario prioritaire reste une reprise du downtrend si la résistance tient et que le support ne casse pas. Invalidation en cas de franchissement clair et durable au-dessus de 1820 avec formation de HH.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL p",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-06-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_11-06-24.png"
+  }
+}

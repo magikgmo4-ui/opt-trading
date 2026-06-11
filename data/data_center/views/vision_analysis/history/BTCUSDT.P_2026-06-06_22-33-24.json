@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_023332_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T22:33:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_22-33-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "trade short sur rejet résistance 61600 avec cible 60000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture et maintien au-dessus 61600 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Rebond récent sur zone de support vers 60 000$, mais structure toujours baissière à confirmer.\n- Zone clé résistance autour de 61 600$, ici un pullback est en cours après un rejet.\n\nB) Chart unique (BTCUSDT.P 15m) : \nLe marché montre une structure baissière claire avec des LL et des LH. La dernière tentative de rebond montre un HL ponctuel mais ne casse pas la résistance à 61 600$ ce qui pourrait faire repartir la tendance à la baisse. Support notable vers 60 000$ qui a servi de plancher temporaire. Le scénario à privilégier est un rejet sur la résistance confirmant la reprise de la baisse. Invalidation si consolidation au-dessus de 61 600$ avec HH.\n\nC) DeskPro \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"60000\"],\"resistances\":[\"61600\"],\"plan\":\"trade short sur rejet résistance 61600 avec cible 60000\",\"invalidation\":\"clôture et maintien",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_22-33-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_22-33-16.png"
+  }
+}

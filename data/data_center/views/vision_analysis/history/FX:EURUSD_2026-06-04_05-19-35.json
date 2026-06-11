@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_091945_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T05:19:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-19-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre la correction haussière avec prise de profit proche de 1.1650, envisager short sous 1.1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure claire sous 1.1600 avec fort volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance horaire globalement baissière avec une structure de bas en haut faite de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent indiquant une possible correction haussière vers la résistance majeure aux environs de 1.1650.  \n- Zone de support clé autour de 1.1600 à surveiller pour validation ou invalidation du rebond.\n\nB) Chart unique (FX:EURUSD 1h):  \nSur ce timeframe, la structure montre une succession de LH et LL traduisant une tendance dominante baissière. Le prix a récemment formé un plus bas local puis un plus haut local (impliquant une possible structure HL) mais sans casser les derniers LH majeurs. La zone de support entre 1.1600 et 1.1590 est critique, servant de plancher du rebond en cours. La résistance principale est visible autour de 1.1650, à priori niveau de prise de décision pour la suite. Scénario principal : poursuite de la correction haussière avant un nouveau test du support. Invalidation si le prix casse le support des 1.1600 avec volu",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-19-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_05-19-25.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_091448_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T05:14:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-14-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4330.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4370.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur échec rebond à 4320-4330 avec stop above 4335. Objectif pour extension baisse vers 4280.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Maintien ferme au-dessus de 4335 valide le rejet baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière forte sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec tentative de rebond récent bloquée par une résistance.  \n- Zone de support clé à 4320-4330 USD, scénario baissier valide tant que cette zone casse.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe prix affiche une structure clairement baissière, avec des Lower Highs confirmés depuis la fin mai. Le dernier mouvement est une chute rapide appuyée par une forte hausse des volumes, validant la dynamique vendeuse. Le rebond en fin de séance teste la zone 4320-4330 USD, qui fait office de support critique. La tendance reste baissière tant que cette zone n’est pas consolidée puis franchie à la hausse. Le scénario prioritaire est une reprise baissière après ce rebond, avec pour invalidation la tenue et franchissement clair des 4330 USD.\n\nC) DeskPro  \n{\"run_id\":\"20240607_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"Lower Highs / Lower Lows\",\"",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-14-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_05-14-25.png"
+  }
+}

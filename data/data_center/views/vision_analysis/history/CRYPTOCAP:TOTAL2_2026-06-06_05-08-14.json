@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_090822_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T05:08:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-08-14",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 820-840B pour un swing haussier, sinon continuation baissière. Valider bullish only si >1T.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair et confirmé de 1T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec structure de Lower Highs (LH) et Lower Lows (LL).  \n- Zone de support importante autour de 820-840B testée actuellement.  \n- Scénario baissier dominant jusqu’à repli clair au-dessus de 1T pour envisager un retour haussier.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe graphique montre une forte pression vendeuse depuis plusieurs mois, avec une succession de sommets et creux descendants (LH/LL). La zone clé de support est située vers 820-840B, niveau où l’on observe un rebond potentiel à confirmer. La résistance principale se trouve autour de 1T, correspondant aux plus hauts récents non dépassés. Une invalidation du biais baissier se matérialiserait par un franchissement net de cette résistance. Pour l’instant, la structure reste baissière, renforcée par un spike volume à la baisse sur les derniers chandeliers.  \n\nC) DeskPro  \n{\"run_id\":\"20240607_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"820B-840",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-08-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-06_05-07-49.png"
+  }
+}

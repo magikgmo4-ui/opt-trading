@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_134247_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T09:42:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_09-42-37",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "acheter sur retracement vers support, viser résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassage net sous 61.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance de court terme en rebond haussier après un creux marqué, avec structure HL formée.\n- Zones clés identifiées : support autour de 61.00-61.50 et résistance proche de 65.50-66.00.\n- Scénario prudent d’achat sur pullback à confirmer, invalidation sous 61.00.\n\nB) Chart unique (SOLUSDT.P 15m) :  \nLe graphique montre une phase de baisse initiale suivie d’un fort rebond haussier créant une structure de creux plus hauts (HL) claire. La tendance est donc haussière à court terme. Le prix bute actuellement sur une zone de résistance autour de 65.50-66.00. Le support majeur est situé entre 61.00 et 61.50, une cassure sous cette zone annulerait la reprise. Le plan d’action optimal est d’entrer en position acheteuse sur retracement proche du support, avec prise de profit vers la résistance, tout en surveillant une invalidation sous 61.00.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier court terme\",\"structure\":\"HL (creux plus hauts)\",\"supports\":[\"",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_09-42-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-07_09-42-29.png"
+  }
+}

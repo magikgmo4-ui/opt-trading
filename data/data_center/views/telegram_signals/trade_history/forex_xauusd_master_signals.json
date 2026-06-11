@@ -1,0 +1,45 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forex_xauusd_master_616_2026-06-05T08:07:51+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forex_xauusd_master",
+    "parsed_at": "2026-06-05T08:07:51+00:00",
+    "produced_at": "2026-06-11T10:00:14.346368+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4454.8,
+    "sl": 4462.0,
+    "tp": 4449.0,
+    "tps": [
+      4449.0,
+      4451.0,
+      4453.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell now 4454.8 - 4458\n\nSL: 4462\n\nTP: 4453\nTP: 4451\nTP: 4449\nTP: open"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forex_xauusd_master_625_2026-06-05T08:07:51+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forex_xauusd_master",
+    "parsed_at": "2026-06-05T08:07:51+00:00",
+    "produced_at": "2026-06-11T10:00:14.346997+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4463.0,
+    "sl": 4470.0,
+    "tp": 4455.0,
+    "tps": [
+      4455.0,
+      4457.0,
+      4459.0,
+      4461.0
+    ],
+    "leverage": null,
+    "raw_text": "Gold sell now 4463 - 4466\n\nSL: 4470\n\nTP: 4461\nTP: 4459\nTP: 4457\nTP: 4455\nTP: open"
+  }
+]

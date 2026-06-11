@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_213644_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T17:36:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-36-36",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sur repli vers 1.1520, rechercher un rebond tactique ou vente en cas de cassure pour viser 1.1500-1.1480.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus de 1.1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le court terme avec rupture rapide d’un support important.\n- Structure récente en baisse (LH et LL) confirmée par le flux agressif vendeur.\n- Zone clé support actuelle vers 1.1520 à surveiller pour un rebond ou poursuite du mouvement.\n\nB) Chart unique (FX:EURUSD 1h):\nLe marché montre une cassure franche d’une structure de range avec un dernier swing bas clair (LL). La tendance dominante devient baissière, marquée par une accélération vendeuse importante. Les anciens supports autour de 1.1580 sont devenus résistances. La zone autour de 1.1520 représente un support clé à court terme. Un rebond sur ce niveau pourrait initier un pullback correctif, mais un franchissement sous verra la continuation du bearish vers 1.1500 et plus bas. L’invalidation se posera au-dessus de 1.1580 avec un retour des HH.\n\nC) DeskPro\n{\"run_id\":\"168611\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH, LL\",\"supports\":[\"1.1520\"],\"resistances\":[\"1.1580\"],\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-36-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_17-36-23.png"
+  }
+}

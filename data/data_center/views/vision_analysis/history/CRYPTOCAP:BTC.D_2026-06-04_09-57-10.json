@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_135721_CRYPTOCAP:BTC.D_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:BTC.D",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T09:57:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-57-10",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Chercher vente sous résistance 59.8-60%, avec stop au-dessus de 60%. Confirmation si retour sous 58%.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break clair au-dessus de 60%",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intermédiaire en baisse avec structure de creux et sommets descendants (LH/LL) depuis le pic de mai.  \n- Forte chute rapide récemment avec rebond immédiat, marquant une zone de support potentielle autour de 58.0%.  \n- Scénario à privilégier: poursuite de la faiblesse sous résistance clé 59.8-60.0%, invalidation au-dessus de cette zone.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nTendance baissière nette confirmée par une série LH/LL depuis fin mai. Le support principal se situe autour de 58% où un rebond a eu lieu, formant une zone clé à surveiller. La résistance majeure est identifiée entre 59.8% et 60%, niveau de précédents sommets rejetés. Le volume a fortement augmenté lors de la chute, signalant une pression vendeuse importante mais aussi un intérêt acheteur immédiat. L’invalidation du scénario baissier interviendrait par un franchissement clair au-dessus des 60%, sinon on peut anticiper un nouveau test à la baisse vers 57.6%.  \n\nC) DeskPro  \n{\"run_id\"",
+  "symbols_found": [
+    "CRYPTOCAP:BTC.D"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-57-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-04_09-57-00.png"
+  }
+}

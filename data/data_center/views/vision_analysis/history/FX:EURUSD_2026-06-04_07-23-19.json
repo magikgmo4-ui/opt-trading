@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_112326_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T07:23:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-23-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance breakout confirmé au-dessus de 1.1640 pour entrée longue, stop sous 1.1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "reperte franche de 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente baissière sur le 1h avec structure de creux et sommets plus bas (LH/LL) apparente.  \n- Forte cassure haussière récente invalide temporairement la dynamique baissière.  \n- Zone clé de résistance autour de 1.1640 testée actuellement, support principal à 1.1600.\n\nB) Chart unique (FX:EURUSD 1h): La paire EURUSD évolue dans une structure baissière (LH/LL) depuis fin mai. Cependant, une impulsion haussière forte casse la résistance à 1.1640, suggérant un possible retournement ou pullback haussier. Le support clé à surveiller est 1.1600 - en dessous la tendance baissière reste dominante. En cas de dépassement confirmé des 1.1640, un scénario d’accélération haussière pourrait se dessiner. Invalidation à la re-perte rapide de 1.1600.\n\nC) DeskPro  \n{\"run_id\":\"20240604_1145\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"LH/LL avec récente cassure haussière\",\"supports\":[\"1.1600\"],\"resistances\":[\"1.1640\"],\"plan\":\"surveillance breakout confirm",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-23-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_07-23-08.png"
+  }
+}

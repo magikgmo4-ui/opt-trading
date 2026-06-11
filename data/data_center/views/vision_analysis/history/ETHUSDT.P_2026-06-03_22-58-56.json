@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_025905_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:59:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-58-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la zone 1720-1740 pour rebond. Entrée possible si réaction haussière confirmée. Stop proche sous 1720. Invalidation sous 1720 ou au-dessus de 1850.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure et maintien au-dessus de 1850 ou cassure franche sous 1720 confirmée.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur ce timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en dégradation constante marquée par un récent plongeon sous 1800, avec hausse du volume vendeur.  \n- Zone clé de support autour de 1720-1740 à surveiller pour une possible réaction; invalidation si reprise durable au-dessus de 1850.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une dynamique baissière nette, avec des sommets et creux descendants (LH/LL). Le prix a accéléré sa chute sur les dernières heures, cassant un support intermédiaire vers 1800, appuyé par un fort volume. La zone 1720-1740 constitue un support potentiellement significatif où les acheteurs pourraient tenter une reprise technique. Une cassure sous ce niveau confirmerait la poursuite de la tendance baissière. Le scénario d'invalidation serait une cassure claire et soutenue au-dessus de 1850, entraînant un changement de structure vers des HL/HH.  \n\nC) DeskPro  \n```json\n{\"r",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-58-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_22-58-48.png"
+  }
+}

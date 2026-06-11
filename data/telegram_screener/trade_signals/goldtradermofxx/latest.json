@@ -1,0 +1,202 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29391_2024-10-23T06:07:38+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-23T06:07:38+00:00",
+    "produced_at": "2026-06-11T10:00:14.481801+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2751.0,
+    "sl": 2746.0,
+    "tp": 2755.0,
+    "tps": [
+      2755.0,
+      2759.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY NOW  : 2751-2748\n\nTP 1 : 2755 (40pips)\nTP 2 : 2759 (80pips)\n\nSL  : 2746"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29394_2024-10-23T07:08:03+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-23T07:08:03+00:00",
+    "produced_at": "2026-06-11T10:00:14.481944+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2751.0,
+    "sl": 2763.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL NOW @ 2751\n\nSECOND SELL LIMIT @ 2757\n\nSL @ 2763\n\nTP @ 2741"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29395_2024-10-23T08:19:34+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-23T08:19:34+00:00",
+    "produced_at": "2026-06-11T10:00:14.481993+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2757.0,
+    "sl": 2769.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL LIMIT NOW  @ 2757\n\nSECOND SELL LIMIT @ 2763\n\nSL @ 2769\n\nTP @ 2747"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29399_2024-10-23T09:41:03+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-23T09:41:03+00:00",
+    "produced_at": "2026-06-11T10:00:14.482058+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2750.72,
+    "sl": 2743.21,
+    "tp": 2751.86,
+    "tps": [
+      2751.86,
+      2754.08
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY NOW @ 2750.72 - 2746.50\n\nSL : 2743.21\n\nTP 1 : 2751.86\nTP 2 : 2754.08"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29403_2024-10-23T10:02:05+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-23T10:02:05+00:00",
+    "produced_at": "2026-06-11T10:00:14.482413+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2750.55,
+    "sl": 2743.36,
+    "tp": 2752.34,
+    "tps": [
+      2752.34,
+      2754.39
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY NOW @ 2750.55 - 2746.41\n\nSL : 2743.36\n\nTP 1 : 2752.34\nTP 2 : 2754.39"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29404_2024-10-23T10:54:48+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-23T10:54:48+00:00",
+    "produced_at": "2026-06-11T10:00:14.482459+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2750.03,
+    "sl": 2742.7,
+    "tp": 2751.86,
+    "tps": [
+      2751.86,
+      2753.86
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY NOW @ 2750.03 - 2745.86 \n\nSL : 2742.70\n\nTP 1 : 2751.86\nTP 2 : 2753.86"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29406_2024-10-23T11:09:35+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-23T11:09:35+00:00",
+    "produced_at": "2026-06-11T10:00:14.482678+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2749.57,
+    "sl": 2742.66,
+    "tp": 2751.36,
+    "tps": [
+      2751.36,
+      2753.58
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY NOW @ 2749.57 - 2745.66\n\nSL : 2742.66\n\nTP 1 : 2751.36\nTP 2 : 2753.58"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29416_2024-10-24T06:07:36+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-24T06:07:36+00:00",
+    "produced_at": "2026-06-11T10:00:14.483236+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 2727.0,
+    "sl": 2720.0,
+    "tp": 2730.0,
+    "tps": [
+      2730.0,
+      2733.0,
+      2735.0,
+      2740.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD BUY NOW 2727\n\nTP 2730\nTP 2733\nTP 2735\nTP 2740\nSL 2720"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29419_2024-10-24T06:24:46+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-24T06:24:46+00:00",
+    "produced_at": "2026-06-11T10:00:14.483327+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2731.0,
+    "sl": 2742.0,
+    "tp": 2710.0,
+    "tps": [
+      2710.0,
+      2715.0,
+      2720.0,
+      2724.0,
+      2727.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL NOW 2731-35\n\nTP 2727\nTP 2724\nTP 2720\nTP 2715\nTP 2710\n\nSL 2742"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldtradermofxx_29422_2024-10-24T07:06:56+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldtradermofxx",
+    "parsed_at": "2024-10-24T07:06:56+00:00",
+    "produced_at": "2026-06-11T10:00:14.483409+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 2735.0,
+    "sl": 2745.0,
+    "tp": 2725.0,
+    "tps": [
+      2725.0,
+      2730.0,
+      2732.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL NOW 2735-2738\n\nTP 2732\nTP 2730\nTP 2725\n\nSL 2745"
+  }
+]

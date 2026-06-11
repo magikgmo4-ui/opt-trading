@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_100219_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T06:02:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-01-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Préférer les positions short sur rebond vers résistance 1.20 avec stop au-dessus. Attention au support 1.14-1.15 pour tentative de rebond temporaire.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable au-dessus de 1.20",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m baissière nette avec une série de lower highs (LH) et lower lows (LL).  \n- Structure fragile malgré quelques replis haussiers, incapable de former de nouveaux higher lows (HL).  \n- Zone de support clé autour de 1.14-1.15, résistance immédiate vers 1.20.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique montre une tendance clairement baissière avec des impulsions de baisse suivies de corrections limitées. La structure est caractérisée par des lower highs et lower lows réguliers, ce qui confirme la pression vendeuse dominante. Un support récent vers 1.14-1.15 marque une zone d’intérêt où le prix rebondit temporairement. La résistance se situe autour de 1.20, zone à surveiller pour un éventuel renversement. Le scénario principal reste un maintien de la pression vendeuse tant que le prix ne casse pas la résistance majeure. Invalidation du scénario baissier en cas de franchissement clair et soutenu au-dessus de 1.20.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-01-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_06-01-51.png"
+  }
+}

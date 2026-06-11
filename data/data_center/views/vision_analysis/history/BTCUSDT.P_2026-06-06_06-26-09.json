@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_102617_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T06:26:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-26-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur résistance 61500-61750, target support 59500-59750",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair de 61750 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m baissière claire avec formation de Lower Highs (LH) et Lower Lows (LL)  \n- Zone clé support autour de 59 500-59 750, résistance à 61 500-61 750  \n- Scénario probable: correction vers support avant potentielle reprise ou poursuite de baisse si support cassé  \n\nB) Chart unique (BTCUSDT.P 15m):  \nStructure en baisse avec succession de LH et LL. Le prix teste actuellement une zone de résistance intermédiaire (~61 250) et montre des signes de rejet. Support visible entre 59 500 et 59 750, à surveiller pour maintien ou cassure. La tendance favorise les ventes dans ce contexte. Invalidation de la baisse possible en cas de franchissement clair de 61 750 avec bougies de force, ce qui pourrait amener un retour vers 63 000. Le plan serait de shorter proche de la résistance avec stop serré au-dessus de 61 750 et viser le support.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"59500\",\"59750\"],\"resistanc",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-26-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_06-26-00.png"
+  }
+}

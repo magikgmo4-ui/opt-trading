@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_055408_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T01:54:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_01-53-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 68.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 69.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 70.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 71.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "anticipe vente sous résistance à 70.5-71 avec stop loss au-dessus de 71. Suivi des supports 68.5-69 pour prise de profit ou invalidation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture durable au-dessus de 71",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL) répétées.  \n- Structure fragile avec tentative de rebond vers 70.5-71 mais encore sous résistances proches.  \n- Zone support clé vers 68.5-69 à surveiller pour invalidation d’une poursuite baissière.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLe marché évolue en tendance baissière nette, caractérisée par des Lower Highs et Lower Lows consécutifs. Après un retracement modéré, le prix rencontre une résistance autour de 70.5-71, nouvelle zone de rejet. La structure montre une faiblesse persistante, malgré un sursaut sur volume vers 68.5-69 qui pourrait temporairement servir de support. Un retour sous ce support invaliderait tout scénario de rebond et renforcerait la pression vendeuse. A contrario, un break net au-dessus de 71 mettrait fin à la séquence baissière court terme et ouvrirait la voie à un retracement plus important.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"b",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_01-53-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_01-53-51.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_142641_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T10:26:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-26-30",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1830.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre à la rupture du support 1740 avec stop loss au-dessus de 1830",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1830",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance de fond clairement baissière sur le timeframe 1h, avec une série de plus bas et plus bas (LL).\n- Structure actuelle très fragile, tentative de rebond en HL mais résistance proche autour de 1800-1820 USDT.\n- Scénario prioritaire : continuation de la baisse si le prix casse le récent support vers 1740 USDT, invalidation au-dessus de 1830 USDT.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLa tendance est baissière dominante, marquée par une série de plus bas et plus bas (LL) sur la période visible. On observe une tentative de rebond formant un plus bas relatif (HL) autour de 1740, mais le prix bute sur une résistance vers 1800-1820. Le volume augmente sur les mouvements baissiers récents, confirmant la pression vendeuse. Le support clé à surveiller est 1740 USDT, en dessous duquel la baisse devrait se poursuivre. Le franchissement et la tenue au-dessus de 1830 invalideraient ce scénario baissier à court terme.\n\nC) DeskPro  \n{\"run_id\":\"20240604_ethusdt_1h\",\"charts\":[{\"sl",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-26-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_10-26-18.png"
+  }
+}

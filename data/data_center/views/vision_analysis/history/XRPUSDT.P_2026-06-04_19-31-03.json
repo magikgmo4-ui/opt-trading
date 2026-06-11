@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_233111_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T19:31:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-31-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.155,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.185,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous résistance 1.185, avec stop au-dessus. Attention cassure support 1.155 pour extension baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture marquée au-dessus de 1.185",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Repli latéral récent marquant une zone de support autour de 1.155 et une zone de résistance proche de 1.185.  \n- Scénario privilégié : poursuite possible de la baisse si support invalidé, sinon attention à un rebond technique zone résistance.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nLe graphique montre une structure de baisse claire confirmée par des Lower Highs et Lower Lows successifs. Le prix a testé plusieurs fois un support clé aux environs de 1.155, formant une sorte de zone de consolidation/soutien temporaire. La résistance à proximité immédiate se situe autour de 1.185, correspondant aux derniers sommets intermédiaires. Tant que la structure reste sous cette résistance, la pression vendeuse domine. Une cassure en dessous du support 1.155 serait le signal d’une poursuite de la tendance baissière, avec un objectif vers les 1.13-1.14. Au contraire, un franchissemen",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-31-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_19-30-55.png"
+  }
+}

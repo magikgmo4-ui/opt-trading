@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_165810_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T12:58:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-57-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sous retracement proche support 61.5 ou à cassure 65-66 avec stop sous 61.5",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte durable du support 61.5",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m en reprise haussière après un plus bas local (HL formé).\n- Structure ascendante récente avec HH/HL confirmés.\n- Zone clé support vers 61.5 USDT, résistance intermédiaire vers 66 USDT.\n\nB) Chart unique (SOLUSDT.P 15m) : \nLe graphique montre une phase initiale de baisse marquée suivie d’un rebond formant un plus bas relatif vers 60 USDT. Depuis, la structure présente des points hauts et bas de plus en plus élevés (HH/HL), traduisant une tendance haussière à court terme. On observe une zone de support importante autour de 61.5 USDT où le prix a rebondi à plusieurs reprises. La résistance à surveiller est située vers 66 USDT, qui a freiné la dernière poussée. Scénario privilégié : poursuite du rallye au-dessus de 65 USDT avec possibilité d’extension vers 66+. Invalidation sous 61.5 USDT qui remettrait en cause la reprise haussière.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[61.5],\"resistances\":[6",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-57-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-07_12-57-50.png"
+  }
+}

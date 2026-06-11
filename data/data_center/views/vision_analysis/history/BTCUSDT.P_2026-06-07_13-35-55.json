@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_173603_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T13:36:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-35-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Recherche d'entrée sur retracement proche 61800 en vue d'un test de la résistance 62800-63000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et clôture sous 60400.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intraday haussière marquée par une série de creux et sommets plus hauts (HL et HH).  \n- Structure en reprise après une phase de consolidation/bascule latérale vers 60 400-61 000.  \n- Zone clé résistance autour de 62 800-63 000 à surveiller; invalidation sous 60 400.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre un retournement haussier depuis un creux proche de 58 800, suivi d'une consolidation entre 60 400 (support) et 61 000. Après la rupture des 61 000, la structure forme des HL/HH jusqu’à un sommet proche de 62 800-63 000. Un retracement vers 61 800-62 000 fait office de support provisoire. La tendance court terme est donc haussière avec une zone de prise de profit possible à la résistance. Un retour sous 60 400 invaliderait ce scénario haussier.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bullish\",\"structure\":\"HL/HH\",\"supports\":[60400,61800],\"resistances\":[62800,63000],\"plan\":\"Recherche d'entrée sur retracement proche 6180",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-35-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_13-35-47.png"
+  }
+}

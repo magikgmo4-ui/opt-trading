@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_042656_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T00:26:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-26-48",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rebond possible sur support 1530-1540 ou cassure pour poursuite baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable au-dessus de 1650 USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de HH et LL descendant.  \n- Structure récente montre des Lower Highs (LH) et Lower Lows (LL), signal de continuation.  \n- Zone clé support vers 1530-1540 USD à surveiller pour un possible rebond ou cassure.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre un biais globalement baissier sur ce timeframe. La structure est en succession de Lower Highs et Lower Lows, validant la force vendeuse. Le prix teste actuellement une zone support autour de 1530-1540 USD (dernier creux significatif). Un rebond sur cette zone pourrait amorcer un move de correction à court terme; une cassure nette confirmerait la poursuite de la baisse. Les résistances majeures à surveiller sont autour des 1600 USD et 1650 USD. L’invalidation du scénario baissier interviendrait sur un franchissement et maintien au-dessus des 1650 USD.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH / LL\",\"supports\":[1530,",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-26-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_00-26-40.png"
+  }
+}

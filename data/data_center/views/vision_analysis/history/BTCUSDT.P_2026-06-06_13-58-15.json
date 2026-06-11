@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_175822_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:58:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-58-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 62000 en visant maintien sous 59000. Rebond possible si maintien support 59000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire et maintien au-dessus de 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure claire de downtrend, aucune inversion visible actuellement.  \n- Zone clé support autour de 59 000$ testée plusieurs fois, zone résistance immédiate vers 62 000$.\n\nB) Chart unique (BTCUSDT.P 1h) : La structure HTF est baissière, les prix affichent une succession de LH et LL sur le timeframe 1h. Le prix a marqué un creux proche de 59 000$ (support majeur court terme) et peine à se relancer au-dessus de 62 000$, témoignant d’une zone de résistance forte. Scénario principal : poursuite de la baisse si 59 000$ est cassé en extension. Alternative : rebond technique si maintien du support, avec tentative de test des 62 000$. Invalidation du scénario baissier si le prix dépasse et se maintient au-dessus des derniers LH (63 000$ environ).  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"59000\"],\"resistances\":[\"62000\",\"6300",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-58-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_13-58-06.png"
+  }
+}

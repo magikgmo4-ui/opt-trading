@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_051719_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T01:17:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_01-17-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "entrée longue à cassure 62,200 avec stop sous 59,600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage sous 59,600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte terme : tentative de retournement haussier après un creux récent.  \n- Structure marquée par des LL/LH puis un début de HH sur la droite du graphique.  \n- Zones clés : support vers 59,400-59,600, résistance immédiate autour de 62,200.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une phase baissière initiale avec des Lower Highs (LH) et Lower Lows (LL) jusqu'au 6 juin tôt, signe d’une tendance baissière. Puis le prix consolide et forme un creux sur 59,400-59,600, suivi d’une progression avec un Higher Low (HL) et tentative de Higher High (HH) vers 61,800-62,000, indiquant un possible changement de tendance à court terme. La structure est donc mixte, en transition. Une cassure claire au-dessus de 62,200 validerait un biais haussier, tandis qu’un retour sous 59,600 invaliderait ce scénario.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre/haussier naissant\",\"structure\":\"LL puis HL et tentative HH\",\"supports\":[\"59,400\",\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_01-17-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_01-17-03.png"
+  }
+}

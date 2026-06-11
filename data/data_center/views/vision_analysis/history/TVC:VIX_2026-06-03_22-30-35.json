@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_023043_TVC:VIX_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "TVC:VIX",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:30:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-30-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 15.8,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 16.3,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller breakout du range pour prise de position. Short sous 15.80, ou long en cas de franchissement clair de 16.30.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture significative au-dessus de 16.30 pour le biais baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière confirmée (séries de LH et LL).  \n- Structure récente en stabilisation avec range horizontal entre 15.80 et 16.30.  \n- Zones clés à surveiller : support vers 15.80, résistance à 16.30; breakout possible pour un nouveau mouvement.\n\nB) Chart unique (TVC:VIX 1h):  \nLe VIX est en tendance baissière avec une série de Lower Highs (LH) et Lower Lows (LL) sur la période observée. Après la dernière baisse prononcée, le prix semble se consolider dans une zone de range entre environ 15.80 (support) et 16.30 (résistance). Une sortie haussière au-dessus de 16.30 invaliderait la dynamique baissière à court terme et pourrait signaler un possible rebond. À l’inverse, une cassure sous 15.80 renforcerait la tendance baissière et pourrait pousser vers de nouveaux plus bas.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec consolidation\",\"structure\":\"LH/LL puis range horizontal\",\"supports\":[\"15.80\"],\"resistances\":[\"16.30\"],\"pl",
+  "symbols_found": [
+    "TVC:VIX"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-30-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:VIX_1h_2026-06-03_22-30-12.png"
+  }
+}

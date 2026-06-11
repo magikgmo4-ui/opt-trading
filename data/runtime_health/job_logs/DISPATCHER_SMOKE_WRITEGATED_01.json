@@ -1,0 +1,80 @@
+{
+  "job_id": "DISPATCHER_SMOKE_WRITEGATED_01",
+  "task_type": "WRITE_GATED",
+  "status": "DRY_RUN_PASS",
+  "dry_run": true,
+  "gate_approved": false,
+  "read_count": 1,
+  "read_operations": [
+    {
+      "path": "docs/openclaw/INDEX.md",
+      "size_bytes": 1991
+    }
+  ],
+  "write_plan_count": 1,
+  "write_results": [
+    {
+      "target": "reports/ai/workers/DISPATCHER_SMOKE_WRITEGATED_01.md",
+      "lines": 3,
+      "status": "DRY_RUN_WOULD_WRITE"
+    }
+  ],
+  "produced_at": "2026-06-03T07:24:35.337440+00:00",
+  "validation": {
+    "status": "PASS",
+    "job_id": "DISPATCHER_SMOKE_WRITEGATED_01",
+    "task_type": "WRITE_GATED",
+    "default_worker": "glm-5.1",
+    "valid_workers": [
+      "glm-5.1",
+      "qwen3.6-plus"
+    ],
+    "output_file": "/home/fantome/opt-trading-clean/reports/ai/workers/DISPATCHER_SMOKE_WRITEGATED_01.md",
+    "autonomy_max": "A4",
+    "required_sections": [
+      "13_ESTABLISHED",
+      "14_HYPOTHESIS",
+      "WRITE_PLAN",
+      "WRITE_DIFF_ATTENDU",
+      "VALIDATION_EXTERNE",
+      "DRY_RUN_RESULT",
+      "RISQUES",
+      "VERDICT_WRITE_GATED"
+    ],
+    "writes_code": false,
+    "allowed_inputs": [
+      "docs/openclaw/INDEX.md"
+    ],
+    "global_invariants": {
+      "no_secrets": true,
+      "no_env_files": true,
+      "no_git_write_ops": true,
+      "no_runtime_write_by_default": true,
+      "requires_external_validation": true,
+      "output_status": "DRAFT_ONLY",
+      "only_verified_models": true
+    },
+    "denied_commands": [
+      "git add",
+      "git commit",
+      "git push",
+      "git rebase",
+      "git merge",
+      "rm -rf",
+      "chmod -R",
+      "chown -R"
+    ],
+    "denied_inputs": [
+      ".env",
+      "**/.env",
+      "**/*secret*",
+      "**/*token*",
+      "**/*credential*",
+      "**/id_rsa",
+      "**/id_ed25519",
+      "**/*.pem",
+      "**/*.key"
+    ],
+    "warnings": []
+  }
+}

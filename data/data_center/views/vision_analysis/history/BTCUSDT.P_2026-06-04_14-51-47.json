@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_185157_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T14:51:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-51-47",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la rupture du support, ou attendre confirmation d'inversion au-dessus de 65000 pour achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 65000 avec HH/HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière confirmée sur le 1h avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Zone de support temporaire autour de 62 000-63 000 USDT, actuellement testée avec tentative de rebond.  \n- Scénario actionnable : surveiller la rupture en-dessous du support pour poursuite de la baisse, ou un retour au-dessus des récents LH (~65 000 USDT) pour un possible début de reprise.\n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance clairement baissière, structure en LL/LH bien établie. Support clé identifié vers 62 000-63 000 USDT. Résistance majeure autour de 65 000 USDT. Volume en légère augmentation sur le rebond, signalant un intérêt potentiel. Invalidation du scénario baissier si on dépasse durablement 65 000 USDT avec structure HH/HL.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[\"62000-63000\"],\"resistances\":[\"65000\"],\"plan\":\"Vendre à la rupture du support, ou attendre confirmation d'inversion a",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-51-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_14-51-34.png"
+  }
+}

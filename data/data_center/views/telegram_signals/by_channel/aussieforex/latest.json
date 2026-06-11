@@ -1,0 +1,88 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "aussieforex",
+  "total": 8,
+  "signals": [
+    {
+      "id": "tg_20053_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4290.0,
+      "sl": 4266.0,
+      "tp": 4390.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-08T12:04:25+00:00"
+    },
+    {
+      "id": "tg_20051_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4486.0,
+      "sl": 4470.0,
+      "tp": 4700.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-27T03:10:50+00:00"
+    },
+    {
+      "id": "tg_20049_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4655.0,
+      "sl": 4639.0,
+      "tp": 4900.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-11T19:47:26+00:00"
+    },
+    {
+      "id": "tg_20048_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4530.0,
+      "sl": 4500.0,
+      "tp": 4730.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-05-11T00:59:11+00:00"
+    },
+    {
+      "id": "tg_20046_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4860.0,
+      "sl": 4800.0,
+      "tp": 5200.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-03-06T13:18:38+00:00"
+    },
+    {
+      "id": "tg_20045_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 5300.0,
+      "sl": 5250.0,
+      "tp": 6200.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-03-02T03:37:21+00:00"
+    },
+    {
+      "id": "tg_20041_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 5145.0,
+      "sl": null,
+      "tp": 6000.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-01-29T18:11:44+00:00"
+    },
+    {
+      "id": "tg_20039_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 5145.0,
+      "sl": null,
+      "tp": 5500.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-01-29T18:11:25+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_071133_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T03:11:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-11-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la cassure du support 61,000 avec objectif à 59,000. Surveiller rebond sous résistance 64,000 pour short secondaires.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement et tenue au-dessus de 64,000 avec structure de HH.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière clairement établie sur le 1h avec une série de lower highs (LH) et lower lows (LL).  \n- Structure de marché baissière, le prix forme une forte dynamique de vente avec des replis courts.  \n- Zones clés identifiées autour de 64 000 (résistance récente) et 61 000 (support à surveiller pour maintien du biais).\n\nB) Chart unique (BTCUSDT.P 1h): La tendance est baissière avec une structure en LH et LL, indiquant une pression vendeuse persistante. Le prix a récemment rebondi sur un support autour de 61 000 USDT mais reste sous une résistance proche de 64 000 USDT, ce qui limite toute tentative de rebond significatif. Le scénario prioritaire est la poursuite de la baisse en cas de cassure du support 61 000. Invalidation du biais baissier si le prix franchit durablement la zone des 64 000 USDT avec une structure de higher highs.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH, LL\",\"supports\":[\"61,000\"],\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-11-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_03-11-15.png"
+  }
+}

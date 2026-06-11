@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_130017_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:00:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-00-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1830.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1880.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rupture 1880 pour reprise haussière, stop si <1830",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "<1830",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendances majoritairement baissières sur les actifs visibles avec tentatives de rebond récentes.  \n- Structure globale marquée par des LL et LH montrant incertitude et possible retournement à court terme.  \n- Zones clés de support identifiées en bas de correction, résistances à surveiller sur derniers sommets locaux.\n\nB) Chart 1 (haut-gauche): Ethereum / USDT, 15 min  \nLa tendance court terme est baissière avec une série de Lower High (LH) et Lower Low (LL) jusqu’à un point bas vers 1830$. Structure de correction en place avec un support vérifié à ce niveau. Un rebond tente de se matérialiser, marquant un possible Higher Low (HL). La zone clé de résistance est autour de 1880$ (plusieurs pics de prix). Scénario si rupture à la hausse : reprise de la tendance haussière court terme. Invalidation au-dessous de 1830$ (support) qui réactiverait la baisse.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole/timeframe non lisible.\n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole/timefr",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-00-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_08-59-50.png"
+  }
+}

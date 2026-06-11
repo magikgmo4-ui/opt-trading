@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_163844_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T12:38:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-38-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short à la résistance, stop au-dessus du dernier sommet 64600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture claire > 64600 en 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 15m, avec des creux et sommets plus bas (LL/LH).  \n- Rebond technique récent formant un sommet local, possible retracement à venir.  \n- Zone clé support vers 62 000-62 400, résistance locale autour de 64 400-64 600.\n\nB) Chart unique (BTCUSDT.P 15m):  \nStructure baissière marquée par une série de lower highs et lower lows. Le prix a commencé un rebond vers 64 400-64 600, mais stagne et montre des signes de faiblesse. Un retour vers le support 62 000 pourrait se déclencher si la résistance tient. Le scénario actionnable est une prise de position short à la rupture de la zone de résistance récente avec un stop au-dessus du dernier sommet vers 64 600. Invalidation du biais baissier sous réserve d’un franchissement et clôture au-dessus du niveau 64 600 en 15m.\n\nC) DeskPro  \n{\"run_id\":\"20240605-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"62000\",\"62400\"],\"resistances\":[\"64400\",\"64600\"],\"plan\":\"sho",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-38-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_12-38-26.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_211143_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T17:11:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-11-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.2,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.245,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller tenue support 1.20, privilégier ventes sous 1.245, viser nouveaux plus bas sous 1.20",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement à la hausse 1.245",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement baissière avec structure en LL (Lower Lows) et LH (Lower Highs) bien marquée.  \n- Zones clés identifiées autour de 1.20 en support intermédiaire et résistance vers 1.245.  \n- Scénario prioritaire de continuation baissière sous invalidation à franchissement de 1.245.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nSur ce graphique 15 minutes, la tendance est descendante, caractérisée par une succession de plus bas et plus hauts relatifs descendants (LL/LH). Le prix teste la zone support à 1.20, où une réaction acheteuse est visible mais frêle. La pression vendeuse se maintient sous la résistance située près de 1.245, confirmant la structure baissière. Un rebond technique est possible mais limitée tant que les résistances ne cèdent pas. Une cassure claire sous 1.20 relancerait la baisse vers de nouveaux plus bas. Invalidation du biais baissier possible au-delà de 1.245, ce qui redonnerait un potentiel haussier court terme.  \n\nC) DeskPro  \n{\"run_id\":\"00",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-11-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-03_17-11-25.png"
+  }
+}

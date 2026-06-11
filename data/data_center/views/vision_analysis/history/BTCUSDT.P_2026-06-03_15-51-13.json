@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_195124_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:51:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-51-13",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Suivre repli sous résistance puis test support. Achat possible à validation support si rebond.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 1.05T confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune donnée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché crypto total excluant BTC montre une tendance baissière avec structure en cours de consolidation.  \n- Plusieurs tentatives de rebond échouent sous des résistances majeures, indiquant de la faiblesse.  \n- Surveillance des zones clés de support pour une potentielle poursuite baissière ou un retournement.  \n\nB) Chart 1 (haut-gauche): TOTAL2 Crypto Market Cap D1  \n- Tendance principale baissière, structure en LH et LL confirmée depuis début 2026.  \n- Tentatives de rebond bloquées vers 1.05T, résistance clé à surveiller.  \n- Support clé autour de 900B-920B, zone de décision structurante.  \n- Scénario probable: poursuite du repli sous pression vendeuse, test support.  \n- Invalidation: franchissement franc au-dessus de 1.05T avec suivi volume.  \n\nC) Chart 2 (haut-droit): Inconnu (non visible dans l'image)  \n- Symbole/timeframe non lisible, analyse impossible.  \n\nD) Chart 3 (bas-gauche): Inconnu (non visible dans l'image)  \n- Symbole/timeframe non lisible, analys",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-51-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-03_15-51-03.png"
+  }
+}

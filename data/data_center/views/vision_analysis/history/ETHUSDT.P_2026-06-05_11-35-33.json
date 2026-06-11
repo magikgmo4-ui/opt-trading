@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_153543_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T11:35:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-35-33",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le support 1580-1600 pour potentielle zone de rebond. Short en retest si cassure confirmée, stop si retour au-dessus des LH 1680-1700.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair de 1680-1700 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette confirmée sur le 1h avec une succession de bas et hauts plus bas (LH/LL).\n- Forte accélération baissière récente, cassure des supports intermédiaires.\n- Zone clé de support visible autour de 1580-1600 USDT, à surveiller pour un rebond technique.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une structure clairement baissière avec des Lower Highs (LH) et Lower Lows (LL), confirmant une tendance down. La dynamique s’accélère sur les dernières chandelles avec un volume soutenu lors de la chute, indiquant un fort intérêt vendeur. Le support récent autour de 1580-1600 agit comme zone clé à court terme. Un rebond possible peut s’enclencher ici mais reste fragile. En cas de cassure à la baisse de ce niveau, poursuite probable vers les prochains supports plus bas. Une invalidation du scénario baissier serait un retour franc au-dessus des derniers Lower Highs vers 1680-1700.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bai",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-35-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_11-35-26.png"
+  }
+}

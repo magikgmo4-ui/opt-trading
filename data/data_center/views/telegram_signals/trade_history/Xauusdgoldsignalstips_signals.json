@@ -1,0 +1,53 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Xauusdgoldsignalstips_5336_2026-02-16T12:28:44+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Xauusdgoldsignalstips",
+    "parsed_at": "2026-02-16T12:28:44+00:00",
+    "produced_at": "2026-06-11T10:00:14.095339+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4998.0,
+    "sl": 4990.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Gold Buy Now @ 4998 - 4994\n\nSl: 4990\n\nTP: 50/100Pips"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Xauusdgoldsignalstips_5340_2026-02-17T05:39:45+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Xauusdgoldsignalstips",
+    "parsed_at": "2026-02-17T05:39:45+00:00",
+    "produced_at": "2026-06-11T10:00:14.095543+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4888.0,
+    "sl": 4898.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Gold Sell Now @ 4888 - 4892\n\nSl: 4898\n\nTp: 50/100Pips"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Xauusdgoldsignalstips_5346_2026-02-17T05:56:40+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Xauusdgoldsignalstips",
+    "parsed_at": "2026-02-17T05:56:40+00:00",
+    "produced_at": "2026-06-11T10:00:14.095729+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4885.0,
+    "sl": 4875.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "Gold Buy Now @ 4885 - 4880\n\nSl: 4875\n\nTp: 100/200Pips"
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_190905_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T15:09:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-08-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure du 1650 avec stop sous 1600. En cas de break 1600, revoir la position pour un possible retournement baissier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et clôture sous 1600.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente haussière bien marquée après une phase baissière importante.  \n- Structure en HH/HL présente depuis un point bas proche de 1520, montrant un rebond solide.  \n- Zone de résistance vers 1640-1650 testée plusieurs fois, possible point de retournement ou consolidation.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre un fort mouvement baissier initial (LL), suivi d’un renversement avec des HL et HH clairs, traduisant une reprise haussière. Actuellement, le prix est proche d'une zone de résistance vers 1640-1650, qui a stoppé la hausse à plusieurs reprises. La dernière chandelle rouge indique un rejet de cette résistance. Le support clé se situe aux alentours de 1600-1610, niveau à surveiller pour validation de la structure haussière. Scénario actionnable : attendre une cassure claire au-dessus de 1650 pour confirmer la continuation haussière, ou un break sous 1600 invalidant le pattern haussier pour viser un retracement plus profond.  \n\nC) Des",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-08-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_15-08-37.png"
+  }
+}

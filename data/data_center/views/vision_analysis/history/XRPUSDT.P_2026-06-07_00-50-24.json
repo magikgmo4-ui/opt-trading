@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_045032_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T00:50:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_00-50-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.065,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.125,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher confirmation breakout >1.125 pour swing haussier; si échec, potentiel range ou retour bearish",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte 1.065 enclencherait retournement baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le plus long terme, avec une séquence de LH et LL nette.  \n- Derniers mouvements montrent une tentative de retournement avec formation de HL sur le court terme.  \n- Zone clé de résistance proche à 1.125, support majeur vers 1.065.\n\nB) Chart unique (XRPUSDT.P 15m)  \nOn observe une structure baissière classique avec des lower highs (LH) et lower lows (LL) bien marqués. La récente reprise donne un HL récent, témoignant d'une possible tentative de retournement ou d'un range/phase d'accumulation. Le prix peine à dépasser 1.125, résistance technique à surveiller. En cas de breakout validé sur ce niveau, scénario haussier privilégié jusqu’à 1.150+ à court terme. Invalidation si perte nette du support 1.065, qui renforcerait la poursuite baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL récent après LH/LL majoritaire\",\"supports\":[\"1.065\"],\"resistances\":[\"1.125\"],\"plan\":\"Chercher con",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_00-50-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-07_00-50-16.png"
+  }
+}

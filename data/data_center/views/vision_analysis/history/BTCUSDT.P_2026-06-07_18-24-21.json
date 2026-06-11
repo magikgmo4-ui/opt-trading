@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_222430_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T18:24:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-24-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat support 61400-61800 avec stop sous 61400, prise de profit vers 64200 et breakout possible au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassage sous 61400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire visible sur le 15m avec une série de HH/HL depuis une base autour de 59 400.  \n- Forte mèche haute récente autour de 64 200 marque une zone de résistance immédiate.  \n- Soutien visible entre 61 400 et 61 800, zone clé pour valider la poursuite du biais haussier.\n\nB) Chart unique (BTCUSDT.P 15m): Tendance haussière confirmée via structure HH/HL typique. La dernière grosse bougie verte valide une forte dynamique acheteuse sortie d'une zone support clé. Résistance immédiate identifiée sous 64 200 (haute récente), zone de prise de profits possible. Les supports à 61 400-61 800 sont cruciaux pour maintenir la structure haussière. En cas de cassure sous ces supports, le scénario baissier s'activerait. Plan d’action : surveiller retour sur support pour achats à bon prix, et valider breakout au-delà de 64 200 pour viser extensions haussières.\n\nC) DeskPro  \n{\"run_id\":\"0\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-24-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_18-24-12.png"
+  }
+}

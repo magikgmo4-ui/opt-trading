@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_135214_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T09:52:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_09-52-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond ou cassure du support 61000. Achat possible si retour au-dessus de 62200 avec validation d’un HL. Sinon short potentiel à la cassure de 61000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable au-dessus de 62200 qui confirme la rupture du pattern baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance déclinante nette avec une série de Lower Highs (LH) et Lower Lows (LL) sur le 15m.  \n- Structure baissière confirmée, aucune tentative de retournement clair visible.  \n- Zone clé de support autour de 61,000 USDT surveillée, rupture = poursuite du mouvement baissier.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance est baissière dominante caractérisée par des Lower Highs et Lower Lows réguliers. Le prix a dernièrement cassé un niveau de support intermédiaire autour de 62,200 USDT pour venir tester le support majeur proche de 61,000 USDT. Un rebond sur cette zone est possible mais fragile, la pression vendeuse reste forte. Un retour au-dessus de 62,200 USDT invaliderait le scénario baissier court terme et pourrait ouvrir vers une correction haussière. À l’inverse, une cassure sous 61,000 USDT relancerait une extension de la baisse. Aucune structure de retournement ne s’est formée pour le moment.  \n\nC) DeskPro  \n{\"run_id\":\"20240614_1352\",\"charts\":[{\"slot\":\"s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_09-52-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_09-51-47.png"
+  }
+}

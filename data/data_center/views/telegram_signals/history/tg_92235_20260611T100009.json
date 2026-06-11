@@ -1,0 +1,22 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_92235_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "GOLD_FOREX_SIGN",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T07:46:47+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4188.0,
+  "sl": null,
+  "tp": null,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "Xauusd Buy Zone @4188-4183\n\nSl Break 4179\n\nTp Open",
+  "summary": "XAUUSD LONG"
+}

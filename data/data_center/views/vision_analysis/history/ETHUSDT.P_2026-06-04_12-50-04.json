@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_165013_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T12:50:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-50-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente proche résistance 1850, stop above 1850, target 1700",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture nette > 1850",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette en 1h, avec des lower highs (LH) et lower lows (LL) bien marqués.  \n- La structure montre une reprise hésitante mais le pattern baissier reste dominant.  \n- Zone clé de support vers 1700 USD, résistance immédiate à 1850 USD.\n\nB) Chart unique (ETHUSDT.P 1h): Le graphique montre une structure clairement baissière avec une succession de LH et LL. Après une forte chute, un léger rebond apparaît mais sans encore invalider la tendance. La résistance proche à 1850 USDT semble solide, stoppant pour l’instant la reprise. Le support à 1700 USDT est un pivot important à surveiller, sa rupture confirmerait la poursuite de la baisse. Scénario viable : rebond technique jusqu’à 1850 puis reprise de la vente. Invalidation si break clair au-dessus de 1850, signalant possible retournement ou consolidation.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1700],\"resistances\":[1850],\"plan\":\"Vente proche",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-50-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_12-49-57.png"
+  }
+}

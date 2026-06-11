@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_111209_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T07:12:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-12-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 1720 pour trade court terme. Vendre en cas de rejet des résistances 1760-1780. Valider poursuite basse en cassant 1720.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture >1800 confirmant changement de structure et possible inversion.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le timeframe 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragilisée avec un rebond récent limité vers 1760-1780, zone de résistance courte terme.\n- Scénario principal: poursuite du mouvement baissier tant que la résistance à 1780 n'est pas dépassée, invalidation au-dessus de 1800.\n\nB) Chart unique (ETHUSDT.P 15m): \nBiais baissier confirmé par la structure en HL/LL. Zones clés à surveiller: support à 1720, résistance à 1760-1780. Le prix rebondit actuellement sur support, un test du support avec rebond serait une opportunité d’achat provisoire mais prudence, car la tendance principale reste baissière. Break en dessous des 1720 renforcerait la pression vendeuse. Invalidation de la baisse si le prix dépasse durablement 1800 avec changement de structure (HH).\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[1720],\"resistances\":[1760,1780],\"plan\":\"Surveil",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-12-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_07-11-54.png"
+  }
+}

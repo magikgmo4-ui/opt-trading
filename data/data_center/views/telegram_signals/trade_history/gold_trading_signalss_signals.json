@@ -1,0 +1,39 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_trading_signalss_3686_2023-05-23T15:11:09+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_trading_signalss",
+    "parsed_at": "2023-05-23T15:11:09+00:00",
+    "produced_at": "2026-06-11T10:00:14.452379+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 136.8,
+    "sl": 137.3,
+    "tp": 134.0,
+    "tps": [
+      134.0,
+      136.6
+    ],
+    "leverage": null,
+    "raw_text": "USDJPY SELL @136.800 - 137.100\n\nsl : 137.300\ntp : 136.600\ntp : 134.000"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_gold_trading_signalss_3694_2023-05-23T15:11:29+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "gold_trading_signalss",
+    "parsed_at": "2023-05-23T15:11:29+00:00",
+    "produced_at": "2026-06-11T10:00:14.452882+00:00",
+    "pair": "EURAUDUSDT",
+    "asset": "EURAUD",
+    "direction": "LONG",
+    "entry_price": 1.626,
+    "sl": 1.62,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "euraud buy now @1.62600-1.62300\n\nsl: 1.62000\n\ntp1: 1.63200\ntp2: 1.63600"
+  }
+]

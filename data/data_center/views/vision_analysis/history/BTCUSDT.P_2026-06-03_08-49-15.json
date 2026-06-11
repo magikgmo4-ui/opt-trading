@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_124927_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T08:49:24-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_08-49-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 76.0,
+      "confidence": 0.7,
+      "note": "s 76.00"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière dominante sur le timeframe 15m (inconnu pour autres graphiques).  \n- Structure marquée par une série de Lower Highs (LH) et Lower Lows (LL), signalant une pression vendeuse persistante.  \n- Zones clés à surveiller : support autour de 72.50, résistance vers 76.00-77.00, scénario de retour vers S/R ou continuation potentielle.  \n\nB) Chart 1 (haut-gauche):  \nTicker SOLUSDT, 15m  \nTendance baissière claire, la structure montre HL cassés, on a des Lower Highs et Lower Lows.  \nUne tentative de reprise récente avec volume accru montre un possible rebond temporaire.  \nSupport clé autour de 72.50-73.00, résistance immédiate entre 75.50 et 76.50.  \nScénario principal : continuer à monitorer la réaction au support, rebond possible mais risque de reprise à la baisse.  \nInvalidation si le prix casse durablement au-dessus de 77.00, signalant un changement structurel.  \n\nC) Chart 2 (haut-droit): inconnu (pas visible)  \n\nD) Chart 3 (bas-gauche): inconnu (p",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_08-49-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-03_08-49-03.png"
+  }
+}

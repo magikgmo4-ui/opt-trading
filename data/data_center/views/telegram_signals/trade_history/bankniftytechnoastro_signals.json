@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_bankniftytechnoastro_47_2022-06-07T09:28:28+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "bankniftytechnoastro",
+    "parsed_at": "2022-06-07T09:28:28+00:00",
+    "produced_at": "2026-06-11T10:00:14.162253+00:00",
+    "pair": "SLIVERUSDT",
+    "asset": "SLIVER",
+    "direction": "LONG",
+    "entry_price": 61800.0,
+    "sl": 100.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "BNA: Buy Sliver 61800\nSl 100 point target 900 points"
+  }
+]

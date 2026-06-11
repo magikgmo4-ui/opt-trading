@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_090448_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T05:04:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_05-04-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long above 1650 targeting 1750-1800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close under 1500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette depuis fin mai avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Rebond récent amorcé sur une zone de support vers 1500, formant un Higher Low (HL) potentiel.\n- Scénario possible de correction haussière en cours, à confirmer par franchissement des derniers Lower Highs vers 1650.\n\nB) Chart unique (ETHUSDT.P 1h) : \nTendance : baissière dominante, possible début de correction haussière.\nStructure : succession de LH/LL jusqu’à début juin, puis HL récent confirmé sur support 1500.\nSupports : 1500 (zone de fond local, accumulation).\nRésistances : 1650 (dernier LH important à valider pour confirmer invers. haussière).\nPlan : surveiller franchissement clair des 1650 pour chercher un long ciblant 1750-1800.\nInvalidation : retour sous 1500 avec chandelier de force invaliderait tentative haussière.\n\nC) DeskPro\n{\"run_id\":\"20240607_eth1h\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish with bullish correction\",\"structure\":\"LH/LL then recent HL\",\"su",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_05-04-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_05-04-22.png"
+  }
+}

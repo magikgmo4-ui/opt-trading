@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_101505_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T06:15:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-14-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Achat au franchissement 1640 avec stop sous 1570, sinon observation d'un possible pullback",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "repli sous 1570",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intraday en bascule : après une forte baisse initiale, le price action montre un retournement haussier progressif.  \n- Structure récente : séquence de HL (Higher Lows) et HH (Higher Highs) indiquant une reprise acheteuse.  \n- Zone de résistance à 1640 USD testée, avec léger rejet en cours, à surveiller pour potentielle correction ou poursuite.\n\nB) Chart unique (ETHUSDT.P 15m):  \nSur ce timeframe 15m, le marché a clairement validé une phase de retournement haussier marquée par des HL et HH successifs depuis un point bas situé vers 1500 USD. La zone clé autour de 1640 USD agit actuellement comme résistance. Un franchissement confirmé de cette zone permettrait la poursuite de la tendance haussière. En cas d'échec, la structure bullish serait mise en question avec un risque de rechute en dessous des derniers HL vers 1570 USD, qui ferait basculer la tendance en incertitude voire baissière court terme.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-14-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_06-14-49.png"
+  }
+}

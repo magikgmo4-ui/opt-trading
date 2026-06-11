@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_113230_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T07:32:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-32-18",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retester support et anticiper rebond ou cassure. Vente sous support valide continuation baissière. Achat possible si retour au-dessus de 1780.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair et stable au-dessus de 1780",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire, avec une série de Lower Highs (LH) et Lower Lows (LL) sur ce 15m.  \n- Plusieurs tentatives de rebond stoppées par des résistances à proximité des précédents hauts locaux.  \n- Zone clé support vers 1720-1740, à surveiller pour un possible rebond ou cassure.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nOn observe une dynamique baissière structurée par des LH et LL successifs, confirmant un biais vendeur. Le prix teste actuellement un support important autour de 1720-1740, zone où le volume a augmenté, signe d’un intérêt fort. La cassure de ce support relancerait la baisse avec comme prochains objectifs les zones basses sous 1700. En revanche, un rebond avec franchissement d’une résistance vers 1780 invaliderait ce scénario baissier à court terme et pourrait signaler un retour d’achat.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1720-1740\"],\"resistances\":[\"1780\"],\"plan\":\"Retester sup",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-32-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_07-32-10.png"
+  }
+}

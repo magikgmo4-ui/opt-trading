@@ -1,0 +1,22 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_EveningTrader_3778_2026-06-01T05:00:10+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "EveningTrader",
+    "parsed_at": "2026-06-01T05:00:10+00:00",
+    "produced_at": "2026-06-06T11:30:54.674606+00:00",
+    "pair": "BTCUSDT",
+    "asset": "BTC",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": 76025.9,
+    "tps": [
+      76025.9,
+      60.91
+    ],
+    "leverage": null,
+    "raw_text": "**01/06/2026 BTC Update  ****\ud83d\udcb0****\n\n****\u2705**** **BTC: Sideway within 72897.3 - 74227.7 range. No clear trend yet, waiting for breakout and confirmation\n\n- If BTC breaks 72897.3 Support \u2014> Potential dump to 71075.2 - 70692.5 or deeper to 66145.5 - 65446.3\n- If BTC breaks 74227.7 Resistance \u2014> Next targets: 76025.9 - 78647.5\n\n\ud83d\udcb8 BTC.D: 3D close below Support 59.97% \u2014> Continuing to dump to the next support below\n- If breaks Support 59.31% \u2014> Potential dump to Key Level Support 58.44%\n- If breaks 59.97% Resistance \u2014> Next targets: 60.91% - 61.42%\n\ud83d\udc49 **BTC.D short-term drop expected \u2014> Altcoins to benefit. Watch key support levels closely** \n\n**\u27a1\ufe0f**** BTC trend unconfirmed. Wait for breakout & confirmation to action Altcoins based on BTC short-term trend \n\n****\ud83d\udc8e**** BTC still in a macro bearish wave (W1 & Monthly closed red). This is just a short-term bounce; expect further drops toward 70k - 65k targets**"
+  }
+]

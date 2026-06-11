@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_212700_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T17:26:57-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_17-26-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1660.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le rebond actuel, envisager vente si rejet sur résistance 1640-1660 confirmé. Stop loss sous 1550 pour invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 1660",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure clairement dégradée, signe d’un momentum vendeur dominant.  \n- Première tentative de rebond en fin de graphique autour de 1550-1600, zone support à surveiller.  \n\nB) Chart unique (ETHUSDT.P 1h): La tendance principale reste baissière avec une série de LL et LH sans signe de reversal clair. Le récent rebond constitue un possible test de la résistance à 1640-1660, zone qui fera office de barrière clé pour valider un retournement ou une simple correction. La structure haussière intraday est fragile, invalidée si le prix retourne sous 1550. Le scénario à privilégier reste la continuation baissière tant que la zone de résistance n’est pas cassée.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[1550],\"resistances\":[1640,1660],\"plan\":\"Surveiller le rebond actuel, envisager vente si rej",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_17-26-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_17-26-19.png"
+  }
+}

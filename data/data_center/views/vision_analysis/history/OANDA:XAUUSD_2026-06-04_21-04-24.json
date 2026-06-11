@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_010433_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:04:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-04-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4520.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4540.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller achat sur support avec prise de profit proche résistance. Cassure résistance valide continuation haussière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure nette sous 4430",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante recentrée depuis un creux important, avec structure de rebond en HH/HL sur ce timeframe 1h.  \n- Plusieurs tentatives de reprise ont été suivies par des corrections, formant une zone de résistance majeure autour de 4 520-4 540.  \n- Support clé visible vers 4 430-4 450 : base des derniers creux, à surveiller pour invalidation.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure montre un mouvement baissier initial suivi d’un retournement en tendance plus neutre à légèrement haussière avec HH/HL. Le prix oscille entre une zone support vers 4 430-4 450 et une résistance clé à 4 520-4 540. Le scénario prioritaire serait une consolidation dans cette zone avant une possible cassure haussière confirmée par un HH au-dessus de 4 540. Invalidation du biais haussier si rupture franche sous 4 430. Le volume soutient les phases de poussée à la hausse.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"1685943600\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-04-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_21-04-06.png"
+  }
+}

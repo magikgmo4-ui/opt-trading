@@ -1,0 +1,27 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_156_20260611T073009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "forex_gold_signals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2020-05-06T11:48:18+00:00",
+  "produced_at": "2026-06-11T07:30:09.190099+00:00",
+  "pair": "EURUSD",
+  "direction": "LONG",
+  "entry_price": 1.0812,
+  "sl": null,
+  "tp": 1.0852,
+  "tps": [
+    1.0852,
+    2.0,
+    1.083,
+    2.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "Buy  EURUSD @1.08120\nTp @ 1.08520\nTp2 @1.09300\n Buy2 @1.07200\nTP @ 1.08300\nSL @1.06200",
+  "summary": "EURUSD LONG"
+}

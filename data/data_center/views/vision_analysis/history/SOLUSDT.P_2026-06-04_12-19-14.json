@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_161925_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T12:19:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-19-14",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillez la cassure de la résistance pour prendre position long, sinon vente sous 68.00",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture durable au-dessus de 71.00 valide la reprise, baisse sous 68.00 confirme la poursuite baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière confirmée sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente montre un retracement haussier local formant un Higher Low (HL) mais sans inversion claire de tendance.  \n- Zone clé de support autour de 68.00-68.50, résistance proche autour de 70.50-71.00 à surveiller pour validation du scénario haussier.\n\nB) Chart unique (SOLUSDT.P 15m):  \nLe prix évolue dans une tendance baissière clairement établie, caractérisée par des Lower Highs et Lower Lows. Après un plus bas vers 66.50, un retracement haussier a créé un Higher Low autour de 68.00, suggérant une possible tentative de retournement à court terme. Cependant, la résistance entre 70.50 et 71.00 reste un obstacle important. La confirmation d’un nouveau Higher High au-dessus de cette résistance validerait un changement de structure et un scénario haussier. En cas de repli sous 68.00, la baisse reprendrait son cours.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"chart",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-19-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_12-19-07.png"
+  }
+}

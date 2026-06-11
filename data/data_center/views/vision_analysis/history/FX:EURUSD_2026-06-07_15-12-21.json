@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_191230_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T15:12:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-12-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.159,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur pullback sous 1.15900, objectif 1.15000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1.15900",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale en 1h baissière marquée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rupture nette d’une zone support vers 1.15600-1.15700 avec forte accélération baissière et volume élevé.  \n- Scénario favori : poursuite du mouvement baissier vers la zone 1.15000, invalidation en reprise au-dessus de 1.15900 (dernier LH).  \n\nB) Chart unique (FX:EURUSD 1h):  \nLa structure montre un renversement clair vers la baisse avec un dernier sommet plus bas (LH) formé début juin, suivi d’un breakout agressif du support autour de 1.15600. Le volume accompagne la cassure, validant la force vendeuse. Le niveau 1.15000 constitue un support psychologique et technique à surveiller. Un repli au-dessus de 1.15900 invaliderait cette dynamique baissière. Il est préférable d’envisager des prises de position short en pullback sous résistance 1.15700-1.15900 avec stop serré.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/L",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-12-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-07_15-12-09.png"
+  }
+}

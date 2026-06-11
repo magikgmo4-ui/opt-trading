@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_123942_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T08:39:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-39-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rejet résistance 1580-1600, stop >1600, cible supports 1520 et plus bas si cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement clair et durable >1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m clairement baissière, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure fragile avec tentative de rebond récent qui reste sous résistance clé vers 1,580-1,600.\n- Scénario actionnable : recherche de confirmations short sur rejet de la résistance ou cassure S vers 1,520 pour poursuite baissière.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLa tendance est baissière nette avec une série de Lower Highs (LH) et Lower Lows (LL). Après un fort drop, un rebond correctif a eu lieu, mais le prix reste sous une zone de résistance majeure située entre 1,580 et 1,600. Le support immédiat est localisé vers 1,520. L’invalidation du scénario baissier interviendrait par franchissement clair et soutenu au-dessus de 1,600, ouvrant alors la porte à un retournement ou consolidation plus neutre. À court terme, la structure invite à privilégier des prises de positions short sur échec sous résistance, avec un stop serré au-dessus de 1,600, et un objectif baissier autou",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-39-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_08-39-20.png"
+  }
+}

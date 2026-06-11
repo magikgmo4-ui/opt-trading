@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_190215_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T15:02:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_15-02-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Shorts sous résistance 64300 avec stop au-dessus, ou achat à cassure résistance pour retournement.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire resistance 64300 pour invalidation biais baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée via une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond technique observé formant un Higher Low (HL) depuis le plus bas récent, possible début de correction.  \n- Zone clé majeure support vers 62 800 USDT, résistance immédiate autour de 64 300 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure est baissière avec des creux et sommets décalés à la baisse (LH/LL), traduisant un momentum vendeur clair. Le dernier creux forme un HL, ce qui suggère un potentiel retournement ou au moins un pallier à court terme. Le prix évolue entre un support à ~62 800 USDT et une résistance à ~64 300 USDT. Un franchissement de cette résistance invaliderait la poursuite baissière et lancerait un scénario haussier. En revanche, rupture du support confirmerait la continuité de la tendance baissière. Le plan actionnable actuel est d’attendre une confirmation haussière validant la cassure ou viser des shorts limités sous résistance avec stop",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_15-02-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_15-01-51.png"
+  }
+}

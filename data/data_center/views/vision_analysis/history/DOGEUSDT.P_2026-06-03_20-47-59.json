@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_004935_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T20:48:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_20-47-59",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.089,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0925,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.094,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher short sur rebond vers résistances, viser retour support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "dépassement durable 0.0940 volume confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le 15m avec série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure fracturée indiquant un momentum vendeur fort, avec quelques tentatives de rebond faibles.  \n- Zone clé support proche de 0.0890 à surveiller pour potentielle réaction.  \n\nB) Chart unique (DOGEUSDT.P 15m) :  \nLe graphique montre une tendance baissière claire avec des points hauts déclinants (LH) et des points bas de plus en plus bas (LL). Le volume augmente lors des baisses, accentuant la pression vendeuse. La zone 0.0890 semble un support important où le prix tente de stabiliser. En cas de rebond, un test des résistances vers 0.0925 puis 0.0940 est possible. Invalidation du scénario baissier si le prix franchit durablement 0.0940 avec volume.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[\"0.0890\"],\"resistances\":[\"0.0925\",\"0.0940\"],\"plan\":\"chercher short sur rebond vers résistances, viser retour suppo",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_20-47-59",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-03_20-47-51.png"
+  }
+}

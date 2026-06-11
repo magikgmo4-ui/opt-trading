@@ -1,0 +1,27 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_159_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "forex_gold_signals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2023-10-02T16:44:58+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 0.87,
+  "sl": 0.85,
+  "tp": 0.874,
+  "tps": [
+    0.874,
+    2.0,
+    0.87,
+    2.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "#BUY\u00a0 #AUDCAD @0.87000\nTp @ 0.87400\nTp2 @0.88000\n#BUY 2 @0.86000\nTP @ 0.87000\nSL @0.85000",
+  "summary": "XAUUSD LONG"
+}

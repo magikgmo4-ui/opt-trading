@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_044042_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T00:40:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-40-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.13,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.135,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.175,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur résistance 1.1750-1.1800, stop loss au-dessus 1.1800, cible 1.1300",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus 1.1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière avec une succession de lower highs (LH) et lower lows (LL).  \n- Zone de support clé vers 1.1300-1.1350 testée récemment et tenue pour l’instant.  \n- Scénario prioritaire short sous résistance majeure vers 1.1750, invalidation possible en franchissant 1.1800.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique montre une dominante structure baissière avec LH suivis de LL marqués, confirmant la tendance négative. La dernière correction haussière reste limitée face à la résistance 1.1750-1.1800, indiquant un potentiel retournement à la baisse. Le support immédiat autour de 1.1300-1.1350 est une zone cruciale à surveiller ; une cassure enclencherait une accélération baissière. Le plan d’action privilégie de chercher des prises de position short en zone résistances à chaque retour, avec une invalidation si le prix franchit 1.1800 en clôture significative.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-40-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-05_00-40-20.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_025528_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T22:55:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-55-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.086,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.089,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur rebond proche résistance 0.08900, viser 0.08600. Stop si invalidation par break 0.08900 en clôture 15m.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 0.08900 avec HH confirmé.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte terme baissière claire avec une série de plus bas (LL) et plus hauts (LH) descendants.  \n- Structure sans signal de retournement, pressions vendeuses dominantes.  \n- Zones clés à surveiller : support vers 0.08600 et résistance autour de 0.08900.\n\nB) Chart unique (DOGEUSDT.P 15m): La paire montre une dynamique baissière régulière avec des cassures de supports intermédiaires. La structure forme des HL/LL baissiers, témoignant d’un marché vendeur solide. Le support proche de 0.08600 semble temporairement sollicité, à suivre pour un possible rebond technique. La résistance clé à 0.08900 confirme la zone de rejet. Scénario principal : continuation baissière tant que 0.08900 n’est pas franchi. Invalidation du scénario baissier si break au-dessus avec un HH clair.\n\nC) DeskPro  \n{\"run_id\":\"auto-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"0.08600\"],\"resistances\":[\"0.08900\"],\"plan\":\"Vente sur rebond proche résistance 0.08",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-55-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_22-55-11.png"
+  }
+}

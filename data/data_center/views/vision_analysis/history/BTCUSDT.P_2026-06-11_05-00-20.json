@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_090031_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T05:00:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-00-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "observer réaction à 63500 pour short si rejet, ou achat au franchissement validé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture durable au-dessus de 63500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière visible avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure récente en base avec des HL partiels, indiquant un possible ralentissement ou une tentative de rebond.  \n- Zone clé autour de 63 500 USDT à surveiller comme résistance, support clé proche de 60 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nOn observe une tendance baissière claire depuis le début du graphique (du 2 au 5 juin), caractérisée par des LL et LH. Après un plus bas vers 59 000 USDT, le prix construit une consolidation avec des HL, suggérant un changement potentiel de dynamique. La résistance majeure à 63 500 USDT constitue une barrière significative à franchir pour invalider le biais baissier. Le scénario envisageable est un test de cette zone de résistance, suivi d'un rejet possible en cas de maintien de la pression vendeuse. Invalidation du scénario baissier si le prix casse fortement et conserve au-dessus de 63 500 USDT.\n\nC) DeskPro  \n{\"run_id\":\"001",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-00-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_05-00-03.png"
+  }
+}

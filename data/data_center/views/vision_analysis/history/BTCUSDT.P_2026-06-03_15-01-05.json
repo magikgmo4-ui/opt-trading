@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_190118_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:01:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-01-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 72.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 74.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre la baisse si résistance tenue, chercher rebond courts termes sur support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix>74.5 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance générale clairement baissière sur la plupart des timeframes visibles.  \n- Structure clairement en séquence de Lower High (LH) et Lower Low (LL) sur plusieurs graphiques, renforçant la pression vendeuse.  \n- Présence de zones clés de support vers ~72.5-73 USD, qui peuvent temporairement limiter la baisse.  \n\nB) Chart 1 (haut-gauche): 15m SOL/USDT  \nTendance: baissière  \nStructure: LL et LH bien marqués, pas de tentative claire de reprise haussière pour l’instant.  \nSupports: 72.5 USD zone clé, support psychologique sur ce seuil.  \nRésistances: 74.5 USD niveau à franchir pour invalider la baisse.  \nScénario: continuation de la baisse tant que 74.5 USD n’est pas franchi, anticipation possible de rebond court terme sur 72.5 USD.  \nInvalidation: dépassement clair des 74.5 USD avec volumes, signal de reprise haussière.  \n\nC) Chart 2 (haut-droit): inconnu (non visible dans détail)  \nTendance: inconnu  \nStructure: inconnu  \nSupports: inconnu  \nRésistances: inconnu",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-01-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-03_15-00-51.png"
+  }
+}

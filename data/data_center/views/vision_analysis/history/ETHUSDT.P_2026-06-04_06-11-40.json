@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_101156_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T06:11:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-11-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond proche résistance 1780-1800",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture au-dessus 1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance claire baissière avec une série de lower highs (LH) et lower lows (LL).\n- Structure fragile avec des tentatives ponctuelles de rebond mais sans changement durable.\n- Zones clés à surveiller : support vers 1740 et résistance immédiate vers 1780-1800.\n\nB) Chart unique (ETHUSDT.P 15m) :\nLe marché est dans une dynamique baissière nette, signée par une succession de creux et sommets de plus en plus bas (LL et LH). Le support important autour de 1740 a été testé récemment, provoquant un léger rebond. La structure de prix ne montre pas encore de signal d’inversion fiable, avec un dernier sommet à 1800 environ qui bloque toute progression. Un franchissement clair à la hausse de ce niveau invaliderait ce biais baissier. En revanche, une rupture du support 1740 pourrait accentuer la pression vendeuse. Le plan d’action prioritaire reste donc la vente sur replis proches de la résistance 1780-1800, avec stop serré au-dessus de 1800.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-11-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_06-11-31.png"
+  }
+}

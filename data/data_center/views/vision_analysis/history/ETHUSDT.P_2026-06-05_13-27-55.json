@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_172804_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T13:28:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-27-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1560.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short avec stop au-dessus de 1640, viser 1560 puis plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 1640 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Structure clairement baissière, les tentatives de rebond restent faibles.\n- Zone clé de résistance autour de 1 620-1 640 USDT, support immédiat à 1 560 USDT.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLe graphique montre une tendance baissière claire sur le timeframe 15 minutes, avec des creux et sommets déclinants (LL, LH). Le prix a fortement baissé récemment, avec des volumes en hausse sur les phases de chute. La structure ne montre pas de retournement à ce stade. Le niveau de 1 560 USDT agit comme support provisoire, tandis que la zone 1 620-1 640 USDT représente une résistance clé hors de portée pour l’instant. Scénario privilégié : poursuite de la baisse sous 1 560 USDT avec un nouveau plus bas possible. Invalidation du scénario baissier en clôture claire au-dessus de 1 640 USDT.\n\nC) DeskPro  \n{\"run_id\":\"20240605_1727\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"sup",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-27-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_13-27-47.png"
+  }
+}

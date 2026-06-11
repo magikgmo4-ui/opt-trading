@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_165117_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:51:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-51-08",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, symbole invalide",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Aucun des 4 graphiques n'affiche de données en raison d'erreur de symbole.\n- Impossible d'analyser tendance, structure ou zones clés sur ces charts.\n- Vérifier les symboles et timeframes pour rétablir l'analyse.\n\nB) Chart 1 (haut-gauche) : symbole invalide, données absentes, analyse impossible.\n\nC) Chart 2 (haut-droit) : symbole invalide, données absentes, analyse impossible.\n\nD) Chart 3 (bas-gauche) : symbole invalide, données absentes, analyse impossible.\n\nE) Chart 4 (bas-droit) : symbole invalide, données absentes, analyse impossible.\n\nF) DeskPro\n{\"run_id\":\"unknown\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"Analyse impossible, symbole invalide\",\"invalidation\":\"\"},{\"slot\":\"haut-droit\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resistances\":[],\"plan\":\"Analyse impossible, symbole invalide\",\"invalidation\":\"\"},{\"slot\":\"bas-gauche\",\"bias\":\"inconnu\",\"structure\":\"inconnu\",\"supports\":[],\"resista",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-51-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BZUSDT_1h_2026-06-03_12-50-58.png"
+  }
+}

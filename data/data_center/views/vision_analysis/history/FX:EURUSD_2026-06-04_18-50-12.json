@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_225021_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T18:50:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-50-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1645,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur résistance 1.1645-1.1650, cible support 1.1600. Extension baissière si break support 1.1600.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break et tenue >1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h baissière confirmée avec une structure de lower highs (LH) et lower lows (LL).  \n- Zones clés de support vers 1.1600 et résistance proche de 1.1645-1.1650.  \n- Scénario prioritaire : poursuite du mouvement baissier sous résistance, invalidation si franchissement clair des 1.1650.\n\nB) Chart unique (FX:EURUSD 1h) :  \nLa structure montre clairement une succession de points hauts déclinants (LH) et de points bas aussi en baisse (LL), indiquant une dynamique baissière. Le prix teste actuellement un support mineur autour de 1.1600, avec un volume modéré, ce qui peut offrir un rebond technique temporaire. La zone 1.1645-1.1650 a servi plusieurs fois de résistance, stoppant les tentatives de reprise haussière. La rupture suivie d’une clôture au-dessus de cette zone invaliderait le biais baissier à court terme. Le plan consiste à chercher des entrées short autour des résistances si le prix se retourne, en ciblant les supports à 1.1600, puis une extension baissiè",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-50-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_18-50-02.png"
+  }
+}

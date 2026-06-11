@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_022503_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:24:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-24-46",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vente sur rupture support, viser baisse vers 60 000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Haussier au-dessus 65 500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "indisponible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "indisponible",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "indisponible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "indisponible",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "indisponible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "indisponible",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- La tendance dominante sur les graphiques est baissière avec une structure de bas en bas (LH/LL).\n- Plusieurs zones clés de support semblent en phase de test, avec des volumes en hausse sur les replis.\n- Le scénario favori est une poursuite de la baisse en cas de rupture des supports actuels, avec une invalidation en cas de retour au-dessus des derniers points hauts.\n\nB) Chart 1 (haut-gauche) : Bitcoin / USDT 1h\n- Tendance : Baissière claire avec une série de Lower Highs et Lower Lows.\n- Structure : LH/LL bien marquée, sans signe de retournement visible.\n- Supports : vers 62 500-62 700 (zone testée récemment).\n- Résistances : 64 000 puis 65 500.\n- Scénario : poursuite du sell-off si le support cède, viser 60 000 voire plus bas.\n- Invalidation : retour au-dessus de 65 500, marquant un possible changement de structure.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non visible)\n- Impossible d’analyser précisément sans identification du sous-jacent.\n- Structure et",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-24-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_22-24-36.png"
+  }
+}

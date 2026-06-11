@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_215043_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T17:50:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-50-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 64800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur cassure 66800 avec stop sous 64800; shorter si cassure 64400",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus durable de 66800 pour bears, ou clôture sous 64400 invalide le rebond",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec une possible tentative de rebond court terme à surveiller.  \n- Zone de support clé autour de 64 400-64 800, résistance immédiate vers 66 800.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance est baissière marquée par une succession de points bas et hauts décroissants (LL et LH). Un rebond a eu lieu sur le support proche de 64 400, générant un HL provisoire, mais le prix reste sous la résistance des 66 800, indicative d'un scénario neutre-baissier. La cassure et maintien au-dessus de 66 800 validerait un retour haussier intermédiaire. En revanche, redescendre sous 64 400 relancerait la pression vendeuse. Le plan actionnable : surveiller la confirmation de structure, acheter en cassure valide de résistance ou shorter sur invalidation du support clé.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL LH avec t",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-50-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_17-50-22.png"
+  }
+}

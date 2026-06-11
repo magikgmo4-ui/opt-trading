@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_185237_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T14:52:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-52-26",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sur retest résistance 64500-65000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte pression vendeuse sur BTCUSDT malgré tentative de rebond récent.  \n- Structure claire de baisse avec HL/HH invalidés, dominée par LL (Lower Lows).  \n- Zones clés près de 64k en résistance et 61k en support à surveiller.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \n- Tendance : baissière nette avec cassure de supports successifs.  \n- Structure : série de Lower Highs et Lower Lows bien marquée.  \n- Zones clés : résistance vers 64 500-65 000, support vers 61 000-61 500.  \n- Scénario : rebond technique possible mais attention à retournement baissier si résistance tenue.  \n- Invalidation : franchissement clair au-dessus de 65 000 invaliderait poursuite baissière.  \n- Plan : vendre sur retest de la zone résistante à 64 500-65 000 avec stop serré.\n\nC) Chart 2 (haut-droit) : inconnu  \n- Symbole/timeframe non lisible, analyse impossible.\n\nD) Chart 3 (bas-gauche) : inconnu  \n- Symbole/timeframe non lisible, analyse impossible.\n\nE) Chart 4 (bas-droit) : inconnu  \n- Symbole/",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-52-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_14-52-18.png"
+  }
+}

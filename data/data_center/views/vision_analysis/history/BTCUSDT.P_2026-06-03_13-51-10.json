@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_175122_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T13:51:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_13-51-10",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rebond ou cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure en-dessous 925B USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Structure daily en tendance baissière confirmée par des plus bas (LL) et plus bas relatifs (LH) récents.  \n- Prix proche d’une zone clé support à rebond possible, attention à la cassure pour valider la poursuite baissière.  \n- Volume en légère augmentation sur les replis, signe de pression vendeuse toujours présente.\n\nB) Chart 1 (haut-gauche) : Crypto Total Market Cap Excluding BTC - Daily  \n- Structure : Distribution visible avec succession de hauts et bas déclinants (LH/LL).  \n- Supports clés : 925-935B USD (zone récente de rebond potentiel).  \n- Résistances clés : 1000-1020B USD (ancien support devenu résistance).  \n- Scénario : En cas de maintien du support, rebond technique possible pour cible 1000B.  \n- Invalidation : Cassure franche du support 925B amorce une reprise baissière dynamique.  \n- Plan : Surveillance d’une figure de retournement ou d’un breakout pour prise de position.\n\nC) Chart 2 (haut-droit) : inconnu (détails non lisibles)  \n- Structure : incon",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_13-51-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-03_13-51-00.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_131310_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T09:13:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_09-13-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.1515,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.148,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.153,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.155,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous résistance 1.1530, cible supports 1.1515 puis 1.1480, stop above 1.1560",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable au-dessus de 1.1560",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h, rupture brutale d'une structure précédemment latérale.  \n- Structure récente en LH (Lower High) confirmée, cassure forte sous support clé vers 1.1530.  \n- Zone de support immédiat testée autour de 1.1515, scénario possible de rebond technique ou poursuite baissière selon réaction.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLe graphique montre une structure relativement plate avec oscillations en range sur plusieurs séances, puis une chute très brutale sur le dernier segment. La série de HH/HL a été invalide par une cassure nette en LL. La précédente zone de support vers 1.1530 est devenue résistance. La réaction actuelle sur 1.1515 est une zone clé à surveiller : un rebond ici pourrait signaler un rebond technique, sinon le risque est une poursuite de la baisse vers 1.1480-1.1470. Scénario baissier dominant tant que le prix reste sous 1.1530/1.1550. Invalidation pour un retour haussier à valider par un franchissement stable au-dessus d",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_09-13-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_09-12-48.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_083529_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T04:35:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_04-35-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rebond ou cassure 1600, TP vers 1580/1550, invalidation si dépassement 1750",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">1750",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance forte baissière claire sur 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure actuelle marque un plus bas récent vers 1600 USD, support clé à surveiller.  \n- Scénario baissier dominant à court terme, possible rebond technique ponctuel mais invalidation sous 1580/1600 critic.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance est clairement baissière avec plusieurs Lower Highs et Lower Lows formés depuis plusieurs jours. Un support important apparaît autour de 1600 USD, où le prix a rebondi pour l’instant. La dynamique reste sous pression baissière, avec un risque clair de poursuite de la chute si le support des 1600 USD est cassé. Une reprise haussière n’est envisageable qu’en cas de franchissement des plus hauts intermédiaires vers 1750 USD. Point d’invalidation court terme sous 1580 USD.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LLLHLL\",\"supports\":[\"1600\"],\"resistances\":[\"1750\"],\"plan\":\"Short ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_04-35-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_04-35-13.png"
+  }
+}

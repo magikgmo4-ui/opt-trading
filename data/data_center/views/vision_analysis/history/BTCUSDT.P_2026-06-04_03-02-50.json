@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_070301_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T03:02:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_03-02-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 64800 avec stop perte au-dessus de 65000, visée vers 62000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance claire de baisse sur la période visible avec une série de plus bas et plus bas (LL).\n- Récente tentative de rebond marquée par un haut local supérieur au précédent (HL), indiquant un début possible de pause ou inversion.\n- Zone de support clé autour de 62 000 USD, résistance immédiate vers 65 000 USD.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une tendance baissière dominante matérialisée par une structure de plus bas (LL) et plus bas (LH). Un rebond récent a formé un plus haut local (HL) supérieur au précédent, suggérant un potentiel changement de dynamique. La zone support majeure est autour de 62 000 USD, où les prix ont rebondi fortement. La zone de résistance immédiate à surveiller est donc entre 64 800-65 000 USD. Le scénario prioritaire reste la poursuite de la baisse sous résistance, invalidée en cas de franchissement significatif au-dessus de 65 000 USD.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structu",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_03-02-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_03-02-43.png"
+  }
+}

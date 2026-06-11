@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_015516_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:55:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-55-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur échec de rebond sous résistance 1.1650; achat court terme possible sur support 1.1600 avec cible 1.1650",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire nette au-dessus de 1.1650 confirmant HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h globalement baissière avec structure en lower highs (LH) et lower lows (LL) récente.  \n- Zone de support clé proche de 1.1600, rebond actuel sur ce niveau.  \n- Résistance à surveiller autour de 1.1650 pour valider un potentiel retour haussier, invalidation sous 1.1590.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLe graphique EURUSD 1h montre une tendance baissière structurelle matérialisée par une série de lower highs et lower lows. Le prix teste une zone de support horizontal majeur vers 1.1600, soutenue par un volume assez stable. La structure suggère un point d’inflexion possible avec un rebond technique sur ce support. La résistance clé se situe autour de 1.1650, niveau à franchir pour inverser la tendance court terme. Le scénario principal reste une poursuite de la baisse en cas de cassure sous le support 1.1590. Invalidation du biais uniquement si les prix reprennent des HH au-dessus de 1.1650 avec volume.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-55-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_21-54-56.png"
+  }
+}

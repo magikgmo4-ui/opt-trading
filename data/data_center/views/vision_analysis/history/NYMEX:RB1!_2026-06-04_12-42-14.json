@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_164223_NYMEX:RB1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T12:42:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-42-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher ventes sur rebonds proches résistances; gestion du risque si franchissement 3.20",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 3.20 sur 4h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 4h baissière nette, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure sous pression sous résistance clé vers 3.30-3.35 USD/GLL.\n- Scénario court privilégié sur continuation baissière, invalidation au-dessus des derniers LH vers 3.20.\n\nB) Chart unique (NYMEX:RB1! 4h) :  \nLe graphique montre une dynamique de baisse prolongée depuis la mi-mai, confirmée par une succession de Lower Highs et Lower Lows. La structure actuelle est clairement baissière, avec des tentatives de rebond stoppées sous 3.30-3.35 qui agissent comme zone de résistance majeure. Le prix teste un support potentiel vers 3.00, à surveiller pour un rebond ou un breakout. Le scénario privilégié reste une poursuite baissière tant que le prix ne revient pas au-dessus du dernier Lower High (~3.20). L’invalidation du biais baissier se ferait par un retour franc au-dessus de ce seuil, signalant une possible remontée.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissi",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-42-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_4h_2026-06-04_12-42-04.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_224729_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T18:47:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-47-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller l'évolution du prix autour de 1500 pour un éventuel rebond; renforcer la position short tant que 1650 ne casse pas.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "HH au-dessus de 1650 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure récente marquée par une tentative de rebond mais validation d’un creux plus bas sur volume élevé.  \n- Zone clé de support proche de 1500 USDT, résistance visible autour de 1650 USDT, scénario bearish tant que cette résistance tient.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une forte tendance baissière avec une structure en LL/LH confirmée. Un support majeur se situe vers 1500 USDT, où un rebond technique est en cours mais reste fragile face à la pression vendeuse. Résistance immédiate autour de 1650 USDT à franchir pour envisager un retournement. L’invalidation du scénario baissier se fera par un HH au-dessus de 1650 USDT. En l’état, le biais reste baissier avec prudence sur la zone de support.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_eth_1h\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[1500],\"resistances\":[1650],\"plan\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-47-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_18-47-11.png"
+  }
+}

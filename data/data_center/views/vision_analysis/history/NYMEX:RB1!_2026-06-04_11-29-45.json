@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_152953_NYMEX:RB1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-04T11:29:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-29-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond sous 3.15-3.20 ou breakout 3.00 en extension baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">3.20",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière bien installée avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de moyen terme en déclin avec rupture des supports intermédiaires confirmée.  \n- Zone clé support autour de 3.00 USD à surveiller pour un possible rebond ou cassure baissière.  \n\nB) Chart unique (NYMEX:RB1! 4h): La tendance dominante est baissière, matérialisée par une succession de LH/LL. Le prix vient de casser récemment un support autour de 3.05 USD et teste actuellement la zone clé 3.00 USD. La pression vendeuse reste forte avec des volumes soutenus sur les baisses. Un rebond est envisageable sur ce seuil, mais la dynamique globale privilégie la continuation baissière sous la résistance à 3.15-3.20 USD. Invalidation du scénario baissier en dépassement clair de 3.20 USD avec retour de la dynamique haussière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH\",\"supports\":[3.00],\"resistances\":[3.15,3.20],\"plan\":\"vendre",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-29-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_4h_2026-06-04_11-29-30.png"
+  }
+}

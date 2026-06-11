@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_081318_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T04:13:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-13-11",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4370.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 4320, vente en échec à 4370",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Reprise durable au-dessus de 4370",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec des lower lows (LL) et lower highs (LH) successifs.  \n- Structure dynamique indiquant un momentum vendeur fort, validé par un récent éclatement des supports.  \n- Zone clé de support proche de 4320 USD à surveiller pour un potentiel rebond ou poursuite de la chute.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe marché évolue clairement en tendance baissière sur le timeframe 1h. La structure montre une série de LH et LL marqués, avec un dernier crash important qui casse des supports intermédiaires autour de 4350-4370 USD. Le prix tente un léger rebond sur un support critique près de 4320 USD, zone importante à défendre pour éviter une accélération baissière supplémentaire. Un retour au-dessus des 4370 validerait un ralentissement tandis qu’une cassure nette sous 4320 confirmerait la poursuite du bearish. Le scénario privilégié reste la poursuite de la baisse tant que la structure HL/HH n’est pas rétablie.\n\nC) DeskPro  \n{\"run_id\":\"001",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-13-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_04-12-58.png"
+  }
+}

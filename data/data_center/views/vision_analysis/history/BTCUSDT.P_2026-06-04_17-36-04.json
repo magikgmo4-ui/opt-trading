@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_213613_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T17:36:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-36-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller casse support 63,000 pour vente. Si rebond, attendre pullback en résistance 65,000 pour réévaluer short.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 65,000 avec formation HH.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur la période 1h avec série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure clairement vendeuse sans signal de retournement en vue.  \n- Zone de support récente autour de 63 000 USDT, résistance clé proche à 65 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est baissière confirmée avec succession de creux et sommets décroissants (LH/LL). La dynamique montre un élan vendeur fort, la volatilité augmentant sur les replis. Support visible vers 63 000 USDT, qui sert de zone de stabilisation provisoire. La zone des 65 000 USDT fait office de résistance immédiate, validant les rejets des tentatives de rebond. Scénario plausible : poursuite de la baisse si le support casse, ou consolidation latérale entre 63 000 et 65 000. Invalidation du biais baissier en cas de dépassement significatif des 65 000 avec structure HH.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"63,000",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-36-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_17-35-57.png"
+  }
+}

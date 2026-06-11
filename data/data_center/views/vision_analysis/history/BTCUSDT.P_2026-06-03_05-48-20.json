@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_094829_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:48:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-48-20",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "impossible à établir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à établir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à établir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à établir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Aucune donnée visible sur les 4 graphiques, les zones d’analyse sont vides.  \n- Le ticker BZUSDT en 1h est sélectionné sans affichage de la courbe.  \n- Analyse impossible sans visibilité des bougies, structures ou zones clés.  \n\nB) Chart 1 (haut-gauche):  \n- Inconnu, pas d’affichage de graphique, aucune donnée visible.  \n- Aucun indicateur, structure, ou zone clé identifiable.  \n- Impossible de définir tendance ou scénario.  \n\nC) Chart 2 (haut-droit):  \n- Inconnu, vide, graphique non affiché.  \n- Résistances, supports, ou structures non identifiables.  \n- Invalidation non déterminable.  \n\nD) Chart 3 (bas-gauche):  \n- Inconnu, pas d’information graphique apparente.  \n- Impossible d’analyser la tendance ou la structure.  \n- Zones clés absentes.  \n\nE) Chart 4 (bas-droit):  \n- Inconnu, aucune donnée graphique visible.  \n- Analyse structurelle et scénaristique impossible.  \n- Invalidation non définie.  \n\nF) DeskPro  \n{\"run_id\":\"n/a\",\"charts\":[{\"slot\":\"1\",\"bias\":\"inconnu",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-48-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BZUSDT_1h_2026-06-03_05-48-10.png"
+  }
+}

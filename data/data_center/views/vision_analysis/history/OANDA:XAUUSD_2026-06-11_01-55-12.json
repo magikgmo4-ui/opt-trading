@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_055522_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:55:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-55-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4150.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d'une rupture de 4150 pour scénario haussier, sinon poursuite baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "<4000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec une série de LL (Lower Lows) et LH (Lower Highs).\n- Reprise récente vers 4095 USD marque un premier HL (Higher Low) potentiellement significatif.\n- Zone clé support autour de 4000 USD, résistance immédiate vers 4150 USD.\n\nB) Chart unique (OANDA:XAUUSD 1h): \nLe graphique montre une structure baissière dominante matérialisée par des LH et LL persistants depuis fin mai. Le prix a fortement chuté début juin, atteignant un creux autour de 4000 USD, où un rebond formant un HL semble se dessiner. Cette configuration suggère une possible correction ou un début de range, mais la tendance reste baissière tant que la résistance à 4150 USD ne casse pas. Volumes en hausse sur la remontée récente, ce qui peut indiquer un intérêt acheteur temporaire. Invalidation du scénario haussier en dessous des 4000 USD.\n\nC) DeskPro\n```json\n{\n  \"run_id\": \"session_20240611\",\n  \"charts\": [\n    {\n      \"slot\": \"single\",\n      \"bias\": \"baissier\",\n      \"structure\": \"L",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-55-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-11_01-54-56.png"
+  }
+}

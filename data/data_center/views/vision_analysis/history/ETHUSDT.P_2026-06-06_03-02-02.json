@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_070211_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T03:02:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-02-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.0,
+      "confidence": 0.7,
+      "note": "s 1"
+    },
+    {
+      "type": "support_level",
+      "value": 1.0,
+      "confidence": 0.7,
+      "note": "s 1"
+    },
+    {
+      "type": "support_level",
+      "value": 1.0,
+      "confidence": 0.7,
+      "note": "s 1"
+    },
+    {
+      "type": "support_level",
+      "value": 1.0,
+      "confidence": 0.7,
+      "note": "s 1"
+    },
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.7,
+      "note": "support 1525"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec une série de HL cassés, structure en LH/LL.  \n- Zones clés : support proche autour de 1 525 USD, résistance autour de 1 600 USD.  \n- Scénario principal: poursuite de la baisse sous 1 525 USD, invalidation si breakout clair au-dessus de 1 600 USD.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa structure montre une série de Lower Highs (LH) et Lower Lows (LL), confirmant la tendance baissière. Le prix a récemment testé le support vers 1 525 USD, zone importante à surveiller. La résistance immédiate est vers 1 600 USD, niveau qui fait office de barrière technique. Le volume est en hausse lors des baisses, suggérant un fort intérêt vendeur. Une cassure sous 1 525 USD validerait la poursuite du mouvement baissier, tandis qu’un franchissement au-dessus de 1 600 USD pourrait signaler un retournement ou une correction plus significative, ce qui invaliderait le biais principal.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-02-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_03-01-17.png"
+  }
+}

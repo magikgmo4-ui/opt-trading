@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_155422_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T11:54:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_11-54-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "watch breakout 1650 pour confirmation haussière, prise de profits partiels proche support 1500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close sous 1500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée sur le 1h, avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent initiant une possible correction ou un retournement, mais sans confirmation claire de structure haussière.  \n- Zones clés à surveiller : support autour de 1,500 USD, résistance immédiate vers 1,650 USD.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe marché montre une structure baissière classique avec de nombreux LH et LL depuis début juin. La dernière vague présente un creux autour de 1,500 USD suivi d’un mouvement haussier qui casse certains précédents HL intermédiaires. Cependant, la structure haussière n’est pas encore confirmée, absence de HH clair. La zone 1,650 USD est une résistance majeure où le prix bute actuellement. Un franchissement de cette résistance validerait un début de tendance haussière. En invalidation, une retombée sous 1,500 USD relancerait la dynamique baissière. Le volume suit le mouvement, avec un pic lors du rebond récent.\n\nC) DeskP",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_11-54-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_11-54-06.png"
+  }
+}

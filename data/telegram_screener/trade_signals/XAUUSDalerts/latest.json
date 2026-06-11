@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_XAUUSDalerts_14752_2026-06-04T05:14:56+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "XAUUSDalerts",
+    "parsed_at": "2026-06-04T05:14:56+00:00",
+    "produced_at": "2026-06-06T11:30:55.321750+00:00",
+    "pair": "NOTUSDT",
+    "asset": "NOT",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "**\u26a0\ufe0f IMPORTANT MARKET UPDATE \u2013 GOLD (XAUUSD)\n\nDear VIP Members,\n**\nThe Gold market is currently experiencing extremely high volatility due to ongoing geopolitical tensions and unexpected market reactions. Over the last few trades, several setups were stopped out despite following our strategy and risk management rules.\n\nThis is a reminder that no trading strategy can guarantee 100% winning trades, especially during abnormal market conditions where Gold is making aggressive liquidity sweeps before moving in the intended direction.\n\n\ud83d\udd39 We will be reducing trade frequency and focusing only on high-probability setups.\n\ud83d\udd39 Extra confirmation will be required before new entries.\n\ud83d\udd39 Capital protection remains our highest priority.\n\ud83d\udd39 Please continue using proper risk management and avoid increasing lot sizes after losses.\n\nOur focus is long-term consistency, not short-term gambling. Thank you for your patience and trust during these challenging market conditions.\n\n\ud83d\udcca Stay disciplined. Protect your capital. Better opportunities are ahead.\n\n\u2013 **FXGOLDVISION**"
+  }
+]

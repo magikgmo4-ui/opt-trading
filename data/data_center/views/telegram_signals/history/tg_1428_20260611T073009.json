@@ -1,0 +1,27 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_1428_20260611T073009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "usdjpy_xauusd_forex_signals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T12:49:49+00:00",
+  "produced_at": "2026-06-11T07:30:09.190099+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4157.0,
+  "sl": 4140.0,
+  "tp": 4166.0,
+  "tps": [
+    4166.0,
+    4173.0,
+    4180.0,
+    4187.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udcc9 XAUUSD BUY 4157/50\n\n\u274c SL\u00a0 4140\n\u2705 TP1 4166\n\u2705 TP2 4173\n\u2705 TP3 4180\n\u2705 TP4 4187\n\nRisk Management Use small lot\nStoploss is must\u00a0 Don\u2019t overtrade",
+  "summary": "XAUUSD LONG"
+}

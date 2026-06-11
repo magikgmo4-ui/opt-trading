@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_094931_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T05:49:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-49-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 880000000000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1000000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1050000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur cassure du support 880B avec cible 840B-800B. Surveillance rebond au-dessus 1T pour possible inversion.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour franc au-dessus de 1T USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale clairement baissière, avec de multiples lower highs (LH) et lower lows (LL).\n- Structure de consolidation latérale visible entre février et mai avant de reprendre la baisse récemment.\n- Zone clé de support autour de 880B USD testée actuellement; rupture pourrait accentuer la baisse.\n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d): \nLe marché montre une structure en baisse prolongée, avec une série de LH et LL bien marquée. Après un repli fort début 2026, une phase de range entre environ 880B et 1.05T USD s’est installée. Le prix casse actuellement le support vers 880B, ce qui valide un renouveau de la pression vendeuse. La tendance reste baissière jusqu’à preuve du contraire. Un retour au-dessus de 1T USD invaliderait le scénario baissier court terme et signalerait une forte reprise acheteuse.\n\nC) DeskPro\n{\"run_id\":\"20240609_0949\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec range puis reprise de baisse\",\"supports\":[880000000000],\"r",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-49-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-05_05-49-12.png"
+  }
+}

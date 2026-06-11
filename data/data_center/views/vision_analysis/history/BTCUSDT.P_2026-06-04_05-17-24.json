@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_091739_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T05:17:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-17-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Survendre sous 62k pour viser baisse prolongée, stop au-dessus de 66k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "au-dessus 66k",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Décrochage net sur BTCUSDT en 1h avec tendance clairement baissière.  \n- Pas de signes immédiats de retournement, structure en Lower Highs (LH) / Lower Lows (LL).  \n- Volume en hausse sur chute, confirmant la pression vendeuse.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \n- Tendance : baissière bien établie, price action en série de HL cassés, formation de LL récents.  \n- Structure : clairement structure baissière (LH / LL).  \n- Zones clés : support immédiat autour de 62 000-62 500$, résistance récente 66 000$.  \n- Scénario : poursuite probable de la baisse si le support 62k est cassé, potentielle accélération.  \n- Invalidation : remontée au-dessus de 66 000$ et stabilisation long terme.\n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu  \n- Analyse impossible car informations non visibles.  \n- Recommander de vérifier l’actif et timeframe avant prise de décision.  \n\nD) Chart 3 (bas-gauche) : symbole/timeframe inconnu  \n- Analyse impossible car informations non visibl",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-17-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_05-17-16.png"
+  }
+}

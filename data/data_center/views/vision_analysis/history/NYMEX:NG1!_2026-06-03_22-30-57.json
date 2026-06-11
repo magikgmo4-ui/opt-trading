@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_023106_NYMEX:NG1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-03T22:31:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-30-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.2,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.35,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur retest support 3.05-3.10 avec stop sous 3.05, viser extension au-delà de 3.35",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close 4h sous 3.05",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance haussière claire avec une série de HH (Higher Highs) et HL (Higher Lows) bien formés.\n- Structure validée par des retracements vers des zones de support vers 3.05-3.10 puis rebond.\n- Scénario prioritaire d’achat à rebonds sur support, invalidation en cassure durable sous 3.05.\n\nB) Chart unique (NYMEX:NG1! 4h): \nLe marché du gaz naturel sur 4h montre une dynamique constructive avec des plus hauts et plus bas ascendants, validant une tendance haussière. La zone clé de support se situe entre 3.05 et 3.10, servant de point d’entrée potentiel sur retracement. La résistance principale récente est autour de 3.35, où une correction a eu lieu. Le prix reste au-dessus de son dernier HL à 3.20. Un franchissement confirmé au-dessus de 3.35 ouvrirait la voie à une extension haussière. La structure est saine tant que le support 3.05/3.10 tient. Sous ce niveau, une correction plus profonde pourrait s’engager, cassant la tendance haussière.\n\nC) DeskPro {\"run_id\":\"001\",\"char",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-30-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-03_22-30-45.png"
+  }
+}

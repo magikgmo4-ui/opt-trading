@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_182059_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T14:20:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-20-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1675.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur cassure du support 1550, prise de profit possible en zone 1500-1520. Alerte rebond en cas de tenue support avec prise de position courte-court terme à la clôture d'un chandelier haussier et ",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1675 confirmant un changement de tendance vers haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le 1h, avec une succession de creux et sommets plus bas (LL/LH).  \n- Structure technique confirmant un momentum vendeur fort, avec des chandeliers impulsifs à la baisse.  \n- Zone clé de support vers 1550 USDT à surveiller avant poursuite potentielle ou rebond technique.  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nTendance baissière établie (LH/LL), structure en dégradation continue depuis plusieurs jours. Le prix a cassé plusieurs supports intermédiaires avec un fort volume à la baisse, signalant la domination des vendeurs. Le plus bas récent vers 1550 USDT constitue une zone support clé à court terme. Scénario principal : continuation de la baisse en cas de nouveau break sous 1550. En cas de rebond, résistance à 1650-1675 USDT à surveiller pour invalider la reprise baissière. L’invalidation du scénario baissier se ferait par un retour au-dessus des 1675 USDT marqué par un HH clair.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"sing",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-20-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_14-20-42.png"
+  }
+}

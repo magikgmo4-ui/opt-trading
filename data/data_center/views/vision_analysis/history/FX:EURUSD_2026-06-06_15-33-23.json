@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_193330_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T15:33:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-33-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond ou cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale baissière nette après une cassure brutale en fin de graphique.\n- Structure récente marquée par des Lower Highs (LH) et Lower Lows (LL), confirmant la dynamique vendeuse.\n- Zone clé de support potentielle autour de 1.1520, à surveiller pour un rebond ou poursuite de la chute.\n\nB) Chart unique (FX:EURUSD 1h):\nMarché en phase baissière claire avec structure en séries de LH et LL. Forte impulsion vendeuse visible sur les dernières bougies, volumétrie en hausse confirmant la pression vendeuse. Résistance récente confirmée vers 1.1640–1.1650, support immédiat identifié vers 1.1520. Scénario envisagé : poursuite de la baisse sous ce support, invalidation au-dessus des 1.1650. Surveillance recommandée des volumes et réaction sur 1.1520 pour décisions de trading.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[\"1.1520\"],\"resistances\":[\"1.1650\"],\"plan\":\"vendre sur rebond ou cassure support\",\"invalidati",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-33-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_15-33-11.png"
+  }
+}

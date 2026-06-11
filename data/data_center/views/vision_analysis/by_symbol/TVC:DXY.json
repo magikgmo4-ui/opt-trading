@@ -1,0 +1,1976 @@
+[
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_013718_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T21:37:16-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_21-37-04",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.05,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.8,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur pullback vers 99.05",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "passage sous 99.05",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnue",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnue",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnue",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Lecture sur USD Index 1h montre une tendance haussière récente avec structure de creux et sommets plus hauts (HH/HL).\n- Zones clés à surveiller autour de 99.55 en résistance et 99.05 en support.\n- Scénario d’entrée possible sur pullback avec invalidation sous 99.05.\n\nB) Chart 1 (haut-gauche) : USD Index 1h\nTendance : Haussière court terme\nStructure : HH/HL marqués après rebond sur 98.80\nSupports : 99.05 (pivot récent), 98.80 (creux)\nRésistances : 99.55 (plus haut récent)\nPlan : Attendre pullback proche support 99.05 pour envisager achat\nInvalidation : Passage sous 99.05 casserait la structure haussière\n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu\nTendance : Inconnue (graphique illisible)\nStructure : Inconnue\nSupports : Inconnus\nRésistances : Inconnues\nPlan : Inconnu\nInvalidation : Inconnue\n\nD) Chart 3 (bas-gauche) : symbole/timeframe inconnu\nTendance : Inconnue (graphique illisible)\nStructure : Inconnue\nSupports : Inconnus\nRésistances : Inconnues\nPlan : Incon",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_21-37-04",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_21-36-54.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_015038_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T21:50:36-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_21-50-30",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.1,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.85,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur repli support 99.100 ou breakout 99.550",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure nette sous 99.100",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance 1h haussière confirmée avec une série de HH/HL après un point bas marqué.\n- Structure récemment soutenue par un support majeur autour de 99.100.\n- Scénario haussier à privilégier tant que le support 99.100 tient; invalidation en cas de rupture nette sous ce niveau.\n\nB) Chart unique (TVC:DXY 1h) : \nLa structure montre un bas majeur vers 98.850 suivi d’une reprise en HH/HL jusqu’à 99.550. L’action des prix consolide actuellement légèrement sous la récente résistance à 99.550, qui représente une zone clé de prix à surveiller. Le support principal est identifié vers 99.100, niveau ayant servi de base pour les hausses récentes. La tendance dominante est haussière sur ce timeframe et le momentum semble intact. Un vrai pullback ou renversement serait signalé par une cassure sous 99.100 (invalidation). Le plan consiste à rester acheteur sur repli vers ce support ou en rupture de la zone 99.550 avec volume.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_21-50-30",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_21-50-19.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_020010_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T22:00:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-00-02",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur support 99.00 avec objectif 99.55 ou breakout",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 99.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière 1h claire avec structure de HH/HL formée depuis début juin.  \n- Zone clé support proche de 99.00, résistance majeure autour de 99.55.  \n- Scénario haussier privilégié tant que 99.00 tient, invalidation sous ce niveau.\n\nB) Chart unique (TVC:DXY 1h):  \nLa dynamique montre une succession de creux plus hauts (HL) et de sommets plus hauts (HH) depuis début juin, confirmant un biais haussier. Le prix est actuellement proche de la résistance à 99.55, testant potentiellement un breakout. Le support clé à surveiller est situé autour de 99.00, zone où plusieurs rebonds sont visibles. Une cassure sous 99.00 invaliderait ce scénario haussier court terme et pourrait amorcer une phase de consolidation ou correction. En l’état, privilégier des stratégies acheteuses avec prise de bénéfices autour de 99.55 ou sur breakout confirmé.\n\nC) DeskPro  \n{\"run_id\":\"20240604_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"99.00\"],\"resistanc",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-00-02",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_21-59-51.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_023853_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T22:38:51-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-38-41",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure 99.55 pour acheteurs, stop sous 99.00",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "passage sous 99.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Le DXY montre une remontée après une phase de baisse, indiquant un regain de vigueur du dollar à court terme.\n- Structure mixte avec la formation récente de HH et HL, mais une résistance forte proche des plus hauts récents.\n- Zones clés à surveiller : support vers 99.00, résistance vers 99.55 pour définir la suite.\n\nB) Chart 1 (haut-gauche):  \n- Symbole/Timeframe : DXY / 1h  \n- Tendance : Reprise haussière à court terme, mais encore dans une structure corrective globale.  \n- Structure : Formation récente de Higher High (HH) et Higher Low (HL) depuis le point bas du 29 mai.  \n- Zones clés : Support proche de 99.00 (ancien pivot) et résistance majeure sur 99.55 (plus haut récent).  \n- Scénario : Pack de prix pourrait chercher à valider la cassure des 99.55 pour extension haussière.  \n- Invalidation : Passage sous 99.00 invaliderait la reprise, possible retour à une phase plus baissière.  \n\nC) Chart 2 (haut-droit):  \n- Symbole/Timeframe : Inconnu  \n- Observation impossi",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-38-41",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_22-38-29.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_030117_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T23:01:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_23-01-07",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.05,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure de 99.55 pour achat. En cas de retest et rebond sur 99.05, entrée acheteuse possible. Stop sous 99.05.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "fermeture sous 99.05",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière en 1h avec structure de creusement de plus bas et plus hauts relatifs (HL/HH).  \n- Prix actuellement proche d’un récent sommet à 99.55 USD, zone de résistance à surveiller.  \n- Support notable autour de 99.05 USD servant de point d’appui avant nouvelle poussée possible.  \n\nB) Chart unique (TVC:DXY 1h):  \nLe graphique montre une tendance haussière nette avec une succession de bas et hauts plus élevés (HL/HH), confirmant la structure haussière. Les derniers chandeliers indiquent une phase de consolidation sous la résistance clé à 99.55, zone qui pourrait freiner la dynamique acheteuse. Le support immédiat se situe vers 99.05, base de la dernière reprise importante. Un franchissement clair au-dessus de 99.55 validerait la poursuite de la hausse, tandis qu’une rupture en dessous de 99.05 invaliderait ce scénario et pourrait signaler un retour baissier. Le plan anticipé est d’attendre une cassure ou un rebond sur support pour entrer en position achete",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_23-01-07",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_23-00-57.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_034108_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T23:41:05-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_23-41-00",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.05,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.85,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Buy sur support 99.05 avec cible 99.60+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "sous 99.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Le DXY montre une reprise haussière avec une structure de creux et sommets plus hauts sur cette unité.  \n- Des zones clés se situent près des récents plus hauts vers 99.55 et support autour de 99.05.  \n- Le scénario favorise la poursuite haussière tant que le support majeure tient, invalidation sous 99.00.\n\nB) Chart 1 (haut-gauche) : DXY - 1h  \nTendance haussière claire avec structure HH/HL depuis le creux du 29 mai.  \nSupports à 99.05 (ex resistance devenue support) et 98.85.  \nRésistances à 99.55 (plus haut récent), zone clé de prise de bénéfices probable.  \nScénario privilégié : continuation de la hausse vers 99.60+ si le support tient.  \nInvalidation sous 99.00, qui casserait la structure haussière.  \n\nC) Chart 2 (haut-droit) : Inconnu (non lisible)  \nInformations non disponibles ou graphique non identifié.  \n\nD) Chart 3 (bas-gauche) : Inconnu (non lisible)  \nInformations non disponibles ou graphique non identifié.  \n\nE) Chart 4 (bas-droit) : Inconnu (non lisib",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_23-41-00",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-03_23-40-49.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_040155_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T00:01:52-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_00-01-47",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.3,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 99.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur retracement vers support ou break-out résistance 99.55",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "passage sous 99.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance court terme haussière confirmée par une série de HH et HL.  \n- Structure globale montrant un creux récent suivi d’un rebond solide vers résistance.  \n- Zone clé à surveiller en support 99.20-99.30 ; invalidation sous 99.00.\n\nB) Chart unique (TVC:DXY 1h) :  \nLe graphique du DXY en 1h affiche une dynamique haussière avec formation claire de hauts plus hauts (HH) et bas plus hauts (HL) depuis le point bas sur 98.75. Le prix teste actuellement une zone de résistance proche de 99.55. Le maintien au-dessus de 99.30 est crucial pour la poursuite de la tendance. Scénario prioritaire : achat sur retracement ou break-out 99.55. Invalidation si baisse nette sous 99.00, ce qui signalerait un retournement possible.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"99.30\",\"99.20\"],\"resistances\":[\"99.55\"],\"plan\":\"acheter sur retracement vers support ou break-out résistance 99.55\",\"invalidation\":\"passage sous 99.00",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_00-01-47",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_00-01-36.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_044246_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T00:42:43-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_00-42-36",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.85,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.6,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "chercher achats sur retest support ou cassure résistance",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassage sous 98.85",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "n/a",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "n/a",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "n/a",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "n/a",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "n/a",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "n/a",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Analyse du DXY (Dollar Index) en 1h, avec tendance haussière récente.  \n- Présence d’une structure de HH/HL indiquant un biais acheteur.  \n- Zones clés à surveiller pour entrée et invalidation, la volatilité reste modérée.\n\nB) Chart 1 (haut-gauche): DXY 1h  \n- Tendance: haussière depuis fin mai, succession de HH (Higher High) et HL (Higher Low).  \n- Structure: cassure récente d’un niveau de résistance vers 99.45 confirmant le biais haussier.  \n- Supports clés: 99.00 (HL récent), 98.85 (zone de rebond partielle).  \n- Résistances clés: 99.55-99.60 (plot haut récent).  \n- Scénario: poursuite de hausse possible en cas de maintien au-dessus du dernier HL.  \n- Invalidation: passage sous 98.85 remettrait en cause la tendance haussière.\n\nC) Chart 2 (haut-droit): inconnu  \n- Symbole et timeframe illisibles, analyse non réalisable.\n\nD) Chart 3 (bas-gauche): inconnu  \n- Symbole et timeframe illisibles, analyse non réalisable.\n\nE) Chart 4 (bas-droit): inconnu  \n- Symbole et ti",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_00-42-36",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_00-42-01.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_133501_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T09:34:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_09-34-44",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 99.05,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "attendre cassure range pour orientation nette",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "break violent du range",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "informations manquantes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "informations manquantes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "informations manquantes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Le marché USD (DXY) évolue en structure indécise avec des hauts et bas alternants, sans tendance claire.  \n- Plusieurs zones de support et résistance proches, favorisant une attente avant prise de décision.  \n- Scénario principal neutre, à valider par cassure claire d’un niveau clé.\n\nB) Chart 1 (haut-gauche) : DXY 1h  \n- Structure récente HH-HL puis LH-LL, témoignant d’une possible inversion ou consolidation.  \n- Zones clés : support vers 99.00-99.05, résistance vers 99.50-99.55.  \n- Tendance neutre à court terme, oscillation dans un range serré.  \n- Scénario : attendre break out correctif pour prendre position.  \n- Invalidation : franchissement fort du range invalidant le biais actuel.\n\nC) Chart 2 (haut-droit) : inconnu  \n- Symboles et timeframe non visibles, analyse impossible.  \n- Structure, zones et bias non identifiables.  \n- Requiert plus d’informations pour orienter la lecture.\n\nD) Chart 3 (bas-gauche) : inconnu  \n- Symboles et timeframe illisibles.  \n- Pas ",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_09-34-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_09-34-34.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_133810_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T09:38:07-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_09-38-02",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter au contact du support 99.00 avec stop sous ce niveau",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture 1h sous 99.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Structure en 1h montrant une tendance haussière avec des HH et HL récents, confirmant un biais acheteur.  \n- Zone clé de support vers 99.00 agissant comme un pivot important où le prix a rebondi plusieurs fois.  \n- Signal de correction en cours avec un retracement vers ce support, attention à une invalidation si le prix casse ce niveau en clôture 1h.  \n\nB) Chart unique (TVC:DXY 1h) :  \nLe graphique montre une tendance haussière claire, marquée par des points hauts (HH) et bas (HL) de plus en plus élevés. La structure est haussière avec des rebonds réguliers sur la zone de support à ~99.00. Le prix a récemment atteint un sommet autour de 99.55 avant de corriger. Ce retracement vise la zone de support clé autour de 99.00, qui devra tenir pour préserver le biais haussier. En cas de cassure et clôture sous 99.00, la structure serait remise en cause avec un possible retournement vers des plus bas plus faibles (LH/LL). Le scénario prioritaire est la reprise de la hausse ",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_09-38-02",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_09-37-52.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_143746_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T10:37:44-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_10-37-36",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.05,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.9,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur maintien support 99.05 avec objectif 99.55",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 98.90 valide retournement baissier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Le marché montre des mouvements volatils avec alternance de tendances haussières et baissières sur plusieurs timeframes.\n- Plusieurs zones clés de support et résistance sont visibles, à surveiller pour validation de scénarios.\n- Risque d'invalidation à court terme en cas de rupture claire des dernières structures HH/HL.\n\nB) Chart 1 (haut-gauche) : DXY 1h\n- Tendance : haussière à court terme après rebond.\n- Structure : succession de HH et HL, mais apparition récente de LH (potentielle correction).\n- Supports clés : 99.05, 98.90 ; Résistances clés : 99.50, 99.55.\n- Scénario : poursuite haussière si maintien au-dessus de 99.05, avec potentiel test des 99.55.\n- Invalidation : cassure sous 98.90 confirmerait un retournement baissier et rupture de structure.\n\nC) Chart 2 (haut-droit) : inconnu\n- Pas de symbole ou timeframe lisible, aucune analyse possible.\n\nD) Chart 3 (bas-gauche) : inconnu\n- Pas de symbole ou timeframe lisible, aucune analyse possible.\n\nE) Chart 4 (bas-dro",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_10-37-36",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_10-37-26.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_144928_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T10:49:26-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_10-49-19",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.85,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur support 99.20, viser 99.55, stop sous 98.85",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "casse en clôture sous 98.85",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière dominante sur le court terme avec structure de hauts et bas plus hauts (HH/HL).\n- Correction récente visible avec un retracement, zone potentielle de support autour de 99.20.\n- Scénario privilégié : reprise du mouvement haussier à court terme si support de 99.20 confirmé, invalidation sous 98.85.\n\nB) Chart unique (TVC:DXY 1h) :\nStructure clairement en tendance haussière 1H, derniers points de swing montrent des hauts plus hauts et des bas plus hauts (HH/HL). Une correction baissière a ramené le prix proche de 99.20, zone support clé à surveiller. Résistance immédiate autour de 99.55, plafond à breaker pour confirmer poursuite haussière. Invalidation du scénario haussier si le prix casse sous 98.85, ce qui afficherait un changement de structure vers un plus bas plus bas (LL). Positionnable en achat sur le support, avec stop placé sous 98.85, target vers résistance 99.55+.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"str",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_10-49-19",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_10-49-08.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_153727_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T11:37:24-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_11-37-16",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat en cassure haute, vente sous support",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "sous 99.00 significatif",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Marché global en phase de consolidation active avec oscillations sur plusieurs niveaux.  \n- Modifications structurelles fréquentes entre phases haussières et baissières sur les unités de temps visibles.  \n- Surveillance de zones clés essentielle pour identifier les entrées/sorties, notamment sur les supports récents.  \n\nB) Chart 1 (haut-gauche): U.S. Dollar Index (DXY) 1h  \nTendance neutre à court terme avec phases de retracement marquées. Structure en alternance HL/LL, indiquant absence de direction claire durable. Zones clés à surveiller : support autour de 99.00, résistance vers 99.55. Scénario haussier possible en cassure nette de 99.55, invalidation si repasse sous 99.00 de manière significative.  \n\nC) Chart 2 (haut-droit): inconnu (pas lisible)  \nImpossible d’analyser, le symbole/timeframe n’est pas identifiable sur l’image.  \n\nD) Chart 3 (bas-gauche): inconnu (pas lisible)  \nImpossible d’analyser, le symbole/timeframe n’est pas identifiable sur l’image.  \n\nE",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_11-37-16",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_11-37-01.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_155050_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T11:50:48-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_11-50-42",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur retracement proche 99.00, objectif 99.55",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte durable sous 99.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Structure en 1h montrant une alternance entre HH et HL, signalant une tendance haussière modérée.  \n- Zones clés visibles: support autour de 99.00 et résistance à 99.55.  \n- Scénario principal haussier avec prise de position sur repli proche support, invalidation sous 99.00.  \n\nB) Chart unique (TVC:DXY 1h):  \nLe DXY évolue en tendance haussière modérée, confirmée par une série de HH et HL. La zone de support majeure se situe vers 99.00, bien testée récemment avec un rebond. La résistance clé se trouve à 99.55, un sommet à surveiller pour le breakout. Le dernier mouvement de correction reste dans la structure haussière tant que le support 99.00 tient. Le plan d’action serait d’acheter sur retour à ce support, visant la résistance à 99.55. Invalidation du scénario haussier sous 99.00 avec risques de retournement baissier.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"r1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"99.00\"],\"resistances\":[\"99.55\"",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_11-50-42",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_11-50-32.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_163911_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T12:39:08-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_12-39-02",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.85,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur support 99.00 avec objectif 99.50+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "passage sous 99.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "aucun plan",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "aucune",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "aucun plan",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "aucune",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "aucun plan",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "aucune",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- La paire analysée présente une dynamique avec plusieurs oscillations sur une structure volatile.\n- Le contexte en unité 1h montre un regain de tendance haussière après un retracement.\n- Zones clés de support et résistance à surveiller pour confirmer la poursuite de la hausse ou un retournement.\n\nB) Chart 1 (haut-gauche): DXY 1h\n- Tendance : Haussière, avec des phases de correction.\n- Structure : Série de HH/HL après un creux récent, signant un potentiel rebond.\n- Supports clés : 99.00 (zone psychological), puis 98.85.\n- Résistances : 99.50 (plus haut récent), zone à surveiller pour breakout.\n- Scénario : La hausse pourrait continuer si le support 99.00 tient; un breakout au-dessus de 99.50 validerait la poursuite haussière.\n- Invalidation : Passage sous 99.00 annulerait ce biais haussier.\n\nC) Chart 2 (haut-droit): Inconnu\n\nD) Chart 3 (bas-gauche): Inconnu\n\nE) Chart 4 (bas-droit): Inconnu\n\nF) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"haussier\",\"",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_12-39-02",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_12-38-47.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_165300_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T12:52:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_12-52-51",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 98.95,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat possible sur cassure 99.55 avec stop sous 98.95",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture horaire sous 98.95",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance intra 1h plutôt neutre à légèrement haussière avec alternance de hauts et bas relativement égaux.  \n- Structure récente montre un mix de HH/HL puis un retracement marquant, sans rupture claire de structure baissière.  \n- Zone clé support proche de 98.95, résistance immédiate vers 99.55 à surveiller pour confirmation de reprise.\n\nB) Chart unique (TVC:DXY 1h):  \nLe graphique présente une tendance sans direction impérative, avec des hauts (HH) vers 99.55 et des bas (HL puis LL) fluctuants autour de 98.95. Après un pic local près de 99.55, le prix a corrigé fortement jusqu’à 99.00 puis a rebondi. La structure montre plusieurs oscillations, sans franchissement net de support ou résistance majeurs. Scénario actionnable : rester attentif à la cassure nette au-dessus de 99.55 pour un biais haussier confirmé, ou en-dessous de 98.95 pour invalider le scénario et envisager une baisse plus prononcée.\n\nC) DeskPro  \n{\"run_id\":\"auto_001\",\"charts\":[{\"slot\":\"single\",\"bias\"",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_12-52-51",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_12-52-41.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_013303_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T21:33:00-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-32-52",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.05,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.6,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Chercher à acheter sur supports ou breakout résistance",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 99.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance généralement haussière sur le court terme avec plusieurs HL et HH visibles.  \n- Zones clés de support autour de 99.05 et résistance proche de 99.55.  \n- Structure latérale-haussière, attention à une possible correction si invalidation des HL.\n\nB) Chart 1 (haut-gauche):  \nL’analyse montre une tendance haussière avec une succession de HH et HL, indiquant une dynamique favorable. Plusieurs mèches basses attestent une pression d’achat sur les plus bas. Les supports majeurs sont situés autour de 99.05, avec une résistance clé à 99.55-99.60 qui bloque actuellement la progression. Le scénario prioritaire reste la continuation haussière si la résistance est franchie, sinon une consolidation entre le support et cette résistance est probable. Invalidation en cas de cassure nette sous 99.00 qui modifierait la structure en LH/LL.\n\nC) Chart 2 (haut-droit):  \nGraphique inconnu (symbole/timeframe non lisible clairement). Pas d'analyse possible sans ces éléments.\n\nD) Char",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-32-52",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_21-32-41.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_015647_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T21:56:45-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_21-56-37",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.85,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.45,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur repli proche du support à 99.00 avec objectif sur résistance 99.45-99.55. Stop sous 98.85 pour invalidation du biais haussier.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cours < 98.85",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance globale haussière en 1h avec une succession de HH et HL depuis le 29 mai.\n- Structure de prix montre une légère consolidation proche de 99.45, zone de résistance immédiate.\n- Support clé à 99.00, base d’un pullback récent ; invalidation sous 98.85 remettrait en cause le biais haussier.\n\nB) Chart unique (TVC:DXY 1h) :\nLe DXY présente une dynamique haussière caractérisée par des HH/HL remontant depuis une zone basse proche de 98.75 – 99.00. Le prix teste actuellement une résistance vers 99.45-99.55 sans franchissement net. La structure montre une probabilité de continuation à la hausse si la résistance cède, avec comme support clé la zone 99.00. Une rupture sous 98.85 invaliderait le scénario haussier et pourrait entraîner un retour vers 98.75. Le biais principal reste donc haussier tant que la structure de HL est maintenue.\n\nC) DeskPro\n{\"run_id\":\"dxy_1h_2024\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"99.00\",\"98.85\"],\"resist",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_21-56-37",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_21-56-21.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_023513_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T22:35:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_22-35-02",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 98.85,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat proche support",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "sous 98.85",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indéfini",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indéfinie",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indéfini",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indéfinie",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indéfini",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "indéfinie",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Absence de symboles clairement identifiables pour 3 graphiques, analyse partielle.  \n- Structure globale des graphiques semble fluctuer, pas de tendance claire dominante.  \n- Zones clés visible sur 1 seul graphique, nécessitant vigilance sur invalidation.  \n\nB) Chart 1 (haut-gauche) : DXY 1h  \nTendance : Légère tendance haussière.  \nStructure : Plusieurs HH/HL indiquant une dynamique acheteuse modérée.  \nZones clés : Support autour 98.85, résistance à 99.55.  \nScénario : Possiblement continuation haussière si support tient, considérer achat proche support.  \nInvalidation : Sous 98.85, casse structurelle et possible retournement baissier.  \n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu  \nTendance : Inconnue.  \nStructure : Inconnue.  \nZones clés : Inconnues.  \nScénario : Impossible à définir sans plus d’informations.  \nInvalidation : Indéterminée.  \n\nD) Chart 3 (bas-gauche) : symbole/timeframe inconnu  \nTendance : Inconnue.  \nStructure : Inconnue.  \nZones clés",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_22-35-02",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_22-34-50.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_025714_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T22:57:12-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_22-57-05",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.1,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Achat sur cassure de 99.55 ou sur retest du support 99.10",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Repli durable sous 99.10",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière modérée sur le 1h confirmée par une série de HH/HL depuis le 29 mai.  \n- Structure récente avec un dernier sommet autour de 99.55 (HH) et un dernier creux vers 99.10 (HL).  \n- Support clé proche de 99.10, résistance sous contrôle à 99.55 ; possible pullback avant continuation.  \n\nB) Chart unique (TVC:DXY 1h):  \nLe graphique montre un DXY en tendance haussière avec des plus hauts et plus bas relatifs ascendantes (HH/HL). La structure récente a formé un HH à 99.55 et un HL à 99.10, validant la dynamique acheteuse. Le prix teste actuellement une zone de résistance autour de 99.45-99.55, où la cassure donnera un signal pour continuer la hausse. Un repli sous 99.10 invaliderait ce scénario haussier et pourrait amener vers un retracement plus profond. Zone d’entrée possible sur confirmation de la cassure des 99.55 ou en achat sur retest du support 99.10.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"s",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_22-57-05",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_22-56-49.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_033621_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T23:36:19-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_23-36-09",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée long sur break 99.55, stop sous 99.00",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 99.00 avec LL",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Plusieurs indices et actifs sont présentés, avec des variations mixtes (exemple : SPX stable, NDQ en baisse, DJIA en hausse).  \n- Dollar Index (DXY) montre une forte structure volatile sur le 1h, sans tendance clairement affirmée à ce stade.  \n- La configuration dominante est une phase de range avec possibles points de retournement sur zones clés.\n\nB) Chart 1 (haut-gauche): U.S. Dollar Index 1h  \n- Structure récente en HL/HH, reprise haussière visible après un creux à 98.75.  \n- Zone support clé proche de 99.00, base du range intra-day.  \n- Résistance notable vers 99.55 testée plusieurs fois, comportement hésitant.  \n- Scénario haussier privilégié si rupture claire de 99.55 avec maintien des HL.  \n- Invalidation en cas de retour sous 99.00 et nouveaux LL, amorce potentielle de correction.\n\nC) Chart 2 (haut-droit): inconnu (symbole non lisible)  \n- Graphique non identifiable, pas d'analyse possible.  \n- Nécessite clarification sur actif et timeframe.\n\nD) Chart 3 (ba",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_23-36-09",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_23-35-54.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_035843_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T23:58:41-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_23-58-35",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.1,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.6,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "long sur repli vers 99.10 - 99.15 avec cible vers 99.60+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture en dessous de 99.10",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante sur le 1h avec séquence de HH/HL claire.  \n- Structure corrélée à une zone de support autour de 99.1, résistances entre 99.5 et 99.6.  \n- Scénario prioritaire: poursuite probable du rebond tant que le support 99.1 tient, invalidation sous ce niveau.  \n\nB) Chart unique (TVC:DXY 1h):  \nLa structure montre une succession de hauts plus hauts (HH) et bas plus hauts (HL) depuis début juin, confirmant une dynamique acheteuse nette. Le prix a récemment rebondi depuis une zone de support majeur située autour de 99.10, validant ce niveau comme support clé. La résistance immédiate se situe autour de 99.50-99.60, zone qui, si dépassée, ouvrirait la voie vers un nouveau sommet. Le scénario favori est donc une continuation de la hausse avec prise de position sur replis proches du support. En revanche, une cassure en clôture sous 99.10 invaliderait ce biais et pourrait déclencher un retournement vers des niveaux plus bas.  \n\nC) DeskPro  \n```json\n{\"run",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_23-58-35",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-04_23-58-25.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_043746_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T00:37:43-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_00-37-35",
+    "signals": [
+      {
+        "type": "resistance_level",
+        "value": 99.55,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Long au rebond sur support, viser résistance.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Break < 99.20",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Non analysable",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Non définie",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Non analysable",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Non définie",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Non analysable",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Non définie",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale légèrement haussière à neutre, avec séquences de HH/HL sur les derniers mouvements, mais possibles résistances proches.  \n- Présence de zones clés à surveiller pour confirmation ou invalidation de la reprise haussière.  \n- Vigilance nécessaire en cas de rupture des supports récents qui invaliderait la structure haussière.\n\nB) Chart 1 (haut-gauche) : DXY 1h  \n- Structure : tendance haussière avec des HH (plus hauts) et HL (plus bas) formés récemment, en attente de nouvelle impulsion.  \n- Supports clés : zone 99.20 à 99.25 où des rebonds ont eu lieu.  \n- Résistances clés : 99.55, à franchir pour poursuite haussière.  \n- Scénario : conserver biais haussier tant que 99.20 tient, ciblant 99.55+.  \n- Invalidation : rupture claire sous 99.20 avec baisse vers 99.00.\n\nC) Chart 2 (haut-droit) : Inconnu (pas lisible)  \n- Impossible d’analyser, symbole/timeframe non identifiable.  \n- Recommandation : vérifier la source ou fournir un autre screenshot.\n\nD) Chart",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_00-37-35",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_00-37-25.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_141532_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T10:15:30-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-15-24",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 99.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.6,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.8,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur retracement vers support 99.150-99.200 avec objectif 99.800+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture horaire sous 99.150",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière récente avec une nette impulsion à la hausse sur la dernière heure.  \n- Structure en HH/HL bien établie depuis début juin, confirmant un uptrend.  \n- Zone clé support vers 99.150-99.200, résistance précédente vers 99.600 franchie, objectif potentiel vers 99.800+.  \n\nB) Chart unique (TVC:DXY 1h): La tendance est clairement haussière, avec une structure de higher highs et higher lows validée. Le prix a rebondi après un pullback jusqu’à la zone support 99.150-99.200, ce qui a déclenché une forte réaction acheteuse. La résistance importante précédente à 99.600 est cassée avec dynamisme, signalant une poursuite probable vers 99.800-99.850. Le scénario conseillé est d’envisager des prises de position longues sur repli proche du récent support avec comme invalidation une clôture sous 99.150.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_1415\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bullish\",\"structure\":\"HH/HL\",\"supports\":[\"99.150\",\"99.200\"],\"resistances\":[\"99.600\",\"99",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-15-24",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_10-15-12.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_143522_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T10:35:20-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-35-11",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 98.95,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.85,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "confirmer accélération haussière ou replis sur support pour acheter",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture < 99.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Forte volatilité récente sur le DXY avec une cassure nette à la hausse.\n- Structure en 1h globale haussière, mais retracement important avant reprise d’impulsion.\n- Zones clés S/R à définir avec prudence, scénario haussier avec invalidation sous dernier bas.\n\nB) Chart 1 (haut-gauche) : DXY 1h\n- Bias : haussier\n- Structure : HH/HL marqués jusqu’à la montée forte finale, après un retracement ayant formé un LL puis HL.\n- Supports : 99.15 (dernier HL), 98.95 (zone de consolidation précédente)\n- Résistances : 99.85-99.90 (plus haut récent à surveiller)\n- Plan : chercher confirmation d’accélération haussière sur breakout ou reprise après retest de support.\n- Invalidation : clôture sous 99.15 fragiliserait la hausse.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non visible)\n\nD) Chart 3 (bas-gauche) : inconnu (symbole/timeframe non visible)\n\nE) Chart 4 (bas-droit) : inconnu (symbole/timeframe non visible)\n\nF) DeskPro\n{\"run_id\":\"20240605-1435\",\"charts\":[{\"slot\":\"1\",\"",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-35-11",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_10-34-56.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_151629_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T11:16:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_11-16-21",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.9,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 100.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat en retracement vers 99.15 avec stop sous ce niveau",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cours sous 99.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Forte impulsion haussière récente marquant un breakout net.\n- Structure en renversement, avec un bas récent formant un HL suivi d’un nouveau HH.\n- Zone clé de support à 99.15, résistance à surveiller autour de 99.90-100.00.\n\nB) Chart unique (TVC:DXY 1h) : \nLa tendance est haussière suite à une forte remontée en chandelles vertes. La structure montre un recent low formant un HL, puis une rupture des niveaux précédents, générant un HH récent. Le prix a cassé une zone de résistance horizontale située vers 99.80, confirmant la dynamique acheteuse. Support essentiel identifié à 99.15 (ancien point bas). Le scénario recommandé est de chercher des opportunités longues en retracement vers ce support, avec un stop placé sous ce niveau pour invalidation. Si le prix retombe sous 99.15, le biais haussier serait remis en question.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL puis HH confirmé par breakout\",\"supports\":[\"99.15\"],\"resistan",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_11-16-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_11-16-11.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_153642_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T11:36:40-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_11-36-25",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 100.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter près du support 99.20 avec objectif vers 100.00",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 99.20",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Forte impulsion haussière récente sur l’indice DXY (Dollar Index) en 1h.\n- Structure haussière avec des gros volumes à la hausse, signal d’un possible breakout.\n- Zones clés de support detectées vers 99.20, résistance majeure potentielle vers 100.00.\n\nB) Chart 1 (haut-gauche):  \nSymbole: DXY / Timeframe: 1h  \nStructure: Série de HH/HL, puis forte montée avec chandelier haussier long, rompant consolidation.  \nSupports: 99.20 (ancienne zone de congestion, support solide)  \nRésistances: 100.00 (niveau psychologique et résistance historique potentielle)  \nTendance: Haussière nette avec momentum accru.  \nScénario: Poursuite probable de la hausse si maintien au-dessus de 99.20.  \nInvalidation: Cassure sous 99.20 avec chandelier baissier fort annulerait ce scénario.\n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe: inconnu (non lisible)  \nStructure: inconnu  \nSupports: inconnu  \nRésistances: inconnu  \nTendance: inconnu  \nScénario: inconnu  \nInvalidation: inconnu  \n\nD) Chart",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_11-36-25",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_11-36-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_163939_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T12:39:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_12-39-25",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.1,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 99.3,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 100.05,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur retracement vers support ou breakout continuation",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 99.10",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "pas d’action sans données",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "pas d’action sans données",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "attendre meilleure visibilité",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Forte poussée haussière brutale visible sur le DXY, signal potentiel de shift de sentiment macro.  \n- Plusieurs indices US majeurs en baisse nette, divergence marquée entre Dollar fort et actions faibles.  \n- Attention zones clés à identifier pour confirmation structurelle avant prise de position.\n\nB) Chart 1 (haut-gauche) :  \nSymbole : DXY, Timeframe : 1h  \nTendance dominante : haussière nette sur dernière séquence avec forte impulsion.  \nStructure : formée de HH/HL avant la cassure brutale, confirmant départ d’une nouvelle jambe up.  \nZones clés : support vers 99.10-99.30 (anciens HL), résistance immédiate testée à 100.05+ (nouveau sommet)  \nScénario : continuation de la hausse probable si maintien au-dessus de 99.30. Possibilité de retracement technique si rejet sous 100.05.  \nInvalidation : repli durable sous 99.10 invaliderait la structure haussière.\n\nC) Chart 2 (haut-droit) :  \nSymbole/timeframe inconnu (non lisible sur l'image)  \nTendance & structure : non d",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_12-39-25",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_12-39-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260606_034600_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T23:45:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_23-45-50",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 99.4,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 100.1,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 100.2,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Chercher continuation haussière tant que support tient, prise de profit proche résistance",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte définitive de 99.20",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Forte impulsion haussière finale montrant un retournement net des derniers mouvements.  \n- Structure récente en HH/HL confirmée, supports solides autour des 99.2-99.4.  \n- Attention à une possible correction ou pullback après ce spike, zones clés à surveiller proches de 100.10 et 99.70.  \n\nB) Chart 1 (haut-gauche):  \nSymbole: DXY (Dollar Index), timeframe: 1h  \nTendance: Haussière nette avec impulsion finale forte.  \nStructure: HH/HL validés jusqu’au gros spike haussier (prise d’élan).  \nSupports clés: 99.20 / 99.40  \nRésistances clés: 100.10 (prix actuel) / 100.20 (haut récent).  \nScénario: Continuation haussière probable si maintien au-dessus des supports, sinon retracement possible.  \nInvalidation: Repli en dessous 99.20 avec volume pour invalider l’élan.  \n\nC) Chart 2 (haut-droit): inconnu (non lisible)  \n\nD) Chart 3 (bas-gauche): inconnu (non lisible)  \n\nE) Chart 4 (bas-droit): inconnu (non lisible)  \n\nF) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"haut-gauch",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_23-45-50",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_23-45-39.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260611_045250_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-11T00:52:48-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-11_00-52-37",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.5,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 100.2,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "long au maintien du support, break 100.20 pour confirmer continuation",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 99.50",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global:\n- Le marché principal semble être U.S. Dollar Index (DXY) en 1h, montrant une structure mixte avec une nette impulsion récente.\n- Absence d’autres symboles/timeframes visibles pour les autres graphiques, analyse limitée au DXY uniquement.\n- Approche prudente recommandée, confirmation nécessaire avant prise de position.\n\nB) Chart 1 (haut-gauche) : DXY 1h\n- Tendance récente haussière marquée par une forte impulsion vers le haut.\n- Structure récente: HH (Higher High), HL (Higher Low) confirmés sur le court terme, malgré un retracement latéral après le pic.\n- Zone clé de support autour de 99.50, à surveiller pour tenir la structure haussière.\n- Résistance majeure à 100.20, sommet récent à valider comme rupture pour poursuite haussière.\n- Scénario bullish si prix tient le support 99.50 puis dépasse 100.20.\n- Invalidation en cas de cassure sous 99.50, risquant un retour baissier (LH, LL).\n\nC) Chart 2 (haut-droit) : inconnu (pas lisible)\n\nD) Chart 3 (bas-gauche) : inconnu (p",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-11_00-52-37",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-11_00-52-22.png"
+    }
+  }
+]

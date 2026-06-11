@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_194205_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:40:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-40-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4495.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous résistance avec target vers support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture & maintien >4525",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d'une tendance baissière dominante sur la majorité des graphiques.  \n- Structure principalement en série de plus bas (LH/LL), signalant un biais vendeur.  \n- Zones de support importantes à surveiller pour possibles rebonds ou ruptures décisives.  \n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \n- Tendance claire baissière avec structure LH/LL.  \n- Zone clé support autour de 4430-4440 USD, résistance vers 4495-4500 USD.  \n- Scénario privilégié : continuation de la baisse sous résistance, test du support.  \n- Invalidation si break et tenue au-dessus du dernier HH vers 4525 USD.  \n\nC) Chart 2 (haut-droit): Inconnu  \n- Symbol/timeframe non lisible, aucune analyse possible.  \n\nD) Chart 3 (bas-gauche): Inconnu  \n- Symbol/timeframe non lisible, aucune analyse possible.  \n\nE) Chart 4 (bas-droit): Inconnu  \n- Symbol/timeframe non lisible, aucune analyse possible.  \n\nF) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-40-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_15-40-41.png"
+  }
+}

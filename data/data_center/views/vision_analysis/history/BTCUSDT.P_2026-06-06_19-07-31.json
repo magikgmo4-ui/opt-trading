@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_230740_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T19:07:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-07-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur cassure support 60000, scalps longs possibles dans range 60600-61000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire au-dessus 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Consolidation récente autour des 60 600-61 000, zone de support clé à surveiller.  \n- Risque d’accélération baissière si le support est cassé, sinon rebond potentiel vers résistance intraday.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance : baissière  \nStructure : baisse avec LH et LL marqués, phase de range à la fin (consolidation)  \nSupports : 60 000, 59 000 (anciennes zones de creux)  \nRésistances : 61 000-61 500 (zone de congestion récente), 63 000 (point haut intermédiaire)  \nPlan : chercher une vente en cassure du support 60 000, avec confirmation de volume / momentum. Possibilité de scalps longs à court terme dans le range 60 600-61 000 si rebond.  \nInvalidation : rupture claire au-dessus de 63 000 invaliderait la tendance baissière court terme.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL puis range\",\"supports\":[\"60",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-07-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_19-07-21.png"
+  }
+}

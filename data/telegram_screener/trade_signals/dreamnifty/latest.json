@@ -1,0 +1,36 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_dreamnifty_23966_2026-06-04T06:20:24+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "dreamnifty",
+    "parsed_at": "2026-06-04T06:20:24+00:00",
+    "produced_at": "2026-06-06T11:30:55.858853+00:00",
+    "pair": "XAUUSDUSDT",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "**\u2604\ufe0f****\u2604\ufe0f****BUY 8-10 LOTS AGAIN****\u2604\ufe0f****\u2604\ufe0f****\n\nBUY 360ONE 1140CE ABOVE 16.50 CMP**"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_dreamnifty_24010_2026-06-05T05:38:26+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "dreamnifty",
+    "parsed_at": "2026-06-05T05:38:26+00:00",
+    "produced_at": "2026-06-06T11:30:55.866407+00:00",
+    "pair": "XAUUSDUSDT",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "**\ud83d\udd08****\ud83d\udd08****SUPER DUPER OPTION OF THE MONTH\n\nBUY 8-10 LOTS HERE\n\nBUY PIDILIT 1520CE ABOVE 17**"
+  }
+]

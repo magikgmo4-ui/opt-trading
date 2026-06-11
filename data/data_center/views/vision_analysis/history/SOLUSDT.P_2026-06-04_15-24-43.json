@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_192452_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T15:24:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_15-24-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 68.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 68.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 70.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 71.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre en cassure support 68.00, viser 66.50-66.00. Acheter si rebond sur 68.00 avec objectif 70.50-71.00.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 71.00",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur 15m avec une succession de HH/HL invalidée, structure dominée par des LL et LH.  \n- Zone clé de support aux alentours de 68.00-68.50, résistance immédiate vers 70.50.  \n- Scénario principal : continuation baissière si le support 68.00 cède, rebond possible en cas de maintien du support, invalidation en clôture au-dessus de 71.00.\n\nB) Chart unique (SOLUSDT.P 15m) :  \nLe graphique montre une forte dynamique baissière avec une série de creux et sommets plus bas (structure LH/LL). Le prix a tenté un rebond temporaire mais reste sous la dernière résistance à 70.50. Le support 68.00-68.50 est testé plusieurs fois, indiquant une zone clé. Une cassure claire en dessous de ce support ouvrirait la voie à une poursuite baissière. Invalidation du biais baissier si le prix franchit durablement 71.00 avec retest.\n\nC) DeskPro  \n{\"run_id\":\"run_SOLUSDT_15m_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[68.00,68.50],\"r",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_15-24-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_15-24-31.png"
+  }
+}

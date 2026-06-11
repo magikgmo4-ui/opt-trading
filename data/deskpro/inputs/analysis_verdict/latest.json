@@ -1,0 +1,74 @@
+{
+  "contract": "analysis_verdict.v1",
+  "verdict_id": "verdict_2026-06-05T055158_a4dd68e9",
+  "produced_at": "2026-06-05T05:51:58.522283+00:00",
+  "freshness_state": "STALE",
+  "bundles_used": [
+    "btc.core.v1",
+    "macro.v1"
+  ],
+  "composite": {
+    "btc_bias": "BEARISH",
+    "macro_regime": "RISK_ON",
+    "alignment": "DIVERGENT",
+    "overall_bias": "NEUTRAL",
+    "confidence": "LOW",
+    "score": 20
+  },
+  "checklist": [
+    {
+      "item": "BTC bias determined",
+      "status": "OK"
+    },
+    {
+      "item": "Macro regime determined",
+      "status": "OK"
+    },
+    {
+      "item": "BTC/macro alignment",
+      "status": "WARN"
+    },
+    {
+      "item": "BTC Coinglass OI/Funding check",
+      "status": "N/A"
+    },
+    {
+      "item": "Telegram signal confirmation",
+      "status": "N/A"
+    },
+    {
+      "item": "No conflicting news/events",
+      "status": "N/A"
+    },
+    {
+      "item": "Warnings present \u2014 review",
+      "status": "WARN"
+    }
+  ],
+  "warnings": [
+    "Macro bundle stale \u2014 analysis may be unreliable"
+  ],
+  "missing_inputs": [
+    "macro: 4/4 sources stale, confidence degraded"
+  ],
+  "source_refs": [
+    "/home/fantome/opt-trading-clean/data/data_center/views/market_metrics/latest.json",
+    "/home/fantome/opt-trading-clean/data/deskpro/inputs/vision_context/coinglass/latest.json",
+    "/home/fantome/opt-trading-clean/data/telegram_screener/signals",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/BTCUSDT.P.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/TVC:DXY.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/TVC:VIX.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/TVC:US10Y.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/OANDA:XAUUSD.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/SPY.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/NYMEX:CL1!.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/NYMEX:RB1!.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/NYMEX:NG1!.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/BITGET:BZUSDT.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/FX:EURUSD.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/CRYPTOCAP:BTC.D.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/CRYPTOCAP:TOTAL.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/CRYPTOCAP:TOTAL2.json",
+    "/home/fantome/opt-trading-clean/data/data_center/views/vision_analysis/by_symbol/CRYPTOCAP:TOTAL3.json"
+  ]
+}

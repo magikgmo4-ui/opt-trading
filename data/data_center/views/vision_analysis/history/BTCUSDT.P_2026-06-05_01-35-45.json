@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_053552_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T01:35:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_01-35-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64250.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attend confirmation break 64250 pour long, sinon short sur rejet ou retest support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">64500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de plus bas (LL) et plus bas à chaque retracement.  \n- Structure récente montre un rebond après un plus bas local, avec hésitation autour de 63 500.  \n- Zone clé support à 62 750-63 000 à surveiller, résistance identifiée vers 64 000-64 250.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nTendance: Baissière dominante (LL/LS) confirmée depuis la chute initiale.  \nStructure récente: tentative de redressement avec un HL intraday haussier, mais pas encore de HH validé.  \nSupports: 62 750 - 63 000 (rebonds multiples).  \nRésistances: 63 700 - 64 250 (zone de congestion et sommets récents).  \nPlan: Surveiller confirmation d’un franchissement haussier au-dessus de 64 250 pour un possible retournement court terme. Sinon, chercher repli à support pour shorts.  \nInvalidation: Au-dessus de 64 500, invalidation d’un scénario baissier court terme.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_0534\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_01-35-45",
+    "source_screenshot": "/opt/trading/data/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_01-33-23.png"
+  }
+}

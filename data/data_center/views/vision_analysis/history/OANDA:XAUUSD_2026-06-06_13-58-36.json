@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_175845_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T13:58:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-58-36",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4380.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur pullback résistance avec confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure au-dessus de 4440",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation tendance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "nc",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre volumes et niveaux clés",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "nc",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre signal clair",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "nc",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Correction nette en cours sur le symbol inconnu principal avec forte pression vendeuse récente.\n- Structure volatile, oscillation entre supports et résistances clés bien visibles, attention aux zones de retournement.\n- Scénarios d’entrée à privilégier sur rebond ou continuation selon validation / invalidation des zones clés.\n\nB) Chart 1 (haut-gauche) : XAUUSD 1h\n- Tendance globale baissière récente, structure en LH/LL après un pic.\n- Support clé autour de 4,320 (zone de rebond potentiel) et résistance vers 4,380-4,400.\n- Scénario favori : repli suivi d’un pullback à résistance, puis vendresur confirmation de nouvelle LL.\n- Invalidation si cassure claire au-dessus de 4,440 avec volumes.\n\nC) Chart 2 (haut-droit): inconnu (symbol/timeframe non lisible)\n- Structure difficile à déterminer.\n- Identifier les supports et résistances majeures à surveiller.\n- Favoriser prudence jusqu’à confirmation claire de tendance et structure.\n\nD) Chart 3 (bas-gauche): inconnu (symbol/time",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-58-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_13-58-24.png"
+  }
+}

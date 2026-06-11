@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_103029_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T06:30:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-30-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente en tendance après pullbacks faibles, viser continuation baissière. Prudence sur cassure support 62000 pour potentielle accélération.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "HH au dessus de 66500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière sur le 1h, avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure clairement en effondrement impulsif depuis plusieurs sessions, sans signe de renversement visible.  \n- Zone de support clé proche des 62 000 USDT, mais risque de cassure à surveiller.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une tendance baissière dominante, caractérisée par une série de LH et LL marqués. Le prix a chuté rapidement, avec un momentum fort sur les dernières chandelles. Le volume augmente lors des baisses, confirmant la pression vendeuse. La structure révèle une absence de pullbacks haussiers soutenus, ce qui renforce la dynamique baissière. Le niveau autour de 62 000 USDT constitue une zone de support intraday à surveiller attentivement : une cassure de ce niveau pourrait accélérer la baisse vers des niveaux plus bas. Scénario principal baissier, invalidation possible en cas de HH supérieur à 66 500 USDT.\n\nC) DeskPro  \n```json\n{",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-30-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_06-30-13.png"
+  }
+}

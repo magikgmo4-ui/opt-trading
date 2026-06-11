@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_045234_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T00:52:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_00-52-26",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Privilégier vente sur rebond proche résistance 73-75, gestion serrée du risque, invalidation au-dessus de 75.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement net au-dessus de 75",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de bas plus bas (LL) et de hauts plus bas (LH).  \n- Rebond récent autour de 67.5-68$ suivi d’une forte reprise, mais structure générale reste baissière.  \n- Scénario potentiel de correction à court terme avant reprise baissière, invalidation si plus haut significatif franchi au-dessus de 75$.\n\nB) Chart unique (SOLUSDT.P 15m): La tendance dominante est baissière avec des LL et LH successifs qui confirment la pression vendeuse. Le support clé récent est identifié autour de 67.5-68$, zone où un rebond technique a eu lieu. La résistance immédiate se situe entre 73-75$, zone de plusieurs points de rechute. La structure montre un possible retracement correctif mais sans rupture claire du downtrend. Un franchissement net au-dessus de 75$ invaliderait la tendance baissière en place. Positions courtes à privilégier sous résistance avec stop-loss serré au-dessus de ce niveau.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_00-52-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_00-52-18.png"
+  }
+}

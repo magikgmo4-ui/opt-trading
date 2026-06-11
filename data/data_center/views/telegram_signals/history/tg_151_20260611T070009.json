@@ -1,0 +1,27 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_151_20260611T070009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "forex_gold_signals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2020-04-21T08:55:43+00:00",
+  "produced_at": "2026-06-11T07:00:09.465499+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 1.239,
+  "sl": 1.219,
+  "tp": 1.244,
+  "tps": [
+    1.244,
+    2.0,
+    1.239,
+    2.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "Buy #GBPUSD @1.23900\nTp @ 1.24400\nTp2 @1.24900\nBuy 2 @1.22900\nTP @ 1.23900\nSL @1.21900\n\ud83d\udc49Use low risk",
+  "summary": "XAUUSD LONG"
+}

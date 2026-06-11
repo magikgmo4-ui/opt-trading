@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_165711_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T12:57:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-57-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre la baisse en attendant un rebond potentiel sur support 59 700-60 000. Attention à une invalidation en cas de clôture 1h > 62 000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cloture 1h > 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec des Lower Highs (LH) et Lower Lows (LL) bien marqués.  \n- Structure en baisse persistante depuis plusieurs jours, aucune inversion visible.  \n- Zone clé de support proche de 59 700-60 000 USDT testée, possible rebond court terme mais scénario baissier dominant.  \n\nB) Chart unique (BTCUSDT.P 1h) :  \nLa tendance est clairement baissière, la structure présente des Lower Highs et Lower Lows confirmant la pression vendeuse. Le dernier rebond semble limité par une résistance autour de 62 000 USDT. Le support immédiat à surveiller se situe entre 59 700 et 60 000 USDT, zone testée récemment. Un franchissement haussier au-dessus de 62 000 remettrait en question la continuation baissière. En revanche, une cassure des 59 700 renforcerait le biais vendeur. Pour l’instant, le scénario prioritaire est la poursuite de la baisse, avec un éventuel petit rebond technique sur support. Invalidation scenario baissier si clôture au-dessus de 62 0",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-57-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_12-56-54.png"
+  }
+}

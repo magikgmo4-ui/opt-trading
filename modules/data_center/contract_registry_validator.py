@@ -53,7 +53,10 @@ def validate() -> list[str]:
         if c.get("status") != "PROVEN" or c.get("on_demand"):
             continue
         vp = c.get("view_path", "")
-        if "{SYMBOL}" in vp or "{CONTRACT}" in vp or "{DATA_KEY}" in vp:
+        if not vp:
+            errors.append(f"{cid}: PROVEN but view_path is null")
+            continue
+        if "{" in vp:
             continue  # Templated path, check parent dir
         path = _PROJECT_ROOT / vp
         if not path.exists():

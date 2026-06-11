@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_190226_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T15:02:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_15-02-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la cassure du support 1500 pour une continuation baissière. Surveiller rebond et rejet sous résistance 1600-1625 pour opportunités short. Invalidation à la cassure nette au-dessus de 1625.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 1625",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière sur le timeframe 1h, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de marché clairement baissière, sans signe évident d’inversion à court terme.  \n- Zone clé support autour de 1500, résistance principale proche des 1600-1625, zone d’invalidation en cas de dépassement clair des 1625.  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre une tendance baissière dominante avec des Lower Highs et Lower Lows réguliers formés depuis le début de la période visible. Après une longue chute, le prix consolide autour de 1550-1575, testant un support vers 1500. La résistance immédiate se situe autour de 1600-1625. Le scénario principal reste la poursuite de la baisse si le support casse, tandis qu’un franchissement à la hausse des 1625 invaliderait ce biais baissier et pourrait indiquer une correction ou un retournement.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL-LH\",\"supp",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_15-02-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_15-02-05.png"
+  }
+}

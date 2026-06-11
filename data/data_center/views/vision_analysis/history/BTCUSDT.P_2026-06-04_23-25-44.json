@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_032552_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T23:25:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-25-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond proche résistance 65,000 ou break support 62,000. Stop loss au-dessus 65,000 si prise de position short.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus de 65,000 avec structure HH/HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette en 1h avec séries de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente marquée par une tentative de rebond faible, sans franchissement d’un plus haut significatif.  \n- Zones clés à surveiller : support vers 62,000 USDT, résistance à 65,000 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique montre une tendance baissière bien marquée avec une structure en LH/LL. Le prix a chuté fortement depuis près de 78,000 USDT, formant de nouveaux creux à chaque rebond. Actuellement, le prix teste un support autour de 62,000 USDT. La résistance immédiate se situe près de 65,000 USDT, niveau à franchir pour envisager un retournement haussier. Le scénario principal reste donc baissier tant que les 65,000 USDT ne sont pas dépassés clairement. Invalidation en cas de passage au-dessus de ce niveau avec une structure de HH/HL confirmée.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"230605_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-25-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_23-25-32.png"
+  }
+}

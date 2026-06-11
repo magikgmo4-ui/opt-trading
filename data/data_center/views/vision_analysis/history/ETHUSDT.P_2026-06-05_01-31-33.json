@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_053144_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T01:31:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_01-31-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur résistance 1800 ou en cassure retest de 1700",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair 1800 en clôture horaire",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec séries de Lower Highs (LH) et Lower Lows (LL) confirmées.  \n- Structure fragile, aucune reprise de niveau clé visible à court terme.  \n- Zone résistance proche vers 1 800 USD, support important à surveiller vers 1 700 USD.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa paire évolue clairement dans une dynamique baissière, avec un enchaînement régulier de sommets et creux descendants (LH/LL). La pression vendeuse s’accroît, visible sur les volumes plus importants lors des baisses prononcées. La zone des 1 800 USD sert de résistance actuelle, empêchant toute tentative de rebond durable. Le support vers 1 700 USD est un palier à surveiller pour détecter une possible stabilisation ou rebond. Scénario principal à privilégier : poursuite de la baisse tant que la résistance 1 800 USD tient. Invalidation en cas de franchissement clair et volumineux au-dessus des 1 800 USD, pouvant ouvrir sur un test des 1 860-1 880 USD.\n\nC) DeskPro  \n```json\n{\"run_id\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_01-31-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_01-31-25.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_023010_NYMEX:CL1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:CL1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-03T22:30:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-30-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 96.0,
+      "confidence": 0.7,
+      "note": "s 96"
+    },
+    {
+      "type": "support_level",
+      "value": 90.0,
+      "confidence": 0.7,
+      "note": "s 90"
+    },
+    {
+      "type": "support_level",
+      "value": 86.0,
+      "confidence": 0.7,
+      "note": "s 86"
+    },
+    {
+      "type": "support_level",
+      "value": 90.0,
+      "confidence": 0.7,
+      "note": "s 90"
+    },
+    {
+      "type": "support_level",
+      "value": 96.0,
+      "confidence": 0.7,
+      "note": "s 96"
+    },
+    {
+      "type": "price_target",
+      "value": 102.0,
+      "confidence": 0.5,
+      "note": "objectif 102"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente haussière après un creux proche de 86, indiquant une possible reprise du mouvement acheteur.  \n- Structure globalement baissière marquée par des Lower Highs (LH) et Lower Lows (LL) récents, freinant la confirmation d’un retournement clair.  \n- Zone clé de résistance proche des 96-97 USD, zone testée plusieurs fois sans franchissement net.\n\nB) Chart unique (NYMEX:CL1! 4h):  \nOn observe une tendance de fond baissière (LH/LL), balayée momentanément par un rebond technique qui a formé un plus bas plus haut (HL). Le prix teste actuellement une résistance autour de 96 USD; un rejet ici renforcerait la continuation baissière vers 90 puis 86 USD. En cas de cassure convaincante au-dessus de 97, un scénario haussier s’enclencherait avec objectif 102 USD et plus. Support clé initial à 90 USD. Invalidation du biais haussier sous 90 USD.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"LH/LL avec HL récent\",\"supports\"",
+  "symbols_found": [
+    "NYMEX:CL1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-30-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-03_22-29-50.png"
+  }
+}

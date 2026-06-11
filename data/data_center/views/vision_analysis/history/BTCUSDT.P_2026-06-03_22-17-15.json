@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_021851_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T22:17:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-17-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller un rebond technique proche des 61000 pour un trade court terme. Break sous support valide poursuite baissière. Reprise haussière invalidée sous 66000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close supérieur à 66000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante clairement baissière sur 1h avec une série de plus bas (LL) et plus bas relatifs (LH) qui se dessine.  \n- Présence d’une forte cassure à la baisse accompagnée d’un pic de volume, confirmant la validité de la pression vendeuse.  \n- Zone de support potentielle autour de 61 000 USDT à surveiller, à court terme un rebond technique est possible mais le biais reste baissier.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre un mouvement baissier clair avec des structures HH/HL cassées, évolution en LH/LL. La chute accélérée au dernier tiers du graphique, marquée par des volumes élevés, renforce le biais vendeur. Le support autour de 61 000 USDT est la zone clé à observer pour un possible rebond ou poursuite baissière. L’invalidation du scénario baissier se ferait par un retour au-dessus des 66 000 USDT (ancien support devenu résistance). \n\nC) DeskPro  \n{\"run_id\":\"20240604_1h_BTCUSDT_P\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/L",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-17-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_22-16-57.png"
+  }
+}

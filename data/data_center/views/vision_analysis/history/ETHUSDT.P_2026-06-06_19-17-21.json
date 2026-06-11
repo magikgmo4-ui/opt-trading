@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_231729_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T19:17:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-17-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller retour à 1580-1600 pour prise de position vendeuse avec stop au-dessus, ou invalidation en cas de breakout haussier supérieur à 1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture solide au-dessus de 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le timeframe 15m, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure actuelle en phase de consolidation latérale, marquant une pause après la forte baisse.  \n- Zone clé de support vers 1540-1550, résistance immédiate autour de 1580-1600.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLa tendance dominante est baissière, visible par la succession de LH et LL successifs. Le mouvement récent montre un retracement partiel formant un range serré, suggérant une attente d’une décision des prix. Le support proche autour de 1540-1550 a été testé à plusieurs reprises, tandis que la résistance est identifiée proche de 1580-1600. Un dépassement clair de cette résistance pourrait signaler un retour à une correction haussière, mais la tendance de fond reste baissière tant que les plus hauts ne sont pas invalidés. En cas de rupture franche du support, la baisse pourrait reprendre fortement.\n\nC) DeskPro  \n{\"run_id\":\"20240607-1\",\"charts\":[{",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-17-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_19-17-12.png"
+  }
+}

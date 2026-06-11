@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_075502_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-07T03:54:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_03-54-54",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Sur cassure support 840B, renforcer position short pour viser nouveaux plus bas. En cas de rebond au-dessus de 960B, envisager prise de bénéfice ou sortie.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement et maintien au-dessus de 960B avec retest validé.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante confirmée par une série de Lower Highs (LH) et Lower Lows (LL).\n- Rebond technique récent après un test de zone de support vers 840-860B.\n- Structure fragile avec potentiel de poursuite baissière si support clé cassé.\n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe graphique montre une tendance claire baissière depuis plusieurs mois avec une série de LH/LL. Après un creux récent vers 840B, un rebond est en cours mais la structure reste vulnérable. Zone de support clé : 840-860B (borne basse du creux récent). Résistance immédiate autour de 940-960B. Scénario principal : poursuite de la baisse en cas de cassure du support 840B, avec potentiel vers de nouveaux plus bas. Invalidation du scénario baissier si dépassement franc des 960B avec retest.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"840-860B\"],\"resistances\":[\"940-960B\"],\"plan\":\"Sur cassure support 840B, renforcer position sho",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_03-54-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-07_03-54-42.png"
+  }
+}

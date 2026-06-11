@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_215612_CRYPTOCAP:TOTAL_1w",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL",
+  "timeframe": "1w",
+  "analysis_ts": "2026-06-06T17:56:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-56-04",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short après cassure sous 2.0T, stop si franchissement 2.8T",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 2.8T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale weekly passée de hausse à baisse avec structure en LH/LL récente  \n- Nombreuses tentatives de rebond échouées sur zone 2.6-2.8T (R), support clé proche à 2.0T testé  \n- Scénario bearish privilégié avec risque de poursuite sous 2.0T ; invalidation par retour au-dessus 2.8T  \n\nB) Chart unique (CRYPTOCAP:TOTAL 1w):  \nLa capitalisation totale crypto affiche une nette tendance baissière sur ce timeframe. La structure a basculé en séquence LH (Lower High) et LL (Lower Low) depuis le pic autour de 4.4T. La dernière bougie hebdo teste le support important vers 2.0T, zone déjà testée précédemment et constituant un pivot majeur. La résistance pour invalider ce bearish se situe autour de 2.6-2.8T, niveau d’anciens supports/rebonds devenus résistances. Le volume récent n’accompagne pas de retournement clair, renforçant la probabilité d’un breakout baissier sous 2.0T. Le plan d’action est d’attendre confirmation sous ce support pour positionnement short, avec i",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-56-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-06_17-55-52.png"
+  }
+}

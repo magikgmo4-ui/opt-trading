@@ -1,0 +1,217 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_665_2026-04-27T19:41:19+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-04-27T19:41:19+00:00",
+    "produced_at": "2026-06-11T10:00:14.566255+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4646.0,
+    "sl": 4620.0,
+    "tp": 4652.0,
+    "tps": [
+      4652.0,
+      4658.0,
+      4665.0,
+      4674.0
+    ],
+    "leverage": null,
+    "raw_text": "**Gold BUY LIMIT**\n\nEntry 4646 - 4636\n\nSL 4620\n\nTP1: 4652\nTP2: 4658\nTP3: 4665\nTP4: 4674"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_667_2026-04-28T11:11:24+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-04-28T11:11:24+00:00",
+    "produced_at": "2026-06-11T10:00:14.566328+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4572.0,
+    "sl": 4555.0,
+    "tp": 4580.0,
+    "tps": [
+      4580.0,
+      4590.0,
+      4600.0
+    ],
+    "leverage": null,
+    "raw_text": "**Gold BUY LIMIT**\n\nEntry 4572- 4567\n\nSL 4555\n\nTP1: 4580\nTP2: 4590\nTP3: 4600\nTP4: open"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_671_2026-04-29T16:54:37+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-04-29T16:54:37+00:00",
+    "produced_at": "2026-06-11T10:00:14.566398+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4538.0,
+    "sl": 4528.0,
+    "tp": 4543.0,
+    "tps": [
+      4543.0,
+      4549.0,
+      4556.0,
+      4568.0
+    ],
+    "leverage": null,
+    "raw_text": "**GOLD BUY LIMIT**\n\nBUY 4538 - 4535\n\nSL 4528\n\nTP1: 4543\nTP2: 4549\nTP3: 4556\nTP4: 4568"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_672_2026-05-01T08:23:33+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-05-01T08:23:33+00:00",
+    "produced_at": "2026-06-11T10:00:14.566458+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4562.0,
+    "sl": 4548.0,
+    "tp": 4567.0,
+    "tps": [
+      4567.0,
+      4573.0,
+      4580.0,
+      4586.0
+    ],
+    "leverage": null,
+    "raw_text": "**GOLD BUY LIMIT**\n\nBUY 4562- 4558\n\nSL 4548\n\nTP1: 4567\nTP2: 4573\nTP3: 4580\nTP4: 4586"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_677_2026-05-05T16:32:34+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-05-05T16:32:34+00:00",
+    "produced_at": "2026-06-11T10:00:14.566534+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4545.0,
+    "sl": 4530.0,
+    "tp": 4550.0,
+    "tps": [
+      4550.0,
+      4556.0,
+      4562.0,
+      4572.0
+    ],
+    "leverage": null,
+    "raw_text": "**GOLD BUY LIMIT**\n\nBUY 4545- 4543\n\nSL 4530\n\nTP1: 4550\nTP2: 4556\nTP3: 4562\nTP4: 4572"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_682_2026-05-07T14:28:26+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-05-07T14:28:26+00:00",
+    "produced_at": "2026-06-11T10:00:14.566636+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4765.0,
+    "sl": 4780.0,
+    "tp": 4739.0,
+    "tps": [
+      4739.0,
+      4748.0,
+      4754.0,
+      4760.0
+    ],
+    "leverage": null,
+    "raw_text": "**Gold SELL LIMIT**  \n\nHigh Risk !!!\n\nEntry 4765 - 4768\n\nSL 4780\n\nTP1: 4760\nTP2: 4754\nTP3: 4748\nTP4: 4739"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_684_2026-05-11T05:26:09+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-05-11T05:26:09+00:00",
+    "produced_at": "2026-06-11T10:00:14.566857+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4663.0,
+    "sl": 4645.0,
+    "tp": 4669.0,
+    "tps": [
+      4669.0,
+      4674.0,
+      4682.0
+    ],
+    "leverage": null,
+    "raw_text": "**GOLD BUY LIMIT**\n\nBUY 4663- 4658\n\nSL 4645\n\nTP1: 4669\nTP2: 4674\nTP3: 4682\nTP4: open"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_687_2026-05-12T06:04:38+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-05-12T06:04:38+00:00",
+    "produced_at": "2026-06-11T10:00:14.566921+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4696.0,
+    "sl": 4680.0,
+    "tp": 4700.0,
+    "tps": [
+      4700.0,
+      4707.0,
+      4713.0
+    ],
+    "leverage": null,
+    "raw_text": "**GOLD BUY LIMIT**\n\nBUY 4696- 4692\n\nSL 4680\n\nTP1: 4700\nTP2: 4707\nTP3: 4713\nTP4: open"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_695_2026-05-26T05:54:42+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-05-26T05:54:42+00:00",
+    "produced_at": "2026-06-11T10:00:14.567097+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4517.0,
+    "sl": 4500.0,
+    "tp": 4522.0,
+    "tps": [
+      4522.0,
+      4527.0,
+      4535.0
+    ],
+    "leverage": null,
+    "raw_text": "**GOLD BUY LIMIT**\n\nBUY 4517- 4514\n\nSL 4500\n\nTP1: 4522\nTP2: 4527\nTP3: 4535\nTP4: open"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_trading_signals_gold_699_2026-05-27T13:40:30+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "trading_signals_gold",
+    "parsed_at": "2026-05-27T13:40:30+00:00",
+    "produced_at": "2026-06-11T10:00:14.567166+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4390.0,
+    "sl": 4375.0,
+    "tp": 4400.0,
+    "tps": [
+      4400.0,
+      4410.0,
+      4420.0
+    ],
+    "leverage": null,
+    "raw_text": "**GOLD BUY LIMIT**\n\nBUY 4390- 4385\n\nSL 4375\n\nTP1: 4400\nTP2: 4410\nTP3: 4420\nTP4: open"
+  }
+]

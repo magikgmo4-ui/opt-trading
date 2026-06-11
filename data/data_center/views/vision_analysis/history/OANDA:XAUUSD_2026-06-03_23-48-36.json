@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_034846_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:48:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-48-36",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "scalper à la vente proche résistance, viser support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "close clair >4560",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "informations insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Les marchés montrent une tendance baissière de moyen terme sur l’or avec des impulsions baissières suivies de retracements.  \n- Plusieurs zones clés de support sont identifiées autour de 4,420-4,430, et les résistances majeures se situent vers 4,540-4,560.  \n- Le contexte reste incertain avec un scénario baissier dominant mais une possible consolidation/récupération court terme.  \n\nB) Chart 1 (haut-gauche):  \nSymbole: XAUUSD / Timeframe 1h  \nTendance: baissière dans la structure intermédiaire.  \nStructure: chaîne de Lower Highs (LH) et Lower Lows (LL) confirmée, retracement haussier récent.  \nSupports: zone 4,420-4,430 (plusieurs touchers et redistributions).  \nRésistances: entre 4,530 et 4,560 (anciens sommets et retracements clés).  \nScénario: Retour possible vers résistance pour test avant poursuite baisse.  \nInvalidation: franchissement clair durable au-dessus de 4,560 remettrait en cause la baisse.  \n\nC) Chart 2 (haut-droit):  \nSymbole et timeframe: inconnu (i",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-48-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_23-48-24.png"
+  }
+}

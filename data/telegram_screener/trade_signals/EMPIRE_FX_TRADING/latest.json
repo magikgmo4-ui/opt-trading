@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_EMPIRE_FX_TRADING_1966_2026-05-22T07:46:43+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "EMPIRE_FX_TRADING",
+    "parsed_at": "2026-05-22T07:46:43+00:00",
+    "produced_at": "2026-06-06T11:30:54.641057+00:00",
+    "pair": "XAUUSDT",
+    "asset": "XAU",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "I see on XAU sell setup \ud83d\udcc9 \nbut Friday selehone high risk nw \ud83d\udc4d \nShare & Learn \ud83d\udcda\ud83d\udcc8\nhttps://t.me/EMPIRE_FX_TRADING\nhttps://t.me/EMPIRE_FX_TRADING"
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_173648_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T13:36:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-36-35",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre repli sous résistance cassée pour vente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au dessus 4430",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Fort mouvement baissier sur XAUUSD 1h, cassure nette des supports récents.  \n- La structure montre une série de HH puis LH, tendance baissière dominante.  \n- Volumes en augmentation sur les baisses, validant la pression vendeuse.\n\nB) Chart 1 (haut-gauche):  \n- Symbole/Timeframe : XAUUSD / 1h  \n- Tendance : Baissière nette  \n- Structure : HH puis inversion en LH/LL sur dernier pullback  \n- Zones clés : Support majeur à ~4320 (cassé), résistance importante à 4430-4450  \n- Scénario : Poursuite probable à la baisse en dessous du support cassé, avec potentiel test de zones plus basses (~4300 ou moins)  \n- Invalidation : Retour au-dessus des 4430 avec structure de HH confirmée  \n\nC) Chart 2 (haut-droit):  \n- Symbole/Timeframe : Inconnu  \n- Tendance : Inconnu  \n- Structure : Inconnue  \n- Zones clés : Inconnues  \n- Scénario : Inconnu  \n- Invalidation : Inconnue  \n\nD) Chart 3 (bas-gauche):  \n- Symbole/Timeframe : Inconnu  \n- Tendance : Inconnu  \n- Structure : Inconnue  \n- Z",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-36-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_13-36-24.png"
+  }
+}

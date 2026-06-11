@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_004124_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T20:41:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-41-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1790.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure range, breakout 1790 pour acheteurs ou break 1720 pour vendeurs",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break haussier avec HH au-dessus de 1790",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le découpage visible, avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure cassée après un pic intermédiaire vers 1830, bas récent vers 1720 confirmant support majeur.  \n- Consolidation latérale en formation autour de 1760-1780, avec possible basculement si breakout valide.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance de fond reste baissière, visible par les Lower Highs et Lower Lows multiples. Le prix a tenté plusieurs rebonds vers 1780-1790, puis des retours vers 1720-1740 comme support clé. On observe une consolidation en range entre ces deux zones. La dynamique de volume est faible sur ce range, signalant attente d’un catalyseur. Scénario haussier possible en cas de dépassement clair du seuil 1780-1790, invalidant la structure baissière si suivi par un HH (Higher High). Scenario baissier confirmé en cas de break sous 1720 avec volumes. Zone de support 1720-1740 et résistance 1780-1790 à suivre impérativement.  \n",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-41-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_20-41-08.png"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_063157_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T02:31:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_02-31-41",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sur résistance ou repli sur support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement sommet récent",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure range pour prise de position",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sortie du range sans suivi",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur support avec confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "baisse sous HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "trading range ou breakout",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette hors range",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Analyse sur XAU/USD 1h montre une phase volatile avec oscillations marquées entre supports et résistances clés.  \n- Structure en creux et sommets alternants sans tendance claire dominante, probable phase de range ou consolidation.  \n- Zones clés important à surveiller pour rupture ou confirmation du range en vue d’une sortie directionnelle.\n\nB) Chart 1 (haut-gauche):  \nInstrument inconnu (pas de symbole visible). Tendance : neutre à légèrement baissière. Structure : plusieurs sommets plus bas (LH) et creux plus bas (LL) indiquant un début de tendance baissière. Supports identifiés autour du dernier creux, résistances à la zone des derniers sommets. Scénario : repli possible vers support ou rebond vers résistance, à valider sur volume. Invalidation si franchissement clair d’un dernier sommet (HL).\n\nC) Chart 2 (haut-droit):  \nInstrument inconnu. Tendance : oscillation latérale (range). Structure: pas de HH/HL ou LH/LL clair, comportement indécis. Supports et résistan",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_02-31-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_02-31-31.png"
+  }
+}

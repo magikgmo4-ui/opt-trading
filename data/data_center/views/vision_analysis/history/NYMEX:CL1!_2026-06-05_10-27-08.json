@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_142720_NYMEX:CL1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:CL1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-05T10:27:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-27-08",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la cassure du range pour prise de position. Achat sur rebond support avec stop sous 89. Vente en breakout sous 89 ou résistance 96-97 avec confirmation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure franche sous 89 pour scénario baissier renforcé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 4h en consolidation avec structure en range entre 89 et 96.  \n- Structure récente avec des HH/HL et LH/LL alternants, signalant une hésitation.  \n- Zones clés de support autour de 89-90 et résistance majeure à 96-97.  \n\nB) Chart unique (NYMEX:CL1! 4h):  \nLe marché du pétrole brut NYMEX CL1! montre une tendance baissière amorcée fin mai, avec une succession de HL cassés (LH/LL). Les prix oscillent en range dans la zone 89-96 USD actuellement, sans clair breakout. La structure est donc indécise avec des mouvements latéraux, signant une phase de consolidation. Le support principal se situe vers 89-90 USD, zone à surveiller pour un rebond potentiel. La résistance clé est vers 96-97 USD, une rupture valide ce scénario haussier à court terme. L’invalidation du scénario haussier serait une cassure claire sous 89 USD, relançant la tendance baissière.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240606-ny4h-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre/consolidation\",\"str",
+  "symbols_found": [
+    "NYMEX:CL1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-27-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-05_10-26-53.png"
+  }
+}

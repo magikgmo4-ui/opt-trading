@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_200659_CRYPTOCAP:BTC.D_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:BTC.D",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T16:05:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-05-08",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien/support à 58.40% pour rebond possible, prise de position short si cassure en clôture jour sous 58.40%, objectif 57.60%",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture jour au-dessus de 59.00%, signal possible de stabilisation/reprise haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- La dominance BTC est en tendance baissière nette depuis le pic de début mai.  \n- Structure actuelle montre une série de lower highs (LH) et lower lows (LL), confirmant la faiblesse relative.  \n- Zone clé à surveiller autour de 58.40% qui joue actuellement de support; un rebond est possible mais fragile.  \n\nB) Chart unique (CRYPTOCAP:BTC.D 1d):  \nLe graphique affiche une chute rapide et profonde de la dominance BTC, passant d’un sommet vers 61.20% à environ 58.43% en quelques jours, avec un volume en forte augmentation sur les dernières sessions. La structure est clairement baissière avec des LH et LL. La zone vers 58.40% est un support potentiel, à court terme. La rupture nette en dessous invaliderait un possible rebond et pourrait accentuer la baisse. Pour l’instant, le prix teste ce support avec un léger retour haussier, scenario d’un rebond correctif envisageable, mais à confirmer par la tenue du support.  \n\nC) DeskPro  \n{\"run_id\":\"20240602-1\",\"charts\":[{\"slot\":",
+  "symbols_found": [
+    "CRYPTOCAP:BTC.D"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-05-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-05_16-04-53.png"
+  }
+}

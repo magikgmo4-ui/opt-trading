@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_025823_NYMEX:RB1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T22:58:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_22-58-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.04,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entry long possible sur rebond avec cible 3.18-3.20, stop sous 3.04",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette sous 3.04",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Récente tentative de rebond vers 3.07 USD, lieu d'une zone de support potentiel confirmée.  \n- Scénario à privilégier : poursuite du rebond vers résistance vers 3.18-3.20, invalidation si cassure claire sous 3.04.  \n\nB) Chart unique (NYMEX:RB1! 1h):  \nLe graphique montre une tendance baissière claire depuis fin mai, marquée par des LH et LL réguliers. Dernièrement, on observe un rebond depuis la zone de support autour de 3.04 USD, avec un volume en légère hausse. La structure court terme montre formation d’un Higher Low (HL) qui pourrait initier un retracement haussier vers la résistance clé à 3.18-3.20 USD. Une cassure sous 3.04 invaliderait ce scénario et relancerait la dynamique baissière. Zone support majeure à surveiller autour de 3.04 USD, résistance immédiate à 3.18 USD.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish avec rebond court terme\",\"struc",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_22-58-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_1h_2026-06-04_22-58-03.png"
+  }
+}

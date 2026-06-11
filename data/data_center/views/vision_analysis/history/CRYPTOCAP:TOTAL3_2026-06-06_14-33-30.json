@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_183338_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T14:33:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-33-30",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller réaction en support 640B. Priorité à la vente si cassure nette de ce support. Éventuel rebond possible sous 700B pour short.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture journalière durable au-dessus de 700B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une séquence de bas plus bas (LL) confirmée.  \n- Structure de prix fragile avec un breakout récent à la baisse, renforçant la pression vendeuse.  \n- Zone clé de support autour de 640B USD à surveiller pour un éventuel rebond ou poursuite de la chute.  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre une tendance baissière dominante traduite par la formation de bas et hauts décalés vers le bas (LL et LH). Après une phase de consolidation entre environ 700B et 760B USD, la cassure nette sous 700B a accéléré la baisse. Le volume augmente lors des jours baissiers récents, ce qui valide la force vendeuse. Le niveau autour de 640B USD apparaît comme un support majeur à court terme, à surveiller pour une potentielle réaction. Le scénario prioritaire reste la poursuite baissière sauf si un retournement en HH se construit au-dessus de 700B. Invalidation de ce scénario baissier si on repasse durablement au-dessus de 700B.  \n\nC) Des",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-33-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_14-33-19.png"
+  }
+}

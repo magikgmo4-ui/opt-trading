@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_180036_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T14:00:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-00-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0815,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0857,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée longue possible autour du support 0.0815 avec objectif vers 0.0857. Stop sous 0.0815 en invalidation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Repli sous 0.0815",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance récemment haussière sur le 15m avec structure de HL puis HH confirmés.\n- Zones clés de support identifiées autour de 0.0815 et résistance importante vers 0.0857.\n- Scénario haussier à privilégier tant que support 0.0815 tient, invalidation si retour sous ce niveau.\n\nB) Chart unique (DOGEUSDT.P 15m) : \nOn observe une structure de retournement haussière formée depuis 6 juin avec une série de HL et HH jusqu’à la dernière vague qui corrige légèrement. Les supports clés se situent vers 0.0815 (ancien pivot et zone d’accumulation). La résistance majeure à surveiller est autour de 0.0857, plafond récent. Un breakout au-dessus renforcerait le biais haussier. En cas de cassure baissière du support 0.0815, la structure haussière serait invalidée et un repli plus important pourrait s’enclencher.\n\nC) DeskPro \n{\"run_id\":\"r1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL et HH\",\"supports\":[0.0815],\"resistances\":[0.0857],\"plan\":\"Entrée longue possible autour",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-00-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-07_14-00-17.png"
+  }
+}

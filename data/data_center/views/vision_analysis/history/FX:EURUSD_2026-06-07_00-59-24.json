@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_045931_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T00:59:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_00-59-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebond proche résistance, cibler support 1.1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1.1600 avec HL confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une succession de Lower Highs (LH) et Lower Lows (LL) sur le 1h.  \n- Structure fragilisée récemment avec un drop violent sur forte hausse de volume, signalant une accélération vendeuse.  \n- Zone clé de support court terme autour de 1.1520 à surveiller pour un éventuel rebond ou poursuite baissière.\n\nB) Chart unique (FX:EURUSD 1h):  \n- Structure : Baissière (LH/LL) claire.  \n- Supports : ~1.1520 (plus bas récent, zone testée sur forte volatilité).  \n- Résistances : 1.1600 (plus hauts récents avant chute).  \n- Scénario primaire : poursuite de la baisse tant que 1.1600 n’est pas franchi avec un nouveau HL.  \n- Invalidation : franchissement clair et durable au-dessus de 1.1600 avec changement de structure en HL.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"],\"resistances\":[\"1.1600\"],\"plan\":\"vendre sur rebond proche résistance, cibler support 1.1520\",\"invalidation",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_00-59-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-07_00-59-12.png"
+  }
+}

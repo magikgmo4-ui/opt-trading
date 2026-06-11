@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_185227_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T14:52:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-52-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.7,
+      "note": "s 4440"
+    },
+    {
+      "type": "support_level",
+      "value": 4310.0,
+      "confidence": 0.7,
+      "note": "s 4310"
+    },
+    {
+      "type": "support_level",
+      "value": 4270.0,
+      "confidence": 0.7,
+      "note": "s 4270"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière avec une structure de creux et sommets descendants (LH / LL).  \n- Plusieurs rallies correctifs mais incapacité à casser les précédents hauts, confirmant la faiblesse.  \n- Zone clé de support autour de 4310-4330 USD testée avec fort volume, à surveiller pour un potentiel rebond ou continuation baissière.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe XAUUSD montre une séquence de Lower Highs (LH) et Lower Lows (LL), caractérisant une tendance baissière nette. Les tentatives de réaction haussière se heurtent systématiquement à une résistance dynamique vers 4440-4460 USD. Le support immédiat majeur se situe vers 4310-4330 USD, où le prix vient d’arriver avec un volume en forte hausse, signal d’une zone décisive. Le scénario prioritaire reste la poursuite de la baisse sous ce support avec un objectif vers 4270 USD. En cas de rebond significatif et franchissement du dernier LH (~4460 USD), la tendance pourrait se réévaluer. Invalidation sous la zon",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-52-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_14-52-02.png"
+  }
+}

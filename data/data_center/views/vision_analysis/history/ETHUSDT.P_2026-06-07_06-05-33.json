@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_100541_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T06:05:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-05-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillez la cassure au-dessus de 1670 pour une possible reprise haussière. Stop/invalid à 1500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour sous 1500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur cette unité de temps, avec une série de plus bas et plus bas (LL).  \n- Derniers barres montrent un net rebond haussier formant un plus haut relatif (HL provisoire).  \n- Zone clé support autour de 1500-1550, résistance notable proche de 1650-1670.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa structure générale est baissière avec une succession de Lower Highs (LH) et Lower Lows (LL) confirmant la pression vendeuse forte. Cependant, un rebond a amorcé un mouvement haussier créant un plus bas relatif plus haut (HL) et un dernier sommet partiel vers 1645-1650. Le volume est en hausse sur la tentative de reprise ce qui est positif pour un scénario d'inversion valide si le prix dépasse 1670. La zone 1500-1550 reste un support clé à protéger pour éviter une poursuite du downtrend. Invalidation en cas de retour sous 1500.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond\",\"structure\":\"LL, LH récent\",\"su",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-05-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_06-05-24.png"
+  }
+}

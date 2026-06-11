@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_205131_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T16:51:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_16-51-20",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sur rebond résistances",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">2.6T",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Correction nette en cours sur le marché crypto total, accentuée depuis les plus hauts récents.  \n- Structure clairement baissière avec succession de LL (Lower Lows) et LH (Lower Highs) visible.  \n- Zones clés à surveiller sur 2,2T en support et 2,6T en résistance moyenne.\n\nB) Chart 1 (haut-gauche): Crypto Total Market Cap - D1  \nTendance baissière confirmée, structure en LL et LH avec un pullback récent rejeté.  \nZone support majeure autour de 2.2T USD testée actuellement, zone de résistance clé proche de 2.6T.  \nVolume en augmentation sur la chute, indiquant une pression vendeuse forte.  \nScénario favori : continuation baissière si 2.2T cassé, invalidation au-dessus de 2.6T.  \nPlan : chercher opportunités short sur rebond zones résistances.\n\nC) Chart 2 (haut-droit): Inconnu (dashboard symbol/timeframe illisible)  \nDonnées insuffisantes pour une analyse fiable, symbol ou timeframe non lisible.  \nPrivilégier vérification sur source avant prise de décision.\n\nD) Chart",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_16-51-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-03_16-51-09.png"
+  }
+}

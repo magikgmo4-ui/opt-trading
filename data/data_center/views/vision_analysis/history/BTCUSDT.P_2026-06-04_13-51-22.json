@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_175133_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T13:51:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-51-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "repli vers support puis potentiel rebond ou continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure au-dessus 66500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière nette sur BTC/USDT en 1h, avec des structures de creux et sommets plus bas (LL et LH).  \n- Forte volatilité et volumes en hausse dans les phases de baisse, marquant un intérêt vendeur dominant.  \n- Zones clés proches : support autour de 62 500, résistance immédiate vers 66 000.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance: baissière claire avec succession de Lower Highs (LH) et Lower Lows (LL).  \nStructure: structure de tendance down établie, avec un rebond actuel sous une résistance proche.  \nSupports: 62 500 - 63 000 (zone support immédiate).  \nRésistances: 65 500 - 66 000 (zone de résistance qui bloque les tentatives de rebond).  \nScénario: repli probable jusqu'à support, puis tentative de rebond soit en continuation baissière ou en correction.  \nInvalidation: cassure nette au-dessus de 66 500 invaliderait la dynamique baissière court terme.\n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \nTendance: non identi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-51-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_13-51-14.png"
+  }
+}

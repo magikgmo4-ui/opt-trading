@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_120208_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T08:02:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-01-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.164,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "préférence vente à rebond sous résistance 1.1650, visée 1.1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte cassure baissière récente, rupture claire de la structure haussière précédente (HH/HL).\n- Tendance actuelle clairement baissière avec structure LH/LL sur le dernier mouvement.\n- Zone clé support proche autour de 1.1520 à surveiller, résistance à 1.1640-1.1650.\n\nB) Chart unique (FX:EURUSD 1h) : \nLa paire EURUSD montre une nette accélération baissière après un sommet à environ 1.1690. La structure a basculé, formant des Lower Highs (LH) et Lower Lows (LL). Le volume confirme la force de la chute. Support clé à 1.1520, correspond à un ancien creux. Résistance possible avant 1.1650, zone des derniers hauts. Le scénario prioritaire est une poursuite du mouvement baissier tant que 1.1650 ne sera pas franchi. Invalidation sous forme de retour au-dessus de 1.1650.\n\nC) DeskPro\n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1.1520\"],\"resistances\":[\"1.1640\",\"1.1650\"],\"plan\":\"préférence vente à rebond sous résistance 1.1650, v",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-01-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_08-01-42.png"
+  }
+}

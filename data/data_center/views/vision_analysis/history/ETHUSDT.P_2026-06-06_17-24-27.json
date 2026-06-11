@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_212436_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T17:24:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-24-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 1525 avec stop au-dessus de 1625, ou attente de retour haussier confirmé par HH/HL.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure et maintien au-dessus de 1625, structure haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Stabilisation récente autour de 1550-1575, avec une phase de range/consolidation possible.  \n- Zone clé support proche de 1525, résistance clé à 1600-1625 pour confirmer un retour acheteur.  \n\nB) Chart unique (ETHUSDT.P 1h): La structure est baissière (LH/LL) nette depuis plusieurs jours. Le prix a progressivement chuté de près de 2100 à 1550, avec un appui visible sur le support vers 1525. Le rebond a mis en place un petit creux plus haut mais la résistance à 1600-1625 bloque la reprise. Le volume montre des pics sur les baisses, ce qui valide la pression vendeuse. Le scénario probable reste une continuation baissière en cas de cassure sous 1525. Une invalidation du biais baissier s’établirait par une vraie cassure et tenue au-dessus de 1625 avec structure HH/HL confirmée.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"sup",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-24-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_17-24-19.png"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_205521_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T16:55:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-55-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 680.0,
+      "confidence": 0.7,
+      "note": "s 680"
+    },
+    {
+      "type": "support_level",
+      "value": 640.0,
+      "confidence": 0.7,
+      "note": "s 640"
+    },
+    {
+      "type": "support_level",
+      "value": 700.0,
+      "confidence": 0.7,
+      "note": "s 700"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée avec une succession de bas plus bas (LL) et de hauts plus bas (LH).  \n- Structure actuelle en forte dégradation avec cassure nette des supports intermédiaires vers 680-700 B.  \n- Zone clé de support majeure potentielle vers 640 B à surveiller pour un rebond ou poursuite de la chute.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \nLe graphique montre un marché en tendance baissière claire depuis plusieurs mois. La structure évolue en séquence LL/LH, indiquant une pression vendeuse dominante. La récente forte chandelle rouge est venue casser un support intermédiaire autour de 680-700 B, augmentant la probabilité d’un retour vers un support plus significatif autour de 640 B. Le volume a augmenté durant la chute, confirmant la force vendeuse. Un retour au-dessus des 700 B invaliderait ce scénario baissier à court terme. La zone 640-650 B est critique, à suivre de près pour détecter un potentiel rebond ou une accélération du mouvement baissi",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-55-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-06_16-55-02.png"
+  }
+}

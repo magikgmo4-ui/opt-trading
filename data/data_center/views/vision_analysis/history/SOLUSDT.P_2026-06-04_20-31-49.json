@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_003158_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T20:31:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-31-49",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 68.0,
+      "confidence": 0.7,
+      "note": "s 68"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68.0,
+      "confidence": 0.7,
+      "note": "r 68"
+    },
+    {
+      "type": "price_target",
+      "value": 70.0,
+      "confidence": 0.5,
+      "note": "objectif 70"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière claire avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Rebond technique récent autour de 68 USD, zone support potentiel.  \n- Scénario court terme: vigilance à une possible correction haussière, invalidation au-dessus de 70 USD.\n\nB) Chart unique (SOLUSDT.P 15m) :  \nLe graphique montre une tendance baissière nette marquée par une série de bas et hauts descendants (LL/LH). Le prix teste actuellement une zone support vers 68 USD, où le volume montre un léger renforcement. La structure reste fragile avec un risque de continuation baissière si ce support casse. En cas de rebond confirmé, la résistance clé se situe autour de 70 USD, zone d’invalidation du scénario baissier. Suivre l’évolution du volume et la formation de chandeliers pour valider une reprise ou la poursuite de la vente.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[68],\"resistances\":[70],\"plan\":\"Surveiller ",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-31-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-04_20-31-37.png"
+  }
+}

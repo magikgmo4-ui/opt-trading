@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_085950_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T04:59:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_04-59-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.21,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller réaction sur support 1.16 pour entrée short en cas de cassure. Stop loss au-dessus de 1.21 en invalidation de scenario baissier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement haussier clair de 1.21",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le timeframe 15m avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure en déclin avec des tentatives de rebond rapidement invalidées, indiquant une pression vendeuse persistante.\n- Zone support clé identifiée autour de 1.16 USDT, résistance immédiate vers 1.21 USDT, à surveiller pour un pullback ou une consolidation.\n\nB) Chart unique (XRPUSDT.P 15m) :  \nLe graphique montre une tendance de fond baissière marquée par des cycles de rebonds temporaires suivis de reprises à la baisse, confirmant une structure de Lower Highs et Lower Lows. La dernière bougie tente un petit rebond sur un support proche à 1.16 USDT. Le volume ne montre pas de forte impulsion acheteuse, ce qui maintient la pression vendeuse. Le scénario favori reste un test ou une retest du support à 1.16 USDT ; en cas d’échec (break sous 1.16), la baisse devrait se poursuivre. Invalidation du scénario baissier si la résistance vers 1.21 USDT est franchie avec convic",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_04-59-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_04-59-35.png"
+  }
+}

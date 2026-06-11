@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_221209_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T18:12:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_18-12-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1875.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1880.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rejet zone 1875-1880 pour position short, stop au-dessus 1880",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable au-dessus de 1880",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire depuis plusieurs séances, avec des bas et des hauts toujours plus bas (LH, LL).  \n- Rebond récent marqué après une forte baisse, mais structure baissière encore valide.  \n- Zone clé de support proche des 1 800 USDT, résistance immédiate autour de 1 875-1 880 USDT.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa structure montre une séquence de LH (Lower Highs) et LL (Lower Lows) confirmant une tendance baissière 1h. Le rebond actuel teste une zone de résistance (1 875-1 880). Une cassure valide de cette zone pourrait signaler un potentiel changement de biais ou un retracement. Support important à 1 800 USDT, dont la tenue est cruciale pour envisager un maintien de la dynamique baissière. Scénario préféré: surveiller un retour vers la résistance, puis un potentiel nouveau rejet. Invalidation du scénario baissier si les prix franchissent 1 880 USDT en consolidation haussière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_18-12-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_18-11-55.png"
+  }
+}

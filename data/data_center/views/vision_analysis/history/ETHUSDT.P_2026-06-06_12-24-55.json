@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_162505_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T12:25:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_12-24-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.7,
+      "note": "s 1600,"
+    },
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.7,
+      "note": "s 1520"
+    },
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.7,
+      "note": "s 1520"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.7,
+      "note": "s 1600,"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.7,
+      "note": "s 1600."
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.7,
+      "note": "r 1600"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette sur le timeframe 15m, avec plusieurs Lower Highs (LH) et Lower Lows (LL).\n- Structure actuelle latérale, après un rebond modéré, consolidation proche de 1550-1560.\n- Zone clé résistante vers 1600, support important vers 1520-1530 ; invalidation de la baisse si franchissement clair au-dessus de 1600.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe graphique montre une forte tendance baissière marquée par une succession de Lower Highs et Lower Lows. Une phase de consolidation latérale est en cours autour de 1550-1560, avec un support clé identifié vers 1520-1530. La résistance majeure se situe vers 1600, où le prix a échoué plusieurs fois à s’imposer. Le scénario dominant reste baissier tant que cette zone résistante n’est pas franchie, avec un risque de reprise baissière à court terme. Invalidation du biais baissier en cas de franchissement net des 1600.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec cons",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_12-24-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_12-24-47.png"
+  }
+}

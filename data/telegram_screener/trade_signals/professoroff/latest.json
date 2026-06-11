@@ -1,0 +1,23 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_professoroff_26963_2025-04-21T12:04:46+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "professoroff",
+    "parsed_at": "2025-04-21T12:04:46+00:00",
+    "produced_at": "2026-06-11T10:00:14.520739+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 3810.0,
+    "sl": 1.374,
+    "tp": 1.383,
+    "tps": [
+      1.383,
+      1.386,
+      1.391
+    ],
+    "leverage": null,
+    "raw_text": "USDCAD \n\nBUY 1.3810\n\nTP 1.3830\nTP 1.3860\nTP 1.3910\nSL 1.3740"
+  }
+]

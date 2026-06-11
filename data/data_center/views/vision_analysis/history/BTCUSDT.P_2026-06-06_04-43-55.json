@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_084408_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T04:44:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_04-43-55",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 61,750 USDT pour potentiel long, stopper sous 59,500 USDT",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse sous 59,500 USDT révèlerait reprise baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante : baissière sur le timeframe 15m, avec une succession de bas plus bas (LL) et de hauts plus bas (LH).  \n- Structure récente en bas de graphique montre un potentiel creux (double bottom), possible début de reprise ou consolidation.  \n- Zone clé résistante autour de 61,750 USDT, support clé à 59,500 USDT; à surveiller un franchissement clair pour validation scénario haussier.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nTendance baissière avec structure LH/LL marquée. Après un nouveau plus bas vers 58,750 USDT, le cours rebondit et construit un double bottom autour de 59,500 USDT (support). La résistance à 61,750 USDT est testée actuellement, une cassure nette permettrait une inversion vers un gain de momentum haussier. Invalidation du scénario haussier si retour sous 59,500 USDT. Volume en légère hausse sur rebond, confirmant potentiel d’intérêt acheteur mais prudence nécessaire sur la confirmation.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_04-43-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_04-43-35.png"
+  }
+}

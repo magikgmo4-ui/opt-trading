@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_214048_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T17:40:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-40-32",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller support 65K, short si cassure, rebond local possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus 70 000 USDT avec HH/HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure claire pour confirmation tendance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage net au-dessus des derniers pics",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "poursuite baissière possible si cassure support, rebond sinon",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "structure HH/HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation rupture haussière ou baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure haussière nette",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Les graphes montrent principalement une forte pression vendeuse avec des tendances baissières marquées.  \n- Les structures dominantes sont des creux plus bas (LL) et des sommets plus bas (LH), confirmant une dynamique baissière.  \n- Plusieurs zones clés de support sont testées, avec un risque de casse baissière importante si elles ne tiennent pas.\n\nB) Chart 1 (haut-gauche):  \n- Symbole/Timeframe: BTCUSDT 1h (visible).  \n- Tendance clairement baissière, la structure forme des LH et LL successifs.  \n- Prix actuellement proche d’une zone de support autour de 65 000 USDT, support clé court terme.  \n- Résistances à 68 000 et 70 000, anciens supports devenus résistances.  \n- Scénario principal: rebond technique local possible, mais rupture du support 65K ouvrirait la voie à une poursuite baissière forte.  \n- Invalidation du scénario baissier si retour au-dessus de 70 000 avec structure HH/HL.\n\nC) Chart 2 (haut-droit):  \n- Symbole/timeframe inconnu (non lisible).  \n- Stru",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-40-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_17-40-21.png"
+  }
+}

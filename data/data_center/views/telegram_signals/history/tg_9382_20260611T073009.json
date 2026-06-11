@@ -1,0 +1,22 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_9382_20260611T073009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "WhaleTank",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2026-06-04T13:21:02+00:00",
+  "produced_at": "2026-06-11T07:30:09.190099+00:00",
+  "pair": "ETHUSDT",
+  "direction": "LONG",
+  "entry_price": null,
+  "sl": null,
+  "tp": 9.0,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "#ETHUSDT.P 1W Chart\nPrice is in a bullish trend and respected previous demand zone after a liquidity grab and pushed higher into a break of structure to the upside validating our new demand area. Our long-term trade aligns nicely with BTC's four-year cycle and where bitcoin is expected to bottom sooner rather than later.\n\nhttps://www.tradingview.com/x/E9Mxiscw/",
+  "summary": "ETH LONG"
+}

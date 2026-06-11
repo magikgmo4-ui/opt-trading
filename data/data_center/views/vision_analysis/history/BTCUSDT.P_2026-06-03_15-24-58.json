@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_192509_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T15:25:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-24-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rupture support pour continuation baisse, rebond possible potentiel.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure durable au-dessus de 67,600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Pression vendeuse nette sur l’actif principal observable, tendance baissière claire.  \n- Structures en séquence de Lower Highs (LH) et Lower Lows (LL) régulières.  \n- Zones clés à surveiller autour des 65 000 USDT (support) et 67 600 USDT (résistance récente).  \n\nB) Chart 1 (haut-gauche): BTCUSDT, 15m  \nTendance baissière dominante confirmée par une série de Lower Highs (LH) et Lower Lows (LL). La structure montre une incapacité des acheteurs à inverser le cours. Volume en hausse sur les baisses, ce qui valide la force vendeuse. Zone clé de support testée aux environs de 65 000 USDT, important de surveiller une cassure ou rebond. Résistance claire à 67 600 USDT. Scénario principal : continuation de la baisse en cas de rupture du support 65 000 USDT. Invalidation si franchissement durable au-dessus de 67 600 USDT.  \n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe illisibles, aucune analyse possible.  \n\nD) Chart 3 (bas-gauche): inconnu  \nSymbole et timeframe",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-24-58",
+    "source_screenshot": "/opt/trading/data/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_15-24-46.png"
+  }
+}

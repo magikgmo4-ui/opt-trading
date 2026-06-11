@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_204455_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T16:44:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-44-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62100.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 64400 pour reprise haussière sinon privilégier shorts en cas de rejet",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement durable de 64400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière nette sur le 15m, avec une série de LH et LL bien marqués.  \n- Après un creux marqué, tentative de rebond formant des HH/HL locaux dans un range.  \n- Structure fragile : le prix stagne sous une résistance clé autour de 64 400 USDT, zone à surveiller pour potentielle continuation haussière ou reprise baissière.  \n\nB) Chart unique (BTCUSDT.P 15m) :  \nOn observe une tendance baissière claire avec des Lower Highs (LH) et Lower Lows (LL) jusqu’au creux proche de 62 100 USDT. Ensuite, un rebond technique forme un début de structure haussière locale avec Highs plus hauts (HH) et Lows plus hauts (HL), traduisant une possible correction. La résistance majeure à 64 400 USDT n’a pas été dépassée, indiquant une pression vendeuse forte. Le support immédiat est autour de 62 100 USDT, dernier creux significatif. Le scénario privilégié reste la poursuite de la consolidation ou un retour en tendance baissière. Invalidation du biais baissier si le prix fra",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-44-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_16-44-33.png"
+  }
+}

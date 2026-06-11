@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_crypto_signals_ch_14_2022-07-09T07:56:36+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "crypto_signals_ch",
+    "parsed_at": "2022-07-09T07:56:36+00:00",
+    "produced_at": "2026-06-06T11:30:55.658934+00:00",
+    "pair": "BTCUSDT",
+    "asset": "BTC",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": null,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "\ud83d\udd38 $BTC SHORT\n\ud83d\udd34 Sell $22 500 - $23 000\n\ud83c\udfc1 Take profit: $1500 (+6-6,5% profit)\n\ud83d\udd3b Stop loss: $24 000(-2.2-4.5% loss)"
+  }
+]

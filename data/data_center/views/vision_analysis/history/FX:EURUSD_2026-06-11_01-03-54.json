@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_050402_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T01:04:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-03-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.153,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre breakout clair pour trade : long au dessus de 1.1580, short sous 1.1530",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable au dessus de 1.1600 invalide la baisse, cassure ferme sous 1.1520 invalide le rebond",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance actuelle neutre à court terme après forte baisse et rebond.  \n- Structure récente en transition avec un bas marqué (LL), puis un HL formé sur rebond.  \n- Zones clés à surveiller : résistance autour de 1.1580-1.1600 et support à 1.1520-1.1530.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLe graphique montre une forte chute nette suivie d’un rebond correctif qui a créé un niveau de support local (HL). La structure est fragile, oscillant entre HH/HL et LH/LL. La tendance de fond est baissière, mais les prix consolident entre 1.1530 et 1.1580. Un franchissement clair de la résistance à 1.1580 valide un scénario de retour haussier pour chercher 1.1600 et plus haut. Inversement, une cassure du support 1.1530 relancerait la baisse. Le volume accentue la chute initiale, suivi d’un volume moindre sur la reprise.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-baissier\",\"structure\":\"LL puis HL risqué\",\"supports\":[\"1.1520\",\"1.1530\"],\"resistances\":[\"",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-03-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-11_01-03-43.png"
+  }
+}

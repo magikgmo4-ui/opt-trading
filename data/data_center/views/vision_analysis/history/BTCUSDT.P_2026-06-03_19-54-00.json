@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_235407_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T19:54:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-54-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 69000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre si repli vers résistance 67000-69000 ou break support 64000 pour verster la position à la baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 69000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec une série de lower highs (LH) et lower lows (LL)  \n- Structure baissière renforcée par des mouvements dynamiques à la baisse avec pics de volume sur les replis baissiers  \n- Zones clés à surveiller : support proche autour de 64 000 et résistances vers 67 000 et 69 000 USDT  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa paire BTCUSDT.P montre une structure baissière nette caractérisée par des lower highs et lower lows. Le prix chute fortement depuis 78 000 jusqu’à environ 64 000 USDT. Le volume augmente lors des baisses ce qui confirme la pression vendeuse. Un support s’installe autour de 64 000, mais il est fragile vu la dynamique. La zone 67 000-69 000 constitue une résistance principale en cas de rebond. Le scénario principal reste la poursuite de la baisse tant que le prix ne franchit pas clairement la résistance des lower highs. L’invalidation se fera au-dessus de 69 000 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-54-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_19-53-52.png"
+  }
+}

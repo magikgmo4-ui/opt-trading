@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_030420_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T23:04:18-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_23-04-08",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1515.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Rechercher un long en breakout au-dessus de 1600 avec stop sous 1580.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture sous 1580 signalant reprise du mouvement baissier.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m baissière dominante avec une tentative de rebond récent.\n- Structure locale en HH/HL après un bas marqué vers 1515, signalant un début de reprise.\n- Zones clés identifiées vers 1580 (support devenu résistance) et 1600 (résistance majeure).\n\nB) Chart unique (ETHUSDT.P 15m): \nLe graphique montre une forte baisse suivie d'une stabilisation avec une structure de retournement en HH/HL sur les dernières bougies. Le prix a franchi un niveau de résistance intermédiaire aux environs de 1580 (ancien support) mais reste sous une zone résistive proche de 1600. Le scénario prioritaire est une consolidation puis une possible continuation haussière si 1600 est franchi. L'invalidation de ce scénario sera un retour sous 1580, indiquant un potentiel retour baissier.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HH/HL\",\"supports\":[1580,1515],\"resistances\":[1600,1620],\"plan\":\"Rechercher un long en breakout au-dessus de 1600 av",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_23-04-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_23-03-47.png"
+  }
+}

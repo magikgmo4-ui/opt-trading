@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_222517_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T18:25:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-25-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Si cassure résistances, viser 1800+; sinon surveiller support HL 1550 pour éviter un retour baissier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chute sous 1550 confirme reprise baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une série de LH et LL sur plusieurs jours.  \n- Rebond haussier récent formant un HL, signalant un possible début de correction.  \n- Zone clé de résistance proche vers 1700-1725, zone support majeur autour de 1500.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une forte tendance baissière avec des Lower Highs (LH) et Lower Lows (LL) clairement formés jusqu’à début juin. Depuis peu, un changement de structure s’observe avec une cassure de la dernière résistance locale vers 1600, formant un Higher Low (HL). Le prix tente de relancer une dynamique haussière, mais la résistance entre 1700 et 1725 est critique pour valider un retournement. Le volume a augmenté sur la dernière bougie montante, suggérant un intérêt acheteur. L’invalidation de ce scénario haussier serait une rechute sous le dernier HL (~1550).\n\nC) DeskPro  \n{\"run_id\":\"run-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"LH, LL puis HL réce",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-25-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_18-24-54.png"
+  }
+}

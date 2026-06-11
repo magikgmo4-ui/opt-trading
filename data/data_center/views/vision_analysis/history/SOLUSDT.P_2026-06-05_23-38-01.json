@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_033811_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T23:38:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-38-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 63.0, viser 61.5. Achat possible si retour au-dessus de 65.5.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Passage clair au-dessus de 65.5.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 15m clairement baissière, avec une série de plus bas et plus bas (LL).\n- Structure récente sans retournement haussier clair, les rebonds restent limités.\n- Zones clés sous 63.5 (support provisoire) à surveiller pour poursuite ou rebond.\n\nB) Chart unique (SOLUSDT.P 15m):\nLa paire évolue en tendance baissière visible de manière nette avec structure de Lower Highs (LH) et Lower Lows (LL) sur plusieurs séquences. Le prix teste actuellement un support autour de 63.0-63.5, qui a déjà tenu brièvement en intraday. Un franchissement clair sous ce support validera un scénario baissier confirmé avec extension possible vers 61.5 ou 60.5. À l’inverse, un rebond franc au-dessus de 64.5 (résistance récente) pourrait signaler un potentiel retournement ou consolidation. Invalidation du bias baissier si le prix dépasse durablement 65.5.\n\nC) DeskPro {\"run_id\":\"20240606_0338\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"Lower Highs & Lower Lows\",\"supports\":[\"63.0\",\"",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-38-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-05_23-37-53.png"
+  }
+}

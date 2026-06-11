@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_141957_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T10:18:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-18-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.14,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.19,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la résistance 1.19-1.20 pour breakout haussier; sinon, opportunité short sous résistance avec cible 1.14 voire moins.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture convaincante au-dessus de 1.20",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière confirmée avec une succession de LH et LL majeurs.  \n- Rebond récent formant un HL sur un support proche des 1.14, mais la structure générale reste baissière.  \n- Zone clé de résistance visible autour de 1.19-1.20 à surveiller pour valider ou invalider un retournement potentiel.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nGraphique en tendance baissière claire avec une structure de baisse dominée par des Lower Highs (LH) et Lower Lows (LL). Le dernier mouvement haussier a formé un Higher Low (HL) autour de 1.14, indiquant un possible rebond ou correction. La zone 1.19-1.20 représente une forte résistance critique; un franchissement confirmerait un retournement de tendance vers une phase haussière. En cas d’échec à cette résistance, la tendance baissière resterait valide, avec un risque de retest des 1.14 voire une baisse vers de nouveaux plus bas. Invalidation du biais baissier au-dessus de 1.20.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_1418\",\"chart",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-18-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-04_10-18-08.png"
+  }
+}

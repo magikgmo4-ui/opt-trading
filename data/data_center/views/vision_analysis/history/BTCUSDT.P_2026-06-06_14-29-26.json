@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_182936_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T14:29:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-29-26",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller rebond possible sur support, confirmation avant achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette sous 60,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse - données manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse - données manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "aucune analyse - données manquantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- La majorité des marchés actions et matières premières montre une pression vendeuse nette (indices US, or, pétrole en baisse).\n- Le BTC en graphique 1 est dans une correction baissière marquée avec tentative de stabilisation vers 60 700.\n- L'environnement macro est volatil, nécessitant prudence sur les longs et focus sur structure et zones clés.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h\n- Tendance baissière nette avec structure en lower lows/lower highs (LL/LH).\n- Zone clé support vers 60 000-60 300, possible zone de congestion.\n- Résistance autour de 62 000 à former la prochaine barrière.\n- Scénario probable : test support puis tentative de rebond technique, invalidation si rupture claire sous 60 000.\n- Préférer attente confirmation rebond ou cassure claire.\n\nC) Chart 2 (haut-droit) : Inconnu (symbole/timeframe illisible)\n- Lecture impossible, pas assez d’infos.\n- Aucune analyse fiable possible.\n\nD) Chart 3 (bas-gauche) : Inconnu (symbole/timeframe illisible)\n- Données ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-29-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_14-29-15.png"
+  }
+}

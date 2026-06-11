@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_194303_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T15:43:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-42-54",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la tenue du support 1540 pour un rebond court terme. En cas de cassure, viser downside libre. Rechercher signal d'invalidation si retour au-dessus 1700-1750.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix > 1750 avec volume soutenu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure cassée récemment avec accélération vendeuse visible sur forte augmentation de volume.\n- Zone de support testée vers 1540-1550 USDT, à surveiller pour un potentiel rebond ou poursuite de la chute.\n\nB) Chart unique (ETHUSDT.P 1h):\nLa paire ETHUSDT.P évolue dans une tendance baissière prononcée, marquée par une structure en LH/LL. Le prix a fortement chuté depuis la zone des 2100 USDT, avec des supports intermédiaires cassés. Le dernier support autour de 1540 USDT correspond à une zone clé où un test est en cours. Un rebond pourrait amener un retest de la résistance vers 1700 USDT, mais la dynamique reste très vendeuse. Invalidation du scénario baissier en cas de franchissement clair et soutenu au-dessus des derniers HL vers 1700-1750 USDT.\n\nC) DeskPro\n{\"run_id\":\"eth_1h_202406\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1540],\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-42-54",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_15-42-42.png"
+  }
+}

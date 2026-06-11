@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_195024_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T15:50:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-50-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur rebond confirmant le support 1580-1600, viser 1640-1650",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse ferme de 1580",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière récente sur le 15m après une phase de baisse marquée.  \n- Structure en HH/HL formée depuis le creux local vers 1540.  \n- Zone clé support autour de 1580, résistance majeure proche de 1640-1650.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nSur ce timeframe 15 minutes, ETHUSDT.P a corrigé fortement à la baisse puis a rebondi en formant une série de hauts plus hauts (HH) et bas plus hauts (HL), validant une reprise haussière. Le mouvement actuel montre un retracement de la récente montée vers 1640-1650, qui agit comme résistance. Le support à 1580 a été testé et tenu, ce qui est crucial pour la continuation du scénario bullish. Si le prix casse ce support, la structure haussière est invalidée et un retour vers le bas est probable. Idéalement, on attend une confirmation de reprise autour de 1600-1620 avant de prendre une position longue ciblant un nouveau test des 1650+.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-50-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_15-50-07.png"
+  }
+}

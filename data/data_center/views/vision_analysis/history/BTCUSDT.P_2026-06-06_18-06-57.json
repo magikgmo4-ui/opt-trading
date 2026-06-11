@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_220704_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T18:07:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_18-06-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur échec résistance 62000-63000 ou break 60000 support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 63000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière marquée, avec une série continue de plus bas et plus bas (LH/LL).  \n- Zone de support clé autour de 60 000 USDT qui stabilise momentanément le prix.  \n- Le scénario baissier reste valide tant que les résistances proches vers 62 000 USDT ne sont pas franchies.\n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance: baissière nette, structure en LH/LL confirmée.  \nSupports: 60 000 USDT (zone de stabilisation récente).  \nRésistances: 62 000 – 63 000 USDT (plus hauts locaux récents).  \nPlan: Envisager des opportunités short en échec à résistance ou break clair du support 60 000 pour poursuite baissière.  \nInvalidation: Clôture stable au-dessus de 63 000 USDT avec nouveau HH remettrait en cause ce biais.\n\nC) DeskPro  \n{\"run_id\":\"20240606_2207\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"60000\"],\"resistances\":[\"62000\",\"63000\"],\"plan\":\"short sur échec résistance 62000-63000 ou break 60000 support\",\"invalidation\":\"clôture ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_18-06-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_18-06-48.png"
+  }
+}

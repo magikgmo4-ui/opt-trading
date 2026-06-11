@@ -1,0 +1,97 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexfever11_7626_2026-05-06T09:08:31+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexfever11",
+    "parsed_at": "2026-05-06T09:08:31+00:00",
+    "produced_at": "2026-06-11T05:30:20.730706+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4695.5,
+    "sl": 4709.0,
+    "tp": 4660.0,
+    "tps": [
+      4660.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD sell now @ 4695.5\nTP@ 4660\nTP2 @ 4588\n\nSL @ 4709"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexfever11_7637_2026-05-07T13:55:36+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexfever11",
+    "parsed_at": "2026-05-07T13:55:36+00:00",
+    "produced_at": "2026-06-11T05:30:20.731216+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4746.0,
+    "sl": 4759.0,
+    "tp": 4724.0,
+    "tps": [
+      4724.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD sell now @ 4746\nTP @ 4724\nTP2 @ 4698\n\nSL@ 4759"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexfever11_7656_2026-05-13T11:05:00+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexfever11",
+    "parsed_at": "2026-05-13T11:05:00+00:00",
+    "produced_at": "2026-06-11T05:30:20.732589+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4697.0,
+    "sl": 4713.0,
+    "tp": 4680.0,
+    "tps": [
+      4680.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD sell now @ 4697\nTP @ 4680\nTP2 @ 4650\n\nSL@ 4713"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexfever11_7675_2026-05-19T11:05:23+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexfever11",
+    "parsed_at": "2026-05-19T11:05:23+00:00",
+    "produced_at": "2026-06-11T05:30:20.734671+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4543.0,
+    "sl": 4525.0,
+    "tp": 4560.0,
+    "tps": [
+      4560.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD buy now @ 4543\nTP@ 4560\nTP2 @ 4587\n\nSL@ 4525"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexfever11_7686_2026-05-25T14:20:44+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexfever11",
+    "parsed_at": "2026-05-25T14:20:44+00:00",
+    "produced_at": "2026-06-11T05:30:20.735440+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4568.0,
+    "sl": 4587.0,
+    "tp": 4555.0,
+    "tps": [
+      4555.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD sell now @ 4568\nTP @ 4555\nTP2@ 4530\n\nSL @ 4587"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "whale_alert_io",
+    "role": "WHALE_TRANSFER",
+    "messages_total": 20,
+    "parsed_count": 19,
+    "claims_count": 0,
+    "needs_review_count": 19,
+    "unknown_raw_count": 1,
+    "noise_count": 0,
+    "dominant_message_types": [
+      "MARKET_STRUCTURE",
+      "NEWS_CATALYST",
+      "UNKNOWN_RAW"
+    ],
+    "avg_parser_score": 0.7089,
+    "supported_formats": [
+      "MARKET_STRUCTURE",
+      "NEWS_CATALYST",
+      "UNKNOWN_RAW"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  }
+]

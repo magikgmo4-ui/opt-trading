@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_162100_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T12:20:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-20-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 880000000000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 940000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1080000000000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sur cassure 880B, viser lower lows, attention rebond potentiel si retour >940B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture journalière au-dessus de 940B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL) depuis le plus haut historique.  \n- Phase de consolidation latérale entre ~900B et 1.08T, désormais cassée à la baisse avec accélération en volume.  \n- Risque élevé de poursuite baissière à court terme si le support majeur ~880B ne tient pas.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nStructure actuelle en bearish, avec des Lower Highs et Lower Lows formés. Après une longue consolidation autour de 900B-1.08T, la cassure nette sous le support vers 900B confirme la pression vendeuse. Volume en hausse sur cette chute, signalant un fort intérêt vendeur. Premier support à surveiller vers 880B. Scénario principal: poursuite de la baisse si ce support est cassé (confirmation de tendance baissière). Invalidation si retour net au-dessus de 940B en clôture journalière.\n\nC) DeskPro  \n{\"run_id\":\"unique_token_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"support",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-20-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-04_12-20-43.png"
+  }
+}

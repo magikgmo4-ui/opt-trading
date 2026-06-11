@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_033853_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T23:38:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-38-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sur rebond à résistance 1.11-1.12",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1.13",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le timeframe 15m, avec une série claire de Lower Highs (LH) et Lower Lows (LL).  \n- Structure interne marquée par des tentatives de rebond stoppées sur des résistances autour de 1.11-1.12 USDT.  \n- Zone clé support identifiée vers 1.08 USDT ; rupture de ce support invaliderait un rebond court terme et confirmerait la pression vendeuse.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nLa tendance est baissière avec une série de LH/LL clairement visible. Les tentatives de reprise restent limitées par une zone de résistance majeure entre 1.11 et 1.12. Le support à 1.08 est le niveau à surveiller pour un possible rebond, sinon la baisse peut se poursuivre. Le volume reste modéré avec pics sur les mouvements baissiers, renforçant la dynamique vendeuse. Scénario préférentiel : vente sur rebond proche de la résistance 1.11-1.12 avec un stop serré au-dessus. Invalidation : clôture soutenue au-dessus de 1.13, signalant un possible renversement structu",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-38-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-05_23-38-38.png"
+  }
+}

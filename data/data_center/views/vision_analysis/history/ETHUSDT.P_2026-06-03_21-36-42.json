@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_013652_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T21:36:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_21-36-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la tenue du support 1760, envisager short en rebond vers 1880-1900 avec stop réduction sous 1760. Invalidation si dépassement 1900.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1900 avec volumes",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de lower highs (LH) et lower lows (LL) marquée.  \n- Structure actuelle en chute accélérée, cassure de supports récents sous forte volumétrie.  \n- Zones clés à surveiller : support à environ 1760 USDT (proche du dernier low visible) et résistance autour de 1880-1900 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une dynamique bearish dominante, caractérisée par une chute régulière des prix depuis un sommet local autour de 2180 USDT. La structure technique est en lower highs / lower lows, typique d’un marché en tendance baissière. La volumétrie s’intensifie lors des phases de baisse, confirmant la pression vendeuse. Le prix a récemment tenté une reprise mais s’est heurté à la zone de résistance 1880-1900 USDT, renforçant le biais baissier. Le support important à court terme se situe vers 1760 USDT, sous lequel une accélération de la baisse serait probable. Invalidation du scénario baissier si le prix dépasse clai",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_21-36-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_21-36-35.png"
+  }
+}

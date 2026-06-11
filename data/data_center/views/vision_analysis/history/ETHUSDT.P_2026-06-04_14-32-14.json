@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_183223_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T14:32:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-32-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1870.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 1770, stop au-dessus de 1870, viser 1700 et plus bas",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture 1h > 1870",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure baissière intacte malgré un léger rebond récent qui forme un plus bas relatif (HL intraday).  \n- Zone clé résistance vers 1850-1870 USDT à surveiller pour invalidation, support important proche de 1700 USDT.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance : Baissière  \nStructure : succession de LH et LL confirmée, recent HL intra-courte à 1772 indique un possible test de résistance.  \nSupports clés : 1700 USDT (plus bas récent)  \nRésistances clés : 1850-1870 USDT (récente zone de rebond rejetée)  \nPlan : Surveiller repli sous 1770 pour potentiel continuation short. En cas de franchissement clair au-dessus de 1850, possibilité d'un retournement ou range.  \nInvalidation : Clôture au-dessus de 1870 USDT en 1h, scénario baissier remis en cause.  \n\nC) DeskPro  \n{\"run_id\":\"run001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL avec HL intraday\",\"supports",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-32-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_14-32-07.png"
+  }
+}

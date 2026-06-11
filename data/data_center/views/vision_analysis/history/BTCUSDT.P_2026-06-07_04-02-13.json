@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_080223_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T04:02:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_04-02-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d'un break au-dessus de 62400 pour entrée long avec stop sous 60800.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Sous 60800 invalidation du biais haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante jusqu'à un creux vers 59 000, suivi d'une reprise haussière marquée.  \n- Structure passée de LH/LL à une série de HH/HL sur le court terme.  \n- Zone clé résistance autour de 62 400 à surveiller pour confirmation du retournement.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une tendance initiale clairement baissière avec plusieurs Lower Highs (LH) et Lower Lows (LL). Après un point bas proche de 59 000 USDT, la structure évolue avec des Higher Highs (HH) et Higher Lows (HL) indiquant un retournement haussier sur ce timeframe. La zone de résistance majeure à 62 400 – 62 500 est un point crucial pour valider la poursuite de la tendance haussière. Un break au-dessus de cette zone activerait un scénario bullish avec des objectifs à la hausse. En cas de rejet, un retour vers 60 800 – 61 000 servirait de support pour préserver la dynamique. Invalidation du scénario haussier sous 60 800.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"sl",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_04-02-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_04-02-03.png"
+  }
+}

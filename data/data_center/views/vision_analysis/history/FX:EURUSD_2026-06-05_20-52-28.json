@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_005236_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T20:52:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_20-52-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.157,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 1.1530 avec cible 1.1500, stop au-dessus de 1.1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance actuelle baissière très marquée avec un fort momentum sur la dernière séquence horaire.  \n- Structure récente en renversement : les plus hauts sont de plus en plus bas (LH) et les plus bas aussi (LL), confirmant la pression vendeuse.  \n- Zone de support clé autour de 1.1520-1.1530 à surveiller, sous laquelle la baisse pourrait s’accélérer.  \n\nB) Chart unique (FX:EURUSD 1h) :  \nLe graphique montre une nette inversion de la tendance haussière précédente, avec des hauts descendants (LH) et des bas descendants (LL). Le prix a chuté brutalement sur les dernières heures, accompagné d’un pic de volume, indiquant une forte conviction vendeuse. Le support immédiat à 1.1520-1.1530 est la prochaine zone clé à défendre. Un rebond ou un range en dessous serait un premier signal de stabilisation, mais la configuration reste baissière tant que les résistances situées vers 1.1570-1.1600 ne sont pas dépassées. Scénario principal : poursuite de la baisse en cas de cassure d",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_20-52-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_20-52-18.png"
+  }
+}

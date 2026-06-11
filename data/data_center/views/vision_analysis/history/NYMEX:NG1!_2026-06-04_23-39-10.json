@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_033918_NYMEX:NG1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:NG1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T23:39:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-39-10",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.35,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.4,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat sur support 3.15 avec objectifs 3.40+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte du HL 3.15",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h avec une série de HH (higher highs) et HL (higher lows) depuis le plus bas récent vers 2.85.  \n- Structure temporairement corrective marquée par quelques replis, mais support intact autour de 3.15.  \n- Prix proche d’une zone de résistance dynamique autour de 3.35-3.40, zone clé pour valider la poursuite du mouvement haussier ou initier un repli.\n\nB) Chart unique (NYMEX:NG1! 1h) :  \nLe marché est dans une tendance haussière avec une structure de prix majoritairement en HH/HL. Après une correction vers 3.15 (support), le prix repart vers la résistance récente à 3.40. Le scénario préféré reste un breakout au-dessus de 3.40, enclenchant une poursuite haussière. L’invalidation serait une perte ferme du HL à 3.15, indiquant un risque de retournement. Possibilité de prendre position long proche du support 3.15 avec stop sous ce niveau.\n\nC) DeskPro  \n```json\n{\"run_id\":\"230605001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"",
+  "symbols_found": [
+    "NYMEX:NG1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-39-10",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-04_23-38-59.png"
+  }
+}

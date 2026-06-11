@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_030054_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T23:00:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_23-00-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.1575,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.167,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 1.1600 en cassure avec stop loss au-dessus de 1.1670, objectif 1.1575",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1.1670",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale neutre à court terme avec séquence de hauts et bas partagés (HH/HL puis LH/LL).  \n- Structure récente en reprise baissière (LH/LL), signalant une pression vendeuse dominante.  \n- Zones clés identifiées autour de 1.1670 (résistance majeure) et 1.1600 (support psychologique) actives pour décisions court terme.\n\nB) Chart unique (FX:EURUSD 1h):  \nLe marché a formé une séquence haussière initiale avec des HH et HL visibles jusqu’au 29 mai, suivie d’une inversion structurelle marquée par un LH puis LL. Le prix teste actuellement un support proche de 1.1600, zone à surveiller pour rebond ou cassure. La résistance majeure à 1.1670 reste le point pivot pour invalider le biais baissier. Scénario privilégié : poursuite baissière si le 1.1600 cède, cible les 1.1570/80, invalidation avec franchissement clair au-dessus de 1.1670.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL recent\",\"supports\":[\"1.1600",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_23-00-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_23-00-24.png"
+  }
+}

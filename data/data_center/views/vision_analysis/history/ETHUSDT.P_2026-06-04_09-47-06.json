@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_134714_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:47:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-47-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1810.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond en confirmation avec franchissement 1810 pour viser 1850. En absence, vendre sur rebond zone 1810.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 1850 avec confirmation HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette marquée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Zone clé de support tenant autour de 1 740 USDT, testée plusieurs fois récemment.  \n- Scénario potentiel de rebond court terme sous condition de franchissement des résistances vers 1 810-1 820 USDT, sinon poursuite du déclin.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa structure est clairement baissière avec des LH et LL depuis le pic autour de 2 160. Le prix teste actuellement une zone de support clé autour de 1 740. Le volume augmente sur les baisses, signe de pression vendeuse. Un rejet récent sur le support suggère un possible rebond technique. Resistances majeures visibles vers 1 810 puis 1 850. Invalidation du scénario baissier si le prix passe durablement au-dessus de 1 850 avec structure HH.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH, LL\",\"supports\":[\"1740\"],\"resistances\":[\"1810\",\"1850\"],\"plan\":\"Surveiller rebond en confirmatio",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-47-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_09-46-54.png"
+  }
+}

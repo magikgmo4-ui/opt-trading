@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_121421_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T08:12:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_08-12-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Monitorer rebond test résistance 1780-1800; short si rejet confirmé. Position longue uniquement si breakout clair au-dessus de 1800.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Close significatif au-dessus de 1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière clairement installée avec des Lower Highs (LH) et Lower Lows (LL) successifs.\n- Structure fragilisée dans les dernières bougies avec tentative de rebond mais toujours sous résistance forte.\n- Zones clés à surveiller : support vers 1720-1740, résistance vers 1780-1800. Invalidation d'un bearish si dépassement des 1800.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLa dynamique montre une structure en baisse nette (LH et LL) sur le 15m. Après un nouveau plus bas local près de 1720, un rebond technique vers 1760-1780 semble en cours, mais la pression vendeuse reste dominante. Un franchissement au-dessus de 1780-1800 serait nécessaire pour invalider le scénario baissier et envisager un retournement en mode consolidation ou rebond plus durable. En dessous de 1720, la baisse pourrait s’accélérer.\n\nC) DeskPro {\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1720\",\"1740\"],\"resistances\":[\"1780\",\"1800\"],\"plan\":\"Monitore",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_08-12-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_08-12-37.png"
+  }
+}

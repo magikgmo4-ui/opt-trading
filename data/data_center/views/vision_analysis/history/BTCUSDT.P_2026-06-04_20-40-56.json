@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_004106_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T20:41:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-40-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 68000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 63000. En cas de franchissement haussier de 68000, envisager un retournement vers un pullback ou retour haussier. Cassure 63000 valide la poursuite de la tendance baissiè",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair et durable de 68000 USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière claire sur le 1h, avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure cassée à la baisse autour de 68 000 USD, confirmant la faiblesse du marché.\n- Zone clé support proche des 63 000 USD, testée plusieurs fois, holding pour l'instant.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLa paire BTCUSDT.P montre une nette tendance baissière avec une structure en LH/LL bien formée. Le dernier mouvement latéral trouve un support important vers 63 000 USD, qui constitue une zone de décision clé. Un rebond pourrait générer un retour vers la résistance à 68 000 USD. La cassure de 63 000 USD invaliderait tout scénario haussier court terme et relancerait la pression vendeuse. La structure baissière est donc intacte tant que la résistance à 68 000 USD n’est pas dépassée avec un Higher High.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"63000\"],\"resistances\":[\"68000\"],\"plan\":\"Surveiller ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-40-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_20-40-49.png"
+  }
+}

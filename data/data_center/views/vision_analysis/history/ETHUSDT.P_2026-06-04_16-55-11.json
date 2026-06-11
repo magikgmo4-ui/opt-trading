@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_205519_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T16:55:17-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_16-55-11",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1780.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support pour bear continuation, ou rebond en cas de maintien. Stop si hausse au-dessus 1780 confirmée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement net de 1780 avec structure HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 15m, avec succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec tentative de stabilisation récente entre 1750 et 1780, zone qui joue le rôle de support temporaire.  \n- Scénario envisageable : consolidation avant nouvelle baisse si support cassé, ou rebond technique en cas de retour au-dessus des 1780.\n\nB) Chart unique (ETHUSDT.P 15m):  \nTendance dominante baissière avec structure HL/LL bien marquée. Le prix rejoint actuellement une zone de support autour de 1750-1760, avec une résistance immédiate à 1780. Le volume montre un intérêt moyen, sans forte conviction acheteuse ni vendeuse. L’invalidation de ce scénario baissier sera la rupture claire au-dessus des 1780 avec un franchissement de LH récent.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"1750-1760\"],\"resistances\":[\"1780\"],\"plan\":\"Surveiller cassure support pour bear continuation, ou",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_16-55-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_16-55-04.png"
+  }
+}

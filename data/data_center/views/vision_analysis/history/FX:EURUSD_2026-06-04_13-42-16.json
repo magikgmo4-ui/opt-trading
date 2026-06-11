@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_174224_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T13:42:22-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_13-42-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.1645,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.167,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher short si casse 1.1600, protection au-dessus de 1.1670",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1.1670",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h baissière avec structure de creux et sommets décalés à la baisse (LH + LL confirmés).  \n- Supports clés vers 1.1600 et 1.1580, résistances majeures autour de 1.1645-1.1670.  \n- Scenario favori : poursuite de la baisse sous 1.1600; invalidation sur retour au-dessus de 1.1670.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLe graphique montre une structure en lower highs (LH) et lower lows (LL), indiquant une pression vendeuse dominante. Les rebonds sur 1.1600 et 1.1580 sont des zones clés à surveiller pour d’éventuels supports. La résistance vers 1.1645-1.1670 a freiné les tentatives haussières. Le prix teste actuellement un support intermédiaire vers 1.1620. Un breakout sous 1.1600 confirmerait la poursuite de la tendance baissière. En revanche, franchir durablement 1.1670 invaliderait ce biais, pouvant signaler un retournement ou une consolidation. Action rapide : surveiller teneur sous support et résistance pour position short sur rebond ou long si breakout hau",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_13-42-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_13-42-05.png"
+  }
+}

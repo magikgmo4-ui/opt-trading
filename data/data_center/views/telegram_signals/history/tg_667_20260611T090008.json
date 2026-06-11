@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_667_20260611T090008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "trading_signals_gold",
+  "channel_priority": "P0",
+  "channel_type": "trade_signal",
+  "parsed_at": "2026-04-28T11:11:24+00:00",
+  "produced_at": "2026-06-11T09:00:08.542296+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4572.0,
+  "sl": 4555.0,
+  "tp": 4580.0,
+  "tps": [
+    4580.0,
+    4590.0,
+    4600.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "**Gold BUY LIMIT**\n\nEntry 4572- 4567\n\nSL 4555\n\nTP1: 4580\nTP2: 4590\nTP3: 4600\nTP4: open",
+  "summary": "XAUUSD LONG"
+}

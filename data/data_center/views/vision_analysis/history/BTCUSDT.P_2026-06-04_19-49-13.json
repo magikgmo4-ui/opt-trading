@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_234921_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T19:49:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-49-13",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "suivre cassure résist. 64,400 pour achat, sinon attendre support 62,400; short sous 62,400",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure claire au-dessus de 64,400 valide le retournement haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance courte terme baissière clairement établie avec succession de LL (Lower Lows) et LH (Lower Highs).\n- Structure récente montre une tentative de rebond avec un HL (Higher Low) mais sans cassure de la résistance majeure vers 64 400 USD.\n- Zone clé de support autour de 62 400 USD à surveiller pour éviter la poursuite baissière, invalidation du scénario haussier sous ce seuil.\n\nB) Chart unique (BTCUSDT.P 15m):\nSur ce graphique 15 minutes, la tendance dominante est baissière, indiquée par une série de plus bas et plus bas (LL, LH). Un rebond est en cours avec formation d’un HL récent, signal d’un possible retournement mais il faut une cassure claire au-dessus de la résistance vers 64 400 pour valider une reprise haussière. En dessous, la zone de support vers 62 400 est critique, elle tient pour le moment mais une cassure signalerait une poursuite de la pression vendeuse. Le volume est plus élevé lors des baisses, renforçant la pression vendeuse globale. \n\nC) DeskPr",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-49-13",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_19-49-05.png"
+  }
+}

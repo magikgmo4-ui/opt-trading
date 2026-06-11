@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_153858_NYMEX:RB1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T11:37:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-37-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 2.98,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 3.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.15,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.18,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller break de 3.18 pour scénario haussier; sinon maintien du range avec potentiel short sur résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 3.18 ou en-dessous de 2.98",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principalement baissière sur ce timeframe 1h avec alternance de HH/HL mais incapacité à casser les derniers hauts.  \n- Structure montre présence de HL et HH dans un contexte correctif, mais rebond limité proche des 3.08.  \n- Zone clé support identifiée vers 2.98-3.00, résistance forte vers 3.15-3.18, scénario de range dominant.  \n\nB) Chart unique (NYMEX:RB1! 1h):  \nLe graphique montre une tendance baissière globale avec des phases de rebond formant HL et HH qui sont de plus en plus faibles. La price action tient une zone de support majeure vers 2.98-3.00 USD. La résistance principale à court terme se situe autour de 3.15-3.18 USD où plusieurs tentatives de break ont échoué, signifiant une forte pression vendeuse. Le volume reste irrégulier, avec des pics sur les baisses. Le scénario privilégié est un range entre ces deux zones, invalidé par un franchissement clair et soutenu des résistances ou supports cités.  \n\nC) DeskPro  \n{\"run_id\":\"20240606_1537\",\"char",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-37-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_1h_2026-06-05_11-37-06.png"
+  }
+}

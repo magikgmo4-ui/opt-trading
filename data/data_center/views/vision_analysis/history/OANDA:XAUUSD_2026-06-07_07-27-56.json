@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_112806_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T07:28:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_07-27-56",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance de rebond possible sur support, sinon continuation baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "invalidé au-dessus de 4470",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte baisse récente sur le marché de l’or (XAUUSD) confirmant un retournement de tendance.  \n- Structure de baisse claire avec lower highs (LH) et lower lows (LL) sur le 1h.  \n- Zones clés proches à surveiller pour un possible rebond ou continuation baissière.\n\nB) Chart 1 (haut-gauche):  \nSymbole/timeframe : XAUUSD 1h  \nTendance : Baissière nette après la formation d’un swing top.  \nStructure : Séquence LH et LL bien marquée, break du support précédent.  \nZones clés : Résistance vers 4450-4470 (ancien support devenu résistance), support actuel vers 4320-4330.  \nScénario : Recherche de rebond ou consolidation sur zone support, sinon poursuite du downtrend.  \nInvalidation : Reprise haussière validée au-dessus de 4470 avec HH.\n\nC) Chart 2 (haut-droit): inconnu (graphique non identifié sur capture)  \nPas d’analyse possible, symbole/timeframe non lisible.\n\nD) Chart 3 (bas-gauche) : inconnu (graphique non identifié sur capture)  \nPas d’analyse possible, symbole/timefram",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_07-27-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_07-27-43.png"
+  }
+}

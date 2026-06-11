@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_165036_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:50:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-50-24",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller support 700B, tenter achat si rebond confirmé, stop sous 700B.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure au-dessus de 780B, scénario haussier valide.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le marché crypto total hors BTC/ETH est en tendance baissière latérale, avec une structure neutre à court terme.  \n- La zone clé support autour de 700B USD joue un rôle majeur dans la stabilisation des prix.  \n- Le scénario principal reste une attente de confirmation d’une possible reprise haussière ou poursuite de la baisse en cas de cassure.  \n\nB) Chart 1 (haut-gauche) : Crypto Total Market Cap excl. BTC/ETH (1D)  \n- Tendance : latérale baissière depuis fin avril, avec des hauts/lows relativement égaux (structure HH/HL incertaine).  \n- Structure : plusieurs hauts et bas proches (HL autour 700B, HH vers 760B non confirmés).  \n- Zones clés : support à 700B USD, résistance à 760-780B USD.  \n- Scénario : si maintien au-dessus de 700B, possible rebond vers 760B. En cas de cassure en daily sous 700B, poursuite baissière probable.  \n- Invalidation : franchissement clair au-dessus de 780B pour invalider la tendance baissière actuelle.  \n\nC) Chart 2 (haut-droit) : inconnu",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-50-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_12-50-14.png"
+  }
+}

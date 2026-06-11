@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_094809_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T05:48:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_05-47-46",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Short possible sur cassure support, sinon rebond à confirmer",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture > 61%",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Nécessite confirmation symbole",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance niveaux clés à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse non faisable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence de fortes variations et tendances marquées sur certains graphiques, notamment une chute franche visible sur le graphique BTC.D.  \n- Les structures montrent des phases alternantes entre haussière et baissière selon les actifs/timeframes.  \n- Plusieurs zones clés semblent définies, à confirmer avec détails symboles/timeframes sur chaque graphique.\n\nB) Chart 1 (haut-gauche): BTC.D, D (Dominance Bitcoin)  \n- Tendance clairement baissière récente avec de gros chandeliers rouges confirmant une accélération.  \n- Structure récente : des HH/HL en début d’année ont été cassés, apparitions de LH/LL.  \n- Zone clé support proche vers 58.2%-58.5% à surveiller, tenue cruciale.  \n- Scénario principal : poursuite possible de la baisse si support cassé, tentative de rebond si volume diminue.  \n- Invalidation : retour et fermeture au-dessus du récent sommet autour de 61%.\n\nC) Chart 2 (haut-droit): Inconnu (symbole/timeframe non lisible)  \n- Tendance non identifiable précisém",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_05-47-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:BTC.D_1d_2026-06-03_05-47-36.png"
+  }
+}

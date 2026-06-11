@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_102153_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T06:21:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-21-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.163,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.166,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance de la cassure 1.1630 pour scénario haussier, stop sous 1.1600",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "passage sous 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente baissière marquée par des Lower Highs (LH) et Lower Lows (LL) depuis le pic fin mai.  \n- Structure en attente de confirmation de retournement avec un rebond visible sur 1.1600, zone support clé.  \n- Scénario haussier possible à court terme si le prix dépasse et tient au-dessus de 1.1630, avec invalidation sous 1.1600.\n\nB) Chart unique (FX:EURUSD 1h):  \nLa tendance moyen terme est baissière (LH/LL), mais nous observons un support solide autour de 1.1600 où le prix a rebondi plusieurs fois. La résistance immédiate est à 1.1630, niveau à surveiller pour invalider la structure baissière. Un dépassement clair de 1.1630 pourrait ouvrir la voie à une correction haussière avec un premier objectif autour de 1.1660. En revanche, une cassure sous 1.1600 renforcerait la tendance baissière avec risques vers 1.1580 et plus bas.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond possible\",\"structure\":\"LH/LL\",\"supports\":[\"1.160",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-21-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-04_06-21-29.png"
+  }
+}

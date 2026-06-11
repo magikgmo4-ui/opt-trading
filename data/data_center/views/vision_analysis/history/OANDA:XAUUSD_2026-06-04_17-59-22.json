@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_215930_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T17:59:28-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-59-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4440.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4550.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous 4500 avec prise de profit proche du support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture au-dessus de 4550",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance de court terme baissière avec une série de LH et LL bien marqués depuis le pic fin mai.  \n- Structure volatile avec rebonds techniques, mais incapacité à créer un HL clair à ce stade.  \n- Zone clé de support vers 4440-4450 USD; résistance immédiate à 4500 USD.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe graphique montre une dynamique baissière dominante, avec des sommets déclinants (LH) et des creux également de plus en plus bas (LL). Après une forte impulsion baissière autour du 27 mai, un rebond a permis de tester une résistance importante vers 4600 USD qui n’a pas été franchie durablement. Les bougies récentes indiquent une consolidation autour de 4475 USD, proche du support incontournable situé entre 4440 et 4450 USD. La structure actuelle suggère de privilégier un biais vendeur sous 4500 USD, avec un scénario de poursuite éventuelle vers le support. Invalidation en cas de franchissement net et durable au-dessus de 4550 USD.  \n\nC) DeskPro  \n{\"run_id\":\"0",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-59-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_17-59-04.png"
+  }
+}

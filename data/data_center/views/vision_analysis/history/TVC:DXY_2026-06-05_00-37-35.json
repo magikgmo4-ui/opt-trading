@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_043746_TVC:DXY_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "TVC:DXY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T00:37:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_00-37-35",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 99.55,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Long au rebond sur support, viser résistance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break < 99.20",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Non analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Non définie",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Non analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Non définie",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Non analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Non définie",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale légèrement haussière à neutre, avec séquences de HH/HL sur les derniers mouvements, mais possibles résistances proches.  \n- Présence de zones clés à surveiller pour confirmation ou invalidation de la reprise haussière.  \n- Vigilance nécessaire en cas de rupture des supports récents qui invaliderait la structure haussière.\n\nB) Chart 1 (haut-gauche) : DXY 1h  \n- Structure : tendance haussière avec des HH (plus hauts) et HL (plus bas) formés récemment, en attente de nouvelle impulsion.  \n- Supports clés : zone 99.20 à 99.25 où des rebonds ont eu lieu.  \n- Résistances clés : 99.55, à franchir pour poursuite haussière.  \n- Scénario : conserver biais haussier tant que 99.20 tient, ciblant 99.55+.  \n- Invalidation : rupture claire sous 99.20 avec baisse vers 99.00.\n\nC) Chart 2 (haut-droit) : Inconnu (pas lisible)  \n- Impossible d’analyser, symbole/timeframe non identifiable.  \n- Recommandation : vérifier la source ou fournir un autre screenshot.\n\nD) Chart",
+  "symbols_found": [
+    "TVC:DXY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_00-37-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-05_00-37-25.png"
+  }
+}

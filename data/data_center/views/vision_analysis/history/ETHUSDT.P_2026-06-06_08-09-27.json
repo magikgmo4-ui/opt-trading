@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_120935_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T08:09:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_08-09-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1560.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1675.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat si cassure 1580 avec cible 1650, sinon vente sous 1550",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire sous 1550",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une structure en LL (Lower Lows) et LH (Lower Highs) depuis plusieurs jours.  \n- Stabilisation récente autour de 1550-1575, zone de support potentiel.  \n- Scénario principal: attendre une cassure haussière pour valider un retour potentiel ou confirmation de la baisse en dessous du support.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une forte tendance baissière caractérisée par des lower highs et lower lows réguliers. La structure confirme un momentum vendeur dominant. La zone clé de support se situe autour de 1550-1560, où le prix semble consolider. En résistance, la zone 1650-1675 apparaît comme un plafond à valider pour envisager une inversion de tendance. Scénario court terme : en cas de rebond confirmé au-dessus de 1575-1580, viser test de résistances vers 1650. Invalidation si rupture nette du support 1550, relance baissière probable.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"struct",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_08-09-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_08-09-18.png"
+  }
+}

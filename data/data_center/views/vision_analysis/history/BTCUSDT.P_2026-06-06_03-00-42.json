@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_070052_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T03:00:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-00-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59600.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rejet zone résistance avec cible 59600, stop au-dessus de 62000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture haute claire au-dessus de 62000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de Lower Highs (LH) et de Lower Lows (LL).  \n- La structure actuelle montre une tentative de rebond mais le prix reste sous une résistance clé vers 61,200-61,600.  \n- Scénario prioritaire bearish en attente d’une cassure sous le support récent vers 59,600 pour confirmer la poursuite.\n\nB) Chart unique (BTCUSDT.P 15m) :  \nLa paire BTCUSDT.P sur le 15m est en tendance baissière, caractérisée par une succession de LH et LL. Le prix tente un rebond local mais bute sous une zone de résistance autour de 61,200-61,600, indiquant un plafond temporaire. Le support majeur à court terme se situe vers 59,600, niveau à surveiller pour un breakout baissier. En cas de dépassement clair de la résistance, invalidation de la structure baissière et possible remontée vers les 62,800.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[59600],\"resistances\":[61200,61600],\"plan\":\"Short sur rejet",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-00-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_03-00-07.png"
+  }
+}

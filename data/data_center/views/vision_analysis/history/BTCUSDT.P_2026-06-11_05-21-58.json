@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_092213_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T05:22:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-21-58",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vendre sous support, acheter rebond confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "<59,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure range opposée",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur HL confirmé",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous dernier HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre direction claire",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sortie zone",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché crypto en focus avec Bitcoin sur timeframe 1h.  \n- Tendances mixtes, avec plusieurs zones de support et résistance identifiées.  \n- Nécessité d'attendre confirmation pour définir scénario haussier ou baissier clair.\n\nB) Chart 1 (haut-gauche):  \nLe graphique correspond à BTCUSDT en 1h (confirmé). La tendance récente est baissière clairement marquée par une série de Lower Highs (LH) et Lower Lows (LL). Une tentative de rebond est visible depuis le plus bas récent, formant un Higher Low (HL) partiel. Zones clés à surveiller : support majeur proche de 59,000-60,000 USD et résistance à 64,000-64,500 USD. Scénario principal : poursuite du rebond tant que le support HL tient, mais invalidation en cassure sous 59,000 USD pourrait relancer la tendance baissière.\n\nC) Chart 2 (haut-droit):  \nSymbole/timeframe inconnu. Structure peu lisible. Plusieurs oscillations sans tendance claire; les tops et bottoms oscillent autour d’un range horizontal. Zones potentiellement imp",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-21-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_05-21-47.png"
+  }
+}

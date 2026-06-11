@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_223843_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T18:38:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-38-34",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 68000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "favor bearish continuation below 63000 with possible bounce from support zone",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break and close above 68000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Dominance claire d’une tendance baissière sur la plupart des graphiques avec structure de bas en bas (LL) et de hauts en bas (LH).  \n- Présence de zones clés importantes vers 63 000 USD (support récent) et résistance aux alentours de 67 000 - 68 000 USD.  \n- Scénario baissier privilégié, avec possible consolidation/plancher local à définir avant un éventuel rebond technique.  \n\nB) Chart 1 (haut-gauche): Bitcoin / TetherUS 1h  \nTendance baissière nette confirmée par succession de HL/LL descendant (structure baissière). La chute rapide montre un fort momentum vendeur. Support clé autour de 62 000-63 000 USD, zone à surveiller en cas de rebond. Résistance immédiate vers 65 500 - 66 000 USD. Scénario principal reste la poursuite de la baisse en cassure du support 62 000. Invalidation de la tendance si rupture claire au-dessus de 68 000 USD.  \n\nC) Chart 2 (haut-droit): Inconnu (non lisible)  \nImpossible d’analyser faute d’identification claire du symbole et timeframe.  ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-38-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_18-38-19.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_081755_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T04:17:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-17-46",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée acheteuse sur breakout 63000 avec stop sous 61200",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte nette 61200",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale sur 15m en reprise après une forte baisse initiale.\n- Structure mixte avec creux plus hauts (HL) récents et sommets encore légèrement plus bas (LH).\n- Zone clé support vers 61 200 USDT, résistance proche de 63 000 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe cours a chuté fortement en début de graphique, formant un plus bas vers 60 800 USDT, puis une reprise progressive. La structure montre des creux plus hauts récents (HL) à environ 61 200 et 61 600, tandis que les sommets restent partiellement baissiers (LH) autour de 62 800-63 000 USDT. Cela suggère une phase de transition entre tendance baissière et possible retournement haussier. La zone de support principal à 61 200 USDT est à surveiller pour maintien, avec une résistance importante autour de 63 000 USDT à valider sur breakout. Un franchissement clair de 63 000 serait un signal d’entrée haussier tandis qu’une perte des 61 200 invaliderait ce scénario et renforcerait la baisse.\n\nC) DeskPro  \n{\"r",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-17-46",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-11_04-17-39.png"
+  }
+}

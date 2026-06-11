@@ -1,0 +1,38 @@
+{
+  "contract_version": "v1",
+  "input_class": "market_metrics.v1",
+  "module_id": "analysis_bundles.live",
+  "symbol": "BTCUSDT",
+  "metrics_ts": "2026-06-11T10:00:07.896287+00:00",
+  "freshness_state": "fresh",
+  "provider_coverage": {
+    "status": "partial",
+    "collectable_metrics": [
+      "open_interest"
+    ],
+    "missing_metrics": [
+      "funding_rate",
+      "volume_futures",
+      "long_short_ratio",
+      "liquidations_long",
+      "liquidations_short"
+    ]
+  },
+  "metrics": {
+    "open_interest": null,
+    "funding_rate": null,
+    "volume_futures": null,
+    "long_short_ratio": null,
+    "liquidations_long": null,
+    "liquidations_short": null
+  },
+  "refs": {
+    "primary_output": "/home/fantome/opt-trading-clean/data/data_center/views/market_metrics/by_symbol/BTCUSDT.json",
+    "meta_output": "/home/fantome/opt-trading-clean/data/data_center/views/market_metrics/by_symbol/meta.json",
+    "latest": "/home/fantome/opt-trading-clean/data/data_center/views/market_metrics/latest.json",
+    "status": "live_from_binance"
+  },
+  "provider_id": "binance_spot",
+  "warnings": [],
+  "last_price": 62926.01
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_144600_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T10:45:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-45-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rallye sous 65000, viser 62500 puis 62000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire > 66500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec série de plus bas et plus bas (LL)  \n- Rebond récent stoppé sous résistance vers 65 000 USDT  \n- Structure invalide en cas de dépassement clair du dernier sommet local (~66 500 USDT)\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une structure baissière avec des Lower Lows (LL) et Lower Highs (LH) formés depuis plusieurs jours. Le prix a chuté fortement de près de 78 000 à environ 62 500 USDT. Un rebond est amorcé depuis ce plancher provisoire, mais la zone 65 000-66 500 USDT représente une résistance importante à franchir pour envisager un retournement haussier. Le volume reste plus soutenu sur les baisses que sur les reprises. Le scénario principal reste short sous cette zone de résistance majeure, avec une invalidation en cas de break des LH.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL-LH\",\"supports\":[\"62500\",\"62000\"],\"resistances\":[\"65000\",\"66500\"],\"plan\":\"vendre sur rallye so",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-45-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_10-45-43.png"
+  }
+}

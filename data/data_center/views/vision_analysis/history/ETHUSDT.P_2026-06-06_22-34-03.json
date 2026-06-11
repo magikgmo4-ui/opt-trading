@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_023411_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T22:34:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_22-34-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller confirmation d’un HH > 1600 pour entrée long, sinon attendre retest support 1500 pour short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Perte décisive du support 1500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière en 1h avec une série de lower highs (LH) et lower lows (LL).  \n- Récente stabilisation entre 1500 et 1600, possible zone de support court terme.  \n- Scénario principal : attendre confirmation d’une inversion via un higher high (HH) au-dessus de 1600 pour envisager un rebond.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance baissière claire avec structure en LH/LL persistante. Support clé vers 1500-1520, résistance immédiate vers 1600. Le prix montre une phase de consolidation après la baisse, à surveiller un breakout au-dessus de 1600 pour une possible correction ou inversion. Invalidation du scénario haussier si le support sous 1500 cède, ce qui renforcerait la continuation baissière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1500\",\"1520\"],\"resistances\":[\"1600\"],\"plan\":\"Surveiller confirmation d’un HH > 1600 pour entrée long, sinon attendre retest support 1500 pour short\",\"in",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_22-34-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_22-33-54.png"
+  }
+}

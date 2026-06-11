@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_174018_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T13:40:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-40-08",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0815,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.082,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.085,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous 0.0820 avec stop au-dessus de 0.0850. Objectif vers 0.0800 voire 0.0785 en extension.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 0.0850 avec structure HH confirmée.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure de tendance confirmée par des retraits non significatifs et continuité du downtrend.\n- Zone de support clé autour de 0.0815-0.0820 à surveiller pour un possible rebond ou casse.\n\nB) Chart unique (DOGEUSDT.P 15m) :  \nLe graphique montre une forte tendance baissière sur le 15m avec une structure en LL/LH. Le prix recule de manière régulière, invalidant tout effort haussier à court terme. Le support majeur actuel se situe autour de 0.0815-0.0820, ayant servi plusieurs fois de plancher temporaire. La résistance se remarque à 0.0850, niveau où les vendeurs reprennent le contrôle. Le scénario prioritaire est une poursuite de la baisse sous support avec des opportunités shorts sous confirmation. Invalidation du bearish si le cours dépasse 0.0850 et forme un HH.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL/LH\",\"supports\":[\"0.0815\",\"0.0820",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-40-08",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-05_13-39-57.png"
+  }
+}

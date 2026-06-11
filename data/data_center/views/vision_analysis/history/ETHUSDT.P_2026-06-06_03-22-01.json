@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_072211_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T03:22:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-22-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance d’un rebond possible sur support 1,500 avec prise de bénéfices à la résistance 1,600. Short recommandé en échec de rupture à la baisse de 1,500. Invalidation au-dessus 1,600.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Prix au-dessus de 1,600 USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le timeframe 1h, avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure de marché dégradée, perte des supports intermédiaires, reprise baissière forte sur les derniers jours.\n- Zone clé résistante vers 1,600 USD, support actuel autour de 1,500 USD, scénario de rebond doit dépasser 1,600 USD pour invalider la pression vendeuse.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre une nette tendance baissière avec une série de LL et LH, confirmant la pression vendeuse dominante. Le prix teste actuellement un support proche de 1,500 USD après une forte chute. La zone vers 1,600 USD agit comme résistance immédiate. Un rebond pourrait s'organiser dans cette zone, mais en l'absence de franchissement clair de 1,600 USD, le biais reste baissier. Invalidation du scénario baissier au-dessus de 1,600 USD avec retour possible vers 1,700 USD.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-22-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_03-21-43.png"
+  }
+}

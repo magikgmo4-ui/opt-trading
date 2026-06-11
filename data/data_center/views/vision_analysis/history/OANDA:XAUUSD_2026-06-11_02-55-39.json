@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_065550_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T02:55:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-55-39",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure résistance pour buy, surveiller invalidation à 4,070",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette sous 4,070",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnue",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché global en tendance baissière marquée avec des mouvements d’impulsion et correction sur le moyen terme.  \n- Apparition récente d’un potentiel rebond depuis une zone de support clé, mais structure claire baissière dominante.  \n- Scénarios à court terme: surveiller confirmation du retournement ou reprise de la pression vendeuse.\n\nB) Chart 1 (haut-gauche) : XAUUSD 1h  \n- Tendance dominante baissière avec séquence de lower highs (LH) et lower lows (LL).  \n- Structure récente marque une tentative de retournement avec un plus bas établi puis un plus haut relatif (HL ?), mais reste à confirmer.  \n- Zones clés support vers 4,070-4,080 USD, résistance immédiate entre 4,125-4,140 USD.  \n- Scénario principal : consolidation/reprise haussière vers résistance; invalidation sous 4,070 USD signifierait continuation baissière.  \n- Plan : attendre une cassure claire de résistance pour prise de position acheteuse; prudence si volume baisse sur rebond.  \n\nC) Chart 2 (haut-droit",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-55-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-11_02-55-24.png"
+  }
+}

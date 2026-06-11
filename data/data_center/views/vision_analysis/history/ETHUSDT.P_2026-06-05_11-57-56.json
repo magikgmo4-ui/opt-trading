@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_155818_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T11:58:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-57-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1680.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente sous zone support cassée, attention rebond possible sur support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1680",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière forte et nette sur le timeframe 1h.  \n- Structure clairement en Lower Highs (LH) et Lower Lows (LL), confirmant la faiblesse.  \n- Zone clé support proche des 1 570-1 580 USDT à surveiller pour potentiel rebond ou cassure.  \n\nB) Chart unique (ETHUSDT.P 1h): Tendance baissière dominante, le prix évolue avec des sommets et creux déclinants (LH/LL). Le support autour de 1 570-1 580 a été testé récemment avec un fort volume, ce qui pourrait temporairement ralentir la chute. Résistance à placer sur le dernier sommet proche de 1 680 USDT. Scénario principal : poursuite de la baisse si le support est cassé, avec invalidation possible si le prix remonte au-dessus du dernier sommet décroit (1 680).  \n\nC) DeskPro  \n{\"run_id\":\"run_ETHUSDT_1h_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1570,1580],\"resistances\":[1680],\"plan\":\"vente sous zone support cassée, attention rebond possible sur support\",\"invalidation\":\"retour au-de",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-57-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_11-57-12.png"
+  }
+}

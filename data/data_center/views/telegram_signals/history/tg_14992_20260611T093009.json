@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_14992_20260611T093009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "robertcroakgoldsignals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T07:41:49+00:00",
+  "produced_at": "2026-06-11T09:30:09.615356+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": null,
+  "sl": null,
+  "tp": 3.0,
+  "tps": [
+    3.0,
+    3.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "Our gold sell hit TP3 running +140PIPS in profit  \ud83d\udd25\n\nIn profits before CPI tonight!\n\nClose some profit now and remember to set BE if you wish to hold \ud83d\udcaa\ud83d\udcaa",
+  "summary": "XAUUSD SHORT"
+}

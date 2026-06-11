@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_041829_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T00:18:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-18-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 4300.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4450.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prioriser ventes sous 4450 avec stops serrés au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire et durable au-dessus de 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière confirmée avec structure de bas en bas (LH/LL).  \n- Zones clés à noter : support régional proche de 4320, résistance vers 4400-4450.  \n- Scénario dominant : continuation baissière sous résistance, possible rebond technique sur support.  \n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLe biais est baissier clair sur ce graphique 1h avec une série de plus bas (LL) et plus bas relatifs (LH). La structure montre plusieurs tentatives de rebond rapidement rejetées vers la moyenne, formant des résistances dynamiques entre 4400 et 4450. Un support immédiat est visible autour de 4320, zone d’anciens creux qui peut provoquer une consolidation ou un rebond technique. Un dépassement durable de 4450 invaliderait la pression baissière en place. Le scénario prioritaire reste donc la poursuite de la baisse tant que le 4450 résiste, avec un objectif potentiel vers des plus bas récents proches de 4300.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240606_01\",\"charts\":[{\"slot\":\"sin",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-18-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_00-18-06.png"
+  }
+}

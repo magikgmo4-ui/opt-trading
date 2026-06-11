@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_205500_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T16:54:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_16-54-53",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur rebond vers 920-960B avec objectif 850-800B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Passage durable au-dessus de 960B USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière visible avec une séquence de HH/HL stoppée, maintenant formant une série de LH/LL.  \n- Structure fragilisée après rupture en baisse du support vers 920B USD, zone clé à surveiller.  \n- Scénario baissier renforcé par la forte hausse du volume sur les replis récents, invalidation au-dessus de 960B USD.\n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe graphique montre une tendance baissière claire sur le 1d, avec une structure de plus hauts et plus bas décroissants (LH/LL). Le support autour de 920B USD vient d'être cassé à la baisse avec un volume en forte augmentation, indiquant un renforcement momentum vendeur. La précédente zone de résistance vers 960B USD devient un niveau d’invalidation pour un retour potentiel à la hausse. En l’état, la pression vendeuse domine, et un repli prolongé vers 850B et 800B est probable. Un retour au-dessus des 960B invaliderait ce scénario et permettrait de repenser un potentiel rebond ou range.\n\nC) DeskPro  ",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_16-54-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-06_16-54-36.png"
+  }
+}

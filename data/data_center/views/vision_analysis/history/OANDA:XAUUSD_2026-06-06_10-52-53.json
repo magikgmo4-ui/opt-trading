@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_145306_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T10:53:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_10-52-53",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vente sur cassure support ou pullback résistance, prudence sur rebond technique possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement solide au-dessus de 4400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Fort mouvement baissier récent sur XAUUSD en 1h avec augmentation du volume.  \n- La structure montre des bas plus bas (LL) après un sommet local, tendance baissière dominante.  \n- Zones clés à surveiller pour support vers 4320-4330 et résistance vers 4360-4380 ; possible rebond technique.\n\nB) Chart 1 (haut-gauche):  \nGraphique XAUUSD 1h, tendance clairement baissière en structure HL/LL. Après une tentative de récupération, le prix casse les précédents supports, formant des nouveaux bas plus bas. Volume en hausse sur les chandeliers baissiers clés. Zone support forte vers 4320-4330 à valider comme potentiel point de rebond ou continuation. Résistance immédiate à 4360-4380, zone d'anciens pivots et congestions. Scénario envisagé : attendre confirmation d’un rebond sur support ou continuation baissière sur cassure sous 4320. Invalidation du biais baissier si franchissement solide au-dessus de 4400.\n\nC) Chart 2 (haut-droit):  \nSymbole/timeframe inconnu. Pas d’analyse p",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_10-52-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_10-52-41.png"
+  }
+}

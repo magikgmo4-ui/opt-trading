@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_215728_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T17:57:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_17-57-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1790.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 1740 avec cible 1700, rebond possible vers 1790 si maintien support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1800 avec structure HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de HH/HL cassés en LH/LL.  \n- Structure actuelle marquée par une lutte entre support autour de 1740 et résistance vers 1790-1800.  \n- Scénario prioritaire: continuation baissière si le support 1740 cède, sinon un rebond technique possible vers les 1790.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance est baissière avec la formation de points bas de plus en plus bas (LL) et de points hauts également plus bas (LH). Les prix évoluent entre une zone support clé vers 1740 et une résistance forte proche de 1790-1800. Le volume reste soutenu dans les phases de baisse, signe d'une pression vendeuse dominante. Un break sous 1740 invaliderait le support immédiat et ouvrirait la porte à une accélération baissière. À l'inverse, un retour au-dessus de 1790 indiquerait un potentiel rebond mais resterait fragile sans retournement de structure.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_17-57-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_17-57-09.png"
+  }
+}

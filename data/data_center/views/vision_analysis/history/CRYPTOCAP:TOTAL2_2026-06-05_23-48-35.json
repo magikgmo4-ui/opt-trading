@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_034843_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-05T23:48:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-48-35",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller réaction sur support 840-860B; viser short en cassure, ou long en rebond confirmé vers 970B+",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement en clôture journalière au-dessus de 1.02T USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire depuis plusieurs semaines avec structure en Lower Highs (LH) et Lower Lows (LL).\n- Zone de support clé vers 840-860B USD testée actuellement, à surveiller pour rebond ou rupture.\n- Scénario baissier dominant; une invalidation majeure serait un retour franc au-dessus des 1.02T USD.\n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d): \nLe marché global crypto hors BTC évolue en tendance baissière avec une série de sommets et creux décroissants (LH/LL). Le prix a nettement chuté récemment avec de forts volumes, ramenant la capitalisation proche d’une zone support critique autour de 840-860 milliards USD. Cette zone tient pour l’instant mais en cas de cassure, la baisse pourrait s’accélérer. A contrario, un rebond et franchissement des résistances intermédiaires vers 970-1.02T ouvrirait une potentielle reprise haussière. L’invalidation du biais baissier se matérialiserait donc par un HH clair au-dessus de 1.02T USD.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"s",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-48-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-05_23-48-25.png"
+  }
+}

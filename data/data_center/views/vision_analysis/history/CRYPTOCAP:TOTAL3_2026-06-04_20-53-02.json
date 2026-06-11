@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_005311_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T20:53:09-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-53-02",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre sur confirmation sous 700B, stop au-dessus de 720B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Remontée durable > 720B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière marquée sur le long terme avec des creux et sommets descendants (LH/LL).  \n- Phase récente latérale entre ~700B (S) et 760B (R), rupture baissière soudaine sous support 700B.  \n- Risque de poursuite baissière si la zone des 700B ne se récupère pas rapidement (invalidation au-dessus de 720B).  \n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d):  \n- Structure baissière dominante avec des Lower Highs et Lower Lows confirmés.  \n- Support clé brisé récemment à ~700B, signale une possible accélération de la baisse.  \n- Résistances principales situées à 720-760B, zone à reconquérir pour invalider le scénario baissier.  \n- Volume en hausse sur la chute, indiquant conviction vendeuse.  \n- Plan: envisager des positions vendeuses en cas de confirmation sous 700B, prudence en cas de retour rapide au-dessus.  \n- Invalidation si prix remonte durablement au-dessus 720B, indiquant un potentiel changement de structure.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slo",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-53-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_20-52-47.png"
+  }
+}

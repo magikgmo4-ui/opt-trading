@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_214641_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T17:46:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_17-46-34",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 4400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur retest résistance ou cassure support pour continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire au-dessus de 4400 confirmant changement de tendance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur 1h avec série de Lower Highs (LH) et Lower Lows (LL).  \n- Forte chute récente accélérant la dynamique vendeuse.  \n- Zone de support clé autour de 4320-4330 USD à surveiller, possible rebond technique.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe graphique montre une structure nette en baisse : les hauts sont de plus en plus bas (LH) et les bas également (LL), confirmant un momentum vendeur dominant. Une chute franche a eu lieu récemment avec un volume en hausse, indiquant une forte pression vendeuse. La zone des 4320-4330 agit actuellement comme support important, testée plusieurs fois. Si ce support casse, poursuite baissière probable vers 4300 voire plus bas. En revanche, un rebond depuis cette zone invaliderait temporairement ce scénario et pourrait engendrer un pullback vers 4400+.  \n\nC) DeskPro  \n{\"run_id\":\"auto_1686050000\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH LL\",\"supports\":[\"4320-4330\"],\"resistances\":[\"4400",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_17-46-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-06_17-46-21.png"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_188_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "LexatyCryptoSignals",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2025-02-25T13:12:04+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "CHILLGUYUSDT",
+  "direction": "SHORT",
+  "entry_price": 0.037375,
+  "sl": 0.040336,
+  "tp": 0.034415,
+  "tps": [
+    0.034415,
+    0.032358,
+    0.028143
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udd34sell/short signal #CHILLGUYUSDT\nEntry range: 0.037375\nTargets: 0.034415_ 0.032358_ 0.028143\nStop: 0.040336\nLeverage: 3X\nBalance: 5% of capital",
+  "summary": "CHILLGUY SHORT"
+}

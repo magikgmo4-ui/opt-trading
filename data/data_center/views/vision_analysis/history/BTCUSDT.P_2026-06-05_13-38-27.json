@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_173839_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T13:38:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-38-27",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prévoir continuation baissière avec test de 60 000, possible accélération en dessous. À couvrir si franchissement 66 500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement net 66 500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette avec des Lower Highs (LH) et Lower Lows (LL) clairement marqués.\n- Zones clés de résistance proches de 64 000-65 000 USDT, support potentiel autour de 60 000 USDT.\n- Scénario probable de continuation baissière, invalidation au-dessus du dernier High vers 66 500 USDT.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique montre une structure baissière nette caractérisée par une succession de Lower Highs et Lower Lows. Le prix est descendu sous plusieurs supports, confirmant la pression vendeuse. Une zone de résistance importante est visible vers 64 000-65 000 USDT, qui a bien repoussé le prix à chaque tentative de rebond. Le support majeur actuel se trouve autour de 60 000 USDT, testé plusieurs fois. Le volume s’est accru sur les dernières chandelles baissières, confirmant la force du mouvement. Un rebond est en cours mais faible. Le scénario privilégié reste la poursuite de la tendance baissière avec un test des 60 000 USDT. En cas de cassure de c",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-38-27",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_13-38-20.png"
+  }
+}

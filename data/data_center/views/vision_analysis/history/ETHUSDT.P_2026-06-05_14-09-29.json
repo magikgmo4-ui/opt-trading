@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_180938_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T14:09:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_14-09-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1630.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1580 pour vente, ou retour technique haussier >1640 pour achat",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture significative >1640 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en consolidation récente avec un léger rebond, mais sans retournement clair.  \n- Zone clé support proche de 1580 USDT, résistance immédiate autour de 1630-1640 USDT pour un éventuel retour haussier.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance principale est baissière, marquée par des lower highs et lower lows depuis environ 1 à 2 jours visibles. On observe une phase de consolidation en fin de graphique entre 1580 et 1630, indiquant une possible pause dans la chute, mais sans nouvelle impulsion haussière. Le volume montre une légère augmentation lors du rebond, mais manque de force pour invalider la tendance baissière. Scénario prioritaire : continuation de la baisse si le support 1580 est cassé. Invalidation du bearish si le prix dépasse clairement 1640 avec volume.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL a",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_14-09-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_14-09-17.png"
+  }
+}

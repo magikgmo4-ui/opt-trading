@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_094944_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T05:49:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-49-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1870.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rupture support 1750 pour continuation baissière. En cas de rebond, viser résistance 1850-1870 pour prise de profit partielle ou sortie.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix au-dessus de 1870 concluant un retournement haussier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière sur le timeframe 1h avec des bas et des hauts de plus en plus bas (structure LH/LL).  \n- Les tentatives de rebond sont marquées mais faibles, incapables de former des HH.  \n- Zones clés à surveiller : support autour de 1750 USD, résistance autour de 1850-1870 USD. Invalidation du scénario baissier si dépassement clair 1870.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLa structure actuelle est baissière avec une série de Lower Highs (LH) et Lower Lows (LL). Le prix est en baisse depuis plusieurs jours, avec des volumes en légère augmentation sur les baisses, signe d’une pression vendeuse persistante. Le support court terme à 1750 USD est testé, zone clé à monitorer pour un possible rebond ou rupture. Résistance principale vers 1850-1870 USD, zone d’obstacle aux tentatives haussières. Un franchissement net de cette résistance invaliderait la tendance baissière court terme et ouvrirait la porte à un retournement.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-49-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_05-49-27.png"
+  }
+}

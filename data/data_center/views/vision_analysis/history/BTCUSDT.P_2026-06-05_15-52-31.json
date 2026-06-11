@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_195251_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T15:52:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-52-31",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sous 59k, TP 55k, stop perte 62k",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break out 62k en cloture 1h",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière sur BTC/USDT avec structure en LH/LL bien marquée.  \n- Rebond technique actuel possiblement temporaire, vigilance sur invalidation.  \n- Surveillance des zones clés pour prise de position, confirmation nécessaire.  \n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h  \n- Tendance clairement baissière, structure en Lower High (LH) et Lower Low (LL) établie.  \n- Zone de support clé autour de 59 000 USDT, actuellement testée.  \n- Résistance immédiate vers 62 000 USDT (dernier sommet local).  \n- Scénario principal : poursuite de la baisse si support 59k cassé.  \n- Invalidation : franchissement durable au-dessus de 62k avec chandelle d’1h.  \n- Plan : short sous 59k, prise de bénéfices proche de 55k ou à rebond sur résistances.  \n\nC) Chart 2 (haut-droit) : Inconnu (symbole et timeframe non lisibles)  \n- Analyse impossible sans données visibles.  \n- Vérifier timeframe et actif pour synthèse pertinente.  \n\nD) Chart 3 (bas-gauche) : Inconnu (symbole et timeframe ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-52-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_15-52-20.png"
+  }
+}

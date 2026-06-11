@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_012300_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:22:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-22-48",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 62000 pour continuation baissière. Rebond possible en zone support avec forte demande.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break > 67000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée sur l’actif principal (BTC/USDT 1h) avec une structure en renversement clair : série de LH/LL.  \n- Volumes en hausse sur les baisses, confirmant la pression vendeuse importante.  \n- Absence de réaction haussière significative sur les zones de support apparentes, signalant un potentiel prolongement baissier.\n\nB) Chart 1 (haut-gauche) : BTC/USDT 1h  \nTendance : nette baisse  \nStructure : série de Lower Highs (LH) et Lower Lows (LL) formée, structure baissière bien établie.  \nSupports clés : zone vers 62 000-63 000 USDT (plusieurs tests récents)  \nRésistances : 66 000 puis 67 000 USDT (anciens supports devenus résistances)  \nScénario : poursuite probable du mouvement baissier si le support 62k cède ; possible rebond technique en cas de forte réaction volume/achat sur cette zone.  \nInvalidation : casse franche au-dessus des 67 000 USDT, remettant en cause la structure baissière.\n\nC) Chart 2 (haut-droit) : Inconnu  \n(Le symbole/timeframe du gr",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-22-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_21-22-41.png"
+  }
+}

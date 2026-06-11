@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_045718_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T00:57:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_00-57-12",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rebond sur support 1500, entrée possible achat au franchissement des résistances 1600-1625",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break clair du support 1500 signalera reprise baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure actuelle cherche un possible retournement avec un premier Higher Low (HL) formé sur la droite.  \n- Zone clé support vers 1500, résistance immédiate autour de 1600-1625 à surveiller pour validation du rebond.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLa tendance dominante est baissière avec des structures classiques LH/LL depuis 30 mai. Sur la droite, on note un HL plus récent, signe d'une potentielle pause ou inversion. Le support majeur reste proche des 1500, test qui a stoppé la chute récente. La zone 1600-1625 fait office de résistance critique à franchir pour confirmer une reprise haussière. Invalidation du scénario haussier si le support 1500 casse à nouveau.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish with potential bullish reversal\",\"structure\":\"LH/LL puis formation d'un HL récent\",\"supports\":[\"1500\"],\"resistances\":[\"1600\",\"1625\"],\"plan",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_00-57-12",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_00-57-03.png"
+  }
+}

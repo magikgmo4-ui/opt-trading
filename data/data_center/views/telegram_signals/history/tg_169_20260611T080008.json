@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_169_20260611T080008",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "forex_gold_signals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2024-07-08T10:52:15+00:00",
+  "produced_at": "2026-06-11T08:00:08.828202+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 2371.5,
+  "sl": 2386.5,
+  "tp": 2369.5,
+  "tps": [
+    2369.5,
+    2367.5,
+    2365.5
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "Sell Gold @  2371.5  -  2378.5\n      \nSL:  2386.5    \n      \nTP1  2369.5    \nTP2  2367.5    \nTP3  2365.5    \nTP4  open",
+  "summary": "XAUUSD SHORT"
+}

@@ -1,0 +1,18 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "BANUSDT",
+  "total": 1,
+  "signals": [
+    {
+      "id": "tg_170_20260611T100009",
+      "channel": "LexatyCryptoSignals",
+      "direction": "SHORT",
+      "entry_price": 0.0591,
+      "sl": 0.0644,
+      "tp": 0.0557,
+      "confidence": "LOW",
+      "parsed_at": "2025-02-04T18:46:06+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

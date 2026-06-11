@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_141238_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T10:12:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_10-12-29",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance du maintien du support 1550 pour tenter un rebond court terme. En cas de rupture sous 1540, poursuite de la baisse probable. Rejet ou breakout au-dessus de 1600 invalide le scénario baiss",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture franche au-dessus de 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière évidente avec une série de plus bas (LL) et plus bas relatifs (LH), confirmée par une chute marquée depuis début juin.  \n- Après un pic de volume lors de la forte chute, consolidation latérale récente entre environ 1550 et 1580.  \n- Zone de support court terme vers 1540-1550 à surveiller, résistance immédiate autour de 1580-1600.\n\nB) Chart unique (ETHUSDT.P 1h): La structure montre clairement une tendance baissière avec des Lower Highs (LH) et Lower Lows (LL) formés régulièrement. La récente phase marque une pause dans la chute avec une consolidation horizontale. Les volumes tradent plus hauts pendant la chute, indiquant une forte pression vendeuse. Le scénario prioritaire reste baissier mais une rupture claire au-dessus de 1600 invaliderait cette tendance et pourrait initier un retour vers 1700. L’invalidation baissière se situe au-delà des plus hauts récents.\n\nC) DeskPro  \n{\"run_id\":\"R1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_10-12-29",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_10-12-04.png"
+  }
+}

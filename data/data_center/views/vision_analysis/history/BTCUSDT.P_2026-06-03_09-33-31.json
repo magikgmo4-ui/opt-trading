@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_133345_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:33:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-33-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 15.5,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 16.7,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 17.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sur support 15.50, viser rebond vers 17.00",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "sous 15.50 en clôture horaire",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Le VIX (volatilité du S&P 500) montre une phase de baisse de tendance marquée puis une tentative de stabilisation.  \n- Structure clarifiée par la présence de plus bas descendants (LL) suivi d’un possible creux majeur associé à un support clé.  \n- Scénario de rebond potentiel si la zone des 15.50/16.00 est tenue, avec invalidation sous ce seuil.\n\nB) Chart 1 (haut-gauche):  \nGraphique du VIX en unité 1h  \nTendance principale baissière depuis le 19 mai (série de LH et LL) traduisant une baisse de la volatilité.  \nStructure encore fragile, recentrage sur un support vers 15.50-16.00, socle d’un rebond possible.  \nZone clé support ~15.50, résistance immédiate vers 16.70-17.00.  \nScénario préféré : tentative de rebond tant que le support tient, visant un retour vers 17.00.  \nInvalidation : rupture claire en clôture horaire en dessous de 15.50 entraînerait poursuite de la baisse.\n\nC) Chart 2 (haut-droit): inconnu  \nSymbole et timeframe non lisibles, aucune analyse possible",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-33-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:VIX_1h_2026-06-03_09-33-21.png"
+  }
+}

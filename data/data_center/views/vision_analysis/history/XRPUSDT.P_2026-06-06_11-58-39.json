@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_155848_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T11:58:46-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_11-58-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.07,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller la cassure de 1.1100 pour confirmation du rebond, vendre si invalidation sous 1.0700",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "descente sous 1.0700",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le 15m, avec une structure en LH (Lower High) et LL (Lower Low) jusqu’à la dernière zone.  \n- Dernière phase d’hésitation avec tentative de rebond formant un petit HL (Higher Low) entre 1.0700 et 1.1100.  \n- Zone clé proche à surveiller autour de 1.1100 en résistance, invalidation du rebond sous 1.0700.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique montre un mouvement principal baissier clair avec des sommets et creux déclinants (LH et LL). Cependant, depuis un point bas proche de 1.0500, un rebond a formé un HL intermédiaire proche de 1.0900, suivi d’une résistance forte vers 1.1100. La structure récente est neutre, en attente de cassure nette. Un retour en dessous du HL annulerait le scénario de rebond et renforcerait la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier mitigé\",\"structure\":\"LL-LH avec HL récent\",\"supports\":[\"1.0700\",\"1.0500\"],\"resistances\":[\"1.1100\"],\"plan\":\"surveiller la cas",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_11-58-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_11-58-29.png"
+  }
+}

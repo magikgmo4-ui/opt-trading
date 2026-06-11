@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_231756_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T19:17:54-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_19-17-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur résistance, viser reprise baisse sous 60000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière nette sur le BTC/USDT sur la dernière période visible.  \n- Les structures sont majoritairement en LH (Lower High) et LL (Lower Low), confirmant la structure baissière.  \n- Quelques rebonds sur volumes importants suggèrent des zones d’intérêt possibles pour un retour de pression acheteuse.\n\nB) Chart 1 (haut-gauche) : BTC/USDT 1h  \n- Tendance clairement baissière avec une série LH/LL prononcée.  \n- Plusieurs zones clés de support autour de 60 000 USDT, le prix teste actuellement ce seuil.  \n- Résistance significative autour de 64 000 USDT, rebond limité sous cette zone.  \n- Scénario principal : continuation baissière sous résistance, target possible sous 60 000 USDT.  \n- Invalidation : franchissement clair avec bougie forte au-dessus de 64 000 USDT.\n\nC) Chart 2 (haut-droit) : inconnu  \n- Symbole et timeframe illisibles, analyse impossible.\n\nD) Chart 3 (bas-gauche) : inconnu  \n- Symbole et timeframe illisibles, analyse impossible.\n\nE) Chart 4 ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_19-17-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_19-17-37.png"
+  }
+}

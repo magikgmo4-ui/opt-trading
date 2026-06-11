@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_185413_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T14:54:11-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_14-54-03",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller breakout haussier >780B pour entrée longue, stop si <700B",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture nette <700B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "analyse impossible sans timeframe/symbole",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de données exploitables",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de données exploitables",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché crypto excluant BTC/ETH en structure neutre-latérale sur le D1 avec absence de tendance claire.  \n- Zone de support autour de 700B USD testée plusieurs fois, résistance active vers 760-780B USD.  \n- Volatilité modérée sans franchissement majeur, attentisme conseillé avant validation d’une direction nette.\n\nB) Chart 1 (haut-gauche): TOTAL3 D1  \n- Structure montrant des bas et hauts plutôt plats (HH/HL/LH/LL mixés), tendance latérale.  \n- Support clé situé à environ 700B USD (plusieurs tests récents).  \n- Résistance entre 760B et 780B USD.  \n- Scénario : Breakout haussier au-dessus de 780B confirmerait reprise, invalidation si rupture nette sous 700B.  \n- Volume stable, pas d’impulsion claire sur dernier chandelier.\n\nC) Chart 2 (haut-droit): Inconnu (symbole/timeframe non lisible)  \n- Impossible d’analyser le trend et structure spécifiques sans identification claire.  \n- Recommander de vérifier la configuration et timeframe avant prise de décision.\n\nD) Chart 3",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_14-54-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_14-53-52.png"
+  }
+}

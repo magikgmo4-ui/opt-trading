@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_114945_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T07:49:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_07-49-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond potentiel sous résistance 1600 avec attention au support 1520. Vente possible si cassure 1520. Achat à considérer si break clair au-dessus de 1600.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 1h au-dessus 1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile en bas, avec un possible test d’un support autour de 1520-1540, zone clé à surveiller.  \n- Scénario à court terme : tentative de rebond sous résistance à 1600, invalidation de ce rebond si rupture des 1520 en clôture 1h.  \n\nB) Chart unique (ETHUSDT.P 1h): La paire est en tendance baissière marquée, structure avec LH/LL intacte après une descente forte. Le prix montre une tentative de rebond suite au plus bas récent vers 1520, mais rencontre une résistance notable vers 1600. La zone 1520-1540 sert de support pivot à court terme. Le plan de trading doit privilégier la prudence, en attendant une confirmation de continuation baissière sous 1520 ou un retour haussier avec break au-dessus de 1600 pour revoir la structure. Invalidation du scénario baissier en cas de clôture au-dessus des 1600.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"001\",\"charts\":[{\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_07-49-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_07-49-25.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_194239_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T15:42:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_15-42-25",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 58000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le support 58000, chercher rebond avec prudence. En cas de cassure, gérer position short ou sortie prudente. Une remontée vers 64000 invaliderait la tendance baissière.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 64000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance clairement baissière marquée par une série de LH (Lower Highs) et LL (Lower Lows).  \n- Structure en repli net sans retour significatif vers des niveaux plus hauts.  \n- Zone clé de support près de 58,000 USDT à surveiller, possible rebond ou cassure plus bas.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est baissière avec des Lower Highs et Lower Lows confirmés. Le prix a chûté rapidement depuis 74,000 vers environ 59,000. Le volume a augmenté lors des dernières descentes, validant la pression vendeuse. Le support majeur à 58,000 sert actuellement de zone critique. Un rebond technique est possible mais fragile. La résistance à casser pour un retournement serait vers 64,000. La cassure du support 58,000 invaliderait tout scénario haussier à court terme et pourrait entraîner une accélération baissière.\n\nC) DeskPro  \n{\"run_id\":\"20240605_1942\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"58000\"],\"resistances\":[\"64000\"],\"plan\":\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_15-42-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_15-42-18.png"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_235741_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-03T19:57:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-57-32",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 700B pour entrée short, stop au-dessus de 770B.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture daily au-dessus de 770B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance générale baissière de moyen terme avec séries de Lower Highs (LH) et Lower Lows (LL).\n- Phase de consolidation récente avec structure latérale entre 700B et 770B USD.\n- Cassure possible vers le bas si le support clé à 700B est invalidé, risque de reprise baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) : \nLe graphique montre une tendance baissière dominante marquée par une succession de LH et LL. Depuis février, le marché évolue dans une zone de congestion latérale, oscillant entre un support horizontal majeur vers 700B (zone testée plusieurs fois) et une résistance autour de 770B. La structure récente est neutre avec plusieurs tentatives de rebond avortées, soulignant une pression vendeuse persistante. Le scénario prioritaire est une cassure à la baisse sous 700B, confirmant la reprise du mouvement baissier. L’invalidation de ce scénario se ferait si le prix franchit et maintient au-dessus de 770B, évoquant une possible inversion vers un trend haussier.\n\nC",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-57-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-03_19-57-22.png"
+  }
+}

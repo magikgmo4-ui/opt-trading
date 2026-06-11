@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_005952_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-03T20:59:51-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_20-59-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.7,
+      "note": "s 1.1590"
+    },
+    {
+      "type": "support_level",
+      "value": "1.1590.",
+      "confidence": 0.7,
+      "note": "s 1.1590."
+    },
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.7,
+      "note": "support 1.1590"
+    },
+    {
+      "type": "support_level",
+      "value": 1.159,
+      "confidence": 0.7,
+      "note": "support 1.1590"
+    },
+    {
+      "type": "support_level",
+      "value": "1.1590.",
+      "confidence": 0.7,
+      "note": "s 1.1590."
+    },
+    {
+      "type": "resistance_level",
+      "value": "1.1650.",
+      "confidence": 0.7,
+      "note": "résistance 1.1650."
+    },
+    {
+      "type": "price_target",
+      "value": 1.1635,
+      "confidence": 0.5,
+      "note": "objectif 1.1635"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance majoritairement baissière sur le 1h avec structure de lower highs (LH) et lower lows (LL).  \n- Prix proche d’une zone de support clé vers 1.1590-1.1600, rebond technique en cours.  \n- Résistance majeure détectée autour de 1.1635-1.1650, scénario haussier invalidé en cas de retour sous 1.1590.  \n\nB) Chart unique (FX:EURUSD 1h): La structure révèle une tendance baissière dominée par des LH et LL successifs. Le prix teste actuellement une zone de support clé (1.1590-1.1600) avec un léger rebond. La résistance forte se situe en zone 1.1635-1.1650, correspondant à plusieurs sommets antérieurs. Un franchissement clair de cette résistance validerait un retournement vers une tendance haussière (HH/HL). L’invalidation du scénario haussier sera confirmée si le prix casse en-dessous du support 1.1590 avec continuation vers les plus bas précédents (1.1570). Le plan d’action favoriserait des achats sur rebond à support, avec prise de bénéfice proche de la résistance, o",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_20-59-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_20-59-32.png"
+  }
+}

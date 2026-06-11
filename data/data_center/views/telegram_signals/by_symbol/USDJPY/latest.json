@@ -1,0 +1,58 @@
+{
+  "input_class": "telegram_signals.by_symbol.v1",
+  "symbol": "USDJPY",
+  "total": 5,
+  "signals": [
+    {
+      "id": "tg_1377_20260611T100009",
+      "channel": "BTCUSDGOLDVIP_SIGNALS",
+      "direction": "LONG",
+      "entry_price": 160.579,
+      "sl": 160.438,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:32:13+00:00"
+    },
+    {
+      "id": "tg_2361_20260611T100009",
+      "channel": "GBPUSDEURUSDXAUUSDFX_Vip1",
+      "direction": "LONG",
+      "entry_price": 160.579,
+      "sl": 160.438,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:37:45+00:00"
+    },
+    {
+      "id": "tg_515_20260611T100009",
+      "channel": "GBPUSD_FOREXSiGNAL",
+      "direction": "LONG",
+      "entry_price": 160.579,
+      "sl": 160.438,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:49:07+00:00"
+    },
+    {
+      "id": "tg_204_20260611T100009",
+      "channel": "gold_signals_vip",
+      "direction": "LONG",
+      "entry_price": null,
+      "sl": 146.95,
+      "tp": 147.7,
+      "confidence": "LOW",
+      "parsed_at": "2023-09-13T04:49:59+00:00"
+    },
+    {
+      "id": "tg_988_20260611T100009",
+      "channel": "xauusd_trading_free",
+      "direction": "LONG",
+      "entry_price": 160.579,
+      "sl": 160.438,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:34:54+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_142158_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T10:21:56-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_10-21-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1530.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure 1600-1620 pour scénario haussier, sinon chercher vente sur retest de résistance. Stop loss sous support 1520.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement net au-dessus de 1620 invalide la tendance baissière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante confirmée par une suite de LL (Lower Lows) et LH (Lower Highs).  \n- La structure actuelle montre un possible creux avec rebond récent mais sans rupture de la tendance baissière.  \n- Zones clés à surveiller : support vers 1520-1530, résistance autour de 1600-1620.\n\nB) Chart unique (ETHUSDT.P 15m) :  \nLe graphique montre une tendance claire baissière avec des séquences de LL/LH marquées. Après un plus bas vers 1510-1520, un léger rebond forme une structure HL partielle, indiquant une tentative de retournement ou au moins une pause. Malgré ce rebond, le prix reste sous pression sous 1600-1620, zone de résistance importante. Un franchissement au-dessus confirmerait un retournement haussier, tandis qu’une cassure sous le support invaliderait ce scénario et pourrait relancer la baisse.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH avec tentative HL\",\"supports\":[1520,1530],\"resistances\":[1600,1620]",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_10-21-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_10-21-37.png"
+  }
+}

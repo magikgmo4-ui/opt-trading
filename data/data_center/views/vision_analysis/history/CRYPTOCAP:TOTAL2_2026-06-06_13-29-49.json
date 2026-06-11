@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_172956_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-06T13:29:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_13-29-49",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short ou attente de rebond sous résistance 1T, invalidation si breakout et close au-dessus",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Close daily > 1T USD",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire depuis plusieurs semaines sur la crypto total market cap excluant BTC.\n- Structure en cours: bas historique (LL) récent validé, nouvelle tentative de rebond faible.\n- Zone clé de support autour de 830-850B USD sous pression, résistance majeure aux alentours de 1T USD.\n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):\nLe graphique montre une tendance baissière caractérisée par des Lower Highs (LH) et Lower Lows (LL) depuis le pic début 2026. La structure est baissière avec un récent LL sur la zone 830-850 milliards USD, zone agissant comme support clé. Le prix peine à rebondir et subit une nouvelle chute vers ce support. Résistance majeure identifiée autour de 1 trillion USD, niveau des précédents creux/rebonds. Scénario prioritaire: poursuite d’une correction en tendance baissière tant que le support 830-850B n’est pas tenu. Invalidation en cas de franchissement et maintien au-dessus de 1T USD.\n\nC) DeskPro\n{\"run_id\":\"unique_001\",\"charts\":[{\"slot\":\"sin",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_13-29-49",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-06_13-29-36.png"
+  }
+}

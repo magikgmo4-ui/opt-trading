@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_095607_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T05:56:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_05-56-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64300.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le support 61800 pour tentative de rebond. En cas de cassure, poursuivre short. Rebond sur résistance 63800-64300 offre opportunité short.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "RSI > 64 300$",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance clairement baissière sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure sans signe de retournement, dominance des vendeurs.\n- Zone clé support autour de 61 800$ à surveiller, zone résistance autour de 64 300$.\n\nB) Chart unique (BTCUSDT.P 1h) : \nLe graphique présente une forte dynamique baissière marquée par une succession de bas plus bas et de hauts plus bas (LH/LL). Les volumes sont plus élevés sur les chandelles baissières, confirmant la pression vendeuse. Une zone de support se forme autour de 61 800$, tenant pour l'instant les prix, mais une cassure invaliderait cet intermède. La zone entre 63 800$ et 64 300$ agit comme résistance structurelle récente, freinant les tentatives de rebond. Le scénario prioritaire reste une poursuite de la tendance baissière si le support est cassé. En revanche, un franchissement franc de la résistance invaliderait ce biais.\n\nC) DeskPro \n{\"run_id\":\"20240605_0956\",\"charts\":[{\"slot\":\"single\",\"bias\":\"b",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_05-56-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_05-55-48.png"
+  }
+}

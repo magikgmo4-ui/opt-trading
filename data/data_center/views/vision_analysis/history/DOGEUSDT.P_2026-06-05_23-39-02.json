@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_033912_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T23:39:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_23-39-02",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.083,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous résistance 0.0830 avec stop loss au-dessus. Cibler 0.0780 en cas de cassure du support.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement net de 0.0830 avec forte dynamique haussière.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le timeframe 15m avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure dégradée, pas de signe de renversement immédiat, consolidation vers le bas.\n- Zones clés de support autour de 0.0800 et résistance proche de 0.0830, scénario baissier privilégié sous résistance.\n\nB) Chart unique (DOGEUSDT.P 15m): La tendance dominante est baissière avec une structure en Lower Highs et Lower Lows confirmée depuis plusieurs heures. Le prix teste actuellement un support majeur situé vers 0.0800. Une rupture de ce support engagerait une forte continuation baissière. La résistance immédiate à surveiller est située vers 0.0830, son franchissement invaliderait le scénario baissier court terme et pourrait annoncer une tentative de rebond. Le volume est relativement stable, sans pic d’achat significatif, ce qui renforce la prudence sur une reprise haussière.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_23-39-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-05_23-38-55.png"
+  }
+}

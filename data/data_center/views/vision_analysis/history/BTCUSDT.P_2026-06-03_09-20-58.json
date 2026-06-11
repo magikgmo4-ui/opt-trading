@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_132110_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:21:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-20-58",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller sous 1830 pour continuation baissière ou cassure au-dessus 1920 pour retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable au-dessus de 1920 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Manque de données pour plan",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre confirmation",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas de plan précis",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Market en tendance baissière nette, avec une structure de prix marquée par des Lower Highs (LH) et Lower Lows (LL).\n- Plusieurs zones clés de support à 1840-1850 USDT et résistance à 1900-1920 USDT, zone actuelle de lutte.\n- Scénario probable : tentative de rebond technique avec invalidation sous 1830 USDT.\n\nB) Chart 1 (haut-gauche) : Ethereum / USDT 1h (inconnu)\n- Tendance clairement baissière sur la période 1h.\n- Structure en LH et LL confirmée, pas de signal de retournement visible.\n- Supports majeurs autour de 1840-1850 USDT, zone testée avec rebond léger.\n- Résistances à 1900 USDT et 1920 USDT, à surveiller pour potentielle rupture.\n- Plan : surveiller un retour sous 1830 USDT pour continuation baissière, ou cassure au-dessus de 1920 USDT pour possible inversion.\n- Invalidation : franchissement clair et durable au-dessus de 1920 USDT. \n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu\n- Tendance et structure non identifiables clairement.\n- Zone clé de support",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-20-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_09-20-51.png"
+  }
+}

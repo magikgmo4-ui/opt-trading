@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_094845_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T05:48:43-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-48-35",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillez cassure de 62400 pour continuation baissière; seuil 64000 pour invalidation et possible rebond",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 64000 confirme fin de phase baissière court terme",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur le graphique 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en déclin, sans signal de retournement pour l’instant.  \n- Zone clé de support vers 62 400 USDT, résistance immédiate autour de 64 000 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe BTCUSDT.P évolue dans une tendance baissière marquée par des Lower Highs et Lower Lows. Le prix tente une légère récupération vers 63 200, mais manque de confirmation de renversement. La zone de support vers 62 400 joue un rôle clé à court terme. Un franchissement sous ce support validerait la poursuite de la baisse. À l’inverse, une percée au-dessus de 64 000 invaliderait la dynamique baissière court terme et pourrait ouvrir un rebond. Le volume reste globalement modéré mais présente quelques pics durant les baisses rapides.\n\nC) DeskPro  \n{\"run_id\":\"20240604-0948\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"62400\"],\"resistances\":[\"64000\"],\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-48-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_05-48-28.png"
+  }
+}

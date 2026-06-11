@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_060947_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T02:09:44-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_02-09-39",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "short sous résistance 4430 avec cible 4320, stop au-dessus dernier LH",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 4450",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée avec une série de Lower Highs (LH) et Lower Lows (LL) sur ce timeframe 1h.  \n- Structure dégradée, la cassure rapide près des 4430 USD accentue la dynamique vendeuse.  \n- Zone clé de support vers 4320-4330 USD à surveiller pour un potentiel rebond ou poursuite.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe graphique montre une phase corrective baissière confirmée par une structure HL/LH/LL. Après une tentative de rebond modéré, le prix s’effondre fortement, validant un renversement. La tendance dominante est donc baissière. Le support autour de 4320-4330 USD est la prochaine zone critique. Un franchissement en clôture sous ce niveau invaliderait tout rebond et ouvrirait la voie à une extension baissière. À l’inverse, un rebond significatif depuis cette zone pourrait signaler un retour de force acheteuse.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"4320-4330\"],\"resistances\":[\"4430-",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_02-09-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_02-09-25.png"
+  }
+}

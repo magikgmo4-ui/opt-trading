@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_104034_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T06:40:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-40-22",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure support pour continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus durable de 68000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible d'analyser",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible d'analyser",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible d'analyser",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte pression vendeuse confirmée par une chute nette et continue des prix sur le BTC/USDT en 1h.\n- Structure en tendance baissière claire avec des Lower Highs (LH) et Lower Lows (LL).\n- Risque imminent d’une poursuite baissière, à surveiller les zones de support pour un possible rebond ou accélération.\n\nB) Chart 1 (haut-gauche) : BTCUSDT - 1h\n- Tendance : baissière nette.\n- Structure : lower highs (LH) et lower lows (LL) établies.\n- Supports clés : vers 62 000 USDT (zone actuelle à surveiller).\n- Résistances clés : 66 000 USDT, puis 68 000 USDT.\n- Scénario : si le support vers 62k casse, poursuite de la baisse probable vers 60k et plus bas.\n- Invalidation : dépassement durable au-dessus de 68 000 USDT.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non lisible)\n- Impossible de fournir une lecture fiable, symbol/timeframe non déterminé.\n\nD) Chart 3 (bas-gauche) : inconnu (symbole/timeframe non lisible)\n- Analyse non réalisable faute de données lisibles.\n\nE) Ch",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-40-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_06-40-14.png"
+  }
+}

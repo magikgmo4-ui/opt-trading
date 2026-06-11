@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_193039_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T15:30:37-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-30-28",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support pour continuation baissière, invalidation au-dessus résistance.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "+67,500 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas analysable",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte pression vendeuse sur le marché, tendance clairement baissière sur le BTC en timeframe 15min.  \n- Structure en série de Lower Highs (LH) et Lower Lows (LL) sans franchissement significatif d’un support majeur.  \n- Zones clés à surveiller : support vers 65,000 USDT et résistance autour de 67,500 USDT. Scénario prudent en trading baissier avec invalidation si break au-dessus de ce plafond.\n\nB) Chart 1 (haut-gauche): BTCUSDT 15 minutes  \nTendance baissière dominante avec une succession claire de Lower Highs (LH) et Lower Lows (LL). La structure est donc dégradée, confirmant une dynamique vendeuse. Le prix s’appuie régulièrement autour de 65,000 USDT (support clé) mais sans rebond fort, indiquant une possible cassure à venir. Résistance notable vers les 67,500-68,000 USDT, zone à franchir pour invalider le scénario baissier. Le volume montre des pics ponctuels lors des baisses, renforçant la pression vendeuse. Plan : surveiller un retour vers le support et casser",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-30-28",
+    "source_screenshot": "/opt/trading/data/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-03_15-30-14.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_202304_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T16:23:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-22-56",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur 59000 pour entrée longue prudente, sinon attendre cassure claire en dessous pour shorts.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable et clôture au-dessus de 62500 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le 1h avec une série de lower highs (LH) et lower lows (LL).  \n- Structure technique clairement baissière sans signe de retournement confirmé.  \n- Zone clé à surveiller autour des 61 500-62 000 USDT en résistance et support fragile vers 59 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa paire BTCUSDT.P évolue dans une tendance baissière marquée avec une succession de LH/LL. Le prix tente une réaction haussière récente mais reste en-dessous de la résistance immédiate 61 500-62 000 USDT, zone bloquante classique avant une continuation potentielle. Le support proche aux alentours de 59 000 USDT est testé plusieurs fois, formant un point d’attention pour un rebond ou une cassure. La structure ne montre pas encore de HH ni HL à confirmer pour invalider la tendance dominante.\n\nC) DeskPro  \n{\"run_id\":\"20240605_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"59000\"],\"resistances\":[\"61500\",\"62000\"],\"plan\":\"Surveil",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-22-56",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_16-22-48.png"
+  }
+}

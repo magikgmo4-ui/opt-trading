@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_084538_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T04:45:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_04-45-30",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation breakout résistance ou rejet pour trading court terme",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakdown durable sous 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance latérale avec oscillations dans un range large visible, sans cassure claire de structure.  \n- Structure récente marquée par des Lower Highs (LH) et Lower Lows (LL) avant une dernière reprise haussière vers 1.1640.  \n- Zone clé support vers 1.1600-1.1610, résistance importante vers 1.1640-1.1650 à surveiller pour breakout.  \n\nB) Chart unique (FX:EURUSD 1h): La paire évolue dans une large consolidation entre 1.1600 (support) et 1.1650 (résistance). La structure est en majorité baissière (LH/LL) depuis fin mai avec un rebond récent qui pourrait indiquer un test à la résistance. Le scénario prioritaire attend une confirmation de franchissement ou rejet sur zone 1.1640-1.1650 avant prise de position. Invalidation si cassure durable sous 1.1600.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"LH-LL puis rebond HL\",\"supports\":[\"1.1600-1.1610\"],\"resistances\":[\"1.1640-1.1650\"],\"plan\":\"attendre confirmation breakout r",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_04-45-30",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_04-45-15.png"
+  }
+}

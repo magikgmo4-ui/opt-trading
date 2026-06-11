@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_050035_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T01:00:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_01-00-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1760.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1840.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 1820 avec objectif sur 1760, long possible si maintien et cassure 1840",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture franche sous 1760 pour rebaisser; cassure 1840 invalide la baisse immédiate",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière claire sur le 15m, avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure récente de rebond visible avec un HL (Higher Low) formé sur creux vers 1760, puis rejet à la baisse au-dessus de 1820.  \n- Zone clé de support proche des 1760 et résistance autour de 1820-1840, scénario haussier invalidé si 1760 casse.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché ETHUSDT.P est en tendance baissière confirmée, marquée par une structure LL/LH nette. Un rebond significatif remonte du support majeur vers 1760, formant un HL, mais la hausse bute sur la résistance intermédiaire 1820-1840. Le volume a augmenté sur ce rebond, montrant un intérêt d’achat temporaire. Le scénario prioritaire reste la continuation baissière si le support 1760 cède, sinon tentative de formation d’une nouvelle base à surveiller.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL/LH avec rebond HL récent\",\"supports\":[1760],\"re",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_01-00-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_01-00-16.png"
+  }
+}

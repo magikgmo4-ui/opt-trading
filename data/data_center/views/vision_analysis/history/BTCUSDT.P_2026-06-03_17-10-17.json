@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_211027_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T17:10:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_17-10-17",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur retour résistance 67000 avec target 64000 et stop si franchissement résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "prix stable au-dessus de 67000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière en 1h avec une série de lower highs (LH) et lower lows (LL).  \n- Structure baissière dominante confirmée par une chute forte récente et un rebond technique limité.  \n- Zones clés à suivre : support important autour de 64 000 USDT, résistance majeure à 67 000 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h) :  \nLa tendance est baissière franche avec un pattern structurel en LH/LL. Le prix a chuté fortement sous 70 000 USDT jusqu’à un support vers 64 000 USDT où il trouve un rebond faible. Le dernier mouvement haussier est un pullback probable face à la résistance en zone 67 000 USDT. La structure indique que la pression vendeuse reste dominante. Scénario principal : continuation de la baisse en cassant le support 64 000. Scénario alternatif (bull trap) : franchissement clair des 67 000 invalidant la structure baissière court terme.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"640",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_17-10-17",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-03_17-10-06.png"
+  }
+}

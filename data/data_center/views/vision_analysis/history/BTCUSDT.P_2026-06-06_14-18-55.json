@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_181939_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T14:19:03-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_14-18-55",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short à la cassure du support avec stop au-dessus du dernier LH. En cas de rebond, surveiller la résistance pour prise de short.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture des derniers LH vers le haut au-dessus de 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante clairement baissière sur 1h, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en déclin régulier, sans signe évident de retournement pour le moment.  \n- Zones clés à surveiller : support autour de 59000-60000 USDT, résistance vers 63000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nOn observe une tendance baissière claire avec des Lower Highs et Lower Lows confirmés sur plusieurs séances. La structure est classique de seller control. Le support clé se situe autour des 59000-60000 USDT, où le prix a déjà rebondi. La résistance notable est positionnée aux alentours de 63000 USDT, où les ventes reprennent. Le scénario actionnable est une poursuite du downtrend si le support casse, sinon un possible rebond technique vers la résistance mais à surveiller pour invalidation (plus haut que le dernier LH).\n\nC) DeskPro  \n{\"run_id\":\"20240606_1818\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"59000-60000\"],\"resi",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_14-18-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_14-18-45.png"
+  }
+}

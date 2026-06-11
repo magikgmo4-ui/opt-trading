@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_065210_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T02:52:08-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_02-52-00",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 1.1520 avec objectif 1.1450, gestion du risque si rebond au-dessus de 1.1580",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable au-dessus de 1.1600",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur ce timeframe 1h avec cassure nette d’une structure haussière antérieure (rupture HH/HL).  \n- Structure récente formant des Lower Highs (LH) et Lower Lows (LL) indiquant un momentum vendeur dominant.  \n- Zone clé support à 1.1520 qui fait actuellement rebondir le prix, résistance principale autour de 1.1580-1.1600.  \n\nB) Chart unique (FX:EURUSD 1h):  \nLa paire EURUSD est en tendance baissière nette avec une succession de Lower Highs et Lower Lows affirmée depuis le 4 juin. Le prix a fortement chuté ce 5 juin, cassant le support 1.1580 et s’appuie maintenant sur la zone 1.1520. La structure générale a basculé, invalidant le dernier creux haussier. Le scénario principal reste vendeur en attente d’une confirmation de continuation sous 1.1520. En cas de retour au-dessus de 1.1580, un test de la résistance 1.1600 serait possible, avec un risque de sortie de tendance baissière (invalidation).  \n\nC) DeskPro  \n```json\n{\"run_id\":\"20240606_01\",\"c",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_02-52-00",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-06_02-51-48.png"
+  }
+}

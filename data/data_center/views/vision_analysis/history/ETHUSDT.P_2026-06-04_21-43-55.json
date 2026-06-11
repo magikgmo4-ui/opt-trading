@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_014405_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:44:01-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-43-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rebond proche résistance, stop au-dessus de 1850, viser 1700 puis plus bas en cassure.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture stable et claire au-dessus de 1850",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une succession de plus bas et plus bas (LL).  \n- Structure en dégradation nette avec absence de retour en tendance haussière.  \n- Zone clé support en bas vers 1700 USDT, résistance proche vers 1820-1850 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une dominante structurelle baissière sur le timeframe 1h, avec des plus bas (LL) et plus bas intermédiaires confirmant la perte de momentum. Les tentatives de rebond sont freinées autour des 1820-1850 USDT (résistance sérieuse), tandis que la zone des 1700 USDT agit comme support provisoire. Volume en légère hausse lors des phases baissières, confirmant la pression vendeuse. En cas de cassure claire sous 1700, poursuite baissière attendue. Un retour au-dessus de 1850 invaliderait la structure baissière et pourrait signaler un retournement.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL\",\"supports\":[\"1700\"],\"resistances\":[\"1",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-43-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_21-43-42.png"
+  }
+}

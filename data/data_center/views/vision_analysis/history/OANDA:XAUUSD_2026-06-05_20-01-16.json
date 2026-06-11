@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_000211_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T20:01:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_20-01-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4320.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4375.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente à la cassure de 4320 avec stop above 4375",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break above 4375",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière dominante, avec des lower highs et lower lows bien marqués.\n- Structure de court terme fragile, zone de support autour de 4320 testée massivement.\n- Scénario privilégié : poursuite baissière sous support 4320, invalidation au-dessus de 4375.\n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLe prix forme une série de lower highs (LH) et lower lows (LL), indiquant une tendance baissière claire. La zone de support clé est autour de 4320, déjà visitée à plusieurs reprises. Le prix tente une légère consolidation mais reste sous la résistance à 4375. Le volume augmente lors des mouvements baissiers, signe d’une pression vendeuse importante. Le scénario prioritaire est la continuation vers le bas si le support 4320 cède, avec pour invalidation un retour au-dessus de 4375 qui remettrait en cause la pression vendeuse.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"4320\"],\"resistances\":[\"4375\"],\"plan\":\"vente à",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_20-01-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-05_20-00-39.png"
+  }
+}

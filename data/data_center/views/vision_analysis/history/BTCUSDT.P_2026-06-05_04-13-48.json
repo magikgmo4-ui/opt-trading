@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_081358_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T04:13:55-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_04-13-48",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rebond support, vente sous résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">65,000 USDT",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance cassure zone de congestion",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure bornes zone",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance cassures directionnelles",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure zones clés",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globalement baissière sur les marchés analysés, avec signes de pressions vendeuses persistantes.\n- Supports clés approchés ou testés, attention aux réactions proches de ces zones pour valider un rebond ou une cassure.\n- Les scénarios restent fragiles, l'invalidation vient souvent d’une cassure claire des derniers points hauts/bas.\n\nB) Chart 1 (haut-gauche):\n- Symbole: BTCUSDT.P, timeframe: 1h\n- Tendance clairement baissière en structure HH/HL cassée, on note des LH et LL successifs.\n- Zone clé de résistance autour de 64 000-65 000 USDT, support détecté vers 62 000 USDT.\n- Volumes en hausse sur impulsions baissières, suggérant une continuation possible.\n- Scénario: Attendre confirmation de maintien au-dessus 62 000 pour envisager un rebond, sinon poursuite baissière probable.\n- Invalidation: remontée au-dessus des 65 000 USDT qui invaliderait la tendance baissière court terme.\n\nC) Chart 2 (haut-droit):\n- Symbole/timeframe inconnu (non visible).\n- Structure di",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_04-13-48",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_04-13-40.png"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_065732_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T02:57:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-57-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4050.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveillance rebond; achat sur validation HL au-dessus de 4125; vente si cassure 4050 pour continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour durable au-dessus de 4130 invalide le scénario baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h baissière bien installée avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récente montre un rebond après un plus bas marqué, possiblement un HL à court terme.  \n- Zone clé support proche des 4 050 USD, résistance around 4 125-4 130 USD à surveiller pour la poursuite du rebond ou reprise baissière.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa tendance de fond est baissière (LH/LL) depuis plusieurs sessions. Le récent plus bas vers 4 050 USD a servi de support, provoquant un rebond technique. La structure est en train d’évoluer vers un possible HL à valider ou fausser par un retour sous 4 050. Si le prix franchit la résistance 4 125-4 130 USD, un renversement plus conséquent pourrait s’enclencher. Invalidation du scénario bullish à la retombée sous 4 050, confirmant la poursuite du downtrend.  \n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec recent HL potentiel\",\"supports\":[\"4050\"],\"",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-57-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-11_02-57-07.png"
+  }
+}

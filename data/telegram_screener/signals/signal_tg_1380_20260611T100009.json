@@ -1,0 +1,28 @@
+{
+  "contract": "telegram_signal.v1",
+  "id": "tg_1380_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "BTCUSDGOLDVIP_SIGNALS",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-11T09:02:09+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "GBPUSD",
+  "direction": "SHORT",
+  "entry_price": 1.33634,
+  "sl": 1.33915,
+  "tp": 1.0,
+  "tps": [
+    1.0,
+    2.0,
+    3.0,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udcc9 GBPUSD SELL\nEntry: 1.33634\n\nTake Profit Targets\nTP1: 1.33494\nTP2: 1.33353\nTP3: 1.33072\n\nStop Loss: 1.33915",
+  "summary": "GBPUSD SHORT"
+}

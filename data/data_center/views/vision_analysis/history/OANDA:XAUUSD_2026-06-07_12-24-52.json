@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_162501_OANDA:XAUUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T12:24:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_12-24-52",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 4600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller le support 4320-4330 pour un rebond possible, ou prise de position vendeuse en cassure confirmée.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clarification de la tendance si rebond significatif au-dessus de 4500.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragile avec tentative de rebond vers 4330-4350 mais suivi d’une forte chute.  \n- Zone clé de support vers 4320-4330 à surveiller pour scénario de rebond ou poursuite baissière.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe graphique montre une tendance baissière claire après un sommet local autour de 4600. La structure est en Lower Highs et Lower Lows, confirmant la dominance vendeuse. Une tentative de correction haussière a échoué sous la résistance des 4500-4520, entraînant une accélération baissière vers 4327. La zone 4320-4330 apparaît comme un support potentiel critique. Un rebond est possible ici, mais la cassure sous 4320 invaliderait tout scénario haussier et ouvrirait la voie à un nouveau mouvement vers 4300 voire plus bas. Le volume est soutenu lors de la chute finale, ce qui renforce le biais baissier.\n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\"",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_12-24-52",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-07_12-24-39.png"
+  }
+}

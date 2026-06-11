@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_142237_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T10:22:34-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_10-22-25",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure support 59000 pour sortie short, ou rebond technique potentiel",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour significatif au-dessus de 63000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière sur BTC/USDT visible en UT 1h.  \n- Structure clairement en LH/LL, sans signe de retournement pour l’instant.  \n- Zones clés à surveiller sur supports vers 59 000$ et résistances vers 63 000$.  \n\nB) Chart 1 (haut-gauche): Bitcoin / TetherUS 1h  \nTendance baissière nette, le prix est en séquence de plus bas et plus bas (LH/LL). Il y a eu plusieurs impulsions vendeuses fortes avec des petits rebonds techniques. La structure indique un contrôle clair des vendeurs. Support clé autour de 59 000$ testé plusieurs fois, résistance principale vers 63 000$ qui limite les tentatives de rebond. Scénario principal: poursuite de la baisse si le support casse, possible range ou rebond technique si le support tient. Invalidation si franchissement clair et rétention au-dessus des 63 000$.  \n\nC) Chart 2 (haut-droit): inconnu (titre/symbole non lisible)  \nSymbole et timeframe non lisible, analyse impossible.\n\nD) Chart 3 (bas-gauche): inconnu (titre/symbole non",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_10-22-25",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_10-22-00.png"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_172828_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T13:28:26-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_13-28-18",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure support 60000 pour vente",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 65000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- L’ensemble des actifs montre une forte tendance baissière marquée avec des inefficiences de prix récentes.  \n- Structures de marché majoritairement en Lower Highs (LH) et Lower Lows (LL), pas de signe clair de retournement.  \n- Surveillance des zones clés demande prudence pour potentiels rebonds techniques mais scénario principal reste baissier.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance immédiate baissière nette, structure en LH et LL bien présente.  \n- Zones clés : résistance vers 64,000-65,000 USD, support vers 60,000 USD.  \n- Scénario : poursuite de la baisse sous 60,000 avec extension possible vers 58,000+ USD.  \n- Invalidation : retour au-dessus des 65,000 USD invalide la dynamique baissière intraday.  \n- Plan : vigilance sur la cassure du support, opportunité de court terme à la vente si confirmé en clôture horaire.  \n\nC) Chart 2 (haut-droit): inconnu  \n- Symbole et timeframe non lisibles, analyse impossible.  \n\nD) Chart 3 (bas-gauche): inconnu  \n-",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_13-28-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_13-28-07.png"
+  }
+}

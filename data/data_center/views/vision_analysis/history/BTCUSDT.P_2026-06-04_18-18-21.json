@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_221902_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T18:18:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-18-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller maintien support 62000, vente en rejet si reprise baissière confirmée, caution rebond si tenue.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break au-dessus de 67000 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, données manquantes.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, données manquantes.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Analyse impossible, données manquantes.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "N/A",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière globale sur le timeframe 1h du BTC/USDT.  \n- Structure en série de Lower Highs (LH) et Lower Lows (LL), confirmant la faiblesse.  \n- Recherche de zones clés pour un rebond potentiel autour des 62 000 USDT.\n\nB) Chart 1 (haut-gauche) :  \n- Symbole : BTCUSDT, timeframe 1h.  \n- Tendance nettement baissière avec plusieurs Lower Highs et Lower Lows (LH/LL).  \n- Structure claire de déclin marqué, sans signe de retournement visible à court terme.  \n- Supports clés probables autour de 62 000 USDT, où le prix a peu stabilisé récemment.  \n- Résistances proches à 65 000 puis 67 000 USDT, niveaux où la pression vendeuse risque de revenir.  \n- Scénario fav : poursuite de la baisse si invalidation sous 61 000. Rebond possible en range si tenue support.  \n- Invalidation baissière au-dessus de 67 000 USDT avec break de structure (HH).\n\nC) Chart 2 (haut-droit) :  \n- Symbole/timeframe : inconnu (non lisible).  \n- Impossibilité d’analyse précise, données non i",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-18-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_18-18-13.png"
+  }
+}

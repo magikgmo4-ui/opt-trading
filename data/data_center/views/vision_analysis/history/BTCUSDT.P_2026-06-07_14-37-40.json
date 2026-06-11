@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_183750_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T14:37:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_14-37-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Chercher longs sur repli proche support 61800-62000 avec objectif 62800 puis extension",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "casse 61800 forte en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance courte terme en reprise haussière après un fort retracement initial.  \n- Structure : alternance de HL puis un HH récent, suivi d’une légère consolidation.  \n- Zones clés à surveiller autour de 62 800 (résistance) et support 61 800-62 000.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre un fort mouvement baissier initial suivi d’une reprise progressive avec formation de bas plus hauts (HL) et d’un plus haut plus haut (HH) vers 62 800. Actuellement, le prix consolide entre 62 000 et 62 400, ce qui suggère une prise de souffle avant une possible continuation. La zone 61 800-62 000 est un support clé, validé par plusieurs rebonds précédents. Invalidation du scénario haussier si le prix casse nettement sous 61 800 avec structure de plus bas plus bas (LL).\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier court terme\",\"structure\":\"HH/HL\",\"supports\":[61800,62000],\"resistances\":[62800],\"plan\":\"Chercher longs sur repli proche support 6",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_14-37-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_14-37-33.png"
+  }
+}

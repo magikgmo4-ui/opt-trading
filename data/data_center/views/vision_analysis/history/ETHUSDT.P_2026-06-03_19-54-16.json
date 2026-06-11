@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_235423_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-03T19:54:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_19-54-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.7,
+      "note": "s 1780"
+    },
+    {
+      "type": "support_level",
+      "value": 1850.0,
+      "confidence": 0.7,
+      "note": "s 1850"
+    },
+    {
+      "type": "support_level",
+      "value": 1850.0,
+      "confidence": 0.7,
+      "note": "s 1850"
+    },
+    {
+      "type": "support_level",
+      "value": 1780.0,
+      "confidence": 0.7,
+      "note": "s 1780"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1850.0,
+      "confidence": 0.7,
+      "note": "résistance 1850"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Le prix est en tendance baissière claire avec une série de lower highs (LH) et lower lows (LL).\n- Une tentative de rebond s’est formée récemment mais n’a pas réussi à créer un higher high, suggérant une pause ou correction dans la tendance baissière.\n- Zones clés à surveiller : support vers 1780-1790, résistance vers 1850-1860.\n\nB) Chart unique (ETHUSDT.P 15m)\nLe graphique montre une structure baissière nette avec formation de LH et LL depuis un sommet proche de 2030. Le prix a testé le support autour de 1780 puis rebondi vers 1850 sans casser les plus hauts intermédiaires, confirmant la faiblesse actuelle. Le scénario préféré reste la poursuite de la baisse, avec invalidation en cas de franchissement clair au-dessus de 1860.\n\nC) DeskPro\n{\"run_id\":\"20240604_ethusdtp_15m\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1780],\"resistances\":[1850,1860],\"plan\":\"chercher vente sur rejet résistance 1850-1860, viser retour vers 1780\",\"invalidatio",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_19-54-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-03_19-54-09.png"
+  }
+}

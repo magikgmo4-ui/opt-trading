@@ -1,0 +1,71 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_194938_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:49:35-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-49-18",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "attendre rebond ou continuation bearish",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement dernier High",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation retournement ou pullback vendeur",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure haussière résistances",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller rupture 1800 pour accélération baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable 1860",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "monitoring supports et potentielle reprise baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "formation structure haussière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Biais général baissier sur la majorité des graphiques, tendance de fond descendante nette.  \n- Structure marquée par des Lower Highs (LH) et Lower Lows (LL), indiquant une pression vendeuse forte.  \n- Zones clés à surveiller pour rebond potentiel ou poursuite de la baisse autour des supports récents.\n\nB) Chart 1 (haut-gauche): inconnu  \nStructure baissière claire avec une succession de Lower Highs et Lower Lows. La tendance est descendante avec des chandeliers rouges dominants sur la fin. On note un support récent situé sur un plus bas local proche qui pourrait servir de zone d’accumulation temporaire. Résistance matérialisée par le dernier Lower High avant chute. Scénario prioritaire: attente d’un rebond technique ou nouvelle impulsion baissière. Invalidation si franchissement du dernier High.\n\nC) Chart 2 (haut-droit): inconnu  \nTendance baissière structurelle avec un CP (price channel) descendant. Les supports récents sont mis à rude épreuve, signalant un risque ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-49-18",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_15-49-06.png"
+  }
+}

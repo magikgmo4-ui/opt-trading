@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_163114_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T12:31:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_12-31-05",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.087,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.0865,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 0.085,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.09,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.0905,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente proche résistance 0.09000 avec stop au-delà de 0.09050. Objectif 0.08650 puis 0.08500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus de 0.09050 avec un Higher High.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire marquée par une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent vers 0.09000, zone résistance clé, suivi d’un léger recul.  \n- Scénario possible : poursuite de la baisse sous résistance vers 0.08650-0.08700; invalidation si franchissement clair des 0.09050.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une forte dynamique baissière avec structure en LL/LH. Après un creux vers 0.08650, un rebond a créé un niveau de résistance autour de 0.09000. Le prix hésite sous ce pallier. Les supports à surveiller en bas sont la zone 0.08650 et 0.08500. La tendance dominant reste baissière tant que le prix ne signe pas un Higher High au-dessus de 0.09050. Un retour sous 0.08700 renforcerait la pression vendeuse.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_1631\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LL LH\",\"supports\":[\"0.08700\",\"0.08650\",\"0.08500\"],\"resistances\":[\"0.09000\",\"0.09050\"],\"plan\":\"Vente proche résis",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_12-31-05",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-04_12-30-53.png"
+  }
+}

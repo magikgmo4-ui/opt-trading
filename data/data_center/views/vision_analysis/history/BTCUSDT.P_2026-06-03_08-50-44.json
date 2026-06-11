@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_125054_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T08:50:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_08-50-44",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.1595,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.158,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.163,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vente à la cassure de 1.1595, cible 1.1580 avec stop au-dessus de 1.1650",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus de 1.1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "impossible à définir",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence d'une pression vendeuse dominante sur EURUSD en M1-H1, avec recul sous niveaux récents.  \n- Structure baissière marquée par des niveaux de support clés à surveiller pour rebond ou rupture.  \n- Zones de résistance à court terme identifiées, scénario baissier validé sous ces bornes.\n\nB) Chart 1 (haut-gauche): EURUSD 1h  \nTendance : baissière  \nStructure : succession de LH-LL indiquant pression vendeuse  \nSupports clés : 1.1595 / 1.1580 (zones de volumes et précédents creux)  \nRésistances clés : 1.1630 / 1.1650 (anciens pivots, sommets récents)  \nScénario : poursuite de baisse attendue si support 1.1595 cédé, objectif 1.1580 voire plus bas.  \nInvalidation : repli au-dessus de 1.1650 invaliderait scénario baissier court terme.\n\nC) Chart 2 (haut-droit): Inconnu (symbol/timeframe non visible)  \nImpossible d’analyser précisément, données manquantes.\n\nD) Chart 3 (bas-gauche): Inconnu (symbol/timeframe non visible)  \nAucune info lisible pour analyse.\n\nE) Chart 4 (b",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_08-50-44",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-03_08-50-34.png"
+  }
+}

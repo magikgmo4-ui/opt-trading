@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_191207_DOGEUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "DOGEUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T15:12:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-11-45",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 0.0835,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 0.086,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter en rebond sur le support 0.0835, viser 0.086 en take profit",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture < 0.0835",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance récente haussière sur 15m avec une série de HH/HL bien formés.\n- Structure globale en transition vers 1 possible phase de correction après un HL récent.\n- Zone clé de support vers 0.0835 et résistance majeure en zone 0.0858-0.0860.\n\nB) Chart unique (DOGEUSDT.P 15m): La tendance est haussière avec une succession de HH/HL confirmée. Dernier mouvement en recul depuis une résistance vers 0.086, signalant une phase corrective. Support clé à 0.0835 à surveiller pour maintien de la structure haussière. Le scénario principal privilégie un rebond à ce support puis reprise haussière vers 0.086. Invalidation de ce scénario en clôture sous 0.0835, ouvrant la voie à un renversement baissier.\n\nC) DeskPro {\"run_id\":\"unique_20240613\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL avec début de correction\",\"supports\":[0.0835],\"resistances\":[0.0860],\"plan\":\"Acheter en rebond sur le support 0.0835, viser 0.086 en take profit\",\"invalidation\":\"clôture < 0.0835\"}",
+  "symbols_found": [
+    "DOGEUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-11-45",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-07_15-11-35.png"
+  }
+}

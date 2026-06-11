@@ -1,0 +1,25 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_14993_20260611T073009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "robertcroakgoldsignals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T09:00:17+00:00",
+  "produced_at": "2026-06-11T07:30:09.190099+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4183.0,
+  "sl": 4173.0,
+  "tp": 4193.0,
+  "tps": [
+    4193.0,
+    4203.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "BUY GOLD NOW@4183- 4178\n\nSl : 4173\n\ntp1 : 4193\ntp2 : 4203\n\nUse proper money management and never rush your entries \u203c\ufe0f",
+  "summary": "XAUUSD LONG"
+}

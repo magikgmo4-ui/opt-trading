@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_065402_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T02:54:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-53-53",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 60500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Long sur rebond near 61200, prise de profit vers 63000, ajuster stop sous 61200",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break net sous 61200",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globalement baissière sur le long terme visible avec une forte chute initiale.  \n- Structure récente en 15m en reprise haussière avec une série de HH et HL confirmés.  \n- Zone clé de support autour de 61 200 USDT, résistance immédiate proche des 63 000 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m): La structure est haussière sur le court terme avec des Higher Lows et Higher Highs visibles depuis le creux vers 60 500 USDT. La cassure des 62 500 USDT puis 62 900 USDT valide cette reprise. Volume en augmentation sur la montée. Scénario principal d’achat à confirmer par la tenue du support 61 200 USDT (HL majeur). Invalidation en cas de break clair sous ce niveau, qui remettrait en cause la structure haussière.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussière court terme\",\"structure\":\"HH/HL\",\"supports\":[\"61200\",\"60500\"],\"resistances\":[\"62900\",\"63000\"],\"plan\":\"Long sur rebond near 61200, prise de profit vers 63000, ajuster stop sous 61200\",\"i",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-53-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-11_02-53-39.png"
+  }
+}

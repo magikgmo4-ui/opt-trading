@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_164754_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T12:47:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_12-47-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure du support 1800, sinon rebond potentiel",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1900-1920",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rebonds",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break haussier zone haute",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre poursuite baisse ou rebond technique",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break au-dessus pivot haut récent",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rallye ou range",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break solide résistance range",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globalement baissière sur 1h avec une forte accélération sur les derniers bougies.  \n- Structure de creux et sommets descendant (LH/LL), confirmant la pression vendeuse.  \n- Zones clés à surveiller proches de 1800 (support) et autour de 1880-1900 (résistance récente).  \n\nB) Chart 1 (haut-gauche):  \nSymbol inconnu (graphique principal visible mais pas de symbole/timeframe clair sur image).  \nTendance baissière nette, structure en Lower Highs (LH) et Lower Lows (LL).  \nVolume en hausse sur les descendantes, signe de renforcement vendeur.  \nSupport clé vers 1800 USDT, zone d’achat potentiel à surveiller.  \nRésistance identifiée proche de 1880-1900, zone où les rebonds précédents butent.  \nScénario: poursuite de la baisse si le support est cassé, sinon possible rebond correctif.  \nInvalidation: passage clair au-dessus de 1900/1920 en clôture forte.  \n\nC) Chart 2 (haut-droit):  \nSymbole/timeframe non lisible, graphique avec chandeliers constants en baisse.  \nSt",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_12-47-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_12-47-24.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_152504_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T11:25:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_11-24-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1640.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1660.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sous résistance 1640 avec stop above 1660. Target 1580 puis extension si cassure.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Close above 1660 confirmed",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure de marché clairement orientée vendeurs, absence de HL (Higher Lows) significatifs.  \n- Zone clé de support proche de 1580 USDT testée plusieurs fois, résistance à court terme vers 1640-1660 USDT.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance est clairement baissière avec une succession de creux et sommets déclinants (LL/LH). La structure de prix montre un momentum vendeur fort, confirmé par des volumes en hausse lors des baisses. Le support autour de 1580 USDT est testé récemment et pourrait servir de pivot court terme; le scénario vendeur se validera tant que ce support est franchi. En cas de rebond, une résistance à 1640-1660 USDT est à surveiller pour un rejet possible. Invalidation du scénario bearish si price franchit durablement 1660 USDT en réintégrant une phase de consolidation ou retournement.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bear",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_11-24-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_11-24-44.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_121235_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T08:12:33-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_08-12-26",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 62000 pour continuation baissière; pullback possible vers 65000-67000 pour position short optimal.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus 67000 avec formation HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec succession de plus bas et plus bas (LL) marqués.  \n- La structure montre un fort momentum vendeur depuis plusieurs jours sans rebond significatif.  \n- Zone clé de support à proximité des 62 000 USDT à surveiller, invalidation remise en question sous ce seuil.  \n\nB) Chart unique (BTCUSDT.P 1h): La tendance dominante est baissière avec une série de Lower High (LH) et Lower Low (LL). Après une forte chute amorcée début Juin autour de 74 000, le cours rétrograde vers le support horizontal visible vers 62 000 USDT. La volatilité et volume augmentent sur les plus récents chandeliers baissiers, indiquant une pression vendeuse accrue. Scénario actionnable : attention à la cassure en clôture sous 62 000, ce qui confirmerait un nouveau segment baissier; un rebond avec un retour vers 65 000-66 000 serait un pullback potentiel. L’invalidation du scénario baissier serait la cassure claire des derniers Lower High vers 67 000 USDT.\n\nC) Des",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_08-12-26",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_08-12-19.png"
+  }
+}

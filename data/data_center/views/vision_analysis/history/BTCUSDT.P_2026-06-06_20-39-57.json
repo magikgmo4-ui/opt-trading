@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_004006_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T20:40:05-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_20-39-57",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller tenue support, chercher repli pour court terme; short possible si cassure",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "franchissement 65,000 confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas d'analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas d'analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Pas d'analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Marché global baissier sur les actifs majeurs (indices, actions, matières premières).  \n- Bitcoin (chart principal visible) en tendance baissière nette sur 1h, consolidation possible en cours.  \n- Attention à la volatilité élevée (ex: VIX +39%), scénario prudent recommandé.  \n\nB) Chart 1 (haut-gauche): Bitcoin / USDT 1h  \n- Structure claire de baisse avec une série de LH (Lower High) et LL (Lower Low).  \n- Zone clé support autour de 60 000 USD, testée plusieurs fois récemment.  \n- Résistance nette vers 64 000-65 000 USD (points de rebond antérieurs).  \n- Scénario principal : continuation de la consolidation ou reprise baissière si support cassé.  \n- Invalidation baissière si franchissement net de 65 000 USD avec volume.  \n\nC) Chart 2 (haut-droit): inconnu (graphique non lisible clairement)  \n- Impossible de fournir une lecture précise faute de visibilité du symbole et timeframe.  \n- Prévoir d’analyser avec données complètes ultérieurement.  \n\nD) Chart 3 (bas-gauche",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_20-39-57",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_20-39-49.png"
+  }
+}

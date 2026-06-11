@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_152713_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T11:27:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-27-02",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 1830.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveillance d’un franchissement des résistances en vue d’un retournement ou confirmation short dans la zone de résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture nette en dessous de 1745 avec nouveau plus bas",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 15m avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure en rebond actuel montrant un HL (Higher Low) provisoire, possible reprise corrective ou pullback.  \n- Zones clés S à 1745-1760 et R à 1810-1830 à surveiller pour validation/scénarios.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché est sur une tendance baissière claire, avec une succession de creux et sommets descendants (LL et LH). Le prix vient de former un HL récent vers 1760 après un plus bas près de 1720, indiquant un potentiel retracement haussier. La zone de résistance immédiate autour de 1800-1820 est cruciale pour confirmer un retournement ou une poursuite baissière. En cas d’échec à franchir cette zone, la tendance baissière pourrait reprendre. Le support majeur à 1745-1760 constitue la zone d’invalidation du scénario haussier correctif.  \n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec correction haussière\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-27-02",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_11-26-55.png"
+  }
+}

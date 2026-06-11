@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_231845_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T19:18:42-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_19-18-33",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "vente sur résistance avec stop au-dessus 1800, target support 1740",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec séries de Lower Highs (LH) et Lower Lows (LL).  \n- La structure est en consolidation latérale basse après un net retracement baissier.  \n- Zone clé résistance autour de 1780-1800 USDT, support visible à 1740-1750 USDT.  \n\nB) Chart unique (ETHUSDT.P 15m): La paire est dans une dynamique baissière marquée, avec chaque rebond limité sous des points hauts plus bas (LH) et creux plus bas (LL). Après une forte baisse initiale, le prix stagne dans une fourchette basse, indiquant une possible phase de pause ou accumulation. Les volumes ne montrent pas d’impulsion haussière forte pour le moment. La zone de 1780-1800 rejette le prix à plusieurs reprises, formant une résistance solide, tandis que les 1740-1750 forment un support intermédiaire. Un retour marqué au-dessus de 1800 invaliderait la tendance baissière court terme. Envisager des positions vendeuses à résistance, stops serrés au-dessus de 1800, avec cible sur support 1740 en ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_19-18-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_19-18-25.png"
+  }
+}

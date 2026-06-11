@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_082401_CRYPTOCAP:TOTAL2_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL2",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-11T04:24:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-23-53",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Vendre en échec sous 920B, viser nouveaux plus bas.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair de 920B",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec des creux et sommets plus bas (LH/LL) sur le timeframe journalier.  \n- Recouvrement récent sur une zone support majeur proche de 840-860B USD, tentative de rebond visible.  \n- Scénario prioritaire vendeurs si seuil invalidation (~920B) franchi, sinon poursuite possible de la baisse.  \n\nB) Chart unique (CRYPTOCAP:TOTAL2 1d):  \nLe marché crypto excluding BTC reste dans une structure baissière nette, marquée par des Lower Highs et Lower Lows jusqu'à présent. Un support clé est en train d'être testé autour de 840-860 milliards USD, zone qui a déjà joué un rôle important précédemment. Le rebond actuel est modéré, à confirmer par un franchissement clair au-dessus de 920 milliards, ce qui invaliderait la dynamique baissière. En cas d’échec ici, la baisse devrait reprendre avec un risque de test de nouveaux plus bas. La prudence s'impose, privilégier un plan court à ce stade avec stop serré.\n\nC) DeskPro  \n{\"run_id\":\"20240611-01\",\"charts\":[{\"s",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL2"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-23-53",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL2_1d_2026-06-11_04-23-38.png"
+  }
+}

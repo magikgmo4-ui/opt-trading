@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_073239_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T03:32:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_03-32-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "monitorer support pour possible rebond court terme, sinon short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": ">66,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de donnée",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière dominante sur la plupart des graphiques.  \n- Structures de marché orientées principalement en Lower Highs / Lower Lows, signalant un momentum vendeur.  \n- Zones clés de support testées, attention aux éventuels rebonds techniques ou cassure pour continuation.  \n\nB) Chart 1 (haut-gauche):  \nSymbole : BTCUSDT.P / Timeframe : 1h  \nTendance : Baissière claire et agressive, avec structure HL / LH / LL qui se confirme.  \nStructure : Succession de Lower Highs et Lower Lows bien marqués.  \nSupports : Zone majeure autour de 61,000 USDT, dernier pivot de volume.  \nRésistances : Vers 65,000 - 66,000 USDT, ancienne zone de congestion.  \nPlan : Sur rebond proche support, possibilité de court terme acheteur, sinon continuation short.  \nInvalidation : Retour au-dessus de 66,000 USDT invaliderait la poursuite baissière à CT.  \n\nC) Chart 2 (haut-droit):  \nSymbole/TF : inconnu  \nTendance : Inconnue, graphique flou.  \nStructure : Non identifiable.  \nSupports /",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_03-32-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_03-32-21.png"
+  }
+}

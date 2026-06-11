@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_222833_FX:EURUSD_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "FX:EURUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T18:28:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-28-22",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.152,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.15,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.16,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.163,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.165,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur retest résistance 1.1600-1.1650, viser 1.1520 puis 1.1500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 1.1650 durable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière forte et nette sur le court terme à partir de la bougie volumineuse de chute.  \n- Structure passée avec plusieurs HH/HL mais cassure récente de support notable indiquant un renversement.  \n- Zones clés actuelles à surveiller : résistance autour de 1.1630-1.1650, support cassé proche de 1.1600, nouveau support potentiel autour de 1.1520.\n\nB) Chart unique (FX:EURUSD 1h) :  \nSur ce graphique H1, on observe une phase de consolidation avec plusieurs hauts et bas plus hauts (HH/HL) suivi d’une forte cassure baissière marquée par une grande bougie rouge accompagnée d’un volume important. Cette rupture invalide la structure haussière précédente et initie une tendance baissière. Le prix est sur un plus bas récent (LL), suggérant une pression vendeuse dominante. Résistance clé à 1.1630–1.1650, support cassé à 1.1600. Scénario principal : rechercher un retour vers résistance (retest) pour shorter, invalidation si retour durable au-dessus de 1.1650.\n\nC) Desk",
+  "symbols_found": [
+    "FX:EURUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-28-22",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_FX:EURUSD_1h_2026-06-05_18-28-11.png"
+  }
+}

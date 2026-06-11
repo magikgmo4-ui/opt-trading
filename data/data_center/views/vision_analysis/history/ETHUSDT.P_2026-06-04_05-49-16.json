@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_094925_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T05:49:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_05-49-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1740.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1840.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rebond sous résistance ou break support pour impulser",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "déborde résistance 1840 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 15m avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de marché en dégradation sans signe de retournement immédiat.  \n- Zone clé support autour de 1740-1750, résistance notable aux alentours de 1820-1840.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une séquence de chandeliers baissiers alternant avec de faibles corrections haussières, confirmant la dominance des vendeurs. La structure est marquée par des LH et LL, typique d’une tendance baissière. La zone de support vers 1740 a été testée récemment et a tenu provisoirement, ce qui pourrait offrir une opportunité de rebond ou de prise de bénéfices shorts. La résistance à 1820-1840, correspondant aux précédents points hauts locaux, représente un seuil clé pour invalider le biais baissier. Le scénario privilégié est la continuation baissière en cas de cassure du support. Invalidation si dépassement franc des résistances.\n\nC) DeskPro  \n{\"run_id\":\"unique_00",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_05-49-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_05-49-08.png"
+  }
+}

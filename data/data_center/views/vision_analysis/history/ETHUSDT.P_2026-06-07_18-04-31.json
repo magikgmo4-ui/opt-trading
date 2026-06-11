@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_220438_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T18:04:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_18-04-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter sur pullback vers support 1550 avec objectif test résistance 1650",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "baisse sous 1550",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance globale baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL) jusqu'à début juin.  \n- Structure de retournement haussière amorcée avec des Higher Lows (HL) et Higher Highs (HH) depuis le 6 juin.  \n- Zone clé de résistance autour de 1 650 USD, support immédiat vers 1 550 USD.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nOn observe une tendance baissière nette matérialisée par une succession de LH/LL jusqu'au 6 juin, suivie d’un changement de structure vers une dynamique haussière marquée par un HL puis un HH. Le prix teste actuellement une résistance horizontale à ~1 650 USD, zone clé à surveiller pour valider une reprise haussière durable. Le support principal se situe vers 1 550 USD, invalidation possible du scénario haussier en cas de franchissement à la baisse. La tendance court terme est haussière mais la pression reste contestée aux résistances.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier court terme\",\"structure\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_18-04-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-07_18-04-22.png"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_055904_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T01:59:02-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_01-58-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure sous 60000 pour prise de position short. Confirmation via pas de HH supérieur à 64000. Stop loss au-dessus de 64000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair et maintien au-dessus de 64000 avec formation de HL.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette en 1h avec des séquences de LL (Lower Lows) et LH (Lower Highs) formées clairement.  \n- Structure fragile autour de 60 000$, zone potentielle de support court terme testée plusieurs fois.  \n- Risque de continuation baissière si le support à 60 000$ casse, scénario bullish invalide sous 64 000$.\n\nB) Chart unique (BTCUSDT.P 1h): La tendance est clairement baissière avec une succession de LL et LH bien établie depuis plusieurs jours. Le prix consolide désormais autour de 60 000$, niveau qui joue le rôle de support clé. Un rebond ponctuel existe, mais la structure n’a pas encore montré de signe clair d’inversion (pas de HH ni HL définis). La zone de résistance à 64 000$ est forte, un franchissement au-dessus serait nécessaire pour invalider la tendance baissière actuelle. Le scénario le plus plausible reste une poursuite vers les 58 000$ en cas de rupture sous 60 000$.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"str",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_01-58-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_01-58-45.png"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_002113_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T20:21:10-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_20-21-03",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond sur support 62000-63000; short possible si cassure.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture au-dessus de 67000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Données non disponibles",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Données non disponibles",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Données non disponibles",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Présence majoritaire d'une tendance baissière claire sur les graphiques visibles.  \n- Structures en série de Lower Highs (LH) et Lower Lows (LL) dominantes indiquant une pression vendeuse forte.  \n- Zones clés de support proches des récents plus bas à surveiller pour un potentiel rebond ou cassure.\n\nB) Chart 1 (haut-gauche) : BTCUSDT Perp 1h  \n- Structure: Tendance baissière nette avec pattern de Lower Highs et Lower Lows.  \n- Supports clés: vers 62 000 - 63 000 USDT (plus bas récent).  \n- Résistances clés: autour de 66 000 - 67 000 USDT (anciens creux intermédiaires).  \n- Scénario: Rebond limité dans zone de support possible, sinon poursuite de la baisse au-delà de 62 000.  \n- Invalidation: franchissement clair et stable au-dessus de 67 000 USDT.  \n\nC) Chart 2 (haut-droit): inconnu (pas visible dans image)  \n- Données non lisibles, symbole/timeframe non identifiable.  \n\nD) Chart 3 (bas-gauche): inconnu (pas visible dans image)  \n- Données non lisibles, symbole/tim",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_20-21-03",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_20-20-55.png"
+  }
+}

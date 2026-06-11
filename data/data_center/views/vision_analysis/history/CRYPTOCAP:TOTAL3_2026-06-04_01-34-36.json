@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_053447_CRYPTOCAP:TOTAL3_1d",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "CRYPTOCAP:TOTAL3",
+  "timeframe": "1d",
+  "analysis_ts": "2026-06-04T01:34:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_01-34-36",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Surveillance de la cassure nette sous 700B pour prise de position vendeuse avec cible sur prochains supports inférieurs. Attente d’un retour au-dessus de 740-750B pour invalider le biais baissier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour et clôture au-dessus de 750B.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance de fond clairement baissière depuis plusieurs mois (structure de LL).\n- Tentatives intermittentes de rebond mais sans création de HL confirmés.\n- Zone de support clé autour de 700B testée plusieurs fois, récente rupture partielle susceptible d’ouvrir la voie à une poursuite baissière.\n\nB) Chart unique (CRYPTOCAP:TOTAL3 1d) : \nLa structure est en série de Lower Lows (LL) et Lower Highs (LH), signalant une tendance baissière. Le prix a testé à plusieurs reprises la zone de support proche de 700B, ce niveau servait de zone clé. Dernièrement, on observe une incursion sous ce support sans rebond immédiat, ce qui pourrait engager un scénario de continuation à la baisse. La résistance majeure se situe vers 780-790B, niveau où les précédents retracements se sont arrêtés. Un retour au-dessus des 740-750B est nécessaire pour envisager un retournement structurel. L’invalidation du scénario baissier se situerait donc au-dessus de ce seuil.\n\nC) DeskPro\n{\"run_id\":\"2024060",
+  "symbols_found": [
+    "CRYPTOCAP:TOTAL3"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_01-34-36",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL3_1d_2026-06-04_01-34-26.png"
+  }
+}

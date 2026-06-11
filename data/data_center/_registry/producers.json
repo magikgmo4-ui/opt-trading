@@ -1,0 +1,19 @@
+{
+  "runtime_registry_version": "v1",
+  "updated_at": "2026-06-11T06:32:29.754566+00:00",
+  "producers": {
+    "canonical_publisher_vision_context.coinglass.v1": {
+      "producer_id": "canonical_publisher_vision_context.coinglass.v1",
+      "contract_class": "vision_context.coinglass.v1",
+      "last_write": "2026-06-11T06:32:29.754566+00:00",
+      "last_output_path": "/home/fantome/opt-trading-clean/data/data_center/views/vision_context.coinglass.v1/by_symbol/BTCUSDT.json",
+      "status": "stale",
+      "evidence": {
+        "symbol": "BTCUSDT",
+        "data_key": "long_short_ratio",
+        "value": "50.57"
+      },
+      "updated_at": "2026-06-11T06:32:29.754566+00:00"
+    }
+  }
+}

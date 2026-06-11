@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_045009_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T00:50:07-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_00-49-58",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60700.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la rupture à la hausse des 64700 pour prendre position longue, stop sous 60700",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture sous support 60700",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante depuis le début visible du graphique, avec une série de lower highs (LH) et lower lows (LL).  \n- Reprise d’un range et consolidation entre ~60 700 (support) et 64 700 (résistance) depuis plusieurs heures, marquant un possible point de rebond.  \n- Scénario haussier à confirmer au-dessus des 64 700 avec invalidation en clôture sous 60 700.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa structure est baissière globale avec des LH et LL bien marqués. Actuellement, le prix évolue dans un range horizontal entre une zone support clé vers 60 700 et une résistance majeure autour de 64 700. La rupture claire de cette résistance validerait un changement de structure possible vers un HL (higher low) et une reprise haussière intermédiaire. L’invalidation se situe en dessous du support 60 700 qui provoquerait un retour vers les plus bas antérieurs.\n\nC) DeskPro  \n{\"run_id\":\"20240611_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish avec potentiel rebond\",\"structu",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_00-49-58",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_00-49-46.png"
+  }
+}

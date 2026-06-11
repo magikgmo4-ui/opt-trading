@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_171516_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T13:15:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-15-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61800.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur pullback vers 61,800-62,000 avec objectif 62,800+ en cas de breakout",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 61,800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance intraday haussière avec une série de HH/HL récente depuis un creux autour de 59,600.  \n- Résistance clé testée vers 62,800, zone à surveiller pour breakout ou rejet.  \n- Support immédiat vers 61,800-62,000, zone de stop si invalidation du biais haussier.  \n\nB) Chart unique (BTCUSDT.P 15m): Le prix a rebondi fortement depuis un bas à ~59,600 formant successivement des hauts et bas plus hauts (HH/HL), caractéristique d’une tendance haussière. La structure reste valide tant que le support autour de 61,800-62,000 tient. La résistance autour de 62,800 semble bloquer un nouveau leg haussier, une cassure nette au-dessus validerait un scénario de continuation. Un retour sous 61,800 invaliderait ce scénario et pourrait signaler un pivot baissier.  \n\nC) DeskPro  \n{\"run_id\":\"auto-001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[61800,62000],\"resistances\":[62800],\"plan\":\"Acheter sur pullback vers 61,800-62,000 avec objectif 62,800+ en ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-15-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-07_13-14-59.png"
+  }
+}

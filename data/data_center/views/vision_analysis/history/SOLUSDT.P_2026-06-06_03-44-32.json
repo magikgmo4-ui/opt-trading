@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_074440_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T03:44:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-44-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66.5,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sur rebond vers résistances, ciblant le support 60, ou short sur cassure support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture > 66.5 avec HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée par une série de lower highs (LH) et lower lows (LL).  \n- Structure clairement orientée vendeurs avec de multiples échecs à rebondir au-dessus des résistances vers 66.5 et 64.5.  \n- Zone clé support proche de 60$ qui a servi de rebond temporaire, attention à une invalidation si cassure en clôture sous ce niveau.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nSur ce graphique 15m, la tendance est baissière dominante (LH/LL). Le prix rebondit sur un support horizontal vers 60$ mais reste sous plusieurs résistances majeures entre 64.5 et 66.5. Le scénario probable est une poursuite de la tendance baissière en cas de rejet des résistances ou rupture du support à 60. Invalidation du biais baissier si la résistance vers 66.5 est franchie avec des higher highs (HH).  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[60],\"resistances\":[64.5,66.5],\"plan\":\"short sur rebond vers résistances, ci",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-44-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-06_03-44-23.png"
+  }
+}

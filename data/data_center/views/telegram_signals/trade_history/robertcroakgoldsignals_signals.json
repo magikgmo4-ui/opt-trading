@@ -1,0 +1,96 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_robertcroakgoldsignals_14993_2026-06-10T09:00:17+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "robertcroakgoldsignals",
+    "parsed_at": "2026-06-10T09:00:17+00:00",
+    "produced_at": "2026-06-11T10:00:14.533203+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4183.0,
+    "sl": 4173.0,
+    "tp": 4193.0,
+    "tps": [
+      4193.0,
+      4203.0
+    ],
+    "leverage": null,
+    "raw_text": "BUY GOLD NOW@4183- 4178\n\nSl : 4173\n\ntp1 : 4193\ntp2 : 4203\n\nUse proper money management and never rush your entries \u203c\ufe0f"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_robertcroakgoldsignals_14996_2026-06-10T10:00:17+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "robertcroakgoldsignals",
+    "parsed_at": "2026-06-10T10:00:17+00:00",
+    "produced_at": "2026-06-11T10:00:14.533321+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4166.5,
+    "sl": 4174.5,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "SELL GOLD NOW@4166.5 - 4170.5\n\nSl : 4174.5\n\nTp : 40/100 Pips\n\nUse proper money management and never rush your entries \u203c\ufe0f"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_robertcroakgoldsignals_15016_2026-06-11T08:10:52+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "robertcroakgoldsignals",
+    "parsed_at": "2026-06-11T08:10:52+00:00",
+    "produced_at": "2026-06-11T10:00:14.535597+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4104.0,
+    "sl": 4118.0,
+    "tp": 4088.0,
+    "tps": [
+      4088.0,
+      4100.0
+    ],
+    "leverage": null,
+    "raw_text": "SELL GOLD NOW@4104-4114\n\nSl :4118\n\nTp1:4100\nTp2:4088\n\nAlways use proper money management and never rush your entries \u203c\ufe0f"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_robertcroakgoldsignals_15017_2026-06-11T08:12:12+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "robertcroakgoldsignals",
+    "parsed_at": "2026-06-11T08:12:12+00:00",
+    "produced_at": "2026-06-11T10:00:14.535658+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4107.0,
+    "sl": 4097.0,
+    "tp": 4117.0,
+    "tps": [
+      4117.0,
+      4127.0
+    ],
+    "leverage": null,
+    "raw_text": "BUY GOLD NOW@4107- 4102\n\nSl : 4097\n\ntp1 : 4117\ntp2 : 4127\n\nUse proper money management and never rush your entries \u203c\ufe0f"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_robertcroakgoldsignals_15021_2026-06-11T08:53:12+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "robertcroakgoldsignals",
+    "parsed_at": "2026-06-11T08:53:12+00:00",
+    "produced_at": "2026-06-11T10:00:14.536047+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "LONG",
+    "entry_price": 4089.0,
+    "sl": 4079.0,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "BUY GOLD NOW\n@ 4089 - 4083\n\nSl: 4079\n\nTP: 100/200Pips\n\nUse proper money management and never rush your entries \u203c\ufe0f"
+  }
+]

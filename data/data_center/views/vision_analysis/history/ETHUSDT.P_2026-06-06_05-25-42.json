@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_092550_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T05:25:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_05-25-42",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1630.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Short sur rejet de la résistance 1630, viser support 1520. Stop loss au-dessus de 1630.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rupture claire au-dessus de 1630 avec chandelier 1h ferme.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance nette baissière sur le timeframe 1h avec une série de LL et LH formée.  \n- La structure montre une faiblesse persistante, malgré un rebond récent proche des 1 550$.  \n- Zones clés à surveiller : support fort autour de 1 520$, résistance proche de 1 630$ pour invalider le rebond.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa paire ETHUSDT.P évolue en tendance baissière claire, avec des bas et des hauts déclinants (LL/LH). Après un drop agressif sous 1 600$, un rebond technique s’installe vers 1 580$, mais sans franchir la résistance à 1 630$. La structure reste fragile, la dynamique baissière dominante nécessite une confirmation de cassure des supports pour poursuivre à la baisse. Un retour au-delà de 1 630$ invaliderait ce scénario, signalant une possible tentative de reprise haussière.\n\nC) DeskPro  \n```json\n{\"run_id\":\"20240606_0925\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1520\"],\"resistances\":[\"1630\"],\"plan\":\"Short sur rejet ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_05-25-42",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_05-25-34.png"
+  }
+}

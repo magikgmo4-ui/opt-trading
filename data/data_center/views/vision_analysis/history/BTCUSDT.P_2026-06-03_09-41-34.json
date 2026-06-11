@@ -1,0 +1,77 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_134152_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T09:41:49-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_09-41-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1850.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1900.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1920.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "dépassement 1920",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre confirmation rupture ou retournement",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre après rupture structurelle",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "scalper range, préférence vente break down",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "breakout haussier confirmé",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière marquée sur l’ensemble des graphiques, avec de multiples Lower Highs (LH) et Lower Lows (LL).  \n- Zones clés visibles vers 1850-1880 en support et autour de 1950-2000 en résistance.  \n- Scénario baissier dominant, à surveiller invalidation par retour au-dessus des récents highs.\n\nB) Chart 1 (haut-gauche):  \n- ETH/USDT, timeframe 1h.  \n- Tendance clairement baissière avec structure en LH et LL marqués.  \n- Support clé autour de 1850, résistance vers 1900-1920.  \n- Récente tentative de rebond en cours mais volume en baisse.  \n- Scénario : rechercher une vente sur retour en résistance intraday.  \n- Invalidation si dépassement confirmé du high vers 1920.\n\nC) Chart 2 (haut-droit):  \n- Symbole/timeframe inconnu, graphique en bougies japonaises avec volume.  \n- Structure semble aussi baissière, présence de plusieurs LL sans rebond significatif.  \n- Support principal non précisé visuellement.  \n- Résistances marquées sur derniers sommets intermédiaires. ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_09-41-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-03_09-41-27.png"
+  }
+}

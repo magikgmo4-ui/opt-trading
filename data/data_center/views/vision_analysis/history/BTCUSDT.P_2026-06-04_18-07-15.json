@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_220723_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T18:07:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_18-07-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller cassure support 62000 pour continuation baissière ou franchissement résistance 64400 pour retour haussier. Prendre position selon confirmation.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire au-dessus de 64400 invalide le biais baissier à court terme.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur 15m avec série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure volatile avec retracements mais incapacité à casser les résistances descendantes.  \n- Zones clés : support autour de 62,000 USDT, résistance vers 64,400 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une tendance baissière claire avec une succession de points hauts et bas descendantes (LH/LL). Malgré quelques tentatives de reprise vers 64,000-64,400, la structure reste favorable aux vendeurs. Le support majeur identifié à 62,000 a été testé plusieurs fois. Un franchissement clair de ce support invaliderait un scénario haussier court terme. Le plan d’action serait d’attendre une cassure nette d’une zone clé (soit résistance à 64,400 pour retour haussier, soit support à 62,000 pour continuation baissière) avant d’engager un trade.\n\nC) DeskPro  \n{\"run_id\":\"20240604_2210\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"62000\"",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_18-07-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_18-07-03.png"
+  }
+}

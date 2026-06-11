@@ -1,0 +1,1015 @@
+[
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_022948_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T22:29:46-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-29-41",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.25,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.35,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur cassure 3.250, viser 3.350 puis plus haut",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 3.150 avec confirmation",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance 1h haussière récente avec une structure de prix en HH (plus haut) et HL (plus bas).\n- Zones clés importantes : support majeur autour de 3.150 et résistance autour de 3.350.\n- Scénario prioritaire : poursuite de la hausse si le prix casse 3.250 avec confirmation au-dessus de 3.350, invalidation en dessous de 3.150.\n\nB) Chart unique (NYMEX:NG1! 1h) :  \nLa tendance 1h montre des rebonds réguliers avec une série de HL clairs depuis le 27 mai, indiquant une dynamique haussière. Le prix a atteint un pic vers 3.350 (réserve de résistance) avant de subir un retracement vers 3.150 (support). Actuellement, le cours rebondit autour de 3.230-3.250, cherchant un catalyseur pour une nouvelle impulsion. Structure dominante : HH/HL, plafond du range à surveiller à 3.350. En cas de cassure claire au-dessus, continuation haussière probable. En cas de retour sous 3.150, risque de renversement baissier (LH/LL).\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"ha",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-29-41",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-03_22-29-27.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_023106_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-03T22:31:03-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_22-30-57",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.05,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.1,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.35,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur retest support 3.05-3.10 avec stop sous 3.05, viser extension au-delà de 3.35",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "close 4h sous 3.05",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière claire avec une série de HH (Higher Highs) et HL (Higher Lows) bien formés.\n- Structure validée par des retracements vers des zones de support vers 3.05-3.10 puis rebond.\n- Scénario prioritaire d’achat à rebonds sur support, invalidation en cassure durable sous 3.05.\n\nB) Chart unique (NYMEX:NG1! 4h): \nLe marché du gaz naturel sur 4h montre une dynamique constructive avec des plus hauts et plus bas ascendants, validant une tendance haussière. La zone clé de support se situe entre 3.05 et 3.10, servant de point d’entrée potentiel sur retracement. La résistance principale récente est autour de 3.35, où une correction a eu lieu. Le prix reste au-dessus de son dernier HL à 3.20. Un franchissement confirmé au-dessus de 3.35 ouvrirait la voie à une extension haussière. La structure est saine tant que le support 3.05/3.10 tient. Sous ce niveau, une correction plus profonde pourrait s’engager, cassant la tendance haussière.\n\nC) DeskPro {\"run_id\":\"001\",\"char",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_22-30-57",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-03_22-30-45.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_033155_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-03T23:31:53-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_23-31-46",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.17,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.37,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.38,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller maintien support 3.15 pour achat, sinon scalp ou vente en cas de cassure à la baisse.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture horaire sous 3.15 pour scénario haussier; franchissement au-dessus de 3.38 pour scénario baissier.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Le marché montre une phase haussière suivie d’une correction nette, puis une tentative de stabilisation.\n- Structure récente marquée par un haut plus haut (HH) vers 3.38, puis retracement avec un bas plus bas (LL), creusant une possible inversion.\n- Zone clé résistante autour de 3.38, support intraday à 3.15, à surveiller pour confirmer la reprise ou la poursuite du repli.\n\nB) Chart unique (NYMEX:NG1! 1h): \nTendance actuelle incertaine, oscillant entre hausse et correction. Structure globale récente haussière avec HH/HL mais cassure d’un HL en cours (LH/LL formés). Support clé visible vers 3.15-3.17, résistance majeure vers 3.37-3.38. Scénario haussier si maintien au-dessus de 3.15 avec retour sur résistance, scénario baissier si cassure nette sous 3.15 et maintien sous 3.20. Invalidation à la hausse sous 3.15, ou à la baisse au-delà de 3.38. Volume en légère hausse sur la tentative de rebond.\n\nC) DeskPro \n{\"run_id\":\"20240604_0331\",\"charts\":[{\"slot\":\"single\",\"bias\":\"",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_23-31-46",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-03_23-31-22.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_033217_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-03T23:32:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-03_23-32-09",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.35,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.37,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "surveillance rebond sur support 3.15, achat si confirmation de tenue avec cible 3.35-3.37",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 3.15 ouvre scénario baissier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante avec une série de HH/HL bien marqués depuis fin avril.  \n- Correction récente sous forme de retracement, mais support autour de 3.15 USD tenu pour l’instant.  \n- Potentiel rebond à court terme si support confirmé, invalidation en cas de casse sous 3.15 USD.\n\nB) Chart unique (NYMEX:NG1! 4h):  \nLe graphique montre une structure haussière claire avec des hauts et bas ascendants (HH/HL). Après un pic vers 3.37 USD, une correction est en cours avec un léger creux à 3.15 USD, qui agit comme support majeur. Le prix semble stabilisé autour de 3.22 USD. Les résistances notables se situent autour de 3.35-3.37 USD, zones à surveiller pour un éventuel pullback ou une sortie haussière validée. Le scénario privilégie un rebond à partir du support 3.15 USD, mais une cassure sous ce niveau invaliderait la tendance haussière et ouvrirait la porte à un retracement plus profond.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"s",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-03_23-32-09",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-03_23-31-58.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_140804_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T10:08:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_10-07-53",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.3,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur retracement proche du support 3.15 ou sur breakout confirmé au-dessus de 3.30.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retournement sous 3.15 avec formation de bas plus bas (LL).",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière récente marquée par une série de hauts et bas plus hauts (HH/HL).  \n- Structure cassant un niveau de résistance intermédiaire vers 3.30, avec forte dynamique acheteuse.  \n- Zone clé support identifiable autour de 3.15, à surveiller en cas de correction.\n\nB) Chart unique (NYMEX:NG1! 1h):  \nLa tendance sur ce graphique 1h est haussière avec une structure HH/HL claire. Après une consolidation entre 3.15 et 3.25, le prix a cassé fortement la résistance à 3.30, confirmant la force des acheteurs. Le volume en hausse soutient ce mouvement. Le support principal se situe vers 3.15, correspondant aux derniers plus bas significatifs. Le scénario favori est la poursuite du rallye au-dessus de 3.30, avec comme invalidation une retombée sous 3.15 qui remettrait en cause la structure haussière.\n\nC) DeskPro  \n{\"run_id\":\"20240604_1410\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"3.15\"],\"resistances\":[\"3.30\"],\"plan\":\"Acheter sur r",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_10-07-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-04_10-07-42.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_140911_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-04T10:09:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_10-09-03",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.1,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.35,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur cassure 3.35 ou sur retracement vers 3.10-3.15",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "sous 3.10",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec une série de HH (Higher Highs) et HL (Higher Lows) sur le 4h.  \n- Structure en impulsion haussière récente avec retour sur support avant nouvel élan.  \n- Zone clé à surveiller à 3.35 (résistance) pour validation d’une continuation haussière.\n\nB) Chart unique (NYMEX:NG1! 4h):  \nLa structure montre une dynamique haussière avec des points hauts et bas ascendants (HH/HL). Le prix teste actuellement une résistance majeure à 3.35, où une cassure valide l’extension haussière. Le support prioritaire est vers 3.10-3.15, zone de retest précédemment respectée. Le scénario principal reste l’achat sur retracement ou sur cassure confirmée de 3.35. Invalidation sous 3.10 amènerait un risque de correction plus large.\n\nC) DeskPro  \n{\"run_id\":\"run_nymex_ng1_4h_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"3.10\",\"3.15\"],\"resistances\":[\"3.35\"],\"plan\":\"achat sur cassure 3.35 ou sur retracement vers 3.10-3.15\",\"invalida",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_10-09-03",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_10-08-53.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_152001_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T11:19:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_11-19-52",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur retracement vers 3.20-3.25 avec objectif 3.40 puis plus haut",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "casse claire sous 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente en 1h en nette reprise haussière avec une cassure de plusieurs résistances intermédiaires.  \n- Structure récente marquée par des HH/HL, confirmant un biais acheteur de moyen terme.  \n- Zone clé proche vers 3.40$ à surveiller comme résistance majeure; invalidation sous 3.15$.\n\nB) Chart unique (NYMEX:NG1! 1h):  \nLe graphique montre une tendance haussière bien installée avec des points hauts et bas de plus en plus hauts (HH et HL). Après une correction visible début juin, les prix ont reconstitué un support vers 3.15$ avant de repartir à la hausse fortement. Volume en augmentation sur les dernières chandelles haussières confirme l’intérêt acheteur. La zone 3.40$ représente une résistance importante, où un potentiel retournement peut apparaître. Scénario bullish privilégié tant que les supports ne sont pas cassés, avec un point d’invalidation sous 3.15$.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"s",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_11-19-52",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-04_11-19-41.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_152021_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-04T11:20:19-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_11-20-13",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 2.85,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.1,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur cassure 3.40 avec stop sous 3.10",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "casse confirmée sous 3.10",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière claire sur le 4h avec structure de hauts et bas plus hauts (HH/HL).\n- Plusieurs zones de support identifiées autour de 2.85 et 3.10 USD.\n- Résistance clé récente testée vers 3.40 USD; cassure inviterait à poursuivre le long.\n\nB) Chart unique (NYMEX:NG1! 4h):\nLe graphique présente une dynamique haussière soutenue depuis fin avril avec une série de HH/HL. Le prix a rebondi sur plusieurs supports majeurs, notamment vers 2.85 USD, validant la structure bullish. La zone résistance à 3.40 USD a été récemment testée avec un pullback mais le prix reste au-dessus de 3.30 USD dans une consolidation ascendante. Un scénario d’extension haussière est privilégié sur cassure ferme de 3.40 USD, avec un premier objectif à 3.50-3.60 USD. La perte du support 3.10 USD invaliderait ce biais bullish.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"2.85\",\"3.10\"],\"resistances\":[\"3.40\",\"3.50\"],\"plan\":\"acheter sur cass",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_11-20-13",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_11-20-03.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_163226_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T12:32:23-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_12-32-10",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.35,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur repli vers 3.20-3.15, viser extension au-delà de 3.35",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "casse ferme sous 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le 1h avec une succession de HH (Higher Highs) et HL (Higher Lows).  \n- Structure est bien établie, récente accélération acheteuse vers les plus hauts proches de 3.35.  \n- Zones clés à surveiller en support autour de 3.20/3.15 et en résistance vers 3.35 (plus haut actuel) pour valider la poursuite.\n\nB) Chart unique (NYMEX:NG1! 1h):  \nLe graphique montre une dynamique haussière claire avec une série de creux et sommets ascendants (HL/HH). Le prix a rebondi fortement après une correction médiane et teste actuellement la zone de résistance majeure près de 3.35. Un pullback vers 3.20 ou 3.15 peut offrir un point d’entrée pour poursuivre le mouvement. La rupture nette au-dessus de 3.35 validerait la continuation haussière; en revanche, une cassure sous 3.15 invaliderait ce scénario et pourrait signaler un retournement vers une structure baissière (LL/LH).\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"H",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_12-32-10",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-04_12-32-00.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260604_163250_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-04T12:32:48-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_12-32-38",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.45,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Chercher un achat sur retracement proche support 3.15-3.20 avec cible 3.40-3.45. Stop sous 3.00 pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Break et fermeture sous 3.00",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 4h avec une série de HH et HL.  \n- Structure marquée par des retracements temporaires mais maintien de la domination des acheteurs.  \n- Zones clés à surveiller : support majeur autour de 3.00, résistance récente proche de 3.40.\n\nB) Chart unique (NYMEX:NG1! 4h) :  \nLa tendance est haussière avec une succession de creux et sommets plus hauts (HL/HH). Après une correction vers 3.15, le prix a repris sa montée, dépassant la résistance dynamique à 3.30-3.35. Le volume a augmenté lors des poussées haussières, confirmant la force du mouvement. Le support à 3.00 est crucial pour invalider le scénario haussier si cassé. Objectif court terme à 3.40-3.45, zone de résistance récente. En cas d’échec, un retour vers 3.15-3.20 serait à prévoir.\n\nC) DeskPro  \n{\"run_id\":\"20240604_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[3.00,3.15],\"resistances\":[3.40,3.45],\"plan\":\"Chercher un achat sur retracement proche supp",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_12-32-38",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_12-32-27.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_023849_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T22:38:47-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_22-38-42",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur support 3.15 avec objectif 3.40+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Close solide sous 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale haussière sur 1h avec des hauts et bas oscillants (HH/HL) à court terme.  \n- Structure récente de retournement baissier (LH/LL) visible mais prix rebondissant rapidement vers une zone de résistance.  \n- Zone clé de support autour de 3.15$, résistance immédiate vers 3.40$; scénario haussier actif tant que support tenu.\n\nB) Chart unique (NYMEX:NG1! 1h):  \nLa tendance dominante est haussière avec une série de HH/HL depuis le 24 mai. Cependant, une correction s’est matérialisée début juin avec des LH/LL, stoppée par un support à 3.15$. Le prix a rebondi fortement, approchant la résistance statique à 3.40$. Le scénario prioritaire reste la poursuite de la hausse au-dessus de 3.15$, avec un potentiel de breakout au-dessus de 3.40$. Invalidation du scénario haussier sous 3.15$, potentielle mise en place d’une nouvelle phase baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL avec correction LH/LL\",\"supp",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_22-38-42",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-04_22-38-31.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_025801_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-04T22:57:59-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_22-57-54",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.45,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée long sur rebond près support 3.15 ou break 3.45 confirmé",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cours < 3.15 - changement tendance possible",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire en 4h avec une série de HH/HL depuis mi-avril.  \n- Structure récente en HL sur le retracement fin mai, rebond fort et un nouveau HH début juin.  \n- Zone clé support à 3.15 USD, résistance importante testée vers 3.45 USD.\n\nB) Chart unique (NYMEX:NG1! 4h):  \nLe marché montre une dynamique haussière régulière avec un enchaînement de hauts et bas relevés (HH/HL). Après une correction fin mai sur 3.00-3.15, le cours a rebondi et formé un nouveau haut à 3.45 début juin. Ce niveau représente une résistance majeure à surveiller. Tant que le support vers 3.15 n’est pas cassé, la probabilité reste en faveur d’une poursuite haussière. En cas de franchissement de 3.45, l’extension de l’uptrend sera confirmée. Invalidation du scénario haussier sous 3.15.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"3.15\"],\"resistances\":[\"3.45\"],\"plan\":\"Entrée long sur rebond près support 3.15 ou break 3.45 ",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_22-57-54",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_22-57-43.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_033918_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-04T23:39:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_23-39-10",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.35,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur support 3.15 avec objectifs 3.40+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte du HL 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h avec une série de HH (higher highs) et HL (higher lows) depuis le plus bas récent vers 2.85.  \n- Structure temporairement corrective marquée par quelques replis, mais support intact autour de 3.15.  \n- Prix proche d’une zone de résistance dynamique autour de 3.35-3.40, zone clé pour valider la poursuite du mouvement haussier ou initier un repli.\n\nB) Chart unique (NYMEX:NG1! 1h) :  \nLe marché est dans une tendance haussière avec une structure de prix majoritairement en HH/HL. Après une correction vers 3.15 (support), le prix repart vers la résistance récente à 3.40. Le scénario préféré reste un breakout au-dessus de 3.40, enclenchant une poursuite haussière. L’invalidation serait une perte ferme du HL à 3.15, indiquant un risque de retournement. Possibilité de prendre position long proche du support 3.15 avec stop sous ce niveau.\n\nC) DeskPro  \n```json\n{\"run_id\":\"230605001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_23-39-10",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-04_23-38-59.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_040035_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-04T23:59:04-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-04_23-58-56",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.45,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Achat sur rupture de 3.45 avec stop sous 3.15, viser 3.60+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture sous 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le 4h avec formation de creux et sommets de plus en plus hauts (HL et HH).  \n- Structure saine avec retraits correctifs sur supports clés suivis de reprises haussières marquées.  \n- Zone de résistance récente autour de 3.45 à surveiller pour extension du mouvement, invalidation sous 3.15.  \n\nB) Chart unique (NYMEX:NG1! 4h):  \nActuellement dans une tendance haussière claire avec des sommets et creux ascendants (HH/HL). Le prix a rebondi sur un support autour de 3.15 USD et a repris sa hausse vers la résistance proche à 3.45. Le volume confirme l’intérêt acheteur lors des impulsions. Un franchissement des 3.45 validerait une poursuite haussière vers de nouveaux sommets. En revanche, un retour sous 3.15 invaliderait le scénario haussier et indiquerait une possible correction plus profonde. Les supports clés sont à 3.15 et 3.00, résistances à 3.45 et 3.50.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-04_23-58-56",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-04_23-58-45.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_045035_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T00:50:33-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_00-50-26",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.42,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat zones support 3.15-3.20 avec objectif 3.40+, stop sous 3.15",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière confirmée avec structure de HH (Higher Highs) et HL (Higher Lows) bien marquée sur ce 1h.  \n- Zones clés : support vers 3.15-3.20, résistance majeure à 3.40-3.42 testée récemment.  \n- Scénario bullish privilégié tant que le support 3.15 tient, invalidation sous ce niveau à surveiller.\n\nB) Chart unique (NYMEX:NG1! 1h):  \nLe graphique montre une tendance haussière nette avec une succession claire de plus hauts et plus bas relevés (HH/HL). Le prix a récemment testé la résistance autour de 3.40 sans la franchir durablement, indiquant une prise de profit ou consolidation. Le volume accompagne la montée, signe de conviction d’achat. Le support clé à 3.15-3.20 a fait office de zone d’achat, formant un pivot pivotant la structure dans le biais haussier. Le scénario le plus probable est une reprise de la hausse si la zone support tient. Une cassure sous 3.15 invaliderait cette dynamique et pourrait entraîner un retour à un biais plus neutre ou baissier.\n\n",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_00-50-26",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-05_00-50-16.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_142651_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T10:26:48-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-26-42",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.35,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.38,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur cassure claire au-dessus de 3.35 avec stop sous 3.15",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture horaire sous 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance 1h haussière avec une structure de hauts et bas horaires (HH/HL) marquée depuis le 27 mai.  \n- Correction récente sous résistance vers 3.35 avant un rebond, possible pullback ou reprise haussière.  \n- Zones clés : support vers 3.15-3.20 et résistance forte autour de 3.35-3.38.\n\nB) Chart unique (NYMEX:NG1! 1h):  \nLe marché montre une nette succession de hauts et bas haussiers (HH/HL) depuis fin mai, confirmant une tendance ascendante. La récente baisse s’est arrêtée sur un support autour de 3.20, formant un creux HL. Le prix a ensuite rebondi vers la résistance précédente à 3.35, non encore dépassée. Le scénario prioritaire est une reprise haussière au-dessus de 3.35, visant un nouveau HH. En cas de rupture sous 3.15, la structure haussière serait invalidée, signalant un potentiel retournement ou consolidation plus profonde.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"3.20\",\"3.15\"],\"resistances",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-26-42",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-05_10-26-26.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_143544_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-05T10:35:42-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_10-35-34",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "achat sur rebond support, viser 3.40 breakout",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "close sous 3.10",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale haussière avec une série de HH (Higher Highs) et HL (Higher Lows) bien marquée.  \n- Structure récente tente une correction, avec une consolidation sous la zone de résistance clé autour de 3.40.  \n- Scénario principal haussier en place, vigilance sur maintien des supports sous 3.15 pour valider la poursuite.  \n\nB) Chart unique (NYMEX:NG1! 4h):  \nLe prix évolue en tendance haussière marqué par la formation récurrente de HH et HL. Une zone de résistance majeure se situe vers 3.40-3.45 USD, testée plusieurs fois sans rupture nette. Le support immédiat clé se trouve autour de 3.15-3.20, servant de base à la structure HL. Le volume reste modéré avec des pics sur les mouvements haussiers. Le scénario favori est un rebond à partir du support pour viser une nouvelle tentative haussière. Invalidation sous 3.10 pourrait signaler un changement de structure vers un possible début de correction plus prononcée.  \n\nC) DeskPro  \n{\"run_id\":\"20240605_1435\",\"charts",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_10-35-34",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-05_10-35-24.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_152841_NYMEX:NG1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-05T11:28:38-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_11-28-33",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.35,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveillance d'un rebond sur support majeur pour opportunité long, en cas de cassure sous support envisager shorts.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure ferme sous 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière visible sur le début de la période avec une structure de type HH/HL.\n- Repli marqué récemment, formant une séquence de LH/LL indiquant une possible correction ou changement de dynamique.\n- Zone clé de support vers 3.15 et résistance vers 3.35-3.40 à surveiller pour validation du scénario haussier ou basculement baissier.\n\nB) Chart unique (NYMEX:NG1! 1h) :  \nLa tendance principale était haussière, confirmée par des plus hauts et plus bas ascendants (HH/HL) jusqu’à fin mai. Un fort repli a suivi début juin avec formation de hauts plus bas (LH) et bas plus bas (LL), rompant la structure haussière. Le prix teste actuellement une zone support clé autour de 3.15. La résistance majeure se situe actuellement dans la zone 3.35-3.40. Un rebond sur support pourrait relancer la tendance haussière, tandis qu’une cassure sous 3.15 invaliderait ce scénario et favoriserait la poursuite du mouvement baissier.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_11-28-33",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_1h_2026-06-05_11-28-21.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260605_153704_NYMEX:NG1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:NG1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-05T11:37:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-05_11-36-55",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 3.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 3.15,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.45,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur pullback vers support 3.20-3.15, viser 3.40-3.45",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "break sous 3.15",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante sur le 4h, avec une série de HH et HL bien visibles.  \n- Structure récente en phase de correction avec un léger retracement, mais la structure haussière reste intacte.  \n- Zone clé de support vers 3.20-3.15 USD, zone de résistance autour de 3.40-3.45 USD.\n\nB) Chart unique (NYMEX:NG1! 4h):  \nLe graphique affiche une tendance haussière claire caractérisée par des hauts plus hauts (HH) et des bas plus hauts (HL) persistants depuis fin avril. Après un nouveau HH début juin vers 3.40-3.45, le prix corrige actuellement avec un plus bas temporaire proche des 3.20, zone de support importante à surveiller. Le scénario favori reste la reprise haussière sur ce support, visant de nouveaux pics. L’invalidation interviendrait en dessous des 3.15, signalant un possible basculement structurel vers une tendance baissière (LH/LL).\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL en cours, retracement\",\"support",
+    "symbols_found": [
+      "NYMEX:NG1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-05_11-36-55",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:NG1!_4h_2026-06-05_11-36-44.png"
+    }
+  }
+]

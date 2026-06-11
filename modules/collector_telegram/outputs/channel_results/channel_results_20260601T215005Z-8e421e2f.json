@@ -1,0 +1,119 @@
+[
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "arkhamintelligence",
+    "role": "ENTITY_WALLET",
+    "messages_total": 25,
+    "parsed_count": 3,
+    "claims_count": 0,
+    "needs_review_count": 0,
+    "unknown_raw_count": 22,
+    "noise_count": 0,
+    "dominant_message_types": [
+      "UNKNOWN_RAW",
+      "NEWS_CATALYST"
+    ],
+    "avg_parser_score": 0.072,
+    "supported_formats": [
+      "UNKNOWN_RAW",
+      "NEWS_CATALYST"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  },
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "coinglass_alerts",
+    "role": "LIQUIDITY_OI",
+    "messages_total": 40,
+    "parsed_count": 37,
+    "claims_count": 0,
+    "needs_review_count": 37,
+    "unknown_raw_count": 3,
+    "noise_count": 0,
+    "dominant_message_types": [
+      "MARKET_STRUCTURE",
+      "UNKNOWN_RAW"
+    ],
+    "avg_parser_score": 0.7555,
+    "supported_formats": [
+      "MARKET_STRUCTURE",
+      "UNKNOWN_RAW"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  },
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "cryptoquant_official",
+    "role": "FUNDING_OI_ALERT",
+    "messages_total": 25,
+    "parsed_count": 9,
+    "claims_count": 0,
+    "needs_review_count": 9,
+    "unknown_raw_count": 16,
+    "noise_count": 0,
+    "dominant_message_types": [
+      "UNKNOWN_RAW",
+      "MARKET_STRUCTURE"
+    ],
+    "avg_parser_score": 0.2926,
+    "supported_formats": [
+      "UNKNOWN_RAW",
+      "MARKET_STRUCTURE"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  },
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "glassnode",
+    "role": "ONCHAIN_STRUCTURE",
+    "messages_total": 25,
+    "parsed_count": 7,
+    "claims_count": 0,
+    "needs_review_count": 6,
+    "unknown_raw_count": 18,
+    "noise_count": 0,
+    "dominant_message_types": [
+      "UNKNOWN_RAW",
+      "MARKET_STRUCTURE",
+      "NEWS_CATALYST"
+    ],
+    "avg_parser_score": 0.2102,
+    "supported_formats": [
+      "UNKNOWN_RAW",
+      "MARKET_STRUCTURE",
+      "NEWS_CATALYST"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  },
+  {
+    "schema": "telegram_channel_result.v1",
+    "source_kind": "live_capture",
+    "channel_alias": "whale_alert_io",
+    "role": "WHALE_TRANSFER",
+    "messages_total": 30,
+    "parsed_count": 28,
+    "claims_count": 0,
+    "needs_review_count": 28,
+    "unknown_raw_count": 2,
+    "noise_count": 0,
+    "dominant_message_types": [
+      "MARKET_STRUCTURE",
+      "UNKNOWN_RAW"
+    ],
+    "avg_parser_score": 0.8493,
+    "supported_formats": [
+      "MARKET_STRUCTURE",
+      "UNKNOWN_RAW"
+    ],
+    "rejected_patterns": [],
+    "recommended_status": "KEEP_REVIEW_REQUIRED"
+  }
+]

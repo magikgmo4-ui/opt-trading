@@ -1,0 +1,22 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_Gold_signals_free_24_2019-09-23T14:05:12+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "Gold_signals_free",
+    "parsed_at": "2019-09-23T14:05:12+00:00",
+    "produced_at": "2026-06-11T05:30:19.478216+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 1423.0,
+    "sl": 1429.0,
+    "tp": 1420.0,
+    "tps": [
+      1420.0,
+      14000.0
+    ],
+    "leverage": null,
+    "raw_text": "\u26a0\ufe0f7\n\ud83d\udd30GOLD Sell \u2198\ufe0f\n\ud83d\udc491423.00\nSl: 1429.00\nTp1: 1420.00\nTp2: 14000.00"
+  }
+]

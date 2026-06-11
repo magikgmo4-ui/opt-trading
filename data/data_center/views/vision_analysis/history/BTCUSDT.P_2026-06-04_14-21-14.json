@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_182251_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T14:21:20-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-21-14",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62400.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre rejet sur résistance pour vente à court terme",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassure nette des 63,800 USDT en clôture 15m",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur le 15m avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure récente de rebond formant un HL (Higher Low) à court terme, suggérant un possible retracement ou correction.  \n- Zone clé autour de 63 600-63 800 USDT en résistance, support important vers 62 400 USDT.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre un downtrend clair marqué par une succession de creux et sommets dégressifs (LH/LL). Un rebond correctif a formé un HL récent, sans dépasser la résistance majeure à ~63 800 USDT. Le volume hausse lors des baisses, renforçant la pression vendeuse. Scénario privilégié : continuation baissière après test de résistance. Invalidation si le prix franchit durablement 63 800 USDT en HTF, ce qui invaliderait la domination du vendeur.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL récent\",\"supports\":[\"62,400\"],\"resistances\":[\"63,600\",\"63,800\"],\"plan\":\"attendre ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-21-14",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_14-21-07.png"
+  }
+}

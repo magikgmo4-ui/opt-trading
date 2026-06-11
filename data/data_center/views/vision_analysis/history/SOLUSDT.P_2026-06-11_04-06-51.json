@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_080700_SOLUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SOLUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T04:06:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_04-06-51",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62.2,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 62.4,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65.4,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Entrée longue possible sur cassure 65.40 avec stop sous 62.40",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte du support 62.20 avec formation de LH/LL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance de court terme latérale avec basculement entre phases baissières et haussières.  \n- Structure récente montre des HH et HL depuis le creux vers 62.20, traduisant une tentative de reprise.  \n- Zone clé de résistance autour de 65.20-65.40, support majeur local vers 62.20-62.40.  \n\nB) Chart unique (SOLUSDT.P 15m):  \nLa structure montre un net mouvement baissier suivi d’un retournement avec des HH/HL, indiquant une tentative de reprise haussière. Le prix stagne depuis quelques heures sur la zone 64.80-65.20, marquant une zone de résistance. Une cassure claire au-dessus de 65.40 validerait un scénario haussier avec poursuite possible vers 66.60. Le support à court terme se situe vers 62.20-62.40, en dessous duquel la tendance pourrait redevenir baissière confirmée (LH/LL). Volumes en légère augmentation sur les remontées récentes.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HL/HH en formation après une phase bai",
+  "symbols_found": [
+    "SOLUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_04-06-51",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SOLUSDT.P_15m_2026-06-11_04-06-39.png"
+  }
+}

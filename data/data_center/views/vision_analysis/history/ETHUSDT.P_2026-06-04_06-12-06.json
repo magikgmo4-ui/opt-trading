@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_101215_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T06:12:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_06-12-06",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1840.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre sous 1750 avec stop au-dessus de 1840, viser baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Prix > 1840",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h clairement baissière, avec une série de HH/HL cassés, formant des LH puis LL.  \n- Zone clé support récente autour de 1750 USDT, sous pression avec volume croissant.  \n- Scénario favori: poursuite baisse si support 1750 cassé, invalidation au-dessus de 1840.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nTendance baissière marquée par structure LH et LL. Support clé identifié vers 1750 USDT où les prix butent actuellement. Résistance majeure autour de 1840 USDT (dernier niveau de reprise avant forte chute). Volume en hausse sur les chandeliers baissiers récents confirme pression vendeuse. En cas de rupture claire du support 1750 avec volume, continuation probable vers de nouveaux plus bas. Un retour au-dessus de 1840 invaliderait temporairement ce scénario baissier.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[1750],\"resistances\":[1840],\"plan\":\"Vendre sous 1750 avec stop au-dessus de 1840, viser baisse",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_06-12-06",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_06-11-58.png"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_141641_NYMEX:CL1!_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:CL1!",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T10:16:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_10-16-32",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 90.5,
+      "confidence": 0.7,
+      "note": "s 90.5"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 1h globalement neutre à court terme, avec structure récente en HH/HL sur le rebond début juin.  \n- Rejet actuel à la baisse avec cassure possible des derniers niveaux de support, signal d’un potentiel retournement vers une structure LH/LL.  \n- Zones clés à surveiller : support majeur vers 90.5-91 USD et résistance autour de 95-96 USD.  \n\nB) Chart unique (NYMEX:CL1! 1h):  \nLe prix a formé une série de HH/HL depuis fin mai début juin, traduisant une reprise haussière après un creux proche de 86. À présent, le prix corrige violemment, avec un dernier plus bas qui remet en cause ce momentum. Le support autour de 91 USD est testé avec une perte possible ce qui invaliderait la structure haussière et pourrait entraîner une rotation vers une tendance baissière (LH/LL). La résistance clé à 95-96 USD constitue la zone à dépasser pour valider un nouveau rallye haussier. Le volume semble plus élevé sur la baisse récente, renforçant la pression vendeuse. Scénario à pri",
+  "symbols_found": [
+    "NYMEX:CL1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_10-16-32",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-05_10-16-22.png"
+  }
+}

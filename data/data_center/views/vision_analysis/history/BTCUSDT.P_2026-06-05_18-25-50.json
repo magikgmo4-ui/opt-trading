@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_222600_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T18:25:58-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_18-25-50",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Attendre confirmation de cloture au-dessus de 61600 pour scenar bullish, sinon short sous 59000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cloture au-dessus de 61600 invalide la continuation baisse; cassure sous 59000 confirme la tendance baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL) jusqu'à un point récent.  \n- Structure récente montre un rebond marqué, créant potentiellement un Higher Low (HL) après un plus bas vers 59 000.  \n- Zone clé à surveiller à 61 600 USDT en résistance, invalidation du scénario bullish en < 59 000.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa paire BTCUSDT.P sur le timeframe 15m est en tendance baissière dominante, caractérisée par des Lower Highs et Lower Lows réguliers. Le dernier swing bas vers 59 000 a servi de support pour un rebond technique, marquant possiblement un HL. La structure hésite actuellement dans une zone de résistance vers 61 600–61 700, qui a précédemment fait rebondir le prix à la baisse. Un franchissement clair de cette résistance validerait une reprise haussière à court terme avec potentiels HH à venir. En cas d’échec, on surveillera la cassure sous 59 000 pour une continuation baissière. Le volume a augmenté sur la re",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_18-25-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-05_18-25-43.png"
+  }
+}

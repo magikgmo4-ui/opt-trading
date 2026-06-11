@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_172542_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T13:25:39-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_13-25-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1645.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur pullback proche support vers 1580-1570, viser 1645 puis 1700 en extension.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Retour sous 1570 stop loss fortement recommandé.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m clairement haussière depuis un creux autour de 1530, avec une succession de HH et HL.  \n- Structure en range haussier marqué : légère consolidation actuelle vers 1620-1630 après un plus haut à 1645.  \n- Zone clé support à 1570-1580, résistance immédiate vers 1645-1650, invalidation sous 1570 pour scénario bullish.  \n\nB) Chart unique (ETHUSDT.P 15m) :  \nOn observe un retournement haussier net sur ce timeframe, validé par la formation de HH et HL. Après un fort rebond depuis 1530, le prix montre une première zone de résistance à 1645, où des prises de bénéfices apparaissent. Le price action se consolide donc latéralement dans la zone 1620-1630. Une cassure claire au-dessus de 1645 confirmerait la poursuite de la tendance haussière. En revanche, un retour sous 1570 invaliderait ce scénario, signalant une possible reprise baissière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1570\",\"1580\"],\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_13-25-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_13-25-26.png"
+  }
+}

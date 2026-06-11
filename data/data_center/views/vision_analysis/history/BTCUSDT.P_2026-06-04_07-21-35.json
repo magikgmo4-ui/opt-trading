@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_112150_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T07:21:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_07-21-35",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 65000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 67000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond technique ou cassure support pour continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture au-dessus de 67000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Données insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Données insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Données insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Forte tendance baissière sur le marché crypto avec accélération récente.  \n- Structure de prix affichant des Lower Highs (LH) et Lower Lows (LL), tendance baissière confirmée.  \n- Zones clés à surveiller pour un rebond potentiel ou une continuation à la baisse.\n\nB) Chart 1 (haut-gauche): BTCUSDT - 1h  \n- Tendance: Baissière claire avec Lower Highs et Lower Lows.  \n- Structure: LL réguliers depuis plusieurs jours, pas de signe de retournement.  \n- Supports clés: zone vers 62 000-62 500 USDT (niveau actuel).  \n- Résistances clés: 65 000 puis 67 000 USDT (anciennes zones de support).  \n- Scénario: Possibilité de rebond technique sur la zone support mais risque élevé de poursuite baissière si zone cassée.  \n- Invalidation: Reprise au-dessus de 67 000 USDT invaliderait la poursuite baissière court terme.  \n\nC) Chart 2 (haut-droit): Symbol / Timeframe inconnu  \n- Impossible de déterminer tendance et structure car symbole et timeframe non lisibles.  \n- Pas d’analyse actio",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_07-21-35",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_07-21-24.png"
+  }
+}

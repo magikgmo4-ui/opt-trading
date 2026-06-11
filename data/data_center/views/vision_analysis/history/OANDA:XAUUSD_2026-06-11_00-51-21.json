@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_045133_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T00:51:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_00-51-21",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "chercher confirmation de la poursuite baissière, opportunité short sous résistance, surveiller rebond potentiel au support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cloture stable au-dessus de 4130",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas de prise de position, infos insuffisantes",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "pas d’analyse possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendances baissières marquées sur l’ensemble des graphiques, accentuées sur court terme.\n- Structure principalement en Lower Highs (LH) et Lower Lows (LL), signalant un marché sous pression vendeuse.\n- Zones clés de support proches des derniers creux, à surveiller pour une potentielle correction ou inversion.\n\nB) Chart 1 (haut-gauche): XAUUSD - 1h\n- Structure en baisse nette : présence de Lower Highs et Lower Lows multiples.\n- Zone de support clé autour de 4070 à 4080, testée récemment.\n- Résistance principale à 4125-4130, à franchir pour un retour haussier.\n- Le scénario prioritaire reste la continuation baissière, invalidation en cas de dépassement clair à 4130+.\n- Volume en légère hausse sur les rebonds, possible signal d'un double creux à confirmer.\n\nC) Chart 2 (haut-droit): inconnu\n- Tendance difficile à déterminer avec précision (symbole/timeframe non lisible).\n- Structure pas identifiable formellement, pas d’info claire sur supports/résistances.\n- Recommandati",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_00-51-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-11_00-51-10.png"
+  }
+}

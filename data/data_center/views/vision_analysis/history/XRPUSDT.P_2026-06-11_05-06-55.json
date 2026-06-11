@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_090835_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T05:07:04-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_05-06-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.1,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.095,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.12,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond actuel avec prise possible sur cassure confirmation au-dessus de 1.1200. Vigilance à la perte du support 1.0950 pour retour baissier.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clair franchissement sous 1.0950",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance récente globalement baissière confirmée par une série de Lower Highs (LH) et Lower Lows (LL).  \n- Tentative de rebond visible avec formation de Higher Lows (HL) sur le court terme, possible correction ou reprise.  \n- Zone clé résistance vers 1.1200 marquant un plafond à surveiller; support proche autour de 1.0950-1.1000.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nOn observe une structure de tendance baissière marquée par des LH et LL, validant la pression vendeuse historique. Cependant, depuis le bas autour de 1.0850, le prix forme un canal haussier avec des HL, ce qui présente un scénario de correction/rebond. La zone résistance 1.1200-1.1220 sera un point critique pour valider un retour de force acheteuse. Le support vers 1.0950-1.1000 est à garder en contrôle pour éviter une nouvelle baisse. Invalidation possible en cas de franchissement clair sous ce support, qui relancerait le biais négatif.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\"",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_05-06-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-11_05-06-44.png"
+  }
+}

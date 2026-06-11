@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_081322_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T04:13:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_04-13-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 62000 avec stop au-dessus de 64500, cible 60000 voire 58000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure à la hausse au-dessus de 64500 confirmée par maintien",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire avec une série de lower highs (LH) et lower lows (LL).\n- Consolidation récente entre 62 000 et 64 500$ formant une zone de support clé.\n- Risque de poursuite baissière si le support 62 000$ ne tient pas, sinon rebond possible vers résistance 64 500$.\n\nB) Chart unique (BTCUSDT.P 1h): \nLa structure est clairement en downtrend avec des LH et LL successifs. La zone de support autour de 62 000$ a été testée plusieurs fois, ce qui en fait une zone clé psychologique. Une résistance se situe autour de 64 500$ qui a stoppé les derniers rebonds. Le prix évolue avec fort volume sur les baisses, signe d’une pression vendeuse dominante. Le scénario prioritaire reste la continuation de la baisse en dessous du support 62 000$. L’invalidation du scénario baissier se ferait par une cassure franche au-dessus de 64 500$ avec un pullback confirmé.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[62000],\"re",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_04-13-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-05_04-12-57.png"
+  }
+}

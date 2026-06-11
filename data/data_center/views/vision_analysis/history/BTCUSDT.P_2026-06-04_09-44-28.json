@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_134438_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T09:44:36-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_09-44-28",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 65200.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 66000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller une cassure résistances pour inversion, sinon continuation baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair et maintenu au-dessus de 66,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure récemment altérée par un rebond, formant possiblement un Higher Low (HL) ou une correction.  \n- Zone clé de résistance visible autour de 65 200 USDT, support notable proche de 61 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h) :  \nLe graphique montre une tendance baissière claire sur le timeframe 1h, illustrée par des Lower Highs et Lower Lows sur plusieurs jours. Le prix a touché un creux proche de 61 000 USDT avant de rebondir fortement, testant une résistance vers 65 200 USDT. Ce rebond pourrait marquer une correction ou un début de retournement, mais la tendance baissière reste dominante tant que le prix ne dépasse pas le dernier Lower High à environ 66 000 USDT. Invalidation de scénario baissier à franchissement clair de cette zone. Volume en hausse sur le rebond, signalant un intérêt acheteur temporaire. Surveillance des réactions aux zones clés pour valider la poursui",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_09-44-28",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-04_09-44-21.png"
+  }
+}

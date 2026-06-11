@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_163843_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T12:37:12-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_12-37-04",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1580.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1700.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "scénario baissier dominant avec surveillance du rebond actuel, privilégier shorts sur rejets résistance, vérifier invalidation en cas de dépassement 1750",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "cassage durable au-dessus 1750 avec HH/HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance claire baissière sur le 1h, avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure fragilisée avec tentative de rebond récent mais sans retour à un higher high.  \n- Zones clés identifiées autour de 1580 en support potentiel et 1700-1750 en résistance à court terme.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une dominante de baisse continue avec de forts mouvements baissiers confirmés par une succession de LH et LL, marquant une pression vendeuse persistante. Après un plus bas récent proche de 1540, le prix tente un rebond rapide, indiquant une possible réaction haussière mais sans changement de structure haussière pour le moment. Le support majeur se situe autour de 1580, où le volume est élevé, ce qui pourrait temporairement freiner la chute. En revanche, une zone de résistance s'établit entre 1700 et 1750, seuil à franchir pour envisager un retournement. Le scénario préféré reste baissier tant que le prix reste sous cette résist",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_12-37-04",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_12-36-57.png"
+  }
+}

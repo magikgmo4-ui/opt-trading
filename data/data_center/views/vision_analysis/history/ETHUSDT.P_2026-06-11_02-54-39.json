@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_065456_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T02:54:53-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_02-54-39",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1665.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "long sur retracement vers 1610-1620 avec prise de profit près de 1665-1670",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture 15m sous 1610",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance 15m en rebond après un fort mouvement baissier initial, avec des points hauts et bas progressifs plus hauts (HL/HH).  \n- Structure haussière récente confirmée depuis le creux vers 1610 USDT, cassure récente d’une résistance intraday vers 1650 USDT.  \n- Zone clé support majeure autour de 1610-1620 USDT, résistance à surveiller proche de 1665-1670 USDT pour valider poursuite haussière.  \n\nB) Chart unique (ETHUSDT.P 15m): La tendance courte terme est haussière avec une structure de creux et sommets plus hauts, indiquant un possible retournement local après la forte baisse. La zone support vers 1610 constitue un point d’entrée défensif avec un stop serré sous ce niveau. La résistance vers 1665-1670 est un seuil à franchir pour confirmer la continuation de la hausse, sinon risque de range ou retour vers support. Scénario actionnable : chercher des longs en repli sur support avec prise de bénéfice proche de la résistance. Invalidation du scénario haussier si ret",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_02-54-39",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-11_02-54-28.png"
+  }
+}

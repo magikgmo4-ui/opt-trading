@@ -1,0 +1,26 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_31391_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "wfr_analysis",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-09T12:15:16+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4342.0,
+  "sl": 4353.0,
+  "tp": 4321.0,
+  "tps": [
+    4321.0,
+    2.0,
+    2.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD sell again @ 4342\nTp @ 4321\nTp2 @ 4305\n\nSl @ 4353",
+  "summary": "XAUUSD SHORT"
+}

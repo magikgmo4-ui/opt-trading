@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_184135_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T14:41:32-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-41-24",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64400.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveille rebond vers résistance 64400. Short si rejet confirmé, sinon neutre-haussier au-dessus.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement net et consolidation au-dessus de 64400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière bien marquée sur le timeframe 15m.  \n- Structure en LH (Lower High) et LL (Lower Low) confirmée, sans signe clair d’inversion.  \n- Zone clé de support autour de 62 000 USDT, résistance immédiate vers 64 400 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa tendance est clairement baissière avec une alternance de sommets et creux descendants (LH/LL). Un rebond technique est en cours depuis le support majeur vers 62 000 USDT, mais la résistance à 64 400 USDT freine la progression. Absence de HH ou HL permettant de valider un retournement; le scénario prioritaire reste donc la poursuite de la baisse sous résistance. Invalidation du biais baissier sous forme d’un franchissement net et suivi haussier de 64 400 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"20240604_btc15m_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"62000\"],\"resistances\":[\"64400\"],\"plan\":\"Surveille rebond vers résistance 64400. Short si rejet confirmé, s",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-41-24",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_14-41-17.png"
+  }
+}

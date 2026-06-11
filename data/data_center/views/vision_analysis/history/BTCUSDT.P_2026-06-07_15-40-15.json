@@ -1,0 +1,41 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_194025_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-07T15:40:23-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_15-40-15",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sous 60,000 avec stop au-dessus de 63,500; viser 58,000-57,000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Passage au-dessus ferme de 63,500 confirmant un HH et renversement potentiel.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur 1h avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Rebond récent suivi d'un rejet à une zone de résistance autour de 63 000, confirmant la pression vendeuse.  \n- Structure fragile en cours, possible continuation baissière si support 60 000 cassé.\n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance baissière claire, structure en LH/LL bien marquée. Zone clé de résistance à ~63 000-63 500, support majeur à ~60 000. Le rebond récent a buté sur la résistance 63k, prix en retest du support. Scénario principal: reprise de la baisse sous 60 000 avec nouvel LL. Invalidation du scénario si prix franchit durablement 63 500 avec un HH marqué.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[\"60,000\"],\"resistances\":[\"63,000-63,500\"],\"plan\":\"Vente sous 60,000 avec stop au-dessus de 63,500; viser 58,000-57,000.\",\"invalidation\":\"Passage au-dessus ferme de 63,500 confirmant un HH et renverse",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_15-40-15",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-07_15-40-07.png"
+  }
+}

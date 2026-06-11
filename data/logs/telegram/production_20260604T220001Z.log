@@ -1,0 +1,39 @@
+[2026-06-04T22:00:01Z] Telegram production capture start
+--- coinglass_alerts limit=20 ---
+Server closed the connection: 0 bytes read on a total of 8 expected bytes
+Server resent the older message 7647663839185794049, ignoring
+{
+  "module_id": "collector_telegram",
+  "run_id": "20260604T220001Z-03b63011",
+  "channels": [
+    "coinglass_alerts"
+  ],
+  "messages_total": 20,
+  "channel_results_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/channel_results/channel_results_20260604T220001Z-03b63011.json",
+  "status_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/status.json"
+}
+
+--- whale_alert_io limit=20 ---
+{
+  "module_id": "collector_telegram",
+  "run_id": "20260604T220134Z-b9a5721b",
+  "channels": [
+    "whale_alert_io"
+  ],
+  "messages_total": 20,
+  "channel_results_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/channel_results/channel_results_20260604T220134Z-b9a5721b.json",
+  "status_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/status.json"
+}
+
+--- cryptoquant_official limit=20 ---
+{
+  "module_id": "collector_telegram",
+  "run_id": "20260604T220135Z-0a38baa7",
+  "channels": [
+    "cryptoquant_official"
+  ],
+  "messages_total": 20,
+  "channel_results_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/channel_results/channel_results_20260604T220135Z-0a38baa7.json",
+  "status_path": "/home/fantome/opt-trading-clean/modules/collector_telegram/outputs/status.json"
+}
+[2026-06-04T22:01:36Z] Telegram production capture end

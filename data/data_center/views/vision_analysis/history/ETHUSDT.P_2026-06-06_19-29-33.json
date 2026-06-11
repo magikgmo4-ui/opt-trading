@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_232943_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T19:29:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_19-29-33",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1525.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Privilégier ventes à rebond près des résistances, stop serré au-dessus de 1650.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement solide de 1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Forte tendance baissière prononcée sur le 1h, avec une succession de Lower Highs (LH) et Lower Lows (LL).\n- Structure clairement vendeuse depuis début juin, sans signe net de retournement.\n- Zone clé support proche de 1525 (dernier creux), résistance à 1600-1625, scénario prudent à la reprise de la baisse sous ce support.\n\nB) Chart unique (ETHUSDT.P 1h): Tendance baissière affirmée, structure en LH/LL. Le prix consolide sous 1600 après un nouveau plus bas vers 1525. La dynamique reste orientée vendeuse, tout rebond doit être surveillé pour rejet sur zone résistance 1600-1625. Invalidation en cas de dépassement franc au-dessus de 1650. Zone support critique à 1525, cassure possible vers de nouveaux plus bas.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[\"1525\"],\"resistances\":[\"1600\",\"1625\"],\"plan\":\"Privilégier ventes à rebond près des résistances, stop serré au-dessus de 1650.\",\"invalidation\":\"Franchissement s",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_19-29-33",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_19-29-09.png"
+  }
+}

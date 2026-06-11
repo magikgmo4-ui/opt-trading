@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_185216_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T14:52:14-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_14-52-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1720.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1820.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "vendre sur rejet de résistance 1800-1820, viser retour vers support 1720",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture claire au-dessus de 1820",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale baissière, marquée par une série de lower highs (LH) et lower lows (LL).  \n- Structure récente hésitante avec une possible stabilisation ou correction, mais manque de higher highs (HH) confirmés.  \n- Zone clé de support autour de 1720, résistance notable vers 1800-1820.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique 15m de ETHUSDT.P montre une dynamique baissière nette avec une succession de LH et LL indiquant une pression vendeuse constante. On note une tentative de rebond depuis le support proche des 1720 qui a permis une série de higher lows (HL) à court terme, mais la résistance autour de 1800-1820 limite la reprise. Le scénario dominant reste donc la continuation baissière si la zone de support 1720 est cassée. En revanche, une clôture au-dessus de 1820 invaliderait ce biais et pourrait annoncer un retournement haussier.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL avec HL récents\",\"support",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_14-52-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-04_14-52-00.png"
+  }
+}

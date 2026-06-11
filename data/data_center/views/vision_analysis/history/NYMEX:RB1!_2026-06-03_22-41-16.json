@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_024123_NYMEX:RB1!_4h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "NYMEX:RB1!",
+  "timeframe": "4h",
+  "analysis_ts": "2026-06-03T22:41:21-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_22-41-16",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 3.05,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 3.2,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller la cassure du support 3.05 pour une vente agressive, ou repositionnement à l'achat en cas de franchissement 3.20 confirmé.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement durable au-dessus de 3.20 invalide le scénario baissier court terme.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance 4h baissière confirmée par une série de LH et LL après un sommet début mai.\n- Structure récente latérale dans zone 3.05-3.20, consolidation depuis fin mai.\n- Zone clé support à 3.05 USD, résistance immédiate vers 3.20 USD pour confirmer rebond ou reprise de la baisse.\n\nB) Chart unique (NYMEX:RB1! 4h) :\nLe marché montre un basculement baissier après un sommet marqué début mai avec une structure en LH/LL claire. Depuis fin mai, le prix consolide entre 3.05 (support fort) et 3.20 (résistance). Ce range peut potentiellement déboucher sur un rebond technique ou une poursuite baissière si le support 3.05 est cassé. La vigilance est requise à la cassure des zones clés pour confirmer le scénario dominant.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL puis latéral\",\"supports\":[\"3.05\"],\"resistances\":[\"3.20\"],\"plan\":\"Surveiller la cassure du support 3.05 pour une vente agressive, ou repositionnement à l'achat en cas de fran",
+  "symbols_found": [
+    "NYMEX:RB1!"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_22-41-16",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_4h_2026-06-03_22-40-57.png"
+  }
+}

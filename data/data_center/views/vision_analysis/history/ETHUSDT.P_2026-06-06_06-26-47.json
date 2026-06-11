@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_102654_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T06:26:52-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-26-47",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1500.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1625.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher vente proche résistance 1625-1650 avec confirmation structure baissière",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "clôture horaire au-dessus de 1650 avec HH et HL",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette confirmée avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Structure en continuation baissière, pas de signe clair de retournement pour l'instant.  \n- Zone clé support proche 1 500$, résistance intermédiaire sur 1 625$-1 650$ à surveiller.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une forte tendance baissière avec une séquence claire de LH et LL. Le prix a cassé plusieurs supports importants, indiquant un momentum vendeur dominant. Dernières bougies suggèrent une tentative de rebond mais sans franchissement des résistances récentes, signe d’une pression vendeuse persistante. Les volumes restent élevés lors des baisses, confirmant la conviction des vendeurs. Le scénario prioritaire reste la poursuite de la baisse vers la zone 1 500$. Invalidation du scénario baissier possible si le prix franchit durablement 1 650$ avec une structure de HH et HL.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"beari",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-26-47",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_06-26-39.png"
+  }
+}

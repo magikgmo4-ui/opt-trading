@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_005027_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-05T20:50:25-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_20-50-19",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1540.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1560.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1650.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond potentiel à support, valider break résistance 1650 pour scénario acheteur",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Break décisif sous 1540",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur 1h avec une série de LL et LH.  \n- Structure ramenée vers les plus bas récents, tentative de rebond à confirmer.  \n- Zone de support clé vers 1540-1560, résistance immédiate autour de 1650.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa tendance est baissière nette, marquée par des lower highs (LH) et lower lows (LL) tout au long de la période visible. Après un fort mouvement descendant, le prix trouve un support vers 1540-1560 USD, où le volume augmente, suggérant une potentielle zone de demande. L’objectif serait une confirmation d’un retournement par un break au-dessus des récents sommets autour de 1650. En cas d’échec sous 1540, la poursuite baissière est probable. La structure actuelle indique un scénario d’alerte pour un rebond mais l’invalidation du bullish passerait sous ces supports.  \n\nC) DeskPro  \n{\"run_id\":\"trade_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"Baissier\",\"structure\":\"LL/LH\",\"supports\":[1540,1560],\"resistances\":[1650],\"plan\":",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_20-50-19",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-05_20-50-12.png"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_220646_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T18:05:15-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_18-05-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60200.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 60750.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 61000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller une cassure au-dessus de 61000 pour considérer un retournement haussier ; sinon viser la poursuite de la baisse vers 60000-59500.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Close daily au-dessus de 61000 avec un higher high valide.",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance globale baissière sur ce timeframe 15m avec une série de lower highs (LH) et lower lows (LL).\n- Structure récente marque un début de stabilisation vers 60 750-61 000 USDT, zone clé de résistance court terme.\n- Scénario principal: attente d’une cassure claire de la résistance 61 000 pour envisager un rebond, sinon poursuite du downtrend.\n\nB) Chart unique (BTCUSDT.P 15m) :\nSur ce graphique 15m, la tendance est bearish avec des structures de baisse (LH/LL) bien visibles. Le marché teste actuellement une zone horizontale critique entre 60 700 et 61 000 (résistance), formant une sorte de congestion après une forte chute. Un support provisoire se trouve vers 60 200. L’invalidation du scénario baissier sera une breakout haussière au-dessus de 61 000 confirmée par un higher high (HH). À défaut, la pression vendeuse risque de reprendre, ciblant potentiellement 60 000 voire 59 500 USDT.\n\nC) DeskPro\n{\"run_id\":\"20240607_2205\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_18-05-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-06_18-05-00.png"
+  }
+}

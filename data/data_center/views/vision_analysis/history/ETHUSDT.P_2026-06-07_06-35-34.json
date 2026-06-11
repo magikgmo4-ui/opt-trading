@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_103543_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T06:35:41-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_06-35-34",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "Achat sur repli support 1550-1580, viser 1650",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 1530",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière initiale nette suivie d’un retournement haussier progressif.  \n- Structure récente en HL, indiquant un début de reprise acheteuse.  \n- Zone clé de support vers 1530-1540, résistance immédiate autour de 1640-1650.\n\nB) Chart unique (ETHUSDT.P 15m)  \nLe graphique montre une forte baisse initiale formant des séries de LL et LH, caractéristique d’une tendance baissière. Puis, un retournement se manifeste par des HL successifs, illustrant une reprise haussière. Le prix a cassé les 1600, zone pivot, et tente de franchir la résistance à 1640-1650. Volume en légère augmentation lors de la montée, signalant un intérêt acheteur croissant. Scénario actionnable : acheter sur repli vers 1550-1580 avec objectif autour de 1650, invalidation en cas de retour sous 1530.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL actuel après LL précédent\",\"supports\":[\"1530-1540\",\"1550-1580\"],\"resistances\":[\"1640-1650\"],\"plan\":\"Achat ",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_06-35-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_06-35-24.png"
+  }
+}

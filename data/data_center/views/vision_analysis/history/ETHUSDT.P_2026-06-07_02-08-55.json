@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_060903_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-07T02:09:00-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-07_02-08-55",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1610.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "chercher achat au break 1600 avec stop sous 1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte durable de 1520",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme en tentative de reprise après une forte chute initiale marquée par des LL consécutifs.  \n- Structure en 15m caractérisée par un creux plus bas suivi d’un double bottom relatif, puis HL récent indiquant un possible début de retournement.  \n- Zone clé support vers 1520 (ancien creux), résistance immédiate à 1600-1610 à surveiller pour confirmer la poursuite haussière.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe marché a connu un fort mouvement baissier avec une série de LL clairement définis. Puis, un double creux local autour de 1520 a fait office de support solide. Depuis, le prix construit une structure HL avec plusieurs tentatives de breakout proches de 1600. Le volume a augmenté aux points bas, suggérant accumulation. Un passage au-dessus de 1600 validerait le retournement. En cas d’échec, la structure serait invalidée sous 1520, avec reprise probable de la baisse.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussi",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-07_02-08-55",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-07_02-08-47.png"
+  }
+}

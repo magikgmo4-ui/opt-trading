@@ -1,0 +1,36 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_wallstreetqueenofficial_9961_2026-05-09T19:04:48+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "wallstreetqueenofficial",
+    "parsed_at": "2026-05-09T19:04:48+00:00",
+    "produced_at": "2026-06-11T05:30:21.442221+00:00",
+    "pair": "OPUSDT",
+    "asset": "OP",
+    "direction": "LONG",
+    "entry_price": 0.147,
+    "sl": 0.133,
+    "tp": null,
+    "tps": [],
+    "leverage": 5,
+    "raw_text": "**Coin: ****#OPUSDT**\n\nDirection: Long\n\nLeverage: 5-10x\n\nIt has already broken out of the Head and Shoulder pattern and is looking bullish.\n\nEntry: $0.1470 - $0.1390 (Buy partially)\n\nTargets: $0.1515 - $0.1550 - $0.1590 - $0.1630 - $0.1750 - $0.1880 - $0.2000 (Short term)\n\nStop-loss: $0.1330"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_wallstreetqueenofficial_10008_2026-05-22T20:03:20+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "wallstreetqueenofficial",
+    "parsed_at": "2026-05-22T20:03:20+00:00",
+    "produced_at": "2026-06-11T05:30:21.449391+00:00",
+    "pair": "APTUSDT",
+    "asset": "APT",
+    "direction": "LONG",
+    "entry_price": 0.9545,
+    "sl": 0.938,
+    "tp": null,
+    "tps": [],
+    "leverage": 5,
+    "raw_text": "**Coin: ****#APTUSDT**\n\nDirection: Long\n\nLeverage: 5-10x\n\nIt has already broken out of the symmetrical triangle and is looking bullish.\n\nEntry: $0.9545 - $0.9450 (Buy partially)\n\nTargets: $0.9740 - $0.9940 - $1.0140 - $1.0350 (Short term)\n\nStop-loss: $0.9380"
+  }
+]

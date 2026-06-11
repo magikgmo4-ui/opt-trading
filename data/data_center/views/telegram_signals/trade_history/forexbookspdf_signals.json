@@ -1,0 +1,112 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexbookspdf_11951_2026-06-03T00:52:38+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexbookspdf",
+    "parsed_at": "2026-06-03T00:52:38+00:00",
+    "produced_at": "2026-06-11T10:00:14.350224+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4492.0,
+    "sl": 4498.0,
+    "tp": 4450.0,
+    "tps": [
+      4450.0,
+      4475.0,
+      4483.0,
+      4487.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL 4492\nSL4498\nTP 4487\nTP 4483\nTP 4475\nTP 4450"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexbookspdf_11958_2026-06-04T12:41:14+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexbookspdf",
+    "parsed_at": "2026-06-04T12:41:14+00:00",
+    "produced_at": "2026-06-11T10:00:14.350463+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4501.5,
+    "sl": 4511.0,
+    "tp": 4450.0,
+    "tps": [
+      4450.0,
+      4486.0,
+      4493.0,
+      4497.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL 4501.50\nSL4511\nTP 4497\nTP 4493\nTP 4486\nTP 4450"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexbookspdf_11959_2026-06-04T12:58:43+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexbookspdf",
+    "parsed_at": "2026-06-04T12:58:43+00:00",
+    "produced_at": "2026-06-11T10:00:14.350510+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4506.0,
+    "sl": 4515.0,
+    "tp": 4450.0,
+    "tps": [
+      4450.0,
+      4486.0,
+      4497.0,
+      4500.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL 4506\nSL4515\nTP 4500\nTP 4497\nTP 4486\nTP 4450"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexbookspdf_11963_2026-06-09T01:55:57+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexbookspdf",
+    "parsed_at": "2026-06-09T01:55:57+00:00",
+    "produced_at": "2026-06-11T10:00:14.350585+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4337.0,
+    "sl": 4347.0,
+    "tp": 4280.0,
+    "tps": [
+      4280.0,
+      4322.0,
+      4329.0,
+      4333.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL 4337\nSL 4347\nTP 4333\nTP 4329\nTP 4322\nTP 4280"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_forexbookspdf_11974_2026-06-11T07:27:37+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "forexbookspdf",
+    "parsed_at": "2026-06-11T07:27:37+00:00",
+    "produced_at": "2026-06-11T10:00:14.350944+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4110.0,
+    "sl": 4120.0,
+    "tp": 4050.0,
+    "tps": [
+      4050.0,
+      4095.0,
+      4102.0,
+      4106.0
+    ],
+    "leverage": null,
+    "raw_text": "XAUUSD SELL 4110\nSL 4120\nTP 4106\nTP 4102\nTP 4095\nTP 4050"
+  }
+]

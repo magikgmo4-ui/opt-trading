@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_163533_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T12:35:31-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_12-35-23",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la cassure du support 60,000 ou attendre un retour vers résistance 62,000 pour un potentiel short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair au-dessus de 62,000 avec clôtures horaires",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une succession de Lower Highs (LH) et Lower Lows (LL).  \n- Structure de marché clairement orientée vendeurs, avec plusieurs replis violents et volume en hausse lors des baisses.  \n- Zone clé de support autour de 60 000 USD, à surveiller pour un potentiel rebond ou cassure baissière.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance dominante est baissière, matérialisée par des Lower Highs et des Lower Lows réguliers depuis début juin. La structure montre un fort déséquilibre vendeur. Le prix consolide actuellement autour de la zone de support à 60 000 USD, qui fait office de pivot. Une cassure de ce support pourrait ouvrir la voie à une poursuite de la baisse vers de nouveaux plus bas. En revanche, un rebond significatif au-dessus des précédents Lower Highs (~62 000 USD) invaliderait temporairement la poursuite baissière et pourrait signaler un renversement ou une phase de consolidation plus équilibrée.  \n\nC) DeskPro  ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_12-35-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_12-35-13.png"
+  }
+}

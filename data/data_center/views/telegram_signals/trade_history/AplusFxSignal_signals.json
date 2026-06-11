@@ -1,0 +1,36 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_AplusFxSignal_3019_2026-06-05T06:25:50+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "AplusFxSignal",
+    "parsed_at": "2026-06-05T06:25:50+00:00",
+    "produced_at": "2026-06-11T10:00:13.751776+00:00",
+    "pair": "AUDJPY",
+    "asset": "AUDJPY",
+    "direction": "SHORT",
+    "entry_price": 113.822,
+    "sl": 114.172,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "\u269c\ufe0f SELL AUDJPY @ 113.822\n\n\ud83d\udd38\ufe0fSL : 114.172 (-35)\n\ud83d\udd39\ufe0fTP : 113.322 (+50)\n\nVIP - A+ FOREX SIGNAL\u00a9\nID REAL Support @APlusSupport \u2714\nID REAL Channel @APlusFxSignal \u2714\ufe0f"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_AplusFxSignal_3026_2026-06-09T15:41:04+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "AplusFxSignal",
+    "parsed_at": "2026-06-09T15:41:04+00:00",
+    "produced_at": "2026-06-11T10:00:13.754555+00:00",
+    "pair": "EURJPY",
+    "asset": "EURJPY",
+    "direction": "SHORT",
+    "entry_price": 185.142,
+    "sl": 185.492,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "\u269c\ufe0f SELL EURJPY @ 185.142\n\n\ud83d\udd38\ufe0fSL : 185.492 (-35)\n\ud83d\udd39\ufe0fTP : 184.642 (+50)\n\nVIP - A+ FOREX SIGNAL\u00a9\nID REAL Support @APlusSupport \u2714\nID REAL Channel @APlusFxSignal \u2714\ufe0f"
+  }
+]

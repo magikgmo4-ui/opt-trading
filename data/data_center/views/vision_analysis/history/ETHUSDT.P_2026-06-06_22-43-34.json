@@ -1,0 +1,59 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_024342_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T22:43:40-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_22-43-34",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1555.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1560.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1585.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1590.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "acheter au-dessus de 1585 avec stop sous 1555, sinon rester vendeur en attente de retour baissier",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte du HL 1555 indique poursuite baissière",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance principale baissière claire avec série de Lower Highs (LH) et Lower Lows (LL).\n- Structure récente latérale avec tentative de reprise marquée par un HL et un pullback sur zone support.\n- Zone clé à surveiller autour de 1585 (résistance récente) pour valider un retournement ou reprise baissière à venir.\n\nB) Chart unique (ETHUSDT.P 15m):\nDans ce timeframe 15m, ETHUSDT.P montre une tendance baissière établie caractérisée par des Lower Highs et des Lower Lows jusqu’à mi-chart. Une phase de consolidation latérale suit avec création d’un Higher Low récent, suggérant un possible début d’inversion ou simple correction. Zone support identifiée vers 1555-1560, résistance immédiate autour de 1585-1590. Scénario haussier si la résistance est franchie avec force, invalidation en cas de retour sous le HL à 1555.\n\nC) DeskPro\n{\"run_id\":\"20240607-1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec tentative de reprise\",\"structure\":\"LH, LL puis HL récent\",\"supports\":[\"1555\",\"",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_22-43-34",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_22-43-24.png"
+  }
+}

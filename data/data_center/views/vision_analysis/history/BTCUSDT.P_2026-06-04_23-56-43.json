@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_035653_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-04T23:56:50-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_23-56-43",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 62250.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vendre à la cassure de 62250 avec stop au-dessus de 64500",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Cassure claire au-dessus de 64500",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance majeure 15m clairement baissière avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure de retracement récent montrant un range latéral entre 62 250 (S) et 64 500 (R).\n- Scénario principal reste la poursuite baissière en cassure du support 62 250, invalidation au-dessus de 64 500.\n\nB) Chart unique (BTCUSDT.P 15m):\nLe marché affiche un faible momentum haussier dans une correction technique baissière. La structure est dominée par une succession de LH et LL, caractéristique d’une tendance baissière. Les supports clés se situent autour de 62 250, où un rebond est en cours. La résistance principale à court terme est marquée vers 64 500, zone à dépasser pour envisager un retournement. Le scénario actionable est donc la continuation baissière sous 62 250, avec vigilance sur un franchissement à la hausse qui invaliderait ce biais.\n\nC) DeskPro\n{\"run_id\":\"20240605_0356\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structure\":\"LH/LL\",\"supports\":[62250],\"res",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_23-56-43",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-04_23-56-31.png"
+  }
+}

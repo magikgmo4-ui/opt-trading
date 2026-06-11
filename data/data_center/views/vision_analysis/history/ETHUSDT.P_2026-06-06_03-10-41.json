@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_071050_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T03:10:48-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_03-10-41",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1570.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure 1570 pour possible retournement haussier, sinon vente sous 1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rebond invalide sous 1520",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure de prix en reprise partielle avec un petit rebond récent, possiblement un HL (Higher Low) court terme.  \n- Zones clés autour de 1570 (résistance) et 1520 (support récent) à surveiller pour validation du retournement ou poursuite baissière.\n\nB) Chart unique (ETHUSDT.P 15m):  \nSur ce graphique 15m, ETHUSDT.P présente une tendance baissière dominante, avec des creux et sommets déclinants. Le dernier mouvement affiche un rebond depuis un support proche de 1520, formant un HL potentiel. La résistance immédiate à franchir est vers 1570-1580, zone d'offre récente. En cas d’échec sous cette résistance et rupture du support 1520, le scénario bearish resterait valide. L’invalidation du rebond se ferait sous 1520, ce qui relancerait la pression vendeuse.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish avec rebond correctif\",\"structure\":\"LL/LH en global, HL p",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_03-10-41",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-06_03-10-32.png"
+  }
+}

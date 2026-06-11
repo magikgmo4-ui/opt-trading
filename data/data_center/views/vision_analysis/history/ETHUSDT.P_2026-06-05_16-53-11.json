@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_205319_ETHUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-05T16:53:16-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-05_16-53-11",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "surveiller cassure 1640 pour potentiel long, sinon short sur retour résistance",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "fracture nette au-dessus de 1650",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance dominante baissière sur le 15m avec succession de Lower Highs (LH) et Lower Lows (LL).\n- Rebond récent visible formant un léger Higher Low (HL) potentiel, mais structure encore fragile.\n- Zone de support clé autour de 1540-1560, résistance à valider vers 1620-1640 pour un retour haussier.\n\nB) Chart unique (ETHUSDT.P 15m):\n- Structure: Tendance baissière claire avec série de LH/LL. Derniers mouvements montrent un HL possible suite au rebond marqué.\n- Supports clés: 1540-1560 (zone basse récente avec volumes importants).\n- Résistances clés: 1620-1640 (plusieurs bougies butent sur ce niveau).\n- Scénario: En cas de cassure au-dessus de 1640, confirmation d’un début de retournement haussier à court terme. Faute de cela, reprise de la baisse vers 1540 voire 1500.\n- Invalidation: Le franchissement net des 1650-1660 annulerait le biais baissier immédiat.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier avec rebond potentiel\",\"structure\":\"LH/LL",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-05_16-53-11",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-05_16-53-03.png"
+  }
+}

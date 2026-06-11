@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_041647_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T00:16:45-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_00-16-37",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Privilégier des positions short sous 63000 avec stop serré au dessus. Observation clé au support 59000.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clôture horaire au-dessus de 63000 avec formation de HH",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le timeframe 1h avec une succession de lower highs (LH) et lower lows (LL).  \n- Structure fragile, tentative de rebond invalide rapidement, signalant une continuation probable du mouvement baissier.  \n- Zones clés : support majeur vers 59 000 USD, résistance immédiate vers 63 000 USD. Invalidation baissière en clôture au-dessus de 63 000 USD.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est baissière nette avec une structure formée de LH et LL sur ce timeframe 1h. Après une forte chute de près de 20%, le prix teste un support autour de 59 000 USD. Un rebond partiel s’est formé mais le prix peine à dépasser les résistances proches de 63 000 USD, générant un risque de reprise baissière. Le scénario prioritaire reste la continuation du downtrend tant que la résistance vers 63 000 USD n’est pas franchie durablement. L’invalidation survient en cas de dépassement net de 63 000 USD avec structure HH (higher high).\n\nC) DeskPro  \n{\"run_id\":\"0",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_00-16-37",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_00-16-28.png"
+  }
+}

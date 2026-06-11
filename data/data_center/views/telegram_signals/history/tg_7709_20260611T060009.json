@@ -1,0 +1,22 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_7709_20260611T060009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "forexfever11",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-05T07:21:07+00:00",
+  "produced_at": "2026-06-11T06:00:09.423042+00:00",
+  "pair": "XAU/USD",
+  "direction": "LONG",
+  "entry_price": 4543.0,
+  "sl": null,
+  "tp": 190.0,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "XAUUSD, buy @ 4543 \u2197\ufe0f\n\n\ud83d\udca5 BANG BANG, TP Hit, 190+ PIPS \ud83d\udcb5,\n\nWe are on fire even on low probability setups \ud83d\udd25\ud83d\udd25\ud83d\udd25\n\nSignal was posted in premium channel only \ud83d\ude04",
+  "summary": "XAUUSD LONG"
+}

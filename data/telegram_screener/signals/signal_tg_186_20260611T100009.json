@@ -1,0 +1,25 @@
+{
+  "contract": "telegram_signal.v1",
+  "id": "tg_186_20260611T100009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "LexatyCryptoSignals",
+  "channel_priority": "P1",
+  "channel_type": "trade_signal",
+  "parsed_at": "2025-02-21T19:55:34+00:00",
+  "produced_at": "2026-06-11T10:00:09.535836+00:00",
+  "pair": "BTCUSDT",
+  "direction": "SHORT",
+  "entry_price": 98385.0,
+  "sl": 100052.0,
+  "tp": 97052.0,
+  "tps": [
+    97052.0,
+    95412.0,
+    93386.0
+  ],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "\ud83d\udd34sell/short signal #BTCUSDT\nEntry range: 98385\nTargets: 97052 _ 95412_ 93386\nStop: 100052\nLeverage: 10X\nBalance: 5% of capital",
+  "summary": "BTCUSDT SHORT"
+}

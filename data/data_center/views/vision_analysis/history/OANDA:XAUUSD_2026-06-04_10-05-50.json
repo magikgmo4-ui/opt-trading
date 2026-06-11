@@ -1,0 +1,83 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_140602_OANDA:XAUUSD_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "OANDA:XAUUSD",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T10:05:59-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_10-05-50",
+  "signals": [
+    {
+      "type": "resistance_level",
+      "value": 4500.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 4590.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attendre cassure et volume pour entrée directionnelle",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte sous 4440 confirme scénario baissier",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "inconnu",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Analyse multi-timeframe avec une dominante sur XAUUSD, montre une structure en range marqué par des hauts et bas relativement égaux.  \n- Attention aux zones de support/résistance clés autour de 4480-4500 et 4580-4600 pour la tenue ou cassure.  \n- Scénarios à court terme favorisent un retracement ou consolidation avant une possible poussée haussière ou reprise baissière selon invalidation.\n\nB) Chart 1 (haut-gauche):  \n- Symbole: XAUUSD, timeframe 1h  \n- Tendance: Neutre à court terme, oscillation dans un canal horizontal.  \n- Structure: Séries de HH/HL suivies de LH/LL, structure en range latéral.  \n- Supports: Zone 4440-4470 à surveiller, zone de rebond récente.  \n- Résistances: 4500 puis 4590 comme zones de blocage.  \n- Plan: Attendre confirmation d’une cassure claire et volume pour prise de position directionnelle.  \n- Invalidation: Perte nette sous 4440 confirmerait scénario baissier.\n\nC) Chart 2 (haut-droit): inconnu (symbol/timeframe non lisible)  \n- Structure",
+  "symbols_found": [
+    "OANDA:XAUUSD"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_10-05-50",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-04_10-05-40.png"
+  }
+}

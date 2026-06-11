@@ -1,0 +1,35 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_051032_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-11T01:10:30-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_01-10-23",
+  "signals": [
+    {
+      "type": "analysis_note",
+      "value": "chercher achat en pullback sur support",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "perte durable sous 60 400",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme haussière amorcée après un creux marqué vers 60 400 USDT.  \n- Structure montrant un schéma HL (Higher Lows) depuis ce point bas, confirmant un retournement potentiel.  \n- Zones clés identifiées : support vers 60 400-60 800 USDT, résistance immédiate autour de 62 800 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLa paire BTCUSDT.P sur 15m montre un retournement haussier après une forte chute. La structure passe d'un LL (Lower Low) à une série de HL, signal d’un début de reprise. Le prix a franchi une résistance locale vers 62 200 USDT et teste actuellement une résistance plus haute à 62 800 USDT. Volume en hausse lors des dernières bougies haussières, confirmant une dynamique acheteuse. Scénario bullish privilégié sous réserve que le support des 60 400 USDT tienne. Invalidation du scénario haussier si le prix repasse durablement sous ce niveau clé.  \n\nC) DeskPro  \n{\"run_id\":\"20240611_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_01-10-23",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-11_01-10-11.png"
+  }
+}

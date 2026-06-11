@@ -1,0 +1,29 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260603_190223_BTCUSDT.P_H1",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "H1",
+  "analysis_ts": "2026-06-03T15:02:19-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-03_15-02-09",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 4430.0,
+      "confidence": 0.7,
+      "note": "s 4,430"
+    }
+  ],
+  "analysis_summary": "A) Résumé global:  \n- Le dashboard présente principalement des tendances baissières avec des rebonds ponctuels.  \n- Structures caractérisées par des Lower Highs (LH) et Lower Lows (LL) sur la majorité des graphiques.  \n- Zones de support et résistance identifiées, avec des points d'invalidation clairs pour ajuster les scénarios.\n\nB) Chart 1 (haut-gauche):  \nSymbole: XAUUSD, timeframe: 1h  \nTendance: baissière claire, avec une chute visuelle suivie de tentatives de rebond incomplètes.  \nStructure: succession de Lower Highs (LH) et Lower Lows (LL).  \nSupports: vers 4,430 USD, zone clé à surveiller pour rebond potentiel.  \nRésistances: proche de 4,460-4,470 USD, zone de rejet précédente.  \nScénario: poursuivre la baisse tant que la résistance tient, chercher un signal d'achat autour du support si le prix montre une structure de retournement (ex: HH et HL).  \nInvalidation: franchissement durable au-dessus de 4,470 USD invaliderait la pression vendeuse dominante.\n\nC) Chart 2 (haut-droit):  ",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-03_15-02-09",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-03_15-01-57.png"
+  }
+}

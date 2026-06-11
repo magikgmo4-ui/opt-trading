@@ -1,0 +1,22 @@
+{
+  "input_class": "telegram_signal.v1",
+  "contract": "telegram_signal.v1",
+  "id": "tg_14996_20260611T083009",
+  "source": "telegram_screener_bridge",
+  "signal_type": "trade",
+  "channel": "robertcroakgoldsignals",
+  "channel_priority": "P1",
+  "channel_type": "xau_signal",
+  "parsed_at": "2026-06-10T10:00:17+00:00",
+  "produced_at": "2026-06-11T08:30:09.049436+00:00",
+  "pair": "XAU/USD",
+  "direction": "SHORT",
+  "entry_price": 4166.5,
+  "sl": 4174.5,
+  "tp": 40.0,
+  "tps": [],
+  "leverage": null,
+  "confidence": "LOW",
+  "raw_text": "SELL GOLD NOW@4166.5 - 4170.5\n\nSl : 4174.5\n\nTp : 40/100 Pips\n\nUse proper money management and never rush your entries \u203c\ufe0f",
+  "summary": "XAUUSD SHORT"
+}

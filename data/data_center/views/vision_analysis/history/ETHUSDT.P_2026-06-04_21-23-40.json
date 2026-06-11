@@ -1,0 +1,47 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260605_012350_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T21:23:47-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_21-23-40",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1725.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1800.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Vente sur rebond vers 1800 avec stop au-delà de 1820 et prise de profit vers 1720. En cas de cassure 1725, continuer la vente.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair et maintenu au-dessus de 1800",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 1h avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure focalisée sur la poursuite de la pression vendeuse, sans signe de retournement visible.\n- Zones clés identifiées proches de 1800 USDT en résistance et 1725 USDT en support intermédiaire.\n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre une tendance baissière bien établie. La structure est composée de Lower Highs et Lower Lows consécutifs, confirmant la domination vendeuse. Le prix évolue en dessous de la zone de résistance vers 1800 USDT, actuellement testée sans franchissement. Le support principal est localisé autour de 1725 USDT. Le scénario privilégié est la continuation de la baisse si le support est cassé, avec un risque de rebond technique si 1725 USDT tient. L'invalidation d'une poursuite baissière se ferait par un franchissement durable au-dessus des 1800 USDT.\n\nC) DeskPro  \n{\"run_id\":\"20240605_01\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish\",\"structu",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_21-23-40",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-04_21-23-32.png"
+  }
+}

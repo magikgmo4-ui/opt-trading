@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260607_023708_XRPUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "XRPUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-06T22:37:06-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_22-37-01",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1.06,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1.08,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.11,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.115,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1.13,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Acheter sur maintien des HL avec cible 1.115 puis 1.130. Vendre ou rester neutre si cassure 1.080.",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Clair sous 1.080, retour baissier probable",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale 15m baissière avec séquences de HH/HL en construction récente, signalant une potentielle reprise.  \n- Structure récente montre un double bottom partiel avant cassure haussière vers 1.110-1.115, zone de résistance proche.  \n- Scénario actionnable: surveiller tenue des HL, invalidation sous 1.080 pour retour baissier.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nTendance dominante baissière marquée par des LH et LL sur la majeure partie du graphique. La structure évolue avec des HL récents qui marquent une possible inversion ou pullback haussier. Zone support clé proche de 1.060 (plus bas récent). Résistance immédiate autour de 1.110-1.115 où le prix lutte actuellement. En cas de franchissement confirmé, extension possible vers 1.130. Invalidation à envisager sous 1.080 qui ramènerait le biais baissier au devant.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HH/HL récent après phase baissière\",\"supports\":[",
+  "symbols_found": [
+    "XRPUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_22-37-01",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-06_22-36-51.png"
+  }
+}

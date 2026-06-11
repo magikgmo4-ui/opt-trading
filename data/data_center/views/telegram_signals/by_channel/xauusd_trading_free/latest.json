@@ -1,0 +1,88 @@
+{
+  "input_class": "telegram_signals.by_channel.v1",
+  "channel": "xauusd_trading_free",
+  "total": 8,
+  "signals": [
+    {
+      "id": "tg_996_20260611T100009",
+      "pair": "GBPJPY",
+      "direction": "SHORT",
+      "entry_price": 214.528,
+      "sl": 214.94,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T09:03:29+00:00"
+    },
+    {
+      "id": "tg_992_20260611T100009",
+      "pair": "GBPUSD",
+      "direction": "SHORT",
+      "entry_price": null,
+      "sl": 1.3425,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:52:12+00:00"
+    },
+    {
+      "id": "tg_988_20260611T100009",
+      "pair": "USDJPY",
+      "direction": "LONG",
+      "entry_price": 160.579,
+      "sl": 160.438,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:34:54+00:00"
+    },
+    {
+      "id": "tg_987_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4078.0,
+      "sl": 4045.0,
+      "tp": 4084.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T06:10:37+00:00"
+    },
+    {
+      "id": "tg_984_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4080.0,
+      "sl": null,
+      "tp": 4085.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T04:15:46+00:00"
+    },
+    {
+      "id": "tg_972_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4148.0,
+      "sl": 4138.0,
+      "tp": 4158.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:31:34+00:00"
+    },
+    {
+      "id": "tg_971_20260611T100009",
+      "pair": "XAU/USD",
+      "direction": "LONG",
+      "entry_price": 4158.0,
+      "sl": 4130.0,
+      "tp": 4162.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T13:00:48+00:00"
+    },
+    {
+      "id": "tg_969_20260611T100009",
+      "pair": "EURUSD",
+      "direction": "SHORT",
+      "entry_price": 1.15378,
+      "sl": 1.15597,
+      "tp": 1.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-10T11:55:38+00:00"
+    }
+  ],
+  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+}

@@ -1,0 +1,89 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_101633_BTCUSDT.P_1h",
+  "screen_type": "DASHBOARD_MACRO",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T06:16:29-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-16-20",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 60000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 62000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "short sous 60000, pullback possible",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "break 64000 avec volume",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "confirmation rebond avant short",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "remontée durable résistance",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "scalp/swing baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "rebond fort support",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "attentiste consolidation ou continuation baisse",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour au-dessus hauts derniers",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance principale clairement baissière sur la majorité des graphiques.  \n- Structures de marché dominées par des Lower Highs (LH) et Lower Lows (LL), signalant un bearish strong trend.  \n- Zones clés de support vers 60 000 et résistance vers 62 000–64 000, à surveiller pour des scénarios de rebond ou continuation.\n\nB) Chart 1 (haut-gauche) :  \nGraphique BTC/USDT 1h inconnu (Binance affiché, timeframe 1h)  \nTendance nette baissière avec une série de Lower Highs et Lower Lows.  \nStructure présente un retracement en cours, active comme un potentiel pullback en tendance.  \nSupports clés autour de 60 000, zone testée plusieurs fois.  \nRésistances notables entre 62 000 et 64 000, où la baisse reprend souvent.  \nScénario prioritaire : continuation de la baisse sous 60 000.  \nInvalidation si break clair au-dessus 64 000 avec volumes.  \n\nC) Chart 2 (haut-droit) :  \nSymbole/timeframe non lisible, tendance baissière présumée.  \nStructure avec derniers points de retournement",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-16-20",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-06_06-16-12.png"
+  }
+}

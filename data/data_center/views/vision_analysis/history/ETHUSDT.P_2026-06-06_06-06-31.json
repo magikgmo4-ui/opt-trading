@@ -1,0 +1,65 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260606_100640_ETHUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "ETHUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-06T06:06:38-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-06_06-06-31",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 1520.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "support_level",
+      "value": 1550.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1600.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1620.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 1670.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Surveiller rebond potentiel sur support 1520-1550, envisager short sur échec résistance 1600-1620, prise de profit partielle avant 1520",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "Franchissement clair des 1670",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance baissière nette confirmée par une série de plus bas (LL) et bas plus bas (LH).\n- Structure clairement en déclin avec plusieurs impulsions baissières fortes.\n- Zone de support clé autour de 1520-1550, résistance immédiate vers 1600-1620.\n\nB) Chart unique (ETHUSDT.P 1h): Le graph montre une tendance baissière marquée avec une succession de lower highs et lower lows. Après un sommet proche de 2125, l'ETH a enchaîné les phases de baisse avec des breaks de supports intermédiaires. Le prix teste actuellement une zone de support vers 1520-1550, ce qui constitue un niveau clé à surveiller. Un rebond technique est possible à court terme, mais tant que la résistance vers 1600-1620 ne sera pas franchie, la pression vendeuse reste dominante. Scénario d'attente d'une reprise haussière viable à la cassure de ce dernier point. Invalidation en cas de franchissement clair des plus hauts récents environ 1670.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissi",
+  "symbols_found": [
+    "ETHUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-06_06-06-31",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-06_06-06-21.png"
+  }
+}

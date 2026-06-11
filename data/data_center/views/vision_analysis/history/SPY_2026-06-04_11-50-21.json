@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260604_155030_SPY_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "SPY",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-04T11:50:27-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-04_11-50-21",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 750.0,
+      "confidence": 0.7,
+      "note": "support 750"
+    },
+    {
+      "type": "support_level",
+      "value": 750.0,
+      "confidence": 0.7,
+      "note": "s 750."
+    },
+    {
+      "type": "support_level",
+      "value": 750.0,
+      "confidence": 0.7,
+      "note": "s 750,"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.7,
+      "note": "résistance à 760"
+    },
+    {
+      "type": "resistance_level",
+      "value": 760.0,
+      "confidence": 0.7,
+      "note": "résistance 760"
+    }
+  ],
+  "analysis_summary": "A) Résumé global\n- Tendance haussière claire avec une succession de HH/HL sur le timeframe 1h.\n- Structure solide, pullbacks well contained sans rupture majeure des supports.\n- Zone clé de support identifiée autour de 750, résistance majeure proche de 760-762.\n\nB) Chart unique (SPY 1h):\nLe SPY évolue en tendance haussière depuis plusieurs semaines, marquée par une alternance de hauts plus hauts (HH) et bas plus hauts (HL). La structure indique un contrôle acheteur solide malgré quelques corrections intermédiaires. Le dernier rebond depuis le support 750 montre un possible nouveau test de la résistance à 760-762. Une invalidation du scénario haussier se produirait sous les 750. Pour le moment, le bias reste haussier, avec opportunité de swing longs sur pullbacks vers le support clé.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[750],\"resistances\":[760,762],\"plan\":\"rester long sur pullbacks vers 750, viser résistance 760-762\",\"in",
+  "symbols_found": [
+    "SPY"
+  ],
+  "refs": {
+    "summary_json": "2026-06-04_11-50-21",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-04_11-50-10.png"
+  }
+}

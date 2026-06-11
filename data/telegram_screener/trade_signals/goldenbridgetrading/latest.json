@@ -1,0 +1,19 @@
+[
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_goldenbridgetrading_12_2020-01-02T11:55:12+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "goldenbridgetrading",
+    "parsed_at": "2020-01-02T11:55:12+00:00",
+    "produced_at": "2026-06-06T11:30:56.272508+00:00",
+    "pair": "NZDUSDUSDT",
+    "asset": "NZDUSD",
+    "direction": "SHORT",
+    "entry_price": null,
+    "sl": 0.67393,
+    "tp": null,
+    "tps": [],
+    "leverage": null,
+    "raw_text": "SIGNAL \n\nsell NZDUSD at 0.6703\n\nSL: 0.67393\n\nTP: 0.66692"
+  }
+]

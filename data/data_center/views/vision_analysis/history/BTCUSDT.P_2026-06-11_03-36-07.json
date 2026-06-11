@@ -1,0 +1,53 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260611_073615_BTCUSDT.P_1h",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "1h",
+  "analysis_ts": "2026-06-11T03:36:13-04:00",
+  "source_module": "bot_vision_step2",
+  "source_module_version": "1.0.0",
+  "freshness_state": "fresh",
+  "capture_status": "ready",
+  "run_id": "2026-06-11_03-36-07",
+  "signals": [
+    {
+      "type": "support_level",
+      "value": 59000.0,
+      "confidence": 0.75,
+      "note": "support_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 63000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "resistance_level",
+      "value": 64000.0,
+      "confidence": 0.75,
+      "note": "resistance_level from DeskPro chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "achat en cassure des résistances avec stop sous 59,000",
+      "confidence": 0.6,
+      "note": "plan from chart analysis"
+    },
+    {
+      "type": "analysis_note",
+      "value": "retour sous 59,000",
+      "confidence": 0.6,
+      "note": "invalidation from chart analysis"
+    }
+  ],
+  "analysis_summary": "A) Résumé global  \n- Tendance court terme: correction haussière après un fort mouvement baissier.  \n- Structure: série de HL (Higher Lows) et HH (Higher Highs) sur les dernières bougies suit un bas récent, confirmant un rebond local.  \n- Zones clés détectées: support majeur autour des 59 000-60 000 USDT, résistance à valider vers 64 000 USDT.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une nette tendance baissière principale, avec de forts LL (Lower Lows) et LH (Lower Highs) avant le 5. Après un creux proche de 59 000, un rebond a initié une série de HL/HH formant une structure haussière locale. Le prix teste actuellement une résistance à 63 000 - 64 000 USDT. Un franchissement clair de cette zone validerait la poursuite du rebond. Invalidation sous 59 000 confirmerait la reprise de la tendance baissière principale.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"transition HL/HH après LL/LH\",\"supports\":[\"59,000\"],\"resistances\":",
+  "symbols_found": [
+    "BTCUSDT.P"
+  ],
+  "refs": {
+    "summary_json": "2026-06-11_03-36-07",
+    "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_03-35-56.png"
+  }
+}
