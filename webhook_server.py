@@ -423,6 +423,30 @@ def metrics(window_min: int = 60, limit: int = 50, inactivity_sec: int = INACTIV
     }
 
 # -------------------- Webhook --------------------
+def _parse_tv_body(raw: bytes) -> Dict[str, Any]:
+    """
+    Try standard JSON first; fall back to lax JS-object-literal.
+    TradingView strips double-quotes from alert messages before storage, so the
+    webhook body may arrive as {key: val, key2: val2} instead of proper JSON.
+    """
+    import re as _re
+    text = raw.decode("utf-8", errors="replace").strip()
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    # Lax: strip outer braces, split on ", identifier:" boundaries
+    inner = text.lstrip("{").rstrip("}")
+    pairs = _re.split(r",\s*(?=[a-zA-Z_][a-zA-Z0-9_]*\s*:)", inner)
+    result: Dict[str, Any] = {}
+    for pair in pairs:
+        k, sep, v = pair.partition(":")
+        if not sep:
+            continue
+        result[k.strip()] = v.strip()
+    return result
+
+
 def require_key(payload: Dict[str, Any], client_ip: str | None) -> None:
     """Security:
     - If TV_WEBHOOK_KEY is set: require payload['key'] and compare in constant-time.
@@ -616,9 +640,9 @@ async def tv_spacex(req: Request):
     Observer-only endpoint for TradingView SpaceX desk alerts.
     No trade/risk engine — validates key, persists event, fires collect_once.
     """
-    payload = await req.json()
+    payload = _parse_tv_body(await req.body())
     if not isinstance(payload, dict):
-        raise HTTPException(status_code=400, detail="JSON must be object")
+        raise HTTPException(status_code=400, detail="body must be a JSON/JS object")
 
     require_key(payload, req.client.host if req.client else None)
 

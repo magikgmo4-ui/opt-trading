@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-12T10:00:01.911411+00:00",
+  "generated_at": "2026-06-12T17:30:01.246951+00:00",
   "git": {
-    "branch": "go/GO_SECURITY_P1_UNKNOWN_VERIFY_ROTATE_01",
-    "commit": "88f8d16f"
+    "branch": "sot/mainline",
+    "commit": "45b45e83"
   },
   "menu_loaded": true,
   "menu_domains": 14,
@@ -11,11 +11,11 @@
   "health_status": null,
   "ledger": {
     "exists": true,
-    "event_count": 98,
+    "event_count": 78,
     "last_event": {
       "event_type": "heartbeat",
       "status": "PASS",
-      "timestamp": "2026-06-12T10:00:01.906056+00:00"
+      "timestamp": "2026-06-12T17:15:01.661561+00:00"
     }
   },
   "tmux": {
