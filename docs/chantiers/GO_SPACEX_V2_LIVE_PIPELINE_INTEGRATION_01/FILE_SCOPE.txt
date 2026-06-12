@@ -1,0 +1,5 @@
+docs/chantiers/GO_SPACEX_V2_LIVE_PIPELINE_INTEGRATION_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_SPACEX_V2_LIVE_PIPELINE_INTEGRATION_01/FILE_SCOPE.txt
+modules/spcx_v2/pipeline_adapter.py
+scripts/ipo/spacex_collect_and_detect.sh
+tests/test_spcx_v2_pipeline_integration.py
