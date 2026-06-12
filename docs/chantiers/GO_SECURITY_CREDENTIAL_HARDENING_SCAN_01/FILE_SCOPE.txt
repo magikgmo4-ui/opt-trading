@@ -1,0 +1,10 @@
+docs/chantiers/GO_SECURITY_CREDENTIAL_HARDENING_SCAN_01/FILE_SCOPE.txt
+docs/chantiers/GO_SECURITY_CREDENTIAL_HARDENING_SCAN_01/00_INITIAL_PROJECT_DOC.md
+configs/env/registry/machines.yaml
+reports/security/credential_hardening_summary_20260611.json
+reports/security/credential_permissions_fleet_20260611.txt
+reports/security/credential_permissions_fleet_post_20260611.txt
+reports/security/credential_permissions_local_20260611.txt
+reports/security/credential_static_grep_20260611.txt
+reports/security/gitleaks_history_20260611.json
+reports/security/least_privilege_audit_20260611.md
