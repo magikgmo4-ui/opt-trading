@@ -169,12 +169,36 @@ def compute_scores(snapshot: MarketSnapshot, matches: list[SetupMatch]) -> Score
     risk = min(risk, 100)
 
     smc_count = sum(1 for m in matches if m.category == "smc")
-    if smc_count >= 2:
-        smart_money += 30
+    if smc_count >= 3:
+        smart_money += 35
+    elif smc_count >= 2:
+        smart_money += 25
     elif smc_count == 1:
         smart_money += 15
-    if snapshot.vwap is not None and snapshot.price > snapshot.vwap:
+
+    # SMC structure bonuses from snapshot
+    has_bos = any("BOS" in s.get("type", "") for s in snapshot.smc_structures)
+    has_choch = any("CHOCH" in s.get("type", "") for s in snapshot.smc_structures)
+    has_fvg_bull = any("FVG_BULLISH" in s.get("type", "") for s in snapshot.smc_structures)
+    has_fvg_bear = any("FVG_BEARISH" in s.get("type", "") for s in snapshot.smc_structures)
+    has_sweep = any("LIQUIDITY_SWEEP" in s.get("type", "") for s in snapshot.smc_structures)
+
+    if has_bos:
         smart_money += 10
+    if has_choch:
+        smart_money += 10
+    if has_fvg_bull and not has_fvg_bear:
+        smart_money += 8
+
+    # Multi-confirmation bonus
+    smc_direct = sum([has_bos, has_choch, has_fvg_bull, has_sweep])
+    if smc_direct >= 2:
+        smart_money += 5
+    if smc_direct >= 3:
+        trade_ready += 5
+
+    if snapshot.vwap is not None and snapshot.price > snapshot.vwap:
+        smart_money += 8
     smart_money = min(smart_money, 100)
 
     if snapshot.news_headline:
@@ -293,6 +317,19 @@ def detect(snapshot: MarketSnapshot) -> Optional[SetupCandidate]:
     all_reasons = []
     for g in [gate0, gate1, gate2, gate3]:
         all_reasons.extend(g.reason_codes)
+
+    # Add SMC reason codes
+    has_bos = any("BOS" in s.get("type", "") for s in snapshot.smc_structures)
+    has_choch = any("CHOCH" in s.get("type", "") for s in snapshot.smc_structures)
+    has_fvg = any("FVG" in s.get("type", "") for s in snapshot.smc_structures)
+    if has_bos:
+        all_reasons.append("SMC_BOS")
+    if has_choch:
+        all_reasons.append("SMC_CHOCH")
+    if has_fvg:
+        all_reasons.append("SMC_FVG")
+    if has_bos and has_choch:
+        all_reasons.append("SMC_MULTI_CONFIRM")
 
     return SetupCandidate(
         symbol=snapshot.symbol,
