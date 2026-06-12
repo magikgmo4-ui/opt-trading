@@ -63,14 +63,26 @@ function ExecJob($job) {
         }
         "alert.list" { Tv alert list }
         "alert.create" {
-            $flags = @("-c", (Coalesce $params.condition "crossing"))
-            if ($params.price)   { $flags += @("-p", "$($params.price)") }
+            # Build individual args — pass via --arg=value form to avoid PowerShell quote-mangling
+            $argList = @(
+                $TV_CLI,
+                "alert", "create",
+                "--condition", (Coalesce $params.condition "greater_than")
+            )
+            if ($null -ne $params.price -and $params.price -ne '') {
+                $argList += @("--price", "$($params.price)")
+            }
             if ($params.message) {
                 $msg = if ($params.message -is [string]) { $params.message }
                        else { $params.message | ConvertTo-Json -Compress }
-                $flags += @("-m", $msg)
+                $argList += @("--message", $msg)
             }
-            Tv alert create @flags
+            if ($params.webhook_url) { $argList += @("--webhook", "$($params.webhook_url)") }
+            if ($params.name)        { $argList += @("--name",    "$($params.name)") }
+            if ($params.frequency)   { $argList += @("--frequency", "$($params.frequency)") }
+            $raw = & node @argList 2>&1 | Out-String
+            try   { $raw | ConvertFrom-Json }
+            catch { @{success=$false; error="json_parse_failed"; raw=$raw.Trim()} }
         }
         "alert.delete" {
             Tv alert delete "--id" $params.alert_id

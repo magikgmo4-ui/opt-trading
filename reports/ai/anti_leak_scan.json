@@ -1,7 +1,7 @@
 {
   "job_id": "anti-leak-scan",
-  "scanned_at": "2026-06-12T04:20:05.106564Z",
-  "files_scanned": 16536,
+  "scanned_at": "2026-06-12T16:20:05.321394Z",
+  "files_scanned": 16686,
   "findings_count": 58,
   "findings": [
     {
