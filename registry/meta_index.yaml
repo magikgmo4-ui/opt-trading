@@ -32,3 +32,11 @@
   scope: system
   status: active
   notes: "Command layer registry. Map les commandes globales vers les modules."
+
+- registry_name: runtime_execution_contracts
+  registry_file: registry/runtime_execution_contracts.yaml
+  purpose: "Contrats d'exécution runtime (machine / wrapper / entrypoint / garde)"
+  primary_consumer: scripts/validate_runtime_execution_contracts.py
+  scope: runtime
+  status: active
+  notes: "Source machine-readable. Vue dérivée: docs/registry/RUNTIME_EXECUTION_CONTRACTS.md"

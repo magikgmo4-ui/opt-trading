@@ -8,6 +8,8 @@ on:
       - "docs/registries/GITHUB_ACTIONS_JOBS_REGISTRY_01.yml"
       - "docs/registries/GITHUB_ACTIONS_WORKFLOWS_INVENTORY_01.yml"
       - "scripts/validate_gh_actions_registries.py"
+      - "registry/runtime_execution_contracts.yaml"
+      - "scripts/validate_runtime_execution_contracts.py"
   workflow_dispatch:
 
 permissions:
@@ -27,3 +29,5 @@ jobs:
         run: pip install PyYAML
       - name: Run validation script
         run: python3 scripts/validate_gh_actions_registries.py
+      - name: Run runtime execution contracts validation
+        run: python3 scripts/validate_runtime_execution_contracts.py
