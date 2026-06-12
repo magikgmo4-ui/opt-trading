@@ -1,0 +1,5 @@
+docs/chantiers/GO_SPACEX_V2_PROXY_IPO_BACKTEST_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_SPACEX_V2_PROXY_IPO_BACKTEST_01/FILE_SCOPE.txt
+modules/spcx_v2/proxy_backtest.py
+scripts/ipo/spacex_proxy_backtest.sh
+tests/test_spcx_v2_proxy_backtest.py
