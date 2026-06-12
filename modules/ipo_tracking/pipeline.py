@@ -12,7 +12,8 @@ from .scoring import score_snapshot
 from .normalizer import normalize_events, normalized_summary
 from .verify import validate_full_pipeline
 from .reports import write_daily_report, write_ui
-from .io import REPO_ROOT, utc_now, read_json
+from .io import REPO_ROOT, utc_now, read_json, append_jsonl, atomic_write_json
+from .enrichment import enrich_candles, enrich_from_snapshot
 
 
 def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, config_path: str | None = None) -> dict[str, Any]:
@@ -51,6 +52,16 @@ def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, conf
     vpath = write_pipeline_verification(verification, cfg)
     pipeline_result["verification"] = verification
     pipeline_result["verification_path"] = vpath
+
+    enriched = enrich_from_snapshot(snap, events)
+    enriched_path = REPO_ROOT / "data/ipo/spacex/enriched/latest.json"
+    atomic_write_json(enriched_path, enriched)
+    write_history_snapshot(
+        {"pipeline_id": pipeline_id, "enriched": enriched},
+        "enriched", "data/ipo/spacex/enriched", cfg,
+    )
+    pipeline_result["enriched_features"] = len(enriched.get("indicators", {}))
+    pipeline_result["enriched_path"] = str(enriched_path.relative_to(REPO_ROOT))
 
     report_path = write_daily_report(snap)
     ui_path = write_ui(snap)
@@ -93,6 +104,10 @@ def replay_from_raw(*, config_path: str | None = None) -> dict[str, Any]:
     verification = validate_full_pipeline(events, normalized, snap)
     write_pipeline_verification(verification, cfg)
 
+    enriched = enrich_from_snapshot(snap, events)
+    enriched_path = REPO_ROOT / "data/ipo/spacex/enriched/latest.json"
+    atomic_write_json(enriched_path, enriched)
+
     return {
         "ok": verification["ok"],
         "pipeline_id": pipeline_id,
@@ -100,6 +115,7 @@ def replay_from_raw(*, config_path: str | None = None) -> dict[str, Any]:
         "raw_events": len(events),
         "normalized_events": len(normalized),
         "scored": snap,
+        "enriched_features": len(enriched.get("indicators", {})),
         "verification": verification,
     }
 

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "spacex_super_desk.v1",
+  "type": "object",
+  "required": [
+    "input_class",
+    "symbol",
+    "scores"
+  ],
+  "properties": {
+    "input_class": {
+      "const": "spacex_super_desk.v1"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "scores": {
+      "type": "object"
+    },
+    "signals": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "spacex_enriched_candle.v1",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "symbol",
+    "timeframe",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "number"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "timeframe": {
+      "type": "string",
+      "enum": [
+        "M1",
+        "M5",
+        "M15",
+        "M30",
+        "H1",
+        "H4",
+        "D1",
+        "W1"
+      ]
+    },
+    "open": {
+      "type": "number"
+    },
+    "high": {
+      "type": "number"
+    },
+    "low": {
+      "type": "number"
+    },
+    "close": {
+      "type": "number"
+    },
+    "volume": {
+      "type": "number"
+    },
+    "vwap": {
+      "type": "number"
+    },
+    "source": {
+      "type": "string"
+    },
+    "source_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "session": {
+      "type": "string",
+      "enum": [
+        "pre_market",
+        "regular_hours",
+        "after_hours"
+      ]
+    },
+    "indicators": {
+      "$ref": "#/definitions/indicators"
+    },
+    "smart_money": {
+      "$ref": "#/definitions/smart_money"
+    },
+    "consensus": {
+      "$ref": "#/definitions/consensus"
+    },
+    "scores": {
+      "$ref": "#/definitions/scores"
+    },
+    "context": {
+      "$ref": "#/definitions/context"
+    }
+  },
+  "definitions": {
+    "indicators": {
+      "type": "object",
+      "properties": {
+        "ema_9": {
+          "type": "number"
+        },
+        "ema_20": {
+          "type": "number"
+        },
+        "ema_50": {
+          "type": "number"
+        },
+        "ema_200": {
+          "type": "number"
+        },
+        "sma_20": {
+          "type": "number"
+        },
+        "sma_50": {
+          "type": "number"
+        },
+        "sma_200": {
+          "type": "number"
+        },
+        "rsi_14": {
+          "type": "number"
+        },
+        "macd_line": {
+          "type": "number"
+        },
+        "macd_signal": {
+          "type": "number"
+        },
+        "macd_histogram": {
+          "type": "number"
+        },
+        "atr_14": {
+          "type": "number"
+        },
+        "bb_upper": {
+          "type": "number"
+        },
+        "bb_middle": {
+          "type": "number"
+        },
+        "bb_lower": {
+          "type": "number"
+        },
+        "relative_volume": {
+          "type": "number"
+        },
+        "volume_zscore": {
+          "type": "number"
+        },
+        "prev_gap_pct": {
+          "type": "number"
+        },
+        "ipo_gap_pct": {
+          "type": "number"
+        },
+        "vwap_distance_pct": {
+          "type": "number"
+        }
+      }
+    },
+    "smart_money": {
+      "type": "object",
+      "properties": {
+        "fvg_bullish": {
+          "type": "boolean"
+        },
+        "fvg_bearish": {
+          "type": "boolean"
+        },
+        "bos": {
+          "type": "boolean"
+        },
+        "choch": {
+          "type": "boolean"
+        },
+        "liquidity_sweep_high": {
+          "type": "boolean"
+        },
+        "liquidity_sweep_low": {
+          "type": "boolean"
+        },
+        "premium_discount_regime": {
+          "type": "string"
+        },
+        "smc_score": {
+          "type": "number"
+        },
+        "smc_bias": {
+          "type": "string"
+        }
+      }
+    },
+    "consensus": {
+      "type": "object",
+      "properties": {
+        "consensus_price": {
+          "type": "number"
+        },
+        "source_count": {
+          "type": "integer"
+        },
+        "trusted_source_count": {
+          "type": "integer"
+        },
+        "source_disagreement_score": {
+          "type": "number"
+        },
+        "weighted_trust_score": {
+          "type": "number"
+        }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "properties": {
+        "momentum_score": {
+          "type": "number"
+        },
+        "volatility_score": {
+          "type": "number"
+        },
+        "liquidity_score": {
+          "type": "number"
+        },
+        "news_score": {
+          "type": "number"
+        },
+        "catalyst_score": {
+          "type": "number"
+        },
+        "smart_money_score": {
+          "type": "number"
+        },
+        "trend_score": {
+          "type": "number"
+        },
+        "risk_score": {
+          "type": "number"
+        },
+        "trade_ready_score": {
+          "type": "number"
+        },
+        "accumulation_score": {
+          "type": "number"
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "news_count": {
+          "type": "integer"
+        },
+        "sec_filings_count": {
+          "type": "integer"
+        },
+        "bot_vision_available": {
+          "type": "boolean"
+        },
+        "tv_alert_active": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

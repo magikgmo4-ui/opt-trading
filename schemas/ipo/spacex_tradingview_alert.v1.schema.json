@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "spacex_tradingview_alert.v1",
+  "title": "SpaceX TradingView Alert",
+  "type": "object",
+  "required": ["symbol", "timeframe", "event", "ts"],
+  "properties": {
+    "symbol": {"type": "string"},
+    "timeframe": {"type": "string"},
+    "event": {"type": "string"},
+    "ts": {"type": "string"},
+    "price": {"type": ["number", "null"]},
+    "open": {"type": ["number", "null"]},
+    "high": {"type": ["number", "null"]},
+    "low": {"type": ["number", "null"]},
+    "close": {"type": ["number", "null"]},
+    "volume": {"type": ["number", "null"]},
+    "vwap": {"type": ["number", "null"]},
+    "atr": {"type": ["number", "null"]},
+    "rsi": {"type": ["number", "null"]},
+    "relative_volume": {"type": ["number", "null"]},
+    "fvg_bullish": {"type": ["boolean", "null"]},
+    "fvg_bearish": {"type": ["boolean", "null"]},
+    "bos": {"type": ["boolean", "null"]},
+    "choch": {"type": ["boolean", "null"]},
+    "liquidity_sweep": {"type": ["boolean", "null"]},
+    "setup": {"type": ["string", "null"]},
+    "confidence": {"type": ["number", "null"]}
+  },
+  "additionalProperties": true
+}

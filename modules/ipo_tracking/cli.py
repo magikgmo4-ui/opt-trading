@@ -21,6 +21,7 @@ from .setups import get_setup, list_setups, SETUPS, CATEGORIES
 from .accumulation import compute_accumulation_score, accumulation_summary, classify_zone
 from .scoring_engine import compute_composite_score
 from .playbook import generate_playbook
+from .enrichment import enrich_from_snapshot, CANDLE_SCHEMA, ENRICHED_CANDLE_FEATURES
 
 
 def main(argv=None) -> int:
@@ -52,6 +53,7 @@ def main(argv=None) -> int:
 
     sub.add_parser("setups")
     sub.add_parser("playbook")
+    sub.add_parser("enrich")
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -160,6 +162,12 @@ def main(argv=None) -> int:
         playbook["composite_score"] = composite
         playbook["accumulation"] = acc
         print(json.dumps(playbook, indent=2, default=str))
+        return 0
+    if args.cmd == "enrich":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        events = read_raw_events(cfg)
+        enriched = enrich_from_snapshot(snap, events)
+        print(json.dumps(enriched, indent=2, default=str))
         return 0
     if args.cmd == "accumulation":
         price = args.price
