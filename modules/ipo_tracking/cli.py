@@ -37,6 +37,7 @@ def main(argv=None) -> int:
     c = sub.add_parser("collect-once")
     c.add_argument("--offline", action="store_true")
     c.add_argument("--tradingview-json")
+    c.add_argument("--symbol", default=None)
     sub.add_parser("report")
     b = sub.add_parser("backtest-orb")
     b.add_argument("--csv", required=True)
@@ -93,9 +94,9 @@ def main(argv=None) -> int:
     args = p.parse_args(argv)
     cfg = load_config()
     if args.cmd == "smoke":
-        return smoke(cfg)
+        return smoke(cfg, symbol_override=args.symbol if hasattr(args, 'symbol') else None)
     if args.cmd == "collect-once":
-        result = run_full_pipeline(offline=args.offline, tv_json=args.tradingview_json)
+        result = run_full_pipeline(offline=args.offline, tv_json=args.tradingview_json, symbol_override=args.symbol)
         print(json.dumps(result, indent=2, default=str))
         return 0 if result.get("ok") else 1
     if args.cmd == "report":
@@ -386,8 +387,8 @@ def collect_once(cfg, offline=False, tv_json=None):
     print(json.dumps({"ok": True, "events": len(events), "snapshot": snap}, indent=2, default=str))
     return 0
 
-def smoke(cfg):
-    return collect_once(cfg, offline=True)
+def smoke(cfg, symbol_override=None):
+    return collect_once(cfg, offline=True, symbol_override=symbol_override)
 
 def _offline_quote(cfg):
     ipo = (cfg.get("asset") or {}).get("ipo_price_usd", 135)
