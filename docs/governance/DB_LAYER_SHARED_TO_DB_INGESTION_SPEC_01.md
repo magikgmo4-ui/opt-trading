@@ -134,3 +134,7 @@ Pipeline proposé côté `db-layer`, conçu pour être compatible avec l’état
 - [admin_trading_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md)
 - [shared README](file:///c:/Users/ghost/opt-trading/modules/shared/README.md)
 - [shared_sshfs_permanent README](file:///c:/Users/ghost/opt-trading/modules/shared_sshfs_permanent/README.md)
+
+## RISKS
+
+- À qualifier.

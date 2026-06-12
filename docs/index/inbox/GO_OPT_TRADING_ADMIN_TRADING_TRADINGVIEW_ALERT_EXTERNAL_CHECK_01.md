@@ -53,3 +53,7 @@ Non — aucun changement runtime, aucun POST, aucun ordre.
 ## Dossier
 
 `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_TRADINGVIEW_ALERT_EXTERNAL_CHECK_01/`
+
+## RISKS
+
+- À qualifier.

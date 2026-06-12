@@ -56,3 +56,7 @@
 - ClickUp deplace vers fantome.
 - Admin-trading non ouvert.
 - Machine cursor-ai toujours operationnelle.
+
+## RISKS
+
+- À qualifier.

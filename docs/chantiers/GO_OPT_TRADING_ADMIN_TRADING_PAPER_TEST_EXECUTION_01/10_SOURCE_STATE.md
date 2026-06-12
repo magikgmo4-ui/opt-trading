@@ -63,3 +63,7 @@ git diff --name-status 589be4c...HEAD -- webhook_server.py modules/execution_eng
 ## Decision
 
 Le worktree cible etait propre, mais pas sur la branche GO d'execution ni sur `sot/mainline` a `589be4ce`. Ce point seul n'aurait pas forcement bloque le test, car les surfaces runtime pertinentes etaient identiques. Les guards absents et le runtime guard FAIL ont bloque l'envoi du payload.
+
+## RISKS
+
+- À qualifier.

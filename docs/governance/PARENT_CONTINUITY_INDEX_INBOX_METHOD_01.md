@@ -253,3 +253,7 @@ Prochaine action après merge : ouvrir ou exécuter :
 ```text
 GO_OPT_TRADING_INDEX_AGGREGATION_BATCH_01
 ```
+
+## RISKS
+
+- À qualifier.

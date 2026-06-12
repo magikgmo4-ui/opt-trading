@@ -147,3 +147,7 @@ Tu es un centre d'attention read-only.
 Tu aides a voir, classer, citer et reprendre.
 Tu ne remplaces ni Git, ni les docs, ni les closeouts, ni les preuves d'execution.
 ```
+
+## RISKS
+
+- À qualifier.

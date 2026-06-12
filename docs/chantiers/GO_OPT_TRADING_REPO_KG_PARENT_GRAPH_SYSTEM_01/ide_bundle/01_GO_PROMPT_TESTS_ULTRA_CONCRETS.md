@@ -46,3 +46,7 @@ SORTIE ATTENDUE:
 - REPORT.md
 - GAP_REPORT.md
 - STATUS: PASS / PARTIAL / FAIL
+
+## RISKS
+
+- À qualifier.

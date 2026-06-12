@@ -31,3 +31,7 @@ Matrice de correspondance modèle ↔ type de tâche.
 - **Si format exact exigé** : ne pas utiliser l'agent local, passer par un appel direct Ollama avec prompt contrôlé
 - **Si raisonnement nécessaire** : envisager deepseek-r1:1.5b via direct Ollama (pas agent chain)
 - **Si trading** : REFUS — ce runtime n'est pas dimensionné pour ça
+
+## RISKS
+
+- À qualifier.

@@ -55,3 +55,7 @@ PASS
 - 4 modules ciblés pour archivage
 - 8 GO de consolidation identifiés et priorisés
 - Premier GO recommandé : CONSOLIDATION_STRATEGY_CLUSTER_01
+
+## RISKS
+
+- À qualifier.

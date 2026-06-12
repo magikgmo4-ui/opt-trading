@@ -35,3 +35,7 @@ Entree courte d indexation pour la specification de l adapter Botpress ↔ OpenC
 ## Prochain GO
 
 `GO_TRADING_BOTPRESS_OPENCLAW_ADAPTER_IMPL_01`
+
+## RISKS
+
+- À qualifier.

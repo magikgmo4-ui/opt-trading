@@ -128,3 +128,7 @@ Future implementation must report the exact field path for missing or invalid fi
 ## 19_TO_REMEMBER
 
 Schema completeness is necessary but never sufficient for policy approval.
+
+## RISKS
+
+- À qualifier.

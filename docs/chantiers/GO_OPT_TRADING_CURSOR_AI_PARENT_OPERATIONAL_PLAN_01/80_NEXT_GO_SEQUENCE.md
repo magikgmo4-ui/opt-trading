@@ -48,3 +48,7 @@ Ordre recommande des prochains GO cursor-ai apres merge du present plan parent.
 - Ne pas ouvrir admin-trading avant la spec gate (GO #3).
 - Ne pas inverser l'ordre sans arbitrage.
 - Ne pas sauter de GO sans decision documentee.
+
+## RISKS
+
+- À qualifier.

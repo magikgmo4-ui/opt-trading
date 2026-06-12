@@ -30,3 +30,7 @@ Dans `engine.py`, méthode `PropositionEngine.propose()`, après l'initialisatio
 - Le `strategy_id` est disponible via `request.signal.strategy_id`.
 - La validation n'interfère pas avec les appels aux engines ni la construction du prompt.
 - Warning log seulement, pas de modification du flux.
+
+## RISKS
+
+- À qualifier.

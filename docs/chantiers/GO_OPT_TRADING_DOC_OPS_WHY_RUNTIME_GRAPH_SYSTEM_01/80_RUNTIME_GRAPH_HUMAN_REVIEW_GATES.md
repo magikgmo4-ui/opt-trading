@@ -32,3 +32,7 @@ Relier les gates humaines au WHY runtime graph.
 ## Invariant
 
 Le graphe ne doit jamais transformer une gate humaine en validation runtime autonome.
+
+## RISKS
+
+- À qualifier.

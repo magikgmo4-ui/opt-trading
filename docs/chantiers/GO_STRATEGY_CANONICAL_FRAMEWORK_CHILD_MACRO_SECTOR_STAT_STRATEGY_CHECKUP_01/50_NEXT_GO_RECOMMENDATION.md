@@ -33,3 +33,7 @@ Après ce checkup, la voie est libre pour `modules/strategy/`.
 
 **PASS_MACRO_SECTOR_STAT_STRATEGY_CHECKUP_DOC_ONLY** — 0 entrée registry ajoutée.
 modules/strategy/ peut être ouvert.
+
+## RISKS
+
+- À qualifier.

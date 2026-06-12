@@ -34,3 +34,7 @@ Integrer la governance multi-machine dans le futur worker WHY.
 ## Invariant
 
 Le worker WHY ne doit jamais inferer une topologie multi-machine sans preuve documentaire explicite.
+
+## RISKS
+
+- À qualifier.

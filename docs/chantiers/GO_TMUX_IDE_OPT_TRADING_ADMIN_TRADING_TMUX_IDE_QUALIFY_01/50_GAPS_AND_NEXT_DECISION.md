@@ -78,3 +78,7 @@ Prérequis confirmés avant ouverture :
 4. [THIS] GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_TMUX_IDE_QUALIFY_01   — qualification tmux-ide/ide.yml
 5. [NEXT] GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_TMUX_IDE_INSTALL_01   — install + doctor + validate
 ```
+
+## RISKS
+
+- À qualifier.

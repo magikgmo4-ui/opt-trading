@@ -115,3 +115,7 @@ Les exigences imposent un dry-run read-only, ephemeral et stoppable.
 NEXT:
 Lire 20_OPERATOR_WORKFLOW_MINIMAL.md pour le workflow concret.
 ```
+
+## RISKS
+
+- À qualifier.

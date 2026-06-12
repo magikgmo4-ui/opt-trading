@@ -59,3 +59,7 @@ Produire un inventaire borne et classe des ecarts de nommage pour :
 
 ## Next GO
 - `GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01`
+
+## RISKS
+
+- À qualifier.

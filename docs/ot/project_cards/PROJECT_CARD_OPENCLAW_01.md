@@ -154,3 +154,7 @@ Point de reprise chantier logique:
 
 Utile seulement sur demande explicite:
 - pour OpenClaw, la force actuelle du repo est la bonne borne du périmètre réel; la lacune restante est surtout la feuille de route compacte de maturité, pas la définition du projet cible.
+
+## RISKS
+
+- À qualifier.

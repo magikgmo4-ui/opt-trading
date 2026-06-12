@@ -56,3 +56,7 @@ Suite recommandée immédiate : ouvrir une passe **REALTIME closeout** pour ferm
 
 ## FORMULE COURTE
 Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/` et `modules/trading_realtime_v1/`, et ouvrir la passe REALTIME closeout pour fermer proprement la chaîne minimale.
+
+## RISKS
+
+- À qualifier.

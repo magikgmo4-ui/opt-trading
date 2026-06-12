@@ -121,3 +121,7 @@ But recommande:
 - observer une fenetre de stabilite PAPER (multi-runs horodates)
 - consolider indicateurs de variance/fiabilite
 - rester strictement hors live et hors write-gated trading
+
+## RISKS
+
+- À qualifier.

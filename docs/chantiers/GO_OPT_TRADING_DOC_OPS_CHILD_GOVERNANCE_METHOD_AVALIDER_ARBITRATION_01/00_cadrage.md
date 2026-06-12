@@ -89,3 +89,7 @@ Ne pas faire :
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GOVERNANCE_METHOD_AVALIDER_ARBITRATION_01/02_final_assignment.md`
+
+## RISKS
+
+- À qualifier.

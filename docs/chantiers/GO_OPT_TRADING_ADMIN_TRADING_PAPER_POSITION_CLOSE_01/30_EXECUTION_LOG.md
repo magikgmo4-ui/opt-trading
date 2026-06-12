@@ -47,3 +47,7 @@ Removed successfully. Remaining: `['BTCUSDT', 'PERFTEST1', 'PERFTEST2']`
 | PERFTEST1 | BUY 10.0 @ 50000.0 OPEN (unchanged) |
 | PERFTEST2 | SELL 10.0 @ 49500.0 OPEN (unchanged) |
 | Guards | ok: true |
+
+## RISKS
+
+- À qualifier.

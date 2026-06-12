@@ -56,3 +56,7 @@ Prochaine étape :
 - Puis créer modules/strategy/ si modèle stabilisé
 - Puis ajouter nouvelles stratégies candidates
 ```
+
+## RISKS
+
+- À qualifier.

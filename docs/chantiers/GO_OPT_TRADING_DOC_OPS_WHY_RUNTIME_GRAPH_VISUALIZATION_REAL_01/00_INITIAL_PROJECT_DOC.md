@@ -65,3 +65,7 @@ Aucune visualisation executable n'est creee dans cette phase.
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_VISUALIZATION_REAL_01` pour cadrer la visualisation reelle du WHY runtime graph avant implementation.
+
+## RISKS
+
+- À qualifier.

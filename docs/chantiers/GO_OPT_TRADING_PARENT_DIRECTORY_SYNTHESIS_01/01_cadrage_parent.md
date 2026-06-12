@@ -168,3 +168,7 @@ Point de reprise recommande :
 
 Sequence :
 synthese top-level -> Bloc A -> Bloc B -> Bloc C -> Bloc D -> recap parent ou closeout
+
+## RISKS
+
+- À qualifier.

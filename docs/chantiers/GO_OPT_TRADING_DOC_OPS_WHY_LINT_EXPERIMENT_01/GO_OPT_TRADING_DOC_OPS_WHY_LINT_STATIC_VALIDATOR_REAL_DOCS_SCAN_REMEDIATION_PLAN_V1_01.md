@@ -195,3 +195,7 @@ Memory Bricks candidats :
 ## Recommended next GO
 GO_OPT_TRADING_DOC_OPS_WHY_LINT_REAL_GAPS_FIX_PLAN_V1_01
 Objectif : Planifier uniquement les corrections des vrais gaps documentaires.
+
+## RISKS
+
+- À qualifier.

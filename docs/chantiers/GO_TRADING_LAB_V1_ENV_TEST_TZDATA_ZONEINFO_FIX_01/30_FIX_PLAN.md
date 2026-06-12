@@ -14,3 +14,7 @@ doc_type: fix_plan
    - `modules/trading_lab_v1/tests/test_strategy_id_adapter_readonly.py`
    - `python tools/strategy/validate_strategy_registry.py`
 4. Verifier qu'aucune logique `trading_lab_v1` n'a ete modifiee.
+
+## RISKS
+
+- À qualifier.

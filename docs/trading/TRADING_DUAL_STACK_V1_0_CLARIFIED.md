@@ -314,3 +314,7 @@ Après validation documentaire V1.0 :
 - cadrer le premier couple LAB / REALTIME sur Gold / Session / FVG
 
 END_OF_DOCUMENT
+
+## RISKS
+
+- À qualifier.

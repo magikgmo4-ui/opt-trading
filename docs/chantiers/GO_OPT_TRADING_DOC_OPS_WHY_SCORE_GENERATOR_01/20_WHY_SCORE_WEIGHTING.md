@@ -27,3 +27,7 @@ Les surfaces critiques doivent:
 ## Invariant
 
 Les ponderations doivent rester explicables et auditables.
+
+## RISKS
+
+- À qualifier.

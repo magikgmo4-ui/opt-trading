@@ -238,3 +238,7 @@ Document:
 ## 19_TO_REMEMBER
 
 The validator is a static preflight tool. It does not approve gates and does not authorize runtime policy use.
+
+## RISKS
+
+- À qualifier.

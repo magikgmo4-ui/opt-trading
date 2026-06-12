@@ -128,3 +128,7 @@ Cadre documente pour unifier LAB et REALTIME autour d'un noyau commun.
 ## Source canonique
 
 - `docs/governance/TRADING_DUAL_STACK_CANONICAL_PRODUCT_SYNTH_01.md`
+
+## RISKS
+
+- À qualifier.

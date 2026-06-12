@@ -64,3 +64,7 @@ git push -u origin go/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_TMUX_IDE_REQUALIFY_0
 ```
 
 PR titre : `docs: requalify tmux-ide on admin-trading`
+
+## RISKS
+
+- À qualifier.

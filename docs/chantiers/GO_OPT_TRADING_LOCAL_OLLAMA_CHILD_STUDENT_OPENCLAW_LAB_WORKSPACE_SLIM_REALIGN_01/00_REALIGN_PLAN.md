@@ -43,3 +43,7 @@ Raison :
 
 Apres merge :
 valider le statut runtime actuel sur student avant toute reprise OpenClaw/Ollama operationnelle.
+
+## RISKS
+
+- À qualifier.

@@ -156,3 +156,7 @@ Le retour vers `GO_OPT_TRADING_RESEAU_SSH_PHYSICAL_CONSOLIDATION_02` ne pourra e
 Jusqu'a cette preuve, le verdict du GO physique courant reste :
 
 `BLOQUE`
+
+## RISKS
+
+- À qualifier.

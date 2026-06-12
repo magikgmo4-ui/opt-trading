@@ -17,3 +17,7 @@ TradingView → `POST /tv` → `state/events.jsonl` (+ optional: perf OPEN) → 
 
 ## Modules
 - `shared/telegram_notify.py` : notifications
+
+## RISKS
+
+- À qualifier.

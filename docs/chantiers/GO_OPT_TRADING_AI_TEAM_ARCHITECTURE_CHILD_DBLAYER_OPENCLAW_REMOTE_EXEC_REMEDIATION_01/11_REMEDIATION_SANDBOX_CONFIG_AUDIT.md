@@ -226,3 +226,7 @@ config show unavailable
 | Config sandbox surface found? | **YES** — `modules/openclaw_config_modulaire/app/agents.json5` contient `sandbox { enforce: true, scope: "agent", allow/deny rules }` | `modules/openclaw_config_modulaire/app/agents.json5` ligne 19-22, config runtime `~/.openclaw/openclaw.json` |
 | Global sandbox relaxation required? | **NO** — la configuration sandbox est deja locale et bornee a l'agent | `scope: "agent"` dans agents.json5 |
 | Runtime still blocked? | YES | Audit read-only uniquement |
+
+## RISKS
+
+- À qualifier.

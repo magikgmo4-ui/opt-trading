@@ -110,3 +110,7 @@ Elle doit aussi rendre lisibles :
 
 Bloc humain complémentaire.
 À utiliser comme référence de verrouillage et de mémoire sélective de la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

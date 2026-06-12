@@ -20,3 +20,7 @@
 | Conventions stockage | CADRAGE | Naming, versioning, retrieval |
 | Cockpit dynamique | PROJECT DOC | Live Artifacts comme vue de pilotage |
 | Gap analysis | REMAINING GAP | Ce qui reste a couvrir |
+
+## RISKS
+
+- À qualifier.

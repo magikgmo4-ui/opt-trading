@@ -100,3 +100,7 @@ Refusé dans ce chantier. OpenClaw reste orchestrateur expérimental borné / pr
 ## Prochaine action
 
 Créer et maintenir `INDEX_PATCH.md`.
+
+## RISKS
+
+- À qualifier.

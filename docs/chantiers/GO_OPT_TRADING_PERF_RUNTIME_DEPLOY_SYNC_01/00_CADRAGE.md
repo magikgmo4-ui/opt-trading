@@ -81,3 +81,7 @@ EXCLUS :
 GO ouvert pour documenter le drift réel de /opt/trading et produire un plan de réalignement sûr.
 Aucune mutation runtime dans ce lot.
 ```
+
+## RISKS
+
+- À qualifier.

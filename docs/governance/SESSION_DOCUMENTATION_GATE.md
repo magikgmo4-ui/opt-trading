@@ -215,3 +215,7 @@ Fiche de référence de gouvernance.
 ```text
 À documenter ? Si oui, fiche.
 ```
+
+## RISKS
+
+- À qualifier.

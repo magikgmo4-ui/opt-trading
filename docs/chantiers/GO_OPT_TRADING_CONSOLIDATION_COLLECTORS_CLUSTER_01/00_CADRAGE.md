@@ -99,3 +99,7 @@ COLLECTORS_CLUSTER_01 ouvert.
 Objectif : clarifier survivant, hub, satellites, facade.
 Pas de migration executee dans ce child.
 ```
+
+## RISKS
+
+- À qualifier.

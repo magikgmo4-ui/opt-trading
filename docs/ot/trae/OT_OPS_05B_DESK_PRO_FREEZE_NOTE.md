@@ -25,3 +25,7 @@ Pour mettre fin à la confusion entre les multiples scripts "desk_pro", les règ
 
 ## 3. PROCHAINE ÉTAPE
 Aucune action de migration n'est requise. La coexistence est validée tant que la hiérarchie d'usage est respectée.
+
+## RISKS
+
+- À qualifier.

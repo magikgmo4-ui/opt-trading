@@ -122,3 +122,7 @@ garde-fous, approbations requises. Aucune exécution réelle dans ce GO.
 Option A (observation continue) + Option C (dashboard métriques) en parallèle,
 puis Option D pour documenter la voie vers le live. Option B quand la baseline
 multi-signal est définie.
+
+## RISKS
+
+- À qualifier.

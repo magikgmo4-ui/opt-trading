@@ -276,3 +276,7 @@ codexoauth != agent canonique global tant que sa qualification policy/runtime n'
 ## 12. Point de reprise
 
 Prochain document de reprise : `10_CROSS_CHANTIERS_OPENCLAW_TMUX_AGENTS_REVIEW.md`.
+
+## RISKS
+
+- À qualifier.

@@ -28,3 +28,7 @@ Le prochain GO recommande est l'observabilite avant tout smoke runtime.
 ## GO alternatif
 
 `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_INSTALL_ROLLBACK_01`
+
+## RISKS
+
+- À qualifier.

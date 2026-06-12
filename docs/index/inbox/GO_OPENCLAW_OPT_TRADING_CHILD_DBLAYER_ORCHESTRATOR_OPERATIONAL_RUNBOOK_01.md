@@ -33,3 +33,7 @@ links:
 ## But
 
 Figer le mode d'usage operationnel valide de l'orchestrateur OpenClaw sur `db-layer` apres le premier job controle.
+
+## RISKS
+
+- À qualifier.

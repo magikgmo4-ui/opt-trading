@@ -481,3 +481,7 @@ Reprise :
 - état : synthèse initiale complète créée ;
 - prochaine action : exécuter le plan de qualification machine, sans runtime patch depuis le parent ;
 - sous-GO logique : `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_MACHINE_QUALIFICATION_01`.
+
+## RISKS
+
+- À qualifier.

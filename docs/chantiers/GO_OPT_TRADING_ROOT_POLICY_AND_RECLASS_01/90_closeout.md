@@ -56,3 +56,7 @@ PASS
 ## Point de reprise
 
 - `docs/governance/REPO_ROOT_POLICY.md`
+
+## RISKS
+
+- À qualifier.

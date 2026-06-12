@@ -65,3 +65,7 @@ Le lot commence par une matrice de role et d'ownership :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

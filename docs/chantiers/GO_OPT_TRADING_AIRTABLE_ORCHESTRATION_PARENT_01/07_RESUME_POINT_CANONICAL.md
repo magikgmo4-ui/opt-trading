@@ -181,3 +181,7 @@ Memory Bricks projet :
 - bridge = optionnel.
 - export = sécurité.
 - prochaine reprise = implémentation `airtable_bridge`.
+
+## RISKS
+
+- À qualifier.

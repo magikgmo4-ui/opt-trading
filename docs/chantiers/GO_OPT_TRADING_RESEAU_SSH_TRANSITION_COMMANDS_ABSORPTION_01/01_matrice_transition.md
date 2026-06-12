@@ -50,3 +50,7 @@ La famille `reseau_ssh` ne peut pas etre consideree pleinement consolidee tant q
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

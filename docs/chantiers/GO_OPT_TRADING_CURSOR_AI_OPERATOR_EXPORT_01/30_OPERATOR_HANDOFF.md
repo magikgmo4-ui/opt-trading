@@ -44,3 +44,7 @@ git checkout sot/mainline
 git pull --rebase origin sot/mainline
 git log --oneline -5
 ```
+
+## RISKS
+
+- À qualifier.

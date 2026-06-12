@@ -56,3 +56,7 @@ approbations requises. Aucune exécution réelle dans ce GO.
 - Conserver controlled-write manuel uniquement
 - Conserver rollback systemd
 - No Bitget order
+
+## RISKS
+
+- À qualifier.

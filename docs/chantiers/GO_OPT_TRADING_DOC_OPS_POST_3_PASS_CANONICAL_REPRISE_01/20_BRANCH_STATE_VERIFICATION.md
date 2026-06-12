@@ -15,3 +15,7 @@
 - **OPEN_WORK_CONTROL_01_ISOLATED** : completement supprimee. Aucune action supplementaire.
 - **BUNDLES_REPO_STORAGE_PARENT_01** : mergee dans sot/mainline. La remote peut etre supprimee dans un prochain lot.
 - **CLICKUP_PARENT_CONTINUITY_01** : conservee. Routage fantome. Hors lot actif.
+
+## RISKS
+
+- À qualifier.

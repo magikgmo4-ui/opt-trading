@@ -54,3 +54,7 @@ GO recommande en **position 1** de la sequence post-parent (voir `80_NEXT_GO_SEQ
 - Doc-only, pas de runtime.
 - Pas d'ouverture admin-trading.
 - Pas de modification de code.
+
+## RISKS
+
+- À qualifier.

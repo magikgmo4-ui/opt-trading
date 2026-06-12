@@ -52,3 +52,7 @@ Exclus :
 Si PASS : le pack Claude Artifacts devient `PRODUCT_CLOSED` / `product_closed` pour l'usage operateur cursor-ai.
 
 Si FAIL : conserver le statut `APPLICATION_DOCUMENTED_NOT_PRODUCT_CLOSED` et lister les gaps restants.
+
+## RISKS
+
+- À qualifier.

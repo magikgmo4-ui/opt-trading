@@ -26,3 +26,7 @@ Le prochain chantier `student` est :
 ## Memo Court
 
 Objectif : recroiser les deux branches stocks, pas reouvrir `Student/Ollama`.
+
+## RISKS
+
+- À qualifier.

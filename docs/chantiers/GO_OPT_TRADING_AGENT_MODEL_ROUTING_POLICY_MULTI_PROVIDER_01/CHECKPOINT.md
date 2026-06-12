@@ -21,3 +21,7 @@ GO_OPT_TRADING_AGENT_MODEL_ROUTING_POLICY_MULTI_PROVIDER_01
 ## Prochaine étape
 
 Fermer le GO après merge.
+
+## RISKS
+
+- À qualifier.

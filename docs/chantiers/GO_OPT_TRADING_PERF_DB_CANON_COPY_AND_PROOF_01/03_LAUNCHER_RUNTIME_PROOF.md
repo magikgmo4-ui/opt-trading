@@ -54,3 +54,7 @@ Verdict G3 :
 ```text
 PROUVÉ
 ```
+
+## RISKS
+
+- À qualifier.

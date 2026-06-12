@@ -34,3 +34,7 @@ Le worker doit privilegier:
 ## Invariant
 
 Le worker WHY ne doit jamais inventer des donnees runtime absentes.
+
+## RISKS
+
+- À qualifier.

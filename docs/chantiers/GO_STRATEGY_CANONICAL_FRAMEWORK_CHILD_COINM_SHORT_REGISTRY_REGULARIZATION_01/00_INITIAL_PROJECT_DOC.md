@@ -45,3 +45,7 @@ Exclu :
 - `[STRATEGY_BACKFILL_DISCOVERY_MERGED]` : PR #540 mergée (a72dcfc1) ; backfill discovery terminé.
 - `[COINM_SHORT_P0_CANDIDATE]` : COINM_SHORT identifié comme candidat P0 avec code engine actif dans `strategy_logic.py` et surface runtime multiple.
 - `[MODULES_STRATEGY_DEFERRED]` : modules/strategy/ différé jusqu'à régularisation suffisante du backfill registry.
+
+## RISKS
+
+- À qualifier.

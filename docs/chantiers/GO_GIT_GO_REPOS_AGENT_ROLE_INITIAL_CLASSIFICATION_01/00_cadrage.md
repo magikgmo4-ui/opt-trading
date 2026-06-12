@@ -48,3 +48,7 @@ Classification doc-only seule, sans :
 - suppression
 - merge
 - patch runtime
+
+## RISKS
+
+- À qualifier.

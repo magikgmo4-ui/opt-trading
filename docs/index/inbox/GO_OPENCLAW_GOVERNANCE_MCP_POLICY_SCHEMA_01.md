@@ -130,3 +130,7 @@ Memoire projet candidate :
 ```text
 OpenClaw MCP policy schema is doc-only and deny-by-default; global indexes were intentionally not touched.
 ```
+
+## RISKS
+
+- À qualifier.

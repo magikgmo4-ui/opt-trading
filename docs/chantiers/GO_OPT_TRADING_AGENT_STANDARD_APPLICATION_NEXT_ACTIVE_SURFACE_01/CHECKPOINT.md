@@ -11,3 +11,7 @@ Justification : dispose de runbooks, surface active, pas de conflit avec Student
 ## Décision
 
 Student/Ollama reste FULLY_CLOSED. Le standard est prêt pour application sur la prochaine surface si besoin validé.
+
+## RISKS
+
+- À qualifier.

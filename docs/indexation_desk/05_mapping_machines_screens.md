@@ -129,3 +129,7 @@ Ne pas rouvrir ce chantier sauf régression. Cette machine peut servir de réfé
 
 ## Conclusion
 Le mapping cible est cohérent, mais l’indexation suggère qu’avant toute extension d’écran ou ajout d’API, il faut d’abord **stabiliser la surface opérateur Desk Pro** et clarifier quels modules doivent être visibles/lançables depuis MSI, tout en gardant `admin-trading` comme socle opérationnel réel.
+
+## RISKS
+
+- À qualifier.

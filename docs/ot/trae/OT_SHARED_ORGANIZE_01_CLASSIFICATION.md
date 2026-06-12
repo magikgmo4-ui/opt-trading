@@ -113,3 +113,7 @@ Ne pas déplacer avant qualification :
 - Arbo cible proposée : **simple, durable, migration douce**.
 - Classification : dossiers pipeline identifiés ; la racine est majoritairement reclassable ; deux éléments restent ambigus (sécurité/volume).
 
+
+## RISKS
+
+- À qualifier.

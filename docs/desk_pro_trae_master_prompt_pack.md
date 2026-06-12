@@ -536,3 +536,7 @@ Start with:
 3. then `desk_pro_dashboard` starter on `db-layer`
 
 This sequence fits the project direction while preserving the existing webhook/perf foundation.
+
+## RISKS
+
+- À qualifier.

@@ -67,3 +67,7 @@ La sanity top-level :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

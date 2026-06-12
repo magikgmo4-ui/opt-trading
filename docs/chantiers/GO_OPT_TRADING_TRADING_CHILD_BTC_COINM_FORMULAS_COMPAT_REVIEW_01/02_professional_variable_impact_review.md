@@ -551,3 +551,7 @@ Verdict = PATCH_REQUIRED.
 La base est bonne, mais il faut documenter la matrice butterfly effect et les variables manquantes.
 BACKTEST_DATA_PREP reste bloque.
 ```
+
+## RISKS
+
+- À qualifier.

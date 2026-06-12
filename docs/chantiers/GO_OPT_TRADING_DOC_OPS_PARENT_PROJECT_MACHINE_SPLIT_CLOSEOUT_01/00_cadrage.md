@@ -75,3 +75,7 @@ Decider CLOSE ou KEEP_OPEN.
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_PROJECT_MACHINE_SPLIT_CLOSEOUT_01/02_final_state.md`
+
+## RISKS
+
+- À qualifier.

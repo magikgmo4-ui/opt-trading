@@ -111,3 +111,7 @@ ssh -o BatchMode=yes -o UserKnownHostsFile=/tmp/fantome_phase5_known_hosts -o St
 - aucune cle temporaire Phase 3
 - `PATCH_DRAFT` reste proposal-only
 - aucune ecriture hors `modules/ai_team_mvp/drafts/`
+
+## RISKS
+
+- À qualifier.

@@ -16,3 +16,7 @@ doc_type: existing_surface_audit
 ## Décision
 
 Créer une couche physique minimale sans déplacer les engines.
+
+## RISKS
+
+- À qualifier.

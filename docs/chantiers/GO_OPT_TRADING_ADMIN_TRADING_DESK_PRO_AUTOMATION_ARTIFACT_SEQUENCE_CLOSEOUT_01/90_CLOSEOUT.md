@@ -92,3 +92,7 @@ Runtime artifacts: latest.json, latest.md, history.jsonl under runtime/desk_pro_
 Timer: active/waiting
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_ARTIFACT_PR_MERGE_01
 ```
+
+## RISKS
+
+- À qualifier.

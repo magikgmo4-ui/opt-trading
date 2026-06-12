@@ -17,3 +17,7 @@
 - Observer si `fix1` ou `fix2` sont appelés (via logs).
 - Si aucun appel pendant 30 jours, supprimer `fix1` et `fix2`.
 - Archiver `fix3` plus tard.
+
+## RISKS
+
+- À qualifier.

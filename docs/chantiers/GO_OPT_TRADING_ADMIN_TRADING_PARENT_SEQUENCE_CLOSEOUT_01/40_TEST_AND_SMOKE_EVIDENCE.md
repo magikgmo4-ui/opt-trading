@@ -59,3 +59,7 @@ Result: 40 passed in 0.16s
 | `tests/test_signal_event_adapter.py` | 30 | Adapter V0→V1 |
 | `tests/test_admin_trading_contract_compatibility_smoke.py` | 10 | Smoke producer/consumer |
 | `tests/fixtures/admin_trading_contract_smoke/*.json` | 4 | Fixtures synthétiques |
+
+## RISKS
+
+- À qualifier.

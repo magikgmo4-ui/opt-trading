@@ -13,3 +13,7 @@ Date (America/Montreal) : 2026-03-14
 - Redesign du menu.
 - Ajout de dépendances (expect).
 
+
+## RISKS
+
+- À qualifier.

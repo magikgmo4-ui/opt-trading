@@ -54,3 +54,7 @@ GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_BUILDER_FIRST_CONTROLLED_JOB_
 
 Gate documentee. Prochain GO = execution controlee.
 ```
+
+## RISKS
+
+- À qualifier.

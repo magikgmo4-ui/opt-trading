@@ -79,3 +79,7 @@ Conclusion :
 
 - `OBSERVE_01` reste dans le scope, mais n'est plus le head complet a reviewer
 - `STABILITY_WINDOW_01` est le head reel a traiter car il contient `OUTPUT_01` + `OBSERVE_01` + un closeout supplementaire
+
+## RISKS
+
+- À qualifier.

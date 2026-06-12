@@ -35,3 +35,7 @@ updated_at: 2026-05-09
 2. Ensuite une spec de timer dediee
 3. Ensuite seulement un timer systemd non-live
 4. Enfin un smoke runtime gate avant tout mode plus autonome
+
+## RISKS
+
+- À qualifier.

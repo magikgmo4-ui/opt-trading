@@ -44,3 +44,7 @@
 - Aucun contrat n'est implemente ou rejoue ici.
 - Aucun runtime `LocalCMS` n'est modifie.
 - `db-layer` ne devient pas le parent projet `LocalCMS`.
+
+## RISKS
+
+- À qualifier.

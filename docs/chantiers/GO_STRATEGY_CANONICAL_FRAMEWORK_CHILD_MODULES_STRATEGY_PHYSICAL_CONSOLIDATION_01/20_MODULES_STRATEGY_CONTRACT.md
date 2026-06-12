@@ -21,3 +21,7 @@ doc_type: contract
 - scoring;
 - routing;
 - activation stratégie.
+
+## RISKS
+
+- À qualifier.

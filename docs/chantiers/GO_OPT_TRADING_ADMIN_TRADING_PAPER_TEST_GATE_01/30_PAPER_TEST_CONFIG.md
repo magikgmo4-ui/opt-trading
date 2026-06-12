@@ -6,3 +6,7 @@ Le mode `PAPER_TEST` utilise la même architecture que `LIVE` mais avec les para
 - `LEDGER_PATH=/data/ledger_paper.json`
 - `BROKER_API_URL=https://sandbox.broker.com`
 - `TRADE_ALLOWED=false` (Hardcoded protection)
+
+## RISKS
+
+- À qualifier.

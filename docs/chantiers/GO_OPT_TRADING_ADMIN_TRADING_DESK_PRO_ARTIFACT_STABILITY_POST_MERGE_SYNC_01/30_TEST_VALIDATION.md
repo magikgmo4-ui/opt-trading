@@ -51,3 +51,7 @@ ssh admin-trading "cd /opt/trading && PYTHONPATH=. ./venv/bin/python -m pytest t
 ## Conclusion tests
 
 Gate desk-pro post-merge : **PASS**.
+
+## RISKS
+
+- À qualifier.

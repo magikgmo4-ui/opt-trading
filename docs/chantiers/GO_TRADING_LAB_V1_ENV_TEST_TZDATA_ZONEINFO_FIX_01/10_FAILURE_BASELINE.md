@@ -16,3 +16,7 @@ Sur `modules/trading_lab_v1/tests/test_core_runner_v1.py` :
 ## Interpretation
 
 Le code appelle `zoneinfo.ZoneInfo` sur un environnement Windows/Python ou les donnees IANA ne sont pas disponibles sans le package `tzdata`.
+
+## RISKS
+
+- À qualifier.

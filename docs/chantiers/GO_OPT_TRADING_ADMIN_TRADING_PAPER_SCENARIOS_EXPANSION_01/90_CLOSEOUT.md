@@ -45,3 +45,7 @@ ok:true before and after all scenarios.
 - No secrets exposed
 - No ledger live created
 - No db-layer/OpenClaw changes
+
+## RISKS
+
+- À qualifier.

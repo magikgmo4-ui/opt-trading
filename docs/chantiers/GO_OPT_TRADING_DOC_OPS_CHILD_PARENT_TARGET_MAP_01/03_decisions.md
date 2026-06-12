@@ -59,3 +59,7 @@ links:
 - valider ou corriger la carte cible des 5 parents ;
 - utiliser `90_closeout.md` comme point de reprise exact ;
 - n'envisager `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` qu'apres validation explicite de la carte cible.
+
+## RISKS
+
+- À qualifier.

@@ -79,3 +79,7 @@ graph_bundle.json
 -> relire 02_MERMAID_REPLAY.md
 -> si lot suivant : exporter les vues en artefacts reproductibles view_<name>.md / view_<name>.mmd
 ```
+
+## RISKS
+
+- À qualifier.

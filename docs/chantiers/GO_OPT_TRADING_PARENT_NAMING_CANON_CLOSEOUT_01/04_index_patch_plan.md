@@ -39,3 +39,7 @@ links:
 - aucun changement sur `BRANCH_STATE.md`
 - aucun changement sur runtime, modules ou scripts
 - aucun changement d'ouverture d'un apply batch
+
+## RISKS
+
+- À qualifier.

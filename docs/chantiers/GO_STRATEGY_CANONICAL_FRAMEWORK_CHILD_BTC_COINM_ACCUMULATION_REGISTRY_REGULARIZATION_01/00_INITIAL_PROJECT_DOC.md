@@ -25,3 +25,7 @@ Promouvoir `btc_coinm_accumulation` de `STRATEGY_CANDIDATE P4` vers `strategy_id
 ### 3_SCOPE
 
 Audit doc surfaces + registry entry. Pas de code, pas de runtime.
+
+## RISKS
+
+- À qualifier.

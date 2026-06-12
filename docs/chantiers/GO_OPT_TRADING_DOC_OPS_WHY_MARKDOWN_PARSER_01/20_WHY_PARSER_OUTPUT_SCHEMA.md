@@ -44,3 +44,7 @@ Definir le schema de sortie normalise du futur parser WHY.
 ## Invariant
 
 La sortie du parser est une aide documentaire et non une source unique de verite.
+
+## RISKS
+
+- À qualifier.

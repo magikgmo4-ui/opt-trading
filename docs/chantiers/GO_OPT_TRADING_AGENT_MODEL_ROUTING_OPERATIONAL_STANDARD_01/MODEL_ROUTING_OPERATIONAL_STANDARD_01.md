@@ -62,3 +62,7 @@ Pas de dégradation silencieuse.
 - Le 0.5B ne doit jamais être utilisé pour une tâche à format exact ou décisionnelle
 - Aucun provider local ne doit être utilisé pour du trading ou worker continu
 - Toute exécution sans classification préalable est interdite
+
+## RISKS
+
+- À qualifier.

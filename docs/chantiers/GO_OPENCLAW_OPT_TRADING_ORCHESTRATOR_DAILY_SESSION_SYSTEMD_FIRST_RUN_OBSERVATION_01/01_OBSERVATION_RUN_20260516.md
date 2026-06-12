@@ -123,3 +123,7 @@ Vérification post-rollback :
 - No automatic Sheets write ✅
 - LocalCMS read-only ✅
 - Rollback obligatoire effectué ✅
+
+## RISKS
+
+- À qualifier.

@@ -73,3 +73,7 @@ Ce plan couvre les 4 axes documentaires de controle + la cible produit OpenClaw 
 - Le WHY lint restera un chantier separe, potentiellement sous-GO du parent `GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01`.
 - L'implementation eventuelle d'un linter statique (Python/Rust) serait un child GO futur, toujours doc-only en phase de specification.
 - L'integration CI (can_fail_ci: false) est explicitement exclue du scope WHY lint.
+
+## RISKS
+
+- À qualifier.

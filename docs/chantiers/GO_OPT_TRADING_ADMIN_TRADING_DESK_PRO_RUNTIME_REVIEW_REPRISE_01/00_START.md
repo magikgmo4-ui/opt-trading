@@ -57,3 +57,7 @@ Auditer Desk Pro comme consumer final/surface de synthèse compatible avec :
 ## Runtime side effects attendus
 
 `NONE`
+
+## RISKS
+
+- À qualifier.

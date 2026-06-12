@@ -84,3 +84,7 @@ producer_repo_kg_v1.py
 -> regenerer graph_bundle.json
 -> rejouer les vues Mermaid V1 du lot
 ```
+
+## RISKS
+
+- À qualifier.

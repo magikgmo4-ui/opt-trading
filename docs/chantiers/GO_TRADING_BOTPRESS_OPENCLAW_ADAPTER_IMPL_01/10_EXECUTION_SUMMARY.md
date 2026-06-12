@@ -37,3 +37,7 @@ updated_at: 2026-05-06
 - Structured JSON logging
 - Config via env vars (0 secrets in code)
 - Timeout handling (30s)
+
+## RISKS
+
+- À qualifier.

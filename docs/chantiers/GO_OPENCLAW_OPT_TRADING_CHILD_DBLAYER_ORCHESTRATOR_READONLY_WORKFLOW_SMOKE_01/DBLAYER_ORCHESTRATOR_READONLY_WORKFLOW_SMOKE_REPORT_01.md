@@ -129,3 +129,7 @@ python3 -m modules.desk_pro_orchestrator.app.desk_pro_orchestrator sample-run
 ## Conclusion
 
 Le workflow orchestrateur borné a été exécuté avec succès sur `db-layer`. Le chemin est valide en PAPER mode, avec sorties contrôlées uniquement sous `data/desk_runs/` et sans effet de bord sur le repo.
+
+## RISKS
+
+- À qualifier.

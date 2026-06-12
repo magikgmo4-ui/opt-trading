@@ -55,3 +55,7 @@ Exit: 0
 
 **PASS** — 11/11 OK, PAPER mode confirme, aucun trading reel.
 Backup latest preservee dans /shared/desk_pro/backups/.
+
+## RISKS
+
+- À qualifier.

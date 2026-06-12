@@ -347,3 +347,7 @@ Repartir via :
 
 ## MEM_CANDIDATE
 Vue consolidée projets / infra / chantiers utilisable comme snapshot de reprise global.
+
+## RISKS
+
+- À qualifier.

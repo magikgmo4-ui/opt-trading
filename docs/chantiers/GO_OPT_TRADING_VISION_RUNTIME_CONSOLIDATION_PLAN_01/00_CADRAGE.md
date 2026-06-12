@@ -58,3 +58,7 @@ EXCLUS : toute modification systemd, sharex, watchdog, code Python, secrets, run
 - 0 changement chemins shared_files
 - 0 secret
 ```
+
+## RISKS
+
+- À qualifier.

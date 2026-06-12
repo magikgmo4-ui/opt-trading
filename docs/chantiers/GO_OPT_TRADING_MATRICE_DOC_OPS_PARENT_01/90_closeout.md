@@ -47,3 +47,7 @@ Les flux encore ouverts du repo n'appartiennent pas au parent matrice et ne bloq
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_CLOSEOUT_01/90_closeout.md`
+
+## RISKS
+
+- À qualifier.

@@ -40,3 +40,7 @@ Empecher les crashs PIL sur fichiers 0-byte/.uploading.
 - Patch minimal
 - Pas de refactor global
 - Pas de modification downstream
+
+## RISKS
+
+- À qualifier.

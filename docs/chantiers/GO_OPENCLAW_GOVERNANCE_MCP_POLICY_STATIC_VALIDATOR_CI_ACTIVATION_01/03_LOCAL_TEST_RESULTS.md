@@ -111,3 +111,7 @@ Closeout must capture the final diff hygiene status together with the created fi
 ## 19_TO_REMEMBER
 
 The corpus JSON report contained an empty `warnings` array.
+
+## RISKS
+
+- À qualifier.

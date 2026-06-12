@@ -43,3 +43,7 @@ collector_binance_spot/run.py :
 - aucun changement runtime
 - collector_coingecko non touché
 ```
+
+## RISKS
+
+- À qualifier.

@@ -58,3 +58,7 @@ Apres allumage de `admin-trading`, les probes read-only ci-dessus passent.
 ## 17_RESUME_POINT
 
 La baseline admin-trading est compatible avec un trial non destructif via `npx`.
+
+## RISKS
+
+- À qualifier.

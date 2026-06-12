@@ -24,3 +24,7 @@ PASS
 ## Next GO
 
 GO_OPT_TRADING_DB_LAYER_DEEP_AUDIT_01
+
+## RISKS
+
+- À qualifier.

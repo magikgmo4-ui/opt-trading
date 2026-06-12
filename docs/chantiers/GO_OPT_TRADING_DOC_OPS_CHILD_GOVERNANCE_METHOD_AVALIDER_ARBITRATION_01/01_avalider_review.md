@@ -84,3 +84,7 @@ Critere : "si le GO sert a organiser une methode progressive de migration Git : 
 **THREAD_METHOD_WORKFLOW** — CONFIRME
 
 Justification : ce GO sert a organiser une methode progressive de migration Git dans le repo canonique. C'est un GO simple autonome qui porte une methode de travail structurante, pas un objet a archiver.
+
+## RISKS
+
+- À qualifier.

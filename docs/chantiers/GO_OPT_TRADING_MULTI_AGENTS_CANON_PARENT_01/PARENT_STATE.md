@@ -95,3 +95,7 @@ Maintenir la continuité dans le parent via :
 ## Prochaine action
 
 Lire `NEXT.md`.
+
+## RISKS
+
+- À qualifier.

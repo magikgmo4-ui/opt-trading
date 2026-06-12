@@ -38,3 +38,7 @@ PYTHONPATH=/opt/trading python -m pytest \
 - status: `WARN`
 - `errors=[]`
 - all safety flags true
+
+## RISKS
+
+- À qualifier.

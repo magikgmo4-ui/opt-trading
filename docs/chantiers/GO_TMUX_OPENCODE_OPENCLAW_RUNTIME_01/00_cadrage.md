@@ -69,3 +69,7 @@ Mettre en place une architecture d’utilisation où :
 ## Critères PASS / FAIL
 - PASS si : le parent fige clairement le besoin, la cible, la répartition des rôles et le découpage en sous-chantiers avec un point de reprise net
 - FAIL si : les rôles restent ambigus, les sous-chantiers ne sont pas explicités ou le parent pousse déjà vers l’implémentation
+
+## RISKS
+
+- À qualifier.

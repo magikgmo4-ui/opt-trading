@@ -122,3 +122,7 @@ Record local diff-check results after staging in `03_LOCAL_TEST_RESULTS.md` and 
 ## 19_TO_REMEMBER
 
 The workflow file is active as repository configuration, but this GO does not authorize remote use by push or PR.
+
+## RISKS
+
+- À qualifier.

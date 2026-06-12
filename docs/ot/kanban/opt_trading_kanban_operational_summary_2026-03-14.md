@@ -23,3 +23,7 @@ Source : construite à partir de `docs/ot/kanban/opt_trading_kanban_source_of_tr
 - mettre à jour ce tableau à chaque closing qui change un statut, une preuve réelle, un point de reprise, une interdiction de réouverture ou l’ordre logique de la suite ;
 - ce tableau ne remplace pas le détail du kanban ;
 - en cas de conflit, le kanban détaillé et les closings priment.
+
+## RISKS
+
+- À qualifier.

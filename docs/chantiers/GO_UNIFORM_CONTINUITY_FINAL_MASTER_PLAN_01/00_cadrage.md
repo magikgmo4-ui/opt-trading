@@ -119,3 +119,7 @@ Suite éventuelle seulement si une source canonique complémentaire doit être r
 ## Statut
 
 **REFERENCE — dossier chantier dédié minimal désormais ouvert ; enrichissement futur seulement sur base repo-first**
+
+## RISKS
+
+- À qualifier.

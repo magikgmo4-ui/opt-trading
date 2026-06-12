@@ -33,3 +33,7 @@ Le dashboard futur doit aider a:
 ## Invariant
 
 Le dashboard ne doit jamais devenir une couche runtime autonome.
+
+## RISKS
+
+- À qualifier.

@@ -45,3 +45,7 @@ Le GO est considere pret pour execution reelle uniquement si la base mergee est 
 ```text
 WIP / JSON_EXPORT_GATES_LOCKED / NO_RENDER_BEFORE_VALID_JSON
 ```
+
+## RISKS
+
+- À qualifier.

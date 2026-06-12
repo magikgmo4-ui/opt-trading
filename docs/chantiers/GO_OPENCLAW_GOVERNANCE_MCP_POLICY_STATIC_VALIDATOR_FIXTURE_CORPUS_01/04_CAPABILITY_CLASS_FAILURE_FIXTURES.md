@@ -186,3 +186,7 @@ Future validator reports must show capability id and class field path.
 ## 19_TO_REMEMBER
 
 Capability class is a security boundary.
+
+## RISKS
+
+- À qualifier.

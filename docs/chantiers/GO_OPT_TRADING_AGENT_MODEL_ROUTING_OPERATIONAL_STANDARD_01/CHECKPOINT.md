@@ -21,3 +21,7 @@ GO_OPT_TRADING_AGENT_MODEL_ROUTING_OPERATIONAL_STANDARD_01
 ## Prochaine étape
 
 Fermer le GO après merge. La chaîne Student/Ollama est maintenant standardisée.
+
+## RISKS
+
+- À qualifier.

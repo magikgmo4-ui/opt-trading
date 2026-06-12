@@ -54,3 +54,7 @@ Apres merge:
   - overlays dynamiques WHY/runtime,
   - observabilite runtime multi-machine,
   - governance dashboard live futur.
+
+## RISKS
+
+- À qualifier.

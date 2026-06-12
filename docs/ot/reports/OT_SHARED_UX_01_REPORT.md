@@ -115,3 +115,7 @@ cmd-shared put --force ./note.txt _refs/note.txt
 ## 11. POINT DE REPRISE SUIVANT
 - Optionnel : ajouter des garde-fous UX (ex: refuser `put` sans cible explicite vers `_bundles/_ops/_refs`), sans complexifier.
 
+
+## RISKS
+
+- À qualifier.

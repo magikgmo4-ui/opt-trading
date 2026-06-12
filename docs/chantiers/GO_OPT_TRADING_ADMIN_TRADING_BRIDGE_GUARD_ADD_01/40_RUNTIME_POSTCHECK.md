@@ -33,3 +33,7 @@ updated_at: 2026-05-04
 - Dernier run: exit 0, crop + ingest OK
 - Timer actif, prochain cycle automatique
 - Patch en place sur le script live
+
+## RISKS
+
+- À qualifier.

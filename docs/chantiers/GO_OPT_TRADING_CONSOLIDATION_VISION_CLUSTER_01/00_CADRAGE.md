@@ -99,3 +99,7 @@ VISION_CLUSTER_01 ouvert.
 Objectif : clarifier paire canonique, legacy, et NEXT_GO.
 Pas de migration executee.
 ```
+
+## RISKS
+
+- À qualifier.

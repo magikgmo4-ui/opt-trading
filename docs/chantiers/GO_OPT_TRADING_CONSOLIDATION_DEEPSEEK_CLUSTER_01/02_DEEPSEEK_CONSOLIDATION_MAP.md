@@ -114,3 +114,7 @@ deepseek_hub = survivant candidat cote modules.
 scripts/student/ = legacy encore actif.
 Prochain GO : DEEPSEEK_RUNTIME_CONSOLIDATION_PLAN_01.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -50,3 +50,7 @@ Transformer la politique de rétention documentée en garde-fous opératoires v�
 3. Exécuter le smoke canonique
 4. Vérifier les métriques
 5. Documenter le résultat dans CHECKPOINT.md
+
+## RISKS
+
+- À qualifier.

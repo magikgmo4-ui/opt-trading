@@ -49,3 +49,7 @@ Tâche reçue
 3. **Si tâche critique** : REFUS tant qu'aucun provider distant n'est configuré
 4. **Session toujours fraîche** : rotation si > 5 runs sur la session active
 5. **Pas de fallback = refus propre**, pas de dégradation silencieuse
+
+## RISKS
+
+- À qualifier.

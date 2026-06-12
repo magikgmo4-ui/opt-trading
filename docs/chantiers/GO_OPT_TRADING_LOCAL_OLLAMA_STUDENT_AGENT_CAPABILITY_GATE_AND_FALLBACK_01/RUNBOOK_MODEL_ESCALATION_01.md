@@ -51,3 +51,7 @@ for p,m in c.get('agents',{}).get('defaults',{}).get('models',{}).items():
 
 Documenter le gap et marquer la tâche comme **BLOCKED**.
 Ne pas utiliser le 0.5B pour une tâche qu'on sait hors de ses capacités.
+
+## RISKS
+
+- À qualifier.

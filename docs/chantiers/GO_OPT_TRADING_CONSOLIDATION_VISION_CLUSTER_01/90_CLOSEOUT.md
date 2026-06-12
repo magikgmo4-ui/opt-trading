@@ -93,3 +93,7 @@ Paire canonique fixee : vision_bot + bot_vision_step2.
 bot_vision = legacy conserve.
 Migration differee a un GO separe de runtime topology.
 ```
+
+## RISKS
+
+- À qualifier.

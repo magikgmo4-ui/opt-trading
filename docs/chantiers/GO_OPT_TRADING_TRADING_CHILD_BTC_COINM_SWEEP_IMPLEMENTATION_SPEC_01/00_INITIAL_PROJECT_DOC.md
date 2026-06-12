@@ -152,3 +152,7 @@ SWEEP_IMPLEMENTATION_SPEC_01 : specifier comment etendre trading_lab_v1
 pour integrer le moteur de simulation BTC COIN-M, sans le coder.
 Contracts only. Le code vient apres validation de cette spec.
 ```
+
+## RISKS
+
+- À qualifier.

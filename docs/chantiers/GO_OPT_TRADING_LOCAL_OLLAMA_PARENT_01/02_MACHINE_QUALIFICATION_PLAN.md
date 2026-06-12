@@ -340,3 +340,7 @@ Reprise :
 - état : plan de qualification prêt ;
 - prochaine action : ouvrir un sous-GO machine avant exécution ;
 - sous-GO recommandé : `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_MACHINE_QUALIFICATION_01`.
+
+## RISKS
+
+- À qualifier.

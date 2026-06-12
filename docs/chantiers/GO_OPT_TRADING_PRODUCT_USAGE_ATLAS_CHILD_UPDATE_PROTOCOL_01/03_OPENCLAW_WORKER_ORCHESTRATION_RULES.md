@@ -263,3 +263,7 @@ Apps externes = interfaces, pas preuves (niveau 4).
 Orchestration = coordination, pas validation (niveau 4).
 Graphe de confiance à 5 niveaux établi.
 ```
+
+## RISKS
+
+- À qualifier.

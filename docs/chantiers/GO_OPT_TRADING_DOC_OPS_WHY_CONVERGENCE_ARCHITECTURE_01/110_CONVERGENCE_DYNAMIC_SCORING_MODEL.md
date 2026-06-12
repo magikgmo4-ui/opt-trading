@@ -36,3 +36,7 @@ Preparer un futur scoring dynamique WHY/runtime convergent.
 ## Invariant
 
 Le scoring WHY/runtime ne doit jamais devenir une autorite runtime autonome.
+
+## RISKS
+
+- À qualifier.

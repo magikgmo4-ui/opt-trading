@@ -124,3 +124,7 @@ fantome
 → Runner intact, read-only/draft-only uniquement
 → Ne pas ouvrir Write gate A4
 ```
+
+## RISKS
+
+- À qualifier.

@@ -118,3 +118,7 @@ Future report schema must expose:
 ## 19_TO_REMEMBER
 
 Fail closed means no silent pass on unknown, missing, unsafe, or contradictory input.
+
+## RISKS
+
+- À qualifier.

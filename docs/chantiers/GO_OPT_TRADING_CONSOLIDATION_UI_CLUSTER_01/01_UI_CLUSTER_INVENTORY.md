@@ -165,3 +165,7 @@ Action   : aucun. Référencé comme dépendance optionnelle.
 ~15 scripts shell à mettre à jour
 Les imports Python internes à desk_pro (routes.py, etc.) ne changent pas (déjà sous le hub)
 ```
+
+## RISKS
+
+- À qualifier.

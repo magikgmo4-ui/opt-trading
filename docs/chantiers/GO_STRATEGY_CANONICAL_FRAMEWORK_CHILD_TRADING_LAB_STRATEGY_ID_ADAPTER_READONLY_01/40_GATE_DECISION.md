@@ -20,3 +20,7 @@ doc_type: gate_decision
 ## Verdict
 
 Dernier raccord engine du rollout termine.
+
+## RISKS
+
+- À qualifier.

@@ -36,3 +36,7 @@ Verrouiller les frontieres runtime/governance de la convergence WHY.
 ## Invariant
 
 La convergence WHY ne doit jamais devenir une orchestration runtime autonome sans governance explicite.
+
+## RISKS
+
+- À qualifier.

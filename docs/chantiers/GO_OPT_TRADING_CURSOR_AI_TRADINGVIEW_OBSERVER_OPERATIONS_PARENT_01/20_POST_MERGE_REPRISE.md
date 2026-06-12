@@ -33,3 +33,7 @@ Figer l'etat post-merge, creer un fichier de reprise independant, verifier `sot/
 ## Statut
 
 PENDING
+
+## RISKS
+
+- À qualifier.

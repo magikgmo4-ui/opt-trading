@@ -45,3 +45,7 @@ Le canonique `reseau_ssh` porte maintenant :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

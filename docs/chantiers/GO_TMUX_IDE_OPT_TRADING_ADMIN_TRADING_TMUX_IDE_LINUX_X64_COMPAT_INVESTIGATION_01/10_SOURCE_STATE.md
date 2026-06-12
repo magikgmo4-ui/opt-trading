@@ -54,3 +54,7 @@ Conclusion :
 
 - `admin-trading:/opt/trading` est propre et aligne
 - l'investigation porte uniquement sur le packaging `tmux-ide`
+
+## RISKS
+
+- À qualifier.

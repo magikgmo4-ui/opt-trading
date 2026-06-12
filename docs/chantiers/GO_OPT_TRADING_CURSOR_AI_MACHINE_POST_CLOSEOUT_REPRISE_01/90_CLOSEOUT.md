@@ -20,3 +20,7 @@
 ## Prochain GO
 
 `GO_OPT_TRADING_CURSOR_AI_CLAUDE_COWORK_LIVE_ARTIFACTS_REVIEW_01` — Machine cursor-ai.
+
+## RISKS
+
+- À qualifier.

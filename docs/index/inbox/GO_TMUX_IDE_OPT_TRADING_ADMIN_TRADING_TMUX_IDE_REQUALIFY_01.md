@@ -41,3 +41,7 @@ Requalification `tmux-ide` sur `admin-trading:/opt/trading` apres merge desk-pro
 ## Suite
 
 Ouvrir un GO d'investigation compatibilite Linux x64 / packaging `tmux-ide` avant toute installation ou creation `ide.yml`.
+
+## RISKS
+
+- À qualifier.

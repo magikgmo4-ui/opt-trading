@@ -87,3 +87,7 @@ ALLOW_OPERATOR_DRY_RUN
 ```text
 ALLOW_OPERATOR_DRY_RUN / CLOSED_LOCAL_DRAFT
 ```
+
+## RISKS
+
+- À qualifier.

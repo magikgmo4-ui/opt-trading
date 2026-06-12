@@ -53,3 +53,7 @@ Note : le runtime produit déjà des events avec `strategy_id`. La transition
 `CANDIDATE → OBSERVED` est considérée comme déjà remplie par l'activité
 pré-existante de `trading_realtime_v1`, bien que documentée seulement via
 ce GO de régularisation.
+
+## RISKS
+
+- À qualifier.

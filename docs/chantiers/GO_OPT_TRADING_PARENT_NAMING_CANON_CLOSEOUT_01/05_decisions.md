@@ -29,3 +29,7 @@ links:
 3. Les findings restants ne declenchent pas de renommage reel dans ce lot.
 4. Tout apply batch naming reste futur, optionnel et hors lot.
 5. Les index doivent etre alignes sans toucher `BRANCH_STATE.md`.
+
+## RISKS
+
+- À qualifier.

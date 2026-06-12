@@ -78,3 +78,7 @@ Aucun secret scanne. `.env`, tokens, cles exclus.
 
 - `producer_repo_kg_v1.py`
 - `graph_bundle.json`
+
+## RISKS
+
+- À qualifier.

@@ -65,3 +65,7 @@ Test endpoint = déclenche dispatch réel si env vars présentes
 Livraison réelle externe = dépend de TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID / ALERT_WEBHOOK_URL
 Sans env → skipped (comportement attendu en CI)
 ```
+
+## RISKS
+
+- À qualifier.

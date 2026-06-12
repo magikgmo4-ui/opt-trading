@@ -39,3 +39,7 @@ classify_collector_error retourne ErrorInfo directement.
 py_compile PASS
 ErrorInfo partagé confirmé (CE is BE = True)
 ```
+
+## RISKS
+
+- À qualifier.

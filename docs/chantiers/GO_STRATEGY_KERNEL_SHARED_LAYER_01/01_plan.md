@@ -50,3 +50,7 @@ links:
 
 ## Point d'arrêt acceptable
 - arrêt acceptable si : le chantier qualifie clairement le noyau actuel, ses limites et la prochaine couche partagée à ouvrir
+
+## RISKS
+
+- À qualifier.

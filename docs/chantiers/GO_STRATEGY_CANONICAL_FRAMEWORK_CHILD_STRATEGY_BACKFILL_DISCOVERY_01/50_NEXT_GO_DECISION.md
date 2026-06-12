@@ -54,3 +54,7 @@ COINM_SHORT a le plus haut degré de maturité technique :
 - Ne pas refactor les engines
 - Ne pas modifier le comportement runtime
 ```
+
+## RISKS
+
+- À qualifier.

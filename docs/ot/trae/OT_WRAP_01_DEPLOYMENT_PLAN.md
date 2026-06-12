@@ -29,3 +29,7 @@ Exécution d'un script `ln -sf` ciblé sur `admin-trading`.
 ## 5. VALIDATION POST-DÉPLOIEMENT
 - Vérification `ls -l /usr/local/bin/menu-*`
 - Test d'exécution `sanity-*`
+
+## RISKS
+
+- À qualifier.

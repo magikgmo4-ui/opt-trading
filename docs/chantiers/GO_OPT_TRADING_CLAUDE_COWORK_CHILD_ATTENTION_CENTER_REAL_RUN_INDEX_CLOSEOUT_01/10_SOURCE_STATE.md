@@ -57,3 +57,7 @@ links:
 - aucune modification runtime
 - aucune execution OpenClaw
 - aucune promotion d'un etat machine en verifie sans preuve explicite
+
+## RISKS
+
+- À qualifier.

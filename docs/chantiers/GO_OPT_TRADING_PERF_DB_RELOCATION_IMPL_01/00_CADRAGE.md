@@ -36,3 +36,7 @@ Implémenter un outillage de relocation DB non destructif pour PERF, sans bascul
 - fournir un script status/copy/show-env
 - laisser le runtime historique inchangé tant que PERF_DB_PATH n'est pas posé
 ```
+
+## RISKS
+
+- À qualifier.

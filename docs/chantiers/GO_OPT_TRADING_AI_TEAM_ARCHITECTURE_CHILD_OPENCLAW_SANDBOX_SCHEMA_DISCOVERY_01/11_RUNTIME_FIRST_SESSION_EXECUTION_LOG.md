@@ -183,3 +183,7 @@ Rôle :
 2. Lister les pivots canoniques établis ;
 3. Statuer sur le NEXT_GO parent ou PR de merge ;
 4. Fermer le child proprement.
+
+## RISKS
+
+- À qualifier.

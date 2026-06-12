@@ -51,3 +51,7 @@ Traiter uniquement :
 ## VERDICT
 
 - PASS - valeur utile du lot `KEEP_REFERENCE` ancrée ou confirmée dans le canon
+
+## RISKS
+
+- À qualifier.

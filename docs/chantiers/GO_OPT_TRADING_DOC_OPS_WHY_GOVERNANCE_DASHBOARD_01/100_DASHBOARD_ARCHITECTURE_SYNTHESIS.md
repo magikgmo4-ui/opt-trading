@@ -43,3 +43,7 @@ Le repo dispose maintenant d'un cadrage dashboard WHY capable de visualiser:
 ## Invariant final
 
 Le WHY governance dashboard ne doit jamais devenir une couche runtime autonome ou un remplacement de review humaine critique.
+
+## RISKS
+
+- À qualifier.

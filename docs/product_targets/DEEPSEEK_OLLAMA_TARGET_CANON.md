@@ -100,3 +100,7 @@ Interactions:
   - systeme autonome de trading
   - decisionnaire final
   - moteur non valide
+
+## RISKS
+
+- À qualifier.

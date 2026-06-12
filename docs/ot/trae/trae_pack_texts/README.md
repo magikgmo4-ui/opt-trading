@@ -48,3 +48,7 @@ Constats prouvés :
 - ne pas reutiliser `trae_pack/*` comme templates vivants pour une nouvelle mission
 - si une formulation legacy manque vraiment au canon, l'absorber dans une doc repo-native plutot que re-promouvoir le pack
 - plusieurs chemins absolus presents dans `trae_pack/*` sont historiques et peuvent etre desormais stale apres la sortie de la racine
+
+## RISKS
+
+- À qualifier.

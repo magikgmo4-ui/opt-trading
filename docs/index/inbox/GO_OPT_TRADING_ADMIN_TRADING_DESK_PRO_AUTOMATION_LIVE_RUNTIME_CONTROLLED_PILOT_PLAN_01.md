@@ -18,3 +18,7 @@ updated_at: 2026-05-13
 **Dépend de:** PR #303, #325, #347, #349, #350 (merged)
 
 **Ouvre après validation:** `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_LIVE_RUNTIME_CONTROLLED_PILOT_EXECUTION_01`
+
+## RISKS
+
+- À qualifier.

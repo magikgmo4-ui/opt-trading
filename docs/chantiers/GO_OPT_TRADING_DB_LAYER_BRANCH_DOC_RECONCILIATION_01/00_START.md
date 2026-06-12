@@ -48,3 +48,7 @@ Chantier strictement doc-only sur la surface `db-layer / OpenClaw`.
 - classer chaque branche : `ACTIVE` / `REFERENCE` / `DROP_MERGED` / `A_VERIFIER`
 - identifier les ecarts documentaires
 - produire un verdict clair + `NEXT_GO`
+
+## RISKS
+
+- À qualifier.

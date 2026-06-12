@@ -50,3 +50,7 @@ links:
 
 ## Point d'arrêt acceptable
 - arrêt acceptable si : le chantier est formellement posé, bien borné et prêt à être prolongé par `GO_RANGE_STRATEGY_V1_RULES_01`
+
+## RISKS
+
+- À qualifier.

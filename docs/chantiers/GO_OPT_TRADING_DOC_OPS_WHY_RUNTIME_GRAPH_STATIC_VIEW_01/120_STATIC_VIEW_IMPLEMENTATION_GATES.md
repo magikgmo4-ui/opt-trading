@@ -35,3 +35,7 @@ Definir les gates avant implementation reelle de la vue statique WHY/runtime.
 ## Invariant
 
 Aucune implementation reelle WHY/runtime ne doit contourner les gates de gouvernance humaine.
+
+## RISKS
+
+- À qualifier.

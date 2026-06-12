@@ -30,3 +30,7 @@ updated_at: 2026-05-11
 
 - manual service start in this GO: `NO`
 - timer remained armed naturally: `YES`
+
+## RISKS
+
+- À qualifier.

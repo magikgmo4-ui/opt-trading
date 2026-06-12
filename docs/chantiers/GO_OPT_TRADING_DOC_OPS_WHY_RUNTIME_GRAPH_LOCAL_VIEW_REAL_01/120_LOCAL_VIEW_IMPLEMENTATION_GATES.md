@@ -35,3 +35,7 @@ Definir les gates avant implementation reelle du render WHY/runtime local.
 ## Invariant
 
 Aucune implementation reelle WHY/runtime ne doit contourner les gates de gouvernance humaine.
+
+## RISKS
+
+- À qualifier.

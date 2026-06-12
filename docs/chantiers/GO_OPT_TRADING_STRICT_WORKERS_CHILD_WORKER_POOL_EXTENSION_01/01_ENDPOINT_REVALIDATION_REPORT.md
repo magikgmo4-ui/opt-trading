@@ -90,3 +90,7 @@ Ajouts aux preferred_workers :
 ## Verdict revalidation
 
 Les changements sont documentes, motives (endpoint courant), et coherents avec la doctrine strict_workers. Aucun modele RETIRED n'est route. Aucun modele ABSENT n'est promu sans preuve endpoint. Le pool est etendu de maniere bornee et sure.
+
+## RISKS
+
+- À qualifier.

@@ -139,3 +139,7 @@ scripts/ai/workers/tasks.index.json
 ```
 
 puis lancer seulement un test `READ_INVENTORY` sur un modèle confirmé et non sensible.
+
+## RISKS
+
+- À qualifier.

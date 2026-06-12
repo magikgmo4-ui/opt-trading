@@ -46,3 +46,7 @@ Source canonique unique :
 Règle :
 - ne pas éditer `docs/next/NEXT_GO_CANDIDATES.md`
 - maintenir uniquement ce stub pour compatibilité / redirection
+
+## RISKS
+
+- À qualifier.

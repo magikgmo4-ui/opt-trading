@@ -21,3 +21,7 @@ parent_commit: b102721
 ## Objectif
 
 Clore canoniquement la sequence Desk Pro Automation dry-run/timer avec synthese des etapes, etat runtime final et decision sur la suite.
+
+## RISKS
+
+- À qualifier.

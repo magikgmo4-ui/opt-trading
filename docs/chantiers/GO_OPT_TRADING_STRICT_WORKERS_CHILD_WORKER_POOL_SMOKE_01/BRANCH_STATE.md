@@ -57,3 +57,7 @@ docs/chantiers/GO_OPT_TRADING_STRICT_WORKERS_CHILD_WORKER_POOL_SMOKE_01/
 scripts/ai/workers/job_packets/  (3 nouveaux)
 reports/ai/workers/              (3 sorties smoke)
 ```
+
+## RISKS
+
+- À qualifier.

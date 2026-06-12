@@ -109,3 +109,7 @@ Options :
 2. GO_OPT_TRADING_STRICT_WORKERS_CHILD_WRITE_GATE_A4_OPERATIONAL_01
    — Premier usage operationnel reel (ex: closeout automatise)
 ```
+
+## RISKS
+
+- À qualifier.

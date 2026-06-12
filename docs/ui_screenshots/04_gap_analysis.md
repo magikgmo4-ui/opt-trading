@@ -18,3 +18,7 @@ On sait que MSI doit héberger la surface de lecture, mais aucune UI dédiée n�
 
 ## Gap E — Les flux de cleanup ne doivent pas être mélangés trop tôt à ce chantier
 On prépare d’abord la logique UI/registre d’archive, puis ensuite seulement l’intégration avec la rétention.
+
+## RISKS
+
+- À qualifier.

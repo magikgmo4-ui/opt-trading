@@ -79,3 +79,7 @@ Lire dans l’ordre :
 5. `03_CLAUDE_COWORK_LIVE_ARTIFACT_PROMPTS.md`
 6. `06_ACCEPTANCE_TESTS.md`
 7. `SESSION_REPRISE.txt`
+
+## RISKS
+
+- À qualifier.

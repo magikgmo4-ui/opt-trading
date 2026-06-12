@@ -23,3 +23,7 @@ Créer une base de registre lisible qui expose :
 - migration massive de fichiers
 - UI riche définitive
 - fusion avec `desk_pro_dashboard`
+
+## RISKS
+
+- À qualifier.

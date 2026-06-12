@@ -104,3 +104,7 @@ PATCH_STATUS = PASS
 GATEWAY_DIRECT_WORKING = true (for ghost user)
 INVOCATION_FIX = use "openclaw agent" as ghost, not "sudo -u openclaw openclaw agent"
 ```
+
+## RISKS
+
+- À qualifier.

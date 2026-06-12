@@ -73,3 +73,7 @@ Le bridge est considéré prouvé pour ce GO seulement si :
 - pas d orchestration générale multi-cas
 - pas de runtime large déduit d une seule preuve
 - pas de migration de ce bridge dans le repo `openclaw`
+
+## RISKS
+
+- À qualifier.

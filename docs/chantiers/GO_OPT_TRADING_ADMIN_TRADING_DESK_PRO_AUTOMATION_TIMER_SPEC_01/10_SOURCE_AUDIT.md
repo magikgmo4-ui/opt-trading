@@ -52,3 +52,7 @@ ExecStart=/path/to/script.sh
 - Pattern `Type=oneshot` avec timer externe est standard
 - Desk Pro timer doit suivre le meme pattern
 - spec suivante: timer pour dry-run periodique
+
+## RISKS
+
+- À qualifier.

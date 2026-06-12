@@ -69,3 +69,7 @@ Le blocage principal est le runtime machine-side :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

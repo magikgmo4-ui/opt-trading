@@ -122,3 +122,7 @@ NE PAS PUSH.
 - Installer ce bundle dans le chantier parent local.
 - Conserver la branche bundle comme source de reprise / transport.
 - Committer le parent seulement après validation complète du diff local.
+
+## RISKS
+
+- À qualifier.

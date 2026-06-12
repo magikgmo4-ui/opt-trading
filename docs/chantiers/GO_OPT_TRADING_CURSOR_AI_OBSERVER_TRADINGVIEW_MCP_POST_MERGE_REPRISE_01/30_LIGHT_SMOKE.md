@@ -38,3 +38,7 @@ cd C:\Users\ghost\opt-trading\modules\tradingview_observer_openclaw
 - Si CDP ouvert et tout PASS : `LIGHT_SMOKE_PASS`
 - Si CDP ferme mais checks hors TV PASS : `PARTIAL_ENV` (TradingView Desktop non ouvert, produit OK)
 - Si checks hors TV FAIL : `FAIL` (produit corrompu ou incomplet)
+
+## RISKS
+
+- À qualifier.

@@ -58,3 +58,7 @@ Auditer puis consolider les GO de gouvernance, matrice et methode pour separer :
 ## Point de reprise
 
 - `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GOVERNANCE_MATRIX_CONSOLIDATION_CLOSEOUT_01/01_go_reading_inventory.md`
+
+## RISKS
+
+- À qualifier.

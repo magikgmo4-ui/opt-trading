@@ -32,3 +32,7 @@ Raccorder `notification_dispatcher` à `modules.strategy.adapter` en lecture seu
 ### 4_RESUME_POINT
 
 Proposition_engine terminé. Dernier maillon pipeline : notification_dispatcher.
+
+## RISKS
+
+- À qualifier.

@@ -47,3 +47,7 @@ Reserve:
 
 - machine cible a verifier avant execution
 - OpenClaw plus tard, hors scope de cette suite
+
+## RISKS
+
+- À qualifier.

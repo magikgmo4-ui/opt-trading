@@ -220,3 +220,7 @@ ARCHIVE      : 3 modules (kil_v1, hf_free_platform, mimo_open_observer) + 1 fich
 RATTACHER    : 6 fichiers/modules vers leur famille/cluster
 CONSOLIDATION: strategy_engine + marketdata → traités dans 02_CONSOLIDATION_PLAN.md
 ```
+
+## RISKS
+
+- À qualifier.

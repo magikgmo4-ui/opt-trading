@@ -26,3 +26,7 @@ Invariants maintenus:
 - Guards ok:true tout au long du cycle
 
 Prochaine suite: scénarios paper additionnels ou validation production.
+
+## RISKS
+
+- À qualifier.

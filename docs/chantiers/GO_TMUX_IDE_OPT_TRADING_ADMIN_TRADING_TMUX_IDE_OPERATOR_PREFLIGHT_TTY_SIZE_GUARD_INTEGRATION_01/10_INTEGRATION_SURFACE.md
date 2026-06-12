@@ -15,3 +15,7 @@ $targetRel
 ## Decision
 
 Le guard TTY size est ajoute immediatement avant le lancement 	mux-ide.
+
+## RISKS
+
+- À qualifier.

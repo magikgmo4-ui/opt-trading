@@ -51,3 +51,7 @@ done
 - l'alias `cursor-ai` existe dans la config locale, mais sa probe SSH n'a pas ete forcee car ce lot traite `cursor-ai` comme poste Windows local
 - aucune correction de config SSH globale n'a ete appliquee
 - aucun alias absent bloquant n'a ete constate sur les quatre machines Linux prioritaires
+
+## RISKS
+
+- À qualifier.

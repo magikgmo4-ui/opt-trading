@@ -31,3 +31,7 @@ Cependant, les wrappers pointent vers les bons fichiers existants.
 Le risque est faible, mais la maintenance est légèrement plus complexe car il faut savoir que les scripts sont à la racine.
 
 **Action recommandée** : Ne pas déplacer les scripts (risque de casser les symlinks existants), mais documenter cette exception ou valider que cela fonctionne tel quel.
+
+## RISKS
+
+- À qualifier.

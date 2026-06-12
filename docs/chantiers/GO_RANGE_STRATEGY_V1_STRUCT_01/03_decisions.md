@@ -51,3 +51,7 @@ links:
 - option retenue : lecture obligatoire, mutation minimale seulement si un nouveau fait canonique transverse est réellement établi
 - raison du choix : éviter de polluer les couches globales avec un lot trading encore localisé
 - impact : priorité donnée au dossier chantier et à la couche trading ; les couches transverses ne doivent être étendues que si la continuité globale du repo l'exige
+
+## RISKS
+
+- À qualifier.

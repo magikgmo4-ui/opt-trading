@@ -28,3 +28,7 @@ Definir les vues candidates du futur WHY governance dashboard.
 ## Invariant
 
 Le dashboard doit visualiser et aider a auditer, jamais valider le runtime de maniere autonome.
+
+## RISKS
+
+- À qualifier.

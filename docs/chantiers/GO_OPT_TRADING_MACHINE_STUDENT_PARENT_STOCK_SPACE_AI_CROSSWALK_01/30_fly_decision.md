@@ -44,3 +44,7 @@ Prochaine action :
 
 FLY = MARKET_STRUCTURE_ONLY pour l'instant.
 Aucun patch watchlist à faire sans validation explicite.
+
+## RISKS
+
+- À qualifier.

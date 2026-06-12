@@ -83,3 +83,7 @@ Scope :
 [ ] HOLD — attendre validation
 [ ] AMEND — corrections requises
 ```
+
+## RISKS
+
+- À qualifier.

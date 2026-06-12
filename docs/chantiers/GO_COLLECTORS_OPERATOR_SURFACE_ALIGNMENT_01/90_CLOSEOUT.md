@@ -43,3 +43,7 @@ La surface operateur cible est clarifiee sans changer les scripts existants.
 ```text
 GO_COLLECTORS_SELECTIVE_RUNTIME_EXTRACTION_DECISION_01
 ```
+
+## RISKS
+
+- À qualifier.

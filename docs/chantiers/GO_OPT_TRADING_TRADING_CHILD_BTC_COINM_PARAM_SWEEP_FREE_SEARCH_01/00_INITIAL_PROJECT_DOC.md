@@ -268,3 +268,7 @@ Child ouvert pour le free search BTC COIN-M.
 But : tester librement les variables, conserver meme les cas impossibles,
 puis classer objectivement les gains et destructions de BTC avant toute version realiste.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -48,3 +48,7 @@ Concretement :
 - Gate fermee.
 - Aucune modification prevue.
 - Le bundle admin-trading gate reste FERME / FUTUR.
+
+## RISKS
+
+- À qualifier.

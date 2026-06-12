@@ -35,3 +35,7 @@ Audit documentaire profond des 3 branches restantes de `db-layer/OpenClaw`.
 - aucune suppression Git
 - aucun cleanup
 - ne pas modifier `GO_INDEX` / `ACTIVE_STREAMS` / `REPRISE`
+
+## RISKS
+
+- À qualifier.

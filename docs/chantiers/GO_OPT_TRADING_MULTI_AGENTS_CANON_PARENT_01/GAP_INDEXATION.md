@@ -124,3 +124,7 @@ Cette `GAP_INDEXATION` satisfait l'exigence minimale d'indexation explicite pour
 ## Point de reprise
 
 Prochaine action : produire `01_EXISTING_SOCLE_READOUT.md` puis appliquer proprement les propagations d'indexation lors du lot d'alignement suivant.
+
+## RISKS
+
+- À qualifier.

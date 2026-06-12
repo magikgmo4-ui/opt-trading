@@ -56,3 +56,7 @@ Rattacher minimalement en chantier clos la séquence suivante :
 
 - aucun nouveau GO n'est ouvert automatiquement dans ce lot
 - la suite éventuelle reste `GO_COLLECTORS_LIFECYCLE_WRAPPER_HARMONIZATION_01` seulement si un besoin explicite est rouvert plus tard
+
+## RISKS
+
+- À qualifier.

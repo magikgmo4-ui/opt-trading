@@ -36,3 +36,7 @@ Points à surveiller pour les phases suivantes :
 ## VERDICT
 
 **PASS**
+
+## RISKS
+
+- À qualifier.

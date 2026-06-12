@@ -55,3 +55,7 @@ La reponse `does not support tools` est une limitation connue du modele deepseek
 ### Note
 - La reponse textuelle en clair (type "OK") n'a pas ete obtenue car OpenClaw envoie systematiquement des outils/tools au modele, que deepseek-r1:1.5b ne supporte pas
 - Pour un usage operationnel, un modele avec support function-calling serait necessaire
+
+## RISKS
+
+- À qualifier.

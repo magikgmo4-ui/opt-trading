@@ -30,3 +30,7 @@ Zones où plusieurs points d'entrée concurrents existent.
 1.  **Respecter le Runtime Machine** : Ne jamais supprimer `scripts/<machine>/`.
 2.  **Méfiance sur les Modules Complexes** : Pour `reseau_ssh` et `student`, le module est une archive ou un brouillon, pas l'exécutable.
 3.  **Usage des Wrappers** : Toujours privilégier les commandes `/usr/local/bin/` (`menu-ops_menu_hub`, `cmd-desk_pro`) qui sont censées pointer vers la bonne cible (validée par le registry).
+
+## RISKS
+
+- À qualifier.

@@ -86,3 +86,7 @@ Drill live réussi sur `admin-trading` : preuves concrètes collectées pour sys
 ## 11. POINT DE REPRISE SUIVANT
 Micro-mission documentaire (sans refactor) : mettre à jour la carte `OT_SVC_01_CANONICAL_RUNTIME_MAP.md` en distinguant “repo schedule” vs “live schedule observé”, et ouvrir un point “À corriger plus tard” pour `shared_sshfs_permanent` (résolution symlink + installation systemd).
 
+
+## RISKS
+
+- À qualifier.

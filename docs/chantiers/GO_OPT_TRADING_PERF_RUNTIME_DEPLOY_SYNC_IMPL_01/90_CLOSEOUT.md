@@ -68,3 +68,7 @@ G1 attendu : modules/perf/data/ existe mais perf.db à créer
 G3 attendu : launchers utilisent maintenant modules.perf.app:app
 G4 attendu : à vérifier après bascule DB
 ```
+
+## RISKS
+
+- À qualifier.

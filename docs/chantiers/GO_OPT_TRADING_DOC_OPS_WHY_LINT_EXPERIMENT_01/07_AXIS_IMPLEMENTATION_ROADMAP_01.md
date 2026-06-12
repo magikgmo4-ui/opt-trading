@@ -85,3 +85,7 @@ links:
 | WHY graph | LOCAL_VIEW_ACTIVE | Referencer |
 | WHY lint | OUVERTURE_PARENT | Ecrire |
 | OpenClaw central | NON_SPECIFIE | Reporter a phase 4 |
+
+## RISKS
+
+- À qualifier.

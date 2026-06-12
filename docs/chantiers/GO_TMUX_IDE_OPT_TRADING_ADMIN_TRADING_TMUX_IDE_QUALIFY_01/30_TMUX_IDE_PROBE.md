@@ -120,3 +120,7 @@ npm install --save-dev tmux-ide
 ```
 
 > Ne pas exécuter dans ce GO.
+
+## RISKS
+
+- À qualifier.

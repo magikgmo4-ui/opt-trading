@@ -27,3 +27,7 @@
 - Cause du `SESSION_STATUS=stopped` non analysee dans ce GO.
 - Etat detaille `tmux` / logs / relance non traite ici.
 - Une revue runtime dediee `OpenClaw` sur `db-layer` reste necessaire.
+
+## RISKS
+
+- À qualifier.

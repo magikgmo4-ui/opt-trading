@@ -79,3 +79,7 @@ Stratégie par ordre de préférence :
 ## Phase 2 (future)
 
 Ajouter self-heal allowlist par machine (try-restart uniquement sur services required FAIL).
+
+## RISKS
+
+- À qualifier.

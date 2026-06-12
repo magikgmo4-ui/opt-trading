@@ -26,3 +26,7 @@ Voir `README.md` section : “Runbook opérateur (canonique, minimal)” + “Er
 ## 6. POINT DE REPRISE EXACT
 > **GO_OT_MODULE_07_VALIDATED_PROMPT_FACTORY_MENU_INTERACTIVE_CHECK**
 
+
+## RISKS
+
+- À qualifier.

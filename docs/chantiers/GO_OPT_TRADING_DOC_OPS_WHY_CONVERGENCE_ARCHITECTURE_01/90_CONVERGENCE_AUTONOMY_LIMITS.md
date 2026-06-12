@@ -25,3 +25,7 @@ Verrouiller les limites d'autonomie convergentes des couches WHY.
 ## Invariant
 
 La convergence WHY ne doit jamais devenir une autorite runtime autonome.
+
+## RISKS
+
+- À qualifier.

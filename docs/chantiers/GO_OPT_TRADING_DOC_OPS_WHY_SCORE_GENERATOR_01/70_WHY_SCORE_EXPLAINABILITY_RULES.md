@@ -33,3 +33,7 @@ Un score non explicable devient:
 ## Invariant
 
 Le score WHY doit toujours pouvoir etre explique a un humain sans logique cachee.
+
+## RISKS
+
+- À qualifier.

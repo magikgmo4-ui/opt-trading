@@ -94,3 +94,7 @@ Conditions requises avant création :
 
 - Re-probe live (2026-05-12) : **ABSENT (ETAT_VERIFIE)**
 - Verdict courant : **gate non franchie — création bloquée par GAP_01 (branche) + GAP_02 (tmux-ide EBADPLATFORM)**
+
+## RISKS
+
+- À qualifier.

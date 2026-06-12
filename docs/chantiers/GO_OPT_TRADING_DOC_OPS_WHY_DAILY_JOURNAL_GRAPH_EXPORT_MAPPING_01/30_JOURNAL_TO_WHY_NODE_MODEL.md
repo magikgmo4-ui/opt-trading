@@ -41,3 +41,7 @@ Regle generale :
 ## 17_RESUME_POINT
 
 La readiness finale du GO devra verifier que ces rattachements suffisent pour ouvrir un export graph reel sans perdre provenance, chronologie ni review humaine.
+
+## RISKS
+
+- À qualifier.

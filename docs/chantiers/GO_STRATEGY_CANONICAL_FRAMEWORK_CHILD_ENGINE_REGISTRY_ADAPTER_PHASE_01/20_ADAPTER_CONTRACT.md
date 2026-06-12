@@ -34,3 +34,7 @@ doc_type: contract
 - Changement de signaux/routing.
 - Exécution trading.
 - Backfill registry supplémentaire.
+
+## RISKS
+
+- À qualifier.

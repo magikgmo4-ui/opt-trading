@@ -21,3 +21,7 @@ PR #303 merged into `sot/mainline` @ `80672ad`
 ## Objectif
 
 Ajouter une sortie artefact isolee pour le timer Desk Pro dry-run, sans live runtime smoke.
+
+## RISKS
+
+- À qualifier.

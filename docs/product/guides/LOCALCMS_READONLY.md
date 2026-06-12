@@ -128,3 +128,7 @@ Futur consumer UI lisant les surfaces partagees sans remplacer le repo canonique
 
 - `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/`
 - `docs/chantiers/GO_LOCALCMS_FORMS_INTEGRATION_DOC_01/`
+
+## RISKS
+
+- À qualifier.

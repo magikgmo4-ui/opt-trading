@@ -41,3 +41,7 @@ openclaw agent --session-id slim-test-XX --message "..." --json
 
 ## Verdict technique
 **PASS** — qwen2.5:3b-instruct repond via OpenClaw agent sans timeout apres reduction du workspace/system prompt/tools.
+
+## RISKS
+
+- À qualifier.

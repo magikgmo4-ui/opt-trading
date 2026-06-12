@@ -62,3 +62,7 @@ Le pack peut etre etendu avec :
 - `bundles/claude-artifacts/CHECKLIST_EXECUTION.md` — checklist d'execution standard
 - `bundles/claude-artifacts/prompts/` — prompts specialises par type de GO
 - `bundles/claude-artifacts/bundle_meta/manifest.json` — metadata structuree du pack
+
+## RISKS
+
+- À qualifier.

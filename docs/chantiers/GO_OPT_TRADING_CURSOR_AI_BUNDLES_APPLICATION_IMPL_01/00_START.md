@@ -21,3 +21,7 @@ Appliquer les documents Bundles valides pour produire une premiere implementatio
 - Admin-trading non ouvert.
 - Runtime non modifie.
 - PARENT_CLOSEOUT differe.
+
+## RISKS
+
+- À qualifier.

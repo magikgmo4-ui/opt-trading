@@ -65,3 +65,7 @@ La suite a bien pu etre executee :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

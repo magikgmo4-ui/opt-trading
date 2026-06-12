@@ -50,3 +50,7 @@ Les anciens chemins restent disponibles via les shims, ce qui rend le switch non
 ```text
 GO_OPT_TRADING_PERF_DB_RELOCATION_PLAN_01
 ```
+
+## RISKS
+
+- À qualifier.

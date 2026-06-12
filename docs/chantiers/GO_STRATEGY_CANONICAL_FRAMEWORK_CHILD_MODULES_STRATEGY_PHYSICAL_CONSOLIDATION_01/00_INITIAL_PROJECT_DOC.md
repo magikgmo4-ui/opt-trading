@@ -31,3 +31,7 @@ Ne pas refactor runtime, ne pas migrer engines, ne pas ajouter de stratégie.
 ### 4_RESUME_POINT
 
 Préparation locale sur worktree basé PR #545. Commit après merge #545.
+
+## RISKS
+
+- À qualifier.

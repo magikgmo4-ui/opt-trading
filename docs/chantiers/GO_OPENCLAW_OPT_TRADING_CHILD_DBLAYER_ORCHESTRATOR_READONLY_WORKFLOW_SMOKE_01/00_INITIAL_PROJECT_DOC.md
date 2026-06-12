@@ -91,3 +91,7 @@ python3 -m modules.desk_pro_orchestrator.app.desk_pro_orchestrator sample-run
 - secret
 - live trading
 - `sudo`
+
+## RISKS
+
+- À qualifier.

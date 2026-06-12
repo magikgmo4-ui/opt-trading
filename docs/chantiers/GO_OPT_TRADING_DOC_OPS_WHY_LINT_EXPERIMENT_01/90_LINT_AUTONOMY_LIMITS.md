@@ -34,3 +34,7 @@ Les surfaces R4/R5 doivent garder:
 ## Invariant
 
 Le WHY lint reste warning-only, lecture seule et audit-oriented.
+
+## RISKS
+
+- À qualifier.

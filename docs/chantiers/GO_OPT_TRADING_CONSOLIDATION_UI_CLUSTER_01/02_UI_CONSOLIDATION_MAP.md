@@ -229,3 +229,7 @@ Plan 14 étapes, entièrement scripté.
 Backups dans _archive/ avant toute opération.
 Le hub desk_pro existant n'est pas déplacé.
 ```
+
+## RISKS
+
+- À qualifier.

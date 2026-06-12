@@ -36,3 +36,7 @@ Basculer les scripts et références opérationnelles PERF vers `modules.perf.*`
 - verify_all compile -> ajoute les chemins canoniques
 - anciens chemins non supprimés
 ```
+
+## RISKS
+
+- À qualifier.

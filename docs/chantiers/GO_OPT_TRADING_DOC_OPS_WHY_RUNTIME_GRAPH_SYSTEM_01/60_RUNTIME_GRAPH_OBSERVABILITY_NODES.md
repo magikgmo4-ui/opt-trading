@@ -35,3 +35,7 @@ Integrer les preuves runtime et l'observabilite dans le WHY runtime graph.
 ## Invariant
 
 Le graphe ne doit jamais inferer une preuve runtime absente.
+
+## RISKS
+
+- À qualifier.

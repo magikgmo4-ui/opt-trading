@@ -99,3 +99,7 @@ Ne pas faire :
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GOVERNANCE_METHOD_THREAD_ASSIGNMENT_01/02_assignment_matrix.md`
+
+## RISKS
+
+- À qualifier.

@@ -167,3 +167,7 @@ Fixtures disponibles (perf_engine samples, pipeline journal).
 Bridge minimal = seed perf.db + fixture snapshot desk.
 Prochaine action : seed perf.db avec trades simulés.
 ```
+
+## RISKS
+
+- À qualifier.

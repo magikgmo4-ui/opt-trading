@@ -33,3 +33,7 @@ Integrer le contexte multi-machine dans le futur parser WHY.
 ## Invariant
 
 Le parser ne doit jamais inferer une machine cible sans preuve documentaire explicite.
+
+## RISKS
+
+- À qualifier.

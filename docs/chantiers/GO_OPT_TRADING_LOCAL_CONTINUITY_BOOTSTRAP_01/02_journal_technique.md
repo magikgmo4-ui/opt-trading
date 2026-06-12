@@ -55,3 +55,7 @@ links:
 - preuve / commande / validation : commits Git créés sur `sot/mainline`
 - résultat : premier chantier pilote local amorcé au format canonique
 - écart / incident : closeout et décisions encore à compléter
+
+## RISKS
+
+- À qualifier.

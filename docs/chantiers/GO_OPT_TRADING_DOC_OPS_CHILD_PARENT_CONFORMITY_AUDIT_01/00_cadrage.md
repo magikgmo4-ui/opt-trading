@@ -74,3 +74,7 @@ Avant fermeture finale du parent Doc Ops, il reste a :
 1. realigner les surfaces de continuite sur `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01` ;
 2. confirmer dans le closeout d'audit que les deux parents ouverts restent non decoratifs et correctement rattaches ;
 3. laisser `student`, `fantome` et le clone `localcms` hors ouverture tant qu'aucune preuve supplementaire n'impose une reouverture.
+
+## RISKS
+
+- À qualifier.

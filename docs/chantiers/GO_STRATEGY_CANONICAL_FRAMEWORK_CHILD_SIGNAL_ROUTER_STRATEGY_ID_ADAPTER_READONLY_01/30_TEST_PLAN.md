@@ -27,3 +27,7 @@ Fichier : `modules/signal_router/tests/test_strategy_id_adapter_readonly.py`
 2. `python -m pytest tests/test_strategy_adapter.py -q`
 3. `python -m pytest modules/signal_router/tests/ -q`
 4. Vérifier git diff limité à `signal_router/` + nouveaux fichiers
+
+## RISKS
+
+- À qualifier.

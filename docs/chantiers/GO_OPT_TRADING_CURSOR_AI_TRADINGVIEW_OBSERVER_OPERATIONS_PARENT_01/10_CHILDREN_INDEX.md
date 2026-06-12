@@ -32,3 +32,7 @@ Child unique :
 `GO_OPT_TRADING_ADMIN_TRADING_TRADINGVIEW_OBSERVER_PACKET_INGEST_REVIEW_01`
 
 Note : ce parent admin-trading ne doit pas etre ouvert avant que le shared packet (Option B) soit stable ou qu'un besoin admin-trading soit prouve.
+
+## RISKS
+
+- À qualifier.

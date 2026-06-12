@@ -1498,3 +1498,7 @@ Suite immediate recommandee :
 1. Revue humaine du fixture corpus.
 2. Validation de la couverture des 40 fixtures.
 3. Ouverture du GO d'implementation read-only.
+
+## RISKS
+
+- À qualifier.

@@ -37,3 +37,7 @@ Telegram → Botpress → OpenClaw → student/Labs → LONA → opt-trading
 - Analyse Telegram fonctionne
 - Réponse structurée retournée
 - Aucune action dangereuse exécutée
+
+## RISKS
+
+- À qualifier.

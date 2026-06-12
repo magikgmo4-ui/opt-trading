@@ -86,3 +86,7 @@ render graphique futur
 ```text
 WIP / REAL_JSON_EXPORT_GO_OPENED
 ```
+
+## RISKS
+
+- À qualifier.

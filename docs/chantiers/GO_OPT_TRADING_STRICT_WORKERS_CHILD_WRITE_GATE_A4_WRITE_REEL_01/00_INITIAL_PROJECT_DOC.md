@@ -85,3 +85,7 @@ PASS si :
 - Aucun secret
 - Stash branch_arbitration preserve
 ```
+
+## RISKS
+
+- À qualifier.

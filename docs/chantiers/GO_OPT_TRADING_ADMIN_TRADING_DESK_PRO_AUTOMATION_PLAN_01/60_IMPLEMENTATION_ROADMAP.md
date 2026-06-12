@@ -50,3 +50,7 @@ updated_at: 2026-05-09
 - Tests attendus: preflight strict + smoke runtime reel limite
 - Risques: side effects runtime, faux signaux, bruit operateur
 - Sortie: PASS si smoke live confirme sans incident
+
+## RISKS
+
+- À qualifier.

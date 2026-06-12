@@ -96,3 +96,7 @@ docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_MACHINE_PARENT_THREAD_ASSIGNMENT_01/
 Lot suivant possible :
 - traiter les GO orphelins
 - creer GO_PARENT_THREAD_MAP.md si decide
+
+## RISKS
+
+- À qualifier.

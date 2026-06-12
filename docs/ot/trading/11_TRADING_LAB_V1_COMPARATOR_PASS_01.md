@@ -43,3 +43,7 @@ Cette passe reste minimale : pas encore de vrai runner live, mais une couche exp
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_LAB_V1_LIVE_OBSERVATION_PASS_01`
+
+## RISKS
+
+- À qualifier.

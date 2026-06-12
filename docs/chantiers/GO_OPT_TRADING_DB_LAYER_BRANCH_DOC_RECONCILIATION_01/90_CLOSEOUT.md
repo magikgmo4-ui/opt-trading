@@ -46,3 +46,7 @@ Seulement si l'on veut ensuite elargir le bloc `DB_LAYER` pour refleter les bran
 - ne pas rouvrir `GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_01`
 - ne pas ouvrir de GO runtime OpenClaw sur cette base seule
 - ne pas lancer de cleanup Git sur `DROP_MERGED` dans cette passe
+
+## RISKS
+
+- À qualifier.

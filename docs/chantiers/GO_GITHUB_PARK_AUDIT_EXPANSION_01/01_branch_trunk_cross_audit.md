@@ -262,3 +262,7 @@ Le croisement `branches ↔ trunks` montre que le vrai nœud restant n’est plu
 ## Verdict
 
 **PASS — audit croisé branches ↔ trunks établi à un niveau opératoire suffisant pour descendre au GO suivant**
+
+## RISKS
+
+- À qualifier.

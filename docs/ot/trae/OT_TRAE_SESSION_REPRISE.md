@@ -94,3 +94,7 @@ Décisions canoniques produites :
 4) Relire les décisions Trae (si mission liée) :
    - `docs/ot/trae/OT_TRAE_*_DECISION_01.md`
 5) Appliquer le point de reprise : `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01`
+
+## RISKS
+
+- À qualifier.

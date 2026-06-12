@@ -63,3 +63,7 @@ Il montre encore :
 - un code launcher historique orienté legacy
 - une DB legacy présente
 ```
+
+## RISKS
+
+- À qualifier.

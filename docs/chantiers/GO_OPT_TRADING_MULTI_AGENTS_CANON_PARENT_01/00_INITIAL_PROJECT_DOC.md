@@ -284,3 +284,7 @@ Memory Bricks candidates, projet uniquement :
 - `deploy_module_multi_machine` = bras logistique multi-machine, pas agent IA ;
 - OpenClaw = orchestrateur experimental/provider cloisonne, pas runtime principal ;
 - la doctrine multi-agents doit integrer naming, frontmatter, search tags et indexation des le cadrage.
+
+## RISKS
+
+- À qualifier.

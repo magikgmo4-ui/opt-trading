@@ -42,3 +42,7 @@ Lever la contradiction sur `Llm-wiki-minimal` concernant le statut “trunk insp
 ## Verdict PASS / OPEN / FAIL
 
 PASS
+
+## RISKS
+
+- À qualifier.

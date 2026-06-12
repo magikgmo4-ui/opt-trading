@@ -70,3 +70,7 @@ git status --short --branch
 ## 17_RESUME_POINT
 
 Le prochain passage executable peut produire un DOT/SVG statique depuis le JSON valide, avec ecriture limitee au dossier du GO.
+
+## RISKS
+
+- À qualifier.

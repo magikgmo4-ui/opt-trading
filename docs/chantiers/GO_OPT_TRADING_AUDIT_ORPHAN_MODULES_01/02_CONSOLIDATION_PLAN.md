@@ -370,3 +370,7 @@ R6. Le README.md du nouveau répertoire documente l'architecture unifiée.
 1 long terme (P4) : SCRIPTS_LEGACY.
 8 GO de consolidation à ouvrir, priorisés par phase.
 ```
+
+## RISKS
+
+- À qualifier.

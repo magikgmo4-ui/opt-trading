@@ -57,3 +57,7 @@ EXCLUS : deplacement de fichiers, changements imports, uvicorn, SQLite, desk_pro
 - 0 changement imports
 - 0 secret
 ```
+
+## RISKS
+
+- À qualifier.

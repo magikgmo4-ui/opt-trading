@@ -35,3 +35,7 @@ Preparer un futur graph traversal runtime/governance WHY.
 ## Invariant
 
 Le graph traversal WHY ne doit jamais devenir une orchestration runtime autonome.
+
+## RISKS
+
+- À qualifier.

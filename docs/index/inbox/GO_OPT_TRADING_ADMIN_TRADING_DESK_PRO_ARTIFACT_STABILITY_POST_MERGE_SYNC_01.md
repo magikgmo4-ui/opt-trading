@@ -40,3 +40,7 @@ Post-merge sync de `admin-trading:/opt/trading` apres merge de la PR `#318`, ave
 ## Suite
 
 La suite `tmux-ide` peut reprendre dans un GO dedie de requalification, en repartant de `admin-trading:/opt/trading` propre sur `sot/mainline`.
+
+## RISKS
+
+- À qualifier.

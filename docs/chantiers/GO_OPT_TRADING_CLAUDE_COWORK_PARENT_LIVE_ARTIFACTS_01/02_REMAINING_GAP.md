@@ -336,3 +336,7 @@ Prochain livrable : 03_CLAUDE_COWORK_PROMPT_ATTENTION_CENTER.md
 Contrainte : read-only strict, sources explicites, aucune ecriture sans GO.
 NEXT_GO : GO_OPT_TRADING_CLAUDE_COWORK_CHILD_REMAINING_GAP_01
 ```
+
+## RISKS
+
+- À qualifier.

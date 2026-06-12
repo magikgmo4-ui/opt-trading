@@ -48,3 +48,7 @@ La coupe des trois commandes WireGuard legacy est traitee ensuite par le `Step 0
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

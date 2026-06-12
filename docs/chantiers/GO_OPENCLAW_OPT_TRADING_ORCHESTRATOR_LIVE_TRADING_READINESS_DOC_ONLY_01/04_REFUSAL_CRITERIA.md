@@ -65,3 +65,7 @@ Un ordre live erroné a un coût réel et potentiellement irréversible.
 Le passage live est une décision irrévocable dans sa fenêtre d'exécution.
 Elle ne peut être annulée qu'avec un kill switch fonctionnel,
 dont le test doit être confirmé avant toute activation.
+
+## RISKS
+
+- À qualifier.

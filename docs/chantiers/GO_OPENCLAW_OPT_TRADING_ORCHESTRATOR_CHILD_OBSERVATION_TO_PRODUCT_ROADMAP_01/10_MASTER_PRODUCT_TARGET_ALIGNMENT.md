@@ -86,3 +86,7 @@ Ce child GO se rattache à :
 | `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PHASE1_30_RUN_14_DAY_OBSERVATION_01` | GO observation Phase 1 actif | `docs/chantiers/GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PHASE1_30_RUN_14_DAY_OBSERVATION_01/00_GO_MASTER.md` |
 | `GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01` | Parent UI/LocalCMS consumer | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/01_cadrage_parent.md` |
 | `DB_LAYER_INGESTION_*` | Décisions d'ingestion db-layer | `docs/governance/DB_LAYER_INGESTION_*.md` |
+
+## RISKS
+
+- À qualifier.

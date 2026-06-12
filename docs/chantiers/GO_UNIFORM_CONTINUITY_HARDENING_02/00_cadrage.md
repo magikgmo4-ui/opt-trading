@@ -274,3 +274,7 @@ Le présent GO exclut :
 ## Statut
 
 **OPEN — cadrage canonique posé ; règle, lots et reprise figés ; application encore non ouverte**
+
+## RISKS
+
+- À qualifier.

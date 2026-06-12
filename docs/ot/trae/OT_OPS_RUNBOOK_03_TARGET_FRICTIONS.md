@@ -11,3 +11,7 @@ Ils échouent immédiatement sur Windows sans WSL.
 ## 3. RISQUE RÉSIDUEL
 Il reste un risque mineur sur les **Permissions Fichiers** et les **Symlinks** (`/usr/local/bin`) qui ne peuvent être vérifiés que sur la cible.
 Le runbook assume que l'installation (`install_desk_pro_wrappers.sh`) a été faite correctement.
+
+## RISKS
+
+- À qualifier.

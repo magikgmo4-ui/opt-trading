@@ -48,3 +48,7 @@ Le guard doit etre execute avant:
 - execution paper.
 
 En cas d'echec, le webhook doit retourner `409` avec une cause explicite et sans secret.
+
+## RISKS
+
+- À qualifier.

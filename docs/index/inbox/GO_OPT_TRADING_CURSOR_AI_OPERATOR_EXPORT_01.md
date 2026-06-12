@@ -23,3 +23,7 @@ Option C — Export operateur cursor-ai autonome, lisible et transportable.
 ## Suite
 
 Option D — Nettoyage branches.
+
+## RISKS
+
+- À qualifier.

@@ -43,3 +43,7 @@ La bascule reste contrôlée par PERF_DB_PATH.
 ```text
 GO_OPT_TRADING_PERF_DB_PATH_SWITCH_IMPL_01
 ```
+
+## RISKS
+
+- À qualifier.

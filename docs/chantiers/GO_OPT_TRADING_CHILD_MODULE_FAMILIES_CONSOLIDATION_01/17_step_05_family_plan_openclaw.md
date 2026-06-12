@@ -109,3 +109,7 @@ Figer la structuration P2 de la suite `Openclaw` comme cockpit operateur local b
 
 ## Point de reprise
 Suite P2 `Openclaw` cadree. Basculer sur `Collectors / market intelligence` puis `Vision`.
+
+## RISKS
+
+- À qualifier.

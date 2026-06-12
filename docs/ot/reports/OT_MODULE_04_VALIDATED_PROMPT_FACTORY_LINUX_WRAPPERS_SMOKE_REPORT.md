@@ -53,3 +53,7 @@ Exécutées depuis `modules/validated_prompt_factory/` via :
 ## 7. POINT DE REPRISE EXACT
 > **GO_OT_MODULE_04B_VALIDATED_PROMPT_FACTORY_LINUX_TARGET_SMOKE**
 
+
+## RISKS
+
+- À qualifier.

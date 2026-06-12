@@ -20,3 +20,7 @@
 ## Prochain GO
 
 Branch ready for PR → `sot/mainline`.
+
+## RISKS
+
+- À qualifier.

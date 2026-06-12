@@ -84,3 +84,7 @@ sudo systemctl daemon-reload
 ## Next GO
 
 `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_INSTALL_GATED_01`
+
+## RISKS
+
+- À qualifier.

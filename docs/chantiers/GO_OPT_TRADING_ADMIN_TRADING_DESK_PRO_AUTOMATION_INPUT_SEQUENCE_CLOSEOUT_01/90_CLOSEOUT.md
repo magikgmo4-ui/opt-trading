@@ -83,3 +83,7 @@ State: three inputs integrated, missing warnings resolved, 84/84 tests
 Timer: active/waiting
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_INPUT_PR_MERGE_01
 ```
+
+## RISKS
+
+- À qualifier.

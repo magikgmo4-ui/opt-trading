@@ -454,3 +454,7 @@ méthode d'implémentation concrète des bundles documentée.
 Prochaine action:
 checkpoint parent ou sous-GO d'ancrage d'un premier bundle réel.
 ```
+
+## RISKS
+
+- À qualifier.

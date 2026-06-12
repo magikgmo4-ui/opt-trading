@@ -58,3 +58,7 @@ La review humaine doit pouvoir verifier :
 ## 17_RESUME_POINT
 
 Le rendu local attendu est un artefact graphique statique accompagne d'un support texte reproductible et d'un rapport court.
+
+## RISKS
+
+- À qualifier.

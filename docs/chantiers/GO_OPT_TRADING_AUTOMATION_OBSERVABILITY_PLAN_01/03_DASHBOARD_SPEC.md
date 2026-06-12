@@ -68,3 +68,7 @@ cmd-health desk_pro # zoom sur une surface
 - ops_menu_hub peut intégrer la vue health dans son menu
 - PERF /perf/ui peut embarquer le dashboard health
 ```
+
+## RISKS
+
+- À qualifier.

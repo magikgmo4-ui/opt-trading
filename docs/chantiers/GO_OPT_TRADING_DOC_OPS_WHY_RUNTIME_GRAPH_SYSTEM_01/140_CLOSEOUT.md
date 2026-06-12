@@ -48,3 +48,7 @@ Apres merge:
 - ouvrir:
   - `GO_OPT_TRADING_DOC_OPS_WHY_GOVERNANCE_DASHBOARD_01`
   - puis `GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01`.
+
+## RISKS
+
+- À qualifier.

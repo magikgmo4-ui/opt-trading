@@ -115,3 +115,7 @@ Remplacer par, seulement si nécessaire un jour :
 
 La décision de consolidation du parc est simplifiée :
 `Magikgmo` et `algo_hf` sortent du périmètre actif et entrent dans le périmètre legacy obsolète.
+
+## RISKS
+
+- À qualifier.

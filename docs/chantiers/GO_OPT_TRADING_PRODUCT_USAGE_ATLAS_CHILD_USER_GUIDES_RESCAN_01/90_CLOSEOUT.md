@@ -91,3 +91,7 @@ docs/product/guides/README.md
 docs/product/PRODUCT_USAGE_ATLAS.md
 docs/product/PRODUCT_USAGE_MATRIX.md
 ```
+
+## RISKS
+
+- À qualifier.

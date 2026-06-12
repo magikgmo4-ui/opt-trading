@@ -122,3 +122,7 @@ Actions obligatoires :
 ## NEXT_GO
 
 Executer la passe SSH/local `db-layer` strictement dans ce cadre, puis completer le rapport et le closeout avec verdict `PASS`, `FAIL` ou `NEEDS_APPROVAL_INSTALL_DB_LAYER`.
+
+## RISKS
+
+- À qualifier.

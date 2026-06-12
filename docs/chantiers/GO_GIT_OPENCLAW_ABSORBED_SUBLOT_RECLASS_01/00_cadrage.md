@@ -60,3 +60,7 @@ Contraintes :
 - aucune suppression remote
 - aucune action sur les branches AI team gelees
 - aucune action sur les snapshots `save/*` ou `backup/mimo-b038db9`
+
+## RISKS
+
+- À qualifier.

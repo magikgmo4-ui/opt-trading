@@ -53,3 +53,7 @@
 1. L'alias `student` est aujourd'hui redirige vers `deepseek_hub` de maniere volontaire et fonctionnelle.
 2. La derive historique vient d'une coexistence de deux conventions de scripts `student`.
 3. Le Kanban doit suivre a la fois la stabilisation immediate et la dette d'architecture.
+
+## RISKS
+
+- À qualifier.

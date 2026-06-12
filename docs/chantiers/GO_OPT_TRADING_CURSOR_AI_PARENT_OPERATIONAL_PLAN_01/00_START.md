@@ -65,3 +65,7 @@ Il fixe :
 Branche creee : `go/GO_OPT_TRADING_CURSOR_AI_PARENT_OPERATIONAL_PLAN_01`
 
 Prochaine etape : produire les 9 fichiers du chantier.
+
+## RISKS
+
+- À qualifier.

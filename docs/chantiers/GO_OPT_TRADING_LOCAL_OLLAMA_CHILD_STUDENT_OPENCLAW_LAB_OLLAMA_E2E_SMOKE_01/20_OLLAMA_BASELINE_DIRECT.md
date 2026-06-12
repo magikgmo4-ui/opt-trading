@@ -21,3 +21,7 @@ Modele `deepseek-r1:1.5b` visible et accessible.
 
 ## Verdict baseline directe
 PASS — Ollama repond directement `"OK"` au prompt `"Reply OK only."`. Le modele fonctionne correctement en acces direct.
+
+## RISKS
+
+- À qualifier.

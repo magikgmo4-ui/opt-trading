@@ -19,3 +19,7 @@ doc_type: statistical_edge_matrix
 
 Aucun edge statistique formalisé n'existe dans le repo. Les corrélations mentionnées
 sont des observations sectorielles qualitatives, pas des modèles quantifiés.
+
+## RISKS
+
+- À qualifier.

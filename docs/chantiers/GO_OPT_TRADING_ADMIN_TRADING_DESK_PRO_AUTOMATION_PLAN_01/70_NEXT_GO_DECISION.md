@@ -41,3 +41,7 @@ Utile apres le dry-run, pas avant. Aller en live smoke maintenant court-circuite
 3. Timer impl
 4. Observability
 5. Live runtime smoke gate
+
+## RISKS
+
+- À qualifier.

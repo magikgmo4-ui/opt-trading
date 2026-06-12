@@ -89,3 +89,7 @@ Un module `circuit_breaker` minimal peut être ajouté :
 - exposer status/reset via CLI
 - intégrer aux sanity checks existants
 ```
+
+## RISKS
+
+- À qualifier.

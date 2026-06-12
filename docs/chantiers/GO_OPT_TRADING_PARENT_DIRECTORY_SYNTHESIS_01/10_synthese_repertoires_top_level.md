@@ -64,3 +64,7 @@ Ils pourront etre resumes a part si necessaire, mais ne font pas partie de la pr
 
 ## Point de reprise
 - detail en cours : Bloc A (`docs/`, `registry/`, `workflow_ai/`)
+
+## RISKS
+
+- À qualifier.

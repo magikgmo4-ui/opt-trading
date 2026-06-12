@@ -47,3 +47,7 @@ Router vers: 1.5B direct (format structure)
 - Aucun write sans WRITE_GATED A4
 - Aucun secret
 ```
+
+## RISKS
+
+- À qualifier.

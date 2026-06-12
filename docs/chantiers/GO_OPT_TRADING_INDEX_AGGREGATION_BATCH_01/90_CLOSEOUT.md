@@ -62,3 +62,7 @@ PASS.
 ## Point de reprise
 
 Reprendre depuis docs/index/REPRISE.md ou surveiller les prochaines entrÃ©es docs/index/inbox/*.md.
+
+## RISKS
+
+- À qualifier.

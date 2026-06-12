@@ -97,3 +97,7 @@ Completer la structuration P2 de la famille `Vision` en separant heritage `step1
 
 ## Point de reprise
 Suite P2 `Vision` cadree. Basculer vers `Step 06` pour les familles a garder separees avec contrats renforces.
+
+## RISKS
+
+- À qualifier.

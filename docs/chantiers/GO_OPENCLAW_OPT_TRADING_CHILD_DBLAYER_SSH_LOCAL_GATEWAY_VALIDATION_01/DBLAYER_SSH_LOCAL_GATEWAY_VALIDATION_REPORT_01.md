@@ -78,3 +78,7 @@ Stopper avant installation.
 - mode d'acces retenu : `fantome -> SSH -> db-layer`
 - qualification finale : `PASS`, `FAIL` ou `NEEDS_APPROVAL_INSTALL_DB_LAYER`
 - aucun secret, aucun live trading, aucun write libre
+
+## RISKS
+
+- À qualifier.

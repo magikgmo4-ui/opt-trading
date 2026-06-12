@@ -36,3 +36,7 @@ Formaliser le modele multi-machine du prototype WHY/runtime.
 ## Invariant
 
 Le modele multi-machine WHY/runtime ne doit jamais devenir une orchestration distribuee autonome.
+
+## RISKS
+
+- À qualifier.

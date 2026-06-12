@@ -71,3 +71,7 @@ Le lot machine-side a revele un gap supplementaire :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

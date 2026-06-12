@@ -52,3 +52,7 @@ R3. perdre ou deplacer la DB sans migration propre
 R4. casser le mount desk_pro
 R5. laisser des references melangees entre ancien et nouveau layout
 ```
+
+## RISKS
+
+- À qualifier.

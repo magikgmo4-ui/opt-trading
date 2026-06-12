@@ -70,3 +70,7 @@ etre execute avec les memes garanties de non-trading.
 - Dossier : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_TV_TEST_RUNTIME_CONFIG_CANONICALIZE_01/`
 - Etat : doc-only, pattern canonique stabilise
 - Rattachement : bloc ADMIN_TRADING
+
+## RISKS
+
+- À qualifier.

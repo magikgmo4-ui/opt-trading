@@ -33,3 +33,7 @@
 - `OpenClaw` est installe sur `db-layer`.
 - Le gateway local n'est pas operatoire au moment de cette revue.
 - Ce GO ne corrige rien et n'essaie aucun redemarrage.
+
+## RISKS
+
+- À qualifier.

@@ -141,3 +141,7 @@ Future workflow activation must cite this draft and record every deviation.
 ## 19_TO_REMEMBER
 
 Do not create `.github/workflows` from this draft without `GATE_CI_ACTIVATION`.
+
+## RISKS
+
+- À qualifier.

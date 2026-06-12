@@ -32,3 +32,7 @@ Definir les types de noeuds du futur WHY runtime graph system.
 ## Invariant
 
 Le graphe doit representer l'etat documentaire prouve, sans inferer des noeuds runtime absents.
+
+## RISKS
+
+- À qualifier.

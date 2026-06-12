@@ -34,3 +34,7 @@ Raccorder `trading_realtime_v1` à `modules/strategy.adapter` en lecture seule, 
 ### 4_RESUME_POINT
 
 Adapter strategy opérationnel. Premier raccord runtime read-only.
+
+## RISKS
+
+- À qualifier.

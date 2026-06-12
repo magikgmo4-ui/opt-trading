@@ -45,3 +45,7 @@ Guards are live and correctly blocking. Before any PAPER_TEST retry:
 2. Verify `active_engine` is non-aggressive or unset
 3. Re-verify `GET /api/paper/guards` returns `ok: true`
 4. Only then consider PAPER_TEST execution
+
+## RISKS
+
+- À qualifier.

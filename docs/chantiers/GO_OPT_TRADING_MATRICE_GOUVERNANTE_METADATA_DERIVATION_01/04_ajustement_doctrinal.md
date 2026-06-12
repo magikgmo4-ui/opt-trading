@@ -157,3 +157,7 @@ Rejouer un mini pilote dry-run sur :
 - `docs/index/GO_INDEX.md`
 - `docs/index/NEXT_GO_CANDIDATES.md`
 - `docs/governance/PRODUCT_CONTINUITY_HIERARCHY_01.md`
+
+## RISKS
+
+- À qualifier.

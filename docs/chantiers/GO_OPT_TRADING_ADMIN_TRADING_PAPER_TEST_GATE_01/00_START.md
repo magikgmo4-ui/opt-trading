@@ -13,3 +13,7 @@ Préparer la gate `PAPER_TEST` après validation complète du flux `TV_TEST`.
 - **AUCUN** live trading.
 - **AUCUN** `trade_allowed=true` activé dans ce GO.
 - **AUCUNE** exposition de secret.
+
+## RISKS
+
+- À qualifier.

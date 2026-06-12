@@ -53,3 +53,7 @@ Apres merge:
   - visualisation runtime multi-machine,
   - overlays dynamiques WHY/runtime,
   - governance dashboard live.
+
+## RISKS
+
+- À qualifier.

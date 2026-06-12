@@ -92,3 +92,7 @@ COLLECTORS_CLUSTER_01 = PASS.
 Famille clarifiee sans refactor runtime.
 Le prochain travail utile est deja connu par la migration map : baseline inventory.
 ```
+
+## RISKS
+
+- À qualifier.

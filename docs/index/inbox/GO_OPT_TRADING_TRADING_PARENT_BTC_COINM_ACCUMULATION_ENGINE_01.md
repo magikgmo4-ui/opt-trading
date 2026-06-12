@@ -68,3 +68,7 @@ Prochaine action : completer et valider les variables, bornes et garde-fous reel
 - short COIN-M = moteur de profit sur baisse, non hedge principal
 - z_short > z_dca reste une contrainte candidate a tester et borner
 ```
+
+## RISKS
+
+- À qualifier.

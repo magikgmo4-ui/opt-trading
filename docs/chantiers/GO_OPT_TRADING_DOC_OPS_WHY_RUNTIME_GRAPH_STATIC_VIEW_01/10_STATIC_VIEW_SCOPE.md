@@ -37,3 +37,7 @@ La vue statique doit couvrir:
 ## Invariant
 
 La vue statique WHY/runtime doit rester lecture seule, locale et non destructive.
+
+## RISKS
+
+- À qualifier.

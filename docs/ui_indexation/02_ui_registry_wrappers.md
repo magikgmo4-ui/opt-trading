@@ -41,3 +41,7 @@
 - Les entrées CLI sont déjà nombreuses et utilisables.
 - Le travail futur côté UI n’est pas de créer des wrappers, mais de créer une **registry visuelle et des panneaux lisibles** au-dessus de ces wrappers.
 - `ops_menu_hub` doit rester la couche CLI/hub; les futures UI MSI doivent être des surfaces plus visuelles et plus contextuelles.
+
+## RISKS
+
+- À qualifier.

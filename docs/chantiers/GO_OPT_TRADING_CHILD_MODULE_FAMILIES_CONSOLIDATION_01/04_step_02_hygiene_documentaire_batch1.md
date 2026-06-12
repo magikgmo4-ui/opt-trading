@@ -125,3 +125,7 @@ Poser les `README` manquants sur le premier bloc de modules actifs et ambigus, s
 
 ## Point de reprise
 Poursuivre `Step 02` avec la famille `openclaw*`, puis les modules de plateforme restants sans `README`.
+
+## RISKS
+
+- À qualifier.

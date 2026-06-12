@@ -240,3 +240,7 @@ runbook d'utilisation réelle créé.
 Prochaine action:
 checkpoint parent ou sous-GO pour créer un premier deploy_bundle réel.
 ```
+
+## RISKS
+
+- À qualifier.

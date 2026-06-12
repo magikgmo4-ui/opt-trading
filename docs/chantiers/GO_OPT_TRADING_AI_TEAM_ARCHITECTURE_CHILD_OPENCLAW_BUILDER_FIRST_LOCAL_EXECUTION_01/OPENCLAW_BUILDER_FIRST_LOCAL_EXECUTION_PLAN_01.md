@@ -32,3 +32,7 @@ SSH/remote BLOCKED = acceptable for local-only
 No WAN, no bridge, no secrets
 Ready for human approval
 ```
+
+## RISKS
+
+- À qualifier.

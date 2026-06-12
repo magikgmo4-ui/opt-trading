@@ -65,3 +65,7 @@ Keep separate unless proven otherwise:
 
 ## 9. Next trigger
 GO_COLLECTORS_BASELINE_GAP_MATRIX_01
+
+## RISKS
+
+- À qualifier.

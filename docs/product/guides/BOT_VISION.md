@@ -150,3 +150,7 @@ Capturer des screenshots trading, les analyser via Vision, produire des artefact
 - `docs/status/bot_vision_canonique.md`
 - `docs/governance/BOT_VISION_CANONICAL_PRODUCT_SYNTH_01.md`
  - `docs/chantiers/GO_OPT_TRADING_VISION_RUNTIME_CONSOLIDATION_IMPL_01/90_CLOSEOUT.md`
+
+## RISKS
+
+- À qualifier.

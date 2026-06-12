@@ -35,3 +35,7 @@ Le score WHY doit favoriser:
 ## Invariant
 
 Le score WHY ne doit jamais devenir une gate runtime autonome.
+
+## RISKS
+
+- À qualifier.

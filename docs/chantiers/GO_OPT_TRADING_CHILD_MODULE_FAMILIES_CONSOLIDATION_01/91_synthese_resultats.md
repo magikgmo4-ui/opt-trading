@@ -89,3 +89,7 @@ Il faut d'abord :
 - le child ne devient pas un parent d'execution generaliste
 - il se ferme comme baseline de consolidation et de decoupage
 - l'execution continue par sous-lots bornes et independants
+
+## RISKS
+
+- À qualifier.

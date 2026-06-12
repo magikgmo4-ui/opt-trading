@@ -36,3 +36,7 @@ Definir le plan d'automatisation Desk Pro a partir des contrats valides `signal_
 ## Side effects attendus
 
 `NONE`
+
+## RISKS
+
+- À qualifier.

@@ -48,3 +48,7 @@ Avant toute migration runtime future :
 - toute nouvelle doctrine artifact doit etre additive
 - tout changement de nom de fichier doit etre mappe puis rollbackable
 ```
+
+## RISKS
+
+- À qualifier.

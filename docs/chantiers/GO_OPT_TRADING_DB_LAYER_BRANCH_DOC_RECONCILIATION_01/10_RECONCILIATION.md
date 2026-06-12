@@ -107,3 +107,7 @@ La surface `db-layer/OpenClaw` n'appelle pas de reprise runtime. Le prochain bes
 - le parent `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` encore actif comme ancre,
 - les branches OpenClaw security qui existent mais ne sont pas encore rattachees machine de facon canonique,
 - les branches `DB_LAYER` encore sans preuve de statut suffisante.
+
+## RISKS
+
+- À qualifier.

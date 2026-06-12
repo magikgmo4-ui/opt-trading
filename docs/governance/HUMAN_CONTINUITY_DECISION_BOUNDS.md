@@ -97,3 +97,7 @@ Elle doit aussi garder :
 
 Bloc humain complémentaire.
 À utiliser comme référence de bornage des décisions dans la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

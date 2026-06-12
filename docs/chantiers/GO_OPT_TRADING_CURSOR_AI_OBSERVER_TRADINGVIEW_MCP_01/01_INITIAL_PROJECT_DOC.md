@@ -41,3 +41,7 @@ Le système doit pouvoir :
 - Pas de mutation runtime sans validation.
 - Tout résultat doit produire une trace (export JSON/MD).
 - Secrets, .env, tokens jamais commités.
+
+## RISKS
+
+- À qualifier.

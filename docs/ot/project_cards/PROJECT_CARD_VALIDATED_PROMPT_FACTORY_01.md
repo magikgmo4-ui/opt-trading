@@ -144,3 +144,7 @@ Point de reprise chantier logique:
 
 Utile seulement sur demande explicite:
 - pour `validated_prompt_factory`, le prochain manque structurant est davantage le gel court de l’adoption et du positionnement d’usage que la structure du module elle-même.
+
+## RISKS
+
+- À qualifier.

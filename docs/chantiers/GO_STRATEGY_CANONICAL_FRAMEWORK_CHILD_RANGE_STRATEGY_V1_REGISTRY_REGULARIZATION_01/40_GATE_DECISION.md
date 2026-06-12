@@ -18,3 +18,7 @@ doc_type: gate_decision
 ### Verdict
 
 **PASS_RANGE_STRATEGY_V1_REGISTRY_REGULARIZATION**
+
+## RISKS
+
+- À qualifier.

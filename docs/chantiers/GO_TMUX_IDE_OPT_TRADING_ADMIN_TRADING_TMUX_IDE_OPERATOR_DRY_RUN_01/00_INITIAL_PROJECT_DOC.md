@@ -78,3 +78,7 @@ Dry-run operateur autorise par PR #519 mergee.
 NEXT:
 Lire 10_PRECHECKS.md puis 30_DRY_RUN_RESULTS.md.
 ```
+
+## RISKS
+
+- À qualifier.

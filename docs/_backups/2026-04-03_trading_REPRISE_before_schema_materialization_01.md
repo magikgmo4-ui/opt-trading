@@ -84,3 +84,7 @@ Matérialiser les schémas machine-lisibles et/ou le squelette LAB V1.
 ## 9. FORMULE DE REPRISE COURTE
 
 Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/01_GO_OT_TRADING_DUAL_STACK_V1_01_REPRISE.md` et `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md`, puis matérialiser les schémas machine-lisibles V1 avant d’ouvrir le squelette LAB.
+
+## RISKS
+
+- À qualifier.

@@ -49,3 +49,7 @@ Ne pas forcer une migration disruptive en une etape.
 - 0 secrets en clair
 - 0 migration config executee
 ```
+
+## RISKS
+
+- À qualifier.

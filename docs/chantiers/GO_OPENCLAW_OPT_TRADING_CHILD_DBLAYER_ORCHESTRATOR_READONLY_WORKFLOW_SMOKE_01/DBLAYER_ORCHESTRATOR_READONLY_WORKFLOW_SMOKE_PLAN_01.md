@@ -51,3 +51,7 @@ python3 -m modules.desk_pro_orchestrator.app.desk_pro_orchestrator explain
 | live trading detected | STOP |
 | sudo required | STOP |
 | runbook mismatch | STOP |
+
+## RISKS
+
+- À qualifier.

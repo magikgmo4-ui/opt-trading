@@ -114,3 +114,7 @@ Aucune modification de code.
 - `data/journal/daily/20260516_001.json` — journal JSON complet
 - `data/journal/daily/20260516_001.csv` — résumé CSV
 - `data/logs/scheduler/scheduler.log` — log scheduler
+
+## RISKS
+
+- À qualifier.

@@ -40,3 +40,7 @@ GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_OBSERVABILITY_01
 ```
 
 Mais la sequence la plus propre reste: timer spec avant observability detaillee.
+
+## RISKS
+
+- À qualifier.

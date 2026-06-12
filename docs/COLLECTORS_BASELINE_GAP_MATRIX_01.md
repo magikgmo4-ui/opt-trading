@@ -93,3 +93,7 @@ Status vocabulary used in this matrix:
 ## Next trigger
 
 GO_COLLECTORS_DERIVATIVES_MAPPING_01
+
+## RISKS
+
+- À qualifier.

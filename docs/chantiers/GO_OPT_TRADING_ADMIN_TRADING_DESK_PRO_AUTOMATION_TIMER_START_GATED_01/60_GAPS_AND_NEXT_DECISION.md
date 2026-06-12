@@ -28,3 +28,7 @@ Le prochain GO sain est d'observer et cadrer ce premier trigger plutot que passe
 ## Alternative
 
 `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_FIX_01`
+
+## RISKS
+
+- À qualifier.

@@ -89,3 +89,7 @@ Le template est instanciable en remplaçant simplement `<GO_ID>`, l'etat valide,
 - `version`
 - liste des fichiers
 - invariants de securite
+
+## RISKS
+
+- À qualifier.

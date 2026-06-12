@@ -34,3 +34,7 @@ Consolide :
 ## Prochain GO recommande
 
 `GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01`
+
+## RISKS
+
+- À qualifier.

@@ -128,3 +128,7 @@ Lecture retenue :
 
 ## Suite
 - bloc suivant recommande : Bloc D (`_archive/`, `tmp/`, caches et surfaces locales)
+
+## RISKS
+
+- À qualifier.

@@ -110,3 +110,7 @@ GO_OPT_TRADING_MULTI_AGENTS_CURSOR_AI_PARENT_ALIGNMENT_01
 RESEAU_SSH_CODE_BRANCHES:
 gate séparée requise avant toute décision de merge
 ```
+
+## RISKS
+
+- À qualifier.

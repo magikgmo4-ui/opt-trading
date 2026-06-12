@@ -165,3 +165,7 @@ Ce document ne fixe pas encore :
 Statut :
 - document de référence locale
 - à maintenir cohérent avec le schéma réel de `memory_bricks`
+
+## RISKS
+
+- À qualifier.

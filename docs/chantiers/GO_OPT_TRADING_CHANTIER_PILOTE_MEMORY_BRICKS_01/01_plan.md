@@ -50,3 +50,7 @@ links:
 
 ## Point d’arrêt acceptable
 - arrêt acceptable si : le pilote produit déjà un cadrage, des décisions et un closeout suffisamment ancrés pour servir de référence initiale
+
+## RISKS
+
+- À qualifier.

@@ -13,3 +13,7 @@ Adopter le standard opératoire de routage modèle/provider comme règle transve
 - `docs/chantiers/.../SURFACE_TO_PROVIDER_USAGE_MATRIX_01.md`
 - `docs/chantiers/.../AGENT_EXECUTION_PRECHECK_TEMPLATE_01.md`
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

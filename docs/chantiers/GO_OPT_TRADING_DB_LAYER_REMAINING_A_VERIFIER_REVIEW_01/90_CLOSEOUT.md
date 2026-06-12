@@ -39,3 +39,7 @@ Objectif :
 - faire un audit documentaire plus profond de ces 3 branches sans preuve locale suffisante
 - verifier s'il existe des chantiers seulement sur branche, PRs ou closeouts hors ligne courante
 - toujours sans runtime ni cleanup
+
+## RISKS
+
+- À qualifier.

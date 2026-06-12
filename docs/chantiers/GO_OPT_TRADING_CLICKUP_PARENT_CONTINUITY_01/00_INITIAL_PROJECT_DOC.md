@@ -73,3 +73,7 @@ Chaque GO actif doit être visible dans ClickUp avec GO_ID, statut, module, mach
 ## 17_RESUME_POINT
 
 Reprendre depuis la branche `go/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01`, dossier `docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_01/`, puis exécuter le bundle IDE.
+
+## RISKS
+
+- À qualifier.

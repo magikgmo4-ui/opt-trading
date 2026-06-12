@@ -68,3 +68,7 @@ Valider “en session réelle” (au sens : flux actionnable à partir du repo, 
 
 Ouvrir une session “à froid” en appliquant l’ordre canonique, puis produire une clôture compacte (doc+kanban+reprise) en ne relevant que les frictions observées.
 
+
+## RISKS
+
+- À qualifier.

@@ -66,3 +66,7 @@ Fiche courte de lignée/stack pour `desk_pro*` et `desk_*`.
 ## Reprise
 - reprise immédiate documentée dans `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`
 - basculer ensuite en cartographie `Step 04` pour détailler les frontières P1 de la stack
+
+## RISKS
+
+- À qualifier.

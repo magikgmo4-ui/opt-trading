@@ -112,3 +112,7 @@ APPROBATION_EXPLICITE : OUI/NON
 
 Sans ce template complété et committé dans un GO_LIVE_ACTIVATION_*, aucun
 ordre live ne doit être passé.
+
+## RISKS
+
+- À qualifier.

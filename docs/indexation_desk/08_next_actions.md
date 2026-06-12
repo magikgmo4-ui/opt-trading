@@ -109,3 +109,7 @@ Faire d’abord :
 
 ## Proposition de titre pour le prochain micro-chantier
 **Standardisation surface opérateur Desk Pro (wrappers, nommage, exposition modules cœur)**
+
+## RISKS
+
+- À qualifier.

@@ -28,3 +28,7 @@ Passer Bundles de `APPLICATION_DOCUMENTED` a workflow actif cursor-ai, sans ferm
 ## Prochain GO recommande
 
 `GO_OPT_TRADING_CURSOR_AI_ALERT_WEBHOOK_PRE_ADMIN_GATE_SPEC_01`
+
+## RISKS
+
+- À qualifier.

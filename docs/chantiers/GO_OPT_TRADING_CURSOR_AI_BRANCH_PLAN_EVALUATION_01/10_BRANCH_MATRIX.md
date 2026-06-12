@@ -23,3 +23,7 @@
 ## Duplication identifiee
 
 `ALERT_WEBHOOK_TEMPLATE_01` et `PARENT_CLOSEOUT_01` partagent le meme commit `78915bb`. Il s'agit du meme contenu sur deux branches. Une seule doit etre conservee. L'autre peut etre DROP_MERGED si absorbee ou DROP_DUPLICATE.
+
+## RISKS
+
+- À qualifier.

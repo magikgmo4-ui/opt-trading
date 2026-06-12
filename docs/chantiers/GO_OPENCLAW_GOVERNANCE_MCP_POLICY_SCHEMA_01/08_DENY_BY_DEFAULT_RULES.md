@@ -109,3 +109,7 @@ Memoire projet candidate :
 ```text
 OpenClaw MCP must be able to refuse safely: unknown, secret, trade, sudo, shell, runtime mutation and gate bypass are blocked or never allowed.
 ```
+
+## RISKS
+
+- À qualifier.

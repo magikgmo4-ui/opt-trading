@@ -78,3 +78,7 @@ links:
 
 ## 19_TO_REMEMBER
 - Memory: closeout du sous-GO et next steps vers GO_OPT_TRADING_DOC_OPS_CHILD_OPEN_WORK_CONTROL_01
+
+## RISKS
+
+- À qualifier.

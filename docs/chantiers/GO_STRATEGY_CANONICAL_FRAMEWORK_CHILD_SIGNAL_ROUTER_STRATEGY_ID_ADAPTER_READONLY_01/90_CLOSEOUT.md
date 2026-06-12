@@ -41,3 +41,7 @@ trading_realtime_v1 → signal_router → proposition_engine (next) → notifica
 ## Prochaine étape recommandée
 
 Raccorder `proposition_engine` (validation `strategy_id` entrant dans `NormalizedSignal` reçu de signal_router).
+
+## RISKS
+
+- À qualifier.

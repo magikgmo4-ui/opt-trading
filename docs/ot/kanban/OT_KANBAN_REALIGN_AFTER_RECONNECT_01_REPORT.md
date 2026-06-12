@@ -33,3 +33,7 @@ Réaligner le kanban “source of truth” avec les clôtures réseau récentes,
 ## 6. Limites / Non traité (explicite)
 - Aucune mission technique relancée.
 - Aucun statut autre que les incohérences réseau/kanban corrigées n’a été modifié.
+
+## RISKS
+
+- À qualifier.

@@ -64,3 +64,7 @@ Observer les premiers runs quotidiens du scheduler dry-run et valider l'état st
 - Pas de Bitget order
 - Pas de write Sheets automatique
 - LocalCMS read-only
+
+## RISKS
+
+- À qualifier.

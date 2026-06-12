@@ -64,3 +64,7 @@ signal:
 ## NEXT
 
 impl module airtable_bridge
+
+## RISKS
+
+- À qualifier.

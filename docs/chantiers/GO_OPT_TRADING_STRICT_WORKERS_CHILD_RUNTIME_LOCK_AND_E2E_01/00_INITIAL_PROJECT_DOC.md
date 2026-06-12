@@ -202,3 +202,7 @@ fantome
 → Ne pas passer a la Phase B sans validation de la Phase A
 → Garde-fous stricts sur chaque phase
 ```
+
+## RISKS
+
+- À qualifier.

@@ -62,3 +62,7 @@ cd /opt/trading
 /opt/trading/venv/bin/python -m modules.desk_pro_runner.app.desk_pro_runner status
 /opt/trading/venv/bin/python -m modules.desk_pro_runner.app.desk_pro_runner run  # PAPER mode
 ```
+
+## RISKS
+
+- À qualifier.

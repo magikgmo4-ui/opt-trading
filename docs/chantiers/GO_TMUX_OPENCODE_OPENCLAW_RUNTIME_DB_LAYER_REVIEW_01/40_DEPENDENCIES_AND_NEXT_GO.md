@@ -43,3 +43,7 @@
   - differe derriere la remise a plat runtime `OpenClaw`.
 - `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01`
   - differe tant que le runtime local `db-layer` n'est pas clarifie.
+
+## RISKS
+
+- À qualifier.

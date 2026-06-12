@@ -53,3 +53,7 @@ docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_JSON_EXPORT_REAL_01/arti
 ## Resume Point
 
 Reprendre dans `90_CLOSEOUT.md` du chantier avant toute production d'artefact v1.
+
+## RISKS
+
+- À qualifier.

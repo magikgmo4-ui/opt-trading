@@ -224,3 +224,7 @@ MACHINE: admin-trading
 5. notification_dispatcher    → Telegram ping test
 6. webhook                    → POST test signal TradingView format
 ```
+
+## RISKS
+
+- À qualifier.

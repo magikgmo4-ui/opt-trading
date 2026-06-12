@@ -75,3 +75,7 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 Trigger courant clos : `GO_OT_TRADING_REALTIME_V1_EVENT_BRIDGE_PASS_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_REALTIME_V1_REPORTING_PASS_01`
+
+## RISKS
+
+- À qualifier.

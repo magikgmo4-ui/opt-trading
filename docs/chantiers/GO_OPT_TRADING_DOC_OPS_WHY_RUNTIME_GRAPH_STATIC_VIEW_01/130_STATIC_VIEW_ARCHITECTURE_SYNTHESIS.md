@@ -51,3 +51,7 @@ Les fichiers `100_STATIC_VIEW_JSON_EXPORT_ALIGNMENT_V2.md`, `110_STATIC_VIEW_GOV
 ## Invariant final
 
 La vue statique WHY/runtime ne doit jamais devenir une orchestration runtime autonome ni remplacer une validation humaine critique.
+
+## RISKS
+
+- À qualifier.

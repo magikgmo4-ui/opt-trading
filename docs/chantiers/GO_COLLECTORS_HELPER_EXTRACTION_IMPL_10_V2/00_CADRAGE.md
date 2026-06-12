@@ -38,3 +38,7 @@ collector_binance_spot/run.py :
   - _classify_error retiré
   + classify_collector_error(exc, extra_recoverable_codes={418}) appelé directement
 ```
+
+## RISKS
+
+- À qualifier.

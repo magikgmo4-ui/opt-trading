@@ -36,3 +36,7 @@ Definir les outputs reviewables de la vue statique WHY/runtime.
 ## Invariant
 
 Les outputs WHY/runtime doivent rester statiques, auditables et non destructifs.
+
+## RISKS
+
+- À qualifier.

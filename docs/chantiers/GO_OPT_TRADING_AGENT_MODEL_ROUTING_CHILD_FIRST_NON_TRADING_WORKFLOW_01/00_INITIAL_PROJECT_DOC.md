@@ -39,3 +39,7 @@ Conforme adoption gate : OUI
 | Format attendu | structure (tableau) |
 | Surface | doc audit / triage |
 | Provider | 0.5B agent chain (read-only, format libre → structure) |
+
+## RISKS
+
+- À qualifier.

@@ -46,3 +46,7 @@
 ## Verdict
 
 PASS - fermeture sans merge de la PR snapshot et suppression de sa branche dediee seulement.
+
+## RISKS
+
+- À qualifier.

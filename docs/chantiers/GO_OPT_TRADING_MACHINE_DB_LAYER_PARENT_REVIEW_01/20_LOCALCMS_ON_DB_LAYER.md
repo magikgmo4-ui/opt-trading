@@ -22,3 +22,7 @@
 ## Gaps et checks suivants
 - Le statut de service exact de `LocalCMS` n'a pas ete prouve dans ce GO.
 - Le contrat d'exposition courant entre opt-trading et `LocalCMS` reste a revisiter dans un GO de realignment dedie.
+
+## RISKS
+
+- À qualifier.

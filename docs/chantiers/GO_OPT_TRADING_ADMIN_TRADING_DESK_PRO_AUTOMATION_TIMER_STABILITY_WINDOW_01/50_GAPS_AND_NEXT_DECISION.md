@@ -27,3 +27,7 @@ The automation sequence has enough evidence for a sequence closeout before any m
 ## Optional follow-up
 
 `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_PR_MERGE_01`
+
+## RISKS
+
+- À qualifier.

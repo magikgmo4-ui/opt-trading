@@ -60,3 +60,7 @@ Liste des GO actifs propres a cursor-ai au `2026-05-05`.
 
 - Aucun GO admin-trading n'est ouvert sans demande explicite.
 - Les GO `FUTURE` ne doivent pas etre ouverts avant le verdict du present GO parent.
+
+## RISKS
+
+- À qualifier.

@@ -46,3 +46,7 @@ links:
 - `docs/governance/MATRICE_DOC_OPS_MASTER_MATRIX_01.md`
 - `docs/governance/REPO_ROOT_POLICY.md`
 - `docs/architecture/REPO_SURFACES_MAP.md`
+
+## RISKS
+
+- À qualifier.

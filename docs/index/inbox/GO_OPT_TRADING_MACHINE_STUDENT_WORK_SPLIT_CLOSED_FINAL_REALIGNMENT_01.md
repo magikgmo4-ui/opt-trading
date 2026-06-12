@@ -5,3 +5,7 @@
 - patch : bloc STUDENT/OLLAMA dans MACHINE_WORK_SPLIT realigné (table 32 lignes → synthèse)
 - NEXT_STUDENT_GO : NONE
 - Student/Ollama : CLOSED_FINAL
+
+## RISKS
+
+- À qualifier.

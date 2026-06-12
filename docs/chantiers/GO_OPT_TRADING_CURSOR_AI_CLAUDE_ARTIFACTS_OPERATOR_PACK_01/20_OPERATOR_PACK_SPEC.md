@@ -67,3 +67,7 @@ Le pack operateur Claude artifacts sert a fournir a `cursor-ai` un socle stable 
 - Le bundle `claude-artifacts` pointe vers ses 6 artefacts reels.
 - Les limites `no runtime`, `no admin-trading`, `no secrets`, `no DOC_OPS blocked` restent explicites.
 - Les traces legacy restent lisibles sans casser les references deja mergees.
+
+## RISKS
+
+- À qualifier.

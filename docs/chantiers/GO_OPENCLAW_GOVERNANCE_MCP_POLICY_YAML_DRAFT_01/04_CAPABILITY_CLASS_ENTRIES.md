@@ -113,3 +113,7 @@ Future validator should reject capability entries missing any table column repre
 ## 19_TO_REMEMBER
 
 Capabilities are allowlisted by id. A similar name, alias or inferred action remains blocked until explicitly defined.
+
+## RISKS
+
+- À qualifier.

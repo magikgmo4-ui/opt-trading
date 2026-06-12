@@ -605,3 +605,7 @@ TOTAL MODULES RÉELS: 85
 WORKERS À PRODUIRE:   10 (non encore dans modules/)
 TOTAL CIBLE:          95 modules (85 actuels + 10 workers)
 ```
+
+## RISKS
+
+- À qualifier.

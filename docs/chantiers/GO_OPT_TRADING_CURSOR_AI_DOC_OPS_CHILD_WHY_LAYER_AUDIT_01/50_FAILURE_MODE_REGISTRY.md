@@ -21,3 +21,7 @@ Tout nouveau chantier critique devrait:
 - identifier ses failure modes,
 - documenter les protections,
 - documenter le cout de rupture.
+
+## RISKS
+
+- À qualifier.

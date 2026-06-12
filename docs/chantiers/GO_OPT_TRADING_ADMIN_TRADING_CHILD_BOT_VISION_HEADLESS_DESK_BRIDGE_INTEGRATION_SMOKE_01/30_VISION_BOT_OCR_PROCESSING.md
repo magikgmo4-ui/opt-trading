@@ -41,3 +41,7 @@ updated_at: 2026-05-04
 
 **PASS** — vision_bot traite automatiquement chaque capture headless.
 Aucun fichier ignore, aucun blocage.
+
+## RISKS
+
+- À qualifier.

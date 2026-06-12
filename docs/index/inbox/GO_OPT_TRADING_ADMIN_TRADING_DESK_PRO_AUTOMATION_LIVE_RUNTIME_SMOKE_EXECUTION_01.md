@@ -24,3 +24,7 @@ updated_at: 2026-05-13
 **Smoke verdict:** PASS — all 6 cases validated, safety flags preserved
 
 **Next step after PR merge:** evaluate next GO for the admin-trading desk pro automation sequence
+
+## RISKS
+
+- À qualifier.

@@ -33,3 +33,7 @@ updated_at: 2026-05-11
 ## Stability verdict
 
 Payload behavior is stable and contract-compatible over the observed natural run window.
+
+## RISKS
+
+- À qualifier.

@@ -31,3 +31,7 @@ Fermer le workstream bot_vision_headless. Consolider 11 GO PASS en documentation
 - Aucun runtime modifie
 - Parent admin-trading reste ouvert
 - Workstream headless clos
+
+## RISKS
+
+- À qualifier.

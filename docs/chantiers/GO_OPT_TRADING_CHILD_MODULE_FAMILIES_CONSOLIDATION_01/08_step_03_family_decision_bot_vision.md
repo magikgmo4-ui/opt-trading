@@ -69,3 +69,7 @@ Figer le statut operatoire de la famille vision sans lancer de move physique ni 
 
 ## Point de reprise
 Poursuivre `Step 03` avec `deepseek*`, puis `reseau_ssh*`, puis `desk_*`.
+
+## RISKS
+
+- À qualifier.

@@ -27,3 +27,7 @@ tools/hermes_bridge/
 - pas d'auto-commit
 - pas d'execution non controlee
 - validation obligatoire avant integration
+
+## RISKS
+
+- À qualifier.

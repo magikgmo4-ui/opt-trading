@@ -44,3 +44,7 @@
 - parent : `OPEN`
 - reprise : `PASS`
 - suite : `A_COMPLETER` par transfert selectif, pas par merge global
+
+## RISKS
+
+- À qualifier.

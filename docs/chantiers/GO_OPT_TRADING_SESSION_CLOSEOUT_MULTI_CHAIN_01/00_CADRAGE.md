@@ -44,3 +44,7 @@ DeepSeek runtime consolidation         → #339 #340 #341 #342
 - Product Usage Atlas (clos precedemment)
 - Vision runtime (pas encore commence)
 ```
+
+## RISKS
+
+- À qualifier.

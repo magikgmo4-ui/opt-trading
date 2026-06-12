@@ -60,3 +60,7 @@ graph_bundle.json
 -> verifier APP / RUNS_ON / HAS_GAP / REFERENCES branche -> GO / RESUMES_AT / HAS_TODO
 -> rejouer les cartes Mermaid V1
 ```
+
+## RISKS
+
+- À qualifier.

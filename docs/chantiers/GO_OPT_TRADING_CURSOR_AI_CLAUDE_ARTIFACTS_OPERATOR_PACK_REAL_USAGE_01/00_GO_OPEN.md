@@ -73,3 +73,7 @@ FAIL si :
 - la checklist ne couvre pas un risque operateur important
 - le manifest n'est pas exploitable
 - une source externe non documentee est necessaire
+
+## RISKS
+
+- À qualifier.

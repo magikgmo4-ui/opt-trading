@@ -21,3 +21,7 @@ Ajouter un script d'export safe `export_shared_packet.ps1` qui depose le bridge 
 ## Statut
 
 OPEN → PASS attendu apres execution.
+
+## RISKS
+
+- À qualifier.

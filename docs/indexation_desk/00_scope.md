@@ -53,3 +53,7 @@ Le repo contient déjà une grande partie des briques Desk Pro métier, UI et op
 3. quels éléments tournent réellement en exploitation ?
 4. quelle machine / quel écran porte quel rôle ?
 5. quels sont les gaps prioritaires avant la phase écran réseau + API ?
+
+## RISKS
+
+- À qualifier.

@@ -31,3 +31,7 @@ Les surfaces externes deviennent dangereuses si:
 ## Invariant
 
 Aucune surface externe ne doit devenir une boite noire runtime.
+
+## RISKS
+
+- À qualifier.

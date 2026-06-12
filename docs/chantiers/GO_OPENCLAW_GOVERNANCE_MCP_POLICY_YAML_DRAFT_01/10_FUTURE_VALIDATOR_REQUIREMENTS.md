@@ -138,3 +138,7 @@ Future validator must document how it handles `none`, `null`, missing fields, un
 ## 19_TO_REMEMBER
 
 A validator can check a policy, but it cannot make a forbidden action safe.
+
+## RISKS
+
+- À qualifier.

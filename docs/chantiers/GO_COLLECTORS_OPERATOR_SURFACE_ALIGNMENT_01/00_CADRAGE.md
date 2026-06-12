@@ -35,3 +35,7 @@ Aligner la surface operateur de la famille COLLECTORS autour d'attentes previsib
 - 0 runtime
 - 0 changement de comportement shell dans ce lot
 ```
+
+## RISKS
+
+- À qualifier.

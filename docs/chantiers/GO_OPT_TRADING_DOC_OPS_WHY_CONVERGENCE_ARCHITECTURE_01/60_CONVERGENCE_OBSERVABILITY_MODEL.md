@@ -34,3 +34,7 @@ Formaliser le modele observabilite de la convergence WHY.
 ## Invariant
 
 La convergence WHY ne doit jamais inferer une preuve runtime absente.
+
+## RISKS
+
+- À qualifier.

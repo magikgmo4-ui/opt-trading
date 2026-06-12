@@ -50,3 +50,7 @@ created_at: 2026-05-18
 | P2 | `GOLD_CFD_LONG` | Code engine + logique `strategy_logic.py` active |
 | P3 | `range_strategy_v1` | Cadrage existant, GO dédié, assets identifiés |
 | P4 | `btc_coinm_accumulation` | Draft concept + child GOs dédiés |
+
+## RISKS
+
+- À qualifier.

@@ -80,3 +80,7 @@ Patch minimal et cohérent : les wrappers `shared_sshfs_permanent` deviennent sy
 ## 10. POINT DE REPRISE SUIVANT
 - Mini revalidation live sur `admin-trading` (commandes ci-dessus), puis requalification OT-SVC-01 si les symptômes `name=local/path=/usr/local` et `FAIL: scripts missing` disparaissent.
 
+
+## RISKS
+
+- À qualifier.

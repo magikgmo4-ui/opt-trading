@@ -44,3 +44,7 @@ Il ne prouve pas encore le repointage machine-side reel.
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

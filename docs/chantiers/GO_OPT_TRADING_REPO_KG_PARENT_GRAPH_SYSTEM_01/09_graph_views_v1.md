@@ -501,3 +501,7 @@ Une vue graph est un filtre/re rendu du graph bundle. Elle ne remplace jamais un
 TAG: RESUME_AND_RISK_FIRST
 Pour l'usage quotidien du projet, RESUME_MAP et RISK_GAP_MAP sont prioritaires parce qu'elles accélèrent la reprise et empêchent les fausses lectures.
 ```
+
+## RISKS
+
+- À qualifier.

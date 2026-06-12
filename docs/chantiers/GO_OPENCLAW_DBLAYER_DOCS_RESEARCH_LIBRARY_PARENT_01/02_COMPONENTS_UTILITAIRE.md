@@ -41,3 +41,7 @@ Chaque module OpenClaw scanne pour son utilitaire reel (cmd.sh, menu.sh, sanity,
 - 5 modules specifiques OpenClaw (gateway, doctor, model_provider, evidence, tradingview)
 - 4 modules wrappers generiques (menu, configure, install, config_modulaire)
 - tradingview_observer_openclaw: coquille vide, a evaluer
+
+## RISKS
+
+- À qualifier.

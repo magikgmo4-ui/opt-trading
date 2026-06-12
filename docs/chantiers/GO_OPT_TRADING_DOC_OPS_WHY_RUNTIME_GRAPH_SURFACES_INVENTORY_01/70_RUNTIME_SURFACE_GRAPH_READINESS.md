@@ -39,3 +39,7 @@ Readiness de travail retenue :
 ## 17_RESUME_POINT
 
 La readiness publiee ici verrouille l'ordre suivant : integration LocalCMS/TMUX d'abord, mapping daily journal ensuite, export JSON reel seulement apres ces deux etapes.
+
+## RISKS
+
+- À qualifier.

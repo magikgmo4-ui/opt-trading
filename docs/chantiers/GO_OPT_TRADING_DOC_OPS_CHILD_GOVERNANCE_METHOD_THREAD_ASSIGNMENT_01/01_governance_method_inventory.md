@@ -56,3 +56,7 @@ GO de gouvernance, matrice, methode de travail, continuite et index. Exclut : ma
 - 2 fils supplementaires proposes : THREAD_METHOD_WORKFLOW, THREAD_ARCHIVE_REFERENCE
 - 2 GO REFERENCE (hors execution courante)
 - 1 GO recemment PASS (GO_PARENT_THREAD_MAP)
+
+## RISKS
+
+- À qualifier.

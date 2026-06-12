@@ -38,3 +38,7 @@
 1. Supprimer `OBSERVER_TRADINGVIEW_MCP_01` (DROP_MERGED).
 2. Merger les 3 branches REVIEW_MERGE dans l'ordre : OPERATIONS_PARENT, POST_MERGE_REPRISE, SHARED_PACKET.
 3. Merger ALERT_WEBHOOK_TEMPLATE_01 ou PARENT_CLOSEOUT_01, supprimer le duplicate.
+
+## RISKS
+
+- À qualifier.

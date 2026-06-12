@@ -40,3 +40,7 @@ L'ambiguïté vient du fait que :
 *   **Outil Admin Réel** : `scripts/admin_trading/desk_pro_cmd.sh`.
 *   **Legacy à Geler** : `scripts/desk_pro_*.sh` (ne pas supprimer, mais ne pas recommander).
 *   **Module à Ignorer** : `modules/desk_pro/` (Coquille structurelle).
+
+## RISKS
+
+- À qualifier.

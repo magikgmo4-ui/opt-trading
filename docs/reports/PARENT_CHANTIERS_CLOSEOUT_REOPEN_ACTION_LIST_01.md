@@ -136,3 +136,7 @@ MEM_CANDIDATE:
 
 SAVE_MEMORY:
 - Aucun enregistrement memoire durable sans validation utilisateur explicite.
+
+## RISKS
+
+- À qualifier.

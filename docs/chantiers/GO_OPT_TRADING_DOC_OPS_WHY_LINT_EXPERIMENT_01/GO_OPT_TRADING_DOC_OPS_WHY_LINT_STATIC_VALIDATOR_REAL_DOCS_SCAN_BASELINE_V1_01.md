@@ -324,3 +324,7 @@ partir de la baseline, sans correction automatique.
 ## Verdict
 
 `PASS_REAL_DOCS_SCAN_BASELINE_V1_DOC_ONLY`
+
+## RISKS
+
+- À qualifier.

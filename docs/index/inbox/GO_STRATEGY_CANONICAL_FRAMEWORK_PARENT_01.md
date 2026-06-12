@@ -62,3 +62,7 @@ Suite logique :
 ```text
 GO_SMC_ICT_OPT_TRADING_OBSERVATION_SIGNAL_ENRICHMENT_01
 ```
+
+## RISKS
+
+- À qualifier.

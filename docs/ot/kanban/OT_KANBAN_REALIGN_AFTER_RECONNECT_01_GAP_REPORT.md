@@ -23,3 +23,7 @@ Lister les écarts canoniques entre le kanban “source of truth” et les closi
 
 ## 3. Fichiers concernés
 - [opt_trading_kanban_source_of_truth_2026-03-13_updated.md](file:///c:/Users/ghost/opt-trading/opt_trading_kanban_source_of_truth_2026-03-13_updated.md)
+
+## RISKS
+
+- À qualifier.

@@ -52,3 +52,7 @@ Le repo dispose maintenant d'une architecture de graphe WHY capable de represent
 ## Invariant final
 
 Le runtime graph WHY ne doit jamais devenir un orchestrateur runtime autonome, une source de validation runtime ou un remplacement de review humaine.
+
+## RISKS
+
+- À qualifier.

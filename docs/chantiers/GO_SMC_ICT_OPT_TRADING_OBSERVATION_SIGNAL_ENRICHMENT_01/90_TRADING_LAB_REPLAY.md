@@ -206,3 +206,7 @@ Trading Lab replay pour `SMC_ICT_CHOCH_BOS_RETEST` :
 - ne modifie pas les modules runtime.
 
 Il produit uniquement une evidence de review lisible par Perf Engine et LocalCMS.
+
+## RISKS
+
+- À qualifier.

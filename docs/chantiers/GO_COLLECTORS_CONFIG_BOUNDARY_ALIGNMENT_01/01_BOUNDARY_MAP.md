@@ -64,3 +64,7 @@ collectors_core
 - ne pas deplacer les secrets dans le repo
 - ne pas convertir toute la famille en une seule implementation config
 ```
+
+## RISKS
+
+- À qualifier.

@@ -49,3 +49,7 @@ Apres ClickUp (cockpit), Repo KG (cartographie) et Airtable (data leger), la 4e 
 ```
 docs/chantiers/GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01/00_cadrage_parent.md
 ```
+
+## RISKS
+
+- À qualifier.

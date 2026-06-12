@@ -64,3 +64,7 @@ Le GO suivant ne peut devenir ouvrable que si :
 - ouvrir `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` dans ce lot ;
 - ouvrir les 5 parents project/machine ;
 - requalifier `BRANCH_STATE.md` comme surface de continuite produit.
+
+## RISKS
+
+- À qualifier.

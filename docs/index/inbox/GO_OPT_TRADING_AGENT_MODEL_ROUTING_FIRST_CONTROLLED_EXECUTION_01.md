@@ -15,3 +15,7 @@ Politique validée. 0.5B halluzine, fallback 1.5B direct fonctionne pour format 
 
 - `docs/chantiers/.../ROUTING_DECISION_TRACE_01.md`
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

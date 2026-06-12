@@ -68,3 +68,7 @@ MACHINE_ADMIN_TRADING_PARENT, MACHINE_DB_LAYER_PARENT, MACHINE_STUDENT_PARENT (D
 - les GO transversaux (RESEAU_SSH, TMUX_IDE, RUNTIME) ne doivent pas etre absorbes par un parent machine
 - GO_LOCALCMS_FORMS_INTEGRATION_DOC_01 a ete propose pour ASSIGN vers parent UI dans le mapping initial
 - GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 est un parent gouvernance deja dans GO_INDEX mais non couvert par le lot gouvernance
+
+## RISKS
+
+- À qualifier.

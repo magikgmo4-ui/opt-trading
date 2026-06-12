@@ -53,3 +53,7 @@ Contraintes :
 - aucune action sur `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
 - aucune action sur `origin/go_repos_agent-role_initial_01`
 - aucune action sur les snapshots
+
+## RISKS
+
+- À qualifier.

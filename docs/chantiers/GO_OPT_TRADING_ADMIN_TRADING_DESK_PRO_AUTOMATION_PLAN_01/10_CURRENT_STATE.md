@@ -45,3 +45,7 @@ updated_at: 2026-05-09
 ## Conclusion d'etat
 
 L'automatisation peut etre planifiee sans nouvelle recherche de faisabilite. Les contrats et le smoke local ont deja prouve la compatibilite producer/consumer. Le travail restant est un travail de sequencing, gating et observabilite.
+
+## RISKS
+
+- À qualifier.

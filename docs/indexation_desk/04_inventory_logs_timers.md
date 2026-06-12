@@ -72,3 +72,7 @@ The repo contains many Desk Pro business modules, but the running systemd layer 
 
 ## Key conclusion
 The exploitability layer exists, but it is centered on webhook/vision/perf rather than the full Desk Pro chain. Before expanding UI and APIs, the system should clarify which modules are on-demand tools, which are operator-facing commands, and which deserve service/timer packaging.
+
+## RISKS
+
+- À qualifier.

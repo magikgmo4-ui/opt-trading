@@ -18,3 +18,7 @@ Avant creation du profil auth, `ollama` apparaissait dans `missingProvidersInUse
 `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_OLLAMA_MODEL_EVALUATION_01`
 
 Objectif : evaluer les modeles Ollama disponibles compatibles avec le function calling pour une utilisation operationnelle avec OpenClaw. Identifier un modele candidat plus adapte que deepseek-r1:1.5b.
+
+## RISKS
+
+- À qualifier.

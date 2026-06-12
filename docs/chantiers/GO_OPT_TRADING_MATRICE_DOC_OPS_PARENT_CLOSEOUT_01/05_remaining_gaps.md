@@ -45,3 +45,7 @@ Ces flux :
 - ont deja leurs propres parents ou statuts
 - ne remettent pas en cause la souverainete de la matrice maitre
 - n'imposent aucun patch massif de gouvernance pour fermer le parent matrice
+
+## RISKS
+
+- À qualifier.

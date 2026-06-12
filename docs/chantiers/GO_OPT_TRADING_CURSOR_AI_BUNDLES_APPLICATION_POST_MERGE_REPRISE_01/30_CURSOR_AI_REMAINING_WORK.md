@@ -26,3 +26,7 @@ Merger ALERT_WEBHOOK dans sot/mainline. Ensuite PARENT_CLOSEOUT.
 - Ne pas lancer PARENT_CLOSEOUT avant merge d'ALERT_WEBHOOK.
 - Admin-trading non ouvert.
 - Bundles pas ferme produit.
+
+## RISKS
+
+- À qualifier.

@@ -52,3 +52,7 @@ Compat preservee :
 - py_compile nouveaux chemins verifies via verify_all update
 - anciens chemins toujours resolvables si rollback necessaire
 ```
+
+## RISKS
+
+- À qualifier.

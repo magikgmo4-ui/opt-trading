@@ -42,3 +42,7 @@ Implementer les fichiers systemd versionnes pour automatiser Desk Pro en dry-run
 - Tests must pass
 - No runtime side effects (timer inactive)
 - Files versionnes uniquement
+
+## RISKS
+
+- À qualifier.

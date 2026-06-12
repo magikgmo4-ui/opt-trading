@@ -126,3 +126,7 @@ print(f'TV_TEST trades: {len(tv)}')
 assert len(tv) == 0
 "
 ```
+
+## RISKS
+
+- À qualifier.

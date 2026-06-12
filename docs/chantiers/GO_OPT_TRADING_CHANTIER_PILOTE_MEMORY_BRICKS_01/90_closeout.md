@@ -68,3 +68,7 @@ links:
 ## Candidats GO suivants
 - `GO_OPT_TRADING_INDEX_SYNC_AFTER_PILOTS_01`
 - `GO_OPENCLAW_UNIFORM_CONTINUITY_GOVERNANCE_01`
+
+## RISKS
+
+- À qualifier.

@@ -58,3 +58,7 @@ cmd-git_fleet_guard remediate --machine admin-trading
 - commandes recommandees
 - avertissements
 - resultat attendu si l'operateur execute la remediaton
+
+## RISKS
+
+- À qualifier.

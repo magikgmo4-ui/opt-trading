@@ -68,3 +68,7 @@ Chaque candidat reçoit une étiquette :
 | `WORKFLOW_ONLY` | Checklist/workflow, pas une stratégie |
 | `META_STRATEGY` | Concept macro/portefeuille |
 | `REJECT_NOT_STRATEGY` | Hors scope stratégie trading |
+
+## RISKS
+
+- À qualifier.

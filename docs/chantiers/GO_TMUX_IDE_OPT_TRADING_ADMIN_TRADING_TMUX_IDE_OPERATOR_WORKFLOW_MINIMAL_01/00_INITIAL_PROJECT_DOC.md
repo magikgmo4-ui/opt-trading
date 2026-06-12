@@ -111,3 +111,7 @@ Construire un protocole operateur minimal doc-only depuis PASS_CONTROLLED_SESSIO
 NEXT:
 Lire 10_REQUIREMENTS_FROM_CONTROLLED_SESSION.md puis 20_OPERATOR_WORKFLOW_MINIMAL.md.
 ```
+
+## RISKS
+
+- À qualifier.

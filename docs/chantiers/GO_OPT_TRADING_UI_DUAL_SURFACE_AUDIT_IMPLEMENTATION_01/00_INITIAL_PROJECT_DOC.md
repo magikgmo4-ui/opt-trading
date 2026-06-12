@@ -277,3 +277,7 @@ Prochaine action : lancer sanity_check.sh + test_desk_pro_dry_run.py (Axe A).
 | Desk Pro sanity | opt-trading | `bash modules/desk_pro/scripts/sanity_check.sh` | OK | À exécuter |
 | localcms adopt | localcms | `npm test` | 8/8 PASS | PASS (établi) |
 | localcms shared_explorer | localcms | `pytest tests/integration_test_shared_explorer.py` | 23/23 PASS | PASS (établi) |
+
+## RISKS
+
+- À qualifier.

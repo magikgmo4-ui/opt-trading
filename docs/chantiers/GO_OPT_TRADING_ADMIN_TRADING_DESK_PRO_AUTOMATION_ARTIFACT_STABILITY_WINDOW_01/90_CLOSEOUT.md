@@ -85,3 +85,7 @@ Artifacts: 10 history lines, latest.json WARN, errors=[], safety flags all true
 Timer: active/waiting
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_ARTIFACT_SEQUENCE_CLOSEOUT_01
 ```
+
+## RISKS
+
+- À qualifier.

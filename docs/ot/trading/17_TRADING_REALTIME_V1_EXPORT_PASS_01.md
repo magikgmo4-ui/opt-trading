@@ -33,3 +33,7 @@ Le rendu runtime est séparé du reporting : agrégation et export restent deux 
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_REALTIME_V1_RUNTIME_LOOP_PASS_01`
+
+## RISKS
+
+- À qualifier.

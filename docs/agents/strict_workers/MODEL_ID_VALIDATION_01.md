@@ -152,3 +152,7 @@ Ajouter ou confirmer :
 ```text
 Prochaine étape : créer un premier runner ou des commandes OpenCode qui ne consomment que scripts/ai/workers/models.registry.json et scripts/ai/workers/tasks.index.json.
 ```
+
+## RISKS
+
+- À qualifier.

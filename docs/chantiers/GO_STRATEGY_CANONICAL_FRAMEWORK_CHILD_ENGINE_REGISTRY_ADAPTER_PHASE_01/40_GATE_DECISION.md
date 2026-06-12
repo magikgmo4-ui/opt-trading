@@ -22,3 +22,7 @@ doc_type: gate_decision
 ## Verdict
 
 Adapter phase 1 validé et prêt. Prochaine étape : raccorder un premier engine en lecture.
+
+## RISKS
+
+- À qualifier.

@@ -85,3 +85,7 @@ Chaque surface doit exposer un contrat minimal compatible.
 La couche d'observabilité agrégera tous les checks en une vue unique.
 Les sanity_* existants sont le point de départ.
 ```
+
+## RISKS
+
+- À qualifier.

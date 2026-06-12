@@ -20,3 +20,7 @@ Règles:
 - `SIGNAL` ne va pas dans perf.
 - `OPEN/UPDATE` requiert `entry+stop+qty`.
 - `CLOSE` requiert `exit`.
+
+## RISKS
+
+- À qualifier.

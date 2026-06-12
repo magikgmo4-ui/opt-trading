@@ -67,3 +67,7 @@ Signes :
 | Input tokens | > 0 | = 0 |
 | Cold smoke après rotation | < 180s | timeout |
 | Warm smoke | < 60s | timeout |
+
+## RISKS
+
+- À qualifier.

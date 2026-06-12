@@ -97,3 +97,7 @@ Sur `db-layer` et `student` :
 - Option B : déplacer `bridge_vision_to_desk_inbox.sh` vers `_ops/` uniquement après décision opérateur explicite.
 - Option C : traiter séparément `.ssh.zip` et `.venv.zip` (qualification + décision).
 
+
+## RISKS
+
+- À qualifier.

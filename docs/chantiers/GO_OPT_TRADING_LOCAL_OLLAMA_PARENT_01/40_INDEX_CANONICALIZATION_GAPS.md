@@ -27,3 +27,7 @@
 - ne pas modifier les gros index depuis cette branche vieillie sauf necessite forte
 - ne pas importer aveuglement `docs/index/BRANCH_STATE.md`
 - preferer un futur patch d'agregation sur une ligne a jour `sot/mainline`
+
+## RISKS
+
+- À qualifier.

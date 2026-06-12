@@ -35,3 +35,7 @@ Planifier le basculement optionnel des scripts et références PERF vers les nou
 - 0 changement uvicorn effectif
 - 0 changement SQLite path effectif
 ```
+
+## RISKS
+
+- À qualifier.

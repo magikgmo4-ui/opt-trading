@@ -34,3 +34,7 @@ Aligner la vue statique WHY/runtime avec le futur export JSON reel.
 ## Invariant
 
 L'alignement JSON WHY/runtime ne doit jamais devenir une API runtime autonome.
+
+## RISKS
+
+- À qualifier.

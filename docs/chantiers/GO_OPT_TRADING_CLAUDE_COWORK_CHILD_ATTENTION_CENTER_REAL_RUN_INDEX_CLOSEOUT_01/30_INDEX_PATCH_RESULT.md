@@ -39,3 +39,7 @@ links:
 - le prochain GO reste stable et non re-arbitre
 - aucune machine n'est declaree comme cible validee sans preuve
 - OpenClaw n'entre pas dans cette sequence
+
+## RISKS
+
+- À qualifier.

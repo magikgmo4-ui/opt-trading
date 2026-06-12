@@ -53,3 +53,7 @@ links:
   - reclassement workflow legacy
   - relocalisation `trae_pack_texts/`
 - le reliquat de politique racine sur `bitget_bridge.py` est absorbe dans `REPO_ROOT_POLICY.md`
+
+## RISKS
+
+- À qualifier.

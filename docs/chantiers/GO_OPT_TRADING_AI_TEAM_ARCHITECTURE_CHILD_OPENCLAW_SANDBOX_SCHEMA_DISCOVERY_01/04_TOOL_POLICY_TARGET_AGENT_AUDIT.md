@@ -208,3 +208,7 @@ Rôle :
 2. Identifier les noms exacts des outils SSH/runtime dans OpenClaw.
 3. Confirmer définitivement `TARGET_AGENT_CONFIRMED = true` ou bloquer.
 4. Statuer sur le périmètre minimal du patch (agent seul vs global tools.json5).
+
+## RISKS
+
+- À qualifier.

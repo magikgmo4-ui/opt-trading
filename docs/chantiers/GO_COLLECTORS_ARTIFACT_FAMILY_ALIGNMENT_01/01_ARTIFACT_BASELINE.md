@@ -57,3 +57,7 @@ dans le même vocabulaire sans casser leurs payloads spot.
 artifact family doctrine = enveloppe lifecycle commune
 payload semantics        = restent spécifiques spot ou derives
 ```
+
+## RISKS
+
+- À qualifier.

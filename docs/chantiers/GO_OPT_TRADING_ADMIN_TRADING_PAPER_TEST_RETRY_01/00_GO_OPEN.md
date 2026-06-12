@@ -28,3 +28,7 @@ After PR #352 merge, paper flags configured and guards returning `ok: true`. Thi
 - No real trades (paper adapter only)
 - No live trading activation
 - No secrets exposed
+
+## RISKS
+
+- À qualifier.

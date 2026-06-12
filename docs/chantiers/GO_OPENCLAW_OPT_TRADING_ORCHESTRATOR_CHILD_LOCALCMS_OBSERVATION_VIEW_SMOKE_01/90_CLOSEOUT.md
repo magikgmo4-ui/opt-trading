@@ -112,3 +112,7 @@ Point de décision final : ≥2026-05-30.
 - Aucun Google Sheets write
 - `GO_INDEX.md` non modifié
 - `ACTIVE_STREAMS.md` non modifié
+
+## RISKS
+
+- À qualifier.

@@ -66,3 +66,7 @@ links:
 | derivatives_collector | -- | `USABLE_LIMITED` | Collecteur canonique de donnees marches derives | Collecter les donnees marches derives pour le trading | `USABLE_LIMITED` | Oui, module operationnel multi-versions | Oui | Doctrine famille alignee ; helper extractions selectives et convergence surface operateur restent en cours | Poursuivre le rollout des helper extractions prouvees | `docs/COLLECTORS_FAMILY_DOCTRINE_01.md`<br>`docs/COLLECTORS_MIGRATION_MAP_01.md`<br>`docs/chantiers/GO_COLLECTORS_BASELINE_INVENTORY_01/90_CLOSEOUT.md`<br>`docs/chantiers/GO_COLLECTORS_SELECTIVE_RUNTIME_EXTRACTION_DECISION_01/90_CLOSEOUT.md` |
 | Trading Dual Stack V1 / XAUUSD | -- | `DOC_ONLY` | Framework LAB/REALTIME unifie, perimetre XAUUSD borne | Tester des strategies en LAB, observer en REALTIME sans ordre reel | `DOC_ONLY` | Non runtime | Oui, guide doc-only | Sans broker, sans ordre reel, sans auto-trading. V1 close mais bornee. | `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01` | `docs/governance/TRADING_DUAL_STACK_CANONICAL_PRODUCT_SYNTH_01.md` |
 | LocalCMS | -- | `DOC_ONLY` | Consumer UI de opt-trading exploitant /shared | Lire les surfaces partagees et servir de cockpit utilisateur futur | `DOC_ONLY` | Non runtime | Oui, guide doc-only | Projet externe, pas de runtime integre, usage reel a prouver | `GO_LOCALCMS_FORMS_INTEGRATION_DOC_01` | `docs/chantiers/GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01/`<br>`docs/chantiers/GO_LOCALCMS_FORMS_INTEGRATION_DOC_01/` |
+
+## RISKS
+
+- À qualifier.

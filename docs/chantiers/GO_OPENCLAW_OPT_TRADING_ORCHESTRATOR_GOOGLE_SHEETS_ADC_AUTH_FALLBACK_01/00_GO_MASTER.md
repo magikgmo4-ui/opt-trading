@@ -65,3 +65,7 @@ export GOOGLE_SHEETS_SYNC_SHEET_ID="1hFUfz2R7RqkV4xUaCM-mtYNfSQ4OZ1YBN_inexg-X4k
 - Controlled-write manuel uniquement
 - No live trade / No Bitget order
 - LocalCMS read-only
+
+## RISKS
+
+- À qualifier.

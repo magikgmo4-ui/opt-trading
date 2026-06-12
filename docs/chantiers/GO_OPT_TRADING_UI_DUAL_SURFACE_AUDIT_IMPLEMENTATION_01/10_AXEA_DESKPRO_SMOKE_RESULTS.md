@@ -86,3 +86,7 @@ Axe A PASS — Desk Pro dry-run opérationnel.
 Axe B (localcms consumer) : post-seuil Phase 1 ≥2026-05-30.
 Prochaine action Desk Pro : confirmer port perf_app.py + lancer combined_input_smoke.
 ```
+
+## RISKS
+
+- À qualifier.

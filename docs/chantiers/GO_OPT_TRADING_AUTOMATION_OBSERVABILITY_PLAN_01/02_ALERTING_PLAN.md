@@ -86,3 +86,7 @@ Phase 2 : Desk Pro, Collectors
 Phase 3 : OpenClaw, DeepSeek
 Phase 4 : Repo KG, Bitget Bridge, Ops Menu
 ```
+
+## RISKS
+
+- À qualifier.

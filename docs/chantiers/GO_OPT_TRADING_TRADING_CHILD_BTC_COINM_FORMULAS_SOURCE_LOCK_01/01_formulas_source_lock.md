@@ -933,3 +933,7 @@ Les formules sont figées en PAPER_LOCKED, suffisant pour le backtest mais pas p
 Avant tout worker runtime, un snapshot API Bitget réel doit confirmer contractSize, risk tiers, et maintenance margin rates exacts.
 BACKTEST_DATA_PREP_01 peut maintenant être ouvert depuis sot/mainline.
 ```
+
+## RISKS
+
+- À qualifier.

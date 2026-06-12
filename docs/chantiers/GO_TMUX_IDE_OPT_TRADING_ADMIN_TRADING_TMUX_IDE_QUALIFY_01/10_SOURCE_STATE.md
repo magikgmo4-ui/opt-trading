@@ -82,3 +82,7 @@ Ne pas poursuivre l'installation ou la qualification tmux-ide tant que cette bra
 - SSH cursor-ai → admin-trading : PASS
 - utilisateur : `ghost`
 - répertoire : `/opt/trading`
+
+## RISKS
+
+- À qualifier.

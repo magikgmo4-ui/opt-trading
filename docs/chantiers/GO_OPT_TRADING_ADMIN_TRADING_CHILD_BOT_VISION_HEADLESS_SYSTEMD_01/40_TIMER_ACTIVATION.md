@@ -48,3 +48,7 @@ Tous les cycles produiront:
 - Ecriture atomique (.uploading -> rename)
 - Traitement par vision_bot (OCR)
 - Traitement par desk_bridge (crop 2x2)
+
+## RISKS
+
+- À qualifier.

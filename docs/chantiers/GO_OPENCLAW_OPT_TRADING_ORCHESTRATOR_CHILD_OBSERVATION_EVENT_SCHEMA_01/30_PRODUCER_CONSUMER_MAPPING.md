@@ -131,3 +131,7 @@ Ne pas ouvrir par défaut — uniquement si besoin explicite.
 | **OpenClaw observation** | `openclaw pipeline` | `data/journal/daily/*.json` | `LocalCMS` + dashboard futur | `20_CANONICAL_OBSERVATION_EVENT_SCHEMA.md` (ce GO) |
 
 Ces deux paths coexistent. Ils alimentent deux vues complémentaires de `db-layer`.
+
+## RISKS
+
+- À qualifier.

@@ -113,3 +113,7 @@ updated_at: 2026-05-06
 | desk_state | `desk/state/latest.json` | JSON | 2026-03-03 | orchestrator | STALE |
 | snapshot index | `desk/snapshots/latest.json` | JSON | 2026-05-06 | desk_state, analyze | FRAIS |
 | analyze output | vision_outbox/analyze_{ts}.txt | TXT | on-demand | Telegram | AVAILABLE |
+
+## RISKS
+
+- À qualifier.

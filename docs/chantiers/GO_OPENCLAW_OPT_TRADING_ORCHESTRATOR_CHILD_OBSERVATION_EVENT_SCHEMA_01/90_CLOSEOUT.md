@@ -98,3 +98,7 @@ GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_CHILD_LOCALCMS_OBSERVATION_VIEW_01
 [ ] HOLD — attendre validation avant fermeture
 [ ] AMEND — des corrections sont requises avant fermeture
 ```
+
+## RISKS
+
+- À qualifier.

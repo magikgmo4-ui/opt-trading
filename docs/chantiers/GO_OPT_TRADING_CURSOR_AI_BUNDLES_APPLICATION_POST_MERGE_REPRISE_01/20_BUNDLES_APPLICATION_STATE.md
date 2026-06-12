@@ -22,3 +22,7 @@
 - Implementation runtime Bundles (si necessaire)
 - Validation dry-run d'un bundle cursor-ai
 - Extension du catalogue bundles
+
+## RISKS
+
+- À qualifier.

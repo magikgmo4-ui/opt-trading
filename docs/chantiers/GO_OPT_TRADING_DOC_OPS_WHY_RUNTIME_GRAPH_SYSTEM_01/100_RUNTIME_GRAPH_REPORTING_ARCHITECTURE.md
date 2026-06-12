@@ -33,3 +33,7 @@ Structurer les sorties reporting du WHY runtime graph.
 ## Invariant
 
 Les rapports du runtime graph ne doivent jamais devenir des validations runtime autonomes.
+
+## RISKS
+
+- À qualifier.

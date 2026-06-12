@@ -33,3 +33,7 @@
 - aucun GPU prouve dans ce lot
 - aucun modele lourd n'est qualifie
 - aucun changement runtime n'a ete applique pour obtenir ces preuves
+
+## RISKS
+
+- À qualifier.

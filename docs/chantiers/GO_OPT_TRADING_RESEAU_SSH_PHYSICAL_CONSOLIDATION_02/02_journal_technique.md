@@ -130,3 +130,7 @@ Point de reprise avant toute requalification de bascule :
 - `SMOKE_TEST`
 - `ROLLBACK`
 - `NO_MEMORY`
+
+## RISKS
+
+- À qualifier.

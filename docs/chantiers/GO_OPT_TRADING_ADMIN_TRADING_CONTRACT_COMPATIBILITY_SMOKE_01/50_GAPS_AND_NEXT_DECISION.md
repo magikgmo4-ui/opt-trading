@@ -69,3 +69,7 @@ Si le seul blocage restant est Playwright :
 ```
 GO_OPT_TRADING_ADMIN_TRADING_BOT_VISION_HEADLESS_PLAYWRIGHT_SETUP_01
 ```
+
+## RISKS
+
+- À qualifier.

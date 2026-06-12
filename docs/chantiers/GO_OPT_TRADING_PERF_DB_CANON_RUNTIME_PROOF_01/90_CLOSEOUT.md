@@ -63,3 +63,7 @@ Mission du GO suivant :
 - réaligner /opt/trading avec l'état canonique pertinent de sot/mainline
 - seulement ensuite reprendre la preuve runtime DB canonique
 ```
+
+## RISKS
+
+- À qualifier.

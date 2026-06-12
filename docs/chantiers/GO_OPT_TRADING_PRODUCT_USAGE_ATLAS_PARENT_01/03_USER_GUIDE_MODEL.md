@@ -38,3 +38,7 @@ updated_at: 2026-05-07
 - Si la surface est `SIMULATED_PASS`, le guide doit dire qu'il s'agit d'un usage test seulement.
 - Si la surface est `DOC_ONLY_READY`, le guide doit rester un guide de lecture, pas un guide live.
 - Si la surface est `NOT_USABLE_YET` ou `DO_NOT_USE_LIVE`, ne pas ecrire de guide live.
+
+## RISKS
+
+- À qualifier.

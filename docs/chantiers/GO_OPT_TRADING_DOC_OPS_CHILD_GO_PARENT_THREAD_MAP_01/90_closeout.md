@@ -105,3 +105,7 @@ Lot suivant possible :
 - propager la decision ASSIGN (GO_LOCALCMS_FORMS_INTEGRATION_DOC_01) dans GO_INDEX
 - creer `docs/index/GO_PARENT_THREAD_MAP.md` si la matrice draft est validee
 - ouvrir un lot de propagation GO_INDEX si besoin
+
+## RISKS
+
+- À qualifier.

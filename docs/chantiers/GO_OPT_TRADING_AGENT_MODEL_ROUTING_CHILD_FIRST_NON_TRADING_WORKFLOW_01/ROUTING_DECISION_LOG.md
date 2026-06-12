@@ -27,3 +27,7 @@ Verdict: PASS
 | Aucun write | OUI |
 | Precheck strict_workers A1 | OUI |
 | Trace de decision | OUI (ce document) |
+
+## RISKS
+
+- À qualifier.

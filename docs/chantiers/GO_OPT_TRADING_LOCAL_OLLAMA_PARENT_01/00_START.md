@@ -28,3 +28,7 @@
 - aucun changement `OpenClaw` principal sur `db-layer`
 - aucun changement `admin-trading`
 - aucun secret expose
+
+## RISKS
+
+- À qualifier.

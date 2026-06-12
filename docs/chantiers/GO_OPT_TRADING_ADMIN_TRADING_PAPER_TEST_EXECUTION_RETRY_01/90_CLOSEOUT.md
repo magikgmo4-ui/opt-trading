@@ -54,3 +54,7 @@ GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_EXECUTION_RETRY_01
 = aucun payload envoye
 = verdict BLOCKED_NO_RETRY
 ```
+
+## RISKS
+
+- À qualifier.

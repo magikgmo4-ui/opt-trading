@@ -47,3 +47,7 @@ Les corrections eventuelles restent futures et bornees. Elles ne conditionnent p
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_PARENT_NAMING_CANON_CLOSEOUT_01/90_closeout.md`
+
+## RISKS
+
+- À qualifier.

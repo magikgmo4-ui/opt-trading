@@ -96,3 +96,7 @@ Mode = non-trading, dry-run/read-only
 - `sudo`
 - installation automatique
 - remediation runtime hors dry-run
+
+## RISKS
+
+- À qualifier.

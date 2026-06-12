@@ -58,3 +58,7 @@ links:
 ## Point de vigilance
 - risque principal : produire un chantier trop générique et peu utile comme vrai pilote
 - point d’arrêt acceptable : cadrage + plan + closeout initial si la trace factuelle détaillée doit être enrichie ensuite
+
+## RISKS
+
+- À qualifier.

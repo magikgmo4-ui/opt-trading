@@ -67,3 +67,7 @@ Etat constate depuis la session courante :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

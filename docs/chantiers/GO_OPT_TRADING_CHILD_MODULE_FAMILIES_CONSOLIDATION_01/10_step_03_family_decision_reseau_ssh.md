@@ -81,3 +81,7 @@ Figer la lignée `reseau_ssh*` et la distinguer clairement des modules adjacents
 
 ## Point de reprise
 Passer en `Step 03b` pour évaluer les consolidations possibles de la suite élargie `reseau / partage / transfert`, sans move physique.
+
+## RISKS
+
+- À qualifier.

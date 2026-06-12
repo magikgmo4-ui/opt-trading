@@ -55,3 +55,7 @@ Recevoir la liste de modèles utilisateur et créer la matrice multi-worker.
 ## Note d'indexation
 
 Cette entrée est volontairement courte et séparée. Les index globaux seront agrégés par batch, pas modifiés directement dans cette ouverture.
+
+## RISKS
+
+- À qualifier.

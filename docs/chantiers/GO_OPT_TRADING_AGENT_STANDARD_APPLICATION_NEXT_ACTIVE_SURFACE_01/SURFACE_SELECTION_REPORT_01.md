@@ -30,3 +30,7 @@ NEXT_SURFACE_SELECTED: ADMIN_TRADING_DESK_PRO
 ```
 
 Le standard Student/Ollama reste fermé. La prochaine application est sur Admin/Trading Desk Pro si besoin validé.
+
+## RISKS
+
+- À qualifier.

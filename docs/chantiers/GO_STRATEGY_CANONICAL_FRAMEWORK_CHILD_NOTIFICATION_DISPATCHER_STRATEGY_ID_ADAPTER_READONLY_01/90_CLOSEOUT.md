@@ -41,3 +41,7 @@ trading_realtime_v1 ✅ → signal_router ✅ → proposition_engine ✅ → not
 ## Prochaine étape recommandée
 
 Raccorder `trading_lab_v1` (lecture YAML, fallback `xau_session_open_v1`), dernier engine du rollout.
+
+## RISKS
+
+- À qualifier.

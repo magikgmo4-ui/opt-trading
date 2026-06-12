@@ -146,3 +146,7 @@ Closeout must include total fixtures, pass count, fail count, warnings, and mism
 ## 19_TO_REMEMBER
 
 Harness pass proves static expectation alignment only. It does not approve runtime policy use.
+
+## RISKS
+
+- À qualifier.

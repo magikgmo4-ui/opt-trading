@@ -75,3 +75,7 @@ Le lint WHY doit rester:
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01` pour cadrer le WHY lint experimental non destructif.
+
+## RISKS
+
+- À qualifier.

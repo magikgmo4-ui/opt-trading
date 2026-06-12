@@ -58,3 +58,7 @@ Le pack suit la methode de creation de bundle cursor-ai definie dans la fiche de
 | Prompts et templates operateur | Structure de bundle documentaire |
 | Regles de securite (no-commit) | Index et conventions |
 | Pack operateur cursor-ai | Workflow de livraison |
+
+## RISKS
+
+- À qualifier.

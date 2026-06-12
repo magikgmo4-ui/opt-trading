@@ -87,3 +87,7 @@ modules/health/scripts/health-check :
 - Telegram token (notifications)
 - systemd (services + timers)
 ```
+
+## RISKS
+
+- À qualifier.

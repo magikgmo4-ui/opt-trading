@@ -110,3 +110,7 @@ Les surfaces suivantes ont ete scannees dans le repo :
 docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/02_CLASSIFICATION_MATRIX.md
 docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_INVENTORY_01/03_ATLAS_UPDATE_PROPOSAL.md
 ```
+
+## RISKS
+
+- À qualifier.

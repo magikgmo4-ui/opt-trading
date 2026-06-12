@@ -40,3 +40,7 @@ G5. rollback shell simple prete
 - ne pas retirer les anciens chemins ici
 - ne pas reconfigurer uvicorn ici
 ```
+
+## RISKS
+
+- À qualifier.

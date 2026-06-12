@@ -146,3 +146,7 @@ if all_entries:
 | `THRESHOLD_RUNS` | `30` | `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PHASE1_30_RUN_14_DAY_OBSERVATION_01/00_GO_MASTER.md` |
 | `THRESHOLD_DAYS` | `14` | idem |
 | `OBSERVATION_START` | calculé dynamiquement depuis `min(run_id[:8])` | journaux réels |
+
+## RISKS
+
+- À qualifier.

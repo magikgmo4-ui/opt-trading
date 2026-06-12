@@ -183,3 +183,7 @@ Future reports must identify both the missing binding and the capability that re
 ## 19_TO_REMEMBER
 
 A policy without traces or evals cannot be trusted even if the capability class is valid.
+
+## RISKS
+
+- À qualifier.

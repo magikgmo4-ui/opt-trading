@@ -12,3 +12,7 @@ Date (America/Montreal) : 2026-03-14
 - Nouvelle doc longue/théorique.
 - Nouveau mode / API / refactor structurel.
 
+
+## RISKS
+
+- À qualifier.

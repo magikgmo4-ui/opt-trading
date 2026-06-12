@@ -52,3 +52,7 @@ Classification doc-only seule, sans :
 - suppression Git
 - merge
 - patch runtime
+
+## RISKS
+
+- À qualifier.

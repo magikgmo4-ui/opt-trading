@@ -74,3 +74,7 @@ Le GO est pret pour un artefact v1 seulement si le refinement reste Markdown sta
 ```text
 WIP / READABILITY_REFINEMENT_GATES_LOCKED / JSON_SOURCE_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

@@ -58,3 +58,7 @@ Le repo contient deja une couche WHY diffuse: intentions produit, invariants, ar
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_CURSOR_AI_DOC_OPS_CHILD_WHY_LAYER_AUDIT_01`, depuis le child GO, avec comme contrainte centrale: documenter le WHY layer sans toucher aux index globaux ni au runtime.
+
+## RISKS
+
+- À qualifier.

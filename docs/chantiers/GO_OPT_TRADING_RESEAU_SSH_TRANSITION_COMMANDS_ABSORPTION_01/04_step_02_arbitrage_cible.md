@@ -61,3 +61,7 @@ Le prochain step utile est repo-side :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

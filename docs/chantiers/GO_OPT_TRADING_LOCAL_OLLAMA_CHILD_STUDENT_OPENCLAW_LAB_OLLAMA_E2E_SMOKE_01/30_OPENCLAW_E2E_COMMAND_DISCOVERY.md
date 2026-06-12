@@ -32,3 +32,7 @@ Options :
 ## Corrections necessaires avant E2E
 1. Aligner `gateway.port` config sur 18790
 2. Creer un profil auth minimal pour ollama (provider local, pas de vrai token)
+
+## RISKS
+
+- À qualifier.

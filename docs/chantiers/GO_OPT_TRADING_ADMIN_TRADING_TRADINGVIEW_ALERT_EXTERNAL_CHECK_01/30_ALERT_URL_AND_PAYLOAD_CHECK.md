@@ -95,3 +95,7 @@ Dans chaque alerte TradingView :
 - Vérification dans TradingView : **manuelle requise**
 - Payload de référence : documenté (sans secret)
 - Comparaison UI : **non effectuée** (accès navigateur non disponible)
+
+## RISKS
+
+- À qualifier.

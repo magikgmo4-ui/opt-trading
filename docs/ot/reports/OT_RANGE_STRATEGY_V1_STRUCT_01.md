@@ -118,3 +118,7 @@ Point de reprise recommandé :
 - REPRISE
 - GO_RANGE_STRATEGY_V1_RULES_01
 - NO_MEMORY
+
+## RISKS
+
+- À qualifier.

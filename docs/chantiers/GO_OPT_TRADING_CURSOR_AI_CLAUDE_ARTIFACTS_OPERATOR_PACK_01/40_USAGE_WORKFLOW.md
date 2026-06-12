@@ -67,3 +67,7 @@ git switch go/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01
 - Si la demande exige `admin-trading`, arreter et demander une ouverture explicite.
 - Si la demande touche runtime, `systemd`, webhook, risk engine ou payload live, sortir du perimetre de ce pack.
 - Si un doute apparait sur une branche historique ou Git audit, rester en lecture seule et renvoyer vers les references.
+
+## RISKS
+
+- À qualifier.

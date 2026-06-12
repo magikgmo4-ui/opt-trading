@@ -22,3 +22,7 @@ Repo = memoire officielle
 ## Regle critique
 
 Hermes ne modifie jamais directement le repo
+
+## RISKS
+
+- À qualifier.

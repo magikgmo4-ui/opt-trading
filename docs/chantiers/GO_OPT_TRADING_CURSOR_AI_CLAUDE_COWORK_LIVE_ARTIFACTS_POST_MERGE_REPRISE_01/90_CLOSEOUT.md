@@ -19,3 +19,7 @@
 ## Prochain GO
 
 `GO_OPT_TRADING_CURSOR_AI_MACHINE_MAP_STALE_LINES_REVIEW_01`
+
+## RISKS
+
+- À qualifier.

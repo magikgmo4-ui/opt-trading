@@ -43,3 +43,7 @@ Ouvrir un lot suivant, dans `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`, pour:
 1. remettre `admin-trading` sur une base Git explicite et propre pour le GO
 2. seulement ensuite qualifier l'installation et le `ide.yml`
 3. enfin executer `tmux-ide doctor` puis `tmux-ide validate`
+
+## RISKS
+
+- À qualifier.

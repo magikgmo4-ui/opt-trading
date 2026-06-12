@@ -112,3 +112,7 @@ La discipline racine est plus nette :
 
 ## Point de reprise
 Passer au `Step 06` pour verifier les zones grises : `packages/`, `tests/`, `student/`, `data/`, `audit/`.
+
+## RISKS
+
+- À qualifier.

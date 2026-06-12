@@ -108,3 +108,7 @@ GO_OPT_TRADING_TRADING_CHILD_BTC_COINM_SWEEP_PHASE_B_LATIN_HYPERCUBE_01
 But : phase B latin hypercube + données historiques plus longues/proxy.
 Ne pas ouvrir runtime/live/UI.
 ```
+
+## RISKS
+
+- À qualifier.

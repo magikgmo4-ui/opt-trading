@@ -83,3 +83,7 @@ docs/chantiers/GO_OPT_TRADING_DEEPSEEK_RUNTIME_CONSOLIDATION_PLAN_01/
 - 0 external connection
 - 0 secret
 ```
+
+## RISKS
+
+- À qualifier.

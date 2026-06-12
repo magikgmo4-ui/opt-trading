@@ -121,3 +121,7 @@ Future validator should reject any role entry with overlapping `allowed_capabili
 ## 19_TO_REMEMBER
 
 The strict worker model is evidence-first and authority-limited.
+
+## RISKS
+
+- À qualifier.

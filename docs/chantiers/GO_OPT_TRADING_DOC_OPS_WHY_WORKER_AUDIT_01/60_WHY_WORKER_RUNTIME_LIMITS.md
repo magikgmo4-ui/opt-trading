@@ -32,3 +32,7 @@ Le worker WHY doit rester:
 ## Invariant
 
 Le worker WHY ne doit jamais devenir une autorite runtime autonome.
+
+## RISKS
+
+- À qualifier.

@@ -136,3 +136,7 @@ Point de reprise recommande :
 
 Sequence :
 branches ouvertes / merged / reference -> controle des ouverts / non termines -> point de depart principal -> carte cible future des 5 parents -> ouverture canonique -> audit de conformite
+
+## RISKS
+
+- À qualifier.

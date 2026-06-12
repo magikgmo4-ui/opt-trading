@@ -44,3 +44,7 @@ Plan: `SMOKE_PLAN_01.md` (integrated via PR #349)
 - next trigger visible
 - service exited `0/SUCCESS`
 - no manual service start
+
+## RISKS
+
+- À qualifier.

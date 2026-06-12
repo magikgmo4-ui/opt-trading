@@ -47,3 +47,7 @@ Implementer V1 de bot_vision_headless: capture Playwright/Chromium avec ecriture
 - Aucun trading reel
 - Ecriture atomique obligatoire
 - Aucun .env expose
+
+## RISKS
+
+- À qualifier.

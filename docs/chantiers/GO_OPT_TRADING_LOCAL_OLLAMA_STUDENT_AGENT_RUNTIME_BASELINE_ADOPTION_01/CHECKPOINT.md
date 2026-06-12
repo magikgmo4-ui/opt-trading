@@ -28,3 +28,7 @@ Chaîne Student/Ollama complet : **FULL_PASS**
 
 - Baseline: `RUNTIME_BASELINE_ADOPTION_01.md`
 - Runbook: `RUNBOOK_AGENT_STARTUP_WITH_SESSION_GUARDS_01.md`
+
+## RISKS
+
+- À qualifier.

@@ -36,3 +36,7 @@ Le rescan ne promeut que les surfaces dont la preuve posterieure au `2026-05-07`
 - `Deepseek Student` ne devient pas une surface de decision autonome ni un produit trading.
 - `PERF` reste hors Atlas tant qu'une couche produit lisible n'est pas mieux bornee.
 - Aucun changement n'est applique a `Airtable`, `Botpress`, `BTC COIN-M` ou `OpenClaw Docs Library` dans ce lot.
+
+## RISKS
+
+- À qualifier.

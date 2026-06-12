@@ -65,3 +65,7 @@ Le score generator doit conserver ces invariants.
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_SCORE_GENERATOR_01` pour cadrer le futur WHY score generator.
+
+## RISKS
+
+- À qualifier.

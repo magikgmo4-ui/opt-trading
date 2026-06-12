@@ -71,3 +71,7 @@ Livrer un paquet documentaire de consolidation qui permet de decider proprement 
 - Aucun signal achat / vente.
 - Aucun merge direct des deux branches sans revue.
 - Ne pas toucher aux index globaux sans instruction explicite.
+
+## RISKS
+
+- À qualifier.

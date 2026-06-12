@@ -29,3 +29,7 @@ Fichier : `modules/notification_dispatcher/tests/test_strategy_id_adapter_readon
 2. `python -m pytest tests/test_strategy_adapter.py -q`
 3. `python -m pytest modules/notification_dispatcher/tests/ -q`
 4. Vérifier git diff limité à `notification_dispatcher/` + nouveaux fichiers
+
+## RISKS
+
+- À qualifier.

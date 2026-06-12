@@ -62,3 +62,7 @@ engine=TV_TEST ip=127.0.0.1 reason=GO_TELEGRAM_TEST_REPLAY_03
 | SL | `95.0` (BUY) / `105.0` (SELL) |
 | Qty calculee | `20.0` |
 | Risk USD | `100.0` |
+
+## RISKS
+
+- À qualifier.

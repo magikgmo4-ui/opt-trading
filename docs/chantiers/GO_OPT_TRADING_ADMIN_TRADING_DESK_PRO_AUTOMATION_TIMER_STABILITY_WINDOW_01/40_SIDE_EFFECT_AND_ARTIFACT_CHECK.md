@@ -27,3 +27,7 @@ updated_at: 2026-05-11
 ## Conclusion
 
 Observed runs remain dry-run only and do not show forbidden side effects.
+
+## RISKS
+
+- À qualifier.

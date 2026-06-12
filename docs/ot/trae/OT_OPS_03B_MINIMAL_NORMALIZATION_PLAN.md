@@ -17,3 +17,7 @@ Mettre à jour `docs/master_pack/00_current_state_and_standards.md` pour reflét
 - Suppression des scripts doublons (`desk_pro_menu.sh`).
 - Refactoring global du menu.
 - Promotion des outils non quotidiens (smoke, etc.).
+
+## RISKS
+
+- À qualifier.

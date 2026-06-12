@@ -36,3 +36,7 @@ Les integrations externes doivent rester:
 ## Invariant
 
 Aucune integration externe ne doit devenir runtime critique sans governance explicite et review humaine.
+
+## RISKS
+
+- À qualifier.

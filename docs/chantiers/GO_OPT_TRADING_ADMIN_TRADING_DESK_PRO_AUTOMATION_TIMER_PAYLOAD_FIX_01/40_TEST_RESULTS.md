@@ -31,3 +31,7 @@ PYTHONPATH=/opt/trading modules/desk_pro/desk_pro_dry_run.sh
 - `errors`: `[]`
 - warnings include `desk_snapshot missing: timer-only synthesis`
 - warnings include `visual_context missing: snapshot-only synthesis`
+
+## RISKS
+
+- À qualifier.

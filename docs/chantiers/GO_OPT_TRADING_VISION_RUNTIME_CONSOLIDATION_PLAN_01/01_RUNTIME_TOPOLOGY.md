@@ -67,3 +67,7 @@ Option C : garder pair + archiver bot_vision legacy seulement
 
 Le GO ne tranche pas encore sans inventaire des unit files et des callers.
 ```
+
+## RISKS
+
+- À qualifier.

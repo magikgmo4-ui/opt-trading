@@ -45,3 +45,7 @@ Objectif :
 - determiner si `TMUX_RUNTIME_RESIDUAL` peut passer `KEEP_REFERENCE` ou `DROP_MERGED`
 - verifier les 3 branches `DB_LAYER` encore sans preuve locale suffisante
 - toujours sans runtime ni cleanup
+
+## RISKS
+
+- À qualifier.

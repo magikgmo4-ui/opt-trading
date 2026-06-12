@@ -93,3 +93,7 @@ Future activation must cite warning reconciliation and test results.
 ## 19_TO_REMEMBER
 
 Inbox entry is local continuity only.
+
+## RISKS
+
+- À qualifier.

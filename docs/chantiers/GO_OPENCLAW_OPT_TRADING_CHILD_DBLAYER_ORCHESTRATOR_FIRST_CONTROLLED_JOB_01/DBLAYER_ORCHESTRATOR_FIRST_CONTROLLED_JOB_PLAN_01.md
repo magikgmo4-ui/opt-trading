@@ -70,3 +70,7 @@ Execute un sample-run avec la configuration exemple :
 2. Verifier le `run_summary.json`
 3. Verifier que tous les modules sont OK
 4. Verifier `git status` reste clean
+
+## RISKS
+
+- À qualifier.

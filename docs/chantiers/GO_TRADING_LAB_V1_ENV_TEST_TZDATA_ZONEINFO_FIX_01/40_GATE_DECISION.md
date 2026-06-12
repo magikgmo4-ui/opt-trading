@@ -16,3 +16,7 @@ doc_type: gate_decision
 - `modules/trading_lab_v1/tests/test_strategy_id_adapter_readonly.py` : `4/4` ;
 - `python tools/strategy/validate_strategy_registry.py` : `UNREGISTERED prod = 0` ;
 - aucune logique trading modifiee.
+
+## RISKS
+
+- À qualifier.

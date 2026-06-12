@@ -69,3 +69,7 @@ Disposer d'un dossier enfant qui permette ensuite d'executer les consolidations 
 
 ## Point de reprise
 Lire d'abord `01_liste_modules.md`, puis `02_ensembles_a_consolider.md`, puis derouler `03_plan_operationnel_step_by_step.md`.
+
+## RISKS
+
+- À qualifier.

@@ -45,3 +45,7 @@ Cible pour le transfert manuel WinSCP. Non automatise. Reserve a un GO futur si 
 3. Naviguer vers `_shared_packets\tradingview_observer\`
 4. Copier le fichier horodate vers `/srv/sftp/shared_files/shared/tradingview_observer/`
 5. Cote admin-trading, le fichier est lisible manuellement
+
+## RISKS
+
+- À qualifier.

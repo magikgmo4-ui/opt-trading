@@ -32,3 +32,7 @@ VERDICT_DRAFT_ONLY: true
 PROCHAIN_GO_RECOMMANDE:
 - Effectuer la validation SMOKE_READINVENTORY sur la liste d’inputs autorisés et finaliser le rapport READONLY SMOKE.
 - Si OK, lancer la préparation du PATCH_DRAFT suivant ou DOCUMENT_DRAFT en fonction des résultats et proceed à une revue formelle.
+
+## RISKS
+
+- À qualifier.

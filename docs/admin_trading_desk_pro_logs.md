@@ -45,3 +45,7 @@ Logs are stored in:
 
 - **Wrappers**: All log commands are integrated into `desk_pro_cmd.sh` and the interactive menu (`menu-desk-pro`).
 - **Global Access**: Installing via `desk_pro_install_admin_trading.sh` creates global symlinks in `/usr/local/bin`.
+
+## RISKS
+
+- À qualifier.

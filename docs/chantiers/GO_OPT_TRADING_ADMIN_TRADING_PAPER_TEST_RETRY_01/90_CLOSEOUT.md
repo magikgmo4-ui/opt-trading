@@ -48,3 +48,7 @@ PAPER_TEST execution validated end-to-end. Pipeline ready for:
 - Risk sizing validation
 - Position tracking verification
 - Close position testing
+
+## RISKS
+
+- À qualifier.

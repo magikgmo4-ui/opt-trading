@@ -217,3 +217,7 @@ ou, si demande, ouvrir le GO de promotion methode :
 ```text
 GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01
 ```
+
+## RISKS
+
+- À qualifier.

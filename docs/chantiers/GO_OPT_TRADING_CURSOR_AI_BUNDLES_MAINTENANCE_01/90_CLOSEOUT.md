@@ -64,3 +64,7 @@ links:
 Retour a `50_NEXT_GO_OPTIONS.md`. Options restantes : C (export operateur), D (nettoyage branches), E (admin-trading, ferme).
 
 Option C recommandee : export operateur pour transmission.
+
+## RISKS
+
+- À qualifier.

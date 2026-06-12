@@ -77,3 +77,7 @@ Date (America/Montreal) : 2026-03-14
 
 ## Point de reprise exact
 > **OT-NET-RECONNECT-03 — STUDENT (détection méthode de coupure + preuve avant/pdt/après)**
+
+## RISKS
+
+- À qualifier.

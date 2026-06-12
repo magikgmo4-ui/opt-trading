@@ -66,3 +66,7 @@ Le cas 01 est clos si :
 - pas de mutation systeme large ;
 - pas d auto-merge ;
 - pas de declaration de bridge general valide.
+
+## RISKS
+
+- À qualifier.

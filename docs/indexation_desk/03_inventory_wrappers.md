@@ -64,3 +64,7 @@ For each operator-approved module:
 - `sanity-<module>`
 
 Prefer one canonical naming convention and avoid duplicate dash/underscore aliases unless explicitly required for backward compatibility.
+
+## RISKS
+
+- À qualifier.

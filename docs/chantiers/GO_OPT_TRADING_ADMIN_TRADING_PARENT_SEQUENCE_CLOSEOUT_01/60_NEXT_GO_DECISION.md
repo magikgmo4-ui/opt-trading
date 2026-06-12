@@ -69,3 +69,7 @@ GO_OPT_TRADING_ADMIN_TRADING_LIVE_RUNTIME_SMOKE_GATED_01
 
 1. **`GO_OPT_TRADING_ADMIN_TRADING_SEQUENCE_PR_MERGE_01`** en premier — canoniser la séquence
 2. Puis choisir entre automation, Playwright, ou live smoke selon les priorités opérationnelles
+
+## RISKS
+
+- À qualifier.

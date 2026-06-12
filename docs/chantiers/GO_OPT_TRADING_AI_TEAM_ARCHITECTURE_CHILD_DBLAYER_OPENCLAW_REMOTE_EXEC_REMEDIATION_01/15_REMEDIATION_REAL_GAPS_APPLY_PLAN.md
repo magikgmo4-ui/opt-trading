@@ -140,3 +140,7 @@ Role :
 2. auditer puis patcher `agents.json5` uniquement si le schema est confirme ;
 3. capturer les preuves ;
 4. ne lancer aucun job OpenClaw runtime.
+
+## RISKS
+
+- À qualifier.

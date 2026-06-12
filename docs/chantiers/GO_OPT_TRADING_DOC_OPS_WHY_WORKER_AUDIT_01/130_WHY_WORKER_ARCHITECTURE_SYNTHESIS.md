@@ -59,3 +59,7 @@ Il doit rendre visibles:
 ## Invariant final
 
 Le worker WHY ne doit jamais modifier les documents, merger une branche, declencher APPLY ou remplacer une review humaine sur surface critique.
+
+## RISKS
+
+- À qualifier.

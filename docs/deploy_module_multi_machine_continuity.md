@@ -132,3 +132,7 @@ Primary targets: `student`, `db-layer`
 - `journal_engine` looks functionally heavier than wrapper-only modules because its sanity runs a sample build against module data, and its wrappers import `modules.journal_engine...`, which does not match the standard deployed runtime path.
 - `scripts` should not be redeployed blindly because the observed target runtime is a much larger shared scripts tree than the current source module.
 - `perf` should not be redeployed blindly because the observed target runtime is an existing application runtime (`perf_app.py`, local DB/artifacts) and not the wrapper-only source module.
+
+## RISKS
+
+- À qualifier.

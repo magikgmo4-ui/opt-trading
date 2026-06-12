@@ -33,3 +33,7 @@ links:
 - Reecrire les guides doc-only existants.
 - Promouvoir `Deepseek Student` au-dessus de `USABLE_LIMITED`.
 - Changer la taxonomie produit.
+
+## RISKS
+
+- À qualifier.

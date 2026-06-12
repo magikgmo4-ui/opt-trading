@@ -94,3 +94,7 @@ Interactions:
   - produit user-facing
   - runtime principal
   - systeme ouvert non controle
+
+## RISKS
+
+- À qualifier.

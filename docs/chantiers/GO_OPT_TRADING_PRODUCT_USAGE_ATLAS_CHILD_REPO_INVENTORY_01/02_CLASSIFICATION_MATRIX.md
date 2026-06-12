@@ -80,3 +80,7 @@ Voir detail complet dans `01b_REPO_PRODUCT_CANDIDATES_ADDENDUM.md`.
 | KEEP_CANDIDATE | 16 | derivatives_analyzer, probability_engine, risk_engine, Deepseek Student, Collectors spot, Simex Bitget Bridge, validated_prompt_factory, market_scanner, decision_engine, execution_engine, journal_engine, liquidation_analyzer, opportunity_ranker, perf_engine, marketdata, + modules support non prouves |
 | DO_NOT_PROMOTE / ARCHIVE_ONLY | 27 | Git Fleet Guard, module_contextuals_shell, Ops wrappers/menus/registries, surfaces historiques, memory_bricks, workflow_ai, deploy_module_multi_machine, webhook_server.py, bitget_bridge.py, hf_free_platform, mimo_open_observer, workflow_post_change_v2, collectors_core, + 20 modules de support |
 | UNKNOWN_NEEDS_RESCAN | 1 | kil_v1 |
+
+## RISKS
+
+- À qualifier.

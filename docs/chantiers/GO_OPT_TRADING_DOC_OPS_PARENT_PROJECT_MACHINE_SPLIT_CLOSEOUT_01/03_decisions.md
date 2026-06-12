@@ -54,3 +54,7 @@ Ce lot est un closeout. Aucun nouveau parent n'est ouvert.
 ## Decision 5 : GO_PARENT_THREAD_MAP.md reste derive
 
 L'index reste une vue derivee subordonnee a GO_INDEX.md. Il ne devient pas une verite de liste concurrente.
+
+## RISKS
+
+- À qualifier.

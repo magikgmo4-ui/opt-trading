@@ -274,3 +274,7 @@ Memory candidate :
 ```text
 Les bundles IDE durables dans opt-trading doivent être stockés décompressés sous bundles/<GO_ID>/ avec README, manifest, prompts/checklists/scripts séparés. Le ZIP est secondaire. Les deploy_bundle encadrent deploy_module_multi_machine sans le remplacer. Si un bundle sert un autre chantier, tracer explicitement les deux branches de reprise.
 ```
+
+## RISKS
+
+- À qualifier.

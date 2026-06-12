@@ -69,3 +69,7 @@ admin-trading, répertoire `/opt/trading`
 | `20_EXECUTION_LOG.md` | Log des commandes exécutées avec sortie réelle |
 | `30_AFTER_STATE.md` | État Git capturé après réalignement |
 | `90_CLOSEOUT.md` | Verdict PASS/FAIL |
+
+## RISKS
+
+- À qualifier.

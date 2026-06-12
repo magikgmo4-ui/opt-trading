@@ -94,3 +94,7 @@ GO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01
 ```
 
 Implementation du module `airtable_bridge` (client API, config non commitee, cmd/menu/sanity).
+
+## RISKS
+
+- À qualifier.

@@ -49,3 +49,7 @@ Specification de l adapter Botpress → OpenClaw avant implementation runtime.
 ```
 docs/chantiers/GO_TRADING_PIPELINE_BOTPRESS_OPERATOR_PARENT_01/99_VERDICT.md
 ```
+
+## RISKS
+
+- À qualifier.

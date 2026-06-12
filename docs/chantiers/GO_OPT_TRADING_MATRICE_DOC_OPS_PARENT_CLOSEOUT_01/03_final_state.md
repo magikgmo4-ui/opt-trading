@@ -48,3 +48,7 @@ Les flux encore ouverts ou actifs ne bloquent pas la fermeture du parent matrice
 - localcms consumer
 
 Ils relevent de trajectoires separees et deja explicites dans `GO_INDEX.md`.
+
+## RISKS
+
+- À qualifier.

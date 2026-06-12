@@ -48,3 +48,7 @@ Gateway direct opérationnel — `openclaw agent --agent builder` n'affiche plus
 ## 17_RESUME_POINT
 
 Reprendre à la création de `01_PATCH_GATE.md`.
+
+## RISKS
+
+- À qualifier.

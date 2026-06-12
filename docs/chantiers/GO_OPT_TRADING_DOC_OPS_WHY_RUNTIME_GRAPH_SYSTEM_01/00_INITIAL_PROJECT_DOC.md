@@ -70,3 +70,7 @@ Le runtime graph doit rester:
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_SYSTEM_01` pour cadrer le runtime graph system WHY.
+
+## RISKS
+
+- À qualifier.

@@ -31,3 +31,7 @@ le passage à `ACTIVE` nécessiterait un GO dédié avec mesure de perf.
 - `lower_low` non requis (guard `lower_low or True`).
 - Pas de risk sizing, trailing stop, ou ré-entrée.
 - 2 instruments seulement (BTC, ETH COIN-M).
+
+## RISKS
+
+- À qualifier.

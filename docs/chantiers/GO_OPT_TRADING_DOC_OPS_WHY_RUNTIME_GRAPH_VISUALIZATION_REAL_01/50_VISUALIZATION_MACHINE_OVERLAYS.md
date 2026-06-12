@@ -34,3 +34,7 @@ Formaliser les overlays multi-machine du WHY runtime graph.
 ## Invariant
 
 Les overlays multi-machine ne doivent jamais devenir une orchestration runtime autonome.
+
+## RISKS
+
+- À qualifier.

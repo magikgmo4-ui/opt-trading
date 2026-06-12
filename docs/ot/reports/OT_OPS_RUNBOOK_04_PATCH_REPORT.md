@@ -14,3 +14,7 @@ bash scripts/admin_trading/desk_pro_cmd.sh last-run-info
 ```
 
 **Status : CORRIGÉ.**
+
+## RISKS
+
+- À qualifier.

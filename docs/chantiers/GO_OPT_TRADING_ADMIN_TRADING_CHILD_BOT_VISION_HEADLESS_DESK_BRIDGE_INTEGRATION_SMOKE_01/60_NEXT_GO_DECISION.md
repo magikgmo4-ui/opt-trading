@@ -44,3 +44,7 @@ corruptions PIL.
 | GO_BRIDGE_GUARD_ADD_01 | P1 | Garde-fou [ -s ] dans bridge |
 | GO_WEBHOOK_RUNTIME_REVIEW_01 | P2 | Audit webhook runtime |
 | GO_BOT_VISION_HEADLESS_CLOSEOUT_01 | P3 | Closeout chantier headless |
+
+## RISKS
+
+- À qualifier.

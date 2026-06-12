@@ -38,3 +38,7 @@ La baseline Student/Ollama est exploitable pour des tâches ne nécessitant pas 
 - Latence : variable (60-155s)
 - Contexte : limité à 4096 tokens
 - Pas adapté à des tâches multi-étapes complexes
+
+## RISKS
+
+- À qualifier.

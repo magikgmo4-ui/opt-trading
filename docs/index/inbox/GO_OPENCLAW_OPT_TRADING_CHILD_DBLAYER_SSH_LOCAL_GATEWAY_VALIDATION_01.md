@@ -22,3 +22,7 @@ links:
 - point cle : stop sur toute installation `openclaw` sur `fantome`
 - controles attendus : identite machine, repo, `git status`, CLI `openclaw`, `Gateway V2`, orchestrateur, dry-run builder local
 - stop condition : si CLI absent sur `db-layer`, produire `NEEDS_APPROVAL_INSTALL_DB_LAYER`, afficher la commande exacte retenue, puis stopper
+
+## RISKS
+
+- À qualifier.

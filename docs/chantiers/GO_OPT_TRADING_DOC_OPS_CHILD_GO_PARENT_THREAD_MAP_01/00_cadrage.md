@@ -112,3 +112,7 @@ Il reste a produire :
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GO_PARENT_THREAD_MAP_01/05_parent_thread_map_draft.md`
+
+## RISKS
+
+- À qualifier.

@@ -301,3 +301,7 @@ Prochaine action admissible :
 Le lot physique est ouvert pour `db-layer` uniquement.
 
 Aucune extension multi-machine ni aucun retrait differe n'est autorise par ce document seul.
+
+## RISKS
+
+- À qualifier.

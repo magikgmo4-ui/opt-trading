@@ -216,3 +216,7 @@ GO_OPENCLAW_OPT_TRADING_CHILD_GATEWAY_SUPERVISION_TMUX_RUNTIME_01 -> CLOSED (PAS
 
 Prochaine étape: dépend de la continuité du parent OpenClaw db-layer.
 ```
+
+## RISKS
+
+- À qualifier.

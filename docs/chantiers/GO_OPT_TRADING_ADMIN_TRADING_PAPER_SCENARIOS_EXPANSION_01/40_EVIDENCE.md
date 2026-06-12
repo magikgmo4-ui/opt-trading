@@ -37,3 +37,7 @@ cat /opt/trading/state/ledger_paper.json
 ```
 
 No ledger_live file. No live data contamination.
+
+## RISKS
+
+- À qualifier.

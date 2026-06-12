@@ -73,3 +73,7 @@ After merge, resume from `sot/mainline` and open the patch child:
 ```text
 GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_GATEWAY_TOKEN_RECONCILIATION_PATCH_01
 ```
+
+## RISKS
+
+- À qualifier.

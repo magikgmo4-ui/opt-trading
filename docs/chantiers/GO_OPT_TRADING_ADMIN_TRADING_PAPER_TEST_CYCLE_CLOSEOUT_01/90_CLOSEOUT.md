@@ -72,3 +72,7 @@ PAPER_TEST cycle complete. Ready for:
 - Additional paper test scenarios
 - Risk sizing validation
 - Production validation (with explicit GO)
+
+## RISKS
+
+- À qualifier.

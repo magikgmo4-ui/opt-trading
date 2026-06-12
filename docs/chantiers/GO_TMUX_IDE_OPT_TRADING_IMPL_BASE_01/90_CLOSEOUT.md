@@ -59,3 +59,7 @@ Verdict courant du GO:
 
 - topology check: PASS
 - real validation preflight: PARTIAL_PASS
+
+## RISKS
+
+- À qualifier.

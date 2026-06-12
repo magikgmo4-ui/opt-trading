@@ -213,3 +213,7 @@ Next : `08_consumer_ace_kg_method_v1.md`
 
 TAG: PRODUCER_PIPELINE_V1
 Le Producer est un pipeline simple, déterministe, repo-first qui construit un graph fiable sans modifier le repo.
+
+## RISKS
+
+- À qualifier.

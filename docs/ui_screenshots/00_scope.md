@@ -21,3 +21,7 @@ Construire d’abord une **surface UI de lecture/navigation** pour les screensho
 1. cartographier les zones actuelles de screenshots / snapshots / desk runs
 2. définir une politique d’archive/mémoire séparée du daily
 3. définir la future surface UI `screenshots_analyses_passees`
+
+## RISKS
+
+- À qualifier.

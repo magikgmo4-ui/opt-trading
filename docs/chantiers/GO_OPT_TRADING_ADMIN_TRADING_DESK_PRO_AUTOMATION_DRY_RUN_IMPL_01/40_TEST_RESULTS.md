@@ -42,3 +42,7 @@ pytest tests/test_signal_event_adapter.py tests/test_admin_trading_contract_comp
 
 - `tests/test_signal_event_adapter.py` conserve 30 PASS
 - `tests/test_admin_trading_contract_compatibility_smoke.py` conserve 10 PASS
+
+## RISKS
+
+- À qualifier.

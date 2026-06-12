@@ -53,3 +53,7 @@ Ne rien retirer sur `admin-trading` dans ce lot :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

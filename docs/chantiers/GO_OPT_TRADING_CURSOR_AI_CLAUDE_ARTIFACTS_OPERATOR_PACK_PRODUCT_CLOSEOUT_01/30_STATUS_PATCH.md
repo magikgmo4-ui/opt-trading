@@ -35,3 +35,7 @@ Le closeout produit doit mettre a jour uniquement les surfaces propres au pack C
 ## Note de coherence
 
 Le statut `PRODUCT_CLOSED` s'applique au pack `claude-artifacts` seulement. Il ne ferme pas la famille `Bundles` globale ni les autres applications `cursor-ai`.
+
+## RISKS
+
+- À qualifier.

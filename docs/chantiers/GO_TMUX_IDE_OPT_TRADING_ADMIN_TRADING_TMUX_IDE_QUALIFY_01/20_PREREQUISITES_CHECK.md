@@ -59,3 +59,7 @@ Verdict re-probe :
 
 - Re-probe live (2026-05-12) : tous PASS.
 - Verdict prérequis courant : **PASS (ETAT_VERIFIE)**
+
+## RISKS
+
+- À qualifier.

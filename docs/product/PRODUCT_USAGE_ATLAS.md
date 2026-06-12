@@ -334,3 +334,7 @@ Cette vue applique une regle simple : quand plusieurs statuts coexistent, la lec
 - `remaining_gaps`: validation utilisateur du parent, formules Bitget, compatibilite, backtest data prep, worker et invariants prouves.
 - `next_go`: valider le parent puis ouvrir le child formules dedie avant toute suite runtime.
 - `do_not_use_notes`: aucun runtime trading reel, aucun guide live, aucun branchement exchange.
+
+## RISKS
+
+- À qualifier.

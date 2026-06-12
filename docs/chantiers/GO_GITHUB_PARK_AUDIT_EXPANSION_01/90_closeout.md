@@ -101,3 +101,7 @@ Le chantier parent `GO_GITHUB_PARK_AUDIT_EXPANSION_01` peut être considéré cl
 ## MEM_CANDIDATE
 
 NO_MEMORY
+
+## RISKS
+
+- À qualifier.

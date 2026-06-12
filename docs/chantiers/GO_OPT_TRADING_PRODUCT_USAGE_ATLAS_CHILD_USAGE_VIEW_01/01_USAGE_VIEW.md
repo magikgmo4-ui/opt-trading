@@ -64,3 +64,7 @@ La vue usage est valide si :
 - tous les produits du socle initial sont ranges dans un bucket clair ;
 - chaque bucket porte une lecture operateur simple ;
 - aucun produit non valide n'est promu artificiellement.
+
+## RISKS
+
+- À qualifier.

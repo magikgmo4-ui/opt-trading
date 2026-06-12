@@ -35,3 +35,7 @@ Extraire dans `collectors_core.lifecycle` les builders génériques de `status.j
 - pas de payload métier changé
 - pas de migration runtime
 ```
+
+## RISKS
+
+- À qualifier.

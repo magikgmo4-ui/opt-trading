@@ -67,3 +67,7 @@ Restauration utile uniquement pour diagnostic — ne pas utiliser en production.
 echo "Nb sessions: $(sudo ls /home/openclaw-lab/.openclaw/agents/main/sessions/*.jsonl 2>/dev/null | wc -l)"
 echo "Dernière archive: $(ls -t /tmp/opencode/sessions_index.*.archived 2>/dev/null | head -1)"
 ```
+
+## RISKS
+
+- À qualifier.

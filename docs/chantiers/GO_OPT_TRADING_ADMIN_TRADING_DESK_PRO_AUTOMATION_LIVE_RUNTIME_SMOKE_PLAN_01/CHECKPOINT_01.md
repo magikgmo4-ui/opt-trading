@@ -23,3 +23,7 @@ Plan validé, tests 84/84, worktree clean.
 ## Prochaine action
 
 Attendre validation du plan avant d'ouvrir `EXECUTION_GATED_01`.
+
+## RISKS
+
+- À qualifier.

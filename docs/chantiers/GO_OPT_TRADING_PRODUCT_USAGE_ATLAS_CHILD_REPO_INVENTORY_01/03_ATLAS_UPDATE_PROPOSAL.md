@@ -97,3 +97,7 @@ Si cette proposition est validee, les fichiers suivants devront etre mis a jour 
 
 Le present child ne modifie pas ces fichiers. Il pose l'inventaire et la classification.
 L'application effective dans l'Atlas releve du child `GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_01` ou d'un sous-lot dedie.
+
+## RISKS
+
+- À qualifier.

@@ -59,3 +59,7 @@ Auditer admin-trading comme machine runtime trading reelle, en read-only, sans m
 ## Resultat
 
 Voir 90_CLOSEOUT.md
+
+## RISKS
+
+- À qualifier.

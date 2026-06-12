@@ -204,3 +204,7 @@ Role :
 
    - `11_REMEDIATION_APPLY_PLAN.md` si gates suffisantes ;
    - `11_REMEDIATION_STILL_BLOCKED_REPORT.md` si un blocker persiste.
+
+## RISKS
+
+- À qualifier.

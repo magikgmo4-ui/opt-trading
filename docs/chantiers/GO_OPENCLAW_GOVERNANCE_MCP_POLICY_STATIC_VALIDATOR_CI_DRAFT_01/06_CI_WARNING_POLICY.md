@@ -110,3 +110,7 @@ Future closeout must record warning count:
 ## 19_TO_REMEMBER
 
 Warnings are not current harness mismatches, but they are governance evidence. Treat them as activation blockers until resolved or accepted.
+
+## RISKS
+
+- À qualifier.

@@ -118,3 +118,7 @@ Guard stty rows 50 cols 200 applique.
 NEXT:
 Lire 20_RETRY_GUARD_PROTOCOL.md.
 ```
+
+## RISKS
+
+- À qualifier.

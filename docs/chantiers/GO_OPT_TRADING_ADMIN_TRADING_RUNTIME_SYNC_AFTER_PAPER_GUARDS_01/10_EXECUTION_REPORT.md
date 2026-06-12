@@ -53,3 +53,7 @@
 ## Verdict
 
 `PASS_SYNC_BLOCKING_GUARDS` — runtime synchronized, guards endpoint verified, guards correctly blocking.
+
+## RISKS
+
+- À qualifier.

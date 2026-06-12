@@ -131,3 +131,7 @@ ETABLI
 | GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01 | GO runtime ; transverse |
 | GO_OPT_TRADING_MULTI_AGENTS_CANON_PARENT_01 | GO gouvernance multi-agents ; pas machine |
 | GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01 | GO gouvernance architecture ; pas machine |
+
+## RISKS
+
+- À qualifier.

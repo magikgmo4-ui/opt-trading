@@ -71,3 +71,7 @@ fantome
 → local execution run : PASS (ce GO)
 → next candidat : builder invocation reelle avec CLI openclaw
 ```
+
+## RISKS
+
+- À qualifier.

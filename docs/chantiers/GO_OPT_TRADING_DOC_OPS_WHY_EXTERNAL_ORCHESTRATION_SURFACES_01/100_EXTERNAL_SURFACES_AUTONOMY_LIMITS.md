@@ -32,3 +32,7 @@ Les surfaces externes doivent rester:
 ## Invariant
 
 Aucune surface externe ne doit devenir une autorite runtime autonome.
+
+## RISKS
+
+- À qualifier.

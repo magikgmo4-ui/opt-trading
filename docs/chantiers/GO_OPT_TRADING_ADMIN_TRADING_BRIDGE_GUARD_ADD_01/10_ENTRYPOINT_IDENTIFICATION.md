@@ -23,3 +23,7 @@ ExecStart=/opt/trading/scripts/desk_bridge/bridge_vision_to_desk_inbox.sh
 ## Entrypoint
 
 Unique. Aucun wrapper, aucun doublon. Systemd seulement.
+
+## RISKS
+
+- À qualifier.

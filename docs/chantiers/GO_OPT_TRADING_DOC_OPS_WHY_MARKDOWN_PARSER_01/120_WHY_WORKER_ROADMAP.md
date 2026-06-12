@@ -47,3 +47,7 @@ Avant implementation:
 - stabiliser scoring,
 - stabiliser classes runtime,
 - stabiliser governance WHY.
+
+## RISKS
+
+- À qualifier.

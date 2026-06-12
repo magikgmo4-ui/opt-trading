@@ -52,3 +52,7 @@ Chaque bundle cree via ce workflow garantit :
 - Pas de secrets.
 - Pas d'admin-trading sans demande explicite.
 - Pas de fermeture produit intempestive.
+
+## RISKS
+
+- À qualifier.

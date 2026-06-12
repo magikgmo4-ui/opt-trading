@@ -28,3 +28,7 @@ with open("/opt/trading/state/positions.json", "w") as f:
 ## Risk
 
 Minimal. Paper position only, no real money affected.
+
+## RISKS
+
+- À qualifier.

@@ -71,3 +71,7 @@ Modules supportant les deux modes.
 ## 4. RÈGLE DE DÉPLOIEMENT
 - Tout **SERVICE** ou **TIMER** doit avoir son fichier `.service`/`.timer` dans un sous-dossier `systemd/` du module.
 - L'installation se fait via `sudo install` vers `/etc/systemd/system/`.
+
+## RISKS
+
+- À qualifier.

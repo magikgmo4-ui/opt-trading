@@ -8,3 +8,7 @@
 ## Resume
 
 Bloc CURSOR_AI reorganise en 6 sous-sections. Lignes historiques annotees, continuités actives préservées.
+
+## RISKS
+
+- À qualifier.

@@ -24,3 +24,7 @@ Test additional paper scenarios after complete PAPER_TEST cycle:
 - No real orders
 - No live trading
 - Guards ok:true required for valid scenarios
+
+## RISKS
+
+- À qualifier.

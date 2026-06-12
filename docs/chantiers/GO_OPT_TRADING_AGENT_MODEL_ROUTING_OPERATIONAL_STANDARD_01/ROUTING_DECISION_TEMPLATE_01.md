@@ -37,3 +37,7 @@ routing_decision:
     status: "PASS|FAIL|REFUS"
     notes: ""
 ```
+
+## RISKS
+
+- À qualifier.

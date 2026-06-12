@@ -184,3 +184,7 @@ Portée : schémas, sources, transformations, contrats de données.
 Aucun backtest réel exécuté ici.
 Prochaine action : validation utilisateur, puis création 01_backtest_data_prep.md.
 ```
+
+## RISKS
+
+- À qualifier.

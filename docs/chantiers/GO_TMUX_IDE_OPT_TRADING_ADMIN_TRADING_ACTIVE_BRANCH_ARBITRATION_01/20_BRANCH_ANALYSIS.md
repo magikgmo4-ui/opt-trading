@@ -104,3 +104,7 @@ Conclusion :
 - risque de conflit Git apparent faible au niveau des chemins
 - merge non tente dans ce GO
 - la recommandation "ouvrir PR puis merger avant reprise tmux-ide" est defendable sans action destructive
+
+## RISKS
+
+- À qualifier.

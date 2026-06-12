@@ -145,3 +145,7 @@ Preuves minimales a exiger dans la future passe operatoire :
 ## NEXT_GO
 
 Point de reprise suivant : valider ce cadrage, puis ouvrir une passe operatoire controlee de supervision `tmux` sur `db-layer`, toujours sans bridge runtime.
+
+## RISKS
+
+- À qualifier.

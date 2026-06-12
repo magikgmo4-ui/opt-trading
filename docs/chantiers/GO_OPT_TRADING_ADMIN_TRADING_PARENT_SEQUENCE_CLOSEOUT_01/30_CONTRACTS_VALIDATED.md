@@ -71,3 +71,7 @@ Contient: `signal_event` + `visual_context` + `desk_snapshot` + `join_keys`
 | signal_event | desk_snapshot | symbol + timeframe + snapshot_ts fenêtre | YES |
 | visual_context | desk_snapshot | symbol + timeframe | YES |
 | signal_event | visual_context | visual_context_ref = capture_id | YES (ref non produite) |
+
+## RISKS
+
+- À qualifier.

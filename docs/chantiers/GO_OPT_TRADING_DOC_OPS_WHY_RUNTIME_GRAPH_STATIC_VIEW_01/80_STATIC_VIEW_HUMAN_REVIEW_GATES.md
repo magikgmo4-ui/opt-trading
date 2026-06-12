@@ -32,3 +32,7 @@ Formaliser les gates review humaine de la vue statique WHY/runtime.
 ## Invariant
 
 La vue WHY/runtime ne doit jamais remplacer une validation humaine critique.
+
+## RISKS
+
+- À qualifier.

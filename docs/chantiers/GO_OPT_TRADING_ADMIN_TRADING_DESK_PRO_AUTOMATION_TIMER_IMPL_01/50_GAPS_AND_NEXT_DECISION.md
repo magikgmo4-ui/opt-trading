@@ -31,3 +31,7 @@ GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_INSTALL_GATED_01
 
 - Implementation completee et versionnee
 - Proposer installation gatee
+
+## RISKS
+
+- À qualifier.

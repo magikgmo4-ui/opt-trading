@@ -87,3 +87,7 @@ relire 20_IDE_YML_MINIMAL_DRAFT.md puis 30_STATIC_VALIDATION.md avant toute deci
 ```text
 WIP / IDE_YML_MINIMAL_CONFIG_OPENED
 ```
+
+## RISKS
+
+- À qualifier.

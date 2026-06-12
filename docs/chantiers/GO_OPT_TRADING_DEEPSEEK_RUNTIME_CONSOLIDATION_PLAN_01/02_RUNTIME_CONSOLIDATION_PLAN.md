@@ -83,3 +83,7 @@ Phase 4 — VALIDATION
 | shortcuts orphelins | perte acces operateur | backup + rollback |
 | scripts/student/ encore utilise | regression | audit callers avant retrait |
 | deepseek_response/thinking encore appeles | erreur runtime | verification exhaustive |
+
+## RISKS
+
+- À qualifier.

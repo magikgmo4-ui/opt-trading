@@ -33,3 +33,7 @@ Cette matrice définit le statut officiel de chaque point d'entrée de la famill
 1. **Opérateur** : Utiliser `menu-ops_menu_hub`.
 2. **Admin/Debug** : Utiliser `scripts/admin_trading/desk_pro_cmd.sh` ou `cmd-desk_pro_runner`.
 3. **Scripts Root** : À éviter pour les nouvelles procédures.
+
+## RISKS
+
+- À qualifier.

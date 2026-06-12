@@ -37,3 +37,7 @@ Le local view real doit couvrir:
 ## Invariant
 
 Le render local WHY/runtime doit rester lecture seule, local et non destructif.
+
+## RISKS
+
+- À qualifier.

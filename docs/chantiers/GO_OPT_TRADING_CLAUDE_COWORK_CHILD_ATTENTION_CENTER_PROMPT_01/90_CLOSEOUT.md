@@ -46,3 +46,7 @@ Le prompt final executable pour `OPT_TRADING_ATTENTION_CENTER_01` est produit et
 ## Decision finale
 
 Le prochain besoin n'est plus un cadrage abstrait du cockpit Claude Cowork. Le prompt final de `OPT_TRADING_ATTENTION_CENTER_01` existe maintenant comme livrable doc-only autonome.
+
+## RISKS
+
+- À qualifier.

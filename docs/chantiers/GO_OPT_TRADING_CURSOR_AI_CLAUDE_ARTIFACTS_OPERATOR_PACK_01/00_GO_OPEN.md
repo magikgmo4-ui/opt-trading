@@ -49,3 +49,7 @@ Regulariser un dossier canonique doc-only pour le pack operateur Claude artifact
 ## Compatibilite documentaire
 
 La structure legacy `00_START.md` ... `50_NO_COMMIT_RULES.md` est conservee pour ne pas casser les references deja mergees dans le repo.
+
+## RISKS
+
+- À qualifier.

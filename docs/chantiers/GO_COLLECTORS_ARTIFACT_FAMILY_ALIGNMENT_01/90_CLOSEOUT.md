@@ -45,3 +45,7 @@ Les règles d’adoption additive sont figées.
 ```text
 GO_COLLECTORS_CONFIG_BOUNDARY_ALIGNMENT_01
 ```
+
+## RISKS
+
+- À qualifier.

@@ -60,3 +60,7 @@ GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_TELEGRAM_EXECUTION_01
 4. **Pas de retry Telegram** : Si l'API Telegram echoue, l'evenement est
    quand meme enregistre mais la notification peut etre perdue. Pas de
    mecanisme de retry dans le code actuel.
+
+## RISKS
+
+- À qualifier.

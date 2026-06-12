@@ -284,3 +284,7 @@ Le child est clos comme baseline.
 Point de reprise recommande :
 - `docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/92_plans_execution_sous_lots.md`
 - ouvrir ensuite un sous-lot d'execution borne plutot que prolonger ce child
+
+## RISKS
+
+- À qualifier.

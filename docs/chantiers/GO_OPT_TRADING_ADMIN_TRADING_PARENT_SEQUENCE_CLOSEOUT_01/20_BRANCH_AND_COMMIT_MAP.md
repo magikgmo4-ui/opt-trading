@@ -41,3 +41,7 @@ sot/mainline
 ## Branche de reprise
 
 L'étape 5 (`DESK_PRO_RUNTIME_REVIEW`) a nécessité une branche de reprise car la branche distante existante était stale (base différente). La reprise a été créée proprement depuis la base correcte.
+
+## RISKS
+
+- À qualifier.

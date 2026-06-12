@@ -80,3 +80,7 @@ Sequence verdict: PASS end-to-end for Desk Pro Automation dry-run/timer path
 Current timer state: installed, enabled, active/waiting with stable warning-only dry-run runs
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_PR_MERGE_01
 ```
+
+## RISKS
+
+- À qualifier.

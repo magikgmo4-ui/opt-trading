@@ -63,3 +63,7 @@ Le but de ce GO est de valider la **compatibilité contractuelle** entre les art
 | visual_context V1 | `30_VISUAL_CONTEXT_CONTRACT.md` | Fixture validation |
 | desk_snapshot | `40_DESK_BRIDGE_COMPATIBILITY.md` | Fixture validation |
 | Desk Pro synthesis | `40_CONTRACT_COMPATIBILITY_REVIEW.md` | `TestDeskProSynthesisSmoke` |
+
+## RISKS
+
+- À qualifier.

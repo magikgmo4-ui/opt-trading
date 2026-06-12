@@ -75,3 +75,7 @@ restent installes depuis `scripts/reseau_ssh`.
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

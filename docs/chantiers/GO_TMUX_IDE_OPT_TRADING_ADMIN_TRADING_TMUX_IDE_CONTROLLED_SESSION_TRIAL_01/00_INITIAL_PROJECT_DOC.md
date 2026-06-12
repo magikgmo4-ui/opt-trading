@@ -92,3 +92,7 @@ relire 30_SESSION_RESULTS.md et 40_GATE_DECISION.md avant publication.
 ```text
 WIP / CONTROLLED_SESSION_TRIAL_OPENED
 ```
+
+## RISKS
+
+- À qualifier.

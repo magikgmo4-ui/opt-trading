@@ -43,3 +43,7 @@ sans exposer de secret et sans committer de preuves locales sensibles.
 - Aucun `.env` committe
 - Aucune preuve locale sensible
 - Doc-only
+
+## RISKS
+
+- À qualifier.

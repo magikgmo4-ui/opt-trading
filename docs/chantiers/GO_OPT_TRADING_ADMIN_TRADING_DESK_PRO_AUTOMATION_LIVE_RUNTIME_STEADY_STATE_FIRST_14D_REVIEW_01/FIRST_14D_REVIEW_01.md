@@ -31,3 +31,7 @@ Current state snapshot at window start:
 ## Next
 
 Full review to be completed after **2026-05-28**.
+
+## RISKS
+
+- À qualifier.

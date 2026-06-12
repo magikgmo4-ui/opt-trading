@@ -419,3 +419,7 @@ C’est cette couche qui permettra ensuite des consolidations physiques propres 
 ## Verdict
 
 **PASS — audit des familles de modules établi ; la suite logique devient la cartographie canonique fichier par fichier**
+
+## RISKS
+
+- À qualifier.

@@ -48,3 +48,7 @@ Ces branches locales ont ete mergees mais sont encore presentes localement :
 - **2 branches locales conservees** (historique).
 - **0 branche orpheline non documentee**.
 - **Aucune collision machine** (toutes dans bloc CURSOR_AI).
+
+## RISKS
+
+- À qualifier.

@@ -234,3 +234,7 @@ tail -50 /opt/trading/tmp/uvicorn_8010.log
 # Tests unitaires
 cd /opt/trading && python3 -m unittest discover -s tests -p "test_*.py"
 ```
+
+## RISKS
+
+- À qualifier.

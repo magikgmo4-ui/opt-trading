@@ -78,3 +78,7 @@ Possibilites futures:
 - gates CI governance,
 - validation IA pre-merge,
 - registry global invariants/failure modes.
+
+## RISKS
+
+- À qualifier.

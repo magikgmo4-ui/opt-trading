@@ -51,3 +51,7 @@ Le point de reprise verrouille reste `GO_OPT_TRADING_DOC_OPS_WHY_DAILY_JOURNAL_G
 ```text
 WIP / DOC_ONLY_LOCALCMS_TMUX_READINESS_PUBLISHED
 ```
+
+## RISKS
+
+- À qualifier.

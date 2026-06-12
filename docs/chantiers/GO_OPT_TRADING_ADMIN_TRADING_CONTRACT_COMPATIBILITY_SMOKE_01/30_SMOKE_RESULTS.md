@@ -73,3 +73,7 @@ python -m pytest tests/test_signal_event_adapter.py tests/test_admin_trading_con
 ## Side effects
 
 `NONE` — aucun appel réseau, aucun fichier écrit, aucun service modifié.
+
+## RISKS
+
+- À qualifier.

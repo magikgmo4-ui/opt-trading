@@ -172,3 +172,7 @@ TAGS :
 
 Blocs :
 - `AUCUN_AJOUT_MEMOIRE_DURABLE_AUTOMATIQUE`
+
+## RISKS
+
+- À qualifier.

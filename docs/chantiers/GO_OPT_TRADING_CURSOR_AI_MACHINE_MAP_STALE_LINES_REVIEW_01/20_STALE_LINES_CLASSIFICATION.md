@@ -30,3 +30,7 @@
 - alert_webhook = ACTIVE_CONTINUITY
 - Bundles = APPLICATION_DOCUMENTED_NOT_PRODUCT_CLOSED
 - admin-trading = NOT_OPENED
+
+## RISKS
+
+- À qualifier.

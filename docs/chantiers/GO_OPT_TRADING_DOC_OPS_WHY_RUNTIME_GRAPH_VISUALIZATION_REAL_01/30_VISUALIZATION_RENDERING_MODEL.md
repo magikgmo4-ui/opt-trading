@@ -38,3 +38,7 @@ Definir le modele de rendu du WHY runtime graph.
 ## Invariant
 
 Le rendu WHY runtime graph ne doit jamais devenir une orchestration runtime autonome.
+
+## RISKS
+
+- À qualifier.

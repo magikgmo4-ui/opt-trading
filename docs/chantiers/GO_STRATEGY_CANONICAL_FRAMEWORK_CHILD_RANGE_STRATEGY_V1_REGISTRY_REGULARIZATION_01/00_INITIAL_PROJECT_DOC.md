@@ -30,3 +30,7 @@ Audit doc surfaces + registry entry. Pas de code, pas de runtime.
 
 - `[ALL_3_ENGINES_REGISTERED]` : COINM_SHORT, USDTM_LONG, GOLD_CFD_LONG regularisés.
 - `[RANGE_STRATEGY_V1_P3]` : P3 doc-only, cadrage existant.
+
+## RISKS
+
+- À qualifier.

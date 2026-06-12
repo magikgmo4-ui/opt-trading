@@ -323,3 +323,7 @@ Aucune connexion SSH.
 Aucun secret exposé.
 Aucune ouverture sandbox sans décision explicite.
 ```
+
+## RISKS
+
+- À qualifier.

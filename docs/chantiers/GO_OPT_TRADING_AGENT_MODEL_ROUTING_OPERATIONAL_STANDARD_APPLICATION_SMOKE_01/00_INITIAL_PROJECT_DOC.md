@@ -53,3 +53,7 @@ Appliquer le standard operationnel de routage multi-provider sur 2-3 taches non-
 - Aucun secret
 - Stash branch_arbitration preserve
 ```
+
+## RISKS
+
+- À qualifier.

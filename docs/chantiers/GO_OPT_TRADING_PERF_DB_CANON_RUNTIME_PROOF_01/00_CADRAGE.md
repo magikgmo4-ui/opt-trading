@@ -38,3 +38,7 @@ Prouver ou refuser de prouver, sur la surface runtime réelle `/opt/trading`, le
 - aucune création artificielle de DB canonique
 - aucun restart service
 ```
+
+## RISKS
+
+- À qualifier.

@@ -149,3 +149,7 @@ Les moteurs doivent converger sur :
 
 ## Point de reprise
 Contrats `Engine pipeline` cadres. Basculer vers `Runtime edge / platform`, puis `Repo / tooling / authoring`.
+
+## RISKS
+
+- À qualifier.

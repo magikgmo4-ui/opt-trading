@@ -45,3 +45,7 @@ L'export couvre l'integralite de l'etat cursor-ai valide apres Options A et B.
 - **Format** : documentation structuree + manifest JSON.
 - **Transport** : le repo Git est la source canonique. L'export est un point d'entree lisible pour un nouvel operateur.
 - **Autonomie** : un operateur peut lire `bundles/operator-export/README.md` et comprendre l'etat cursor-ai sans lire toute la conversation.
+
+## RISKS
+
+- À qualifier.

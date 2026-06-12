@@ -32,3 +32,7 @@ updated_at: 2026-05-04
 | DESK_PRO_SHARED_REFRESH_01 | P3 | Rafraichir /shared/desk_pro/latest/ |
 | PROFILES_EXPANSION | P3 | Ajouter plus de profils de capture |
 | ADMIN_TRADING_PARENT_CLOSEOUT | P3 | Closeout parent machine admin-trading |
+
+## RISKS
+
+- À qualifier.

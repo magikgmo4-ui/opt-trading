@@ -183,3 +183,7 @@ Ce document definit la formule de scoring.
 
 Il ne declenche pas de trade, d'execution, de write Sheets, de Telegram
 direct (hors dry-run valide) ni de modification de module runtime.
+
+## RISKS
+
+- À qualifier.

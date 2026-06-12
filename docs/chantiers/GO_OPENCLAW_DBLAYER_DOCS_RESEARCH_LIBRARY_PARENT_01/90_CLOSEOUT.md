@@ -39,3 +39,7 @@ Le bundle ZIP `/mnt/data/...` n est pas accessible. La cartographie est basee su
 ```
 docs/chantiers/GO_OPENCLAW_DBLAYER_DOCS_RESEARCH_LIBRARY_PARENT_01/01_SOURCE_CARTOGRAPHY.md
 ```
+
+## RISKS
+
+- À qualifier.

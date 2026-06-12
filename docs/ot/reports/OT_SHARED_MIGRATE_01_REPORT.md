@@ -166,3 +166,7 @@ Contrôle cohérence clients :
   - déplacer les docs “référence” vers `_refs/` (si aucun flux ne les consomme)
   - traiter séparément `.ssh.zip` et `.venv.zip` (décision explicite + procédure contrôlée)
 
+
+## RISKS
+
+- À qualifier.

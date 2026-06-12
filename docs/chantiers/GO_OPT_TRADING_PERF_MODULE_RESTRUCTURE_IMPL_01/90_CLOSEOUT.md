@@ -64,3 +64,7 @@ Mission du GO suivant :
 - evaluer le deplacement physique futur de perf.db
 - definir quand retirer les anciens chemins historiques
 ```
+
+## RISKS
+
+- À qualifier.

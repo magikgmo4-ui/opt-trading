@@ -36,3 +36,7 @@ priority:
 2. modules/perf/data/perf.db si present
 3. perf/perf.db sinon
 ```
+
+## RISKS
+
+- À qualifier.

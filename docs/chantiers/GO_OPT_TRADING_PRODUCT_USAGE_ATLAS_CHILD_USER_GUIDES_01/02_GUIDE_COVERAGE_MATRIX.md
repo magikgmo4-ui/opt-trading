@@ -36,3 +36,7 @@ links:
 | Produit | Dit quand ne pas utiliser | Sources canoniques | NEXT_GO | Surestime le produit ? |
 | --- | --- | --- | --- | --- |
 | Tous | Oui | Oui | Oui | Non |
+
+## RISKS
+
+- À qualifier.

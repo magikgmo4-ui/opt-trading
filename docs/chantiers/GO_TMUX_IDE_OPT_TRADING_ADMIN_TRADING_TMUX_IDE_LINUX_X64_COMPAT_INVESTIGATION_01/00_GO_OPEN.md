@@ -42,3 +42,7 @@ Comprendre pourquoi `npx -y tmux-ide --version` resout `@opentui/core-darwin-arm
 - Ne pas modifier runtime.
 - Ne pas toucher `modules/`.
 - Investigation metadata/probes uniquement.
+
+## RISKS
+
+- À qualifier.

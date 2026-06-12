@@ -57,3 +57,7 @@ Condition :
 ```text
 toutes les gates G1-G6 satisfaites et validation humaine explicite.
 ```
+
+## RISKS
+
+- À qualifier.

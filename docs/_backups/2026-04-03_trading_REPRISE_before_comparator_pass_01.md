@@ -47,3 +47,7 @@ Suite recommandée immédiate : ouvrir une passe **comparateur lab/live** ou une
 
 ## FORMULE COURTE
 Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe comparator LAB/live avant toute implémentation REAL-TIME plus poussée.
+
+## RISKS
+
+- À qualifier.

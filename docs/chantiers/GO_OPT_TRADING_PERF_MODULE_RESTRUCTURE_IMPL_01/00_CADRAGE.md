@@ -47,3 +47,7 @@ Implementation retenue :
 - 0 suppression des anciens chemins
 - 0 secret
 ```
+
+## RISKS
+
+- À qualifier.

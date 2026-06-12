@@ -168,3 +168,7 @@ Définir un contrat canonique `visual_context` V1 consumable par `desk_bridge`, 
 ## Verdict de définition
 
 `visual_context` V1 peut être défini proprement en l'état. Le sidecar JSON produit par `capture_headless.js` couvre les champs principaux. Les champs `payload_hash`, `capture_id`, `signal_event_ref` et `desk_snapshot_ref` sont ajoutables sans breaking change.
+
+## RISKS
+
+- À qualifier.

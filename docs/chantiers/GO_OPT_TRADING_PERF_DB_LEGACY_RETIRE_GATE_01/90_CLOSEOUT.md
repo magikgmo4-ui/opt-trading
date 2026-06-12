@@ -43,3 +43,7 @@ Le legacy ne sera retiré que sur preuve, jamais par simple intention.
 ```text
 GO_OPT_TRADING_PERF_DB_LEGACY_RETIRE_IMPL_01
 ```
+
+## RISKS
+
+- À qualifier.

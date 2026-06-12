@@ -38,3 +38,7 @@ Reference 2 bundles (student Ollama + IDE bundle). Ne reference pas :
 ## Objectif
 
 Completer le pack et mettre a jour l'index pour refleter l'etat reel.
+
+## RISKS
+
+- À qualifier.

@@ -55,3 +55,7 @@ GO traites uniquement :
 
 - `OBSOLETE_RECLASS_ARCHIVE_AUDIT_01` peut etre ferme si sa matrice et ses sous-lots documentes suffisent desormais a qualifier les reliquats
 - `ROOT_POLICY_AND_RECLASS_01` peut etre ferme si la politique racine absorbe explicitement le dernier cas ouvert `bitget_bridge.py`
+
+## RISKS
+
+- À qualifier.

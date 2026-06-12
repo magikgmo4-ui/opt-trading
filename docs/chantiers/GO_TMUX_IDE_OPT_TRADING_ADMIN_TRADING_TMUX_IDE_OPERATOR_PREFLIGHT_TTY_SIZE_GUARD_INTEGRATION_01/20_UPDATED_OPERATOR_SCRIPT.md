@@ -17,3 +17,7 @@ echo "STTY_BEFORE=$_STTY_BEFORE"
 echo "STTY_AFTER=$_STTY_AFTER"
 # --- END PREFLIGHT ---
 ``
+
+## RISKS
+
+- À qualifier.

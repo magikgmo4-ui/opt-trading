@@ -42,3 +42,7 @@ G5. rollback documenté si une vieille automation réveille encore le legacy
 - preuve que les écritures vont bien vers la DB canonique
 - absence de dépendance shell restante au chemin legacy
 ```
+
+## RISKS
+
+- À qualifier.

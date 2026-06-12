@@ -42,3 +42,7 @@ Le prompt doit refuser :
 - les alertes sans source ;
 - les priorites gonflees artificiellement ;
 - les recommandations definitives sans preuve.
+
+## RISKS
+
+- À qualifier.

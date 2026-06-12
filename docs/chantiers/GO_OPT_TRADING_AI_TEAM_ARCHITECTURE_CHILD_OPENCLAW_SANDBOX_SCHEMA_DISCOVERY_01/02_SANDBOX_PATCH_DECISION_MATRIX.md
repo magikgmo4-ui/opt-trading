@@ -93,3 +93,7 @@ Rôle :
 3. préparer le diff minimal sur `agents.json5` ;
 4. définir rollback ;
 5. interdire encore le runtime.
+
+## RISKS
+
+- À qualifier.

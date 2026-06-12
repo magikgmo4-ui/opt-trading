@@ -30,3 +30,7 @@ links:
 4. `GO_PARENT_THREAD_MAP.md` reste derive et subordonne.
 5. `BRANCH_STATE.md` reste limite a la surface branches.
 6. Les gaps restants relevent d'autres parents ou familles et ne reouvrent pas ce parent.
+
+## RISKS
+
+- À qualifier.

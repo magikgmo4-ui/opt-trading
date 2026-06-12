@@ -35,3 +35,7 @@ La suite implementation peut commencer seulement si:
 - `admin-trading` est confirmee comme machine cible reelle
 - la separation `cursor-ai` operateur / `db-layer` runtime reste intacte
 - aucun changement runtime n'est necessaire pour demarrer `tmux-ide`
+
+## RISKS
+
+- À qualifier.

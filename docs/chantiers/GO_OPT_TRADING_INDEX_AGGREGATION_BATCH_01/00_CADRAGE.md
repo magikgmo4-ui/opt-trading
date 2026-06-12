@@ -98,3 +98,7 @@ PASS si :
 - l'inbox atomique est marquée `applied` ;
 - un closeout batch est produit ;
 - le diff reste doc-only.
+
+## RISKS
+
+- À qualifier.

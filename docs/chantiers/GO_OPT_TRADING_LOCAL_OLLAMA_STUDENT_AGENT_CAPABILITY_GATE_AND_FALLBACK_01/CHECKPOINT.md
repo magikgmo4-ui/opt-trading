@@ -21,3 +21,7 @@ GO_OPT_TRADING_LOCAL_OLLAMA_STUDENT_AGENT_CAPABILITY_GATE_AND_FALLBACK_01
 
 Fermer le GO après merge. La chaîne complète est :
 validation baseline → politique rétention → enforcement → smoke → adoption → usage contrôlé → gate capacité.
+
+## RISKS
+
+- À qualifier.

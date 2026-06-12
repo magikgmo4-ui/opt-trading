@@ -41,3 +41,7 @@ links:
 ## REPRISE
 Point de reprise unique :
 - `docs/chantiers/GO_OPT_TRADING_RUNTIME_EXCEPTION_FAMILIES_01/02_journal_technique.md`
+
+## RISKS
+
+- À qualifier.

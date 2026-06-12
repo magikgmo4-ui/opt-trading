@@ -134,3 +134,7 @@ PATH et configs tmux ne sont pas la cause principale.
 NEXT:
 Lire 20_TMUX_MINIMAL_ISOLATED_PROBES.md.
 ```
+
+## RISKS
+
+- À qualifier.

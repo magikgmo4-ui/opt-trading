@@ -107,3 +107,7 @@ Objectif :
 - aucune commande remote ;
 - preuve de sortie documentaire structurée ;
 - stop conditions strictes.
+
+## RISKS
+
+- À qualifier.

@@ -113,3 +113,7 @@ Le parent dispose maintenant d'un premier lot execute et trace. Le canon top-lev
 
 ## Point de reprise
 Passer au `Step 05` pour auditer les exceptions racine, d'abord `webhook_server.py` puis `bitget_bridge.py`.
+
+## RISKS
+
+- À qualifier.

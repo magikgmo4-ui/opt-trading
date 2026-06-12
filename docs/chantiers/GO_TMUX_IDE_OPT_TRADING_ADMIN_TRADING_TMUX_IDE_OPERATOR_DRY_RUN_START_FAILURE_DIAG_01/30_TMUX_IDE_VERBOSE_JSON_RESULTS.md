@@ -185,3 +185,7 @@ Redirected stdout uses fallback 200x50; interactive TTY size 0x0 causes -x 0 -y 
 NEXT:
 Lire 40_ROOT_CAUSE_ANALYSIS.md.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -123,3 +123,7 @@ Ce child herite directement du framework parent (`GO_STRATEGY_CANONICAL_FRAMEWOR
 ```text
 PASS_SMC_ICT_STRATEGY_CHILD_DOC_ONLY_OPENED
 ```
+
+## RISKS
+
+- À qualifier.

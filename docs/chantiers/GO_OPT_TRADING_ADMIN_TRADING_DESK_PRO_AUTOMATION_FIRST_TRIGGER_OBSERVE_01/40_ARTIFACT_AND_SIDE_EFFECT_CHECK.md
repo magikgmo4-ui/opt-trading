@@ -27,3 +27,7 @@ updated_at: 2026-05-09
 ## Interpretation
 
 This GO remained read-only. The post-fix trigger produced an acceptable dry-run journal payload without forbidden side effects.
+
+## RISKS
+
+- À qualifier.

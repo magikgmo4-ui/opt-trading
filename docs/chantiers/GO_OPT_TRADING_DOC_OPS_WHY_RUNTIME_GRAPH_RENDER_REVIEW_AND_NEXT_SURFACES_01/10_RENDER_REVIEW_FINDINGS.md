@@ -64,3 +64,7 @@ Le rendu v0 ne prouve pas encore :
 ## 17_RESUME_POINT
 
 Le rendu v0 est valide comme preuve locale bornee, mais sa lisibilite doit etre raffinee avant d'ouvrir des surfaces plus ambitieuses.
+
+## RISKS
+
+- À qualifier.

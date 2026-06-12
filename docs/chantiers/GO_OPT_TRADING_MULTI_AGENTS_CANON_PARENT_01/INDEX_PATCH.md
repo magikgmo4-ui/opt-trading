@@ -82,3 +82,7 @@ links:
 - produire un diff minimal ;
 - ne pas remplacer les index globaux entiers ;
 - après application, passer ce fichier à `APPLIED` ou créer un closeout d'agrégation.
+
+## RISKS
+
+- À qualifier.

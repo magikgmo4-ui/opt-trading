@@ -93,3 +93,7 @@ On ne passe a l'etape suivante que si :
 - aucun conflit structurel non arbitre ne subsiste
 - le support Git retenu reste coherent avec la matrice
 - aucun nouveau parent specialise n'est ouvert avant la fin explicite du controle des ouverts / non termines
+
+## RISKS
+
+- À qualifier.

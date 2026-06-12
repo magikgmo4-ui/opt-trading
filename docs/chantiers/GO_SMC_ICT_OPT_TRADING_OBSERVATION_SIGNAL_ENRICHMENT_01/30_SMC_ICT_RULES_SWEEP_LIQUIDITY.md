@@ -199,3 +199,7 @@ Ce document definit des regles de detection.
 
 Il ne declenche pas de trade, d'ordre, de message Telegram direct, de write
 Sheets, ni de modification de module runtime.
+
+## RISKS
+
+- À qualifier.

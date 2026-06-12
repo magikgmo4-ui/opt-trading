@@ -116,3 +116,7 @@ Phase 5 db-layer:
 Reprendre depuis l'alignement identite + sandbox + alias SSH,
 sans toucher admin-trading, sans git write, sans opencode run.
 ```
+
+## RISKS
+
+- À qualifier.

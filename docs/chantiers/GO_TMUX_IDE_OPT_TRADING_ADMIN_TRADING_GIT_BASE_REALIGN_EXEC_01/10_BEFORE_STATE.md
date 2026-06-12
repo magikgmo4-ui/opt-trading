@@ -46,3 +46,7 @@ Sortie réelle :
 ```
 
 > Remplir ce champ avant de lancer l'étape 20_EXECUTION_LOG.
+
+## RISKS
+
+- À qualifier.

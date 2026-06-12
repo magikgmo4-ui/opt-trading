@@ -88,3 +88,7 @@ Blocage de méthode : propagation globale différée volontairement pour réduir
 ## Prochaine action
 
 Lire et appliquer `DECISIONS.md`, puis `INDEX_PATCH.md`.
+
+## RISKS
+
+- À qualifier.

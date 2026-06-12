@@ -59,3 +59,7 @@ Le chantier parent est ouvert pour cadrer une architecture d’équipe d’agent
 ## 5. Point de reprise
 
 Reprendre sur la branche `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`, utiliser `7_CANONICAL_STATE` comme base de continuité, puis ouvrir le premier GO enfant documentaire ou d’architecture avec bornage explicite et sans réinterpréter les hypothèses comme des faits.
+
+## RISKS
+
+- À qualifier.

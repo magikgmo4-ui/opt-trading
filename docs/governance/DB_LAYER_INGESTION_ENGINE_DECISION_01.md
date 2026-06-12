@@ -157,3 +157,7 @@ Le DDL ci-dessous est un **gabarit**. Les types exacts restent non figés tant q
 - [DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_PHYSICAL_SCHEMA_DECISION_01.md)
 - [db_layer_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_runbook.md)
 - [db_layer_desk_pro_quick_reference.md](file:///c:/Users/ghost/opt-trading/docs/db_layer_desk_pro_quick_reference.md)
+
+## RISKS
+
+- À qualifier.

@@ -17,3 +17,7 @@ Le système doit permettre lecture graphique, lecture indicateurs, inventaire al
 ## Prochain GO
 
 Phase 1 — Local MCP Observer smoke.
+
+## RISKS
+
+- À qualifier.

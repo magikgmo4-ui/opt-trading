@@ -143,3 +143,7 @@ Future implementation must produce one error per invalid capability class entry,
 ## 19_TO_REMEMBER
 
 Capability class names are security boundaries, not labels.
+
+## RISKS
+
+- À qualifier.

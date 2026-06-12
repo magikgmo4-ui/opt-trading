@@ -100,3 +100,7 @@ Conclusion Git :
 La branche `origin/doc/GO_OPENCLAW_STATE_DIR_READ_09` est absorbee et devient candidate a suppression remote.
 
 Ce passage reste strictement doc-only et ne supprime rien.
+
+## RISKS
+
+- À qualifier.

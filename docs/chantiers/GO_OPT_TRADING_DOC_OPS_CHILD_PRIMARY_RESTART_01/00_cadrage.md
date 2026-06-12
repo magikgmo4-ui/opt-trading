@@ -91,3 +91,7 @@ Formaliser pourquoi `GO_OPT_TRADING_DOC_OPS_CHILD_PRIMARY_RESTART_01` devient ma
 ## Point de reprise
 
 Lire `01_restart_arbitration.md`, puis `02_execution_order.md`.
+
+## RISKS
+
+- À qualifier.

@@ -100,3 +100,7 @@ publier ce GO en PR doc-only, puis decider separement si la regle devient un inv
 ```text
 PASS_OPERATOR_DRY_RUN / CLOSED_LOCAL_DRAFT
 ```
+
+## RISKS
+
+- À qualifier.

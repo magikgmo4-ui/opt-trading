@@ -39,3 +39,7 @@ links:
 - preuve / commande / validation : références explicites vers `docs/governance/MEMORY_BRICKS_MAPPING.md` et `modules/memory_bricks/docs/SPEC_MEMORY_BRICKS_API_V2_READONLY.md`
 - résultat : le pilote est relié au schéma réel du composant plutôt qu’à une abstraction générique
 - écart / incident : le lot reste documentaire, sans changement fonctionnel du module
+
+## RISKS
+
+- À qualifier.

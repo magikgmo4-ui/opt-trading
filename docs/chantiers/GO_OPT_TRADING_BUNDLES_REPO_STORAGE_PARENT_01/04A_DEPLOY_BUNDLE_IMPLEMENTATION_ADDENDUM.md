@@ -203,3 +203,7 @@ deploy_bundle validé et appliqué comme type de bundle.
 Prochaine action:
 créer le runbook d'utilisation réelle ou checkpoint parent.
 ```
+
+## RISKS
+
+- À qualifier.

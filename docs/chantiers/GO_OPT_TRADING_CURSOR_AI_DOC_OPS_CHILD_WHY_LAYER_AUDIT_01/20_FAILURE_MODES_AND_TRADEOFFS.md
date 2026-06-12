@@ -52,3 +52,7 @@ Protection actuelle:
 | refactor global vs patch minimal | patch minimal |
 | autonomie IA vs gates humains | gates humains |
 | centralisation vs modularite | modularite controlee |
+
+## RISKS
+
+- À qualifier.

@@ -28,3 +28,7 @@ doc_type: registry_entry_proposal
 | `runtime_surfaces` | `(aucune — doc-only concept)` |
 | `priority` | `P4` |
 | `created_at` | `2026-05-18` |
+
+## RISKS
+
+- À qualifier.

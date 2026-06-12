@@ -455,3 +455,7 @@ Ace Knowledge Graph est utilisé comme consumer visuel interactif. Le Producer r
 TAG: GRAPH_PROOF_DISCIPLINE
 Toute relation critique dans le graph doit être sourcée. Les hypothèses restent marquées HYPOTHESIS.
 ```
+
+## RISKS
+
+- À qualifier.

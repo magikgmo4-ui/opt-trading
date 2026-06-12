@@ -25,3 +25,7 @@ doc_type: validation_summary
 ## Conclusion
 
 Toutes les surfaces de raccord adapter ont ete validees sans regression fonctionnelle annoncee.
+
+## RISKS
+
+- À qualifier.

@@ -130,3 +130,7 @@ Objectif : réduire à **1 index** + **4–6 fichiers pivots** et rendre la repr
   - corriger la référence OT_OPS_04B manquante,
   - aligner le naming des clôtures dans templates/checklists,
   - relier explicitement kanban + clôture + reprise à l’ouverture de session.
+
+## RISKS
+
+- À qualifier.

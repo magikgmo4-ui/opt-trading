@@ -59,3 +59,7 @@ Phase 2 :
 - alerting Telegram minimal pour les statuts down > 5 min
 - intégration cmd-health dans ops_menu_hub
 ```
+
+## RISKS
+
+- À qualifier.

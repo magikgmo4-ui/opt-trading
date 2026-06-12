@@ -61,3 +61,7 @@ fantome
 → readonly smoke: PASS
 → PAPER workflow validation: PASS
 ```
+
+## RISKS
+
+- À qualifier.

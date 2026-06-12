@@ -39,3 +39,7 @@ docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_REPO_RESCAN_01/90_CLOSEO
 docs/product/PRODUCT_USAGE_MATRIX.md
 docs/product/PRODUCT_USAGE_ATLAS.md
 ```
+
+## RISKS
+
+- À qualifier.

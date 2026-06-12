@@ -144,3 +144,7 @@ d'observation, pas d'un défaut du scheduler ou de la stack d'observabilité.
 - `data/journal/daily/20260516_001.csv` — résumé CSV
 - `data/logs/scheduler/scheduler.log` — log scheduler
 - `data/journal/sync_log.jsonl` — log sync Sheets (dry-run entry)
+
+## RISKS
+
+- À qualifier.

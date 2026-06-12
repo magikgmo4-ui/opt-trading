@@ -47,3 +47,7 @@ health-breaker livré:
 #327 MATRIX → #328 PLAN → #329 P1(check) → #330 P2(alert)
 → #331 P3(dashboard) → #335 README → #337 P4(breaker)
 ```
+
+## RISKS
+
+- À qualifier.

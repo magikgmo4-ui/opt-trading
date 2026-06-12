@@ -80,3 +80,7 @@ Condition :
 ```text
 période d'observation runtime réelle avant retrait du legacy.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -109,3 +109,7 @@ CONSOLIDATION_STRATEGY_CLUSTER_01 = PASS.
 Migration prête à être exécutée (script bash fourni).
 Prochain : exécution → UI_CLUSTER → PERF_CLUSTER → DEEPSEEK_CLUSTER.
 ```
+
+## RISKS
+
+- À qualifier.

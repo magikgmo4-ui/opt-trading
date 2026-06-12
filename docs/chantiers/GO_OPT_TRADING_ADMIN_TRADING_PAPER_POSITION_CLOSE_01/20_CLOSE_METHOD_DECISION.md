@@ -24,3 +24,7 @@
 ## Risk
 
 Low. Removing a paper position entry from a JSON file has no real-world effect.
+
+## RISKS
+
+- À qualifier.

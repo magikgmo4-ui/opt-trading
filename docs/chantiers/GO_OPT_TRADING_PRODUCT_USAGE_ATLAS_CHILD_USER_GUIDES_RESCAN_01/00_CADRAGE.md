@@ -93,3 +93,7 @@ Le besoin n'est pas de rejouer `USER_GUIDES_01`, mais de fermer le delta ouvert 
 docs/chantiers/GO_OPT_TRADING_PRODUCT_USAGE_ATLAS_CHILD_USER_GUIDES_RESCAN_01/01_GUIDE_DELTA_PLAN.md
 docs/product/guides/README.md
 ```
+
+## RISKS
+
+- À qualifier.

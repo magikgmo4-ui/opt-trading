@@ -22,3 +22,7 @@ Invariant:
 - aucun `db-layer`
 - aucun OpenClaw
 - aucun runtime
+
+## RISKS
+
+- À qualifier.

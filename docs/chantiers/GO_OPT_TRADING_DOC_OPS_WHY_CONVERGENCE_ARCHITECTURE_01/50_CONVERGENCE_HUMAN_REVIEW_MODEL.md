@@ -36,3 +36,7 @@ La review humaine reste l'autorite finale pour:
 ## Invariant
 
 Aucun composant WHY ne doit remplacer une decision humaine sur surface critique.
+
+## RISKS
+
+- À qualifier.

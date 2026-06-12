@@ -154,3 +154,7 @@ Si un nouveau token devient necessaire dans un exemple ou une doc, il doit etre 
 - parent : `GO_OPT_TRADING_PARENT_NAMING_CANON_01`
 - premier audit : `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01`
 - module durable : `GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01`
+
+## RISKS
+
+- À qualifier.

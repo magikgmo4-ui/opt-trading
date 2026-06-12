@@ -53,3 +53,7 @@ GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_BUILDER_DOC_INDEXATION_REVIEW
 ## 17_RESUME_POINT
 
 Proceed to closeout of this adoption child. Any global indexation or broader integration must be handled in a separate review GO.
+
+## RISKS
+
+- À qualifier.

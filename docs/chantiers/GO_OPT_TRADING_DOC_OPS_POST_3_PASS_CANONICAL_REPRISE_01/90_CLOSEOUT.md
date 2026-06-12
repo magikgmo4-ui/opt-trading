@@ -39,3 +39,7 @@ docs/chantiers/GO_OPT_TRADING_CURSOR_AI_MACHINE_WORK_SPLIT_ANTI_CONFLICT_01/ (im
 ## Prochain GO
 
 Aucun automatique.
+
+## RISKS
+
+- À qualifier.

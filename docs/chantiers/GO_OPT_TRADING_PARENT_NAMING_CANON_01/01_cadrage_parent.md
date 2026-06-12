@@ -119,3 +119,7 @@ Point de reprise recommande :
 
 Sequence :
 politique -> inventaire reel -> module audit-only -> eventuel apply borne
+
+## RISKS
+
+- À qualifier.

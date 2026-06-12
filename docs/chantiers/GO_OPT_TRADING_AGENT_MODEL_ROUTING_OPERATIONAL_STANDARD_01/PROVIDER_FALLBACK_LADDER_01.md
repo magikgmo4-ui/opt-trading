@@ -31,3 +31,7 @@
 # Résultat fallback: réponse correcte
 # Décision: 0.5B insuffisant pour cette tâche → routing ajusté
 ```
+
+## RISKS
+
+- À qualifier.

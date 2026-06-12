@@ -67,3 +67,7 @@ Validation que le pack est fonctionnel pour un operateur cursor-ai en conditions
 
 PASS si tous les artefacts du pack sont valides et utilisables en conditions reelles.
 FAIL avec raison explicite sinon.
+
+## RISKS
+
+- À qualifier.

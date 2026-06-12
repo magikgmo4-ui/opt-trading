@@ -86,3 +86,7 @@ Il sert a piloter rapidement un lot actif sans remplacer les preuves repo.
 
 Pas de GO obligatoire a court terme.
 Ouvrir un child dedie seulement si un besoin reel ou un upgrade plan doit fermer les limites UI restantes.
+
+## RISKS
+
+- À qualifier.

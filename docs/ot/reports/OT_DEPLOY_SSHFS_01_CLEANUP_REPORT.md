@@ -64,3 +64,7 @@ Statut : **RETIRÉ (réversible)**
 ## 8. VERDICT FINAL
 Cleanup conforme aux règles : une seule variante a été retirée, uniquement car redondance prouvée, et de façon réversible. Le reste est conservé par prudence.
 
+
+## RISKS
+
+- À qualifier.

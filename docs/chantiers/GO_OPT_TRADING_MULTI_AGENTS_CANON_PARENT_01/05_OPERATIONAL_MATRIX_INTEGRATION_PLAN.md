@@ -255,3 +255,7 @@ Le chantier parent pourra etre clos PASS si :
 ## 9. Point de reprise
 
 Prochain document : `06_EXECUTION_BUNDLE_PLAN.md`.
+
+## RISKS
+
+- À qualifier.

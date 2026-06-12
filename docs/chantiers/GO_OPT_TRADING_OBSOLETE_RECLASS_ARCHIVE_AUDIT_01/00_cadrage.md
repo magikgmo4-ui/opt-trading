@@ -105,3 +105,7 @@ Bundle source (cadrage) :
 ## REPRISE
 Point de reprise unique :
 - `docs/chantiers/GO_OPT_TRADING_OBSOLETE_RECLASS_ARCHIVE_AUDIT_01/02_journal_technique.md`
+
+## RISKS
+
+- À qualifier.

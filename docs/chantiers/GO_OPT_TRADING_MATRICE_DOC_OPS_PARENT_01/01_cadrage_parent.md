@@ -143,3 +143,7 @@ La suite immédiate correcte est :
 
 - PASS : le parent aboutit à une matrice unique réellement gouvernante
 - FAIL : le parent se disperse en notes latérales, en parents concurrents ou en lots techniques non recroisés
+
+## RISKS
+
+- À qualifier.

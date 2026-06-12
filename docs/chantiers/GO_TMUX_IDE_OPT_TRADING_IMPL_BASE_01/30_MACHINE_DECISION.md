@@ -61,3 +61,7 @@ Justification:
 - panes definitifs
 
 Ces points relèvent de l'implementation reelle suivante.
+
+## RISKS
+
+- À qualifier.

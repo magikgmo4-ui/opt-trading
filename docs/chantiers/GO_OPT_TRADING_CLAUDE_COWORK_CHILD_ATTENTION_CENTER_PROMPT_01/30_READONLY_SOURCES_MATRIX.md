@@ -53,3 +53,7 @@ Chaque signal du dashboard doit pouvoir indiquer au moins :
 - le type de preuve ;
 - le niveau de confiance ;
 - la date ou le dernier point connu si pertinent.
+
+## RISKS
+
+- À qualifier.

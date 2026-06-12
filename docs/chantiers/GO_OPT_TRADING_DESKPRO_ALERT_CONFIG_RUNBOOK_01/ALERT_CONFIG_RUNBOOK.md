@@ -228,3 +228,7 @@ tail -10 /opt/trading/tmp/desk_pro_alerts.jsonl
 | JSONL | `{ts,status}` — aucun credential |
 | Logs uvicorn | chemins HTTP uniquement, aucun header Authorization loggué |
 | `.env` | gitignored ligne 37 — vérifié via `git check-ignore -v .env` |
+
+## RISKS
+
+- À qualifier.

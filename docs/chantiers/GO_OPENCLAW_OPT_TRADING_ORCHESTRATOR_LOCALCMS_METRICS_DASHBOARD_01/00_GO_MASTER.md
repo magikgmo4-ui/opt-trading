@@ -50,3 +50,7 @@ données de journal existantes, en lecture seule.
 - No automatic Sheets write
 - LocalCMS read-only
 - No secrets
+
+## RISKS
+
+- À qualifier.

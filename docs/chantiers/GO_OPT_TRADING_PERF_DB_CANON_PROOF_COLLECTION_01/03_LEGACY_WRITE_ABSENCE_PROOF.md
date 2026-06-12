@@ -57,3 +57,7 @@ NON PROUVÉ
 Le repo est prêt pour la bascule canonique,
 mais la preuve runtime réelle n'est pas collectée dans ce lot read-only.
 ```
+
+## RISKS
+
+- À qualifier.

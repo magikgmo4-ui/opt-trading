@@ -43,3 +43,7 @@ appliques localement, en suivant la procedure deja mergee (PR #218).
 - `trade_allowed=false`, `admin_trading_runtime=false`
 - Engine `TV_TEST` exclusivement
 - Aucun trade reel
+
+## RISKS
+
+- À qualifier.

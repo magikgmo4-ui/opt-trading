@@ -100,3 +100,7 @@ Pret pour Write gate A4.
 ```text
 GO_OPT_TRADING_STRICT_WORKERS_CHILD_WRITE_GATE_A4_01
 ```
+
+## RISKS
+
+- À qualifier.

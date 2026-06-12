@@ -93,3 +93,7 @@ SSH_CONFIRMED_FALSE = true
 RECOMMENDATIONS_BOUNDED = true
 VERDICT = PASS
 ```
+
+## RISKS
+
+- À qualifier.

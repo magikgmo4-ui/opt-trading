@@ -148,3 +148,7 @@ Future docs should add negative examples for missing gate, missing trace and mis
 ## 19_TO_REMEMBER
 
 An approval without a matching trace and eval does not promote an action.
+
+## RISKS
+
+- À qualifier.

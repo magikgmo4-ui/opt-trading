@@ -132,3 +132,7 @@ Chaque requete est loggee:
 ```
 
 Log destination: Airtable (`Botpress_Logs`) ou `~opt-trading/journal/` local.
+
+## RISKS
+
+- À qualifier.

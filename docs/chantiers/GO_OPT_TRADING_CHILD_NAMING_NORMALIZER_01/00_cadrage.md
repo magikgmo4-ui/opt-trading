@@ -58,3 +58,7 @@ Creer un module durable capable de :
 ## PASS / FAIL
 - PASS : le module fonctionne en audit-only sur un repo local
 - FAIL : le module modifie le repo ou exige un refactor global
+
+## RISKS
+
+- À qualifier.

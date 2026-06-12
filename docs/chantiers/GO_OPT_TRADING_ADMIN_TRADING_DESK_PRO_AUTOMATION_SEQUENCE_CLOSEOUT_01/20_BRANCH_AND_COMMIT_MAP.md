@@ -23,3 +23,7 @@ updated_at: 2026-05-11
 | Timer payload fix | `go/GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_PAYLOAD_FIX_01` | `6e78622` | PASS | payload normalise, `WARN` local |
 | First trigger observe | `go/GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_FIRST_TRIGGER_OBSERVE_01` | `df75c00` | PASS | premier trigger post-fix valide |
 | Stability window | `go/GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_TIMER_STABILITY_WINDOW_01` | `b102721` | PASS | `>= 10` runs naturels propres |
+
+## RISKS
+
+- À qualifier.

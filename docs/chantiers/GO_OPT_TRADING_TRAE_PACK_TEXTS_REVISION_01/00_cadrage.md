@@ -45,3 +45,7 @@ Sortir `trae_pack_texts/` de la racine, le relocaliser sous `docs/`, puis qualif
 ## REPRISE
 Point de reprise local :
 - `docs/chantiers/GO_OPT_TRADING_TRAE_PACK_TEXTS_REVISION_01/02_journal_technique.md`
+
+## RISKS
+
+- À qualifier.

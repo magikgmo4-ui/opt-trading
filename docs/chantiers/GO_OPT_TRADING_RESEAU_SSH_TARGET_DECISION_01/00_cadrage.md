@@ -240,3 +240,7 @@ PASS documentaire attendu pour ce GO de décision.
 NO_GO_PHYSICAL maintenu.
 
 Ce GO ne donne aucun feu vert technique d'exécution.
+
+## RISKS
+
+- À qualifier.

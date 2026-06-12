@@ -40,3 +40,7 @@ Reprendre par un GO explicite qui revalide :
 - decision `ide.yml`
 
 Ne pas supposer que le resultat `EBADPLATFORM` precedent est resolu.
+
+## RISKS
+
+- À qualifier.

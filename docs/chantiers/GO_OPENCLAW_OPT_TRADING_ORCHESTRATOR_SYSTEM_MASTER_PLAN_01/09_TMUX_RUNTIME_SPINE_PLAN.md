@@ -362,3 +362,7 @@ UI:
   LocalCMS → lit état TMUX sessions
   Desk Pro → UI trading (indépendant de TMUX spine)
 ```
+
+## RISKS
+
+- À qualifier.

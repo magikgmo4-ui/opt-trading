@@ -53,3 +53,7 @@ Le repo dispose maintenant d'une architecture WHY complete et convergente capabl
 ## Invariant final
 
 La convergence WHY ne doit jamais devenir une autorite runtime autonome ni remplacer une review humaine sur surface critique.
+
+## RISKS
+
+- À qualifier.

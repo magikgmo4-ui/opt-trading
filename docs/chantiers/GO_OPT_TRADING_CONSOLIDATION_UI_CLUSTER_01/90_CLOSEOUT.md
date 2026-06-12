@@ -112,3 +112,7 @@ CONSOLIDATION_UI_CLUSTER_01 = PASS.
 5 migrations, 3 imports string, 2 registres, script complet fourni.
 Prochain : exécution → PERF_CLUSTER → DEEPSEEK_CLUSTER.
 ```
+
+## RISKS
+
+- À qualifier.

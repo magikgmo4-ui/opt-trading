@@ -56,3 +56,7 @@ updated_at: 2026-04-24
 
 Journal complet + review + stats simple
 
+
+## RISKS
+
+- À qualifier.

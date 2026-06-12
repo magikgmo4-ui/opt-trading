@@ -401,3 +401,7 @@ C6. LocalCMS preuve d'usage
 | Candidats a consolider | 8 |
 | Chantiers sans continuite visible | ~11 |
 | NEXT_GO proposes | 15 |
+
+## RISKS
+
+- À qualifier.

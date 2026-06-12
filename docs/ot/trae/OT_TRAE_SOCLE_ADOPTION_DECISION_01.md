@@ -41,3 +41,7 @@ VERDICT = CONFIRMÉ PARTIELLEMENT
 ## 6. Conséquences
 - Le kanban doit refléter : adoption du socle Trae = confirmée partiellement, avec limites de preuve explicites.
 - La mission suivante de régularisation recommandée : `GO_OT_TRAE_RUNTIME_SNAPSHOT_ALIGNMENT_CHECK_01`.
+
+## RISKS
+
+- À qualifier.

@@ -65,3 +65,7 @@ links:
 Options restantes : D (nettoyage branches), E (admin-trading, ferme).
 
 Option D recommandee : nettoyage branches cursor-ai orphelines.
+
+## RISKS
+
+- À qualifier.

@@ -36,3 +36,7 @@ a preparer. Elle n'est pas encore une cible prete pour `doctor` / `validate`.
 
 Passer trop vite a l'installation ou au reglage `tmux-ide` sans d'abord remettre la machine
 sur une base Git de travail explicite pour ce GO.
+
+## RISKS
+
+- À qualifier.

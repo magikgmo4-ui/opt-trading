@@ -14,3 +14,7 @@ Le lot 3/3 PASS est termine. Cette fiche consolide l'etat post-lot.
 ## Prochain GO
 
 Aucun automatique. Si l'utilisateur demande explicitement ClickUp plus tard : `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_REVIEW_MERGE_01` (machine fantome).
+
+## RISKS
+
+- À qualifier.

@@ -99,3 +99,7 @@ Reprendre sur go/GO_OPT_TRADING_STRICT_WORKERS_PARENT_01.
 Le chantier est prêt pour un premier smoke READ_INVENTORY local.
 Ne pas passer à PATCH_DRAFT avant validation du smoke read-only.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -18,3 +18,7 @@
 - `adapters/webhook_to_perf.py` : mapping webhook → perf_event
 - `shared/telegram_notify.py` : notifications Telegram
 - `tools/journal_from_paste.py` : génération d’entrées `journal.md`
+
+## RISKS
+
+- À qualifier.

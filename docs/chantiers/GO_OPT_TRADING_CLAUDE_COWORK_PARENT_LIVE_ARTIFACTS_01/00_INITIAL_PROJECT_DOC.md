@@ -279,3 +279,7 @@ Memory Bricks projet candidates, pas bio memory :
 - `CLAUDE_COWORK_READONLY_FIRST`
 - `OPT_TRADING_ATTENTION_CENTER_01`
 - `REPO_DOCS_GIT_REMAIN_SOURCE_OF_TRUTH`
+
+## RISKS
+
+- À qualifier.

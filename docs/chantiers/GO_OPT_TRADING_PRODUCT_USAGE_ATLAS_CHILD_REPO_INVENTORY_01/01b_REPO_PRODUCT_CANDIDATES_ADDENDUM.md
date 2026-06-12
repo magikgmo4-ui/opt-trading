@@ -366,3 +366,7 @@ Ces modules sont des couches de support technique, pas des produits utilisateur 
 - `scripts/admin_trading/` contient le runtime admin Desk Pro / Bot Vision, deja couvert.
 - `scripts/db_layer/`, `scripts/release_ops/`, `scripts/desk_bridge/` : scripts de support operationnel, pas des produits.
 - Recommandation : pas de nouvelle entree Atlas pour les scripts de support.
+
+## RISKS
+
+- À qualifier.

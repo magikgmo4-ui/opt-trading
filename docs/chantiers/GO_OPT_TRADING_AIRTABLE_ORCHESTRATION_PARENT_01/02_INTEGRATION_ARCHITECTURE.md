@@ -51,3 +51,7 @@ updated_at: 2026-04-24
 - API key via `.env`
 - Jamais en repo
 
+
+## RISKS
+
+- À qualifier.

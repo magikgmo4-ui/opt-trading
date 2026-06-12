@@ -73,3 +73,7 @@ Il sert à :
 Trigger courant clos au niveau report export : `GO_OT_TRADING_LAB_V1_REPORT_EXPORT_PASS_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_COMPARATOR_PASS_01`
+
+## RISKS
+
+- À qualifier.

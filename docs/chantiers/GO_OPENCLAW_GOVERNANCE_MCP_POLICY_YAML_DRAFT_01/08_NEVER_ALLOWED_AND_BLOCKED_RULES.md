@@ -126,3 +126,7 @@ Future docs should distinguish MCP `NEVER_ALLOWED` from out-of-band ops GO proce
 ## 19_TO_REMEMBER
 
 The absence of a rule is not permission. It is a block.
+
+## RISKS
+
+- À qualifier.

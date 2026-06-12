@@ -40,3 +40,7 @@ sudo systemctl reset-failed desk_pro_dry_run.service desk_pro_dry_run.timer || t
 - aucune alerte supplementaire n'est configuree dans ce GO
 - l'alerte minimale disponible est la lecture systemd et journal
 - un GO futur peut ajouter une surface d'observabilite plus explicite avant tout smoke runtime
+
+## RISKS
+
+- À qualifier.

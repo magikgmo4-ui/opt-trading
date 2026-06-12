@@ -103,3 +103,7 @@ Lot suivant possible :
 - valider les 2 GO A_VALIDER
 - propager les affectations dans GO_INDEX si besoin
 - passer aux GO machine ou orphelins
+
+## RISKS
+
+- À qualifier.

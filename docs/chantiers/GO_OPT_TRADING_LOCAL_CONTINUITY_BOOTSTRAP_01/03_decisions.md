@@ -54,3 +54,7 @@ links:
 - raison du choix : cas simple, réel, déjà entamé, directement relié à la migration du socle documentaire
 - impact : un premier exemple canonique complet est disponible rapidement
 - suites ouvertes : ouvrir ensuite un pilote plus proche d’un cas métier ou `memory_bricks`
+
+## RISKS
+
+- À qualifier.

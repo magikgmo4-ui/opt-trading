@@ -34,3 +34,7 @@ But : reviser les artefacts live / cowork / IDE bundle cote cursor-ai : utile, a
 - Student (machine separee)
 - DB-layer (machine separee)
 - Fantome (machine separee)
+
+## RISKS
+
+- À qualifier.

@@ -37,3 +37,7 @@ Le score WHY ne doit jamais remplacer:
 - review humaine,
 - preuve runtime,
 - governance critique.
+
+## RISKS
+
+- À qualifier.

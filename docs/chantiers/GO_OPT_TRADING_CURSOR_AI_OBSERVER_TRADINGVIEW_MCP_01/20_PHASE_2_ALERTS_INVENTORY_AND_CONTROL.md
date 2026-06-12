@@ -120,3 +120,7 @@ L'inventaire est fiable. La création fonctionne via workaround. La suppression 
 ## Prochain GO
 
 Phase 3 — Wrapper opt-trading (modules/tradingview_observer)
+
+## RISKS
+
+- À qualifier.

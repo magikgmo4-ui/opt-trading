@@ -68,3 +68,7 @@ Ne pas ouvrir sans GO explicite.
 - Dossier : `docs/chantiers/GO_OPT_TRADING_ADMIN_TRADING_TELEGRAM_NOTIFICATION_EXECUTION_RESULTS_01/`
 - Etat : closeout final Telegram TV_TEST
 - Rattachement : bloc ADMIN_TRADING
+
+## RISKS
+
+- À qualifier.

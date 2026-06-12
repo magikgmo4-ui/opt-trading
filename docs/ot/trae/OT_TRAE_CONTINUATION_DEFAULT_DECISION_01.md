@@ -37,3 +37,7 @@ La continuité principale Trae est désormais :
 
 ## 7. Point de reprise
 - `GO_OT_TRAE_STARTERPACK_GATING_PROOF_01`
+
+## RISKS
+
+- À qualifier.

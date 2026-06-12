@@ -42,3 +42,7 @@ Suite de MACHINE_WORK_SPLIT_UPDATE_01 (PASS). BRANCH_STATE.md contient 0 entrée
 - Aucune modification des index globaux hors BRANCH_STATE.md
 - Aucun cleanup Git
 - 2 nouvelles branches non classées (PNL_ALERT_THRESHOLDS, SEQUENCE_PR_MERGE) mises en A_VERIFIER
+
+## RISKS
+
+- À qualifier.

@@ -108,3 +108,7 @@ write hors data/desk_runs -> STOP
 - probes read-only repetables
 - aucune dette de clean status
 - nouveau GO explicite pour tout write-gated ou job plus large
+
+## RISKS
+
+- À qualifier.

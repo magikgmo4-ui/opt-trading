@@ -49,3 +49,7 @@ links:
 4. `bundles/claude-artifacts/README.md` — pack operateur.
 5. `bundles/ACTIVE_WORKFLOW.md` — workflow Bundles.
 6. GO sequence dans l'ordre (plan parent → 1 → 2 → 3 → 4).
+
+## RISKS
+
+- À qualifier.

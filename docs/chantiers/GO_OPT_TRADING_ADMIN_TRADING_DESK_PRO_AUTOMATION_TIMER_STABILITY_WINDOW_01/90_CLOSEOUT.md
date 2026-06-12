@@ -70,3 +70,7 @@ Payload result: WARN, errors=[], safety flags all true
 Timer state: active/waiting, next trigger at Mon 2026-05-11 11:30:16 EDT
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_SEQUENCE_CLOSEOUT_01
 ```
+
+## RISKS
+
+- À qualifier.

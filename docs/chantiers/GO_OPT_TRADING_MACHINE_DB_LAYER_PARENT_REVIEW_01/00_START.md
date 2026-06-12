@@ -17,3 +17,7 @@
   - `GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01`
   - `GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01`
 - Aucun changement runtime ou code applicatif n'est realise dans ce GO.
+
+## RISKS
+
+- À qualifier.

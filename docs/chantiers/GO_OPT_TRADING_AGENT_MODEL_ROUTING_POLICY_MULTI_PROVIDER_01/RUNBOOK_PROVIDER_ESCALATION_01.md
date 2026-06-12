@@ -45,3 +45,7 @@ Vérifier les providers disponibles dans la config OpenClaw. Si aucun, → REFUS
 
 Si aucun fallback viable → REFUS explicite.
 Ne pas dégrader silencieusement vers un modèle incapable de la tâche.
+
+## RISKS
+
+- À qualifier.

@@ -37,3 +37,7 @@ Les sorties audit doivent rester:
 ## Invariant
 
 Les sorties audit ne doivent jamais devenir une gate runtime autonome.
+
+## RISKS
+
+- À qualifier.

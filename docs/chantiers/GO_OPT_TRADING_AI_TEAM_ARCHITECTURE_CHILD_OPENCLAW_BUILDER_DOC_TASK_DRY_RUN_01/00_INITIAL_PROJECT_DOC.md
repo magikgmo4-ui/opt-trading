@@ -41,3 +41,7 @@ Obtenir une réponse builder structurée pour une tâche documentaire dry-run, a
 ## 17_RESUME_POINT
 
 Reprendre à la création de `01_DOC_TASK_DRY_RUN_GATE.md`.
+
+## RISKS
+
+- À qualifier.

@@ -33,3 +33,7 @@ Formaliser les overlays review humaine du WHY runtime graph.
 ## Invariant
 
 Les overlays review humaine ne doivent jamais remplacer une validation humaine reelle.
+
+## RISKS
+
+- À qualifier.

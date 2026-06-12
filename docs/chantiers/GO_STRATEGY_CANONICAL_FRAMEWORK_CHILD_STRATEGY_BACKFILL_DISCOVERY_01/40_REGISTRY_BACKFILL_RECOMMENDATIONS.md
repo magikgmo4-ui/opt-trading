@@ -57,3 +57,7 @@ REGISTERED=5 (si les 3 engines + range + BTC sont ouverts)
 ```
 
 Les 6 valeurs test-only resteront en WARNING, ce qui est correct.
+
+## RISKS
+
+- À qualifier.

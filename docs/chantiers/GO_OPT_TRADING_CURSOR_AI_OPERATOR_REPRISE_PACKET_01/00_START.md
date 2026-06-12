@@ -48,3 +48,7 @@ Creer un packet de reprise operateur cursor-ai unique et autonome qui consolide 
 - Ne pas ouvrir admin-trading.
 - Ne pas modifier runtime.
 - Synthese operatoire, pas implementation.
+
+## RISKS
+
+- À qualifier.

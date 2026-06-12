@@ -28,3 +28,7 @@ Les liens symboliques suivants ont été créés/mis à jour dans `/usr/local/bi
 
 ## 5. RÉSULTAT
 Le runtime est désormais synchronisé avec le registry pour les nouveaux modules actifs.
+
+## RISKS
+
+- À qualifier.

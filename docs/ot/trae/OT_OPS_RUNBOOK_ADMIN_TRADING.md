@@ -76,3 +76,7 @@ En fin de session, pour assurer que les données sont sauvegardées :
 - **Quotidien** : `menu-ops_menu_hub`
 - **Admin Avancé** : `scripts/admin_trading/desk_pro_cmd.sh`
 - **Debug Rapide** : `cmd-desk_pro_runner status`
+
+## RISKS
+
+- À qualifier.

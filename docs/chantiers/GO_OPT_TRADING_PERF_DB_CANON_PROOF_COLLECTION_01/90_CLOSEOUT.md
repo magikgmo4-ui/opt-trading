@@ -65,3 +65,7 @@ Mission du GO suivant :
 - valider le chemin DB effectif des launchers/services
 - prouver l'absence d'écritures legacy avant tout retrait
 ```
+
+## RISKS
+
+- À qualifier.

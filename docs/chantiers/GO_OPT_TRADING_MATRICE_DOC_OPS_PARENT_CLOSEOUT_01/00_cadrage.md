@@ -57,3 +57,7 @@ Le lot doit prouver :
 
 - `CLOSE_PARENT` si aucun reliquat propre au parent matrice ne reste
 - sinon `KEEP_OPEN`
+
+## RISKS
+
+- À qualifier.

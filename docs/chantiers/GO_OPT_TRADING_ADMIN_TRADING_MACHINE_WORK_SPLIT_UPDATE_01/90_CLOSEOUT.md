@@ -48,3 +48,7 @@ Tronc: sot/mainline
 Prochain geste: GO_OPT_TRADING_ADMIN_TRADING_BRANCH_STATE_SEED_01
 Runtime: FIRST_14D_REVIEW PENDING_OBSERVATION jusqu'au 2026-05-28
 ```
+
+## RISKS
+
+- À qualifier.

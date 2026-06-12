@@ -39,3 +39,7 @@ updated_at: 2026-05-04
 | .uploading restant | 0 |
 | Atomic write | OUI (confirme par timer logs) |
 | Timer stable | OUI (2h+ sans interruption) |
+
+## RISKS
+
+- À qualifier.

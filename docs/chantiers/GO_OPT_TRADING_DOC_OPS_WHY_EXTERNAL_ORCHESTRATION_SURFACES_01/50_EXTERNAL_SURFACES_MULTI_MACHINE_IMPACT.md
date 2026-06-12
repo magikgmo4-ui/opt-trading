@@ -32,3 +32,7 @@ Integrer les impacts multi-machine des surfaces externes candidates.
 ## Invariant
 
 Aucune surface externe ne doit inferer seule une topologie multi-machine.
+
+## RISKS
+
+- À qualifier.

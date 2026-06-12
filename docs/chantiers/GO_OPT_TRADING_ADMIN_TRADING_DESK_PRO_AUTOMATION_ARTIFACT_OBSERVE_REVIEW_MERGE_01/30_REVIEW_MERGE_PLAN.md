@@ -73,3 +73,7 @@ Ouvrir un GO separe pour :
 3. tirer `origin/sot/mainline`
 4. confirmer worktree clean
 5. seulement ensuite relancer le cadrage `tmux-ide`
+
+## RISKS
+
+- À qualifier.

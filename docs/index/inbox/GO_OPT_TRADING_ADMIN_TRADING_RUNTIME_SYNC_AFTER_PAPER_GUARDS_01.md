@@ -21,3 +21,7 @@ Résultat:
 
 Prochaine suite:
 `GO_OPT_TRADING_ADMIN_TRADING_PAPER_FLAGS_CONFIG_01`
+
+## RISKS
+
+- À qualifier.

@@ -141,3 +141,7 @@ Future docs should include negative examples for model pull, provider switch and
 ## 19_TO_REMEMBER
 
 Ollama Lab convenience does not override MCP safety. Local lab actions can still mutate disk, process state or routing.
+
+## RISKS
+
+- À qualifier.

@@ -20,3 +20,7 @@ openclaw models set ollama/deepseek-r1:1.5b
 `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_TIMEOUT_TUNING_01`
 
 Increase `agents.defaults.timeoutSeconds` to accommodate CPU inference latency (~120-180s), then retest agent with qwen2.5:3b-instruct.
+
+## RISKS
+
+- À qualifier.

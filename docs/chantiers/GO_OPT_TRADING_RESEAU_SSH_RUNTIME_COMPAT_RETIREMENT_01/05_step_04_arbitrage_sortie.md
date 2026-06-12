@@ -56,3 +56,7 @@ Cette decision a maintenant ete executee :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

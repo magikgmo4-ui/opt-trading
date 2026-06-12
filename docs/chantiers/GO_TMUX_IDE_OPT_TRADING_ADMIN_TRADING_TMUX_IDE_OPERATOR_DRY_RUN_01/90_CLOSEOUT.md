@@ -101,3 +101,7 @@ BLOCKED
 ```text
 BLOCKED / CLOSED_LOCAL_DRAFT
 ```
+
+## RISKS
+
+- À qualifier.

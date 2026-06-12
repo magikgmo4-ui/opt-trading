@@ -70,3 +70,7 @@ Telegram Screener
 ## Point de reprise
 
 Lancer d'abord `00_PROMPT_IDE_MASTER.md`, puis exécuter les prompts dans l'ordre numérique.
+
+## RISKS
+
+- À qualifier.

@@ -40,3 +40,7 @@ Ouvrir explicitement la trajectoire Trae V1 par la couche **Skills V1** uniqueme
 
 ## 7. Point de reprise
 - `GO_OT_TRAE_MCP_POLICY_V1_OPEN_01`
+
+## RISKS
+
+- À qualifier.

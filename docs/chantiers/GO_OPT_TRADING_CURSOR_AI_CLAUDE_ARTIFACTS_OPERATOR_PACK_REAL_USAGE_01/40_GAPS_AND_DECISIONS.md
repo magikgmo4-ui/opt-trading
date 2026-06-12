@@ -37,3 +37,7 @@ Le present GO de real usage suit une structure differente mais reste une structu
 - Aucun patch `bundles/` requis
 - Le pack reste `product_closed`
 - Le closeout produit n'est pas rouvert
+
+## RISKS
+
+- À qualifier.

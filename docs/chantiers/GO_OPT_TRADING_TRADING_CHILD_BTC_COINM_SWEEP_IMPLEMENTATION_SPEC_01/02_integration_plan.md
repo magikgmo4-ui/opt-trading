@@ -336,3 +336,7 @@ et 4 nouvelles commandes CLI, en reutilisant la persistence JSONL, le dispatch C
 et l'isolation des tests deja en place.
 Aucun module existant n'est casse : le code XAUUSD reste intact.
 ```
+
+## RISKS
+
+- À qualifier.

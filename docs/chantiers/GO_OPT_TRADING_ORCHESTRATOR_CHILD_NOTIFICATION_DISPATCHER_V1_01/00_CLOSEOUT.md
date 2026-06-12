@@ -35,3 +35,7 @@ notification_dispatcher = OPÉRATIONNEL (dry-run)
 DÉBLOQUE: validation_gate (approval_required event), chaque étape pipeline
 NEXT: brancher à validation_gate (approval_required + Telegram approval flow)
 ```
+
+## RISKS
+
+- À qualifier.

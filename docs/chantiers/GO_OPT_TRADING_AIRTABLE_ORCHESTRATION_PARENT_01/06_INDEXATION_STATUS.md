@@ -51,3 +51,7 @@ reprise : 04_PRODUCT_FINISH_PLAN.md → 05_IMPLEMENTATION_SPEC.md
 
 Indexation partielle validée.
 Pas de blocage produit.
+
+## RISKS
+
+- À qualifier.

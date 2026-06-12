@@ -97,3 +97,7 @@ Motifs :
 Ce passage reste strictement doc-only.
 
 Aucun delete Git n'est execute ici.
+
+## RISKS
+
+- À qualifier.

@@ -106,3 +106,7 @@ Justification :
 - Aucun shell libre.
 - Documentation seulement.
 - Commit doc-only propre.
+
+## RISKS
+
+- À qualifier.

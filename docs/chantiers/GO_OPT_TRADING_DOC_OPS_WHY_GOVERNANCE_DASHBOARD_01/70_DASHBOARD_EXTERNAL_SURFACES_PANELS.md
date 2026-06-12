@@ -25,3 +25,7 @@ Definir les panneaux surfaces externes du futur WHY governance dashboard.
 ## Invariant
 
 Les surfaces externes ne doivent jamais devenir des orchestrateurs runtime autonomes via le dashboard.
+
+## RISKS
+
+- À qualifier.

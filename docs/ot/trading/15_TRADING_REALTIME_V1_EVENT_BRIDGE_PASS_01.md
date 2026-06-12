@@ -34,3 +34,7 @@ Cette passe reste observation-only : elle pose un pont événementiel sans exéc
 ## TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_REALTIME_V1_REPORTING_PASS_01`
+
+## RISKS
+
+- À qualifier.

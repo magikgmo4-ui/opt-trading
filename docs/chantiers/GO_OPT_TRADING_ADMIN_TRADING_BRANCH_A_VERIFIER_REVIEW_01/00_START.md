@@ -36,3 +36,7 @@ Le seed BRANCH_STATE.md a classé 2 branches en A_VERIFIER car non documentées 
 - Aucun cleanup Git
 - Aucune suppression de branche
 - Ne pas modifier GO_INDEX/ACTIVE_STREAMS/REPRISE
+
+## RISKS
+
+- À qualifier.

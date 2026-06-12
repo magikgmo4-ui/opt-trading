@@ -33,3 +33,7 @@ updated_at: 2026-05-13
 - All three input loaders (signal_event, visual_context, desk_snapshot)
 - Fallback to synthetic timer payload
 - Safety gates preservation (no_trade, no_telegram, no_webhook, no_systemd)
+
+## RISKS
+
+- À qualifier.

@@ -23,3 +23,7 @@ Ajout d'une fonction `resolve_strategy_id(profile)` :
 - aucun changement de payload event/trade ;
 - aucun changement des resultats lab ;
 - aucun hard-fail.
+
+## RISKS
+
+- À qualifier.

@@ -60,3 +60,7 @@ Verdict G3 :
 ```text
 NON PROUVÉ
 ```
+
+## RISKS
+
+- À qualifier.

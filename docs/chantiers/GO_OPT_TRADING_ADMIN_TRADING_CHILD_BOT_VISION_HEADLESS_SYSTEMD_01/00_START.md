@@ -43,3 +43,7 @@ Automatiser la capture headless via systemd timer.
 - Ecriture atomique preservee
 - ShareX = fallback conserve
 - Freq initiale: 10 min
+
+## RISKS
+
+- À qualifier.

@@ -48,3 +48,7 @@ bash modules/health/scripts/health-dashboard --html      # HTML statique
 Par surface : status, severity, staleneness, last_seen, details.
 Lecture seule, aucun runtime modifié.
 ```
+
+## RISKS
+
+- À qualifier.

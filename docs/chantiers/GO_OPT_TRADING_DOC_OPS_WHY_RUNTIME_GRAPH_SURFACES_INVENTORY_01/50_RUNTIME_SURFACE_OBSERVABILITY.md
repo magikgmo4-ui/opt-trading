@@ -39,3 +39,7 @@ Cadre d'observabilite retenu :
 ## 17_RESUME_POINT
 
 Le prochain GO LocalCMS/TMUX devra reutiliser ce cadre pour mapper les lectures read-only, les snapshots et les preuves de spine sans melanger observation et orchestration.
+
+## RISKS
+
+- À qualifier.

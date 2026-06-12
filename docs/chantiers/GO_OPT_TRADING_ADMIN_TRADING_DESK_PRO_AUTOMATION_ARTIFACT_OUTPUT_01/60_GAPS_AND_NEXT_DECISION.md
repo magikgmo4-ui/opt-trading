@@ -23,3 +23,7 @@ L'etape suivante saine est d'observer les artefacts produits par le prochain tri
 ## Next GO recommended
 
 `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_ARTIFACT_OBSERVE_01`
+
+## RISKS
+
+- À qualifier.

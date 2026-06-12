@@ -55,3 +55,7 @@ Le rendu actuel est assez petit pour etre auditable, mais il ne porte pas encore
 ## 17_RESUME_POINT
 
 Le gap dominant est la lisibilite du render, pas la profondeur du JSON.
+
+## RISKS
+
+- À qualifier.

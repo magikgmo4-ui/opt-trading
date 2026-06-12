@@ -83,3 +83,7 @@ Point de reprise exact :
 GO suivant probable si PASS valide :
 
 `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_TARGET_MAP_01`
+
+## RISKS
+
+- À qualifier.

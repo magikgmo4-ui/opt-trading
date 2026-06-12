@@ -35,3 +35,7 @@ sot/mainline: 332d35e
 - AUTOMATION_OBSERVABILITY (trading-related)
 - SANDBOX_SCHEMA_DISCOVERY (already has 90_CHILD_CLOSEOUT)
 - All trading branches excluded per adoption gate
+
+## RISKS
+
+- À qualifier.

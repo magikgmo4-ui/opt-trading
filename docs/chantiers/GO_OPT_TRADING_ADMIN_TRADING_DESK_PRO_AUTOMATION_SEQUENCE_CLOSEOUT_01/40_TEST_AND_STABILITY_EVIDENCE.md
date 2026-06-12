@@ -35,3 +35,7 @@ PYTHONPATH=/opt/trading python -m pytest tests/test_signal_event_adapter.py test
 - `no_webhook=true`
 - `no_systemd=true`
 - no runtime trade, Telegram, webhook, or forbidden mutation observed
+
+## RISKS
+
+- À qualifier.

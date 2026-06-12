@@ -170,3 +170,7 @@ Sans code : invariants minimaux à respecter par toute implémentation future.
 - [desk_pro_multi_machine_map.md](file:///c:/Users/ghost/opt-trading/docs/desk_pro_multi_machine_map.md)
 - [admin_trading_desk_pro_runbook.md](file:///c:/Users/ghost/opt-trading/docs/admin_trading_desk_pro_runbook.md)
 - [desk_snapshot_ingest README](file:///c:/Users/ghost/opt-trading/modules/desk_snapshot_ingest/README.md)
+
+## RISKS
+
+- À qualifier.

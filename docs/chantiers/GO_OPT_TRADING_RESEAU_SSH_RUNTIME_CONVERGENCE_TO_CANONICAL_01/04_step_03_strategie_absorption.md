@@ -60,3 +60,7 @@ Elles ne doivent plus etre lues comme surfaces proprietaires de la famille.
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

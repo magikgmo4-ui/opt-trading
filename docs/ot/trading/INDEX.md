@@ -92,3 +92,7 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 Trigger courant clos : `GO_OT_TRADING_REALTIME_V1_CLOSEOUT_01`
 
 Point de reprise unique : `GO_OT_TRADING_REALTIME_V1_CHAIN_CLOSED_01`
+
+## RISKS
+
+- À qualifier.

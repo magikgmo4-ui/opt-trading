@@ -33,3 +33,7 @@ Parser WHY -> Score Generator -> Worker Audit -> Reports
 - Aucun FAIL runtime autonome.
 - Worker audit uniquement.
 - Review humaine obligatoire sur surfaces critiques.
+
+## RISKS
+
+- À qualifier.

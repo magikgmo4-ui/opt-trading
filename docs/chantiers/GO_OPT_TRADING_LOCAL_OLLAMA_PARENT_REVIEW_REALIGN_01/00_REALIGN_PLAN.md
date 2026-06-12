@@ -33,3 +33,7 @@ Transfert selectif depuis la branche historique vers une branche neuve basee sur
 ## NEXT_GO
 
 Classifier le parent Local Ollama puis choisir un seul child Student/OpenClaw Lab si necessaire.
+
+## RISKS
+
+- À qualifier.

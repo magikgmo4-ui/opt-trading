@@ -91,3 +91,7 @@ Le check de topologie doit arbitrer entre:
 - `cursor-ai` comme poste operateur
 - `admin-trading` comme premiere cible `tmux-ide` a valider
 - `db-layer` comme zone runtime protegee a ne pas reutiliser par defaut pour `tmux-ide`
+
+## RISKS
+
+- À qualifier.

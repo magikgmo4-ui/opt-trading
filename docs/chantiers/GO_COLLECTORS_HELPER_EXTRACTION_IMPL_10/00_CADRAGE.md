@@ -49,3 +49,7 @@ Binance  (5) : run_sanity, run_collection, read_status, status_as_text, _build_m
 Toutes sont soit public API (read_status, status_as_text), soit des builders provider-specific necessaires.
 La chaîne COLLECTORS helper extraction est close.
 ```
+
+## RISKS
+
+- À qualifier.

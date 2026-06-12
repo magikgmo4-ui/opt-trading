@@ -31,3 +31,7 @@ Table des parents, GO, statuts et produits finaux prevus pour cursor-ai.
 3. **Bundles produit final** — `BUNDLES_APPLICATION_ACTIVE_01` (reprise)
 4. **Spec gate admin-trading** — `ALERT_WEBHOOK_PRE_ADMIN_GATE_SPEC_01`
 5. **Fiche reprise operateur** — `OPERATOR_REPRISE_PACKET_01`
+
+## RISKS
+
+- À qualifier.

@@ -93,3 +93,7 @@ git push origin --delete go/GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_REAL_USAGE
 | Reouverture PR #205-#214 | Nulle | Faible | Pas de merge, pas de rebase sur ces PR |
 
 **Risque global** : TRES FAIBLE — operation doc-only, 0 fichier runtime touche, 0 secret, 0 admin-trading.
+
+## RISKS
+
+- À qualifier.

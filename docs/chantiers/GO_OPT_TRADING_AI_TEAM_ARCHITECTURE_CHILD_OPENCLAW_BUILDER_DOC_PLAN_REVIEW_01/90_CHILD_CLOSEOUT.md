@@ -75,3 +75,7 @@ After merge, resume from `sot/mainline` and open the next child GO:
 ```text
 GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_BUILDER_DOC_WRITING_01
 ```
+
+## RISKS
+
+- À qualifier.

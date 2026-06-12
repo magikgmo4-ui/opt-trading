@@ -1067,3 +1067,7 @@ Le verdict retenu pour ce lot est :
 - la matrice maitre finale existe desormais comme document canonique unique
 - aucun lot de deduplication / reclassement des surfaces proches n'a encore ete execute
 - la suite logique devient l'alignement des surfaces proches sans doublon a partir du present maitre
+
+## RISKS
+
+- À qualifier.

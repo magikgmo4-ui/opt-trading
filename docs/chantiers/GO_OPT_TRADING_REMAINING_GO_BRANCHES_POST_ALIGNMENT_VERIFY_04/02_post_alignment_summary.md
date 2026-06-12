@@ -79,3 +79,7 @@ links:
 - aucune decision de merge de branche source
 - aucune promotion automatique dans `GO_INDEX.md` ou la matrice sans preuve chantier complementaire
 - aucune modification runtime
+
+## RISKS
+
+- À qualifier.

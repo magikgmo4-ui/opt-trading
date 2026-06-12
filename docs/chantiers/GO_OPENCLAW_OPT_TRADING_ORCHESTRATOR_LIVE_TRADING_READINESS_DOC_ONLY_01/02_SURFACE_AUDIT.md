@@ -139,3 +139,7 @@ TELEGRAM_CHAT_ID
 - Clés testnet d'abord — valider le flow complet sur testnet
 
 **Invariant :** `NO_SECRETS_IN_REPO = toujours vrai`
+
+## RISKS
+
+- À qualifier.

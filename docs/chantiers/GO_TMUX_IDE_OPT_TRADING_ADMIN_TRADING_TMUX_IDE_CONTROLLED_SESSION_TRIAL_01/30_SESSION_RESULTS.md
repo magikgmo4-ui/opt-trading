@@ -148,3 +148,7 @@ Apres cleanup, le repo distant conserve ses deltas preexistants, mais aucun `ide
 ```text
 PASS_CONTROLLED_SESSION
 ```
+
+## RISKS
+
+- À qualifier.

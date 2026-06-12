@@ -118,3 +118,7 @@ Avant implémentation complète, produire un bundle `graph_bundle.demo.json` lim
 ## 17_RESUME_POINT
 
 Prochaine reprise : créer `04_graph_schema_v1.md`, puis `05_producer_spec_v1.md`, puis `06_consumer_ace_kg_method_v1.md`.
+
+## RISKS
+
+- À qualifier.

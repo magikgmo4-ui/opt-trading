@@ -109,3 +109,7 @@ CONSOLIDATION_PERF_CLUSTER_01 ouvert.
 Docs-only. Inventaire → carte → gaps → closeout.
 Toute restructuration → GO séparé PERF_MODULE_RESTRUCTURE_PLAN_01.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -48,3 +48,7 @@ Un etat machine ne doit jamais etre presente comme verifie sans preuve explicite
 | closeout merge sans commande recente | `ETAT_DECLARE` |
 | log technique recent ou commande reelle | `ETAT_VERIFIE` |
 | deduction a partir d'un pattern documentaire | `HYPOTHESE` |
+
+## RISKS
+
+- À qualifier.

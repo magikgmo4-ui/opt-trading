@@ -84,3 +84,7 @@ None required. Gateway direct validated for ghost user.
 
 After merge, resume from `sot/mainline`.
 Builder invocations must use `openclaw agent` as `ghost` user directly.
+
+## RISKS
+
+- À qualifier.

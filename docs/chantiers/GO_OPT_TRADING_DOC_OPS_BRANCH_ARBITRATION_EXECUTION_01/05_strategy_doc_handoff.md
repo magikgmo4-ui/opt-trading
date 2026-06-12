@@ -55,3 +55,7 @@ links:
 - GO recommandé: `GO_STRATEGY_DOCS_INDEX_HANDOFF_01`
 - Branche recommandée: `go/GO_STRATEGY_DOCS_INDEX_HANDOFF_01`
 - Option alternative: rattachement explicite au parent `GO_STRATEGY_KERNEL_SHARED_LAYER_01` si ce chantier absorbe le lot documentaire
+
+## RISKS
+
+- À qualifier.

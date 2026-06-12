@@ -52,3 +52,7 @@ Raison: les prechecks ont atteint les criteres FAIL avant execution:
 - guards documentes dans la gate non implementes comme checks runtime detectables.
 
 Verdict: `FAIL_CONTROLLED_NO_RUN`.
+
+## RISKS
+
+- À qualifier.

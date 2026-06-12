@@ -35,3 +35,7 @@ La capture automatique est en place. Le prochain pas est de verifier que:
 | GO_BRIDGE_GUARD_ADD_01 | P2 | Garde-fou [ -s ] dans bridge |
 | GO_DESK_PRO_SHARED_REFRESH_01 | P3 | Rafraichir /shared/desk_pro/latest |
 | GO_BOT_VISION_HEADLESS_CLOSEOUT_01 | P3 | Closeout du chantier headless |
+
+## RISKS
+
+- À qualifier.

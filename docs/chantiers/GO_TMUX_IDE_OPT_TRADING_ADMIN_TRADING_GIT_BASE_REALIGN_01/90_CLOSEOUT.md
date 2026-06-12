@@ -31,3 +31,7 @@ GO ouvert proprement.
 
 Executer le lot machine-first de realignement Git sur `admin-trading`, puis seulement
 revenir a la qualification `tmux-ide` / `ide.yml`.
+
+## RISKS
+
+- À qualifier.

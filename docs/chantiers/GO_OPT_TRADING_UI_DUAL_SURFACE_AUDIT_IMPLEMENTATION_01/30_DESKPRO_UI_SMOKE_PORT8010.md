@@ -132,3 +132,7 @@ localcms        : indépendant port 8000
 Axe A = COMPLET.
 Axe B (localcms consumer obs) = post-seuil ≥2026-05-30.
 ```
+
+## RISKS
+
+- À qualifier.

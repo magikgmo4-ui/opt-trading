@@ -65,3 +65,7 @@ Contraintes :
 - aucune action sur les branches AI team gelees
 - aucune action sur les snapshots
 - ne pas traiter `METHODE_MULTI_MACHINE_GIT_SYNC` dans ce passage
+
+## RISKS
+
+- À qualifier.

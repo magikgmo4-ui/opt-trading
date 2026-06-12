@@ -83,3 +83,7 @@ ne pas creer de config durable avant review ergonomie ou realignement repo dista
 ```text
 PASS_CONTROLLED_SESSION / CLOSED_LOCAL_DRAFT
 ```
+
+## RISKS
+
+- À qualifier.

@@ -78,3 +78,7 @@ links:
 - `BRANCH_STATE.md` ne bouge pas ;
 - aucun enfant nouveau n'est ouvert sous les parents admin-trading et db-layer dans ce passage ;
 - le prochain GO logique reste `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_CONFORMITY_AUDIT_01`, mais il n'est pas lance ici.
+
+## RISKS
+
+- À qualifier.

@@ -61,3 +61,7 @@ Aucune action Git n'est executee dans ce lot.
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

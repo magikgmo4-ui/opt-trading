@@ -13,3 +13,7 @@ Définir une gate capacité/obéissance/fallback pour éviter l'usage abusif du 
 - `docs/chantiers/.../MODEL_TASK_BOUNDARY_MATRIX_01.md`
 - `docs/chantiers/.../RUNBOOK_MODEL_ESCALATION_01.md`
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

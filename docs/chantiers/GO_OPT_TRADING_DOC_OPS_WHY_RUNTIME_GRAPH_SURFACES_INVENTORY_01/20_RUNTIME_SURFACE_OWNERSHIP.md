@@ -39,3 +39,7 @@ Ownership de travail retenu pour l'inventaire :
 ## 17_RESUME_POINT
 
 Le prochain GO LocalCMS/TMUX devra transformer ces ownerships en relations lisibles par le graph, sans ajouter de connecteur live.
+
+## RISKS
+
+- À qualifier.

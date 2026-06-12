@@ -71,3 +71,7 @@ Les branches apparues après l’audit cleanup sont exclues du présent contrôl
 
 ## 19_TO_REMEMBER
 - Prochaine étape: arbitrage et décision
+
+## RISKS
+
+- À qualifier.

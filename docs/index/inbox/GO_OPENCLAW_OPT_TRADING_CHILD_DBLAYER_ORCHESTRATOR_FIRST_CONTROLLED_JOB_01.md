@@ -34,3 +34,7 @@ links:
 ## Objectif
 
 Lancer un premier job orchestrateur OpenClaw controle sur `db-layer` : verifier CLI, Gateway V2, orchestrateur, executer sample-run PAPER mode, capturer traces, confirmer clean.
+
+## RISKS
+
+- À qualifier.

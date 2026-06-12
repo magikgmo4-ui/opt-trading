@@ -62,3 +62,7 @@ Ce passage adopte donc une regle simple :
 - ne pas refaire d'arbitrage global ;
 - ne pas rouvrir de surface interdite ;
 - regulariser le dossier `GO_OPT_TRADING_CURSOR_AI_CLAUDE_ARTIFACTS_OPERATOR_PACK_01` pour qu'il expose une structure canonique claire et exploitable par `cursor-ai`.
+
+## RISKS
+
+- À qualifier.

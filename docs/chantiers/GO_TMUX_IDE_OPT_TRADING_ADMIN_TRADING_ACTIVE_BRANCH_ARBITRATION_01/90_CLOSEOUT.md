@@ -93,3 +93,7 @@ git push -u origin go/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_ACTIVE_BRANCH_ARBITR
 ```
 
 PR titre : `docs: arbitrate admin-trading active branch before tmux-ide`
+
+## RISKS
+
+- À qualifier.

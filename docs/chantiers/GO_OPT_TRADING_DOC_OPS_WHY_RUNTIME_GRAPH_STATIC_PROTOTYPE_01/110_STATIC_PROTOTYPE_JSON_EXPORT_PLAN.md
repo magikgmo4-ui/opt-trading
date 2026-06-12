@@ -34,3 +34,7 @@ Preparer le premier export JSON reel du prototype WHY/runtime.
 ## Invariant
 
 Le JSON export WHY/runtime ne doit jamais devenir une API runtime autonome.
+
+## RISKS
+
+- À qualifier.

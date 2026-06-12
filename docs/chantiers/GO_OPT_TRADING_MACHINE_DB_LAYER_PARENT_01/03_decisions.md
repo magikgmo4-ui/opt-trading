@@ -43,3 +43,7 @@ links:
 
 - attendre la validation du lot d'ouverture parent ;
 - passer ensuite par le futur audit de conformite parent avant toute ouverture d'enfant.
+
+## RISKS
+
+- À qualifier.

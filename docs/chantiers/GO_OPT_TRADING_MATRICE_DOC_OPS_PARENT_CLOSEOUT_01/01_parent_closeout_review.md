@@ -68,3 +68,7 @@ Le parent `GO_OPT_TRADING_MATRICE_DOC_OPS_PARENT_01` a atteint sa cible :
 - annexes stables classees
 - surfaces operatoires recalees
 - sous-flux gouvernance necessaires clos
+
+## RISKS
+
+- À qualifier.

@@ -67,3 +67,7 @@ PASS intermédiaire — suppression contrôlée documentée, PR #171 prête pour
 2. Vérifier `BRANCH_STATE.md`.
 3. Conserver PR #170 en draft snapshot.
 4. Décider merge/ready de PR #171 séparément.
+
+## RISKS
+
+- À qualifier.

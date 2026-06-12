@@ -41,3 +41,7 @@ Source : `03_REMOTE_EXEC_STATE.md` — alias `fantome` absent du `~/.ssh/config`
 ## Decision
 
 A arbitrer. L'option A est recommandee : restaurer ou creer l'alias `fantome` avec host key permanente.
+
+## RISKS
+
+- À qualifier.

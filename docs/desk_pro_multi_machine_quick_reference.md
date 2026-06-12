@@ -28,3 +28,7 @@
 **Emplacements Clés**
 - **Partage** : `/shared/desk_pro/latest/` (Mount sur student/db-layer, Source sur admin-trading)
 - **Logs Admin** : `/opt/trading/data/logs/desk_pro/`
+
+## RISKS
+
+- À qualifier.

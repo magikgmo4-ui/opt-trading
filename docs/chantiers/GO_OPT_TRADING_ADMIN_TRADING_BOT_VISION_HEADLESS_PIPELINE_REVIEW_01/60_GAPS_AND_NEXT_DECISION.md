@@ -95,3 +95,7 @@ Ce GO consommera les contrats `signal_event` V1, `visual_context` V1 et `desk_sn
 ### Si FAIL/BLOCKED
 
 Non applicable — le verdict est PASS.
+
+## RISKS
+
+- À qualifier.

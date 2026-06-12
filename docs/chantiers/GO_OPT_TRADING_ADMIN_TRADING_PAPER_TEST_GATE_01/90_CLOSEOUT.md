@@ -10,3 +10,7 @@
 Verdict: [PASS/FAIL]
 Date: 2026-05-12
 Responsable: admin-trading
+
+## RISKS
+
+- À qualifier.

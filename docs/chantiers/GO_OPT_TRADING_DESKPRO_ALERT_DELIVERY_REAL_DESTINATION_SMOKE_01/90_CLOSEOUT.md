@@ -68,3 +68,7 @@ curl -s -X POST http://127.0.0.1:8010/desk/alert/test | python3 -m json.tool
 ```
 
 Ce GO peut être ré-ouvert dès que l'une des variables est disponible localement.
+
+## RISKS
+
+- À qualifier.

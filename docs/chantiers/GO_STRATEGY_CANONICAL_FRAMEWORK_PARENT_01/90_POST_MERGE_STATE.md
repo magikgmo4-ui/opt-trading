@@ -65,3 +65,7 @@ GO_STRATEGY_CANONICAL_FRAMEWORK_PARENT_01 = OPEN — bundle cadre posé.
 Prochaine étape : ouvrir le premier child GO stratégie (SMC/ICT ou autre).
 Conditionné à éligibilité Phase 1 (≥2026-05-30).
 ```
+
+## RISKS
+
+- À qualifier.

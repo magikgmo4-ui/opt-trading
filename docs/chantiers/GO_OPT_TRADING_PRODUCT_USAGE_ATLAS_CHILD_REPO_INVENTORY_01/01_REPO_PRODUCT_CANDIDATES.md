@@ -305,3 +305,7 @@ Ces 6 produits sont deja classes et ne sont pas reinventories ici.
 | **Preuves repo** | `docs/ot/trae/OT_OPS_05B_DESK_PRO_FREEZE_NOTE.md`, `_archive/` |
 | **Gap principal** | Aucun. Ces surfaces ne doivent pas etre promues. |
 | **NEXT_GO ou condition** | ARCHIVE_ONLY. Rester hors de l'Atlas. |
+
+## RISKS
+
+- À qualifier.

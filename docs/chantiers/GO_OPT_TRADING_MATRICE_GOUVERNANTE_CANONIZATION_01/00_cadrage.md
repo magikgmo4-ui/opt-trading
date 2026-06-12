@@ -101,3 +101,7 @@ Disposer dans le repo d'une matrice gouvernante V2 canonique, lisible sans le bu
 
 Point de reprise unique :
 - `docs/chantiers/GO_OPT_TRADING_MATRICE_GOUVERNANTE_CANONIZATION_01/90_closeout.md`
+
+## RISKS
+
+- À qualifier.

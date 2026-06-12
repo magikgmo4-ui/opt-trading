@@ -49,3 +49,7 @@ Suite recommandée immédiate : ouvrir une passe **live observation** pour maté
 
 ## FORMULE COURTE
 Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe live observation avant toute montée en charge REAL-TIME.
+
+## RISKS
+
+- À qualifier.

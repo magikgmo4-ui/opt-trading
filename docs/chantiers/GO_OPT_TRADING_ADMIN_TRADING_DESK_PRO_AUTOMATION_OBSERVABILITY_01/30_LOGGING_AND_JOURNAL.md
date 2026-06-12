@@ -33,3 +33,7 @@ journalctl -u desk_pro_dry_run.service -n 120 --no-pager
 ## Conclusion
 
 L'observabilite journal existe via `journalctl`, mais aucun run n'a encore produit d'entrees exploitables.
+
+## RISKS
+
+- À qualifier.

@@ -37,3 +37,7 @@ systemctl cat desk_pro_dry_run.service || true
 ## Gate verdict
 
 Tous les prestart gates requis etaient PASS avant `systemctl start desk_pro_dry_run.timer`.
+
+## RISKS
+
+- À qualifier.

@@ -55,3 +55,7 @@ links:
 ## Point de vigilance
 - risque principal : rester au niveau méthode sans ancrage suffisant dans le composant réel `memory_bricks`
 - point d’arrêt acceptable : cadrage + plan + décisions stabilisées si le factuel détaillé doit être enrichi ensuite
+
+## RISKS
+
+- À qualifier.

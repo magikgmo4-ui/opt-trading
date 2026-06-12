@@ -23,3 +23,7 @@ precheck:
     authorized: true|false
     notes: ""
 ```
+
+## RISKS
+
+- À qualifier.

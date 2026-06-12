@@ -40,3 +40,7 @@ links:
 - `localcms` passe en tant qu'axe fusionne avec le parent UI existant ;
 - `student` et `fantome` passent parce qu'ils restent explicitement differes et non ouverts ;
 - aucun nouvel ecart structurel n'impose une modification de `BRANCH_STATE.md`.
+
+## RISKS
+
+- À qualifier.

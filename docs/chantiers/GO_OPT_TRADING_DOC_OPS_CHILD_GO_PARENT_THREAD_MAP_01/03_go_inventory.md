@@ -77,3 +77,7 @@ links:
 ### GO_LOCALCMS_FORMS_INTEGRATION_DOC_01
 - statut OPEN mais pas de lien explicite avec GO_OPT_TRADING_UI_LOCALCMS_CONSUMER_PARENT_01
 - action REVIEW : verifier si ce GO doit se rattacher au parent UI LocalCMS ou rester autonome
+
+## RISKS
+
+- À qualifier.

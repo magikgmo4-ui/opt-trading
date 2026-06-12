@@ -27,3 +27,7 @@ doc_type: strategy_spec
 - Pas de logique de signal.
 - Pas de gestion de risque.
 - Pas de runtime.
+
+## RISKS
+
+- À qualifier.

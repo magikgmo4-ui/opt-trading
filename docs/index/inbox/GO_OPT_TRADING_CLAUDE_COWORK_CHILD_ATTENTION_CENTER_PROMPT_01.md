@@ -17,3 +17,7 @@ Surfaces principales:
 - `docs/chantiers/GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_PROMPT_01/70_FINAL_PROMPT.md`
 
 Resultat: PASS.
+
+## RISKS
+
+- À qualifier.

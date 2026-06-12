@@ -46,3 +46,7 @@ Demander au builder de proposer, sans écrire de fichier, un plan documentaire m
 * Push.
 * Modification index global.
 * Réponse non structurée ou ambiguë.
+
+## RISKS
+
+- À qualifier.

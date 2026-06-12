@@ -23,3 +23,7 @@ surface: env / test
 
 - ajout de `tzdata` dans `requirements.txt`
 - aucune modification de la logique trading
+
+## RISKS
+
+- À qualifier.

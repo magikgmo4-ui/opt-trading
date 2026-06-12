@@ -43,3 +43,7 @@ Airtable — GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01
 ```text
 docs/chantiers/GO_OPT_TRADING_REPO_KG_PRODUCER_IMPL_01/90_CLOSEOUT.md
 ```
+
+## RISKS
+
+- À qualifier.

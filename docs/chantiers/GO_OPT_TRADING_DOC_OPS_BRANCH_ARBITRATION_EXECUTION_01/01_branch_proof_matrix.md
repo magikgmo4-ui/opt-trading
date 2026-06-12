@@ -150,3 +150,7 @@ Prochaine action:
 ```text
 Produire docs/chantiers/GO_OPT_TRADING_DOC_OPS_BRANCH_ARBITRATION_EXECUTION_01/02_execution_plan.md après validation de cette matrice.
 ```
+
+## RISKS
+
+- À qualifier.

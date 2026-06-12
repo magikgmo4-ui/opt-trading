@@ -124,3 +124,7 @@ commande non prevue dans le runbook
 3. preuves de clean status pre et post
 4. no secrets / no live / no sudo maintenus
 5. nouveau GO explicite pour tout write-gated ou perimetre plus large
+
+## RISKS
+
+- À qualifier.

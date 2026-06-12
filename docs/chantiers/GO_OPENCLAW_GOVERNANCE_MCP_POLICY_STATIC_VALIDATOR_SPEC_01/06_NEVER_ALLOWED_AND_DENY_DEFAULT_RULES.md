@@ -140,3 +140,7 @@ Future implementation must clearly distinguish:
 ## 19_TO_REMEMBER
 
 Deny-by-default is a safety invariant, not an implementation preference.
+
+## RISKS
+
+- À qualifier.

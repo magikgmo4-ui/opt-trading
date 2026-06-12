@@ -115,3 +115,7 @@ git push -u origin go/GO_TMUX_IDE_OPT_TRADING_ADMIN_TRADING_TMUX_IDE_QUALIFY_01
 ```
 
 PR titre : `docs: qualify tmux-ide on admin-trading`
+
+## RISKS
+
+- À qualifier.

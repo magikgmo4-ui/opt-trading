@@ -37,3 +37,7 @@ PASS / LOCAL_BOUNDED_MARKDOWN_RENDER
 - The Mermaid block is a static Markdown representation for local review.
 - No runtime session, LocalCMS view, log, snapshot or external source was queried.
 - No extra node, edge, overlay or dashboard control was inferred.
+
+## RISKS
+
+- À qualifier.

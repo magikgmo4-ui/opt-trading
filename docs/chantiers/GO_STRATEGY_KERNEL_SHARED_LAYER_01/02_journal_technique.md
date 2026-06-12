@@ -44,3 +44,7 @@ links:
 ### 2026-04-14 — suite retenue
 - le prochain GO retenu pour la continuité documentaire est `GO_STRATEGY_KERNEL_SHARED_LAYER_01`
 - le lot suivant attendu après cadrage est l'ouverture explicite d'une couche stratégie partagée LAB / REALTIME
+
+## RISKS
+
+- À qualifier.

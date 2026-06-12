@@ -43,3 +43,7 @@ Integrer les relations multi-machine dans le WHY runtime graph.
 ## Invariant
 
 Le graphe ne doit jamais inferer une topologie machine non documentee.
+
+## RISKS
+
+- À qualifier.

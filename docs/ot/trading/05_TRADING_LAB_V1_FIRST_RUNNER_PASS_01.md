@@ -58,3 +58,7 @@ Suite recommandée :
 ## 8. TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_LAB_V1_MARKET_INPUT_PASS_01`
+
+## RISKS
+
+- À qualifier.

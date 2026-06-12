@@ -28,3 +28,7 @@
 | Alias global `student` | A valider | Conserver `deepseek_hub` comme cible officielle ou revenir a un alias legacy |
 | Convention des scripts | A analyser | Garder un seul schema de chemins pour eviter les liens casses |
 | UFW | A analyser | Confirmer l'etat reel et la politique cible |
+
+## RISKS
+
+- À qualifier.

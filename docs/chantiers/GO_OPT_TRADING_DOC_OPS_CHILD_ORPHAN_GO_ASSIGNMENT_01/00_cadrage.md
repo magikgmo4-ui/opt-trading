@@ -85,3 +85,7 @@ Ne pas faire :
 ## Point de reprise
 
 `docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_ORPHAN_GO_ASSIGNMENT_01/02_assignment_matrix.md`
+
+## RISKS
+
+- À qualifier.

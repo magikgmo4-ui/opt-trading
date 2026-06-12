@@ -11,3 +11,7 @@ Le GO prepare l'integration durable du guard TTY size dans le template operateur
 ## Prochaine action
 
 Verifier le diff staged, puis commit/push/PR.
+
+## RISKS
+
+- À qualifier.

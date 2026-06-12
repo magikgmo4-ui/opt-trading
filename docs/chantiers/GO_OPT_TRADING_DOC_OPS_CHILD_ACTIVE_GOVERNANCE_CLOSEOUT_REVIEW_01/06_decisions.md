@@ -72,3 +72,7 @@ Justification :
 ### D7
 
 `BRANCH_STATE.md` reste hors patch faute d incoherence prouvee.
+
+## RISKS
+
+- À qualifier.

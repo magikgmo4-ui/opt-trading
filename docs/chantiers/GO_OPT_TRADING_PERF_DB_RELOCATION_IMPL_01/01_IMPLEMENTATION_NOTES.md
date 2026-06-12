@@ -45,3 +45,7 @@ show-env  -> imprime l'override PERF_DB_PATH à utiliser pour la bascule
 - le runtime par défaut reste sur le chemin historique tant que PERF_DB_PATH n'est pas exporté
 - aucune DB n'est déplacée automatiquement
 ```
+
+## RISKS
+
+- À qualifier.

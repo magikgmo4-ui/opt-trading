@@ -50,3 +50,7 @@ Result:
 ## Verdict
 
 **PASS**
+
+## RISKS
+
+- À qualifier.

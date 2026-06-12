@@ -36,3 +36,7 @@ Pour chaque entrée :
 - pas un dashboard perf
 - pas un hub CLI
 - pas un simple navigateur de fichiers brut
+
+## RISKS
+
+- À qualifier.

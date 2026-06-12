@@ -49,3 +49,7 @@ links:
 Le rollback doit être préparé avant toute mutation runtime,
 car /opt/trading n'est pas un simple clone jetable : c'est la surface réelle.
 ```
+
+## RISKS
+
+- À qualifier.

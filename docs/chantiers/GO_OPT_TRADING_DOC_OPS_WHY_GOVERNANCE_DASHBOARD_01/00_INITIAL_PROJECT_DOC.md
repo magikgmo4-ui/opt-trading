@@ -71,3 +71,7 @@ Le dashboard doit rester:
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_GOVERNANCE_DASHBOARD_01` pour cadrer le dashboard WHY governance.
+
+## RISKS
+
+- À qualifier.

@@ -102,3 +102,7 @@ Future workflow closeout must state whether any dependency installation occurs a
 ## 19_TO_REMEMBER
 
 The presence of `SECRET` in this Markdown file path is a documentary no-secret policy label, not secret content.
+
+## RISKS
+
+- À qualifier.

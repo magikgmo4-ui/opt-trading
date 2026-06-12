@@ -76,3 +76,7 @@ Ne pas faire :
 - inventorier les surfaces machine reellement rattachees a `db-layer` ;
 - documenter les interfaces de consultation, export et ingestion deja prouvees ;
 - cadrer ce qui reste hors perimetre de ce parent.
+
+## RISKS
+
+- À qualifier.

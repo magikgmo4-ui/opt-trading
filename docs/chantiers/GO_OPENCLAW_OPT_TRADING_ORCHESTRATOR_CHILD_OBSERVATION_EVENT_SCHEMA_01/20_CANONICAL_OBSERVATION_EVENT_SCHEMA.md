@@ -144,3 +144,7 @@ Ce schéma V1 doit tolérer :
 - l'ajout d'un champ sheets_status si le sync Sheets devient traçable par run
 - une migration vers une BDD sans changer le contrat logique
 ```
+
+## RISKS
+
+- À qualifier.

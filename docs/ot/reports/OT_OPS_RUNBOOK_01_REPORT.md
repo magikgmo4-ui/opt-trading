@@ -15,3 +15,7 @@ Il reflète l'état réel du système au 2026-03-12.
 
 ## 4. PROCHAINE AMÉLIORATION POSSIBLE
 Intégrer les fonctions `add-session-note` et `copy-latest-to-shared` directement dans le `menu-ops_menu_hub` pour éliminer le besoin de revenir au shell en fin de session.
+
+## RISKS
+
+- À qualifier.

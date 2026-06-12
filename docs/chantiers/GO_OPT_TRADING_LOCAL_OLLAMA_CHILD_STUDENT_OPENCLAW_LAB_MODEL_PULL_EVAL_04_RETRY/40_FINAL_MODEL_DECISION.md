@@ -29,3 +29,7 @@ All qwen2.5 models timeout at ~61s because OpenClaw's default `agents.defaults.t
 ```
 ollama/qwen2.5:3b-instruct
 ```
+
+## RISKS
+
+- À qualifier.

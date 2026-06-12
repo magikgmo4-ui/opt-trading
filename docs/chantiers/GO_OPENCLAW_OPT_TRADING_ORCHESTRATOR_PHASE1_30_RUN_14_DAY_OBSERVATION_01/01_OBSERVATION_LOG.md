@@ -103,3 +103,7 @@ BLOQUE si :
 | 001 | 2026-05-16 | systemd StartLimitBurst rate-limiting (tests rapides) | Désactivé dans service file |
 
 Aucune anomalie en conditions normales (timer quotidien espacé de 24h).
+
+## RISKS
+
+- À qualifier.

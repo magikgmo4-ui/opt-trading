@@ -14,3 +14,7 @@ La chaîne agent fonctionne. Les limites d'obéissance exacte et de latence sont
 ## Document
 
 - `docs/chantiers/.../CHECKPOINT.md`
+
+## RISKS
+
+- À qualifier.

@@ -32,3 +32,7 @@ Formaliser les overlays WHY/runtime du render graph reel local.
 ## Invariant
 
 Les overlays WHY/runtime doivent rester statiques, reviewables et non destructifs.
+
+## RISKS
+
+- À qualifier.

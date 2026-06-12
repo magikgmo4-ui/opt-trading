@@ -59,3 +59,7 @@ Il sert à :
 Trigger courant clos au niveau premier runner : `GO_OT_TRADING_LAB_V1_FIRST_RUNNER_PASS_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_MARKET_INPUT_PASS_01`
+
+## RISKS
+
+- À qualifier.

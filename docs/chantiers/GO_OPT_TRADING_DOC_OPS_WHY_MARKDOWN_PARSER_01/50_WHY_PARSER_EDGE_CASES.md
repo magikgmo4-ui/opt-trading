@@ -29,3 +29,7 @@ Formaliser les cas limites markdown que le futur parser WHY devra gerer.
 ## Invariant
 
 Un cas limite ne doit jamais conduire a une modification automatique du fichier source.
+
+## RISKS
+
+- À qualifier.

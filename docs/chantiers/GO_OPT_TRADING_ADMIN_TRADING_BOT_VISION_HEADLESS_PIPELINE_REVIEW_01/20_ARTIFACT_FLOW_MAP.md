@@ -148,3 +148,7 @@ updated_at: 2026-05-06
 ## Source alternative: ShareX
 
 Le flux ShareX (cursor-ai → SFTP → vision_inbox) reste le fallback fonctionnel quand headless capture échoue. Les fichiers `screen_*.png` dans `vision_inbox` et `vision_processed` proviennent actuellement de cette source.
+
+## RISKS
+
+- À qualifier.

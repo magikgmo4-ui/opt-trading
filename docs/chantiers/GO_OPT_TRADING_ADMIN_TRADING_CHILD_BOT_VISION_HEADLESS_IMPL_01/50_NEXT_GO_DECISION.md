@@ -35,3 +35,7 @@ La capture manuelle fonctionne. Le prochain pas est l'automatisation:
 | GO_BRIDGE_GUARD_ADD_01 | P2 | Garde-fou [ -s ] dans bridge |
 | GO_DESK_PRO_SHARED_REFRESH_01 | P3 | Rafraichir /shared/desk_pro/latest |
 | GO_TIMERS_RESTORE_01 | P3 | Reviser timers desactives |
+
+## RISKS
+
+- À qualifier.

@@ -28,3 +28,7 @@ TIMER_SPEC = **docs-only**. Pas d'implementation runtime.
 - Timer spec est documentee
 - Implementation differee a TIMER_IMPL
 - Cela permet review separate avant implementation
+
+## RISKS
+
+- À qualifier.

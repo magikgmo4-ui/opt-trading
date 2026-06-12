@@ -68,3 +68,7 @@ docs/chantiers/GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_EXECUTION_01/10_EXECUTIO
 ```
 
 Puis completer les etapes manuelles ClickUp UI avant d'ouvrir Repo KG.
+
+## RISKS
+
+- À qualifier.

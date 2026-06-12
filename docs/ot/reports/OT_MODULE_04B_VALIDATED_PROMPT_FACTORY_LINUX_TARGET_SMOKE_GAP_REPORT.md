@@ -21,3 +21,7 @@ Date (America/Montreal) : 2026-03-14
 - `menu.sh` : interactif, à tester manuellement côté opérateur.
 - Wrappers globaux `/usr/local/bin` (`cmd-validated_prompt_factory`, `sanity-validated_prompt_factory`, `menu-validated_prompt_factory`) : non testés ici.
 
+
+## RISKS
+
+- À qualifier.

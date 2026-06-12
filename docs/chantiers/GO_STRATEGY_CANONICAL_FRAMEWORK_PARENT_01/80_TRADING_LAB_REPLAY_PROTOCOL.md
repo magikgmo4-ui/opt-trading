@@ -137,3 +137,7 @@ Trading Lab replay :
 - ne change pas seul le lifecycle.
 
 Il produit une evidence de review pour les gates.
+
+## RISKS
+
+- À qualifier.

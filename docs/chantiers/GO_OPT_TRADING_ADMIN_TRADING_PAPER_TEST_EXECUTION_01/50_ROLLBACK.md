@@ -45,3 +45,7 @@ git revert <commit-docs-paper-test-execution>
 ```
 
 ou fermeture de la PR sans merge.
+
+## RISKS
+
+- À qualifier.

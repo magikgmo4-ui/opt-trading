@@ -219,3 +219,7 @@ Future reports must distinguish invalid approvable never-allowed policy from val
 ## 19_TO_REMEMBER
 
 `NEVER_ALLOWED` is stronger than gated.
+
+## RISKS
+
+- À qualifier.

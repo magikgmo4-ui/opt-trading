@@ -45,3 +45,7 @@ Aucune donnée n'est déplacée dans ce lot.
 ```text
 GO_OPT_TRADING_PERF_DB_RELOCATION_IMPL_01
 ```
+
+## RISKS
+
+- À qualifier.

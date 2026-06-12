@@ -80,3 +80,7 @@ Enabled state: desk_pro_dry_run.timer enabled
 Started state: desk_pro_dry_run.timer inactive, desk_pro_dry_run.service inactive
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_OBSERVABILITY_01
 ```
+
+## RISKS
+
+- À qualifier.

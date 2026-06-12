@@ -24,3 +24,7 @@ format_response:
 - code JS simple
 - gestion erreurs
 - logs
+
+## RISKS
+
+- À qualifier.

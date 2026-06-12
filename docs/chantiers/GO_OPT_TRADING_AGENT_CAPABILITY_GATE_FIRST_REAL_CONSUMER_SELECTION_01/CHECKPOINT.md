@@ -40,3 +40,7 @@ FIRST_REAL_CONSUMER_SELECTION_PASS
 ```
 
 La sélection est validée : tâche non-trading, bornée, sous gate capacité. L'exécution confirme que le 0.5B n'est pas fiable pour l'audit documentaire, ce qui valide la gate.
+
+## RISKS
+
+- À qualifier.

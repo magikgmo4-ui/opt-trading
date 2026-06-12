@@ -92,3 +92,7 @@ DeepSeek est cartographie dans la matrice automation (#327) :
   gaps         : scheduling non fiable, scripts legacy
   do_not_auto  : publication automatique sans relecture
 ```
+
+## RISKS
+
+- À qualifier.

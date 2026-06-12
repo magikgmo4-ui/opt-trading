@@ -46,3 +46,7 @@ links:
 ### Etape 4 — Suite eventuelle
 - si le pilote est satisfaisant, ouvrir un lot distinct d'application controlee
 - ne pas transformer automatiquement le present GO en campagne de tagging massive
+
+## RISKS
+
+- À qualifier.

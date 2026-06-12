@@ -183,3 +183,7 @@ Ce qu’un futur lot d’implémentation devra démontrer (preuves opposables), 
 - [DB_LAYER_INGESTION_ENGINE_DECISION_01.md](file:///c:/Users/ghost/opt-trading/docs/governance/DB_LAYER_INGESTION_ENGINE_DECISION_01.md)
 - [desk_pro_db_cmd.sh](file:///c:/Users/ghost/opt-trading/scripts/db_layer/desk_pro_db_cmd.sh)
 - [desk_pro_db_latest_shared_info.sh](file:///c:/Users/ghost/opt-trading/scripts/db_layer/desk_pro_db_latest_shared_info.sh)
+
+## RISKS
+
+- À qualifier.

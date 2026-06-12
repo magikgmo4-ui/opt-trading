@@ -33,3 +33,7 @@ Permettre de tester manuellement la livraison d'alerte vers les destinations con
 - `_dispatch_alert()` existe (PR #554)
 - `_telegram_send()`, `_webhook_send()` existent
 - 322/322 PASS
+
+## RISKS
+
+- À qualifier.

@@ -124,3 +124,7 @@ Prochaine action:
 ```text
 Confirmer closeout et valider strategy handoff.
 ```
+
+## RISKS
+
+- À qualifier.

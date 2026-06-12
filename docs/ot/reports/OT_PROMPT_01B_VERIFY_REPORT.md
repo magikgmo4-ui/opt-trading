@@ -16,3 +16,7 @@ Vérifier la précision absolue du Master Pack concernant la famille `workflow_p
 
 ## 4. CONCLUSION
 Le pack est maintenant rigoureusement exact et prêt pour l'usage.
+
+## RISKS
+
+- À qualifier.

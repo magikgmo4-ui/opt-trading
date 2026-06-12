@@ -158,3 +158,7 @@ inventaire réel repo-first → matrice producer/consumer → contrats → lot p
 
 Règle projet potentielle :
 pour les UI partagées entre `opt-trading` et `localcms`, `opt-trading` reste producer canonique et `localcms` reste consumer, sauf décision documentée contraire.
+
+## RISKS
+
+- À qualifier.

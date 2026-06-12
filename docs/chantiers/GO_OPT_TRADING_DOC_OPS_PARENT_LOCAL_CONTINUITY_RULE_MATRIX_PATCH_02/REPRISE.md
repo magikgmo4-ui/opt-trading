@@ -52,3 +52,7 @@ Puis appliquer :
 ```text
 docs/chantiers/GO_OPT_TRADING_DOC_OPS_PARENT_LOCAL_CONTINUITY_RULE_MATRIX_PATCH_02/01_PATCH_PROPOSAL.md
 ```
+
+## RISKS
+
+- À qualifier.

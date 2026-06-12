@@ -264,3 +264,7 @@ SECOND LIVRABLE: test_bridge_mock.py PASS
 TROISIÈME LIVRABLE: smoke live action "ask" PASS
 DÉBLOQUE: proposition_engine (GO-06), learning_feeder (GO-10)
 ```
+
+## RISKS
+
+- À qualifier.

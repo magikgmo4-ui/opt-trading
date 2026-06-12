@@ -248,3 +248,7 @@ Memory Bricks candidats :
 ```text
 PASS_READONLY_STATIC_VALIDATOR_IMPLEMENTATION
 ```
+
+## RISKS
+
+- À qualifier.

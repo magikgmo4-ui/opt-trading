@@ -118,3 +118,7 @@ Future documentation : validator statique, fixtures, fail-closed rules, no-secre
 ## 19_TO_REMEMBER
 
 Ce GO est `PASS_DOC_ONLY`. Le YAML/JSON reste documentaire, non charge et non executable.
+
+## RISKS
+
+- À qualifier.

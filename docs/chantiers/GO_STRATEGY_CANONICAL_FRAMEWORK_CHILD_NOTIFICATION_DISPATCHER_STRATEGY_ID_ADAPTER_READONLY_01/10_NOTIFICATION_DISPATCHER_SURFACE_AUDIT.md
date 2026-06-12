@@ -28,3 +28,7 @@ Dans `dispatcher.py`, méthode `NotificationDispatcher.dispatch()`, après `even
 - `strategy_id` est accessible via `event.payload.get("strategy_id")`.
 - Validation warning-only.
 - Pas d'impact sur le template, le message ou l'envoi Telegram.
+
+## RISKS
+
+- À qualifier.

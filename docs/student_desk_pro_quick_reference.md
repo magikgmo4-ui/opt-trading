@@ -11,3 +11,7 @@
 ---
 **Rôle** : Consultation / Vérification.
 **Partage** : `/shared/desk_pro/latest/`
+
+## RISKS
+
+- À qualifier.

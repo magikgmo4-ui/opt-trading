@@ -49,3 +49,7 @@ Option B de la sequence cursor-ai : maintenance Bundles — completer le pack Cl
 - Doc-only.
 - Admin-trading ferme.
 - Aucun secret.
+
+## RISKS
+
+- À qualifier.

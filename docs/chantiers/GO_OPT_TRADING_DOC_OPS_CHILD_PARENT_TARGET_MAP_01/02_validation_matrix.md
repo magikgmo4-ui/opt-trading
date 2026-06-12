@@ -43,3 +43,7 @@ links:
 4. les risques decoratifs sont traites ou assumés explicitement ;
 5. aucune ouverture n'est executee dans le present GO ;
 6. `GO_INDEX.md`, `NEXT_GO_CANDIDATES.md`, `ACTIVE_STREAMS.md` et `REPRISE.md` refletent bien que l'on est au stade `PARENT_TARGET_MAP`.
+
+## RISKS
+
+- À qualifier.

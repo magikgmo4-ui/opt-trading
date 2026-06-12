@@ -115,3 +115,7 @@ La famille VISION n'a pas un survivant unique ; elle a une paire survivante.
 Survivants operationnels : vision_bot + bot_vision_step2.
 bot_vision reste contexte historique et compatibilite.
 ```
+
+## RISKS
+
+- À qualifier.

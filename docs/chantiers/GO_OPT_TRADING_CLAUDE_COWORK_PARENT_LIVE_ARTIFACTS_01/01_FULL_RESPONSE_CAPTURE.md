@@ -558,3 +558,7 @@ Voici pourquoi.
 Voici la source.
 Voici le prochain GO logique.
 ```
+
+## RISKS
+
+- À qualifier.

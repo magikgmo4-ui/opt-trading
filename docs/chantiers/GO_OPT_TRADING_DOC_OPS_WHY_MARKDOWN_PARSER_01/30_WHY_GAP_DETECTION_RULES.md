@@ -36,3 +36,7 @@ Definir les gaps critiques detectables par le futur parser WHY.
 ## Invariant
 
 Le parser detecte et signale. Il ne corrige jamais automatiquement.
+
+## RISKS
+
+- À qualifier.

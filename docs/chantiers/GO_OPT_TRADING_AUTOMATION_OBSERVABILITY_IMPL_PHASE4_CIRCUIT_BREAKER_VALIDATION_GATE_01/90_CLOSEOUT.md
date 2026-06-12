@@ -115,3 +115,7 @@ Prochaine forte :
 - Validation Phase 5 si besoin métier identifié
 - Sinon, chaîne observability verrouillée, passer à autre chantier
 ```
+
+## RISKS
+
+- À qualifier.

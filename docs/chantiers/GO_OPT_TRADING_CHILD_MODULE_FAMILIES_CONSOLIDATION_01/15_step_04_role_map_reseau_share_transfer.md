@@ -110,3 +110,7 @@ Produire la carte de role de la suite elargie `reseau / partage / transfert` san
 
 ## Point de reprise
 Carte P1 `reseau/share/transfer` complete. Basculer en `Step 05` pour les suites P2.
+
+## RISKS
+
+- À qualifier.

@@ -60,3 +60,7 @@ SIMEX_ENGINE="SIMEX_BITGET_PILOT" cmd-simex bitget-run
 ```bash
 curl -fsS "http://127.0.0.1:8010/perf/trades?limit=50" | head
 ```
+
+## RISKS
+
+- À qualifier.

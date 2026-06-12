@@ -29,3 +29,7 @@ Invariants maintenus:
 - Positions nettoyées
 
 Prochaine suite: validation production ou scénarios supplémentaires.
+
+## RISKS
+
+- À qualifier.

@@ -35,3 +35,7 @@ Pour ouvrir une vraie qualification `tmux-ide`, `admin-trading` doit etre remis 
 - contenu de `ide.yml`
 
 Ces points viennent apres le realignement Git.
+
+## RISKS
+
+- À qualifier.

@@ -33,3 +33,7 @@ Definir les niveaux warning-only du WHY lint experimental.
 ## Invariant
 
 Le lint WHY ne doit jamais transformer un warning en action runtime autonome.
+
+## RISKS
+
+- À qualifier.

@@ -43,3 +43,7 @@ links:
 - aucune elevation de `REPRISE.md` dans le noyau
 - aucune elevation de `BRANCH_STATE.md` au-dessus de la surface branches
 - aucune activation du chantier metadata / tags / recherche
+
+## RISKS
+
+- À qualifier.

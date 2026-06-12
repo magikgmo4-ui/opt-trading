@@ -25,3 +25,7 @@ Créer une vue claire de :
 2. ce qui doit être centré sur MSI,
 3. ce qui reste technique,
 4. ce qui doit devenir une vraie UI utilisateur plus tard.
+
+## RISKS
+
+- À qualifier.

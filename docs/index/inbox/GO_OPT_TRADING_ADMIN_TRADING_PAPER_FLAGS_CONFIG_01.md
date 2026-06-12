@@ -28,3 +28,7 @@ Flags configurés:
 
 Prochaine suite:
 `GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_RETRY_01` (controlled PAPER_TEST execution)
+
+## RISKS
+
+- À qualifier.

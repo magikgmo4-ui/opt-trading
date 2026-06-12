@@ -132,3 +132,7 @@ L'observation est valide même sans schéma canonique implémenté.
 ```
 
 Ce child GO pose la fondation documentaire — il ne bloque pas l'observation.
+
+## RISKS
+
+- À qualifier.

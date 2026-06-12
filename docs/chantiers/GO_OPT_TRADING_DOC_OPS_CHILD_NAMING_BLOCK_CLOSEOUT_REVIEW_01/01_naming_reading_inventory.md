@@ -57,3 +57,7 @@ links:
 - le module reste audit-only : il scanne le repo et ecrit des rapports markdown/json, sans renommage ni deplacement automatique
 - aucun rapport existant n'est present sous `modules/naming_normalizer/output/`
 - aucun livrable d'inventaire repo-first n'est present dans `docs/chantiers/GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01/`
+
+## RISKS
+
+- À qualifier.

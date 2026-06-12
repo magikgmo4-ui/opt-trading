@@ -372,3 +372,7 @@ COUVERTURE PLAN ORCHESTRATION:
   Toutes les surfaces documentées sont dans le plan.
   Gap : Sheets (non initié), tradingview_observer_openclaw (scope flou), Figma (différé).
 ```
+
+## RISKS
+
+- À qualifier.

@@ -385,3 +385,7 @@ Tant qu’un GO de consolidation dédié n’a pas clos une famille :
 
 Cette décision ne fait pas la consolidation physique à elle seule.
 Elle fixe le cadre validé qui doit gouverner les prochains patchs et audits.
+
+## RISKS
+
+- À qualifier.

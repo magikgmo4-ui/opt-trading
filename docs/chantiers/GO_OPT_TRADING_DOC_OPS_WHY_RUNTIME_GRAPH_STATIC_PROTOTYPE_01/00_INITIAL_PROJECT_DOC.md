@@ -58,3 +58,7 @@ Aucun runtime live, connecteur live, dashboard live ou traversal decisionnel n'e
 ## 17_RESUME_POINT
 
 Reprendre sur `go/GO_OPT_TRADING_DOC_OPS_WHY_RUNTIME_GRAPH_STATIC_PROTOTYPE_01` pour cadrer le prototype graph statique reel.
+
+## RISKS
+
+- À qualifier.

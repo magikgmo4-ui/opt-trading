@@ -41,3 +41,7 @@ Il ne peut pas:
 ## Invariant
 
 Le worker WHY reste audit-oriented et non destructif.
+
+## RISKS
+
+- À qualifier.

@@ -60,3 +60,7 @@ Le code et le chemin canoniques sont prêts.
 Le legacy reste accessible comme fallback automatique, ce qui le protège
 contre les régressions mais empêche la preuve formelle de G4.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -69,3 +69,7 @@ credentials manque.
 - Aucune écriture Sheets automatique ✅
 - No live trade / No Bitget order ✅
 - LocalCMS read-only ✅
+
+## RISKS
+
+- À qualifier.

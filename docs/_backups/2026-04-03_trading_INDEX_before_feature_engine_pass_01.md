@@ -62,3 +62,7 @@ Il sert à :
 Trigger courant clos au niveau market input : `GO_OT_TRADING_LAB_V1_MARKET_INPUT_PASS_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_FEATURE_ENGINE_PASS_01`
+
+## RISKS
+
+- À qualifier.

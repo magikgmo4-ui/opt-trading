@@ -49,3 +49,7 @@ Les reliquats restent documentes mais ne bloquent pas la fermeture parent :
 ## Suite hors lot
 
 Si un jour un apply batch devient utile, il devra etre ouvert explicitement comme lot futur et borne, sans reouvrir le parent a lui seul.
+
+## RISKS
+
+- À qualifier.

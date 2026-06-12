@@ -61,3 +61,7 @@ Apres ce lot, tous les GO de GO_INDEX sont couverts :
 - 4 machine
 - 10 orphelins/transversaux/runtime/projet
 - 11 sous-GO REFERENCE (non traites individuellement)
+
+## RISKS
+
+- À qualifier.

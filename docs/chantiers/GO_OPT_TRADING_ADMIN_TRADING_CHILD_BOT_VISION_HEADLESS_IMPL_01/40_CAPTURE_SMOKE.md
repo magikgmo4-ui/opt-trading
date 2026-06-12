@@ -55,3 +55,7 @@ capture_headless.js (94 KB PNG + JSON)
 ```
 
 Le pipeline end-to-end est fonctionnel.
+
+## RISKS
+
+- À qualifier.

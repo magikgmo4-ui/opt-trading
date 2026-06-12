@@ -55,3 +55,7 @@ links:
 Le bloc naming parent est clos.
 
 Toute application reelle de renommage reste un lot futur, optionnel et explicite, hors du present closeout parent.
+
+## RISKS
+
+- À qualifier.

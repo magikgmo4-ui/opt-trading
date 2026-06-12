@@ -89,3 +89,7 @@ Chantier parent ouvert sur branche dédiée : `go/GO_TRADING_PIPELINE_BOTPRESS_O
 ## 17_RESUME_POINT
 
 Reprendre par `SESSION_REPRISE.txt`, puis lire `00_cadrage_parent.md`, `03_plan_implementation_execution.md` et `04_api_contract_openclaw_gateway.md`.
+
+## RISKS
+
+- À qualifier.

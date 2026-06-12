@@ -33,3 +33,7 @@ Runs after the first retained post-fix trigger `Sat 2026-05-09 06:59:23 EDT` inc
 - number of clean post-fix runs observed: `>= 10`
 - minimum PASS threshold met: `YES`
 - systemd failure or blocked state observed: `NO`
+
+## RISKS
+
+- À qualifier.

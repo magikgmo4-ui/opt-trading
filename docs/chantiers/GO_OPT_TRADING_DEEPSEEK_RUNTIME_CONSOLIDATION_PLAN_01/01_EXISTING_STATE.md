@@ -83,3 +83,7 @@ scripts/student/                    vs student/scripts/
 - post_change workflow non teste apres migration
 - pas de validation que les patches deepseek_hub sont appliques partout
 ```
+
+## RISKS
+
+- À qualifier.

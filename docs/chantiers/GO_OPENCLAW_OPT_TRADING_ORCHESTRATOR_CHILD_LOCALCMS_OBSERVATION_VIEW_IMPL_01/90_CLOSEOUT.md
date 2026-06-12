@@ -79,3 +79,7 @@ Phase 1 observation continue.
 Prochaine revue : 2026-05-24 (20 runs ou 7 jours).
 Prochain child GO : à décider à l'éligibilité (≥2026-05-30).
 ```
+
+## RISKS
+
+- À qualifier.

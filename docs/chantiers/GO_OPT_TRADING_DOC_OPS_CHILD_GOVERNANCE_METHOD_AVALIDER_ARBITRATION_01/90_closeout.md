@@ -77,3 +77,7 @@ docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_GOVERNANCE_METHOD_AVALIDER_ARBITRATI
 Lot suivant possible :
 - passer aux parents machine
 - puis traiter les GO orphelins
+
+## RISKS
+
+- À qualifier.

@@ -479,3 +479,7 @@ Prochaine action possible :
 - mettre à jour `02_AGENT_SKILL_PROVIDER_MATRIX.md` pour ajouter la note `codexoauth` ;
 - ou préparer `90_CLOSEOUT_DRAFT.md` du parent multi-agents ;
 - ou ouvrir `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01`.
+
+## RISKS
+
+- À qualifier.

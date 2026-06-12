@@ -24,3 +24,7 @@ doc_type: gate_decision
 ## Verdict
 
 Rollout pipeline complet : tous les engines sauf trading_lab_v1 sont raccordés.
+
+## RISKS
+
+- À qualifier.

@@ -34,3 +34,7 @@ links:
 
 ## DECISION_04
 Le prochain point naming reste `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01`.
+
+## RISKS
+
+- À qualifier.

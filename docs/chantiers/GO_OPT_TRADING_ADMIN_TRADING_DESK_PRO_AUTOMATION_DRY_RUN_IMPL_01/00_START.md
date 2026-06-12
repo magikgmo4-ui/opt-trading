@@ -37,3 +37,7 @@ Implementer un point d'execution Desk Pro dry-run, local et sans side effects ru
 ## Side effects attendus
 
 `NONE`
+
+## RISKS
+
+- À qualifier.

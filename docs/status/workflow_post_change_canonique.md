@@ -71,3 +71,7 @@ La commande `grep` confirme l'absence de `sudo`.
 - relire `docs/governance/GO_OPT_TRADING_WORKFLOW_POST_CHANGE_CONSOLIDATION_03.md`
 - verifier que `modules/workflow_post_change_v2` reste l'unique surface active
 - revalider le deploiement runtime avant toute extension ou cleanup des `fix*`
+
+## RISKS
+
+- À qualifier.

@@ -83,3 +83,7 @@ Local script result: WARN with no blocking errors
 Host journal state: no post-fix trigger captured yet at observation time
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_FIRST_TRIGGER_OBSERVE_01
 ```
+
+## RISKS
+
+- À qualifier.

@@ -333,3 +333,7 @@ Objectif : exécuter GO_OPT_TRADING_AIRTABLE_BRIDGE_CHILD_01.
 Créer modules/airtable_bridge/ avec client API, payloads, scripts sanity/cmd/menu, .env.example, README module, tests sans réseau.
 Respecter : pas de secret Git, fail-open, aucun blocage opt-trading, pas de tick data Airtable.
 ```
+
+## RISKS
+
+- À qualifier.

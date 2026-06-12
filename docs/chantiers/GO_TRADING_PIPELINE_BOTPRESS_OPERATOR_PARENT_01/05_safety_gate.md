@@ -67,3 +67,7 @@ Resultat attendu: scan market returned, pas de trade, pas de push Git.
 
 **PASS** si smoke V1 reussi sans bypass safety gate.
 **FAIL** si trade reel, push Git ou modif production non autorise.
+
+## RISKS
+
+- À qualifier.

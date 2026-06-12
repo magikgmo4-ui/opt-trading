@@ -48,3 +48,7 @@ Rollback n'affecte pas:
 - desk_bridge, Desk Pro
 - macro-xau (deja disabled)
 - OpenClaw
+
+## RISKS
+
+- À qualifier.

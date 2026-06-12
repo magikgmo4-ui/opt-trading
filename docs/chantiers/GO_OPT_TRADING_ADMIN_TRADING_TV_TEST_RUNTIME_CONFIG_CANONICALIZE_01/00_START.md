@@ -49,3 +49,7 @@ que dans le closeout d'execution, pas sous forme canonique.
 - `trade_allowed=false`
 - `admin_trading_runtime=false`
 - Patch minimal
+
+## RISKS
+
+- À qualifier.

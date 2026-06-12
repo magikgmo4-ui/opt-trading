@@ -60,3 +60,7 @@ pragmas:
 - scripts externes peuvent supposer perf/perf.db implicitement
 - un move brut peut casser l'historique ou créer deux DB concurrentes
 ```
+
+## RISKS
+
+- À qualifier.

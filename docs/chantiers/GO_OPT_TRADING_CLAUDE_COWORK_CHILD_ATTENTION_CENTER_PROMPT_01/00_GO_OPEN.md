@@ -70,3 +70,7 @@ Exclus :
 - le scoring `P0 / P1 / P2` est fige
 - les regles de preuve machine sont non ambigues
 - le format `reports/YYYY-MM-DD_ATTENTION_CENTER_SUMMARY.md` est documente
+
+## RISKS
+
+- À qualifier.

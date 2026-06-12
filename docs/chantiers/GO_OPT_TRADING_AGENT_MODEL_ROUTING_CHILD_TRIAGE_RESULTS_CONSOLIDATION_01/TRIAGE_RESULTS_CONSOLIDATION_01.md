@@ -65,3 +65,7 @@ date: 2026-05-14
 | **MOYENNE** | doc-ops WHY convergence | Architecture en cours |
 | **BASSE** | vision / local / ui | Read-only, non-trading safe |
 | **BLOQUE** | trading live / desk pro | Necessite approbation humaine |
+
+## RISKS
+
+- À qualifier.

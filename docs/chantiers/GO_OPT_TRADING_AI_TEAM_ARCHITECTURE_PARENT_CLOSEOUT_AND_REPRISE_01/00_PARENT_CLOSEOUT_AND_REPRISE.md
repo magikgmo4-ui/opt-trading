@@ -72,3 +72,7 @@ REPRISE:
 - No mandatory NEXT_GO.
 - Before opening new work, choose a new product surface from MACHINE_WORK_SPLIT / ACTIVE_STREAMS.
 ```
+
+## RISKS
+
+- À qualifier.

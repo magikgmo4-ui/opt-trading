@@ -48,3 +48,7 @@ doc_type: runtime_surface_audit
 COINM_SHORT est actif sur 5 surfaces runtime distinctes (engine, webhook, guards,
 risk, tool). Toutes ces références sont légitimes et cohérentes avec un strategy_id
 registré. Aucune référence orpheline ou contradictoire identifiée.
+
+## RISKS
+
+- À qualifier.

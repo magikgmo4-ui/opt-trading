@@ -45,3 +45,7 @@ Ce verdict est coherent avec :
 - ne pas archiver `scripts/reseau_ssh` avant une coupe explicite de tous les usages de rollback / compat
 - ne pas remplacer automatiquement la config SSH globale locale ou machine-side
 - ne pas normaliser en force le chemin repo de `fantome` sans GO dedie
+
+## RISKS
+
+- À qualifier.

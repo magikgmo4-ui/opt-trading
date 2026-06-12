@@ -126,3 +126,7 @@ CONSOLIDATION_UI_CLUSTER_01 ouvert.
 Hub desk_pro déjà existant, 5 migrations entrantes.
 Prochaine action : validation → inventaire → plan de migration → closeout.
 ```
+
+## RISKS
+
+- À qualifier.

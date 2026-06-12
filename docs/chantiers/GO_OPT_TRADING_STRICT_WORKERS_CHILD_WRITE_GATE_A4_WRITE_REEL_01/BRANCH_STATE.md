@@ -46,3 +46,7 @@ Dans allowlist ✓
 Non critique ✓
 Reversible (rm) ✓
 ```
+
+## RISKS
+
+- À qualifier.

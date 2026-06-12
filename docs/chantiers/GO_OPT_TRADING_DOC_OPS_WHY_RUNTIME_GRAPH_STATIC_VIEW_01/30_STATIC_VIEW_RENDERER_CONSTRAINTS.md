@@ -35,3 +35,7 @@ Definir les contraintes du renderer de la vue statique WHY/runtime.
 ## Invariant
 
 Le renderer WHY/runtime doit rester local, explicable et non decisionnel.
+
+## RISKS
+
+- À qualifier.

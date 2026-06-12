@@ -41,3 +41,7 @@ GO_OPT_TRADING_AGENT_MODEL_ROUTING_CHILD_FIRST_NON_TRADING_WORKFLOW_01
 Routage multi-provider valide en workflow reel non-trading.
 Surface doc audit/triage operationnelle.
 ```
+
+## RISKS
+
+- À qualifier.

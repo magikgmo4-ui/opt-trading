@@ -47,3 +47,7 @@ Valider en smoke local et sans side effects runtime la compatibilité producer/c
 ## Runtime side effects attendus
 
 `NONE`
+
+## RISKS
+
+- À qualifier.

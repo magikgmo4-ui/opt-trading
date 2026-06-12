@@ -30,3 +30,7 @@ Le journal service montre des runs post-fix apres le commit `6e78622`, notamment
 - timer remained started since `Sat 2026-05-09 06:47:36 EDT`
 - no blocked state observed
 - no failure state observed
+
+## RISKS
+
+- À qualifier.

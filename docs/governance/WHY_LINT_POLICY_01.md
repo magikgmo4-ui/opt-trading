@@ -54,3 +54,7 @@ Il doit verifier la presence de blocs structurants:
 ## Invariant
 
 Ce document ne cree aucun enforcement actif. Il cadre seulement une future politique de lint documentaire.
+
+## RISKS
+
+- À qualifier.

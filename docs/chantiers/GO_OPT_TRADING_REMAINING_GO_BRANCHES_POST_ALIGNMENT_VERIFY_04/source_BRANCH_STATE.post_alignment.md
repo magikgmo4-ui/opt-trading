@@ -219,3 +219,7 @@ Note: Si une suppression distante échoue pour des credentials, elle est notée 
 
 ## Journal post-merge OpenClaw
 - 2026-04-28 — GO_OPENCLAW_POST_MERGE_BRANCH_STATE_CLEANUP_01 : branche codex/openclaw-family-consolidation-01 supprimée localement et à distance après merge de PR #167 / GO_OPT_TRADING_OPENCLAW_FAMILY_CONSOLIDATION_01; aucune ligne active ne doit être recréée pour cette branche. Les branches satellites OpenClaw laissées de côté restent hors périmètre.
+
+## RISKS
+
+- À qualifier.

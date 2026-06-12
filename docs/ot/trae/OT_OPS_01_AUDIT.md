@@ -56,3 +56,7 @@ Les modules `desk_analyze`, `desk_capture_inputs`, `vision_bot` sont marqués "A
 - Interdit de modifier la structure de `reseau_ssh` sans audit dédié.
 - Interdit de supprimer `deepseek_*` sans audit dédié.
 - Interdit de toucher à `desk_pro_orchestrator` (cœur système).
+
+## RISKS
+
+- À qualifier.

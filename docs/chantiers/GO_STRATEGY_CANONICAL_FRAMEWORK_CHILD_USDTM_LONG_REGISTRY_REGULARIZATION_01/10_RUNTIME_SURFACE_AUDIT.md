@@ -37,3 +37,7 @@ doc_type: runtime_surface_audit
 
 11 références Python cohérentes. USDTM_LONG est engine agressif avec logique
 de signal complète (RSI, volume, MAs). Priorité #3 après COINM_SHORT et GOLD_CFD_LONG.
+
+## RISKS
+
+- À qualifier.

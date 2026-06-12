@@ -382,3 +382,7 @@ Première fiche à produire:
 
 Utile à mémoriser seulement sur demande explicite:
 - la lacune documentaire structurante porte moins sur les preuves que sur l’absence d’une fiche compacte "but final + plan validé + établi + reprise" par chantier.
+
+## RISKS
+
+- À qualifier.

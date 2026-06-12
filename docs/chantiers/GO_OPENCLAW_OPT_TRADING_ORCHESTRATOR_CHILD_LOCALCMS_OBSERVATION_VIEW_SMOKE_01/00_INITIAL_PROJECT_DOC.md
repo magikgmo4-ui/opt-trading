@@ -46,3 +46,7 @@ print(json.dumps(_build_metrics(), indent=2))
 ```
 
 Exécuté depuis `sot/mainline @ c62a0c0f` — 2026-05-17T23:21:42Z.
+
+## RISKS
+
+- À qualifier.

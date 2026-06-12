@@ -29,3 +29,7 @@ Matrice de correspondance type de tâche → modèle/provider recommandé.
 ## Note
 
 La colonne "Pipeline" indique si le modèle est compatible avec la chaîne `openclaw agent` complète (avec tools). Les modèles marqués ❌ nécessitent un appel direct Ollama (`/api/chat` ou `/api/generate`).
+
+## RISKS
+
+- À qualifier.

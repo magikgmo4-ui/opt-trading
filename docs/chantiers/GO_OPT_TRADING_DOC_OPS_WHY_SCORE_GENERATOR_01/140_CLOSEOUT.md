@@ -46,3 +46,7 @@ Le repo dispose maintenant:
 Apres merge:
 - reprendre depuis `sot/mainline`,
 - ouvrir `GO_OPT_TRADING_DOC_OPS_WHY_WORKER_AUDIT_01`.
+
+## RISKS
+
+- À qualifier.

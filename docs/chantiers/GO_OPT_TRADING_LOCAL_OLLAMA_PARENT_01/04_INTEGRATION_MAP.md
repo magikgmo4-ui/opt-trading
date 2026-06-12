@@ -449,3 +449,7 @@ Reprise :
 - prochain GO recommandé : `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_MACHINE_QUALIFICATION_01` ;
 - première intégration recommandée après qualification : `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_PYTHON_CLIENTS_01` ;
 - première intégration produit forte : `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_RAG_DOCS_01`.
+
+## RISKS
+
+- À qualifier.

@@ -18,3 +18,7 @@ Surfaces principales:
 - `bundles/claude-artifacts/bundle_meta/manifest.json`
 
 Résultat: PASS.
+
+## RISKS
+
+- À qualifier.

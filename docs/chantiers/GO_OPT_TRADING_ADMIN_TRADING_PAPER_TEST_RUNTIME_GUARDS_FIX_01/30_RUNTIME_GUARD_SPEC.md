@@ -78,3 +78,7 @@ Si un guard echoue:
 - pas de `executor.execute`;
 - pas d'ordre reel;
 - pas de trade live.
+
+## RISKS
+
+- À qualifier.

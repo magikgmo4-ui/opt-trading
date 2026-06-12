@@ -36,3 +36,7 @@ Mise à jour du référentiel officiel suite à l'audit OT-OPS-01 (V2). Objectif
 
 ## 4. IMPACT
 Le registry couvre désormais ~60% des modules réels (vs 50% avant). Les modules critiques de production sont tous couverts.
+
+## RISKS
+
+- À qualifier.

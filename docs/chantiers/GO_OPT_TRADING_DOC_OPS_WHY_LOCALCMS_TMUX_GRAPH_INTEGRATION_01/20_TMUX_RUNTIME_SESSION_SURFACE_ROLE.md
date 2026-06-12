@@ -46,3 +46,7 @@ Lectures structurantes deja etablies :
 ## 17_RESUME_POINT
 
 La surface `TMUX` definie ici devra etre reliee a `LocalCMS` comme consumer read-only, puis completee par le mapping daily journal avant tout render reel.
+
+## RISKS
+
+- À qualifier.

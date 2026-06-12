@@ -79,3 +79,7 @@ Avec `TV_TEST` dans `accounts` :
 - `risk_pct: 0.01` est une valeur safe (1% du fictif)
 - Aucun token, URL, cle privee dans cette config
 - La config est strictement locale a admin-trading
+
+## RISKS
+
+- À qualifier.

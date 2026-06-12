@@ -39,3 +39,7 @@ links:
 - option retenue : ne pas les modifier dans ce lot documentaire
 - raison du choix : respecter la contrainte explicite du chantier et transmettre un pack autonome
 - impact : le dossier sert d’instruction, pas de réécriture rétrospective des GO déjà ouverts
+
+## RISKS
+
+- À qualifier.

@@ -328,3 +328,7 @@ Etablir une baseline validee des findings, en distinguant :
 ## Verdict
 
 `PASS_REAL_DOCS_SCAN_TRIAGE_V1_DOC_ONLY`
+
+## RISKS
+
+- À qualifier.

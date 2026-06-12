@@ -148,3 +148,7 @@ AUDIT_ORPHAN_MODULES_01 = PASS.
 4 GO P1 prêts à être ouverts (STRATEGY, UI, PERF, DEEPSEEK).
 Prochaine action : ouvrir le premier GO de consolidation.
 ```
+
+## RISKS
+
+- À qualifier.

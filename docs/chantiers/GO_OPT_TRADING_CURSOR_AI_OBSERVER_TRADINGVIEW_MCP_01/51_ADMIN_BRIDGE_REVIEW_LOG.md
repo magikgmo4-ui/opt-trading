@@ -108,3 +108,7 @@ Auteur : worker architecture (AI)
 - Aucun output live committé
 - Documentation Phase 5 complète (50_ + 51_ + 90_ mis à jour)
 - Tous les invariants respectés
+
+## RISKS
+
+- À qualifier.

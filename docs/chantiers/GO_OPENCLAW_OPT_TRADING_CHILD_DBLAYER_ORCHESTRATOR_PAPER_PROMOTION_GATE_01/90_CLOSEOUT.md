@@ -60,3 +60,7 @@ db-layer PAPER regression = PASS
 paper promotion gate = PASS (doc-only)
 next = PAPER_STABILITY_WINDOW_01 (toujours hors live)
 ```
+
+## RISKS
+
+- À qualifier.

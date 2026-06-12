@@ -49,3 +49,7 @@ Traiter uniquement :
 ## VERDICT
 
 - PASS - parent AI team architecture integre dans `docs/index/GO_INDEX.md` avec statut `OPEN`
+
+## RISKS
+
+- À qualifier.

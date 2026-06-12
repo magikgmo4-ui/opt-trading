@@ -227,3 +227,7 @@ Document:
 ## 19_TO_REMEMBER
 
 The fixture harness is not a runtime policy loader. It is only a static test runner for documentary fixtures.
+
+## RISKS
+
+- À qualifier.

@@ -25,3 +25,7 @@ L'exécution "Live Target" a échoué par impossibilité technique.
 
 **Verdict** : **PRÊT POUR VALIDATION HUMAINE SUR CIBLE**.
 (Ne peut pas être considéré comme "Validé" sans un test réel sur `admin-trading`).
+
+## RISKS
+
+- À qualifier.

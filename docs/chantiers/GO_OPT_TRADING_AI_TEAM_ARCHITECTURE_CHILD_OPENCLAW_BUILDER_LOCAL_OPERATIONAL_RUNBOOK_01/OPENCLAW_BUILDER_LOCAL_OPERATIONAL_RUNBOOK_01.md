@@ -209,3 +209,7 @@ GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_CHILD_OPENCLAW_BUILDER_LOCAL_OPERATIONAL_RUN
 Runbook operationnel local redige. Usage local valide documente. Contraintes formalisees.
 Conditions de levee du blocage remote definies. Aucun SSH, remote, WAN, ou secret.
 ```
+
+## RISKS
+
+- À qualifier.

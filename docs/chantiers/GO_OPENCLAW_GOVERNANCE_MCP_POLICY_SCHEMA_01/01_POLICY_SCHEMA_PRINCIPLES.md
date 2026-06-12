@@ -162,3 +162,7 @@ Memoire projet candidate :
 ```text
 OpenClaw MCP policy est deny-by-default : seul un allow explicite, trace, gate et evalue peut devenir actionnable.
 ```
+
+## RISKS
+
+- À qualifier.

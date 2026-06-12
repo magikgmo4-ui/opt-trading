@@ -140,3 +140,7 @@ Prochaine action :
 - point de reprise externe :
   - `docs/chantiers/GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01/92_plans_execution_sous_lots.md`
   - puis `GO_OPT_TRADING_RESEAU_SHARE_TRANSFER_CONSOLIDATION_01`
+
+## RISKS
+
+- À qualifier.

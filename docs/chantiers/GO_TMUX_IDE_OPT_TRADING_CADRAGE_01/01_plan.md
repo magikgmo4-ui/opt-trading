@@ -55,3 +55,7 @@ links:
 ## Limites du lot
 - pas d’implémentation machine réelle dans ce fichier
 - pas de closeout tant que `doctor` / `validate` ne sont pas exécutés sur l’environnement cible
+
+## RISKS
+
+- À qualifier.

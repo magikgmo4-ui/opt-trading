@@ -45,3 +45,7 @@ GO_OPT_TRADING_CURSOR_AI_TRADINGVIEW_OBSERVER_OPERATIONS_PARENT_01/
 - Ne pas activer ingestion (Option C = GO separe).
 - Ne pas creer/modifier/supprimer d'alerte TradingView.
 - Ne pas committer secrets/outputs live.
+
+## RISKS
+
+- À qualifier.

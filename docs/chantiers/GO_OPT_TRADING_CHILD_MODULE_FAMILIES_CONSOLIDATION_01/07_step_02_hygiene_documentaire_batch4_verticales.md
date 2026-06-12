@@ -102,3 +102,7 @@ Terminer la couverture `README` des modules restants en documentant les vertical
 
 ## Point de reprise
 `Step 02` est termine. Reprise sur `Step 03` pour figer survivants, transitions et compatibilites des familles `deepseek*`, `reseau_ssh*`, `bot_vision*` et `desk_*`.
+
+## RISKS
+
+- À qualifier.

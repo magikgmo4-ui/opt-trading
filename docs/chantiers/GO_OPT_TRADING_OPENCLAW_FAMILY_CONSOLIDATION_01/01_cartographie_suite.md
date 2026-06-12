@@ -76,3 +76,7 @@ links:
 
 ## Point de reprise
 Basculer sur `03_step_01_matrice_wrappers.md` pour la matrice exacte des verbes et des ecarts de conventions.
+
+## RISKS
+
+- À qualifier.

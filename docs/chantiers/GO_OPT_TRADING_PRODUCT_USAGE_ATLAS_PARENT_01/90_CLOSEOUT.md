@@ -108,3 +108,7 @@ docs/product/PRODUCT_USAGE_MATRIX.md
 docs/product/PRODUCT_USAGE_ATLAS.md
 docs/product/UPDATE_PROTOCOL.md
 ```
+
+## RISKS
+
+- À qualifier.

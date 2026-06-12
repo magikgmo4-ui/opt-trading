@@ -104,3 +104,7 @@ Regle: une branche n'est supprimable que si elle est absorbee dans origin/sot/ma
 - `git add docs/chantiers/GO_OPT_TRADING_DOC_OPS_CHILD_BRANCH_CLEANUP_01/01_audit_a_verifier.md`
 - `git commit -m "docs: complete branch cleanup A_VERIFIER audit table"`
 - `git push origin codex/doc-ops-child-branch-cleanup-01`
+
+## RISKS
+
+- À qualifier.

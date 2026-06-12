@@ -38,3 +38,7 @@ links:
 - option retenue : closeout relié aux artefacts existants
 - raison du choix : conserver un lien clair entre doc longue et schéma `memory_bricks`
 - impact : fermeture exploitable comme exemple pour la suite
+
+## RISKS
+
+- À qualifier.

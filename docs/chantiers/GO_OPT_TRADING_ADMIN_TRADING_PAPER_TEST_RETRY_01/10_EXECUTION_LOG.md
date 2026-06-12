@@ -93,3 +93,7 @@ POST /tv HTTP/1.1" 200 OK
 - Events logged in events.jsonl
 - Guards still ok: true after execution
 - active_engine remains null (PAPER_TEST not aggressive)
+
+## RISKS
+
+- À qualifier.

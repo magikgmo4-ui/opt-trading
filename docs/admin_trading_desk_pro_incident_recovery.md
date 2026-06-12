@@ -134,3 +134,7 @@ Avant de rendre la main :
 - [ ] Le dashboard s'affiche.
 - [ ] La copie vers `/shared` fonctionne.
 - [ ] L'incident est noté dans le journal de session.
+
+## RISKS
+
+- À qualifier.

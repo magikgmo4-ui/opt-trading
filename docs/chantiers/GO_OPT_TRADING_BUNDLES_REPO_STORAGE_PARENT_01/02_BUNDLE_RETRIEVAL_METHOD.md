@@ -222,3 +222,7 @@ méthode de récupération GitHub définie.
 Prochaine action:
 créer 03_MATRIX_ADDITION_PROPOSAL.md
 ```
+
+## RISKS
+
+- À qualifier.

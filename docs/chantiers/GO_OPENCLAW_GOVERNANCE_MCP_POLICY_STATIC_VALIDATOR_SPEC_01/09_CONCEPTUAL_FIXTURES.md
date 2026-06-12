@@ -229,3 +229,7 @@ Future fixture files must remain no-secret and must include expected verdict met
 ## 19_TO_REMEMBER
 
 Conceptual fixtures make implementation safer, but do not replace static validation code.
+
+## RISKS
+
+- À qualifier.

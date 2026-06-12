@@ -483,3 +483,7 @@ Les bornes exchange critiques disponibles sont deja : minTradeNum = 0.0001, size
 Le moteur ne doit pas simuler sans formule Bitget validee pour conversion notionnel, PnL inverse, liquidation et margin ratio.
 Le worker correcteur devra refuser toute configuration hors grille, hors bornes ou contenant une hypothese Binance legacy.
 ```
+
+## RISKS
+
+- À qualifier.

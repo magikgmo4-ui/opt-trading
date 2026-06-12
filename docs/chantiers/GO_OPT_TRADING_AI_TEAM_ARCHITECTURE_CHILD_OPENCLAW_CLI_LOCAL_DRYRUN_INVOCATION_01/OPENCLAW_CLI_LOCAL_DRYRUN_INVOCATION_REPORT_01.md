@@ -143,3 +143,7 @@ Chemin d'installation documente.
 Installation bloquee en attente de validation humaine.
 Aucun SSH, remote, secret, ou write non planifie.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -43,3 +43,7 @@ links:
 ## Verdict
 
 PASS — séquence close canonisée minimalement en chantier clos et répercutée en continuité.
+
+## RISKS
+
+- À qualifier.

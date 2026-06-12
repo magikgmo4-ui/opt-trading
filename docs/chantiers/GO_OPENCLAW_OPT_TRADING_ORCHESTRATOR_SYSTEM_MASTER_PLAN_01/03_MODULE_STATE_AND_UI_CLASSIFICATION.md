@@ -425,3 +425,7 @@ db_ingestion_pipeline      → governance docs existants — impl manquante
 | E8 — DeepSeek | BASSE | Archiver deepseek_student ; clarifier hub/response/thinking |
 | E9 — Ops menus | BASSE | Regrouper ops_menu_hub + super_menu |
 | E10 — Shared | BASSE | Valider SFTP/SSHFS opérationnel |
+
+## RISKS
+
+- À qualifier.

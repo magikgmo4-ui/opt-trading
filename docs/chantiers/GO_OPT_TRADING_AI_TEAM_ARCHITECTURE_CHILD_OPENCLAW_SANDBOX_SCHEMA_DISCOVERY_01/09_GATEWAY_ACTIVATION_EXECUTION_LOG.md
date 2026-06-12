@@ -195,3 +195,7 @@ Rôle :
 1. Décider si un runtime job peut maintenant être lancé sur le gateway ;
 2. Définir les prérequis (agent cible, commande, scope) ;
 3. Valider le gate humain pour la première session agent.
+
+## RISKS
+
+- À qualifier.

@@ -104,3 +104,7 @@ Lecture retenue :
 ## Suite
 - le parent dispose maintenant des blocs A, B, C et D
 - prochaine etape logique : produire un recap parent ou decider si la profondeur atteinte suffit
+
+## RISKS
+
+- À qualifier.

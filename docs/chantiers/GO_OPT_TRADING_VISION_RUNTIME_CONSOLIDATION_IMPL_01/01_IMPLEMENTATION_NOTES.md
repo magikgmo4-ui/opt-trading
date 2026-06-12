@@ -57,3 +57,7 @@ Le wrapper unifie expose :
 Il ne modifie pas les services existants.
 Il ne remplace pas les anciens raccourcis.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -107,3 +107,7 @@ GO ouvert pour cartographier toutes les surfaces d'automation actives.
 Vue unifiée triggers / capabilities / gaps / risques.
 Aucune modification runtime.
 ```
+
+## RISKS
+
+- À qualifier.

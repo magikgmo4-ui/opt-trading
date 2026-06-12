@@ -75,3 +75,7 @@ Les gates suivantes ne sont JAMAIS declenchees par WHY lint :
 2. WHY lint ne franchit jamais un gate.
 3. WHY lint recommande seulement le franchissement.
 4. Le franchissement effectif est toujours humain ou documente par l'axe source.
+
+## RISKS
+
+- À qualifier.

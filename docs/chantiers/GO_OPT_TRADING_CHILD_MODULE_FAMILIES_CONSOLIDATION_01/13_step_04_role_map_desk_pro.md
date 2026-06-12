@@ -122,3 +122,7 @@ Ces satellites restent dans la suite `desk_*`, mais ne sont pas promus coeur min
 
 ## Point de reprise
 Carte P1 `Desk Pro` complete. Poursuivre avec les cartes `DeepSeek/student` et `reseau/share/transfer`, puis basculer en `Step 05`.
+
+## RISKS
+
+- À qualifier.

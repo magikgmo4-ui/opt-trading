@@ -59,3 +59,7 @@ Passer Bundles de `APPLICATION_DOCUMENTED` a **workflow actif cursor-ai**, sans 
 - Ne pas marquer Bundles produit comme ferme.
 - Ne pas marquer alert_webhook comme ferme.
 - Ne pas committer secrets, .env, tokens ou outputs sensibles.
+
+## RISKS
+
+- À qualifier.

@@ -94,3 +94,7 @@ PASS documentaire pour le sujet bundle :
 ## Suite retenue
 - aucune suite bundle dédiée ouverte
 - si un futur manque réel de métadonnées apparaît, le traiter en gap-only dans le parent absorbant existant
+
+## RISKS
+
+- À qualifier.

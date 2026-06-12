@@ -42,3 +42,7 @@ La duplication lifecycle restante côté spot diminue encore sans toucher aux pa
 ```text
 GO_COLLECTORS_HELPER_EXTRACTION_IMPL_04
 ```
+
+## RISKS
+
+- À qualifier.

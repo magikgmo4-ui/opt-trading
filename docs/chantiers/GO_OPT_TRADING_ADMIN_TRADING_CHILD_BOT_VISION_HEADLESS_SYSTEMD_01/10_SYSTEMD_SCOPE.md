@@ -46,3 +46,7 @@ Justification:
 - Nettoyage des anciens fichiers (deja gere par vision_bot -> processed)
 - Notification Telegram (deja gere par bot_vision_step2)
 - Desk Pro run (manuel ou timer separe)
+
+## RISKS
+
+- À qualifier.

@@ -27,3 +27,7 @@ Corriger le payload d'entree du timer dry-run pour obtenir un resultat contract-
 - timer pause avant patch: requis
 - aucun start manuel du service
 - tests locaux obligatoires
+
+## RISKS
+
+- À qualifier.

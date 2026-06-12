@@ -36,3 +36,7 @@
 - État réellement déployé des unités systemd sur machines live : non prouvé (repo/package uniquement). Voir [OT_SVC_01_CLOSING.txt](file:///c:/Users/ghost/opt-trading/docs/ot/closings/OT_SVC_01_CLOSING.txt).
 - Forme canonique exacte de `shared_sshfs_permanent` en live (template/service/mount/automount) : non prouvée.
 
+
+## RISKS
+
+- À qualifier.

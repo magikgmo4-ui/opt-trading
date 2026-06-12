@@ -19,3 +19,7 @@ doc_type: implementation_decision
 Le validateur `tools/strategy/validate_strategy_registry.py` existe déjà et fonctionne
 indépendamment. Il n'est pas modifié dans ce GO. La nouvelle couche peut être utilisée
 par le validateur dans un GO futur si nécessaire.
+
+## RISKS
+
+- À qualifier.

@@ -53,3 +53,7 @@ Apres merge:
   - lint governance non bloquant,
   - scoring dynamique WHY/runtime,
   - visualisation runtime multi-machine.
+
+## RISKS
+
+- À qualifier.

@@ -59,3 +59,7 @@ NEXT: GO_OPT_TRADING_ORCHESTRATOR_CHILD_VALIDATION_GATE_V1_01
   — gate auto + gate Telegram approval (notification_dispatcher)
   — INVARIANT: NO_LIVE_TRADE_WITHOUT_GATE
 ```
+
+## RISKS
+
+- À qualifier.

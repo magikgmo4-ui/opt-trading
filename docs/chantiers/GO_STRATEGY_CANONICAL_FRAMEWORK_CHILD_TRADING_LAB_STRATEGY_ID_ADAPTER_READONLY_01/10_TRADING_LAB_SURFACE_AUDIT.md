@@ -21,3 +21,7 @@ Le point canonique de validation read-only est la resolution du `strategy_id` da
 - si le YAML contient un `strategy_id`, il est valide tel quel ;
 - sinon, le fallback `xau_session_open_v1` est utilise ;
 - la validation n'a pas a toucher le parseur YAML lui-meme.
+
+## RISKS
+
+- À qualifier.

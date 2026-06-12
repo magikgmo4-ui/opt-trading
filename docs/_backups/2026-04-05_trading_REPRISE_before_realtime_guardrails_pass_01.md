@@ -52,3 +52,7 @@ Suite recommandée immédiate : ouvrir une passe **REALTIME guardrails** pour po
 
 ## FORMULE COURTE
 Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/` et `modules/trading_realtime_v1/`, et ouvrir la passe REALTIME guardrails avant toute montée en charge runtime.
+
+## RISKS
+
+- À qualifier.

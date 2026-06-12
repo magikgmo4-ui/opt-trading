@@ -75,3 +75,7 @@ Scope futur possible :
 ## 17_RESUME_POINT
 
 La prochaine surface canonique recommandee est un refinement de lisibilite du rendu, pas un enrichissement data ou une integration runtime.
+
+## RISKS
+
+- À qualifier.

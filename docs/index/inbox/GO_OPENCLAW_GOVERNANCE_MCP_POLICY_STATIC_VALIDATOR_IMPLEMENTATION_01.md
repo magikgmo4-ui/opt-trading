@@ -123,3 +123,7 @@ Recommended next GO:
 ```text
 GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_FIXTURE_HARNESS_01
 ```
+
+## RISKS
+
+- À qualifier.

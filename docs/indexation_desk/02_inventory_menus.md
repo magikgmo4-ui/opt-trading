@@ -75,3 +75,7 @@ These do not need cleanup in this phase, but they confirm structural debt / hist
 
 ## Key finding
 Most core modules already meet the internal menu/cmd/sanity standard. The next packaging task should target the operator surface in `/usr/local/bin`, not module-internal script creation.
+
+## RISKS
+
+- À qualifier.

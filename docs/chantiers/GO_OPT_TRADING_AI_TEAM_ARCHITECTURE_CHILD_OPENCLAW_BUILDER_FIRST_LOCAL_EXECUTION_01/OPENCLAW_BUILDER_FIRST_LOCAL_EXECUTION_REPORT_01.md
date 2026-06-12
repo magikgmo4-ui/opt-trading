@@ -21,3 +21,7 @@ ALL_CLEAR_FOR_LOCAL_SANDBOX. Toutes les conditions sont satisfaites pour une exe
 ## Verdict
 
 **READY_FOR_LOCAL_EXECUTION** — Plan documente, gate passee. En attente execution reelle par operateur humain.
+
+## RISKS
+
+- À qualifier.

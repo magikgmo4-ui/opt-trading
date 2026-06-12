@@ -10,3 +10,7 @@ Rules:
 - Do not modify repo
 - Provide proof for each test
 - Distinguish established vs hypothesis
+
+## RISKS
+
+- À qualifier.

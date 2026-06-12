@@ -55,3 +55,7 @@ Produire un rapport avec :
 - smoke test propose
 - limites restantes
 - prochain GO logique
+
+## RISKS
+
+- À qualifier.

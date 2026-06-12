@@ -23,3 +23,7 @@
 ## NEXT_GO
 
 `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_SHARED_PACKET_01` — Phase 9, Option B shared packet.
+
+## RISKS
+
+- À qualifier.

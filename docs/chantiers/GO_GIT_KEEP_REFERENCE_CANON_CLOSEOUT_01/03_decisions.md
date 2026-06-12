@@ -12,3 +12,7 @@
 
 - ce GO ne supprime aucune branche
 - tout delete local ou remote doit etre traite dans un passage Git distinct et valide
+
+## RISKS
+
+- À qualifier.

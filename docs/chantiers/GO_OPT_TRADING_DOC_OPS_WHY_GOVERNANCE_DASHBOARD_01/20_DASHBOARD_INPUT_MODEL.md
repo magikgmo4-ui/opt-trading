@@ -36,3 +36,7 @@ Definir les entrees du futur WHY governance dashboard.
 ## Invariant
 
 Le dashboard ne doit jamais inferer des preuves runtime absentes.
+
+## RISKS
+
+- À qualifier.

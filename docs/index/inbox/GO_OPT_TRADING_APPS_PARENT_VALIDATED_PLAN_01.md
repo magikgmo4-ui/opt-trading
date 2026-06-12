@@ -42,3 +42,7 @@ Lire :
 
 Puis ouvrir seulement ensuite :
 `GO_OPT_TRADING_CLICKUP_PARENT_CONTINUITY_EXECUTION_01`
+
+## RISKS
+
+- À qualifier.

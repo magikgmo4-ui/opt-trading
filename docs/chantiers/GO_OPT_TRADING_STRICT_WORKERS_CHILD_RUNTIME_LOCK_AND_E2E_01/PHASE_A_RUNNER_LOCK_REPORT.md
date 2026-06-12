@@ -102,3 +102,7 @@ Le prompt est pret a etre envoye au worker model
 ## NEXT
 
 Phase B — PATCH_DRAFT borne : creer un job packet PATCH_DRAFT, le router via le runner vers glm-5.1, produire un patch DRAFT_ONLY non applique.
+
+## RISKS
+
+- À qualifier.

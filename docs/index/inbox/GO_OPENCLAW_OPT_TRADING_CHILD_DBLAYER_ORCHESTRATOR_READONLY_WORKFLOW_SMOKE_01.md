@@ -34,3 +34,7 @@ links:
 ## Objectif
 
 Appliquer le runbook db-layer sur un workflow orchestrateur reel borne (`sample-run`) et confirmer les traces, le resume et le clean status post-execution.
+
+## RISKS
+
+- À qualifier.

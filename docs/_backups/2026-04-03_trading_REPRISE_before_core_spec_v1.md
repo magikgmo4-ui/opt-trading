@@ -90,3 +90,7 @@ Suite recommandée :
 ## 8. FORMULE DE REPRISE COURTE
 
 Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md` et `docs/ot/trading/01_GO_OT_TRADING_DUAL_STACK_V1_01_REPRISE.md`, puis ouvrir la spec V1 du noyau commun (frame / strategy / execution / analytics) pour XAUUSD session `18:00` et `00:00` en timezone `America/Montreal`.
+
+## RISKS
+
+- À qualifier.

@@ -199,3 +199,7 @@ ObservationEvent.gates.*
 ```
 
 La decision d'action reste hors scope de ce parent.
+
+## RISKS
+
+- À qualifier.

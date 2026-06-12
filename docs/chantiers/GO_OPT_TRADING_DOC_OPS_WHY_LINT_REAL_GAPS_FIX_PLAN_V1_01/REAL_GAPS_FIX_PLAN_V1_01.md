@@ -151,3 +151,7 @@ Memory Bricks candidats :
 - Les vrais gaps documentaires doivent être distingués du bruit V1.
 - Les rapports WHY lint peuvent produire de la self-reference à traiter explicitement.
 - Le prochain GO recommandé est `GO_OPT_TRADING_DOC_OPS_WHY_LINT_REAL_GAPS_FIX_V1_01`, pas un auto-fix.
+
+## RISKS
+
+- À qualifier.

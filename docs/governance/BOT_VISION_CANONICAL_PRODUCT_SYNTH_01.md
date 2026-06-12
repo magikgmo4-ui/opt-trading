@@ -30,3 +30,7 @@ Un pipeline vision cross-platform où un provider headless browser unifie `bot_v
 
 ## 7. Next GO
 > GO_BOT_VISION_CROSS_PLATFORM_SPEC_01 (clarifier repo-source la cible produit finale et mesurer l'écart)
+
+## RISKS
+
+- À qualifier.

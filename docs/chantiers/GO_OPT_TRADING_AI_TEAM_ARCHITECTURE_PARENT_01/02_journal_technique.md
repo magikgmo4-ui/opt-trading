@@ -61,3 +61,7 @@ Point de reprise opératoire :
 - branche canonique du parent : `GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01`
 - dossier parent : `docs/chantiers/GO_OPT_TRADING_AI_TEAM_ARCHITECTURE_PARENT_01/`
 - prochain contrôle : audit documentaire strict après correction minimale du set d’ouverture.
+
+## RISKS
+
+- À qualifier.

@@ -160,3 +160,7 @@ Reprendre depuis : branche go/GO_OPT_TRADING_AIRTABLE_ORCHESTRATION_PARENT_01, f
 Memory Bricks projet, pas mémoire bio :
 - Airtable est à considérer comme couche d'orchestration/journal/dashboard, non comme moteur de trading ni DB massive.
 - Tout usage Airtable dans opt-trading doit garder une sortie exportable et une stratégie de sortie vers DB ou fichiers canoniques.
+
+## RISKS
+
+- À qualifier.

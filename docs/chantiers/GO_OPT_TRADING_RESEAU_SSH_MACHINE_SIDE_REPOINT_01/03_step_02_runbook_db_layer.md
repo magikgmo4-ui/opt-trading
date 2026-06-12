@@ -52,3 +52,7 @@ cmd-reseau_ssh sanity
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

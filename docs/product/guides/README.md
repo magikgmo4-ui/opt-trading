@@ -48,3 +48,7 @@ Un guide reflete l'etat prouve aujourd'hui, pas une cible future.
 Chaque guide inclut : `1_MASTER_TARGET`, `FINAL_TARGET`, `CURRENT_STATE`, `IMPLEMENTATION_PATH`, `CONTINUITY_STATE`, `REPRISE_POINT`, `TODO`, `REMAINING_GAP`, `NEXT_GO`, `PROMOTION_CONDITIONS`.
 Les guides `DOC_ONLY` sont adaptes au sous-type reel du produit (pas "lecture seulement" par defaut).
 Les guides `SIMULATED_ONLY` incluent le chemin vers l'usage reel.
+
+## RISKS
+
+- À qualifier.

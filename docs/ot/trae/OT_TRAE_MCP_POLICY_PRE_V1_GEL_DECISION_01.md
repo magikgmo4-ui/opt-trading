@@ -32,3 +32,7 @@ Acter, de manière strictement doc-only, si le bloc “MCP Policy V1” doit êt
 
 ## 7. Point de reprise
 - Suite recommandée : `GO_OT_NEXT_MISSION_SELECTION_01` (sélectionner la suite sans inventer de nouveau GO).
+
+## RISKS
+
+- À qualifier.

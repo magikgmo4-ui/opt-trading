@@ -225,3 +225,7 @@ Ce qui serait nécessaire avant d'activer l'Option B ou C :
 `GO_OPT_TRADING_CURSOR_AI_OBSERVER_TRADINGVIEW_MCP_PRODUCT_HARDENING_01`
 
 Objectif : durcir le produit local sans pont admin-trading actif.
+
+## RISKS
+
+- À qualifier.

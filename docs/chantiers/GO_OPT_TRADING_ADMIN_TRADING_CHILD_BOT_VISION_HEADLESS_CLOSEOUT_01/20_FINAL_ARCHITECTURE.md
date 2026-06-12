@@ -66,3 +66,7 @@ Desk Pro (PAPER)
 | /shared/inbox/ | Quadrants crops (temporaire) |
 | desk/snapshots/ | Snapshots archives par symbole |
 | /shared/desk_pro/latest/ | Outputs Desk Pro |
+
+## RISKS
+
+- À qualifier.

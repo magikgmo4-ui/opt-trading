@@ -35,3 +35,7 @@ links:
 - valeur possible : accès ciblé plus rapide aux GO, closeouts, décisions et suites
 - statut : à étudier
 - raison du non-lancement : dépend du frontmatter et de la stabilisation des premiers documents
+
+## RISKS
+
+- À qualifier.

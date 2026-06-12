@@ -59,3 +59,7 @@ links:
 - option retenue : ne pas étendre `governance`, `index`, `master_pack`, `next`, `opportunities`, `product_targets` dans ce lot
 - raison du choix : aucun nouveau fait transverse global n'a été établi au-delà du périmètre trading / noyau stratégie
 - impact : le canon reste localisé dans `docs/ot/trading/` et `docs/chantiers/`
+
+## RISKS
+
+- À qualifier.

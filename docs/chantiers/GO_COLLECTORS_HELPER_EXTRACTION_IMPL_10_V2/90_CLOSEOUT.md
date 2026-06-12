@@ -43,3 +43,7 @@ impl_08 → inline _ensure_runtime_directories
 impl_09 → ErrorInfo centralisé
 impl_10 → inline _classify_error ✓
 ```
+
+## RISKS
+
+- À qualifier.

@@ -342,3 +342,7 @@ PRIORITÉ ABSOLUE:
   4. Valider état opérationnel moteurs (execution, decision, risk, position)
      avant d'ouvrir proposition_engine
 ```
+
+## RISKS
+
+- À qualifier.

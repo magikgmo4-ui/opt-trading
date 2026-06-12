@@ -53,3 +53,7 @@ health precheck (TMUX + LocalCMS)
 - LocalCMS read-only
 - Aucune mutation runtime dangereuse
 - Logs scheduler dans `data/logs/scheduler/`
+
+## RISKS
+
+- À qualifier.

@@ -16,3 +16,7 @@
 - `admin-trading` reste differe.
 - `GO_OPENCLAW_OPT_TRADING_ORCHESTRATOR_PARENT_01` reste une reference future non activee.
 - Aucun changement runtime n'est effectue dans ce GO.
+
+## RISKS
+
+- À qualifier.

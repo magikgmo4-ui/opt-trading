@@ -17,3 +17,7 @@ Dette technique identifiée autour de `workflow_post_change_v2` (canonique cass�
 - Le code de `fix3` a été promu dans `v2`.
 - `v2` redevient la source de vérité active.
 - Les dossiers variantes sont conservés pour archive/rollback mais marqués dépréciés.
+
+## RISKS
+
+- À qualifier.

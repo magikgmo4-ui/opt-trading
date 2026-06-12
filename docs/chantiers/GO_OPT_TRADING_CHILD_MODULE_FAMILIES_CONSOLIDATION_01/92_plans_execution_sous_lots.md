@@ -209,3 +209,7 @@ Avant d'ouvrir un sous-lot d'execution, verifier :
 - les callers critiques sont identifiables
 - le rollback est simple
 - aucune autre famille n'est implicitement rouverte par bord
+
+## RISKS
+
+- À qualifier.

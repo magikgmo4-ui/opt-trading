@@ -41,3 +41,7 @@ Exposer le bloc observation (seuils Phase 1, éligibilité) dans GET /metrics/da
 - Ajout constantes `_PHASE1_THRESHOLD_RUNS = 30`, `_PHASE1_THRESHOLD_DAYS = 14`
 - Extension `_build_metrics()` — bloc `observation` + extensions `last_run`
 - Rétrocompatible — aucun champ existant retiré
+
+## RISKS
+
+- À qualifier.

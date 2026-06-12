@@ -24,3 +24,7 @@ doc_type: gate_decision
 
 - GOLD_CFD_LONG est le seul engine non-agressif des 3 engines dans strategy_logic.py.
 - Il a une logique risk dédiée dans risk_calculator.py.
+
+## RISKS
+
+- À qualifier.

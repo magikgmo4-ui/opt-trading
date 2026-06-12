@@ -57,3 +57,7 @@ Aucun changement. Les 2 GO restent dans les fils initialement proposes.
 - **KEEP** : 16 (dont 2 REFERENCE_ONLY)
 - **A_VALIDER** : 0
 - **tous les GO gouvernance/methode sont desormais ETABLI**
+
+## RISKS
+
+- À qualifier.

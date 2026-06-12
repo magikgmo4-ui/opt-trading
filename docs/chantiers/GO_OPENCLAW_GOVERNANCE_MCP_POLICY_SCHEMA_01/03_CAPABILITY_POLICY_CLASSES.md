@@ -100,3 +100,7 @@ Memoire projet candidate :
 ```text
 OpenClaw MCP policy has seven canonical classes; anything outside them fails schema validation.
 ```
+
+## RISKS
+
+- À qualifier.

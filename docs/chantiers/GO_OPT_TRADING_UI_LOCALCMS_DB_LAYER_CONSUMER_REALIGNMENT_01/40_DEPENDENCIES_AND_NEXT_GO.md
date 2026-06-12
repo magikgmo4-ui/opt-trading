@@ -31,3 +31,7 @@
   - `LocalCMS consumer`
 - La prochaine dependance transversale restante avant un retour serein vers `admin-trading` est `reseau_ssh`.
 - `admin-trading` doit donc rester derriere ce closeout transverse.
+
+## RISKS
+
+- À qualifier.

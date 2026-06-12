@@ -55,3 +55,7 @@ On n'ouvre pas de nouveau parent machine dans ce lot. Les seuls parents machine 
 
 Aucun GO n'est deplace d'un parent a un parent machine sans preuve. Les seuls deplacements proposes sont :
 - GO_LOCALCMS_FORMS_INTEGRATION_DOC_01 vers parent UI (preuve : le GO traite d'integration UI localcms)
+
+## RISKS
+
+- À qualifier.

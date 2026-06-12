@@ -91,3 +91,7 @@ premier artefact de rendu local borne depuis JSON valide
 ```text
 WIP / LOCAL_RENDER_REAL_GO_OPENED / JSON_SOURCE_LOCKED
 ```
+
+## RISKS
+
+- À qualifier.

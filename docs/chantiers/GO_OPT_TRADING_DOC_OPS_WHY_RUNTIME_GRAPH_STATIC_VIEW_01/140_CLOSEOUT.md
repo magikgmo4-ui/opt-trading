@@ -54,3 +54,7 @@ Apres merge:
   - observabilite runtime multi-machine reelle,
   - overlays dynamiques WHY/runtime,
   - governance dashboard live futur.
+
+## RISKS
+
+- À qualifier.

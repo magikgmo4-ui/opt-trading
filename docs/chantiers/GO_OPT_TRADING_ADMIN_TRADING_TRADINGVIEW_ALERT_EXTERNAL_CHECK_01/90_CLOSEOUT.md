@@ -71,3 +71,7 @@ Confirmation directe requiert l'inspection UI TradingView (tableau 20, non compl
 2. **Si cause A ou B confirmée** : ouvrir `GO_OPT_TRADING_ADMIN_TRADING_WEBHOOK_ALERT_REACTIVATION_01`
 3. **Réf. parent** : `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01`
    → `docs/chantiers/GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01/01_cadrage_parent.md`
+
+## RISKS
+
+- À qualifier.

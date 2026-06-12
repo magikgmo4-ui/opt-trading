@@ -43,3 +43,7 @@ Elements structurants attendus :
 ## 17_RESUME_POINT
 
 Le mapping suivant devra transformer ce role en liaisons explicites entre `run_id`, sessions `TMUX`, vues `LocalCMS` et snapshots documentes.
+
+## RISKS
+
+- À qualifier.

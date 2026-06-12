@@ -27,3 +27,7 @@ Run a full end-to-end verification and save logs under `tmp/`:
 cd /opt/trading
 ./scripts/verify_all.sh
 ```
+
+## RISKS
+
+- À qualifier.

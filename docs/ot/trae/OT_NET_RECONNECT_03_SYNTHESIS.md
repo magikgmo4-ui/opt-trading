@@ -42,3 +42,7 @@ Tester une coupure “réseau pur” vers `admin-trading:22` pour observer la ro
 
 ## Point de reprise exact
 > **Néant (OT-NET-RECONNECT-03 clôturée)**
+
+## RISKS
+
+- À qualifier.

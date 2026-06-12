@@ -48,3 +48,7 @@ links:
 
 ## Point d’arrêt acceptable
 - arrêt acceptable si : le chantier pilote est complet et sert déjà de modèle de structure, même si un enrichissement ultérieur reste possible
+
+## RISKS
+
+- À qualifier.

@@ -58,3 +58,7 @@ DeepSeek :
   - verification post_change.sh requise avant retrait
   - effectuee par operateur humain
 ```
+
+## RISKS
+
+- À qualifier.

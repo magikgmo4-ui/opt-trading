@@ -44,3 +44,7 @@ Pas de broad refactor.
 - 0 code move
 - 0 schema change
 ```
+
+## RISKS
+
+- À qualifier.

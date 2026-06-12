@@ -94,3 +94,7 @@ Le bon équilibre consiste à :
 
 Bloc humain complémentaire.
 À utiliser comme référence d’adaptation et de gouvernance vivante de la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

@@ -52,3 +52,7 @@ doc_type: macro_sector_inventory
 **Rôle** : Intent read-only pour market scan via Telegram
 
 **Conclusion** : `NOT_STRATEGY` — c'est un intent Botpress, pas une stratégie.
+
+## RISKS
+
+- À qualifier.

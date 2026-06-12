@@ -44,3 +44,7 @@ collectors_core.lifecycle
 La structure des artefacts famille est centralisée.
 Chaque collecteur garde seulement ses paramètres métier spécifiques.
 ```
+
+## RISKS
+
+- À qualifier.

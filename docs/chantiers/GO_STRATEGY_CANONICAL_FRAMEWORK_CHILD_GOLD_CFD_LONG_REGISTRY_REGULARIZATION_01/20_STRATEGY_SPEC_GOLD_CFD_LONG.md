@@ -40,3 +40,7 @@ doc_type: strategy_spec
 - 1 instrument (XAUUSD).
 - Pas de trailing stop, pas de risk sizing.
 - M15 invalidation seulement (timeframe court).
+
+## RISKS
+
+- À qualifier.

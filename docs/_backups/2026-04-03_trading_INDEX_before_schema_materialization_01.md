@@ -42,3 +42,7 @@ Il sert à :
 Trigger actif : `GO_OT_TRADING_DUAL_STACK_V1_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_SCHEMA_MATERIALIZATION_01`
+
+## RISKS
+
+- À qualifier.

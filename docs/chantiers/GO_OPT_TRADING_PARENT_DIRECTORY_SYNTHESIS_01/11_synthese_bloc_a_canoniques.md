@@ -133,3 +133,7 @@ Regle pratique :
 
 ## Suite
 - bloc suivant recommande : Bloc B (`modules/`, `scripts/`, `shared/`, `adapters/`, `schemas/`, `perf/`, `tools/`, `packages/`, `deploy_module_multi_machine/`)
+
+## RISKS
+
+- À qualifier.

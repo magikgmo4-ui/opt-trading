@@ -64,3 +64,7 @@ Sortir entièrement cette logique de la session et obtenir :
 
 - utiliser `docs/governance/GIT_BRANCH_HOUSEKEEPING_WORKFLOW_01.md` comme base unique pour tout futur audit ou ménage réel de branches
 - si besoin récurrent confirmé : ouvrir un GO séparé d’extraction Skill adossé à cette fiche, sans redéfinir la méthode
+
+## RISKS
+
+- À qualifier.

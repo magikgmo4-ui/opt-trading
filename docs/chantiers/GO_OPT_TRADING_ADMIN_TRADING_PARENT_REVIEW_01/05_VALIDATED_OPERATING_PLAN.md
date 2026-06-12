@@ -283,3 +283,7 @@ Memory Bricks candidate, project-level only:
 
 - `admin-trading` parent review must start read-only from `/opt/trading` on branch `go/GO_OPT_TRADING_ADMIN_TRADING_PARENT_REVIEW_01`.
 - Child GO selection must come after real service/port/runtime surface evidence, not before.
+
+## RISKS
+
+- À qualifier.

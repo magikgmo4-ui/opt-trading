@@ -53,3 +53,7 @@ Condition :
 ```text
 validation humaine explicite avant toute mutation de /opt/trading.
 ```
+
+## RISKS
+
+- À qualifier.

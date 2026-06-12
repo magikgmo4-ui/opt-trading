@@ -105,3 +105,7 @@ Le cleanup supprimait :
 ## 17_RESUME_POINT
 
 Lire `30_SESSION_RESULTS.md` pour le resultat observe.
+
+## RISKS
+
+- À qualifier.

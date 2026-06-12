@@ -79,3 +79,7 @@ STOP_IF:
 - global index modification requested
 - builder response is unstructured when structure was required
 ```
+
+## RISKS
+
+- À qualifier.

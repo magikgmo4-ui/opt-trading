@@ -60,3 +60,7 @@ Ordre canonique inscrit :
 
 ## 7. VERDICT FINAL
 **PASS** : patch de consolidation minimal appliqué, cohérent avec le diagnostic.
+
+## RISKS
+
+- À qualifier.

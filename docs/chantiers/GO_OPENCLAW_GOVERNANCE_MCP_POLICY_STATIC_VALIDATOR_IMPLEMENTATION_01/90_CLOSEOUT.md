@@ -218,3 +218,7 @@ GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_FIXTURE_HARNESS_01
 Purpose:
 
 run the static validator against the 37 documentary fixtures without runtime binding.
+
+## RISKS
+
+- À qualifier.

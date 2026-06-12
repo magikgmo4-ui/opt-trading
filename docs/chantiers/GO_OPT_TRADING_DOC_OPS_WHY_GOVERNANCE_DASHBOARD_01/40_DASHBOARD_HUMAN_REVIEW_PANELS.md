@@ -32,3 +32,7 @@ Les panneaux review doivent aider a:
 ## Invariant
 
 Le dashboard ne doit jamais remplacer une review humaine critique.
+
+## RISKS
+
+- À qualifier.

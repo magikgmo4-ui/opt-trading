@@ -22,3 +22,7 @@
 - Admin-trading non ouvert
 - Aucun secret, .env, output live
 - 100% doc-only
+
+## RISKS
+
+- À qualifier.

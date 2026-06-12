@@ -33,3 +33,7 @@ signal_router = OPÉRATIONNEL
 DÉBLOQUE: proposition_engine (input signal JSON)
 NEXT: brancher signal_router → proposition_engine quand GO-06 ouvert
 ```
+
+## RISKS
+
+- À qualifier.

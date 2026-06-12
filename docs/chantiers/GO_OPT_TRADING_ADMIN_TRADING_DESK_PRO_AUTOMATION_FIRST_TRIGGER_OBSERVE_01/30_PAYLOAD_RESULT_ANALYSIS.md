@@ -41,3 +41,7 @@ Observed in journal at `Sat 2026-05-09 06:59:23 EDT`.
 ## Verdict on payload
 
 Le resultat post-fix est **accepte**: `WARN` est conforme car seuls les inputs optionnels `desk_snapshot` et `visual_context` manquent.
+
+## RISKS
+
+- À qualifier.

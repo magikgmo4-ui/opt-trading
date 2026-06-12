@@ -35,3 +35,7 @@ Verrouiller les limites runtime reelles du prototype graph statique WHY/runtime.
 ## Invariant
 
 Le prototype WHY/runtime doit rester lecture seule et non decisionnel.
+
+## RISKS
+
+- À qualifier.

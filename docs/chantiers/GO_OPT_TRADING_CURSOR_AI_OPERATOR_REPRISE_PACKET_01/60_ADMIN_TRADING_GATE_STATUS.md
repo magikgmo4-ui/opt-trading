@@ -53,3 +53,7 @@ Cette phrase doit etre prononcee explicitement par l'operateur. Aucune autre for
 ## Apres ouverture (futur)
 
 Meme apres ouverture de la gate, chaque action runtime sur admin-trading necessite une decision explicite. La gate ouvre le droit de travailler sur admin-trading, pas le droit de tout modifier sans controle.
+
+## RISKS
+
+- À qualifier.

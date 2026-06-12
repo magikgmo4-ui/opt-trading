@@ -29,3 +29,7 @@ updated_at: 2026-05-11
 - `desk_pro_dry_run.timer` next trigger: `Mon 2026-05-11 21:15:25 EDT`
 - `desk_pro_dry_run.service` latest observed exit: `0/SUCCESS`
 - latest observed payload remains contract-compatible and warning-only
+
+## RISKS
+
+- À qualifier.

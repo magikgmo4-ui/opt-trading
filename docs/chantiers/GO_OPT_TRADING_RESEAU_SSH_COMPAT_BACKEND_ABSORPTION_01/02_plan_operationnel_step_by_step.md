@@ -57,3 +57,7 @@ Le prochain step utile est un lot d'execution borne :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

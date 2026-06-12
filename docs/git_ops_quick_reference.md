@@ -15,3 +15,7 @@
 **Rappel** :
 - `--paths` restaure (écrase) les modifications locales avant le pull.
 - Utilisez `--ff-only` pour éviter les merges accidentels.
+
+## RISKS
+
+- À qualifier.

@@ -32,3 +32,7 @@ Le parser WHY doit rester:
 ## Invariant
 
 Le parser ne doit jamais devenir une autorite autonome de validation runtime.
+
+## RISKS
+
+- À qualifier.

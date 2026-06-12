@@ -29,3 +29,7 @@ links:
 | `GO_OPT_TRADING_PARENT_NAMING_CANON_01` | `OPEN` | politique stable et parent audit-only presents | `docs/governance/NAMING_CANON_POLICY_01.md`, parent docs | inventaire repo-first non prouve, exceptions legacy non qualifiees, enfant inventory non clos | `KEEP_OPEN` | le parent ne peut pas fermer tant que l'inventaire et la qualification des exceptions ne sont pas documentes |
 | `GO_OPT_TRADING_CHILD_NAMING_INVENTORY_01` | `OPEN` | seul le cadrage existe | `00_cadrage.md` seulement | aucun inventaire repo-first ni rapport de classement present dans le repo | `KEEP_OPEN` | le critere de fermeture exige un inventaire verifiable ou une cloture explicite comme non necessaire ; ce n'est pas prouve |
 | `GO_OPT_TRADING_CHILD_NAMING_NORMALIZER_01` | `OPEN` | module livre, documente et audit-only | `modules/naming_normalizer/README.md`, `cmd.sh`, `sanity_check.sh`, `scripts/audit_naming.sh`, moteur Python, config | aucun gap bloquant sur la livraison du module lui-meme | `CLOSE_NOW` | le module existe, reste audit-only et n'applique aucun renommage automatique du repo |
+
+## RISKS
+
+- À qualifier.

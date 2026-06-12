@@ -41,3 +41,7 @@ Source : `03_REMOTE_EXEC_STATE.md` — identity d'execution scindee entre `openc
 ## Decision
 
 A arbitrer. Ne pas executer sans gate.
+
+## RISKS
+
+- À qualifier.

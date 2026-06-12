@@ -36,3 +36,7 @@
 | Skills | ~4,837 chars | ~4,837 chars | 0% (non modifiable) |
 | OpenClaw internal | ~14,000 chars | ~12,000 chars | 0% |
 | **Total** | **~30,000 chars** | **~12,800 chars** | **-57%** |
+
+## RISKS
+
+- À qualifier.

@@ -146,3 +146,7 @@ docs/chantiers/GO_OPT_TRADING_DOC_OPS_WHY_LINT_EXPERIMENT_01/SPEC_WHY_LINT_EXPER
 ```
 
 Point d'action suivant: figer le contrat entrees/sorties du validateur statique WHY lint sans ouvrir d'implementation runtime.
+
+## RISKS
+
+- À qualifier.

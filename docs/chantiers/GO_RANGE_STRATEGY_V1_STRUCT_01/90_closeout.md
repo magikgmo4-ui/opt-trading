@@ -76,3 +76,7 @@ PASS
 
 ## MEM_CANDIDATE
 NO_MEMORY
+
+## RISKS
+
+- À qualifier.

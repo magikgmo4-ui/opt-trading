@@ -117,3 +117,7 @@ L'export ci-dessus est défini sous forme de contenu proposé.
 Il n'a **pas** été écrit automatiquement dans `reports/`.
 
 Pour l'activer, un GO explicite est requis avec instruction de création du fichier `reports/2026-05-09_ATTENTION_CENTER_SUMMARY.md`.
+
+## RISKS
+
+- À qualifier.

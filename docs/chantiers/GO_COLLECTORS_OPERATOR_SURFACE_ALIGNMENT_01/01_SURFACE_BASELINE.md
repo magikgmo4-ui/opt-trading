@@ -49,3 +49,7 @@ collectors_core       : package support, pas surface operateur principale
 ```text
 La famille n'est pas incoherente, mais les conventions de noms restent heterogenes.
 ```
+
+## RISKS
+
+- À qualifier.

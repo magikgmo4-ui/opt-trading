@@ -49,3 +49,7 @@ Revue humaine du modele de warnings, puis child GO pour specifier le validateur 
 ## Index globaux
 
 Aucun index global modifie. Entree inbox creee pour aggregation future.
+
+## RISKS
+
+- À qualifier.

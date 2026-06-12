@@ -67,3 +67,7 @@ branch: go/GO_OPT_TRADING_BUNDLES_REPO_STORAGE_PARENT_01
 state: parent ouvert + indexation minimale posée
 next: 01_BUNDLE_STORAGE_METHOD.md
 ```
+
+## RISKS
+
+- À qualifier.

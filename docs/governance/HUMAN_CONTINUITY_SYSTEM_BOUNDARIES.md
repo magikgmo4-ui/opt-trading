@@ -113,3 +113,7 @@ Elle doit aussi rendre lisibles :
 
 Bloc humain complémentaire.
 À utiliser comme référence de frontières système et de clôture réelle de la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

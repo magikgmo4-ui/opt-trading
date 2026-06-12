@@ -28,3 +28,7 @@
 - La couche `reseau_ssh` reste une dependance avant les tests physiques multi-machines finaux.
 - L'etat runtime detaille de `OpenClaw` doit etre repris dans un GO dedie.
 - Le statut d'execution exact de `LocalCMS` reste a preciser au-dela des chemins verifies.
+
+## RISKS
+
+- À qualifier.

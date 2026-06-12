@@ -23,3 +23,7 @@ updated_at: 2026-05-13
 **Dépend de:** PR #303, #325, #347 (merged)
 
 **Ouvre:** `GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_LIVE_RUNTIME_SMOKE_EXECUTION_01`
+
+## RISKS
+
+- À qualifier.

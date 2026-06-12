@@ -68,3 +68,7 @@ Ce fichier est le point d’entrée local de `docs/ot/trading/`.
 Trigger courant clos : `GO_OT_TRADING_LAB_V1_COMPARATOR_PASS_01`
 
 Trigger naturel suivant : `GO_OT_TRADING_LAB_V1_LIVE_OBSERVATION_PASS_01`
+
+## RISKS
+
+- À qualifier.

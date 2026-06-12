@@ -16,3 +16,7 @@ updated_at: 2026-05-14
 **État:** steady-state operations policy for Phase 2
 
 **Régime:** CONTINUE_AT_PHASE_2_QUOTAS with governance framework
+
+## RISKS
+
+- À qualifier.

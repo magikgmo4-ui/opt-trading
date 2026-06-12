@@ -122,3 +122,7 @@ collectors_core reste hub partage des spot collectors.
 marketdata reste facade.
 Prochain GO : GO_COLLECTORS_BASELINE_INVENTORY_01.
 ```
+
+## RISKS
+
+- À qualifier.

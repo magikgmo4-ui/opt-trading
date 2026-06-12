@@ -190,3 +190,7 @@ GO_OPENCLAW_GOVERNANCE_MCP_POLICY_STATIC_VALIDATOR_CI_DRAFT_01
 Purpose:
 
 draft CI integration for the static validator and fixture harness without runtime binding.
+
+## RISKS
+
+- À qualifier.

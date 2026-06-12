@@ -93,3 +93,7 @@ A + C en parallèle → puis D
 - Rollback systemd disponible :
   `sudo systemctl disable --now daily-session.timer daily-session.service`
 - Aucun secret dans le repo ou les logs
+
+## RISKS
+
+- À qualifier.

@@ -55,3 +55,7 @@ Le repository n'est pas "tout modulaire". Il est **Hybride** :
 - **Ambiguïtés** : `scripts/desk_pro_*.sh` (Doublons apparents).
 
 La sécurité opérationnelle exige de reconnaître officiellement cette structure hybride plutôt que de forcer une modularisation impossible à court terme.
+
+## RISKS
+
+- À qualifier.

@@ -39,3 +39,7 @@ Le parent `GO_OPT_TRADING_MACHINE_DB_LAYER_PARENT_01` couvre la machine `db-laye
 - aucune bascule de pipeline ;
 - aucune ouverture d'enfant dans ce lot ;
 - aucune mise a jour de `BRANCH_STATE.md`.
+
+## RISKS
+
+- À qualifier.

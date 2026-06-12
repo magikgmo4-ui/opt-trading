@@ -271,3 +271,7 @@ Elle pourra etre promue plus tard vers `docs/governance/` ou `docs/architecture/
 ## 14. Point de reprise
 
 Prochain document : `05_OPERATIONAL_MATRIX_INTEGRATION_PLAN.md`.
+
+## RISKS
+
+- À qualifier.

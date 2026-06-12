@@ -41,3 +41,7 @@ Formaliser les sections markdown que le futur parser WHY devra reconnaitre.
 ## Invariant
 
 Le parser doit lire et classifier. Il ne doit jamais modifier le document source.
+
+## RISKS
+
+- À qualifier.

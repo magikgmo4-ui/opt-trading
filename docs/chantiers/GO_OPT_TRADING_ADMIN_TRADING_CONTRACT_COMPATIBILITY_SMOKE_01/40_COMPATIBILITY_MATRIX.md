@@ -53,3 +53,7 @@ updated_at: 2026-05-06
 ## Verdict
 
 **Tous les contrats sont compatibles.** Les gaps sont des enrichissements futurs, pas des blocages.
+
+## RISKS
+
+- À qualifier.

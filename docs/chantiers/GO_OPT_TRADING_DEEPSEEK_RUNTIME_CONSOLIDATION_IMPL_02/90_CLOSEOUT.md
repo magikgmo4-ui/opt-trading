@@ -49,3 +49,7 @@ Phase 3 :
 - verification post_change workflow
 - decision : archiver ou conserver scripts/student/
 ```
+
+## RISKS
+
+- À qualifier.

@@ -61,3 +61,7 @@ Ces scripts peuvent rester utilisés pour compatibilité locale, mais les nouvel
 - **Delegates to**: `modules.desk_pro_runner.app.desk_pro_runner`
 - **Orchestrates**: `desk_pro_orchestrator` (via runner)
 - **Visualizes**: `desk_pro_dashboard` (via runner)
+
+## RISKS
+
+- À qualifier.

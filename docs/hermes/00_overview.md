@@ -34,3 +34,7 @@ Le lab vise un flux minimal et contrôlé :
 - vérité projet déplacée dans Hermes
 - publication HF automatique
 - gouvernance du projet hors du repo
+
+## RISKS
+
+- À qualifier.

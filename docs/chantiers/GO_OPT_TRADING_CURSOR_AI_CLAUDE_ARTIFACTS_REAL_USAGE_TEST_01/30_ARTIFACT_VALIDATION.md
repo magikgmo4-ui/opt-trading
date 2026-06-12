@@ -129,3 +129,7 @@ Chaque artefact est evalue selon 5 criteres :
 | bundle_meta/manifest.json | PASS | PASS | PASS | PASS | PASS | **PASS** |
 
 **Verdict global** : PASS — Tous les artefacts (6/6) sont valides sur les 5 criteres.
+
+## RISKS
+
+- À qualifier.

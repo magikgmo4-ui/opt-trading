@@ -55,3 +55,7 @@ et poser le prochain GO de reprise sans ouvrir OpenClaw ni reassigner une machin
   alignent la reprise TMUX avec la reserve "machine cible a verifier avant execution"
 - le prochain GO reste `GO_TMUX_IDE_OPT_TRADING_IMPL_BASE_01`
 - OpenClaw est explicitement hors scope
+
+## RISKS
+
+- À qualifier.

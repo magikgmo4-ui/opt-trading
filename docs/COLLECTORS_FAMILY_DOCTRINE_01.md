@@ -25,3 +25,7 @@
 
 ## Next trigger
 GO_COLLECTORS_MIGRATION_MAP_01
+
+## RISKS
+
+- À qualifier.

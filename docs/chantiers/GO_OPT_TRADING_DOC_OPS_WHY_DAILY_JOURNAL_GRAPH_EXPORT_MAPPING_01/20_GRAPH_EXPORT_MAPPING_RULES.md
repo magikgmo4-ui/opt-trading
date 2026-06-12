@@ -43,3 +43,7 @@ Lecture canonique :
 ## 17_RESUME_POINT
 
 Le fichier suivant devra attacher snapshots et artefacts a ce modele `run_id -> timeline -> surface` avant toute readiness d'export reel.
+
+## RISKS
+
+- À qualifier.

@@ -88,3 +88,7 @@ Creer `06_REMEDIATION_EXECUTION_PLAN.md` avec :
 - preuve attendue ;
 - stop conditions ;
 - interdiction runtime maintenue tant que les gates ne sont pas explicitement passees a VALIDATED.
+
+## RISKS
+
+- À qualifier.

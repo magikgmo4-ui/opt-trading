@@ -326,3 +326,7 @@ Prochain geste possible :
 
 - mettre à jour l'inbox du chantier courant avec les champs post-agrégation ;
 - ouvrir `GO_OPT_TRADING_PARENT_CONTINUITY_INDEX_INBOX_METHOD_01` pour promouvoir cette convention au niveau gouvernance.
+
+## RISKS
+
+- À qualifier.

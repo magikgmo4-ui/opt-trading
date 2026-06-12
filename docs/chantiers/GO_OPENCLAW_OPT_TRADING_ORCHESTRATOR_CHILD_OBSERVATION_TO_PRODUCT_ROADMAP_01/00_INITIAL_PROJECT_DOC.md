@@ -123,3 +123,7 @@ Ce child GO est **doc-only**.
 | `30_DB_LAYER_DATA_PLANE_TARGET.md` | Cible data plane db-layer |
 | `40_NEXT_CHILD_GO_DECISION.md` | Décision du prochain child GO après observation |
 | `90_CLOSEOUT.md` | Closeout de ce child GO |
+
+## RISKS
+
+- À qualifier.

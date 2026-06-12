@@ -44,3 +44,7 @@ Créer l'adapter minimal permettant à Desk Pro de consommer un `signal_event` V
 ## Runtime side effects attendus
 
 `NONE`
+
+## RISKS
+
+- À qualifier.

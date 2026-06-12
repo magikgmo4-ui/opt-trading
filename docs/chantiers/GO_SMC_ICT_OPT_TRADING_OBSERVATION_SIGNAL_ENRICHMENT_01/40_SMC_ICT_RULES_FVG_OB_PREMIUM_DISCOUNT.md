@@ -241,3 +241,7 @@ Ce document definit des regles de detection et de scoring.
 
 Il ne declenche pas de trade, d'ordre, de write Sheets, de message Telegram
 direct, ni de modification de module runtime.
+
+## RISKS
+
+- À qualifier.

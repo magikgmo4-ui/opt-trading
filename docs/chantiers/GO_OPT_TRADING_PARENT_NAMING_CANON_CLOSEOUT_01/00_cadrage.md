@@ -56,3 +56,7 @@ Le lot doit prouver :
 
 - `CLOSE_PARENT` si tous les criteres sont prouves
 - sinon `KEEP_OPEN`
+
+## RISKS
+
+- À qualifier.

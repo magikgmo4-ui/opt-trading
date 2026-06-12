@@ -76,3 +76,7 @@ Tests: 67/67 passed
 Timer: active/waiting
 Next GO: GO_OPT_TRADING_ADMIN_TRADING_DESK_PRO_AUTOMATION_VISUAL_CONTEXT_INPUT_01
 ```
+
+## RISKS
+
+- À qualifier.

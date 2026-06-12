@@ -35,3 +35,7 @@ bundles/CURSOR_AI_BUNDLES_REPRISE.md
 ## Prochain GO
 
 `GO_OPT_TRADING_CURSOR_AI_BUNDLES_APPLICATION_VALIDATION_01` — Valider l'application bundles avec un dry-run.
+
+## RISKS
+
+- À qualifier.

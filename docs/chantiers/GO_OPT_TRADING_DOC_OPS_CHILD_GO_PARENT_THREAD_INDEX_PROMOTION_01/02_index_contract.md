@@ -76,3 +76,7 @@ Les donnees proviennent de :
 | ACTIVE_STREAMS.md | flux actifs ou bloques | operatoire, non souveraine |
 | NEXT_GO_CANDIDATES.md | next GO par parent actif | operatoire, non souveraine |
 | BRANCH_STATE.md | surface branche uniquement | branche, non souveraine |
+
+## RISKS
+
+- À qualifier.

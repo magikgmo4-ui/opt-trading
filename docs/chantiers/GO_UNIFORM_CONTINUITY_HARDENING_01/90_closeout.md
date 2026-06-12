@@ -50,3 +50,7 @@ links:
 ## Reprise
 - point de reprise : bascule de la reprise canonique sur `GO_UNIFORM_CONTINUITY_HARDENING_02`
 - prochaine action recommandée : exécuter `GO_UNIFORM_CONTINUITY_HARDENING_02` puis, après validation, lancer `GO_APPLY_UNIFORM_WORKFLOW_MEMORY_DOCUMENTATION_01`
+
+## RISKS
+
+- À qualifier.

@@ -37,3 +37,7 @@ Ces sous-GO restent reference-only dans les index canoniques et ne sont pas mate
 - L'inventaire UI reel n'est pas encore rejoue comme GO autonome dans cette passe.
 - Les contrats d'exposition restent documentes comme formats cibles, pas comme implementation effective.
 - Aucun lot pilote `read-only` n'est rejoue ici.
+
+## RISKS
+
+- À qualifier.

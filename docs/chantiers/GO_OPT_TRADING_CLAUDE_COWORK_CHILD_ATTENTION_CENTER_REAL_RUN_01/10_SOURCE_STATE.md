@@ -76,3 +76,7 @@ Source : `docs/index/BRANCH_STATE.md` (updated_at: 2026-04-28)
 ### Conformité read-only
 
 Mode read-only respecté : aucun fichier modifié hors `docs/chantiers/GO_OPT_TRADING_CLAUDE_COWORK_CHILD_ATTENTION_CENTER_REAL_RUN_01/` et `docs/index/inbox/`.
+
+## RISKS
+
+- À qualifier.

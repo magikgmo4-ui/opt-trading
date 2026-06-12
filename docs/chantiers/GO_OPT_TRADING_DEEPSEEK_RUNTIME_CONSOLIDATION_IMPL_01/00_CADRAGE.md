@@ -51,3 +51,7 @@ Phase 2 — Documentation :
 - aucun changement de shortcuts
 - aucun appel a post_change
 ```
+
+## RISKS
+
+- À qualifier.

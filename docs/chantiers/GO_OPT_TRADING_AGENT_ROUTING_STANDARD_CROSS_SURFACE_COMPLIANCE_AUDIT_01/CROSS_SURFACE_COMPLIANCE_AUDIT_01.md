@@ -35,3 +35,7 @@ Audit d'application du standard opératoire de routage modèle/provider sur les 
 2. Les surfaces sans agent n'ont pas besoin d'appliquer le standard
 3. Toute surface qui ajoute un agent OpenClaw à l'avenir doit passer ce même audit
 4. Le template de précheck est disponible dans le standard opératoire
+
+## RISKS
+
+- À qualifier.

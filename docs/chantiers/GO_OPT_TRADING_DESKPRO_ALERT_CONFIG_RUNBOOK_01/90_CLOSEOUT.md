@@ -31,3 +31,7 @@ Couvre :
 - Fallback JSONL
 - Tableau statuts `delivered / skipped / failed`
 - Garanties de non-fuite secret (8 points de contrôle)
+
+## RISKS
+
+- À qualifier.

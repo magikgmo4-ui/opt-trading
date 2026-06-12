@@ -162,3 +162,7 @@ human_gate   : oui (interactif)
 gaps         : pas de version non-interactive, pas d'API
 do_not_auto  : exécution batch sans confirmation
 ```
+
+## RISKS
+
+- À qualifier.

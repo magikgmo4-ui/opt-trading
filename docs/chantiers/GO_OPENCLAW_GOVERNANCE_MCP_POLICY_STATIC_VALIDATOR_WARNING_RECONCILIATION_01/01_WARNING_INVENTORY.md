@@ -87,3 +87,7 @@ The closeout must record warnings before and after reconciliation.
 ## 19_TO_REMEMBER
 
 The fixture index remains canonical.
+
+## RISKS
+
+- À qualifier.

@@ -131,3 +131,7 @@ Planifier un GO `EXECUTION_GATED_01` capable de:
 - Écriture de secrets
 - Telegram / webhook / trade
 - Modification des garde-fous
+
+## RISKS
+
+- À qualifier.

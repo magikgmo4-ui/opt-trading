@@ -112,3 +112,7 @@ fantome
 → Refus par defaut, approval obligatoire
 → Tests negatifs en premier
 ```
+
+## RISKS
+
+- À qualifier.

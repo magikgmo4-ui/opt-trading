@@ -31,3 +31,7 @@
 ## Risques secrets
 - `auth-profiles.json` contient une cle API ollama — non expose
 - `openclaw.json` contient un token gateway — non expose
+
+## RISKS
+
+- À qualifier.

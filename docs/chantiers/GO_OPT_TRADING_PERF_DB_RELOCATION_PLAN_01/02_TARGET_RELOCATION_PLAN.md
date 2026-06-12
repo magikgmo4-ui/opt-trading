@@ -55,3 +55,7 @@ Reason:
 - ne pas supprimer perf/perf.db ici
 - ne pas changer l'initialisation sqlite ici
 ```
+
+## RISKS
+
+- À qualifier.

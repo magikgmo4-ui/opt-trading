@@ -47,3 +47,7 @@ Le repo manque:
 - des tradeoffs explicites,
 - des failure modes centralises,
 - une doctrine WHY orientee IA.
+
+## RISKS
+
+- À qualifier.

@@ -100,3 +100,7 @@ Décision finale :
 - La branche market-structure reste la couche thèse top-down SpaceX / supply chain / parabolic growth.
 - LUNR est aligné entre watchlist et market-structure.
 - FLY reste market-structure-only tant qu'aucune intégration dataset explicite n'est validée.
+
+## RISKS
+
+- À qualifier.

@@ -34,3 +34,7 @@ Realignement documentaire applique sans suppression, sans transport runtime et s
 - representations prouvables corrigees
 - branches encore non prouvees laissees en `A_VERIFIER` sur la seule surface branches
 - prochaine etape logique : arbitrer branche par branche les representations encore manquantes avant toute decision Git
+
+## RISKS
+
+- À qualifier.

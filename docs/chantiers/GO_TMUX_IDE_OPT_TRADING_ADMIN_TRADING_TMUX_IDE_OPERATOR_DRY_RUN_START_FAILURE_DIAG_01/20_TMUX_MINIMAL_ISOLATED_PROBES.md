@@ -81,3 +81,7 @@ tmux zero-size direct FAIL with width too small.
 NEXT:
 Lire 30_TMUX_IDE_DIAG_RESULTS.md.
 ```
+
+## RISKS
+
+- À qualifier.

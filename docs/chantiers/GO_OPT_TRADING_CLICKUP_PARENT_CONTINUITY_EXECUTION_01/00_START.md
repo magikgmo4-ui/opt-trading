@@ -41,3 +41,7 @@ Executer le bundle ClickUp V1 et creer le cockpit operateur initial opt-trading.
 - Aucun secret commit (token dans /tmp/clickup_token, hors repo)
 - ClickUp = cockpit de pilotage uniquement, pas source canonique
 - Repo, commits, PR restent la preuve
+
+## RISKS
+
+- À qualifier.

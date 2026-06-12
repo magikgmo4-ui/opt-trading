@@ -151,3 +151,7 @@ Any later cleanup or branch-alignment GO should cite this closeout and explicitl
 ## 19_TO_REMEMBER
 
 `PASS_POST_MERGE_VALIDATION` was established from the actual merged remote state, not from the blocked primary workspace checkout.
+
+## RISKS
+
+- À qualifier.

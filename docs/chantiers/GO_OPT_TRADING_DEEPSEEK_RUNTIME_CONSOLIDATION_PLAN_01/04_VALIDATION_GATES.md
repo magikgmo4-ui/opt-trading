@@ -72,3 +72,7 @@ Condition :
 ```text
 toutes les gates G1-G6 sont satisfaites et validees.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -223,3 +223,7 @@ La continuité locale doit rester cohérente avec ce pipeline.
 Statut :
 - document de référence locale
 - à maintenir cohérent avec la méthode uniforme globale
+
+## RISKS
+
+- À qualifier.

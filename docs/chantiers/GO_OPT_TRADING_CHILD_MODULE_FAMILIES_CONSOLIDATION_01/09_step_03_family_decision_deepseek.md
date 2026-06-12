@@ -79,3 +79,7 @@ Figer la lecture operatoire de la famille `deepseek*` sans confondre runtime act
 
 ## Point de reprise
 Poursuivre `Step 03` avec `reseau_ssh*`, puis `desk_*`.
+
+## RISKS
+
+- À qualifier.

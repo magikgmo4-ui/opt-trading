@@ -79,3 +79,7 @@ Ouvrir le **squelette LAB V1** qui consomme le profil YAML et les schémas JSON.
 ## 9. FORMULE DE REPRISE COURTE
 
 Reprendre depuis `docs/ot/trading/00_TRADING_DUAL_STACK_LAB_REALTIME_V1.md`, `docs/ot/trading/02_TRADING_DUAL_STACK_CORE_SPEC_V1.md` et les fichiers `schemas/`, puis ouvrir le squelette LAB V1 avant toute implémentation REAL-TIME.
+
+## RISKS
+
+- À qualifier.

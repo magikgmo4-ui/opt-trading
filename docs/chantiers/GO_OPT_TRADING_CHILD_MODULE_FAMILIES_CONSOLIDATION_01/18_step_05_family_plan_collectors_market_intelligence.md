@@ -128,3 +128,7 @@ Figer la structuration P2 de la famille `Collectors / market intelligence`, en s
 
 ## Point de reprise
 Suite P2 `Collectors / market intelligence` cadree. Basculer sur `Vision`, puis vers `Step 06`.
+
+## RISKS
+
+- À qualifier.

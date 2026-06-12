@@ -34,3 +34,7 @@ et les invariants sécurité comme baseline canonique.
 - Controlled-write manuel uniquement (`--controlled-write` flag explicite)
 - No live trade / No Bitget order
 - LocalCMS read-only
+
+## RISKS
+
+- À qualifier.

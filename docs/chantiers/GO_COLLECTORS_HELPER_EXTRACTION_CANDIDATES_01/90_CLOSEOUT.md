@@ -43,3 +43,7 @@ La décision reste helper-first, jamais business-logic-first.
 ```text
 GO_COLLECTORS_HELPER_EXTRACTION_IMPL_01
 ```
+
+## RISKS
+
+- À qualifier.

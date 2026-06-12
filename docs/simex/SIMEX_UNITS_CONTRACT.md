@@ -65,3 +65,7 @@ Le bridge joint maintenant au payload SimEx :
 - une section `legacy_env_bridge`
 
 afin de rendre la sémantique visible côté traces et observabilité.
+
+## RISKS
+
+- À qualifier.

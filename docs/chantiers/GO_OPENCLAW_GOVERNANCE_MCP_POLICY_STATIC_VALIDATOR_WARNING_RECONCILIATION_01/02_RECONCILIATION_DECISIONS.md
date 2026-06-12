@@ -86,3 +86,7 @@ Closeout must state `warnings before=4` and `warnings after=0`.
 ## 19_TO_REMEMBER
 
 The correction does not approve CI activation; it only removes the warning blocker.
+
+## RISKS
+
+- À qualifier.

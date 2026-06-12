@@ -140,3 +140,7 @@ Future implementation documentation must preserve the distinction between:
 ## 19_TO_REMEMBER
 
 This file is a documentary registry. It is not a manifest loaded by runtime and must not be treated as an active policy artifact.
+
+## RISKS
+
+- À qualifier.

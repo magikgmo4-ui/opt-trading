@@ -97,3 +97,7 @@ Le prochain point de reprise est :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

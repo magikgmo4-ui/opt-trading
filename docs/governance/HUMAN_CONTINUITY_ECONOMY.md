@@ -101,3 +101,7 @@ Elle doit aussi rester :
 
 Bloc humain complémentaire.
 À utiliser comme référence d’économie de la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

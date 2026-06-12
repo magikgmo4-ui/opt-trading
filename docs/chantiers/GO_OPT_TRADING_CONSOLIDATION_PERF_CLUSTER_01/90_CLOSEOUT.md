@@ -115,3 +115,7 @@ Docs-only : inventaire, carte, gaps, risques.
 Toute restructuration → GO séparé PERF_MODULE_RESTRUCTURE_PLAN_01.
 Prochain : DEEPSEEK_CLUSTER_01.
 ```
+
+## RISKS
+
+- À qualifier.

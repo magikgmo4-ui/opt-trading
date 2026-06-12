@@ -86,3 +86,7 @@ Tous les 7 garde-fous documentes en Phase A sont reutilises sans alteration pour
 ## NEXT
 
 Phase C — E2E multi-workers : lancer 2 workers en parallele (READ_INVENTORY + FAST_TRIAGE), verifier absence de collision, consolider les sorties.
+
+## RISKS
+
+- À qualifier.

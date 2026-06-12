@@ -53,3 +53,7 @@ Matrice de non-duplication : definir pour chaque sujet quel axe est souverain et
 3. WHY lint detecte les ecarts mais ne les corrige pas.
 4. Aucun sujet n'est couvert par deux axes en mode souverain concurrent.
 5. La gouvernance reste l'arbitre ultime en cas de conflit structurel.
+
+## RISKS
+
+- À qualifier.

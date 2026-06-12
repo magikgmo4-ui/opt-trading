@@ -20,3 +20,7 @@ Section inchangée — 4 branches de référence conservées.
 - Blocs ADMIN_TRADING, DB_LAYER, STUDENT/OLLAMA, FANTOME
 - Section "References audit Git"
 - Frontmatter, règles de routage, règles de maintenance
+
+## RISKS
+
+- À qualifier.

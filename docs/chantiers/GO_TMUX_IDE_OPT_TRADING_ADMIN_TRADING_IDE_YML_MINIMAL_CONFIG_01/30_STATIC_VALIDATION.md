@@ -76,3 +76,7 @@ Cette validation ne prouve pas encore :
 ## 17_RESUME_POINT
 
 Le draft passe `tmux-ide@1.3.1 validate --json`. La gate de session reste a lire dans `40_GATE_DECISION.md`.
+
+## RISKS
+
+- À qualifier.

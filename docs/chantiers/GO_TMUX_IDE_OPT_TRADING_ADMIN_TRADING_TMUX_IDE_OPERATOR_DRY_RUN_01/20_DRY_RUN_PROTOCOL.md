@@ -94,3 +94,7 @@ Protocole execute selon gate amont, avec script temporaire et ide.yml temporaire
 NEXT:
 Lire 30_DRY_RUN_RESULTS.md.
 ```
+
+## RISKS
+
+- À qualifier.

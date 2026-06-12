@@ -43,3 +43,7 @@ Il ne peut pas:
 ## Invariant
 
 Le lint WHY reste warning-only, lecture seule et non destructif.
+
+## RISKS
+
+- À qualifier.

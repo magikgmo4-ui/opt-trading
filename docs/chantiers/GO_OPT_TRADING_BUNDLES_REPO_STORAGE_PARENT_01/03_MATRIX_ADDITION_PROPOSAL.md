@@ -171,3 +171,7 @@ proposition d'ajout à la matrice créée, non appliquée.
 Prochaine action:
 créer 90_PARENT_CHECKPOINT.md
 ```
+
+## RISKS
+
+- À qualifier.

@@ -51,3 +51,7 @@ Suite recommandée :
 ## 7. TRIGGER NATUREL SUIVANT
 
 `GO_OT_TRADING_LAB_V1_SKELETON_01`
+
+## RISKS
+
+- À qualifier.

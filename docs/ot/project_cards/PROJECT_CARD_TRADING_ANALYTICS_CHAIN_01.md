@@ -159,3 +159,7 @@ Point de reprise chantier logique:
 
 Utile seulement sur demande explicite:
 - pour la chaîne analytique trading, le prochain manque structurant n’est plus tant la séparation des briques que la fixation courte et stable de leurs interfaces de chaîne.
+
+## RISKS
+
+- À qualifier.

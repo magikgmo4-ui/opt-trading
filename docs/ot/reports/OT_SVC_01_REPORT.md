@@ -22,3 +22,7 @@ La distinction est claire :
 Cette clarté permet de simplifier les runbooks (pas besoin de vérifier `systemctl status` pour un moteur de probabilité, par exemple).
 
 **Status : MAP ÉTABLIE.**
+
+## RISKS
+
+- À qualifier.

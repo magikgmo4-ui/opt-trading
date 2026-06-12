@@ -263,3 +263,7 @@ Reprise :
 - orchestrateur à qualifier : OpenClaw ;
 - objectif : documenter possibilités actuelles Ollama ;
 - prochain GO : `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_QUALIFICATION_01`.
+
+## RISKS
+
+- À qualifier.

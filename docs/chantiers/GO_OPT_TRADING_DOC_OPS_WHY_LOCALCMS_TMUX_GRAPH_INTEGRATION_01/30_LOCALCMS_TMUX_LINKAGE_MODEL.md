@@ -45,3 +45,7 @@ Lecture canonique :
 ## 17_RESUME_POINT
 
 Le prochain GO daily journal devra accrocher `run_id`, snapshots et chronologies sur ce modele de liaison deja stabilise entre consumer et spine runtime.
+
+## RISKS
+
+- À qualifier.

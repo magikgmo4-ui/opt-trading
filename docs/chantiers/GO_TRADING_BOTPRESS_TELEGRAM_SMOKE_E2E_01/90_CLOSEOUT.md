@@ -31,3 +31,7 @@ La simulation passe. Pour production:
 3. Configurer Botpress → adapter HTTP
 
 Ce gap est un GO operationnel separe, dependant de credentials.
+
+## RISKS
+
+- À qualifier.

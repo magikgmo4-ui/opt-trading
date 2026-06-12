@@ -88,3 +88,7 @@ Reduction du system prompt de 30K a 12.8K chars. qwen2.5:3b-instruct repond via 
 
 ## Next GO recommande
 - `GO_OPT_TRADING_LOCAL_OLLAMA_CHILD_STUDENT_OPENCLAW_LAB_BONJOUR_DISABLE` — desactiver l'annonce Bonjour/mDNS
+
+## RISKS
+
+- À qualifier.

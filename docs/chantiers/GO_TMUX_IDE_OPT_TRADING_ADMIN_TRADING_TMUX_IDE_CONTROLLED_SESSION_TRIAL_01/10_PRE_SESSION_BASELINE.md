@@ -80,3 +80,7 @@ SESSION_PREEXISTS=NO
 ## 17_RESUME_POINT
 
 Baseline compatible avec un trial controle : aucun `ide.yml` actif et aucune session cible avant lancement.
+
+## RISKS
+
+- À qualifier.

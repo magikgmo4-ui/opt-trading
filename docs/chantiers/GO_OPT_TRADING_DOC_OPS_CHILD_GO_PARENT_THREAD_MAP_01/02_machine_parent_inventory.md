@@ -75,3 +75,7 @@ Les parents machine sont traites separes des parents gouvernance/projet. Ils rep
 - un parent machine ne doit pas absorber les GO projet ou gouvernance
 - un GO machine ne doit pas etre deplace vers un parent machine sans preuve
 - les parents machine restent doc-only sauf instruction runtime explicite
+
+## RISKS
+
+- À qualifier.

@@ -12,3 +12,7 @@ Date (America/Montreal) : 2026-03-14
 - Smoke sur machine Linux cible (bash natif) + wrappers installés `/usr/local/bin`.
 - `menu.sh` (interactif) : test manuel court côté opérateur.
 
+
+## RISKS
+
+- À qualifier.

@@ -76,3 +76,7 @@ fantome
 → Remote/SSH : BLOCKED (conditions documentees)
 → Next : installation CLI openclaw + preview invocation builder dry-run local
 ```
+
+## RISKS
+
+- À qualifier.

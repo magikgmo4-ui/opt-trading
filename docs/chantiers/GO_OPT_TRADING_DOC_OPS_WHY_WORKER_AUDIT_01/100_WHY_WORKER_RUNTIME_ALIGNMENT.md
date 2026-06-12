@@ -36,3 +36,7 @@ Le worker WHY doit renforcer:
 ## Invariant
 
 Le worker WHY ne doit jamais devenir une gate runtime autonome.
+
+## RISKS
+
+- À qualifier.

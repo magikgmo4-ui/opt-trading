@@ -33,3 +33,7 @@ Relier la vue statique WHY/runtime a l'observabilite runtime.
 ## Invariant
 
 La vue WHY/runtime ne doit jamais inferer une preuve runtime absente.
+
+## RISKS
+
+- À qualifier.

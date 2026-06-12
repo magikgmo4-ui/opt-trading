@@ -29,3 +29,7 @@ After PAPER_TEST retry, a paper position was opened: BTC/USDT BUY 0.1 @ 65000.0.
 - No live trading
 - Don't touch pre-existing positions
 - No secrets exposed
+
+## RISKS
+
+- À qualifier.

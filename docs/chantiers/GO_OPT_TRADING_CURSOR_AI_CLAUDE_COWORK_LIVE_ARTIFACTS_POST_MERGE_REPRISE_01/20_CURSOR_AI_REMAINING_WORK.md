@@ -26,3 +26,7 @@
 - Student (machine separee)
 - DB-layer (machine separee)
 - Fantome (machine separee)
+
+## RISKS
+
+- À qualifier.

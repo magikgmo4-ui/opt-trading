@@ -33,3 +33,7 @@ Raccorder `trading_lab_v1` a `modules.strategy.adapter` en lecture seule, sur le
 ### 4_RESUME_POINT
 
 Dernier engine du rollout adapter strategie.
+
+## RISKS
+
+- À qualifier.

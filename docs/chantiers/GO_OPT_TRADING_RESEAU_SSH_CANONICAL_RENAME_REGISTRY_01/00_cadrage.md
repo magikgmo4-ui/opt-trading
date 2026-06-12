@@ -48,3 +48,7 @@ Tracer le lot repo-side qui :
 
 ## Target
 1 module canonique par famille.
+
+## RISKS
+
+- À qualifier.

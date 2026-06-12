@@ -116,3 +116,7 @@ Vue derivee legere de la cartographie parent canonique / fil de continuite / GO.
 - **Machine** : 4
 - **Orphelins/transversaux/runtime/projet** : 12
 - **Reference-only** : 11
+
+## RISKS
+
+- À qualifier.

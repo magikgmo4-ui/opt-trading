@@ -76,3 +76,7 @@ HEAD: (ce commit)
 Verdict: PASS
 Séquence admin-trading child GO: COMPLETE (4/4 PASS)
 ```
+
+## RISKS
+
+- À qualifier.

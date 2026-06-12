@@ -83,3 +83,7 @@ HEAD: (ce commit)
 Séquence: COMPLETE (8/8 PASS)
 Prochain GO: SEQUENCE_PR_MERGE_01
 ```
+
+## RISKS
+
+- À qualifier.

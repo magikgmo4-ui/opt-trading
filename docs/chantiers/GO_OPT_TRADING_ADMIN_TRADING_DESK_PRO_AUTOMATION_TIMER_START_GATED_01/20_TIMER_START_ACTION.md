@@ -37,3 +37,7 @@ sudo systemctl start desk_pro_dry_run.service
 - trade: NO
 - webhook: NO
 - Telegram: NO
+
+## RISKS
+
+- À qualifier.

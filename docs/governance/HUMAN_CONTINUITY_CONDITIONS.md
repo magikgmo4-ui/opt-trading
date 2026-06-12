@@ -96,3 +96,7 @@ Elle doit aussi rendre visibles :
 
 Bloc humain complémentaire.
 À utiliser comme référence de conditions de validité de la continuité, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

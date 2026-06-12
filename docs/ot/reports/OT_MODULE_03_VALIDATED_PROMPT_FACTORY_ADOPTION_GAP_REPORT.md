@@ -12,3 +12,7 @@ Date (America/Montreal) : 2026-03-14
 - Intégration lourde dans `ops_menu_hub`.
 - Ajout de nouveaux modes ou nouvelle API.
 
+
+## RISKS
+
+- À qualifier.

@@ -7,3 +7,7 @@ Regles :
 - utiliser `docs/ot/trae/trae_pack_texts/README.md` comme point d'entree vivant
 - en cas de conflit, `workflow_ai/`, le starter pack, le kanban, `docs/ot/*` et `registry/*` priment
 - certains chemins absolus internes sont historiques et peuvent etre stale
+
+## RISKS
+
+- À qualifier.

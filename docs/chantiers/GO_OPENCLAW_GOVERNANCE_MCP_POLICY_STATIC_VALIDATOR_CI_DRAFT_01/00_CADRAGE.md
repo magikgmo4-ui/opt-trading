@@ -175,3 +175,7 @@ If an active workflow, runtime touch, secret read, network call, global index ed
 ```text
 BLOCKED_WITH_REASON
 ```
+
+## RISKS
+
+- À qualifier.

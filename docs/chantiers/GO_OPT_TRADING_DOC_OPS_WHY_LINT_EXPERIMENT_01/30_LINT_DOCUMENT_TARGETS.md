@@ -35,3 +35,7 @@ Le lint doit prioriser:
 ## Invariant
 
 Le lint WHY ne doit jamais inferer une criticite runtime non documentee.
+
+## RISKS
+
+- À qualifier.

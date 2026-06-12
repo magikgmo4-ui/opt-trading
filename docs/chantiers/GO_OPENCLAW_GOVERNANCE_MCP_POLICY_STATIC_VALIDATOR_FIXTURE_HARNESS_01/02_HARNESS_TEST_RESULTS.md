@@ -128,3 +128,7 @@ Future closeouts should preserve the total fixture count and mismatch count as r
 ## 19_TO_REMEMBER
 
 `PASS_FIXTURE_HARNESS` is static test evidence, not runtime policy approval.
+
+## RISKS
+
+- À qualifier.

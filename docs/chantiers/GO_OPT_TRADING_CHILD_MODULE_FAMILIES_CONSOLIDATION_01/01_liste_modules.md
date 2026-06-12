@@ -170,3 +170,7 @@ links:
 
 ## Point de reprise
 Passer a `02_ensembles_a_consolider.md` pour distinguer ce qui doit etre consolide, coordonne ou laisse separe.
+
+## RISKS
+
+- À qualifier.

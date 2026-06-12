@@ -49,3 +49,7 @@ Puis `GOLD_CFD_LONG` (P2) → `range_strategy_v1` (P3) → `btc_coinm_accumulati
 | 1 | `SMC_ICT_CHOCH_BOS_RETEST` | CANDIDATE |
 | 2 | `xau_session_open_v1` | CANDIDATE |
 | 3 | `COINM_SHORT` | CANDIDATE |
+
+## RISKS
+
+- À qualifier.

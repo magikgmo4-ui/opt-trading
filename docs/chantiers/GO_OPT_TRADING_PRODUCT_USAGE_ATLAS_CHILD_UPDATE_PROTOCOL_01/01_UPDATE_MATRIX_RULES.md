@@ -327,3 +327,7 @@ E3. Une PR sans closeout (merge direct)
 Toute PR qui change l'état d'un produit doit déclencher la chaîne de mise à jour.
 Les commits de mise à jour sont tracés par référence à la PR source.
 ```
+
+## RISKS
+
+- À qualifier.

@@ -96,3 +96,7 @@ PR body résumé :
 - Recorded source usage, machine-state proof handling, export report, and gaps
 - Scope : doc-only
 - No runtime, no modules/, no admin-trading, no TradingView MCP, no global index changes
+
+## RISKS
+
+- À qualifier.

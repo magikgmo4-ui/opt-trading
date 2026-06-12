@@ -48,3 +48,7 @@ G2. état du legacy perf/perf.db (constat complémentaire)
 G3. preuve que les launchers utilisent réellement la DB canonique
 G4. preuve d'absence d'écritures résiduelles sur perf/perf.db
 ```
+
+## RISKS
+
+- À qualifier.

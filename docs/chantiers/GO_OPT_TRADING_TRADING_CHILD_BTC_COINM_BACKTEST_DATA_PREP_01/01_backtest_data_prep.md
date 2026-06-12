@@ -588,3 +588,7 @@ Le backtest réel pourra s'exécuter sur ces données avec les formules figées.
 Avant RUNTIME, les PAPER_LOCKED doivent devenir API_VERIFIED.
 Avant LIVE, risque de liquidation réel + connexion exchange = revue complète obligatoire.
 ```
+
+## RISKS
+
+- À qualifier.

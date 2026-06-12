@@ -87,3 +87,7 @@ GO diagnostic ouvert apres #521 mergee.
 NEXT:
 Lire 10_BASELINE_TTY_PATH_SOCKET_SHELL.md puis 20_TMUX_MINIMAL_ISOLATED_PROBES.md.
 ```
+
+## RISKS
+
+- À qualifier.

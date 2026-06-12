@@ -14,3 +14,7 @@ Identifier les routines réelles utilisées par les opérateurs et le système.
 ## 4. CONCLUSION
 L'usage quotidien est possible mais fragmenté.
 L'opérateur doit connaître plusieurs commandes distinctes (`menu-ops_menu_hub`, `menu-validated_prompt_factory`) au lieu d'une seule.
+
+## RISKS
+
+- À qualifier.

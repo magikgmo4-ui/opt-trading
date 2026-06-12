@@ -62,3 +62,7 @@ Conclusion :
 - le blocage Git actif desk-pro est leve
 - `admin-trading:/opt/trading` est sur une base canonique
 - la requalification `tmux-ide` peut etre jugee sur son etat technique propre
+
+## RISKS
+
+- À qualifier.

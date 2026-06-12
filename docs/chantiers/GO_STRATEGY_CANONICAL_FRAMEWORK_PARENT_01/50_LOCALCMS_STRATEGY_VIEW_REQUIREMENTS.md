@@ -160,3 +160,7 @@ does not send Telegram
 does not write Sheets
 does not expose secrets
 ```
+
+## RISKS
+
+- À qualifier.

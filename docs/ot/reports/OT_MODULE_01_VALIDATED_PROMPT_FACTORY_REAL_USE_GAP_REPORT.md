@@ -16,3 +16,7 @@ Date (America/Montreal) : 2026-03-14
 - **Impact** : sur poste Windows, l’usage “réel” passe par l’appel direct du script Python.
 - **Point à confirmer** : parcours complet via wrappers sur machine Linux cible.
 
+
+## RISKS
+
+- À qualifier.

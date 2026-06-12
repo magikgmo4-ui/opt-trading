@@ -51,3 +51,7 @@ G5. strategy de rollback testee sur papier
 ```text
 GO_OPT_TRADING_VISION_RUNTIME_CONSOLIDATION_IMPL_01
 ```
+
+## RISKS
+
+- À qualifier.

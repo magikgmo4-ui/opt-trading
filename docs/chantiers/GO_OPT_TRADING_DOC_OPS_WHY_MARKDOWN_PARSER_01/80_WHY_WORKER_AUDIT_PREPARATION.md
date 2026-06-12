@@ -46,3 +46,7 @@ Avant implementation reelle du worker:
 - stabiliser les conventions markdown WHY,
 - stabiliser les classes R0-R5,
 - stabiliser la governance WHY.
+
+## RISKS
+
+- À qualifier.

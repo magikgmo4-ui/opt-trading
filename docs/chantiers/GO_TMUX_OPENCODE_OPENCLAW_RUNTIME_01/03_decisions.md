@@ -120,3 +120,7 @@ GO_RUNTIME_REMOTE_CONTROL_READ_STATUS_IMPL_01
 ### Point de reprise unique
 
 docs/chantiers/GO_TMUX_OPENCODE_OPENCLAW_RUNTIME_01/03_decisions.md
+
+## RISKS
+
+- À qualifier.

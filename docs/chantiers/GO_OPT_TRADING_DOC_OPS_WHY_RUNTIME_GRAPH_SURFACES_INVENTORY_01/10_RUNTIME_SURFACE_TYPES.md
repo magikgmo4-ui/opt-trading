@@ -39,3 +39,7 @@ Typologie retenue pour ce GO :
 ## 17_RESUME_POINT
 
 Le futur GO d'integration LocalCMS/TMUX devra partir de cette taxonomie pour relier consumers, runtime spine et artefacts sans confondre leurs roles.
+
+## RISKS
+
+- À qualifier.

@@ -108,3 +108,7 @@ Elle doit aussi rester :
 
 Bloc humain complémentaire.
 À utiliser comme référence de continuité sur le temps long, sans le substituer aux closeouts, index, reprises ni à la compaction.
+
+## RISKS
+
+- À qualifier.

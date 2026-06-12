@@ -16,3 +16,7 @@ L'état réel du runtime `student` a été explicitement documenté et verrouill
 Le risque de confusion entre le code legacy actif et le module incomplet est neutralisé par la documentation.
 Aucune migration risquée n'a été tentée.
 Aucun wrapper distant spéculatif n'a été créé.
+
+## RISKS
+
+- À qualifier.

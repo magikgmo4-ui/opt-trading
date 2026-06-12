@@ -61,3 +61,7 @@ Fiche courte de lignée pour la famille vision (`bot_vision`, `bot_vision_step2`
 ## Reprise
 - reprise immédiate documentée dans `GO_OPT_TRADING_CHILD_MODULE_FAMILIES_CONSOLIDATION_01`
 - arbitrage structurel final à reprendre plus loin dans `VISION_FAMILY_SURVIVOR_DECISION` si un survivant unique doit être matérialisé
+
+## RISKS
+
+- À qualifier.

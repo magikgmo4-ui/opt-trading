@@ -6,3 +6,7 @@
 - architecture definie
 - bridge Hermes ↔ OpenClaw initialise
 - documentation initiale committee
+
+## RISKS
+
+- À qualifier.

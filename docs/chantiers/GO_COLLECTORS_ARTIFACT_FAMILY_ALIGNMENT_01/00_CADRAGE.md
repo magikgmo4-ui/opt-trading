@@ -52,3 +52,7 @@ EXCLUS : changement runtime, suppression d’artefacts legacy, schema unificatio
 - 0 suppression legacy outputs
 - 0 changement de semantics derives
 ```
+
+## RISKS
+
+- À qualifier.

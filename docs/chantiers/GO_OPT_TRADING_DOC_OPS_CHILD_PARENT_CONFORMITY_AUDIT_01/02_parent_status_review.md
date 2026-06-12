@@ -80,3 +80,7 @@ Le seul ecart confirme au demarrage de ce lot est documentaire :
 - `GO_INDEX.md`, `NEXT_GO_CANDIDATES.md`, `ACTIVE_STREAMS.md` et `REPRISE.md` pointaient encore vers `GO_OPT_TRADING_DOC_OPS_CHILD_PARENT_OPENING_BATCH_01` comme action courante malgre le merge de PR #182.
 
 Cet ecart est corrige dans le present lot. Aucun ecart de branche significatif ne justifie une modification de `BRANCH_STATE.md`.
+
+## RISKS
+
+- À qualifier.

@@ -41,3 +41,7 @@ trading_realtime_v1 → signal_router → proposition_engine → notification_di
 ## Prochaine étape recommandée
 
 Raccorder `notification_dispatcher` (validation `strategy_id` dans les événements reçus, warning-only/read-only).
+
+## RISKS
+
+- À qualifier.

@@ -12,3 +12,7 @@ Date (America/Montreal) : 2026-03-14
 ## RÉSERVES (NON BLOQUANTES)
 - `menu-validated_prompt_factory` non testé (interactif).
 
+
+## RISKS
+
+- À qualifier.

@@ -335,3 +335,7 @@ Le futur validator devra documenter les conversions `none` -> `null`, les tablea
 ## 19_TO_REMEMBER
 
 JSON equivalent ne signifie pas runtime-ready. Sans validator et gate dedies, ce mapping reste une documentation.
+
+## RISKS
+
+- À qualifier.

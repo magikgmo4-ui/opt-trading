@@ -126,3 +126,7 @@ from modules.desk_pro.signal_event_adapter import (
     payload_hash,               # V0 dict → str (SHA-256)
 )
 ```
+
+## RISKS
+
+- À qualifier.

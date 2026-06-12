@@ -62,3 +62,7 @@ Checks:
 
 Removed scenario positions: ETH/USDT, BTC/USDT
 Remaining: BTCUSDT, PERFTEST1, PERFTEST2 (pre-existing)
+
+## RISKS
+
+- À qualifier.

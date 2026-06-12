@@ -229,3 +229,7 @@ If any executable file, active YAML/JSON, runtime binding, global index edit, or
 ```text
 BLOCKED_WITH_REASON
 ```
+
+## RISKS
+
+- À qualifier.

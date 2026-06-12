@@ -30,3 +30,7 @@ surface: doc-only / registry-only
 
 Tous les 5 candidats STRATEGY_CANDIDATE identifiés par PR #540 sont maintenant registrés.
 Prochaine étape : consolidation `modules/strategy/` ou activation runtime d'un candidat.
+
+## RISKS
+
+- À qualifier.

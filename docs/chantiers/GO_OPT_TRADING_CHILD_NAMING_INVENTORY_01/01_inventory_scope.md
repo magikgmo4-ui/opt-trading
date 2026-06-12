@@ -53,3 +53,7 @@ links:
 ## Rapports bruts generes
 - `modules/naming_normalizer/output/naming_audit_report.md`
 - `modules/naming_normalizer/output/naming_audit_report.json`
+
+## RISKS
+
+- À qualifier.

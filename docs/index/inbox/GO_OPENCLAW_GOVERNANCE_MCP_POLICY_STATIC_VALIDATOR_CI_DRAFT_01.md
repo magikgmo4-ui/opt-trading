@@ -100,3 +100,7 @@ Future activation must cite `GATE_CI_ACTIVATION`.
 ## 19_TO_REMEMBER
 
 This inbox entry is local continuity only, not a global index update.
+
+## RISKS
+
+- À qualifier.

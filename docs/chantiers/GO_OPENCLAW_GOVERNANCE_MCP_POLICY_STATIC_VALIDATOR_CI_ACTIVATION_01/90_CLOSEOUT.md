@@ -142,3 +142,7 @@ If a later GO pushes this branch, it must cite this closeout as the local creati
 ## 19_TO_REMEMBER
 
 This GO ends at local activation evidence, not at remote execution evidence.
+
+## RISKS
+
+- À qualifier.

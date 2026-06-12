@@ -43,3 +43,7 @@ openclaw agent --to +15555550123 --message "Reply exactly: OK" --json --timeout 
 | Response | Timeout (60.9s) |
 
 Tools support confirmed (no rejection). Model accepts full system prompt. Timeout is CPU inference limitation (~61s for 3B model with 30K char prompt + 24 tools). Config timeout increase (`agents.defaults.timeoutSeconds`) could resolve.
+
+## RISKS
+
+- À qualifier.

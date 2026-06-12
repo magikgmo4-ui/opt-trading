@@ -127,3 +127,7 @@ Les suites doivent rester pilotées par les besoins réels de continuité produi
 ## Statut
 
 **PASS — dossier chantier dédié minimal désormais ouvert en rattachement d’un GO déjà canonisé**
+
+## RISKS
+
+- À qualifier.

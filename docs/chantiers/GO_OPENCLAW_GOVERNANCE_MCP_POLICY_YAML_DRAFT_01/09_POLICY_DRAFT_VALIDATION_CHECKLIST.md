@@ -127,3 +127,7 @@ Future validator docs should explain how each checklist row maps to a parser che
 ## 19_TO_REMEMBER
 
 Checklist pass is documentation quality, not runtime permission.
+
+## RISKS
+
+- À qualifier.

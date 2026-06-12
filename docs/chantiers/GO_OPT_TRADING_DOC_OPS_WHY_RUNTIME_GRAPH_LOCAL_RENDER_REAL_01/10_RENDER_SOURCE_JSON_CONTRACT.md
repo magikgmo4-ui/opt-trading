@@ -63,3 +63,7 @@ Le rendu local ne doit pas charger :
 ## 17_RESUME_POINT
 
 Le premier render local part d'un JSON deja valide et ne reconstruit pas le graph depuis le repo.
+
+## RISKS
+
+- À qualifier.

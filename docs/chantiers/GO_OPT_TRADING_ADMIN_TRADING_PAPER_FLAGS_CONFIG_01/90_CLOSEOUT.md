@@ -46,3 +46,7 @@ Paper flags configured on `admin-trading:/opt/trading`. `GET /api/paper/guards` 
 ## Next Steps
 
 Guards are now `ok: true`. PAPER_TEST retry is now permitted. Next GO should be a controlled PAPER_TEST execution with full monitoring.
+
+## RISKS
+
+- À qualifier.

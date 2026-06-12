@@ -198,3 +198,7 @@ Verdict :
 ```text
 PASS_DOC_ONLY
 ```
+
+## RISKS
+
+- À qualifier.

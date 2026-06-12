@@ -68,3 +68,7 @@ PASS
 
 ## Next GO recommande
 - `GO_OPT_TRADING_UI_LOCALCMS_DB_LAYER_CONSUMER_REALIGNMENT_01`
+
+## RISKS
+
+- À qualifier.

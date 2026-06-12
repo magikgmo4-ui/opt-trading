@@ -40,3 +40,7 @@ Le meme score WHY ne doit pas etre interprete de la meme facon selon la criticit
 ## Invariant
 
 Le score WHY doit toujours etre contextualise par la criticite runtime.
+
+## RISKS
+
+- À qualifier.

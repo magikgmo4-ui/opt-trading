@@ -50,3 +50,7 @@ links:
 
 ## Suite
 Si un nouveau lot naming est ouvert, il doit viser l'arbitrage de closeout du parent naming a partir du present inventaire et non un apply batch de renommage.
+
+## RISKS
+
+- À qualifier.

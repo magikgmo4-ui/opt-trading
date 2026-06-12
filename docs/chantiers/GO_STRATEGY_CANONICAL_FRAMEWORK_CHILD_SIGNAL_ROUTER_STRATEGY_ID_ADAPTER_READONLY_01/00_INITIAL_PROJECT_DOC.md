@@ -33,3 +33,7 @@ Valider les `strategy_id` entrants dans `signal_router` via `modules.strategy.ad
 ### 4_RESUME_POINT
 
 Trading realtime raccordé. Prochaine frontière : signal_router.
+
+## RISKS
+
+- À qualifier.

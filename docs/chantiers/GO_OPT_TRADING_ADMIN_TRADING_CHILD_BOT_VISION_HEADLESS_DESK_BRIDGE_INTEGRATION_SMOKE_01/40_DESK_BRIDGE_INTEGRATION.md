@@ -43,3 +43,7 @@ Quadrants generes:
 
 **PASS** — desk_bridge integre les captures headless sans erreur.
 Le pipeline crop 2x2 vers Desk Pro est fonctionnel en automatique.
+
+## RISKS
+
+- À qualifier.

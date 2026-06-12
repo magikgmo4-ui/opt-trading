@@ -34,3 +34,7 @@ def route(raw: Mapping[str, Any]) -> NormalizedSignal:
 | `strategy_id` connu (ex: `xau_session_open_v1`) | Silence, aucun warning |
 | `strategy_id` inconnu (ex: `breakout_v2`) | Warning log, signal retourné normalement |
 | `strategy_id` absent (fallback engine) | Validé via le fallback |
+
+## RISKS
+
+- À qualifier.

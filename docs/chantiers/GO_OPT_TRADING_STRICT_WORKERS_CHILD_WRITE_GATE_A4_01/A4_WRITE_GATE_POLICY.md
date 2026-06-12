@@ -90,3 +90,7 @@ Avant d'autoriser le moindre write, le runner doit prouver qu'il REFUSE :
 - un job sur un index global
 - un job sans dry_run=true
 ```
+
+## RISKS
+
+- À qualifier.

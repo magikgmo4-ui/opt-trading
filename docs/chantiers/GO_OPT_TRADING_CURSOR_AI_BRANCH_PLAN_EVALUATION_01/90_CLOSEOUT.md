@@ -29,3 +29,7 @@
 ## Prochain GO
 
 Appliquer les decisions : GO_OPT_TRADING_CURSOR_AI_BRANCH_PLAN_APPLY_01
+
+## RISKS
+
+- À qualifier.

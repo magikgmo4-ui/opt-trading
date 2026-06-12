@@ -84,3 +84,7 @@ Aucun ecart structurel bloquant.
 ## Conclusion
 
 Le parent peut passer en CLOSED/PASS. Tous les objectifs du cadrage initial sont atteints.
+
+## RISKS
+
+- À qualifier.

@@ -71,3 +71,7 @@ Le draft exclut volontairement :
 ## 17_RESUME_POINT
 
 Utiliser ce draft comme entree de validation statique, puis lire la decision dans `40_GATE_DECISION.md`.
+
+## RISKS
+
+- À qualifier.

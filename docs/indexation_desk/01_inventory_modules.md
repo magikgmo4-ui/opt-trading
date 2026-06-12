@@ -104,3 +104,7 @@ Stable reference remains separate and should not be reopened except regression:
 
 ## Key finding
 The repo already contains most of the Desk Pro building blocks. The primary issue is not missing engines, but uneven operator exposure, naming consistency, and packaging across wrappers / menus / sanity entrypoints.
+
+## RISKS
+
+- À qualifier.

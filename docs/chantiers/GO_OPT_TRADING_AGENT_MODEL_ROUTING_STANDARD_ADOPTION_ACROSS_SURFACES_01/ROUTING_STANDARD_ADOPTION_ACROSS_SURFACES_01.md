@@ -34,3 +34,7 @@ Toute exécution agent, sur toute surface, DOIT :
 - Provider distant : pas encore configuré → REFUS pour tâche nécessitant format exact
 - GPU local : pas encore disponible → modèles lourds non viables
 - Machine distante : à valider séparément
+
+## RISKS
+
+- À qualifier.

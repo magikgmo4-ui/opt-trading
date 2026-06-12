@@ -45,3 +45,7 @@ Produire une revue documentaire approuvée, traçable et bornée, avec une déci
 ## 17_RESUME_POINT
 
 Reprendre à la rédaction de `01_DOC_PLAN_REVIEW_MATRIX.md`.
+
+## RISKS
+
+- À qualifier.

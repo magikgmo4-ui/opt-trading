@@ -52,3 +52,7 @@ Telegram → Botpress → [ADAPTER] → OpenClaw Gateway → student/LONA/Tradin
 ```
 docs/chantiers/GO_TRADING_BOTPRESS_OPENCLAW_ADAPTER_SPEC_01/00_CADRAGE.md
 ```
+
+## RISKS
+
+- À qualifier.

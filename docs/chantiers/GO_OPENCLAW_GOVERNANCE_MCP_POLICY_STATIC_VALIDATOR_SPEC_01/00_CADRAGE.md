@@ -259,3 +259,7 @@ unless documentation scope or git isolation fails, in which case:
 ```text
 BLOCKED_WITH_REASON
 ```
+
+## RISKS
+
+- À qualifier.

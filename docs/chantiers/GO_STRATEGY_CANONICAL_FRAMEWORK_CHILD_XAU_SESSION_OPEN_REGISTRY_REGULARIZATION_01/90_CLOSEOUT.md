@@ -78,3 +78,7 @@ Prochaine étape :
 - Créer modules/strategy/ si le modèle registré est stable
 - Ajouter nouvelles stratégies candidates
 ```
+
+## RISKS
+
+- À qualifier.

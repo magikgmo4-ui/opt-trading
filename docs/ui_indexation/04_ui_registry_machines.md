@@ -47,3 +47,7 @@ Avant de pousser une UI spécifique, il faut fixer clairement :
 - ce qui reste back-end sur `admin-trading`,
 - ce qui devient visible sur MSI,
 - ce qui reste dev-only sur Dell.
+
+## RISKS
+
+- À qualifier.

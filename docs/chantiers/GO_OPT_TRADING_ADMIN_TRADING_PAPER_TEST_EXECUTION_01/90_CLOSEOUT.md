@@ -64,3 +64,7 @@ git push -u origin go/GO_OPT_TRADING_ADMIN_TRADING_PAPER_TEST_EXECUTION_01
 ```
 
 PR titre: `docs: record admin-trading paper test execution`
+
+## RISKS
+
+- À qualifier.

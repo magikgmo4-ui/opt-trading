@@ -28,3 +28,7 @@
 - `perf/perf_app.py` : API perf + SQLite + UI `/perf/ui`
 - `adapters/webhook_to_perf.py` : mapping webhook → perf_event
 - `shared/telegram_notify.py` : notifications Telegram
+
+## RISKS
+
+- À qualifier.

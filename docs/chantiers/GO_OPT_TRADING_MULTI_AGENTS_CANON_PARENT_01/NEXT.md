@@ -74,3 +74,7 @@ La continuité locale est complète si les fichiers suivants existent :
 Aucun blocage runtime.
 
 Blocage technique partiel : les index globaux volumineux ne doivent pas être modifiés via connecteur si contenu tronqué ou risque de remplacement excessif.
+
+## RISKS
+
+- À qualifier.

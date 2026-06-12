@@ -54,3 +54,7 @@ Possibilites:
 ## Invariant
 
 Aucune CI active n'est introduite par ce document.
+
+## RISKS
+
+- À qualifier.

@@ -45,3 +45,7 @@ Suite directe de `GO_OPT_TRADING_ADMIN_TRADING_BRANCH_DOC_RECONCILIATION_01` (PA
 - Ne pas modifier BRANCH_STATE.md, GO_INDEX, ACTIVE_STREAMS, REPRISE
 - Une branche seule ne prouve pas un chantier actif
 - Ne pas exécuter de cleanup Git
+
+## RISKS
+
+- À qualifier.

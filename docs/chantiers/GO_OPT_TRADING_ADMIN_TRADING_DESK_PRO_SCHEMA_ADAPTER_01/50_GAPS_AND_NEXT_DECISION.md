@@ -62,3 +62,7 @@ Ce GO validera end-to-end que :
 1. L'adapter peut lire les events.jsonl réels
 2. Les V1 résultants sont valides
 3. Desk Pro peut consommer les V1 via desk_state ou directement
+
+## RISKS
+
+- À qualifier.

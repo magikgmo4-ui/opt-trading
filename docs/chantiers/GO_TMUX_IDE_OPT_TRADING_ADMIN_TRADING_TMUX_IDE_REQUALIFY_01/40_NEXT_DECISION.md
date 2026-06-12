@@ -45,3 +45,7 @@ Objectif :
 - identifier pourquoi `npx tmux-ide` tire `@opentui/core-darwin-arm64`
 - trouver une version ou une installation compatible Linux x64
 - seulement ensuite reprendre installation / `ide.yml` / doctor / validate
+
+## RISKS
+
+- À qualifier.

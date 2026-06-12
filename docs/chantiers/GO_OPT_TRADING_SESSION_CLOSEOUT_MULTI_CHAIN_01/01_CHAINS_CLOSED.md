@@ -78,3 +78,7 @@ Documentation :
 Retrait différé :
   - scripts/student/ conservé pour compatibilité post_change.sh
 ```
+
+## RISKS
+
+- À qualifier.

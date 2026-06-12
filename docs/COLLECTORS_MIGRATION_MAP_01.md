@@ -142,3 +142,7 @@ Expected result:
 ## Next trigger
 
 GO_COLLECTORS_BASELINE_INVENTORY_01
+
+## RISKS
+
+- À qualifier.

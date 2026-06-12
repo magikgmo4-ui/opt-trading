@@ -47,3 +47,7 @@ Le repo dispose maintenant d'une base documentaire complete pour preparer:
 ## Invariant final
 
 Le prototype WHY/runtime ne doit jamais devenir une orchestration runtime autonome ni remplacer une validation humaine critique.
+
+## RISKS
+
+- À qualifier.

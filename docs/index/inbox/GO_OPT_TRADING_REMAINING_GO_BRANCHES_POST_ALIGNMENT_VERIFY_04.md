@@ -31,3 +31,7 @@ Vérification post-alignement documentaire après merge de PR #177.
 ## Point de reprise
 
 Lire `02_post_alignment_summary.md`, puis décider les corrections restantes séparément.
+
+## RISKS
+
+- À qualifier.

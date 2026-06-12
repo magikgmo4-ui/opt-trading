@@ -67,3 +67,7 @@ Un lot enfant supplementaire n'est justifie que si l'objectif devient :
 - soit garder le parent ouvert comme synthese de reference
 - soit produire un closeout parent si cette profondeur est jugee suffisante
 - soit ouvrir un enfant cible sur `modules/` ou `scripts/` si un besoin plus fin est prouve
+
+## RISKS
+
+- À qualifier.

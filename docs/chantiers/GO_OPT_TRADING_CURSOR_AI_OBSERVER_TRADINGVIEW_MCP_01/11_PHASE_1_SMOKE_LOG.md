@@ -79,3 +79,7 @@ Fichier créé : `C:\Users\ghost\.claude\.mcp.json`
 **PARTIAL** — L'infrastructure MCP est installée et fonctionnelle. Le serveur tradingview-mcp démarre. Seul le runtime TradingView Desktop manque sur cursor-ai pour activer les smokes CDP.
 
 Prochaine étape : installer TradingView Desktop → relancer smoke Phase 1 → passer à la Phase 2.
+
+## RISKS
+
+- À qualifier.

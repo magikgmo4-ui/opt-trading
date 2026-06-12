@@ -110,3 +110,7 @@ Future CI activation closeout must include the exact workflow path, commit hash,
 ## 19_TO_REMEMBER
 
 CI is a preflight safety check. It is not a runtime gate approval and not a policy loader.
+
+## RISKS
+
+- À qualifier.

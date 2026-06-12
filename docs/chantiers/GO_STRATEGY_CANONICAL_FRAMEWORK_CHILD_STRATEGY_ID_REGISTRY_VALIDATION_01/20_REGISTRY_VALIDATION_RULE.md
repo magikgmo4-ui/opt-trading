@@ -70,3 +70,7 @@ Phase 4 (futur)  : GIT_HOOK — pre-commit validation
 - Ne bloque pas le runtime
 - Ne couvre pas les strategy_id générés dynamiquement (aucun identifié)
 ```
+
+## RISKS
+
+- À qualifier.

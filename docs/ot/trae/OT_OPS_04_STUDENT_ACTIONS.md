@@ -21,3 +21,7 @@ Pour l'instant, l'opérateur sur `student` doit utiliser :
 ## 4. ACTION WRAPPER DISTANT (NON REQUISE)
 - La création de `cmd-student_daily_report` sur `admin-trading` est **reportée sine die**.
 - L'accès SSH interactif reste la méthode privilégiée pour l'instant.
+
+## RISKS
+
+- À qualifier.

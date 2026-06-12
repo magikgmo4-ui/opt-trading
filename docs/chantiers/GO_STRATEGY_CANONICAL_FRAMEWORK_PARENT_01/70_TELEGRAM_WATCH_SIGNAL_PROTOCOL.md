@@ -143,3 +143,7 @@ ObservationEvent -> journal daily -> LocalCMS / Telegram / Perf Engine
 ```
 
 Telegram est uniquement un consumer de notification.
+
+## RISKS
+
+- À qualifier.

@@ -43,3 +43,7 @@ Expected: `ok: false` with same guard states as BEFORE.
 ## Risk
 
 Low. Changes are configuration-only, no code changes, no live trading impact.
+
+## RISKS
+
+- À qualifier.

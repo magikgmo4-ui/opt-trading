@@ -109,3 +109,7 @@ Reprise a partir d'un etat clos pour ces deux GO. En cas de revalidation future,
 - REPRISE
 - MEM_CANDIDATE
 - NO_MEMORY
+
+## RISKS
+
+- À qualifier.

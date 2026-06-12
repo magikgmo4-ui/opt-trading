@@ -36,3 +36,7 @@ Preparer l'integration future du WHY lint experimental avec le worker WHY reel.
 ## Invariant
 
 Le lint WHY ne doit jamais devenir un worker runtime autonome.
+
+## RISKS
+
+- À qualifier.

@@ -224,3 +224,7 @@ Le travail suivant porte seulement sur :
 - le classement des branches réelles
 - l’exécution contrôlée du lot `DELETE_NOW`
 - ou l’extraction en Skill si ce besoin devient stable et récurrent
+
+## RISKS
+
+- À qualifier.

@@ -45,3 +45,7 @@ Formaliser la machine d'etats du futur worker d'audit WHY.
 - PARTIAL doit etre explicite.
 - REVIEW_READY ne signifie pas validation runtime.
 - Aucun etat ne declenche APPLY.
+
+## RISKS
+
+- À qualifier.

@@ -43,3 +43,7 @@ Stack d'observabilité daily session :
 - No automatic Sheets write
 - Controlled-write manuel uniquement
 - LocalCMS read-only
+
+## RISKS
+
+- À qualifier.

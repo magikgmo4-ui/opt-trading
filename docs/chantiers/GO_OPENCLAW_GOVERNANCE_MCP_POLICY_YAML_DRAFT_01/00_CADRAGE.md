@@ -208,3 +208,7 @@ Le point de vigilance operationnel est le staging borne : ne pas utiliser `git a
 ## 19_TO_REMEMBER
 
 Le draft YAML/JSON MCP Policy est une specification, pas une policy active. Toute action absente du draft est bloquee par defaut, et toute action `NEVER_ALLOWED` reste sans approval path dans la frontiere MCP.
+
+## RISKS
+
+- À qualifier.

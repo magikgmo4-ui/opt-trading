@@ -43,3 +43,7 @@
 ## Gaps restants
 - Aucun besoin de requalifier `state_dir` comme cause primaire a ce stade.
 - Aucun besoin d'activer un orchestrator supplementaire dans cette passe.
+
+## RISKS
+
+- À qualifier.

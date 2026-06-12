@@ -38,3 +38,7 @@ Objectif :
 - distinguer `ACTIVE`, `REFERENCE` et eventuels `DROP_MERGED`
 - inclure les branches OpenClaw closes/references absentes du bloc actuel
 - toujours sans runtime ni cleanup
+
+## RISKS
+
+- À qualifier.

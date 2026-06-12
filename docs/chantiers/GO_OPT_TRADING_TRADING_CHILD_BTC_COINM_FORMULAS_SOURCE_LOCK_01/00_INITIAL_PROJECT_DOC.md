@@ -194,3 +194,7 @@ Portée : documentation + contrats + calculs papier uniquement.
 Prochaine action : validation utilisateur, puis création 01_formulas_source_lock.md.
 BACKTEST_DATA_PREP_01 ne sera ouvert qu'après PASS de ce child.
 ```
+
+## RISKS
+
+- À qualifier.

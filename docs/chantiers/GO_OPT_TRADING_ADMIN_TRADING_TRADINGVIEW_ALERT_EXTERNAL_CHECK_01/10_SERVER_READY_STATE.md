@@ -77,3 +77,7 @@ Le serveur est dans l'état attendu : **prêt à recevoir**, sans dégradation c
 La cause du silence est côté TradingView, pas côté `admin-trading`.
 
 Aucun restart, aucune modification runtime exécutés dans ce GO.
+
+## RISKS
+
+- À qualifier.

@@ -125,3 +125,7 @@ On ne passe à la phase suivante (écran réseau / reprise API large) qu’une f
 
 ## Conclusion
 La structure cible n’est pas un grand refactor. C’est une **rationalisation de l’existant** pour rendre le desk réellement exploitable, compréhensible et extensible sans chaos.
+
+## RISKS
+
+- À qualifier.

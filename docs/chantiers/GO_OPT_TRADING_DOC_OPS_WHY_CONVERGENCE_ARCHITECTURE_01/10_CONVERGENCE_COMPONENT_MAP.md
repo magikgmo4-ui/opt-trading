@@ -36,3 +36,7 @@ Definir les composants convergents de l'architecture WHY.
 ## Invariant
 
 La convergence WHY ne doit jamais produire d'autorite runtime autonome.
+
+## RISKS
+
+- À qualifier.

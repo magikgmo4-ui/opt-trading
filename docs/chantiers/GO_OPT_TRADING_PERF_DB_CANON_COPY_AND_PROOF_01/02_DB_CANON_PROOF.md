@@ -47,3 +47,7 @@ PROUVÉ
 La DB legacy existe encore et est préservée.
 Elle ne sera pas retirée dans ce GO.
 ```
+
+## RISKS
+
+- À qualifier.

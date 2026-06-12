@@ -35,3 +35,7 @@ links:
 | Ecarts restants classes | OUI | classification `CANON / LEGACY_TOLERE / A_CORRIGER_PLUS_TARD / REVIEW_REQUIRED / REFERENCE_ONLY` | reliquats non ambigus |
 | Apply batch immediat requis | NON | lot futur optionnel seulement | non bloquant pour le parent |
 | Index alignables sans ambiguite | OUI | parent seul encore ouvert dans le bloc naming | patch minimal suffisant |
+
+## RISKS
+
+- À qualifier.

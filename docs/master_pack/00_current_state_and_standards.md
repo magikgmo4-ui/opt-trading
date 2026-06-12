@@ -78,3 +78,7 @@ Pour clarifier l'usage des multiples scripts "desk_pro" :
   - Ne pas déplacer automatiquement les cas ambigus/sensibles.
 - **Sous-dossiers canoniques** : `_bundles/` (zips), `_ops/` (scripts), `_refs/` (références), `_archives/` (anciens/doublons).
 - **UX minimale (Linux)** : `cmd-shared ls|get|put|cat|status|path` (module `shared`).
+
+## RISKS
+
+- À qualifier.

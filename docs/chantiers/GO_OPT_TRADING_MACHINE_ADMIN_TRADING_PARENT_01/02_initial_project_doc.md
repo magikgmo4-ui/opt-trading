@@ -39,3 +39,7 @@ Le parent `GO_OPT_TRADING_MACHINE_ADMIN_TRADING_PARENT_01` couvre la machine `ad
 - aucune migration SSH supplementaire ;
 - aucune ouverture d'enfant dans ce lot ;
 - aucune decision de branche dedicatee dans `BRANCH_STATE.md`.
+
+## RISKS
+
+- À qualifier.

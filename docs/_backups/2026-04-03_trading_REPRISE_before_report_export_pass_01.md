@@ -45,3 +45,7 @@ Suite recommandée immédiate : ouvrir une passe **report export** pour produire
 
 ## FORMULE COURTE
 Reprendre depuis les docs `docs/ot/trading/`, les fichiers `schemas/`, puis `modules/trading_lab_v1/`, et ouvrir la passe report export LAB avant toute implémentation REAL-TIME.
+
+## RISKS
+
+- À qualifier.

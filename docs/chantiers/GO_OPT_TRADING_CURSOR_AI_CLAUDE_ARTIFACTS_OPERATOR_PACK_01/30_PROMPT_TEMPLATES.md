@@ -59,3 +59,7 @@ Tu peux lire et synthetiser.
 Tu ne modifies aucun fichier, aucune branche, aucune PR, aucun document Drive, aucun calendrier, aucune tache.
 Toute action d'ecriture doit etre proposee comme TODO et attendre un GO explicite.
 ```
+
+## RISKS
+
+- À qualifier.

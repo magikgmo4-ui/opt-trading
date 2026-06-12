@@ -103,3 +103,7 @@ Note: erreurs `URLError: timed out` observées dans les logs (réseau).
 | desk_bridge service | inactive (success last run) | non |
 
 Le pipeline headless est **rompu** au niveau capture (playwright non installé), mais le fallback ShareX via `vision_bot` + `desk_bridge` fonctionne.
+
+## RISKS
+
+- À qualifier.

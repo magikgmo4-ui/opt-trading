@@ -41,3 +41,7 @@ doisvent garder:
 ## Invariant
 
 Aucune implementation reelle WHY runtime graph ne doit contourner la governance humaine.
+
+## RISKS
+
+- À qualifier.

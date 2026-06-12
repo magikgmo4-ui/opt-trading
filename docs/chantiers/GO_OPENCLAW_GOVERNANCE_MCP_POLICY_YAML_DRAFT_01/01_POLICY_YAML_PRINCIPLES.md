@@ -146,3 +146,7 @@ Les futurs travaux devront documenter :
 ## 19_TO_REMEMBER
 
 Un fichier ressemblant a une policy n'est pas une policy active. La promotion vers runtime exige un GO distinct, un gate humain, des traces et des evals.
+
+## RISKS
+
+- À qualifier.

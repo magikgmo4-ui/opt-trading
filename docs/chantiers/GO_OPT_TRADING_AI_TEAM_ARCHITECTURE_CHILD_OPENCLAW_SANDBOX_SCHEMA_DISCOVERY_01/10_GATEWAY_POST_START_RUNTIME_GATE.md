@@ -163,3 +163,7 @@ Rôle :
 3. Si OK : lancer le test builder ;
 4. Si builder OK : statuer `RUNTIME_BUILDER_ALIVE` ;
 5. Si KO à n'importe quelle étape : documenter le blocage.
+
+## RISKS
+
+- À qualifier.

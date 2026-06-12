@@ -98,3 +98,7 @@ Si une suite est demandee un jour :
   - ne rien faire
   - ajuster minimalement
   - ou ouvrir un nouveau lot borne
+
+## RISKS
+
+- À qualifier.

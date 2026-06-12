@@ -49,3 +49,7 @@ Paper test cycle complete:
 4. Position closed ✓
 
 Ready for additional paper test scenarios or production validation.
+
+## RISKS
+
+- À qualifier.

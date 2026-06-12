@@ -48,3 +48,7 @@ Date (America/Montreal) : 2026-03-14
 ## 6. VERDICT
 **PASS** : doctrine starter pack finalisée, hiérarchisée, non redondante.
 
+
+## RISKS
+
+- À qualifier.

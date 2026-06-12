@@ -49,3 +49,7 @@ if os.path.basename(src).endswith(".uploading"):
 | PNG 0-byte | SKIP (silencieux, exit 0) |
 | .uploading | SKIP (silencieux, exit 0) |
 | Pas de PNG | exit 2 (comportement existant) |
+
+## RISKS
+
+- À qualifier.
