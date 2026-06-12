@@ -323,6 +323,73 @@ function writeBlockedSidecar(baseJson, profile, options, blockedReason, errorMes
 }
 
 // ── Capture ─────────────────────────────────────────────
+
+// ── DOM Data Extraction ────────────────────────────────────
+async function extractDomData(page, source, symbol) {
+  try {
+    if (source === 'yahoo_finance') {
+      return await page.evaluate((sym) => {
+        var r = {};
+        var priceEl = document.querySelector('[data-testid="qsp-price"]');
+        if (priceEl) r.price = priceEl.innerText.trim();
+        var chgEl = document.querySelector('[data-testid="qsp-price-change"]');
+        if (chgEl) r.change = chgEl.innerText.trim();
+        var pctEl = document.querySelector('[data-testid="qsp-price-change-percent"]');
+        if (pctEl) r.changePercent = pctEl.innerText.trim();
+        var streams = document.querySelectorAll('fin-streamer[data-symbol="' + sym + '"]');
+        streams.forEach(function(el) {
+          var field = el.getAttribute('data-field');
+          if (field) r[field] = el.innerText.trim();
+        });
+        var prevEl = document.querySelector('[data-testid="PREV_CLOSE-value"]');
+        if (prevEl) r.previousClose = prevEl.innerText.trim();
+        var volEl = document.querySelector('[data-testid="qsp-volume"]');
+        if (volEl) r.volume = volEl.innerText.trim();
+        return r;
+      }, symbol);
+    }
+
+    if (source === 'tradingview') {
+      return await page.evaluate(() => {
+        var r = {};
+        var bodyText = document.body ? document.body.innerText : '';
+        var ohlcMatch = bodyText.match(/O\s+([\d,.]+)\s+H\s+([\d,.]+)\s+L\s+([\d,.]+)\s+C\s+([\d,.]+)/);
+        if (ohlcMatch) {
+          r.open = ohlcMatch[1];
+          r.high = ohlcMatch[2];
+          r.low = ohlcMatch[3];
+          r.close = ohlcMatch[4];
+        }
+        var volMatch = bodyText.match(/Vol\s+([\d,.]+[KMB]?)/);
+        if (volMatch) r.volume = volMatch[1];
+        return r;
+      });
+    }
+
+    if (source === 'marketwatch') {
+      return await page.evaluate(() => {
+        var r = {};
+        var bodyText = document.body ? document.body.innerText.slice(0, 500) : '';
+        r.bodySnippet = bodyText;
+        return r;
+      });
+    }
+
+    if (source === 'sec') {
+      return await page.evaluate(() => {
+        var r = {};
+        var filings = document.querySelectorAll('table tbody tr');
+        r.filingCount = filings.length;
+        return r;
+      });
+    }
+
+    return {};
+  } catch (e) {
+    return { error: e.message };
+  }
+}
+
 async function captureOne(profile) {
   const { page_id: pageId, source, symbol, timeframe, url } = profile;
   if (!source || !url) {
@@ -510,6 +577,7 @@ async function captureOne(profile) {
       created_at_utc: new Date().toISOString(),
       png_path: pngPath,
       output_png: basePng,
+      dom_extracted: await extractDomData(page, source, symbol),
       output_json: baseJson
     };
 
