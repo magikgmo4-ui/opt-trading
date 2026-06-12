@@ -1,0 +1,2288 @@
+{
+  "input_class": "spacex_super_desk.v1",
+  "symbol": "SPCX",
+  "price": 135,
+  "ipo_price": 135,
+  "gap_vs_ipo_pct": 0.0,
+  "gap_vs_previous_close_pct": 0.0,
+  "relative_volume_estimate": null,
+  "scores": {
+    "momentum": 0,
+    "news_velocity": 0,
+    "sec_activity": 0,
+    "smart_money": 0,
+    "risk": 0,
+    "trade_ready": 0.15,
+    "accumulation": 0.9
+  },
+  "signals": [
+    "SPCX_ACCUMULATION_ZONE_WATCH"
+  ],
+  "latest_events": {
+    "yahoo_chart": {
+      "source": "yahoo_chart",
+      "ok": true,
+      "symbol": "SPCX",
+      "regular_market_price": 135,
+      "previous_close": 135,
+      "bars": [
+        {
+          "open": 135,
+          "high": 135,
+          "low": 135,
+          "close": 135,
+          "volume": 1000
+        }
+      ]
+    },
+    "sec_edgar": {
+      "source": "sec_edgar",
+      "ok": false,
+      "filings": [],
+      "offline": true
+    },
+    "yahoo_news_rss": {
+      "source": "yahoo_news_rss",
+      "ok": false,
+      "articles": [],
+      "offline": true
+    },
+    "bot_vision_adapter": {
+      "source": "bot_vision_adapter",
+      "collected_at": "2026-06-12T06:47:11.744358+00:00",
+      "ok": true,
+      "items": [
+        {
+          "path": "data/data_center/views/telegram_signals/trade_history/FXTradingVision_signals.json",
+          "mtime": 1781246820.0272226,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "contract": "telegram_trade_signal.v1",
+              "id": "trade_FXTradingVision_77372_2026-06-11T09:48:00+00:00",
+              "source": "telegram_screener_bridge",
+              "channel": "FXTradingVision",
+              "parsed_at": "2026-06-11T09:48:00+00:00",
+              "produced_at": "2026-06-11T10:00:13.873710+00:00",
+              "pair": "XAUUSD",
+              "asset": "XAUUSD",
+              "direction": "LONG",
+              "entry_price": 4094.0,
+              "sl": 4060.0,
+              "tp": 4098.0,
+              "tps": [
+                4098.0,
+                4099.0,
+                4130.0
+              ],
+              "leverage": null,
+              "raw_text": "**NEW TRADE IDEA\n**\nXAUUSD** BUY 4094\n**\nTP 1 4098\nTP 2 4099\nTP 3 4130\n\nSL @ 4060\n**\nTrade accordingly and only trade with money you can afford to LOSE.**"
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.spacex.v5.json",
+          "mtime": 1781246825.5352712,
+          "suffix": ".json",
+          "json_preview": {
+            "version": "v5",
+            "profile_id": "spacex_super_desk",
+            "cadence_minutes": 10,
+            "profiles": [
+              {
+                "id": "tradingview_spcx",
+                "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3ASPCX",
+                "tags": [
+                  "SPCX",
+                  "TradingView",
+                  "technical",
+                  "smart_money"
+                ]
+              },
+              {
+                "id": "yahoo_spcx",
+                "url": "https://finance.yahoo.com/quote/SPCX",
+                "tags": [
+                  "SPCX",
+                  "quote",
+                  "news"
+                ]
+              },
+              {
+                "id": "nasdaq_spcx",
+                "url": "https://www.nasdaq.com/market-activity/stocks/spcx",
+                "tags": [
+                  "SPCX",
+                  "nasdaq"
+                ]
+              },
+              {
+                "id": "sec_spacex",
+                "url": "https://data.sec.gov/submissions/CIK001181412.json",
+                "tags": [
+                  "SEC",
+                  "filings"
+                ]
+              },
+              {
+                "id": "space_sector_rklb",
+                "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3ARKLB",
+                "tags": [
+                  "sector",
+                  "RKLB"
+                ]
+              },
+              {
+                "id": "space_sector_asts",
+                "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3AASTS",
+                "tags": [
+                  "sector",
+                  "ASTS"
+                ]
+              },
+              {
+                "id": "halo_tsla",
+                "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3ATSLA",
+                "tags": [
+                  "halo",
+                  "TSLA"
+                ]
+              },
+              {
+                "id": "halo_nvda",
+                "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA",
+                "tags": [
+                  "halo",
+                  "NVDA"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.clean.json",
+          "mtime": 1780632140.7660837,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "page_id": "tv_btc_15m",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 100,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btc_1h",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "1h",
+              "capture_priority": 95,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btc_4h",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "4h",
+              "capture_priority": 90,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btc_1d",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "1d",
+              "capture_priority": 85,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_eth_15m",
+              "source": "tradingview",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 92,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=ETHUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_eth_1h",
+              "source": "tradingview",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "1h",
+              "capture_priority": 88,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=ETHUSDT.P&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_eth_4h",
+              "source": "tradingview",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "4h",
+              "capture_priority": 84,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=ETHUSDT.P&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_sol_15m",
+              "source": "tradingview",
+              "symbol": "SOLUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 74,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=SOLUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_sol_1h",
+              "source": "tradingview",
+              "symbol": "SOLUSDT.P",
+              "timeframe": "1h",
+              "capture_priority": 72,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=SOLUSDT.P&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xrp_15m",
+              "source": "tradingview",
+              "symbol": "XRPUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 71,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=XRPUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xrp_1h",
+              "source": "tradingview",
+              "symbol": "XRPUSDT.P",
+              "timeframe": "1h",
+              "capture_priority": 69,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=XRPUSDT.P&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_doge_15m",
+              "source": "tradingview",
+              "symbol": "DOGEUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 68,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=DOGEUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "VWAP",
+                "RSI",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xau_1h",
+              "source": "tradingview",
+              "symbol": "OANDA:XAUUSD",
+              "timeframe": "1h",
+              "capture_priority": 82,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 10000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xau_4h",
+              "source": "tradingview",
+              "symbol": "OANDA:XAUUSD",
+              "timeframe": "4h",
+              "capture_priority": 80,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 10000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xau_1d",
+              "source": "tradingview",
+              "symbol": "OANDA:XAUUSD",
+              "timeframe": "1d",
+              "capture_priority": 78,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 10000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_dxy_1h",
+              "source": "tradingview",
+              "symbol": "TVC:DXY",
+              "timeframe": "1h",
+              "capture_priority": 79,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:DXY&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_dxy_4h",
+              "source": "tradingview",
+              "symbol": "TVC:DXY",
+              "timeframe": "4h",
+              "capture_priority": 77,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:DXY&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_dxy_1d",
+              "source": "tradingview",
+              "symbol": "TVC:DXY",
+              "timeframe": "1d",
+              "capture_priority": 75,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:DXY&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_spy_1h",
+              "source": "tradingview",
+              "symbol": "SPY",
+              "timeframe": "1h",
+              "capture_priority": 76,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=SPY&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_spy_1d",
+              "source": "tradingview",
+              "symbol": "SPY",
+              "timeframe": "1d",
+              "capture_priority": 73,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=SPY&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_vix_1h",
+              "source": "tradingview",
+              "symbol": "TVC:VIX",
+              "timeframe": "1h",
+              "capture_priority": 65,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:VIX&interval=60",
+              "indicators": [
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_vix_1d",
+              "source": "tradingview",
+              "symbol": "TVC:VIX",
+              "timeframe": "1d",
+              "capture_priority": 63,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:VIX&interval=1D",
+              "indicators": [
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_us10y_1h",
+              "source": "tradingview",
+              "symbol": "TVC:US10Y",
+              "timeframe": "1h",
+              "capture_priority": 64,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:US10Y&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_us10y_1d",
+              "source": "tradingview",
+              "symbol": "TVC:US10Y",
+              "timeframe": "1d",
+              "capture_priority": 62,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:US10Y&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_eurusd_1h",
+              "source": "tradingview",
+              "symbol": "FX:EURUSD",
+              "timeframe": "1h",
+              "capture_priority": 67,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=FX:EURUSD&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_ibit_1h",
+              "source": "tradingview",
+              "symbol": "NASDAQ:IBIT",
+              "timeframe": "1h",
+              "capture_priority": 66,
+              "screen_type": "ETF_CRYPTO",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NASDAQ:IBIT&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_ibit_1d",
+              "source": "tradingview",
+              "symbol": "NASDAQ:IBIT",
+              "timeframe": "1d",
+              "capture_priority": 61,
+              "screen_type": "ETF_CRYPTO",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NASDAQ:IBIT&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_wti_1h",
+              "source": "tradingview",
+              "symbol": "NYMEX:CL1!",
+              "timeframe": "1h",
+              "capture_priority": 59,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:CL1!&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_ng_1h",
+              "source": "tradingview",
+              "symbol": "NYMEX:NG1!",
+              "timeframe": "1h",
+              "capture_priority": 55,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:NG1!&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_total_1d",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:TOTAL",
+              "timeframe": "1d",
+              "capture_priority": 60,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:TOTAL&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_total_1w",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:TOTAL",
+              "timeframe": "1w",
+              "capture_priority": 58,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:TOTAL&interval=1W",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_total2_1d",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:TOTAL2",
+              "timeframe": "1d",
+              "capture_priority": 57,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:TOTAL2&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_total3_1d",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:TOTAL3",
+              "timeframe": "1d",
+              "capture_priority": 56,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:TOTAL3&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btcd_1d",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:BTC.D",
+              "timeframe": "1d",
+              "capture_priority": 59,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:BTC.D&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btcd_1w",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:BTC.D",
+              "timeframe": "1w",
+              "capture_priority": 54,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:BTC.D&interval=1W",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_brent_1h",
+              "source": "tradingview",
+              "symbol": "BITGET:BZUSDT",
+              "timeframe": "1h",
+              "capture_priority": 53,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BITGET:BZUSDT&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_wti_4h",
+              "source": "tradingview",
+              "symbol": "NYMEX:CL1!",
+              "timeframe": "4h",
+              "capture_priority": 51,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:CL1!&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_ng_4h",
+              "source": "tradingview",
+              "symbol": "NYMEX:NG1!",
+              "timeframe": "4h",
+              "capture_priority": 49,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:NG1!&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_brent_4h",
+              "source": "tradingview",
+              "symbol": "BITGET:BZUSDT",
+              "timeframe": "4h",
+              "capture_priority": 50,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BITGET:BZUSDT&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_rb1_1h",
+              "source": "tradingview",
+              "symbol": "NYMEX:RB1!",
+              "timeframe": "1h",
+              "capture_priority": 48,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:RB1!&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_rb1_4h",
+              "source": "tradingview",
+              "symbol": "NYMEX:RB1!",
+              "timeframe": "4h",
+              "capture_priority": 47,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:RB1!&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.production.json",
+          "mtime": 1780545566.702211,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "page_id": "tv_btc_15m",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 100,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btc_1h",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "1h",
+              "capture_priority": 95,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_eth_15m",
+              "source": "tradingview",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 92,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=ETHUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_eth_1h",
+              "source": "tradingview",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "1h",
+              "capture_priority": 88,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=ETHUSDT.P&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_sol_15m",
+              "source": "tradingview",
+              "symbol": "SOLUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 74,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=SOLUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xrp_15m",
+              "source": "tradingview",
+              "symbol": "XRPUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 72,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=XRPUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_doge_15m",
+              "source": "tradingview",
+              "symbol": "DOGEUSDT.P",
+              "timeframe": "15m",
+              "capture_priority": 70,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=DOGEUSDT.P&interval=15",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "VWAP",
+                "RSI",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xau_1h",
+              "source": "tradingview",
+              "symbol": "OANDA:XAUUSD",
+              "timeframe": "1h",
+              "capture_priority": 82,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 10000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_dxy_1h",
+              "source": "tradingview",
+              "symbol": "TVC:DXY",
+              "timeframe": "1h",
+              "capture_priority": 52,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:DXY&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_us10y_1h",
+              "source": "tradingview",
+              "symbol": "TVC:US10Y",
+              "timeframe": "1h",
+              "capture_priority": 48,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:US10Y&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_spy_1h",
+              "source": "tradingview",
+              "symbol": "SPY",
+              "timeframe": "1h",
+              "capture_priority": 58,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=SPY&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_wti_1h",
+              "source": "tradingview",
+              "symbol": "NYMEX:CL1!",
+              "timeframe": "1h",
+              "capture_priority": 46,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:CL1!&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_ng_1h",
+              "source": "tradingview",
+              "symbol": "NYMEX:NG1!",
+              "timeframe": "1h",
+              "capture_priority": 44,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:NG1!&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_ibit_1h",
+              "source": "tradingview",
+              "symbol": "NASDAQ:IBIT",
+              "timeframe": "1h",
+              "capture_priority": 60,
+              "screen_type": "ETF_CRYPTO",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NASDAQ:IBIT&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_vix_1h",
+              "source": "tradingview",
+              "symbol": "TVC:VIX",
+              "timeframe": "1h",
+              "capture_priority": 42,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:VIX&interval=60",
+              "indicators": [
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_eurusd_1h",
+              "source": "tradingview",
+              "symbol": "FX:EURUSD",
+              "timeframe": "1h",
+              "capture_priority": 68,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=FX:EURUSD&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.coinglass.json",
+          "mtime": 1780545566.702211,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "page_id": "cg_btc_liquidation",
+              "source": "coinglass",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "NOW",
+              "capture_priority": 86,
+              "screen_type": "LIQUIDITY_COINGLASS",
+              "layout": "single",
+              "url": "https://www.coinglass.com/LiquidationData?coin=BTC",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 20000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_btc_funding",
+              "source": "coinglass",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "NOW",
+              "capture_priority": 80,
+              "screen_type": "FUNDING_COINGLASS",
+              "layout": "single",
+              "url": "https://www.coinglass.com/FundingRate/BITCOIN",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 20000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_btc_oi",
+              "source": "coinglass",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "NOW",
+              "capture_priority": 78,
+              "screen_type": "OI_COINGLASS",
+              "layout": "single",
+              "url": "https://www.coinglass.com/OpenInterest/BITCOIN",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 20000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_btc_ls_ratio",
+              "source": "coinglass",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "NOW",
+              "capture_priority": 76,
+              "screen_type": "LS_RATIO_COINGLASS",
+              "layout": "single",
+              "url": "https://www.coinglass.com/LongShortRatio/BITCOIN",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 20000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_eth_liquidation",
+              "source": "coinglass",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "NOW",
+              "capture_priority": 82,
+              "screen_type": "LIQUIDITY_COINGLASS",
+              "layout": "single",
+              "url": "https://www.coinglass.com/LiquidationData?coin=ETH",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 20000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_eth_funding",
+              "source": "coinglass",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "NOW",
+              "capture_priority": 77,
+              "screen_type": "FUNDING_COINGLASS",
+              "layout": "single",
+              "url": "https://www.coinglass.com/FundingRate/ETHEREUM",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 20000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_eth_oi",
+              "source": "coinglass",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "NOW",
+              "capture_priority": 75,
+              "screen_type": "OI_COINGLASS",
+              "layout": "single",
+              "url": "https://www.coinglass.com/OpenInterest/ETHEREUM",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 20000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_eth_ls_ratio",
+              "source": "coinglass",
+              "symbol": "ETHUSDT.P",
+              "timeframe": "NOW",
+              "capture_priority": 73,
+              "screen_type": "LS_RATIO_COINGLASS",
+              "layout": "single",
+              "url": "https://www.coinglass.com/LongShortRatio/ETHEREUM",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 20000,
+              "visual_check_enabled": true
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.macro_dashboard.json",
+          "mtime": 1780545566.702211,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "page_id": "tv_dashboard_tl",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "1h",
+              "capture_priority": 90,
+              "screen_type": "DASHBOARD_MACRO",
+              "layout": "quad",
+              "dashboard_id": "macro_dashboard_01",
+              "dashboard_slot": "top-left",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI",
+                "MACD"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_dashboard_tr",
+              "source": "tradingview",
+              "symbol": "OANDA:XAUUSD",
+              "timeframe": "1h",
+              "capture_priority": 89,
+              "screen_type": "DASHBOARD_MACRO",
+              "layout": "quad",
+              "dashboard_id": "macro_dashboard_01",
+              "dashboard_slot": "top-right",
+              "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_dashboard_bl",
+              "source": "tradingview",
+              "symbol": "TVC:DXY",
+              "timeframe": "1h",
+              "capture_priority": 84,
+              "screen_type": "DASHBOARD_MACRO",
+              "layout": "quad",
+              "dashboard_id": "macro_dashboard_01",
+              "dashboard_slot": "bottom-left",
+              "url": "https://www.tradingview.com/chart/?symbol=TVC:DXY&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_dashboard_br",
+              "source": "tradingview",
+              "symbol": "SPY",
+              "timeframe": "1h",
+              "capture_priority": 83,
+              "screen_type": "DASHBOARD_MACRO",
+              "layout": "quad",
+              "dashboard_id": "macro_dashboard_01",
+              "dashboard_slot": "bottom-right",
+              "url": "https://www.tradingview.com/chart/?symbol=SPY&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.supplementary.json",
+          "mtime": 1780545566.702211,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "page_id": "tv_total_1d",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:TOTAL",
+              "timeframe": "1d",
+              "capture_priority": 66,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:TOTAL&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_total_1w",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:TOTAL",
+              "timeframe": "1w",
+              "capture_priority": 64,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:TOTAL&interval=1W",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_total2_1d",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:TOTAL2",
+              "timeframe": "1d",
+              "capture_priority": 63,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:TOTAL2&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_total3_1d",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:TOTAL3",
+              "timeframe": "1d",
+              "capture_priority": 62,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:TOTAL3&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btcd_1d",
+              "source": "tradingview",
+              "symbol": "CRYPTOCAP:BTC.D",
+              "timeframe": "1d",
+              "capture_priority": 67,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=CRYPTOCAP:BTC.D&interval=1D",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_fbtc_1h",
+              "source": "tradingview",
+              "symbol": "NASDAQ:FBTC",
+              "timeframe": "1h",
+              "capture_priority": 59,
+              "screen_type": "ETF_CRYPTO",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NASDAQ:FBTC&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_gbtc_1h",
+              "source": "tradingview",
+              "symbol": "OTC:GBTC",
+              "timeframe": "1h",
+              "capture_priority": 57,
+              "screen_type": "ETF_CRYPTO",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=OTC:GBTC&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_bitb_1h",
+              "source": "tradingview",
+              "symbol": "NASDAQ:BITB",
+              "timeframe": "1h",
+              "capture_priority": 56,
+              "screen_type": "ETF_CRYPTO",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NASDAQ:BITB&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_arkb_1h",
+              "source": "tradingview",
+              "symbol": "NASDAQ:ARKB",
+              "timeframe": "1h",
+              "capture_priority": 55,
+              "screen_type": "ETF_CRYPTO",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NASDAQ:ARKB&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "RSI",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_brent_1h",
+              "source": "tradingview",
+              "symbol": "BITGET:BZUSDT",
+              "timeframe": "1h",
+              "capture_priority": 47,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BITGET:BZUSDT&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_brent_4h",
+              "source": "tradingview",
+              "symbol": "BITGET:BZUSDT",
+              "timeframe": "4h",
+              "capture_priority": 45,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=BITGET:BZUSDT&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_wti_4h",
+              "source": "tradingview",
+              "symbol": "NYMEX:CL1!",
+              "timeframe": "4h",
+              "capture_priority": 43,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:CL1!&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_ng_4h",
+              "source": "tradingview",
+              "symbol": "NYMEX:NG1!",
+              "timeframe": "4h",
+              "capture_priority": 41,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:NG1!&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_screener_biggest_caps",
+              "source": "tradingview_screener",
+              "symbol": "SCREENER_BIGGEST_CAPS",
+              "timeframe": "1d",
+              "capture_priority": 34,
+              "screen_type": "SCREENER_STOCKS",
+              "layout": "single",
+              "url": "https://www.tradingview.com/screener/",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 15000,
+              "visual_check_enabled": false,
+              "quality_retry_enabled": true,
+              "quality_retry_extra_wait_ms": 20000
+            },
+            {
+              "page_id": "tv_screener_trending",
+              "source": "tradingview_screener",
+              "symbol": "SCREENER_TRENDING",
+              "timeframe": "1d",
+              "capture_priority": 33,
+              "screen_type": "SCREENER_STOCKS",
+              "layout": "single",
+              "url": "https://www.tradingview.com/screener/",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 15000,
+              "visual_check_enabled": false,
+              "quality_retry_enabled": true,
+              "quality_retry_extra_wait_ms": 20000
+            },
+            {
+              "page_id": "tv_screener_ai",
+              "source": "tradingview_screener",
+              "symbol": "SCREENER_AI",
+              "timeframe": "1d",
+              "capture_priority": 36,
+              "screen_type": "SCREENER_STOCKS",
+              "layout": "single",
+              "url": "https://www.tradingview.com/screener/",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 15000,
+              "visual_check_enabled": false,
+              "quality_retry_enabled": true,
+              "quality_retry_extra_wait_ms": 20000
+            },
+            {
+              "page_id": "tv_screener_defense",
+              "source": "tradingview_screener",
+              "symbol": "SCREENER_DEFENSE",
+              "timeframe": "1d",
+              "capture_priority": 31,
+              "screen_type": "SCREENER_STOCKS",
+              "layout": "single",
+              "url": "https://www.tradingview.com/screener/",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 15000,
+              "visual_check_enabled": false,
+              "quality_retry_enabled": true,
+              "quality_retry_extra_wait_ms": 20000
+            },
+            {
+              "page_id": "tv_screener_spatial",
+              "source": "tradingview_screener",
+              "symbol": "SCREENER_SPATIAL",
+              "timeframe": "1d",
+              "capture_priority": 30,
+              "screen_type": "SCREENER_STOCKS",
+              "layout": "single",
+              "url": "https://www.tradingview.com/screener/",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 15000,
+              "visual_check_enabled": false,
+              "quality_retry_enabled": true,
+              "quality_retry_extra_wait_ms": 20000
+            },
+            {
+              "page_id": "tv_screener_crypto_stocks",
+              "source": "tradingview_screener",
+              "symbol": "SCREENER_CRYPTO_STOCKS",
+              "timeframe": "1d",
+              "capture_priority": 35,
+              "screen_type": "SCREENER_STOCKS",
+              "layout": "single",
+              "url": "https://www.tradingview.com/screener/",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 15000,
+              "visual_check_enabled": false,
+              "quality_retry_enabled": true,
+              "quality_retry_extra_wait_ms": 20000
+            },
+            {
+              "page_id": "tv_screener_energy",
+              "source": "tradingview_screener",
+              "symbol": "SCREENER_ENERGY",
+              "timeframe": "1d",
+              "capture_priority": 32,
+              "screen_type": "SCREENER_STOCKS",
+              "layout": "single",
+              "url": "https://www.tradingview.com/screener/",
+              "wait_until": "domcontentloaded",
+              "timeout_ms": 60000,
+              "post_load_wait_ms": 15000,
+              "visual_check_enabled": false,
+              "quality_retry_enabled": true,
+              "quality_retry_extra_wait_ms": 20000
+            },
+            {
+              "page_id": "tv_rb1_1h",
+              "source": "tradingview",
+              "symbol": "NYMEX:RB1!",
+              "timeframe": "1h",
+              "capture_priority": 40,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:RB1!&interval=60",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD",
+                "Volume"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_rb1_4h",
+              "source": "tradingview",
+              "symbol": "NYMEX:RB1!",
+              "timeframe": "4h",
+              "capture_priority": 39,
+              "screen_type": "CHART_TECHNICAL",
+              "layout": "single",
+              "url": "https://www.tradingview.com/chart/?symbol=NYMEX:RB1!&interval=240",
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "RSI",
+                "MACD"
+              ],
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 8000,
+              "visual_check_enabled": true
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/run_vision_pipeline.py",
+          "mtime": 1780545566.702211,
+          "suffix": ".py"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/__pycache__/run_vision_pipeline.cpython-311.pyc",
+          "mtime": 1780521034.5591707,
+          "suffix": ".pyc"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/__pycache__/screener_writer.cpython-311.pyc",
+          "mtime": 1780469453.3231463,
+          "suffix": ".pyc"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/__pycache__/screener_analyzer.cpython-311.pyc",
+          "mtime": 1780469453.2711463,
+          "suffix": ".pyc"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/__pycache__/coinglass_ocr_analyzer.cpython-311.pyc",
+          "mtime": 1780469447.6191494,
+          "suffix": ".pyc"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/__pycache__/vision_context_writer.cpython-311.pyc",
+          "mtime": 1780354187.0534422,
+          "suffix": ".pyc"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/__pycache__/vision_analysis_writer.cpython-311.pyc",
+          "mtime": 1780354187.0414422,
+          "suffix": ".pyc"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/systemd/bot-vision-orchestrator.service",
+          "mtime": 1780339484.859452,
+          "suffix": ".service"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/systemd/bot-vision-orchestrator.timer",
+          "mtime": 1780339484.859452,
+          "suffix": ".timer"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/vision_analysis_writer.py",
+          "mtime": 1780339484.859452,
+          "suffix": ".py"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/vision_context_writer.py",
+          "mtime": 1780339484.859452,
+          "suffix": ".py"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/screener_writer.py",
+          "mtime": 1780339484.855452,
+          "suffix": ".py"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/screener_analyzer.py",
+          "mtime": 1780339484.855452,
+          "suffix": ".py"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/scripts/coinglass_ocr_analyzer.py",
+          "mtime": 1780339484.855452,
+          "suffix": ".py"
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.btcusdt_poc.json",
+          "mtime": 1780194504.0647223,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "15m",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P&interval=15",
+              "page_id": "btcusdt_15m_poc",
+              "wait_until": "networkidle",
+              "timeout_ms": 45000,
+              "post_load_wait_ms": 5000,
+              "visual_check_enabled": true,
+              "indicators": [
+                "EMA20",
+                "EMA50",
+                "EMA200",
+                "VWAP",
+                "RSI",
+                "MACD",
+                "Volume"
+              ]
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.failure.classification.smoke.local.json",
+          "mtime": 1779195646.433126,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "page_id": "tv_btc_h1",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P",
+              "wait_until": "networkidle",
+              "post_load_wait_ms": 3000,
+              "timeout_ms": 30000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xau_h1",
+              "source": "tradingview",
+              "symbol": "XAUUSD",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 30000,
+              "timeout_ms": 60000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_btc_flow",
+              "source": "coinglass",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "FLOW",
+              "url": "https://www.coinglass.com/pro/futures/LiquidationHeatMap?coin=BTC",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 20000,
+              "timeout_ms": 60000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.source.stability.smoke.local.json",
+          "mtime": 1779195646.433126,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "page_id": "tv_btc_h1_strat_a",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 10000,
+              "timeout_ms": 45000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btc_h1_strat_b",
+              "source": "tradingview",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=BTCUSDT.P",
+              "wait_until": "load",
+              "post_load_wait_ms": 5000,
+              "timeout_ms": 60000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xau_h1_strat_a",
+              "source": "tradingview",
+              "symbol": "XAUUSD",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 15000,
+              "timeout_ms": 60000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_btc_flow_strat_a",
+              "source": "coinglass",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "FLOW",
+              "url": "https://www.coinglass.com/LiquidationData?coin=BTC",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 15000,
+              "timeout_ms": 60000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            }
+          ]
+        },
+        {
+          "path": "modules/bot_vision/headless_capture/profiles.source.stability.alt.smoke.local.json",
+          "mtime": 1779195646.433126,
+          "suffix": ".json",
+          "json_preview": [
+            {
+              "page_id": "tv_btc_h1_alt_binance_spot",
+              "source": "tradingview",
+              "symbol": "BINANCE:BTCUSDT",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=BINANCE:BTCUSDT",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 10000,
+              "timeout_ms": 45000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btc_h1_alt_binance_perp",
+              "source": "tradingview",
+              "symbol": "BINANCE:BTCUSDTPERP",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=BINANCE:BTCUSDTPERP",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 10000,
+              "timeout_ms": 45000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_btc_h1_alt_bybit_perp",
+              "source": "tradingview",
+              "symbol": "BYBIT:BTCUSDT.P",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=BYBIT:BTCUSDT.P",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 10000,
+              "timeout_ms": 45000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "tv_xau_h1_alt_oanda",
+              "source": "tradingview",
+              "symbol": "OANDA:XAUUSD",
+              "timeframe": "H1",
+              "url": "https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 15000,
+              "timeout_ms": 60000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            },
+            {
+              "page_id": "cg_btc_flow_alt_funding",
+              "source": "coinglass",
+              "symbol": "BTCUSDT.P",
+              "timeframe": "FLOW",
+              "url": "https://www.coinglass.com/FundingRate/BITCOIN",
+              "wait_until": "domcontentloaded",
+              "post_load_wait_ms": 15000,
+              "timeout_ms": 60000,
+              "screenshot_mode": "viewport",
+              "visual_check_enabled": true
+            }
+          ]
+        }
+      ],
+      "count": 25
+    }
+  },
+  "written_at": "2026-06-12T06:47:11.745497+00:00"
+}
