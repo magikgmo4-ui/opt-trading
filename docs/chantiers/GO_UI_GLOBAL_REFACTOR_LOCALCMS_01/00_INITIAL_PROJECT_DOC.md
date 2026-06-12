@@ -450,3 +450,46 @@ grep -rn "response_class=HTMLResponse" --include="*.py" | grep -v __pycache__ | 
 2. **APPROUVER** le Batch A pour merge dans `sot/mainline`
 3. **PLANIFIER** le Batch B (Credentials + Journal) — le plus safe pour valider l'approche
 4. **NE PAS** forcer les Batches C-F sans validation du Batch B en production
+
+---
+
+## 11. ETAT FINAL (2026-06-12)
+
+### Batches completes
+
+| Batch | PR | Contenu |
+|-------|----|---------|
+| A | Merge Batch A | `shared/html_helpers.py` + `shared/html_design_system.py` |
+| B | Merge Batch B | 4 badge helpers → OT-Core delegates |
+| C | Merge Batch C | Central UI + Metrics + SpaceX CSS → `STANDARD_CSS` |
+| D | Merge Batch D | Credentials + Journal + Journal Detail CSS → `STANDARD_CSS` |
+| E | Merge Batch E | Dead code removal (reports pkg, sidebar constant) |
+| F | Merge Batch F | Signals dark CSS → `SIGNALS_DARK_CSS` |
+
+### LocalCMS — 100% migration
+
+Les 7 pages LocalCMS utilisent les constantes CSS du design system :
+
+| Page | Constante | Surcharge |
+|------|-----------|-----------|
+| Central UI | `STANDARD_CSS` | 0 |
+| Metrics | `STANDARD_CSS` | 1 |
+| SpaceX | `STANDARD_CSS` | 3 |
+| Credentials | `STANDARD_CSS` | 2 |
+| Journal | `STANDARD_CSS` | 1 |
+| Journal Detail | `STANDARD_CSS` | 1 |
+| Signals | `SIGNALS_DARK_CSS` | 0 |
+
+CSS inline reduit de ~270 a ~14 lignes (95%).
+
+### Design system OT-Core
+
+- `shared/html_helpers.py` — 18 fonctions reutilisables (badge, card, table, page_shell, auto_refresh, etc.)
+- `shared/html_design_system.py` — constantes CSS : `STANDARD_CSS` (Light), `SIGNALS_DARK_CSS` (Dark), `DARK_BASE`, `LIGHT_CSS`, `BADGE_CSS`, `TABLE_CSS`, `CARD_CSS`, `MISC_CSS`, `COLORS`
+
+### Reste a faire (hors scope)
+
+- Desk Pro CSS migration (themes differents : Light avec `.card`, `.grid`, `.pill`)
+- perf_app CSS migration (Dark theme, `#0a0e14`)
+- webhook_server CSS migration (Dark theme, `#0b1020`)
+- UI tests automatisables additionnels

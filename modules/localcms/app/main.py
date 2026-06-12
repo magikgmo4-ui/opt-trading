@@ -10,7 +10,7 @@ import sys
 from datetime import date, datetime, timezone
 
 from shared.html_helpers import pnl_badge, verdict_badge, closeout_badge, cred_status_badge
-from shared.html_design_system import STANDARD_CSS
+from shared.html_design_system import STANDARD_CSS, SIGNALS_DARK_CSS
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 MENU_FILE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "opt_trading_menu.json"
@@ -1518,29 +1518,7 @@ def signals_page(request: Request):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LocalCMS — Telegram Signals</title>
 <style>
-  * {{ margin:0; padding:0; box-sizing:border-box; }}
-  body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; background:#0d1117; color:#c9d1d9; }}
-  header {{ background:#161b22; border-bottom:1px solid #30363d; padding:12px 24px; display:flex; align-items:center; gap:12px; }}
-  header a {{ color:#58a6ff; text-decoration:none; font-size:14px; }}
-  header h1 {{ font-size:18px; color:#f0f6fc; }}
-  main {{ max-width:1200px; margin:0 auto; padding:24px; }}
-  .kpi-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:12px; margin-bottom:24px; }}
-  .kpi {{ background:#161b22; border:1px solid #30363d; border-radius:8px; padding:16px; text-align:center; }}
-   .kpi .num {{ font-size:28px; font-weight:700; color:#58a6ff; }}
-   .kpi .num.pnl-positive {{ color:#3fb950; }}
-   .kpi .num.pnl-negative {{ color:#f85149; }}
-   .kpi .label {{ font-size:11px; color:#8b949e; margin-top:4px; text-transform:uppercase; }}
-  .section {{ margin-bottom:24px; }}
-  .section h2 {{ font-size:16px; color:#f0f6fc; margin-bottom:8px; border-bottom:1px solid #30363d; padding-bottom:6px; }}
-  table {{ width:100%; border-collapse:collapse; font-size:13px; }}
-  th {{ text-align:left; padding:6px 8px; border-bottom:1px solid #30363d; color:#8b949e; font-weight:600; }}
-  td {{ padding:4px 8px; border-bottom:1px solid #21262d; }}
-  tr:hover {{ background:#161b22; }}
-  .json-toggle {{ margin-top:16px; font-size:12px; }}
-  .json-toggle summary {{ color:#58a6ff; cursor:pointer; }}
-  .json-toggle pre {{ background:#0d1117; border:1px solid #30363d; border-radius:4px; padding:12px; overflow-x:auto; font-size:11px; max-height:400px; }}
-  .auto-refresh {{ font-size:11px; color:#484f58; text-align:center; margin-top:24px; }}
-  .nav-back {{ display:inline-block; padding:4px 12px; background:#21262d; border-radius:4px; color:#c9d1d9; }}
+    {SIGNALS_DARK_CSS}
 </style>
 </head>
 <body>
