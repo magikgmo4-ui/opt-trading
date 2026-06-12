@@ -20,17 +20,25 @@ def enrich_candles(
     smc = compute_smart_money(bars)
     consensus = compute_consensus(events, snapshot)
 
+    price_status = consensus.get("price_status", "missing")
+    market_phase = consensus.get("market_phase", "unknown")
+    has_real_bars = len(bars) > 0 and any(
+        b.get("close") is not None and isinstance(b.get("volume"), (int, float)) and b.get("volume", 0) > 0
+        for b in bars
+    )
+    is_live = price_status == "live" or has_real_bars
+
     scores = snapshot.get("scores", {})
     mega_scores = {
         "momentum_score": scores.get("momentum", 0),
-        "volatility_score": _atr_volatility(smc, indicators),
-        "liquidity_score": _liquidity_score(indicators),
+        "volatility_score": _atr_volatility(smc, indicators) if is_live else 0.0,
+        "liquidity_score": _liquidity_score(indicators) if is_live else 0.0,
         "news_score": scores.get("news_velocity", 0),
         "catalyst_score": _catalyst_score(events),
-        "smart_money_score": smc.get("smc_score", 0),
-        "trend_score": _trend_score(indicators, smc),
+        "smart_money_score": smc.get("smc_score", 0) if is_live else 0.0,
+        "trend_score": _trend_score(indicators, smc) if is_live else 0.0,
         "risk_score": scores.get("risk", 0),
-        "trade_ready_score": scores.get("trade_ready", 0),
+        "trade_ready_score": scores.get("trade_ready", 0) if is_live else 0.0,
         "accumulation_score": scores.get("accumulation", 0),
     }
 
@@ -76,12 +84,12 @@ def enrich_candles(
             "bb_lower": indicators.get("bb_lower"),
             "relative_volume": indicators.get("relative_volume"),
             "volume_zscore": indicators.get("volume_zscore"),
-            "opening_range_5m": indicators.get("opening_range_5m"),
-            "opening_range_15m": indicators.get("opening_range_15m"),
-            "opening_range_30m": indicators.get("opening_range_30m"),
+            "opening_range_5m": indicators.get("opening_range_5m") if is_live else None,
+            "opening_range_15m": indicators.get("opening_range_15m") if is_live else None,
+            "opening_range_30m": indicators.get("opening_range_30m") if is_live else None,
             "prev_gap_pct": indicators.get("prev_gap_pct"),
             "ipo_gap_pct": indicators.get("ipo_gap_pct"),
-            "vwap_distance_pct": indicators.get("vwap_distance_pct"),
+            "vwap_distance_pct": indicators.get("vwap_distance_pct") if is_live else None,
         },
         "smart_money": {
             "fvg_bullish": smc.get("fvg", {}).get("bullish"),
@@ -97,8 +105,8 @@ def enrich_candles(
             "equal_lows": smc.get("equal_highs_lows", {}).get("equal_lows"),
             "premium_discount_regime": smc.get("premium_discount", {}).get("regime"),
             "premium_discount_position_pct": smc.get("premium_discount", {}).get("position_pct"),
-            "smc_score": smc.get("smc_score"),
-            "smc_bias": smc.get("smc_bias"),
+            "smc_score": smc.get("smc_score") if is_live else 0.0,
+            "smc_bias": smc.get("smc_bias") if is_live else "neutral",
         },
         "consensus": {
             "consensus_price": consensus.get("consensus_price"),
@@ -107,10 +115,26 @@ def enrich_candles(
             "trusted_source_count": consensus.get("trusted_source_count"),
             "source_disagreement_score": consensus.get("source_disagreement_score"),
             "weighted_trust_score": consensus.get("weighted_trust_score"),
+            "price_trust": consensus.get("price_trust"),
+            "info_trust": consensus.get("info_trust"),
             "stale_sources": consensus.get("stale_source_flags"),
             "missing_sources": consensus.get("missing_source_flags"),
+            "market_phase": market_phase,
+            "price_status": price_status,
         },
         "scores": mega_scores,
+        "pipeline_state": {
+            "market_phase": market_phase,
+            "price_status": price_status,
+            "scores_blocked": not is_live,
+            "blocked_score_keys": [
+                "momentum_score", "volatility_score", "liquidity_score",
+                "smart_money_score", "trend_score", "trade_ready_score"
+            ] if not is_live else [],
+            "active_score_keys": [
+                "catalyst_score", "news_score", "risk_score", "accumulation_score"
+            ],
+        },
         "context": {
             "news_count": sum(e.get("count", len(e.get("articles", []))) for e in news_events if e.get("ok")),
             "sec_filings_count": sum(len(e.get("filings", [])) for e in sec_events if e.get("ok")),
