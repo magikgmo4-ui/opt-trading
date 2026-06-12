@@ -1,18 +1,139 @@
 <!doctype html>
-<html>
-<head><meta charset="utf-8"><title>SPCX Super Desk</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPCX Command Center</title>
 <style>
-body{font-family:Arial;margin:24px;background:#0b0d12;color:#e8eef7}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.card{background:#151a24;border:1px solid #2a3345;border-radius:10px;padding:14px}
-.card span{display:block;font-size:28px;margin-top:8px}
-code{color:#a8c7ff}
-</style></head>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0a0e14;color:#c8d6e5;padding:16px;min-height:100vh}
+h1{font-size:18px;color:#e8eef7;margin-bottom:12px;text-align:center;letter-spacing:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;max-width:1200px;margin:0 auto}
+.card{background:#121820;border:1px solid #1e2733;border-radius:10px;padding:14px 16px}
+.card h2{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#5c7a99;margin-bottom:8px}
+.card .value{font-size:28px;font-weight:700;color:#e8eef7}
+.card .sub{font-size:13px;color:#6b8299;margin-top:2px}
+.bar{display:flex;gap:1px;margin-top:4px}
+.bar span{height:6px;border-radius:3px;flex:1}
+.bar .on{background:#4caf50}.bar .off{background:#1e2733}
+.green{color:#4caf50}.yellow{color:#ffa726}.red{color:#ef5350}.blue{color:#42a5f5}
+.risk-item{font-size:12px;color:#ef5350;padding:2px 0}
+.risk-none{font-size:12px;color:#4caf50}
+.analog-row{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;border-bottom:1px solid #1a2430}
+.analog-row:last-child{border:0}
+.setup-entry{font-size:12px;color:#5c7a99;display:flex;justify-content:space-between;padding:1px 0}
+.action-badge{display:inline-block;padding:4px 14px;border-radius:6px;font-weight:700;font-size:13px}
+.aplus{background:#1b5e20;color:#66bb6a}.a{background:#1b5e20;color:#66bb6a}
+.b{background:#e65100;color:#ffcc80}.watch{background:#f9a825;color:#fff9c4}
+.notrade{background:#37474f;color:#90a4ae}
+.health{font-size:12px;padding:2px 8px;border-radius:4px;display:inline-block}
+.healthy{background:#1b5e20;color:#81c784}.degraded{background:#e65100;color:#ffcc80}
+.refresh{font-size:10px;color:#3d546a;text-align:center;margin-top:12px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4caf50;animation:pulse 2s infinite;margin-right:6px}
+</style>
+</head>
 <body>
-<h1>SpaceX / SPCX Super Desk</h1>
-<p>Monitor-only. Last update: <code>2026-06-12T07:50:00.936069+00:00</code></p>
-<h2>Market</h2>
-<div class="grid"><div class="card"><b>Price</b><span>135</span></div><div class="card"><b>Gap IPO %</b><span>0.0</span></div><div class="card"><b>RelVol</b><span>None</span></div></div>
-<h2>Scores</h2><div class="grid"><div class="card"><b>momentum</b><span>0</span></div><div class="card"><b>news_velocity</b><span>0</span></div><div class="card"><b>sec_activity</b><span>0</span></div><div class="card"><b>smart_money</b><span>0</span></div><div class="card"><b>risk</b><span>0</span></div><div class="card"><b>trade_ready</b><span>0.15</span></div><div class="card"><b>accumulation</b><span>0.9</span></div></div>
-<h2>Signals</h2><ul><li>SPCX_ACCUMULATION_ZONE_WATCH</li></ul>
-</body></html>
+<h1><span class="live-dot"></span>SPCX COMMAND CENTER</h1>
+<div class="grid">
+  <div class="card" id="action-card"><h2>ACTION</h2><div class="value" id="action"></div></div>
+  <div class="card"><h2>CONFIDENCE</h2><div class="value" id="confidence"></div></div>
+  <div class="card"><h2>EDGE SCORE</h2><div class="value" id="edge-score"></div><div class="bar" id="edge-bar"></div></div>
+  <div class="card"><h2>PRICE</h2><div class="value" id="price"></div><div class="sub" id="volume"></div></div>
+  <div class="card"><h2>GAP</h2><div class="value" id="gap"></div><div class="sub" id="vwap"></div></div>
+  <div class="card"><h2>OPEN SCORE</h2><div class="value" id="open-score"></div></div>
+  <div class="card"><h2>SECTOR</h2><div class="value" id="sector-regime"></div></div>
+  <div class="card"><h2>CONSENSUS</h2><div class="value" id="consensus"></div><div class="sub" id="disagreement"></div></div>
+  <div class="card"><h2>ANALOG</h2><div class="value" id="analog"></div></div>
+  <div class="card"><h2>IPO ANALOGS</h2><div id="analogs"></div></div>
+  <div class="card"><h2>TOP SETUP</h2><div class="value" id="top-setup"></div><div class="sub" id="setup-prob"></div><div id="setup-levels"></div></div>
+  <div class="card"><h2>WHY NOT TRADE</h2><div id="risks"></div></div>
+  <div class="card"><h2>PIPELINE</h2><div id="pipeline-health"></div><div class="sub" id="sources"></div></div>
+</div>
+<div class="refresh">auto-refresh 60s &middot; last: <span id="ts"></span></div>
+
+<script>
+const DATA_URL = "/opt/trading/data/ipo/spacex/command_center/latest.json";
+const API_URL = "/desk/spacex/command-center";
+
+async function load() {
+  try {
+    if (typeof deskApi === "undefined" || !deskApi) throw new Error("no desk api");
+    const r = await fetch("/desk/spacex/command-center");
+    if (r.ok) { render(await r.json()); return; }
+  } catch(e) {}
+  try {
+    const r = await fetch("/opt/trading/data/ipo/spacex/command_center/latest.json");
+    if (r.ok) { render(await r.json()); return; }
+  } catch(e) {}
+  try {
+    const r = await fetch("../../data/ipo/spacex/command_center/latest.json");
+    if (r.ok) { render(await r.json()); return; }
+  } catch(e) {}
+  setTimeout(load, 5000);
+}
+
+function render(d) {
+  document.getElementById("ts").textContent = d.generated_at ? new Date(d.generated_at).toLocaleTimeString() : "—";
+
+  const action = d.action || "NO_TRADE";
+  const el = document.getElementById("action");
+  el.textContent = action;
+  el.className = "action-badge " + (action.includes("A+") ? "aplus" : action.includes("A_") ? "a" : action.includes("B") ? "b" : action.includes("WATCH") ? "watch" : "notrade");
+
+  document.getElementById("confidence").textContent = d.confidence || "—";
+  const es = d.edge_score || 0;
+  document.getElementById("edge-score").textContent = es;
+  const bar = document.getElementById("edge-bar");
+  bar.innerHTML = "";
+  for (let i = 0; i < 20; i++) {
+    bar.innerHTML += '<span class="' + (i < es/5 ? 'on' : 'off') + '"></span>';
+  }
+
+  document.getElementById("price").textContent = d.price ? "$" + d.price.toFixed(2) : "—";
+  document.getElementById("volume").textContent = d.volume ? "Vol: " + (d.volume >= 1e6 ? (d.volume/1e6).toFixed(1)+"M" : d.volume >= 1e3 ? Math.round(d.volume/1e3)+"K" : d.volume) : "";
+  document.getElementById("gap").textContent = d.gap_pct != null ? (d.gap_pct >= 0 ? "+" : "") + d.gap_pct.toFixed(1) + "%" : "—";
+  document.getElementById("vwap").textContent = d.vwap ? "VWAP: $" + d.vwap.toFixed(2) : "";
+  document.getElementById("open-score").textContent = d.open_score || "—";
+  document.getElementById("sector-regime").textContent = d.sector_regime || "—";
+
+  const c = d.consensus_label || (d.disagreement < 5 ? "STRONG" : d.disagreement < 15 ? "MODERATE" : "WEAK");
+  document.getElementById("consensus").textContent = c;
+  document.getElementById("disagreement").textContent = d.disagreement != null ? "Disagreement: " + d.disagreement.toFixed(1) + "%" : "";
+
+  document.getElementById("analog").textContent = d.analog ? d.analog + "-LIKE" : "—";
+
+  const analogs = document.getElementById("analogs");
+  analogs.innerHTML = "";
+  (d.ipo_analogs || []).forEach((a, i) => {
+    analogs.innerHTML += '<div class="analog-row"><span>' + (i+1) + ". " + a.symbol + '</span><span>' + (a.pct || a.probability_pct || 0) + '%</span></div>';
+  });
+
+  document.getElementById("top-setup").textContent = d.top_setup || "—";
+  document.getElementById("setup-prob").textContent = d.top_setup_prob_pct != null ? "Probability: " + d.top_setup_prob_pct + "%" : "";
+
+  const levels = document.getElementById("setup-levels");
+  levels.innerHTML = "";
+  if (d.entry) levels.innerHTML += '<div class="setup-entry"><span>Entry</span><span>$' + d.entry.toFixed(2) + '</span></div>';
+  if (d.stop) levels.innerHTML += '<div class="setup-entry"><span>Stop</span><span>$' + d.stop.toFixed(2) + '</span></div>';
+  if (d.tp1) levels.innerHTML += '<div class="setup-entry"><span>TP1</span><span>$' + d.tp1.toFixed(2) + '</span></div>';
+  if (d.tp2) levels.innerHTML += '<div class="setup-entry"><span>TP2</span><span>$' + d.tp2.toFixed(2) + '</span></div>';
+
+  const risks = document.getElementById("risks");
+  risks.innerHTML = "";
+  if (!d.risks || !d.risks.length || d.risks[0] === "None") {
+    risks.innerHTML = '<span class="risk-none">None</span>';
+  } else {
+    d.risks.forEach(r => { risks.innerHTML += '<div class="risk-item">' + r + '</div>'; });
+  }
+
+  const ph = document.getElementById("pipeline-health");
+  ph.innerHTML = '<span class="health ' + (d.pipeline_healthy ? "healthy" : "degraded") + '">' + (d.pipeline_healthy ? "HEALTHY" : "DEGRADED") + '</span>';
+  document.getElementById("sources").textContent = "Sources: " + (d.sources_ok || "—") + "/" + (d.sources_total || 5) + " | Stale: " + (d.stale_sources || 0);
+}
+
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>

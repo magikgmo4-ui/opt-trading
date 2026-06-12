@@ -88,7 +88,9 @@ def main(argv=None) -> int:
     sub.add_parser("edge")
     sub.add_parser("microstructure")
     sub.add_parser("guardian")
-    sub.add_parser("command-center")
+    cc = sub.add_parser("command-center")
+    cc.add_argument("--json-out", default=None)
+    cc.add_argument("--md-out", default=None)
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -369,7 +371,25 @@ def main(argv=None) -> int:
         print(json.dumps({"source_audit": sources}, indent=2, default=str))
         return 0
     if args.cmd == "command-center":
-        print(render_command_center())
+        output = render_command_center()
+        print(output)
+        if args.json_out:
+            from .io import atomic_write_json
+            atomic_write_json(REPO_ROOT / args.json_out, command_center_json())
+        if args.md_out:
+            from .io import atomic_write_json
+            md_path = REPO_ROOT / args.md_out
+            md_path.parent.mkdir(parents=True, exist_ok=True)
+            lines = []
+            for line in output.split("\n"):
+                stripped = line.lstrip()
+                if stripped.startswith("==") or stripped.startswith("--"):
+                    continue
+                if stripped and stripped[0].isalpha():
+                    lines.append(f"## {stripped}")
+                elif stripped:
+                    lines.append(stripped)
+            md_path.write_text("\n".join(lines))
         return 0
     return 2
 

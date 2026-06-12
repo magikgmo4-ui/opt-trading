@@ -489,6 +489,18 @@ def desk_spacex_snapshot():
     return {"ok": False, "error": "no snapshot yet"}
 
 
+@router.get("/spacex/command-center")
+def desk_spacex_command_center():
+    cpath = Path("data/ipo/spacex/command_center/latest.json")
+    if cpath.exists():
+        return json.loads(cpath.read_text(encoding="utf-8"))
+    spath = Path("data/ipo/spacex/scored/latest_snapshot.json")
+    if spath.exists():
+        from modules.ipo_tracking.command_center import command_center_json
+        return command_center_json()
+    return {"ok": False, "error": "no data yet"}
+
+
 @router.get("/logs/latest")
 def desk_logs_latest(n: int = 200):
     # Returns last N lines of /opt/trading/tmp/desk_pro_ui.log
