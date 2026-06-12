@@ -36,3 +36,19 @@ def read_latest_jsonl(path: Path) -> dict[str, Any] | None:
         return json.loads(last)
     except json.JSONDecodeError:
         return None
+
+
+def read_all_jsonl(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    results = []
+    with path.open("r", encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                results.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+    return results
