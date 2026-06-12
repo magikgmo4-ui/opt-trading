@@ -9,6 +9,8 @@ import subprocess
 import sys
 from datetime import date, datetime, timezone
 
+from shared.html_helpers import pnl_badge, verdict_badge, closeout_badge, cred_status_badge
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 MENU_FILE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "opt_trading_menu.json"
 STATE_CACHE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "state_cache.json"
@@ -252,13 +254,7 @@ def _cred_update_cmd(cred: dict) -> str:
 
 
 def _cred_status_badge(status: str) -> str:
-    mapping = {
-        "SET":     '<span class="cred-set">SET</span>',
-        "ABSENT":  '<span class="cred-absent">ABSENT</span>',
-        "FUTURE":  '<span class="cred-future">FUTURE</span>',
-        "UNKNOWN": '<span class="cred-unknown">UNKNOWN</span>',
-    }
-    return mapping.get(status, mapping["UNKNOWN"])
+    return cred_status_badge(status)
 
 
 def _credentials_html(creds: list[dict]) -> str:
@@ -802,27 +798,15 @@ _JOURNAL_SIDEBAR_LINKS = """
 
 
 def _pnl_badge(outcome: str) -> str:
-    if outcome == "win":
-        return '<span class="badge badge-up">WIN</span>'
-    if outcome == "loss":
-        return '<span class="badge badge-down">LOSS</span>'
-    if outcome == "breakeven":
-        return '<span class="badge badge-minimal">BREAKEVEN</span>'
-    return f'<span class="badge badge-unknown">{outcome}</span>'
+    return pnl_badge(outcome)
 
 
 def _verdict_badge(verdict: str) -> str:
-    if verdict == "APPROVED":
-        return '<span class="badge badge-up">APPROVED</span>'
-    if verdict == "REJECTED":
-        return '<span class="badge badge-down">REJECTED</span>'
-    return f'<span class="badge badge-unknown">{verdict}</span>'
+    return verdict_badge(verdict)
 
 
 def _closeout_badge(ack: bool) -> str:
-    if ack:
-        return '<span class="badge badge-up">✓ CLOSED</span>'
-    return '<span class="badge badge-down">⚠ PENDING</span>'
+    return closeout_badge(ack)
 
 
 def _journal_html(entries: list[dict]) -> str:

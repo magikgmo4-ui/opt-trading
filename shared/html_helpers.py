@@ -2,10 +2,14 @@ from __future__ import annotations
 
 
 def badge(label: str, variant: str = "neutral") -> str:
+    cred_variants: frozenset[str] = frozenset({
+        "cred_set", "cred_absent", "cred_future", "cred_unknown",
+    })
     variants: dict[str, str] = {
         "up":            "badge-up",
         "down":          "badge-down",
         "neutral":       "badge-neutral",
+        "unknown":       "badge-unknown",
         "minimal":       "badge-minimal",
         "critical":      "badge-critical",
         "noncrit":       "badge-noncrit",
@@ -20,12 +24,11 @@ def badge(label: str, variant: str = "neutral") -> str:
         "cred_future":   "cred-future",
         "cred_unknown":  "cred-unknown",
         "operational":   "badge-operational",
-        "pill_ok":       "pill-ok",
-        "pill_warn":     "pill-warn",
-        "pill_danger":   "pill-danger",
     }
     cls = variants.get(variant, variants["neutral"])
-    return f'<span class="{cls}">{label}</span>'
+    if variant in cred_variants:
+        return f'<span class="{cls}">{label}</span>'
+    return f'<span class="badge {cls}">{label}</span>'
 
 
 def status_badge_operational() -> str:
@@ -49,7 +52,7 @@ def pnl_badge(outcome: str) -> str:
         return badge("LOSS", "down")
     if outcome == "breakeven":
         return badge("BREAKEVEN", "minimal")
-    return badge(outcome, "neutral")
+    return badge(outcome, "unknown")
 
 
 def verdict_badge(verdict: str) -> str:
@@ -57,13 +60,13 @@ def verdict_badge(verdict: str) -> str:
         return badge("APPROVED", "up")
     if verdict == "REJECTED":
         return badge("REJECTED", "down")
-    return badge(verdict, "neutral")
+    return badge(verdict, "unknown")
 
 
 def closeout_badge(ack: bool) -> str:
     if ack:
-        return badge("CLOSED", "up")
-    return badge("PENDING", "down")
+        return badge("\u2713 CLOSED", "up")
+    return badge("\u26a0 PENDING", "down")
 
 
 def cred_status_badge(status: str) -> str:
