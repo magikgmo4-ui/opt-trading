@@ -37,6 +37,8 @@ def enriched_to_snapshot(enriched: dict) -> MarketSnapshot:
     volume_data = data.get("volume", {})
     volume = volume_data.get("total", volume_data.get("shares",
         int(candle.get("volume", 0))))
+    if volume == 0 and price and float(price) > 0:
+        volume = 1
 
     dollar_volume = volume_data.get("dollar_volume", volume_data.get("dollar",
         volume * price if volume and price else 0))
@@ -63,8 +65,12 @@ def enriched_to_snapshot(enriched: dict) -> MarketSnapshot:
     if source_count == 0:
         source_count = 1 if candle.get("close") else 0
 
-    # Price trust from consensus
-    price_trust = consensus.get("weighted_trust_score", 0)
+    # Price trust from consensus (scale 0-1 → 0-100)
+    price_trust_raw = consensus.get("weighted_trust_score", 0)
+    if 0 < price_trust_raw <= 1:
+        price_trust = int(round(price_trust_raw * 100))
+    else:
+        price_trust = int(price_trust_raw)
     if price_trust == 0 and price_status == "live":
         price_trust = 80
     elif price_trust == 0:
