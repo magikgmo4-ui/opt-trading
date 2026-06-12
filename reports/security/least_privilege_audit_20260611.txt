@@ -1,0 +1,32 @@
+# Least privilege audit — 2026-06-11T21:48:49-04:00
+
+## Deployed vs machines.yaml
+
+=== db-layer ===
+  yaml active  : datacenter, telegram_collector, market_data_readonly
+  yaml eligible: webhook_receiver, llm_local
+  deployed files:
+
+=== admin-trading ===
+  yaml active  : datacenter, market_data_readonly, webhook_receiver, google_sheets_writer, telegram_collector, airtable_user, clickup_user, botpress_operator, figma_designer, infrastructure
+  yaml eligible: llm_cloud, git_dev
+  deployed files:
+
+=== student ===
+  yaml active  : llm_local, deskpro_user
+  yaml eligible: airtable_user, clickup_user
+  deployed files:
+
+=== fantome ===
+  yaml active  : telegram_collector, git_dev, market_data_readonly, llm_local, infrastructure
+  yaml eligible: webhook_receiver, datacenter, llm_cloud, airtable_user, clickup_user, botpress_operator, figma_designer
+  deployed files:
+    botpress_operator
+    clickup_user
+    figma_designer
+    telegram_collector
+
+=== cursor-ai ===
+  yaml active  : git_dev, llm_cloud
+  yaml eligible: figma_designer, botpress_operator
+  deployed: Windows .env (all-in-one, no role files)
