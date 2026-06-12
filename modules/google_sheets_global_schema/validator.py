@@ -21,6 +21,7 @@ CANONICAL_TABS = frozenset({
     "visual_context",
     "telegram_claims",
     "watchlists",
+    "spacex_super_desk",
 })
 
 _ISO_UTC_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
@@ -102,6 +103,13 @@ SCHEMA: dict[str, dict[str, Any]] = {
         "timestamps": [],
         "pk": ["watchlist_id"],
         "ref_cols": [],
+    },
+    "spacex_super_desk": {
+        "required": ["as_of", "symbol", "metric_name", "value"],
+        "enums": {},
+        "timestamps": ["as_of"],
+        "pk": ["as_of", "symbol", "metric_name"],
+        "ref_cols": ["source_ref"],
     },
 }
 

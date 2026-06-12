@@ -103,6 +103,20 @@
       "coverage_status": "full",
       "validated_at": "2026-05-30",
       "last_write": null
+    },
+    {
+      "producer_id": "spacex_super_desk_collector",
+      "family": "equity",
+      "contract_class": "spacex_super_desk.v1",
+      "schema_version": "v1",
+      "output_path_root": "data/data_center/views/spacex_super_desk/",
+      "write_mode": "atomic",
+      "latency_class": "oneshot",
+      "collectable_metrics": ["price", "gap_vs_ipo_pct", "relative_volume", "momentum", "news_velocity", "sec_activity", "smart_money", "risk", "trade_ready", "accumulation", "fvg", "bos", "signal_active"],
+      "missing_metrics": [],
+      "coverage_status": "full",
+      "validated_at": "2026-06-12",
+      "last_write": null
     }
   ]
 }
