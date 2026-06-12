@@ -35,13 +35,13 @@ def status_badge_operational() -> str:
     return badge("operational", "operational")
 
 STATUS_BADGES: dict[str, str] = {
-    "operational": badge("operational", "operational"),
-    "impl":        badge("impl", "impl"),
-    "partial":     badge("partial", "partial"),
-    "to_build":    badge("to_build", "to_build"),
-    "closed":      badge("closed", "closed"),
-    "deprecated":  badge("deprecated", "deprecated"),
-    "minimal":     badge("minimal", "minimal"),
+    "operational": badge("\u25cf operational", "operational"),
+    "impl":        badge("\u25cb impl", "impl"),
+    "partial":     badge("\u25cc partial", "partial"),
+    "to_build":    badge("\u2295 to_build", "to_build"),
+    "closed":      badge("\u2715 closed", "closed"),
+    "deprecated":  badge("\u2193 deprecated", "deprecated"),
+    "minimal":     badge("\u25cb minimal", "minimal"),
 }
 
 

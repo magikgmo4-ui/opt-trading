@@ -29,6 +29,10 @@ mkdir -p tmp
   echo "OK py_compile"
   echo
 
+  echo "== OT-Core governance =="
+  python3 scripts/ui/governance_check.py
+  echo
+
   echo "== smoke =="
 ./scripts/smoke.sh
 SMOKE_RC=$?

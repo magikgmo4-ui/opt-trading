@@ -9,7 +9,7 @@ import subprocess
 import sys
 from datetime import date, datetime, timezone
 
-from shared.html_helpers import pnl_badge, verdict_badge, closeout_badge, cred_status_badge
+from shared.html_helpers import pnl_badge, verdict_badge, closeout_badge, cred_status_badge, badge, STATUS_BADGES as SHARED_STATUS_BADGES
 from shared.html_design_system import STANDARD_CSS, SIGNALS_DARK_CSS
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
@@ -1227,14 +1227,12 @@ def ui_index(request: Request):
     sessions_rows = ""
     for s in tmux["sessions"]:
         status_badge = (
-            '<span class="badge badge-up">UP</span>'
-            if s["running"]
-            else '<span class="badge badge-down">DOWN</span>'
+            badge('UP', 'up') if s["running"]
+            else badge('DOWN', 'down')
         )
         crit_badge = (
-            '<span class="badge badge-critical">CRITICAL</span>'
-            if s["critical"]
-            else '<span class="badge badge-noncrit">non-critical</span>'
+            badge('CRITICAL', 'critical') if s["critical"]
+            else badge('non-critical', 'noncrit')
         )
         sessions_rows += f"""\
 <tr>
@@ -1291,21 +1289,21 @@ def ui_index(request: Request):
   <div class="subgroup-title">{child['label']}</div>"""
                 for item in child["children"]:
                     s = item.get("status", "unknown")
-                    badge = STATUS_BADGES.get(s, f'<span class="badge badge-unknown">{s}</span>')
+                    badge_html = STATUS_BADGES.get(s, badge(s, "unknown"))
                     children_html += f"""
   <div class="module-row">
     <span class="module-label">{item['label']}</span>
-    {badge}
+    {badge_html}
     <span class="module-machine">{item.get('machine', '')}</span>
   </div>"""
                 children_html += "</div>"
             else:
                 s = child.get("status", "unknown")
-                badge = STATUS_BADGES.get(s, f'<span class="badge badge-unknown">{s}</span>')
+                badge_html = STATUS_BADGES.get(s, badge(s, "unknown"))
                 children_html += f"""
 <div class="module-row">
   <span class="module-label">{child['label']}</span>
-  {badge}
+  {badge_html}
   <span class="module-machine">{child.get('machine', '')}</span>
 </div>"""
         domain_cards += f"""
@@ -1753,12 +1751,4 @@ def spacex_json():
     return JSONResponse(content={"error": "No SpaceX data yet", "action": "run spacex-super-desk collect-once"}, status_code=200)
 
 
-STATUS_BADGES = {
-    "operational": '<span class="badge badge-operational">● operational</span>',
-    "impl": '<span class="badge badge-impl">○ impl</span>',
-    "partial": '<span class="badge badge-partial">◌ partial</span>',
-    "to_build": '<span class="badge badge-to_build">⊕ to_build</span>',
-    "closed": '<span class="badge badge-closed">✕ closed</span>',
-    "deprecated": '<span class="badge badge-deprecated">↓ deprecated</span>',
-    "minimal": '<span class="badge badge-minimal">○ minimal</span>',
-}
+STATUS_BADGES = SHARED_STATUS_BADGES
