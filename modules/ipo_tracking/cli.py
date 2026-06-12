@@ -22,6 +22,7 @@ from .accumulation import compute_accumulation_score, accumulation_summary, clas
 from .scoring_engine import compute_composite_score
 from .playbook import generate_playbook
 from .enrichment import enrich_from_snapshot, CANDLE_SCHEMA, ENRICHED_CANDLE_FEATURES
+from .signal_quality import build_signal_quality_matrix, run_feature_ablation, score_source_reliability, evaluate_alert_precision
 
 
 def main(argv=None) -> int:
@@ -54,6 +55,10 @@ def main(argv=None) -> int:
     sub.add_parser("setups")
     sub.add_parser("playbook")
     sub.add_parser("enrich")
+    sub.add_parser("signal-quality")
+    sub.add_parser("ablation")
+    sub.add_parser("source-reliability")
+    sub.add_parser("alert-precision")
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -176,6 +181,38 @@ def main(argv=None) -> int:
             price = snap.get("price")
         result = compute_accumulation_score(price or 135)
         print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "signal-quality":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        events = read_raw_events(cfg)
+        enriched = enrich_from_snapshot(snap, events)
+        matrix = build_signal_quality_matrix([enriched], [snap.get("scores", {})])
+        summary = [{"feature": r.feature, "setup": r.setup_id, "quality": r.signal_quality, "corr": r.correlation, "expectancy": r.expectancy} for r in matrix[:20]]
+        print(json.dumps({"ok": True, "total_features": len(matrix), "top_20": summary}, indent=2, default=str))
+        return 0
+    if args.cmd == "ablation":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        events = read_raw_events(cfg)
+        enriched = enrich_from_snapshot(snap, events)
+        ablation = run_feature_ablation([enriched], [snap.get("scores", {})])
+        summary = [{"setup": r.setup_id, "group": r.ablated_group, "delta": r.delta, "importance": r.importance} for r in ablation[:15]]
+        print(json.dumps({"ok": True, "total": len(ablation), "top_15": summary}, indent=2, default=str))
+        return 0
+    if args.cmd == "source-reliability":
+        events = read_raw_events(cfg)
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        reliability = score_source_reliability(events, snap)
+        summary = [{"source": r.source_id, "composite": r.composite_score, "grade": r.grade, "freshness": r.freshness_score} for r in reliability]
+        print(json.dumps({"ok": True, "sources": summary}, indent=2, default=str))
+        return 0
+    if args.cmd == "alert-precision":
+        alert_log = read_json(REPO_ROOT / "data/ipo/spacex/alerts/log.jsonl", [])
+        if isinstance(alert_log, dict):
+            alert_log = []
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        precision = evaluate_alert_precision(alert_log, [snap.get("scores", {})])
+        summary = [{"event": r.alert_event, "total": r.total_count, "precision": r.precision, "recall": r.recall, "avg_r": r.avg_r_after} for r in precision]
+        print(json.dumps({"ok": True, "alerts": summary}, indent=2, default=str))
         return 0
     return 2
 
