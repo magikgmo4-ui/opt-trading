@@ -23,6 +23,8 @@ from .scoring_engine import compute_composite_score
 from .playbook import generate_playbook
 from .enrichment import enrich_from_snapshot, CANDLE_SCHEMA, ENRICHED_CANDLE_FEATURES
 from .signal_quality import build_signal_quality_matrix, run_feature_ablation, score_source_reliability, evaluate_alert_precision
+from .ipo_dataset import IPO_DATASET, compute_analog_match, dataset_stats, query_dataset
+from .sector_intelligence import compute_sector_intelligence, sector_summary
 
 
 def main(argv=None) -> int:
@@ -59,6 +61,9 @@ def main(argv=None) -> int:
     sub.add_parser("ablation")
     sub.add_parser("source-reliability")
     sub.add_parser("alert-precision")
+    sub.add_parser("dataset")
+    sub.add_parser("analogs")
+    sub.add_parser("sector")
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -213,6 +218,39 @@ def main(argv=None) -> int:
         precision = evaluate_alert_precision(alert_log, [snap.get("scores", {})])
         summary = [{"event": r.alert_event, "total": r.total_count, "precision": r.precision, "recall": r.recall, "avg_r": r.avg_r_after} for r in precision]
         print(json.dumps({"ok": True, "alerts": summary}, indent=2, default=str))
+        return 0
+    if args.cmd == "dataset":
+        stats = dataset_stats()
+        print(json.dumps({"ok": True, "total_ipos": len(IPO_DATASET), "stats": stats, "sectors": list(set(r.sector for r in IPO_DATASET))}, indent=2, default=str))
+        return 0
+    if args.cmd == "analogs":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+        indicators = enriched.get("indicators", {})
+        smart_money = enriched.get("smart_money", {})
+
+        result = compute_analog_match(
+            spcx_gap_pct=indicators.get("ipo_gap_pct") or 0,
+            spcx_rel_vol=indicators.get("relative_volume") or 1,
+            spcx_fvg=smart_money.get("fvg_bullish", False),
+            spcx_bos=smart_money.get("bos", False),
+        )
+        print(json.dumps({"ok": True, "analogs": result}, indent=2, default=str))
+        return 0
+    if args.cmd == "sector":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+        indicators = enriched.get("indicators", {})
+        scores = snap.get("scores", {})
+        vol_class = "NORMAL"
+
+        result = compute_sector_intelligence(
+            spcx_gap_pct=indicators.get("ipo_gap_pct") or 0,
+            spcx_volume_class=vol_class,
+            spcx_scoring=scores,
+        )
+        result["sector_summary"] = sector_summary()
+        print(json.dumps(result, indent=2, default=str))
         return 0
     return 2
 
