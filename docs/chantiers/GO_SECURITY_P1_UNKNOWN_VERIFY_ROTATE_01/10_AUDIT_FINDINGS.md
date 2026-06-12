@@ -80,23 +80,10 @@ Dépassement : +26 jours.
 | Âge minimum estimé | ≈ 79 jours | depuis première ref git |
 | TTL recommandé | 365 jours | — |
 
-### Verdict : **UNKNOWN** → **VERIFY first**
+### Verdict : **KEEP** — vérifié 2026-06-12
 
-Âge minimum 79 jours est dans le TTL de 365j.  
-Mais le bot a pu être créé avant la première référence git.
-
-**Action utilisateur requise :**
-```
-BotFather → /mybots → choisir le bot → token info → date de création visible
-```
-Si création avant 2025-06-12 (> 365j) → ROTATE_NOW via `/revoke`.  
-Si création après 2025-06-12 → KEEP.
-
-### Impact rotation si décidée
-
-- Propagation fleet (5 machines) via système de rôles
-- Restart de tous les services Telegram actifs
-- Modules concernés : `bot_vision_step2`, `notification_dispatcher`, `runtime_health`
+BotFather `/mybots` consulté par l'utilisateur le 2026-06-12.  
+Token créé récemment — dans le TTL de 365j. Aucune rotation requise.
 
 ---
 
@@ -106,7 +93,7 @@ Si création après 2025-06-12 → KEEP.
 |------------|---------|--------|-------------|
 | `TV_WEBHOOK_KEY` | STALE | **ROTATED 2026-06-12** | ⚠️ utilisateur : mettre à jour TradingView |
 | `OPS_ADMIN_KEY` | STALE | **ROTATED 2026-06-12** | Rotation complète |
-| `TELEGRAM_BOT_TOKEN` | UNKNOWN | VERIFY — BotFather | Utilisateur |
+| `TELEGRAM_BOT_TOKEN` | KEEP | Vérifié BotFather 2026-06-12 — dans TTL | Clôturé |
 
 ---
 
