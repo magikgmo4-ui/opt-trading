@@ -50,9 +50,13 @@ def parse_youtube_trading_short(parser_input: dict[str, Any]) -> dict[str, Any]:
     description = _text(parser_input.get("description"))
     spoken = _text(parser_input.get("spoken_transcript"))
     screen = _text(parser_input.get("screen_text"))
-    combined = "\n".join(part for part in (title, description, spoken, screen) if part)
+    vision = parser_input.get("vision") if isinstance(parser_input.get("vision"), dict) else {}
+    vision_text = _text(vision.get("screen_text")) if vision else ""
+    combined = "\n".join(part for part in (title, description, spoken, screen, vision_text) if part)
 
     asset, market_type, asset_evidence = _detect_asset(combined)
+    if asset == "unknown":
+        asset, market_type, asset_evidence = _asset_from_vision(vision)
     direction, direction_evidence = _detect_direction(combined)
     audio_direction, _ = _detect_direction(spoken)
     screen_direction, _ = _detect_direction(screen)
@@ -65,6 +69,16 @@ def parse_youtube_trading_short(parser_input: dict[str, Any]) -> dict[str, Any]:
     take_profits, tp_evidence = _take_profit_matches(combined)
     timeframe, timeframe_evidence = _detect_timeframe(combined)
     indicators, indicator_evidence = _detect_indicators(combined)
+    entry, entry_evidence = _price_from_vision(vision, "entry", entry, entry_evidence)
+    stop_loss, sl_evidence = _price_from_vision(vision, "stop_loss", stop_loss, sl_evidence)
+    vision_take_profits, vision_tp_evidence = _take_profits_from_vision(vision)
+    if not take_profits and vision_take_profits:
+        take_profits = vision_take_profits
+        tp_evidence = vision_tp_evidence
+    if timeframe is None:
+        timeframe, timeframe_evidence = _timeframe_from_vision(vision)
+    if not indicators:
+        indicators, indicator_evidence = _indicators_from_vision(vision)
 
     raw_evidence = []
     for field, evidence in (
@@ -101,6 +115,8 @@ def parse_youtube_trading_short(parser_input: dict[str, Any]) -> dict[str, Any]:
         "missing_fields": missing_fields,
         "raw_evidence": raw_evidence,
         "conflict_detected": conflict_detected,
+        "vision_confidence": _vision_confidence(vision),
+        "chart_detected": bool(vision.get("chart_detected")) if vision else False,
     }
 
 
@@ -110,6 +126,19 @@ def _detect_asset(text: str) -> tuple[str, str, str | None]:
         if match:
             return asset, market_type, match.group(0)
     return "unknown", "unknown", None
+
+
+def _asset_from_vision(vision: dict[str, Any]) -> tuple[str, str, str | None]:
+    symbols = vision.get("symbols_detected") if isinstance(vision, dict) else None
+    if not isinstance(symbols, list) or not symbols:
+        return "unknown", "unknown", None
+    first = symbols[0]
+    if not isinstance(first, dict):
+        return "unknown", "unknown", None
+    symbol = str(first.get("symbol") or "unknown")
+    market_type = str(first.get("market_type") or "unknown")
+    evidence = str(first.get("evidence") or "vision")
+    return symbol, market_type, evidence
 
 
 def _detect_direction(text: str) -> tuple[str, str | None]:
@@ -151,11 +180,60 @@ def _take_profit_matches(text: str) -> tuple[list[float], str | None]:
     return values, "; ".join(evidence) if evidence else None
 
 
+def _price_from_vision(
+    vision: dict[str, Any],
+    role: str,
+    current: float | None,
+    current_evidence: str | None,
+) -> tuple[float | None, str | None]:
+    if current is not None:
+        return current, current_evidence
+    prices = vision.get("prices_detected") if isinstance(vision, dict) else None
+    if not isinstance(prices, list):
+        return current, current_evidence
+    for item in prices:
+        if not isinstance(item, dict) or item.get("role") != role:
+            continue
+        value = item.get("value")
+        if isinstance(value, (int, float)):
+            return float(value), str(item.get("evidence") or "vision")
+    return current, current_evidence
+
+
+def _take_profits_from_vision(vision: dict[str, Any]) -> tuple[list[float], str | None]:
+    prices = vision.get("prices_detected") if isinstance(vision, dict) else None
+    if not isinstance(prices, list):
+        return [], None
+    values = []
+    evidence = []
+    for item in prices:
+        if not isinstance(item, dict) or item.get("role") != "take_profit":
+            continue
+        value = item.get("value")
+        if isinstance(value, (int, float)) and float(value) not in values:
+            values.append(float(value))
+            evidence.append(str(item.get("evidence") or "vision"))
+    return values, "; ".join(evidence) if evidence else None
+
+
 def _detect_timeframe(text: str) -> tuple[str | None, str | None]:
     match = _TIMEFRAME_RE.search(text)
     if not match:
         return None, None
     return _normalize_timeframe(match.group("tf")), match.group(0)
+
+
+def _timeframe_from_vision(vision: dict[str, Any]) -> tuple[str | None, str | None]:
+    values = vision.get("timeframes_detected") if isinstance(vision, dict) else None
+    if not isinstance(values, list) or not values:
+        return None, None
+    first = values[0]
+    if not isinstance(first, dict):
+        return None, None
+    value = first.get("timeframe")
+    if not isinstance(value, str) or not value:
+        return None, None
+    return value, str(first.get("evidence") or "vision")
 
 
 def _detect_indicators(text: str) -> tuple[list[str], str | None]:
@@ -167,6 +245,29 @@ def _detect_indicators(text: str) -> tuple[list[str], str | None]:
             found.append(canonical)
             evidence.append(indicator)
     return found, ", ".join(evidence) if evidence else None
+
+
+def _indicators_from_vision(vision: dict[str, Any]) -> tuple[list[str], str | None]:
+    values = vision.get("indicators_detected") if isinstance(vision, dict) else None
+    if not isinstance(values, list):
+        return [], None
+    indicators = []
+    evidence = []
+    for item in values:
+        if not isinstance(item, dict):
+            continue
+        indicator = item.get("indicator")
+        if isinstance(indicator, str) and indicator not in indicators:
+            indicators.append(indicator)
+            evidence.append(str(item.get("evidence") or indicator))
+    return indicators, ", ".join(evidence) if evidence else None
+
+
+def _vision_confidence(vision: dict[str, Any]) -> float:
+    value = vision.get("confidence") if isinstance(vision, dict) else None
+    if isinstance(value, (int, float)):
+        return round(float(value), 2)
+    return 0.0
 
 
 def _confidence(

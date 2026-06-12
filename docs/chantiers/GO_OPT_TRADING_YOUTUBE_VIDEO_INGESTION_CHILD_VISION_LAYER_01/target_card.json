@@ -1,0 +1,22 @@
+{
+  "go_id": "GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_VISION_LAYER_01",
+  "go_structural_role": "GO_CHILD_ATTACHED_TO_PARENT",
+  "parent_go_id": "GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_PARENT_01",
+  "status": "PATCH_READY_NOT_APPLIED",
+  "surface": "youtube_video_ingestion",
+  "final_target": "Ajouter une couche vision V1 indépendante qui transforme OCR/screen text en signaux visuels structurés pour le parser YouTube trading short.",
+  "transport_mode": "patch_only",
+  "files": [
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_VISION_LAYER_01/00_INITIAL_PROJECT_DOC.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_VISION_LAYER_01/10_VISION_LAYER_V1.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_VISION_LAYER_01/TARGETS.md",
+    "docs/chantiers/GO_OPT_TRADING_YOUTUBE_VIDEO_INGESTION_CHILD_VISION_LAYER_01/target_card.json",
+    "modules/youtube_video_ingestion/vision.py",
+    "modules/youtube_video_ingestion/parser.py",
+    "modules/youtube_video_ingestion/collector.py",
+    "modules/youtube_video_ingestion/__init__.py",
+    "tests/youtube_video_ingestion/test_trademachineoff_collector.py"
+  ],
+  "next_go": "TBD_AFTER_VISION_FIXTURE_REVIEW",
+  "notes": "V1 deterministic OCR text layer only. No raw outputs committed."
+}

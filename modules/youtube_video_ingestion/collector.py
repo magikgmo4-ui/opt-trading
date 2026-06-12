@@ -13,6 +13,7 @@ from urllib.parse import parse_qs, urlparse
 
 from .parser import PARSER_PROFILE, parse_youtube_trading_short
 from .registry import DEFAULT_TRADEMACHINEOFF_SOURCE, ensure_trademachineoff_source
+from .vision import analyze_vision_layer_v1
 
 
 class YouTubePilotClient(Protocol):
@@ -139,6 +140,11 @@ def _parser_input(video: dict[str, Any], source: dict[str, Any]) -> dict[str, An
     screen_text = _string_or_empty(video.get("screen_text"))
     if not screen_text and ocr_segments:
         screen_text = "\n".join(segment["text"] for segment in ocr_segments if segment["text"])
+    vision = analyze_vision_layer_v1(
+        video_id=video["video_id"],
+        screen_text=screen_text,
+        ocr_segments=ocr_segments,
+    )
     return {
         "video_id": video["video_id"],
         "url": _string_or_none(video.get("url")),
@@ -153,6 +159,7 @@ def _parser_input(video: dict[str, Any], source: dict[str, Any]) -> dict[str, An
         "frame_sampling_rate": _string_or_empty(video.get("frame_sampling_rate") or "1fps"),
         "ocr_status": _string_or_empty(video.get("ocr_status") or "not_run"),
         "ocr_error_summary": _string_or_none(video.get("ocr_error_summary")),
+        "vision": vision,
         "parser_profile": source.get("parser_profile") or PARSER_PROFILE,
     }
 

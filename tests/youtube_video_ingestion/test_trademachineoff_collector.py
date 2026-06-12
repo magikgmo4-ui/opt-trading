@@ -6,6 +6,7 @@ from pathlib import Path
 from modules.youtube_video_ingestion import (
     SeedJsonClient,
     YtDlpPilotClient,
+    analyze_vision_layer_v1,
     ensure_trademachineoff_source,
     load_youtube_sources,
     parse_youtube_trading_short,
@@ -57,6 +58,7 @@ def test_run_trademachineoff_pilot_writes_canonical_artifacts(tmp_path: Path) ->
     assert parser_input["subtitle_source"] == "manual"
     assert parser_input["subtitle_status"] == "unknown"
     assert parser_input["ocr_status"] == "not_run"
+    assert parser_input["vision"]["symbols_detected"][0]["symbol"] == "XAUUSD"
     assert len(ocr_lines) == 2
     assert len(parsed_jsonl) == 2
     assert result["parsed_jsonl"] == "outputs/youtube/parsed/trademachineoff_pilot.jsonl"
@@ -194,6 +196,8 @@ def test_fake_ocr_runner_populates_screen_text_and_segments(tmp_path: Path) -> N
     assert parser_input["screen_text"] == "XAUUSD BUY ABOVE 2345 SL 2335 TP 2360"
     assert parser_input["frame_sampling_rate"] == "1fps"
     assert len(parser_input["ocr_segments"]) == 1
+    assert parser_input["vision"]["chart_detected"] is True
+    assert parser_input["vision"]["prices_detected"][0]["role"] == "entry"
     assert parsed["classification"] == "candidate_complete"
 
 
@@ -277,6 +281,53 @@ def test_ffmpeg_ocr_runner_failure_is_non_fatal_result(tmp_path: Path) -> None:
 
     assert result.status == "failed"
     assert "ffmpeg frame sampling failed" in result.error_summary
+
+
+def test_vision_layer_v1_extracts_trading_overlay_fields() -> None:
+    vision = analyze_vision_layer_v1(
+        video_id="overlay",
+        screen_text="XAUUSD BUY ABOVE 2345\nSL 2335 TP1 2360 TP2 2375\nM5 EMA liquidity",
+        ocr_segments=[],
+    )
+
+    assert vision["screen_text"].startswith("XAUUSD BUY ABOVE 2345")
+    assert vision["symbols_detected"] == [{"symbol": "XAUUSD", "market_type": "forex", "evidence": "XAUUSD"}]
+    assert [item["role"] for item in vision["prices_detected"]] == ["entry", "stop_loss", "take_profit", "take_profit"]
+    assert vision["timeframes_detected"][0]["timeframe"] == "M5"
+    assert {item["indicator"] for item in vision["indicators_detected"]} >= {"EMA", "liquidity"}
+    assert vision["chart_detected"] is True
+    assert vision["confidence"] >= 0.8
+
+
+def test_parser_consumes_structured_vision_when_screen_text_is_not_flattened() -> None:
+    vision = analyze_vision_layer_v1(
+        video_id="vision_only",
+        screen_text="BTCUSDT SELL BELOW 64000 SL 65000 TP 62000 H1 RSI",
+        ocr_segments=[],
+    )
+    parsed = parse_youtube_trading_short(
+        {
+            "video_id": "vision_only",
+            "title": "Short setup",
+            "description": "",
+            "spoken_transcript": "",
+            "screen_text": "",
+            "ocr_segments": [],
+            "vision": vision,
+            "parser_profile": "youtube_trading_short_v1",
+        }
+    )
+
+    assert parsed["asset"] == "BTCUSDT"
+    assert parsed["direction"] == "short"
+    assert parsed["entry"] == 64000.0
+    assert parsed["stop_loss"] == 65000.0
+    assert parsed["take_profits"] == [62000.0]
+    assert parsed["timeframe"] == "H1"
+    assert parsed["indicators"] == ["RSI"]
+    assert parsed["classification"] == "candidate_complete"
+    assert parsed["chart_detected"] is True
+    assert parsed["vision_confidence"] >= 0.8
 
 
 class FakeCommandRunner:
