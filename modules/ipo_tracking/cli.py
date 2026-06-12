@@ -25,6 +25,9 @@ from .enrichment import enrich_from_snapshot, CANDLE_SCHEMA, ENRICHED_CANDLE_FEA
 from .signal_quality import build_signal_quality_matrix, run_feature_ablation, score_source_reliability, evaluate_alert_precision
 from .ipo_dataset import IPO_DATASET, compute_analog_match, dataset_stats, query_dataset
 from .sector_intelligence import compute_sector_intelligence, sector_summary, compute_correlation_matrix, detect_lead_lag, compute_relative_strength, detect_capital_rotation, compute_sector_health
+from .edge_engine import compute_setup_probabilities, edge_summary
+from .market_microstructure import detect_market_regime, analyze_opening_auction, compute_volume_curve
+from .data_quality_guardian import audit_sources, audit_features
 
 
 def main(argv=None) -> int:
@@ -79,6 +82,10 @@ def main(argv=None) -> int:
     sr2 = sub.add_parser("sector-rotation")
 
     sh = sub.add_parser("sector-health")
+
+    sub.add_parser("edge")
+    sub.add_parser("microstructure")
+    sub.add_parser("guardian")
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -322,6 +329,41 @@ def main(argv=None) -> int:
         prices = {t: 100.0 for t in changes}
         result = compute_sector_health(prices, changes)
         print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "edge":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+        indicators = enriched.get("indicators", {})
+        smart_money = enriched.get("smart_money", {})
+        consensus = enriched.get("consensus", {})
+        scores = snap.get("scores", {})
+
+        from .ipo_analogs import compute_analog_score
+        spcx = {"gap_pct": indicators.get("ipo_gap_pct") or 0, "relative_volume": indicators.get("relative_volume") or 1, "fvg_bullish": smart_money.get("fvg_bullish", False), "bos": smart_money.get("bos", False)}
+        analog = compute_analog_score(spcx)
+
+        result = compute_setup_probabilities(indicators, smart_money, consensus, scores, enriched, analog)
+        print(edge_summary(result))
+        return 0
+    if args.cmd == "microstructure":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+        yahoo = (snap.get("latest_events") or {}).get("yahoo_chart", {})
+        bars = yahoo.get("bars", [])
+        if not bars:
+            bars = [{"open": 135, "high": 135, "low": 135, "close": 135, "volume": 1000}]
+        indicators = enriched.get("indicators", {})
+        smart_money = enriched.get("smart_money", {})
+
+        regime = detect_market_regime(bars, indicators, smart_money)
+        auction = analyze_opening_auction(bars, snap.get("ipo_price", 135))
+        vol_curve = compute_volume_curve(bars)
+        print(json.dumps({"regime": regime, "auction": auction, "volume_curve": vol_curve}, indent=2, default=str))
+        return 0
+    if args.cmd == "guardian":
+        events = read_raw_events(cfg)
+        sources = audit_sources(events)
+        print(json.dumps({"source_audit": sources}, indent=2, default=str))
         return 0
     return 2
 
