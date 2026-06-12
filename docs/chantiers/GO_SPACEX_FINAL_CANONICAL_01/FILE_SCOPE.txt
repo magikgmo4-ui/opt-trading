@@ -1,0 +1,13 @@
+configs/ipo/
+schemas/ipo/
+modules/ipo_tracking/
+modules/bot_vision/headless_capture/profiles.spacex.v5.json
+tradingview/spacex_alert_template_v5.json
+scripts/ipo/
+ui/spacex_desk/
+docs/chantiers/GO_SPACEX_FINAL_CANONICAL_01/
+docs/chantiers/GO_SPACEX_MASTER_PROJECT_V5/
+docs/chantiers/GO_SPACEX_SUPER_DESK_PARENT_01/
+docs/chantiers/GO_SPACEX_SOURCE_INVENTORY_CHILD_01/
+docs/index/inbox/
+RUNBOOK_SPACEX_MASTER_PROJECT_V5.md

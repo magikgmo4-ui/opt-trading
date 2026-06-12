@@ -1,23 +1,49 @@
-# opt-trading — Trading infra (TV Webhook + Perf)
+# SpaceX Super Desk V2 Bundle
 
-## Quickstart (Debian / Ubuntu)
+Implémentation sérieuse et monitor-only pour `GO_SPACEX_SUPER_DESK_PARENT_01`.
+
+## Ce bundle ajoute
+
+- Config complète `configs/ipo/spacex_super_desk.yaml`.
+- Profil Bot Vision SpaceX.
+- Schéma d'alerte TradingView.
+- Package Python `modules/ipo_tracking`.
+- Collecteurs publics/fallback : Yahoo chart, SEC EDGAR, Yahoo RSS.
+- Scoring : momentum, news velocity, risk, trade ready, accumulation.
+- Data Center view : `data/data_center/views/spacex_super_desk/latest.json`.
+- Scripts : collect once, watch loop, report daily, smoke.
+- UI statique : `ui/spacex_desk/index.html` générée au run.
+- Documentation chantier + source inventory.
+
+## Application par bundle
+
 ```bash
 cd /opt/trading
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+git checkout sot/mainline
+git pull --rebase
+git checkout -b go/spacex-super-desk-v2
+unzip /path/to/spacex_super_desk_v2_bundle.zip -d /tmp/spacex_v2
+rsync -a /tmp/spacex_v2/spacex_super_desk_v2_bundle/ ./
+bash scripts/ipo/spacex_smoke.sh
 ```
 
-## Environment (.env)
-Create `/opt/trading/.env` (ignored by git).
+## Application par patch
+
 ```bash
-TV_WEBHOOK_KEY=change_me
-OPS_ADMIN_KEY=change_me
-TELEGRAM_BOT_TOKEN=123:abc
-TELEGRAM_CHAT_ID=123456
+cd /opt/trading
+git checkout sot/mainline
+git pull --rebase
+git checkout -b go/spacex-super-desk-v2
+git apply /path/to/GO_SPACEX_SUPER_DESK_V2_IMPL.patch
+bash scripts/ipo/spacex_smoke.sh
 ```
 
-## Verification
+## Commit
+
 ```bash
-./scripts/verify_all.sh
+git add docs configs schemas modules scripts ui tradingview RUNBOOK_SPACEX_SUPER_DESK_V2.md
+git commit -m "feat: add SpaceX super desk v2 implementation"
+git push -u origin go/spacex-super-desk-v2
 ```
+
+Monitor-only. Aucun ordre réel.

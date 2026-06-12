@@ -1,0 +1,119 @@
+version: 2
+name: spacex_super_desk
+mode: monitor_only
+priority: critical
+
+asset:
+  company: Space Exploration Technologies Corp.
+  primary_symbol: SPCX
+  aliases: [SpaceX, Starlink, Starship]
+  ipo_price_usd: 135
+  exchange: NASDAQ
+  sec_cik: "0001181412"
+  sec_user_agent_env: SEC_USER_AGENT
+
+watchlists:
+  primary: [SPCX]
+  correlated_equities: [RKLB, ASTS, RDW, LUNR, PL, TSLA, NVDA]
+  etfs: [ARKX, UFO, ITA, XAR]
+  indexes: [QQQ, SPY]
+
+storage:
+  root: data/ipo/spacex
+  raw_jsonl: data/ipo/spacex/raw/spacex_snapshots.jsonl
+  latest_snapshot: data/ipo/spacex/scored/latest_snapshot.json
+  data_center_view: data/data_center/views/spacex_super_desk/latest.json
+  report_dir: reports/ipo/spacex
+
+cadence:
+  collect_once: manual
+  watch_loop_seconds: 600
+  report_daily: "08:30 America/Montreal"
+
+sources:
+  yahoo_chart:
+    enabled: true
+    timeout_seconds: 12
+    range: 5d
+    interval: 5m
+  yahoo_rss:
+    enabled: true
+    queries: [SpaceX, SPCX, Starlink, Starship]
+  sec_edgar:
+    enabled: true
+    submissions_url: https://data.sec.gov/submissions/CIK0001181412.json
+    companyfacts_url: https://data.sec.gov/api/xbrl/companyfacts/CIK0001181412.json
+  tradingview:
+    enabled: true
+    alert_contract: schemas/ipo/spacex_tradingview_alert.v1.schema.json
+    metrics:
+      - open
+      - high
+      - low
+      - close
+      - volume
+      - relative_volume
+      - vwap
+      - atr
+      - rsi
+      - ema20
+      - ema50
+      - ema200
+      - opening_range_high
+      - opening_range_low
+      - fvg_bullish
+      - fvg_bearish
+      - bos
+      - choch
+      - liquidity_sweep
+  bot_vision_headless:
+    enabled: true
+    profile_path: configs/ipo/spacex_bot_vision_profiles.json
+    cadence_minutes: 10
+  coinglass_context:
+    enabled: true
+    mode: market_risk_proxy
+    note: direct funding/liquidation applies to crypto; for SPCX this is market regime context unless equity derivatives feed exists.
+  news:
+    enabled: true
+    sources: [sec, yahoo_rss, nasdaq, marketwatch, cnbc, benzinga, reuters_like]
+  institutional:
+    enabled: true
+    classes: [etf_holdings, analyst_targets, lockup, secondary, 13f]
+
+scoring:
+  weights:
+    momentum: 0.25
+    technical: 0.20
+    smart_money: 0.15
+    news: 0.15
+    institutional: 0.10
+    risk: 0.15
+  setup_thresholds:
+    watch: 45
+    alert: 65
+    a_setup: 75
+    a_plus_setup: 85
+
+alerts:
+  destinations:
+    telegram: true
+    desk: true
+    jsonl: true
+    google_sheets: false
+  events:
+    - SPCX_IPO_OPEN
+    - SPCX_NEW_HIGH
+    - SPCX_NEW_LOW
+    - SPCX_GAP_UP
+    - SPCX_GAP_DOWN
+    - SPCX_VOLUME_SPIKE
+    - SPCX_VWAP_RECLAIM
+    - SPCX_FVG_BULLISH
+    - SPCX_FVG_BEARISH
+    - SPCX_BOS
+    - SPCX_CHOCH
+    - SPCX_SEC_FILING_NEW
+    - SPCX_NEWS_VELOCITY_HIGH
+    - SPCX_ANALYST_TARGET_NEW
+    - SPCX_ACCUMULATION_ZONE

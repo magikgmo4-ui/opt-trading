@@ -1,0 +1,58 @@
+[
+  {
+    "page_id": "spcx_tradingview_5m",
+    "source": "tradingview",
+    "symbol": "SPCX",
+    "timeframe": "5m",
+    "capture_priority": 100,
+    "screen_type": "SPACEX_TRADINGVIEW_CHART",
+    "layout": "single",
+    "url": "https://www.tradingview.com/symbols/NASDAQ-SPCX/",
+    "wait_until": "domcontentloaded",
+    "timeout_ms": 60000,
+    "post_load_wait_ms": 12000,
+    "visual_check_enabled": true
+  },
+  {
+    "page_id": "spcx_nasdaq_quote",
+    "source": "nasdaq",
+    "symbol": "SPCX",
+    "timeframe": "NOW",
+    "capture_priority": 96,
+    "screen_type": "SPACEX_NASDAQ_QUOTE",
+    "layout": "single",
+    "url": "https://www.nasdaq.com/market-activity/stocks/spcx",
+    "wait_until": "domcontentloaded",
+    "timeout_ms": 60000,
+    "post_load_wait_ms": 12000,
+    "visual_check_enabled": true
+  },
+  {
+    "page_id": "spcx_yahoo_quote",
+    "source": "yahoo_finance",
+    "symbol": "SPCX",
+    "timeframe": "NOW",
+    "capture_priority": 94,
+    "screen_type": "SPACEX_YAHOO_QUOTE",
+    "layout": "single",
+    "url": "https://finance.yahoo.com/quote/SPCX",
+    "wait_until": "domcontentloaded",
+    "timeout_ms": 60000,
+    "post_load_wait_ms": 12000,
+    "visual_check_enabled": true
+  },
+  {
+    "page_id": "spcx_sec_submissions",
+    "source": "sec",
+    "symbol": "SPCX",
+    "timeframe": "NOW",
+    "capture_priority": 90,
+    "screen_type": "SPACEX_SEC_FILINGS",
+    "layout": "single",
+    "url": "https://www.sec.gov/edgar/browse/?CIK=1181412",
+    "wait_until": "domcontentloaded",
+    "timeout_ms": 60000,
+    "post_load_wait_ms": 10000,
+    "visual_check_enabled": true
+  }
+]

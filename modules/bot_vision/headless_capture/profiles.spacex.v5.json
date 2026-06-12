@@ -1,0 +1,74 @@
+{
+  "version": "v5",
+  "profile_id": "spacex_super_desk",
+  "cadence_minutes": 10,
+  "profiles": [
+    {
+      "id": "tradingview_spcx",
+      "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3ASPCX",
+      "tags": [
+        "SPCX",
+        "TradingView",
+        "technical",
+        "smart_money"
+      ]
+    },
+    {
+      "id": "yahoo_spcx",
+      "url": "https://finance.yahoo.com/quote/SPCX",
+      "tags": [
+        "SPCX",
+        "quote",
+        "news"
+      ]
+    },
+    {
+      "id": "nasdaq_spcx",
+      "url": "https://www.nasdaq.com/market-activity/stocks/spcx",
+      "tags": [
+        "SPCX",
+        "nasdaq"
+      ]
+    },
+    {
+      "id": "sec_spacex",
+      "url": "https://data.sec.gov/submissions/CIK001181412.json",
+      "tags": [
+        "SEC",
+        "filings"
+      ]
+    },
+    {
+      "id": "space_sector_rklb",
+      "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3ARKLB",
+      "tags": [
+        "sector",
+        "RKLB"
+      ]
+    },
+    {
+      "id": "space_sector_asts",
+      "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3AASTS",
+      "tags": [
+        "sector",
+        "ASTS"
+      ]
+    },
+    {
+      "id": "halo_tsla",
+      "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3ATSLA",
+      "tags": [
+        "halo",
+        "TSLA"
+      ]
+    },
+    {
+      "id": "halo_nvda",
+      "url": "https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA",
+      "tags": [
+        "halo",
+        "NVDA"
+      ]
+    }
+  ]
+}

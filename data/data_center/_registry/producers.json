@@ -1,6 +1,6 @@
 {
   "runtime_registry_version": "v1",
-  "updated_at": "2026-06-11T06:32:29.754566+00:00",
+  "updated_at": "2026-06-12T06:47:11.758363+00:00",
   "producers": {
     "canonical_publisher_vision_context.coinglass.v1": {
       "producer_id": "canonical_publisher_vision_context.coinglass.v1",
@@ -14,6 +14,26 @@
         "value": "50.57"
       },
       "updated_at": "2026-06-11T06:32:29.754566+00:00"
+    },
+    "spacex_super_desk_v5": {
+      "producer_id": "spacex_super_desk_v5",
+      "contract_class": "spacex_super_desk.v1",
+      "last_write": "2026-06-12T06:47:11.758363+00:00",
+      "last_output_path": "data/data_center/views/spacex_super_desk/latest.json",
+      "status": "ok",
+      "evidence": {
+        "symbol": "SPCX",
+        "score": {
+          "momentum": 0,
+          "news_velocity": 0,
+          "sec_activity": 0,
+          "smart_money": 0,
+          "risk": 0,
+          "trade_ready": 0.15,
+          "accumulation": 0.9
+        }
+      },
+      "updated_at": "2026-06-12T06:47:11.758363+00:00"
     }
   }
 }

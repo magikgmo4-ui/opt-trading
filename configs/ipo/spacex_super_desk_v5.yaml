@@ -1,0 +1,80 @@
+version: 5
+project_id: GO_SPACEX_MASTER_PROJECT_V5
+mode: monitor_only
+priority: critical
+asset:
+  company: Space Exploration Technologies Corp.
+  primary_symbol: SPCX
+  aliases: [SpaceX, Starlink, Starship]
+  exchange: NASDAQ
+  sec_cik: 1181412
+  ipo_price_usd: 135
+  first_trade_date: 2026-06-12
+risk:
+  execution: monitor_only
+  no_live_orders: true
+  leverage_mode: decision_support_only
+  default_max_intraday_risk_pct: 0.5
+  default_max_swing_risk_pct: 1.0
+storage:
+  root: data/ipo/spacex
+  raw_jsonl: data/ipo/spacex/raw/events.jsonl
+  normalized_jsonl: data/ipo/spacex/normalized/events.jsonl
+  scored_latest: data/ipo/spacex/scored/latest_snapshot.json
+  data_center_view: data/data_center/views/spacex_super_desk/latest.json
+  desk_latest: ui/spacex_desk/latest.json
+watchlists:
+  primary: [SPCX]
+  sector: [RKLB, ASTS, RDW, LUNR, PL]
+  halo: [TSLA, NVDA]
+  etfs: [ARKX, UFO, ITA, XAR]
+  indexes: [QQQ, SPY, IWM]
+timeframes: [M1, M5, M15, M30, H1, H4, D1, W1, MN1]
+sources:
+  tradingview:
+    enabled: true
+    role: primary_technical
+    inputs: [webhook_json, pine_alerts, indicators, multi_tf, fvg, bos, choch, vwap, orb]
+  bot_vision:
+    enabled: true
+    role: visual_context
+    cadence_minutes: 10
+    profiles_file: modules/bot_vision/headless_capture/profiles.spacex.v5.json
+  coinglass_context:
+    enabled: true
+    role: derivative_risk_context
+    note: equity SPCX has no direct funding; use crypto/AI/risk regime, liquidation heatmaps and visual context.
+  sec_edgar:
+    enabled: true
+    role: primary_fundamental
+    forms: [S-1, S-1/A, 424B, 8-K, 10-Q, 10-K]
+  news:
+    enabled: true
+    role: catalyst_engine
+    feeds: [sec, nasdaq, yahoo_finance, reuters, cnbc, marketwatch, benzinga, seeking_alpha, nasa, dod, spacex, starlink]
+  institutional:
+    enabled: true
+    role: flows_and_ownership
+    feeds: [etf_holdings, analyst_targets, 13f, lockup, secondary_offerings, insider_activity, index_inclusion]
+metrics:
+  market: [price, open, high, low, close, previous_close, volume, relative_volume, ipo_gap, vwap, atr, opening_range_5m, opening_range_15m]
+  smart_money: [fvg, order_block, bos, choch, liquidity_sweep, premium_discount, displacement]
+  catalyst: [news_velocity, sec_filing_new, analyst_change, contract_new, starship_milestone, starlink_milestone]
+  risk: [valuation_stress, halt_risk, volatility_regime, crowding, gap_exhaustion, lockup_risk]
+alerts:
+  destinations: [telegram, desk, google_sheets, reports]
+  events:
+    - SPCX_IPO_OPEN
+    - SPCX_ORB_5M_BREAK
+    - SPCX_ORB_15M_BREAK
+    - SPCX_VWAP_RECLAIM
+    - SPCX_FVG_RECLAIM
+    - SPCX_BOS_DETECTED
+    - SPCX_CHOCH_DETECTED
+    - SPCX_VOLUME_SPIKE
+    - SPCX_NEWS_VELOCITY_HIGH
+    - SPCX_SEC_FILING_NEW
+    - SPCX_ACCUMULATION_ZONE
+    - SPCX_DANGER_ZONE
+backtests:
+  setups: [IPO_ORB_5M, IPO_ORB_15M, GAP_AND_GO, VWAP_RECLAIM, FVG_RECLAIM, IPO_PRICE_FLUSH_RECLAIM, FIRST_RED_DAY_TRAP, NEWS_CATALYST_BREAKOUT]

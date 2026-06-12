@@ -1,0 +1,21 @@
+version: final_canonical_01
+name: spacex_final_canonical
+mode: monitor_only
+supersedes:
+  - spacex_super_desk_bundle_v1
+  - spacex_super_desk_v2_bundle
+  - SPACEX_MASTER_PROJECT_V3
+  - SPACEX_MASTER_PROJECT_V4
+  - SPACEX_MASTER_PROJECT_V5
+primary_config: configs/ipo/spacex_super_desk_v5.yaml
+fallback_config: configs/ipo/spacex_super_desk.yaml
+required_outputs:
+  - data/ipo/spacex/scored/latest_snapshot.json
+  - data/data_center/views/spacex_super_desk/latest.json
+  - reports/ipo/spacex/
+  - ui/spacex_desk/index.html
+runtime:
+  smoke: bash scripts/ipo/spacex_final_smoke.sh
+  collect_once_offline: python3 -m modules.ipo_tracking.cli collect-once --offline
+  collect_once_live: python3 -m modules.ipo_tracking.cli collect-once
+  report: python3 -m modules.ipo_tracking.cli report
