@@ -9,6 +9,9 @@ import subprocess
 import sys
 from datetime import date, datetime, timezone
 
+from shared.html_helpers import pnl_badge, verdict_badge, closeout_badge, cred_status_badge, badge, STATUS_BADGES as SHARED_STATUS_BADGES
+from shared.html_design_system import STANDARD_CSS, SIGNALS_DARK_CSS
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 MENU_FILE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "opt_trading_menu.json"
 STATE_CACHE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "state_cache.json"
@@ -252,13 +255,7 @@ def _cred_update_cmd(cred: dict) -> str:
 
 
 def _cred_status_badge(status: str) -> str:
-    mapping = {
-        "SET":     '<span class="cred-set">SET</span>',
-        "ABSENT":  '<span class="cred-absent">ABSENT</span>',
-        "FUTURE":  '<span class="cred-future">FUTURE</span>',
-        "UNKNOWN": '<span class="cred-unknown">UNKNOWN</span>',
-    }
-    return mapping.get(status, mapping["UNKNOWN"])
+    return cred_status_badge(status)
 
 
 def _credentials_html(creds: list[dict]) -> str:
@@ -306,33 +303,9 @@ def _credentials_html(creds: list[dict]) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LocalCMS — Credentials</title>
   <style>
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
-    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
-    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
-    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
-    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
-    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; }}
-    .nav-item:hover {{ background: #333; color: #fff; }}
-    .nav-active {{ background: #333; color: #fff; }}
-    .main {{ padding: 24px 32px; max-width: 1200px; }}
-    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
-    .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
-    .summary-bar {{ display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
-    .summary-card {{ flex: 1; min-width: 120px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
-    .summary-card .num {{ font-size: 28px; font-weight: 700; }}
-    .summary-card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
-    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; }}
-    th, td {{ padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
-    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
-    .cred-set    {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#d1fae5;color:#065f46; }}
-    .cred-absent {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#ffe4e6;color:#9f1239; }}
-    .cred-unknown{{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#f3f4f6;color:#6b7280; }}
-    .cred-future {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#e0e7ff;color:#3730a3; }}
-    .notice {{ background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:16px;color:#92400e; }}
-    .links-bar {{ display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px; }}
-    .links-bar a {{ color:#1d1d1f;padding:4px 10px;border:1px solid #ddd;border-radius:8px;text-decoration:none;font-size:12px; }}
-    .links-bar a:hover {{ background:#eee; }}
+    {STANDARD_CSS}
+    th, td {{ padding: 8px 12px; }}
+    .links-bar {{ margin-bottom: 16px; }}
   </style>
 </head>
 <body>
@@ -607,41 +580,8 @@ def _metrics_html(m: dict, tmux: dict) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LocalCMS — Metrics</title>
   <style>
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
-    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
-    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
-    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
-    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
-    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; transition: background .15s; }}
-    .nav-item:hover {{ background: #333; color: #fff; }}
-    .nav-icon {{ font-size: 16px; width: 20px; text-align: center; }}
-    .nav-label {{ flex: 1; }}
-    .main {{ padding: 24px 32px; max-width: 1200px; }}
-    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
-    .main .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
-    .card-row {{ display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }}
-    .card {{ flex: 1; min-width: 130px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
-    .card .num {{ font-size: 28px; font-weight: 700; }}
-    .card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
-    .card-pass {{ border-left: 4px solid #30d158; }}
-    .card-fail {{ border-left: 4px solid #ff453a; }}
-    .card-blue {{ border-left: 4px solid #007aff; }}
-    .card-win {{ border-left: 4px solid #30d158; }}
-    .card-loss {{ border-left: 4px solid #ff453a; }}
-    .card-neutral {{ border-left: 4px solid #8e8e93; }}
-    .section-title {{ font-size: 16px; font-weight: 600; margin: 24px 0 12px; }}
-    .info-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 24px; }}
-    .info-card {{ background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 14px 16px; }}
-    .info-card h4 {{ font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }}
-    .info-card .value {{ font-size: 14px; font-weight: 600; }}
-    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }}
-    .badge-up {{ background: #d1fae5; color: #065f46; }}
-    .badge-down {{ background: #ffe4e6; color: #9f1239; }}
-    .badge-unknown {{ background: #f3f4f6; color: #6b7280; }}
-    .badge-minimal {{ background: #fef3c7; color: #92400e; }}
-    a {{ color: #007aff; text-decoration: none; }}
-    a:hover {{ text-decoration: underline; }}
+    {STANDARD_CSS}
+    .card-row > .card {{ flex: 1; min-width: 130px; padding: 16px; }}
   </style>
 </head>
 <body>
@@ -791,38 +731,17 @@ def metrics_html():
 
 # ── Journal HTML views ───────────────────────────────────────────────
 
-_JOURNAL_SIDEBAR_LINKS = """
-    <div style="margin-bottom:16px">
-      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
-      <a class="nav-item" href="/journal">
-        <span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span>
-      </a>
-    </div>
-"""
-
 
 def _pnl_badge(outcome: str) -> str:
-    if outcome == "win":
-        return '<span class="badge badge-up">WIN</span>'
-    if outcome == "loss":
-        return '<span class="badge badge-down">LOSS</span>'
-    if outcome == "breakeven":
-        return '<span class="badge badge-minimal">BREAKEVEN</span>'
-    return f'<span class="badge badge-unknown">{outcome}</span>'
+    return pnl_badge(outcome)
 
 
 def _verdict_badge(verdict: str) -> str:
-    if verdict == "APPROVED":
-        return '<span class="badge badge-up">APPROVED</span>'
-    if verdict == "REJECTED":
-        return '<span class="badge badge-down">REJECTED</span>'
-    return f'<span class="badge badge-unknown">{verdict}</span>'
+    return verdict_badge(verdict)
 
 
 def _closeout_badge(ack: bool) -> str:
-    if ack:
-        return '<span class="badge badge-up">✓ CLOSED</span>'
-    return '<span class="badge badge-down">⚠ PENDING</span>'
+    return closeout_badge(ack)
 
 
 def _journal_html(entries: list[dict]) -> str:
@@ -850,43 +769,8 @@ def _journal_html(entries: list[dict]) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LocalCMS — Journal</title>
   <style>
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
-    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
-    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
-    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
-    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
-    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; transition: background .15s; }}
-    .nav-item:hover {{ background: #333; color: #fff; }}
-    .nav-icon {{ font-size: 16px; width: 20px; text-align: center; }}
-    .nav-label {{ flex: 1; }}
-    .main {{ padding: 24px 32px; max-width: 1200px; }}
-    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
-    .main .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
-    .summary-bar {{ display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
-    .summary-card {{ flex: 1; min-width: 140px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
-    .summary-card .num {{ font-size: 28px; font-weight: 700; }}
-    .summary-card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
-    .summary-ok {{ border-left: 4px solid #30d158; }}
-    .summary-warn {{ border-left: 4px solid #ff9f0a; }}
-    .summary-critical {{ border-left: 4px solid #ff453a; }}
-    .summary-blue {{ border-left: 4px solid #007aff; }}
-    .section-title {{ font-size: 16px; font-weight: 600; margin: 24px 0 12px; }}
-    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; }}
-    th, td {{ padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
-    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
-    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }}
-    .badge-up {{ background: #d1fae5; color: #065f46; }}
-    .badge-down {{ background: #ffe4e6; color: #9f1239; }}
-    .badge-unknown {{ background: #f3f4f6; color: #6b7280; }}
-    .badge-minimal {{ background: #fef3c7; color: #92400e; }}
-    .links-bar {{ display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; }}
-    .links-bar a {{ color: #1d1d1f; padding: 4px 10px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; font-size: 12px; }}
-    .links-bar a:hover {{ background: #eee; }}
-    .code-block {{ background: #1d1d1f; color: #e8e8e8; padding: 12px; border-radius: 10px; font-size: 12px; overflow-x: auto; }}
-    tr:hover {{ background: #f9f9fb; }}
-    a {{ color: #007aff; text-decoration: none; }}
-    a:hover {{ text-decoration: underline; }}
+    {STANDARD_CSS}
+    .summary-card {{ min-width: 140px; }}
   </style>
 </head>
 <body>
@@ -993,38 +877,8 @@ def _journal_detail_html(entry: dict) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LocalCMS — Journal {entry.get('run_id', '')}</title>
   <style>
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
-    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
-    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
-    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
-    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
-    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; transition: background .15s; }}
-    .nav-item:hover {{ background: #333; color: #fff; }}
-    .nav-icon {{ font-size: 16px; width: 20px; text-align: center; }}
-    .nav-label {{ flex: 1; }}
-    .main {{ padding: 24px 32px; max-width: 1200px; }}
-    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
-    .main .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
-    .section-title {{ font-size: 16px; font-weight: 600; margin: 24px 0 12px; }}
-    .info-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 24px; }}
-    .info-card {{ background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 14px 16px; }}
-    .info-card h4 {{ font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }}
-    .info-card .value {{ font-size: 14px; font-weight: 600; }}
-    .info-card .value-mono {{ font-family: monospace; font-size: 13px; }}
-    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; }}
-    th, td {{ padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
-    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
-    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }}
-    .badge-up {{ background: #d1fae5; color: #065f46; }}
-    .badge-down {{ background: #ffe4e6; color: #9f1239; }}
-    .badge-unknown {{ background: #f3f4f6; color: #6b7280; }}
-    .badge-minimal {{ background: #fef3c7; color: #92400e; }}
-    .pill {{ display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; margin: 2px 4px 2px 0; }}
-    .pill-ok {{ background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }}
-    .pill-warn {{ background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }}
-    a {{ color: #007aff; text-decoration: none; }}
-    a:hover {{ text-decoration: underline; }}
+    {STANDARD_CSS}
+    .info-grid {{ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }}
   </style>
 </head>
 <body>
@@ -1373,14 +1227,12 @@ def ui_index(request: Request):
     sessions_rows = ""
     for s in tmux["sessions"]:
         status_badge = (
-            '<span class="badge badge-up">UP</span>'
-            if s["running"]
-            else '<span class="badge badge-down">DOWN</span>'
+            badge('UP', 'up') if s["running"]
+            else badge('DOWN', 'down')
         )
         crit_badge = (
-            '<span class="badge badge-critical">CRITICAL</span>'
-            if s["critical"]
-            else '<span class="badge badge-noncrit">non-critical</span>'
+            badge('CRITICAL', 'critical') if s["critical"]
+            else badge('non-critical', 'noncrit')
         )
         sessions_rows += f"""\
 <tr>
@@ -1437,21 +1289,21 @@ def ui_index(request: Request):
   <div class="subgroup-title">{child['label']}</div>"""
                 for item in child["children"]:
                     s = item.get("status", "unknown")
-                    badge = STATUS_BADGES.get(s, f'<span class="badge badge-unknown">{s}</span>')
+                    badge_html = STATUS_BADGES.get(s, badge(s, "unknown"))
                     children_html += f"""
   <div class="module-row">
     <span class="module-label">{item['label']}</span>
-    {badge}
+    {badge_html}
     <span class="module-machine">{item.get('machine', '')}</span>
   </div>"""
                 children_html += "</div>"
             else:
                 s = child.get("status", "unknown")
-                badge = STATUS_BADGES.get(s, f'<span class="badge badge-unknown">{s}</span>')
+                badge_html = STATUS_BADGES.get(s, badge(s, "unknown"))
                 children_html += f"""
 <div class="module-row">
   <span class="module-label">{child['label']}</span>
-  {badge}
+  {badge_html}
   <span class="module-machine">{child.get('machine', '')}</span>
 </div>"""
         domain_cards += f"""
@@ -1473,60 +1325,7 @@ def ui_index(request: Request):
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LocalCMS — Central UI</title>
   <style>
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
-    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
-    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
-    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
-    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
-    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; transition: background .15s; }}
-    .nav-item:hover {{ background: #333; color: #fff; }}
-    .nav-icon {{ font-size: 16px; width: 20px; text-align: center; }}
-    .nav-label {{ flex: 1; }}
-    .main {{ padding: 24px 32px; max-width: 1200px; }}
-    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
-    .main .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
-    .summary-bar {{ display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
-    .summary-card {{ flex: 1; min-width: 160px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
-    .summary-card .num {{ font-size: 28px; font-weight: 700; }}
-    .summary-card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
-    .summary-ok {{ border-left: 4px solid #30d158; }}
-    .summary-warn {{ border-left: 4px solid #ff9f0a; }}
-    .summary-critical {{ border-left: 4px solid #ff453a; }}
-    .section-title {{ font-size: 16px; font-weight: 600; margin: 24px 0 12px; }}
-    .domain-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; margin-bottom: 24px; }}
-    .domain-card {{ background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 14px 16px; }}
-    .domain-title {{ font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #1d1d1f; }}
-    .subgroup {{ margin: 8px 0 4px 12px; }}
-    .subgroup-title {{ font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }}
-    .module-row {{ display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 13px; }}
-    .module-label {{ flex: 1; }}
-    .module-machine {{ font-size: 11px; color: #999; font-family: monospace; }}
-    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; }}
-    th, td {{ padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
-    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
-    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }}
-    .badge-up {{ background: #d1fae5; color: #065f46; }}
-    .badge-down {{ background: #ffe4e6; color: #9f1239; }}
-    .badge-critical {{ background: #fef3c7; color: #92400e; font-size: 10px; }}
-    .badge-noncrit {{ background: #e0e7ff; color: #3730a3; font-size: 10px; }}
-    .badge-operational {{ background: #d1fae5; color: #065f46; }}
-    .badge-impl {{ background: #dbeafe; color: #1e40af; }}
-    .badge-partial {{ background: #fef3c7; color: #92400e; }}
-    .badge-to_build {{ background: #f3e8ff; color: #6b21a8; }}
-    .badge-closed {{ background: #e5e7eb; color: #374151; }}
-    .badge-deprecated {{ background: #fce7f3; color: #9d174d; }}
-    .badge-minimal {{ background: #fef3c7; color: #92400e; }}
-    .badge-unknown {{ background: #f3f4f6; color: #6b7280; }}
-    .pill {{ display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; margin: 2px 4px 2px 0; }}
-    .pill-danger {{ background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }}
-    .pill-warn {{ background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }}
-    .pill-ok {{ background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }}
-    .code-block {{ background: #1d1d1f; color: #e8e8e8; padding: 12px; border-radius: 10px; font-size: 12px; overflow-x: auto; }}
-    .links-bar {{ display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; }}
-    .links-bar a {{ color: #1d1d1f; padding: 4px 10px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; font-size: 12px; }}
-    .links-bar a:hover {{ background: #eee; }}
-    .auto-refresh {{ color: #666; font-size: 12px; }}
+    {STANDARD_CSS}
   </style>
 </head>
 <body>
@@ -1717,29 +1516,7 @@ def signals_page(request: Request):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LocalCMS — Telegram Signals</title>
 <style>
-  * {{ margin:0; padding:0; box-sizing:border-box; }}
-  body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; background:#0d1117; color:#c9d1d9; }}
-  header {{ background:#161b22; border-bottom:1px solid #30363d; padding:12px 24px; display:flex; align-items:center; gap:12px; }}
-  header a {{ color:#58a6ff; text-decoration:none; font-size:14px; }}
-  header h1 {{ font-size:18px; color:#f0f6fc; }}
-  main {{ max-width:1200px; margin:0 auto; padding:24px; }}
-  .kpi-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:12px; margin-bottom:24px; }}
-  .kpi {{ background:#161b22; border:1px solid #30363d; border-radius:8px; padding:16px; text-align:center; }}
-   .kpi .num {{ font-size:28px; font-weight:700; color:#58a6ff; }}
-   .kpi .num.pnl-positive {{ color:#3fb950; }}
-   .kpi .num.pnl-negative {{ color:#f85149; }}
-   .kpi .label {{ font-size:11px; color:#8b949e; margin-top:4px; text-transform:uppercase; }}
-  .section {{ margin-bottom:24px; }}
-  .section h2 {{ font-size:16px; color:#f0f6fc; margin-bottom:8px; border-bottom:1px solid #30363d; padding-bottom:6px; }}
-  table {{ width:100%; border-collapse:collapse; font-size:13px; }}
-  th {{ text-align:left; padding:6px 8px; border-bottom:1px solid #30363d; color:#8b949e; font-weight:600; }}
-  td {{ padding:4px 8px; border-bottom:1px solid #21262d; }}
-  tr:hover {{ background:#161b22; }}
-  .json-toggle {{ margin-top:16px; font-size:12px; }}
-  .json-toggle summary {{ color:#58a6ff; cursor:pointer; }}
-  .json-toggle pre {{ background:#0d1117; border:1px solid #30363d; border-radius:4px; padding:12px; overflow-x:auto; font-size:11px; max-height:400px; }}
-  .auto-refresh {{ font-size:11px; color:#484f58; text-align:center; margin-top:24px; }}
-  .nav-back {{ display:inline-block; padding:4px 12px; background:#21262d; border-radius:4px; color:#c9d1d9; }}
+    {SIGNALS_DARK_CSS}
 </style>
 </head>
 <body>
@@ -1869,34 +1646,10 @@ def _spacex_html() -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LocalCMS — SpaceX Cmd Center</title>
   <style>
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
-    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
-    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
-    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
-    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
-    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; }}
-    .nav-item:hover {{ background: #333; color: #fff; }}
-    .nav-active {{ background: #333; color: #fff; }}
-    .main {{ padding: 24px 32px; max-width: 1200px; }}
-    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
-    .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
-    .summary-bar {{ display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
-    .summary-card {{ flex: 1; min-width: 120px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
-    .summary-card .num {{ font-size: 24px; font-weight: 700; }}
-    .summary-card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
-    .summary-card .bar {{ font-family: monospace; font-size: 13px; color: #30d158; letter-spacing: 2px; margin-top: 4px; }}
-    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; margin-bottom: 16px; }}
-    th, td {{ padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
-    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
-    .cred-set    {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#d1fae5;color:#065f46; }}
-    .cred-absent {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#ffe4e6;color:#9f1239; }}
-    .cred-unknown{{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#f3f4f6;color:#6b7280; }}
-    .cred-future {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#e0e7ff;color:#3730a3; }}
-    .notice {{ background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:16px;color:#92400e; }}
-    .links-bar {{ display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px; }}
-    .links-bar a {{ color:#1d1d1f;padding:4px 10px;border:1px solid #ddd;border-radius:8px;text-decoration:none;font-size:12px; }}
-    .links-bar a:hover {{ background:#eee; }}
+    {STANDARD_CSS}
+    .summary-card .num {{ font-size: 24px; }}
+    table {{ margin-bottom: 16px; }}
+    th, td {{ padding: 8px 12px; }}
   </style>
 </head>
 <body>
@@ -1998,12 +1751,4 @@ def spacex_json():
     return JSONResponse(content={"error": "No SpaceX data yet", "action": "run spacex-super-desk collect-once"}, status_code=200)
 
 
-STATUS_BADGES = {
-    "operational": '<span class="badge badge-operational">● operational</span>',
-    "impl": '<span class="badge badge-impl">○ impl</span>',
-    "partial": '<span class="badge badge-partial">◌ partial</span>',
-    "to_build": '<span class="badge badge-to_build">⊕ to_build</span>',
-    "closed": '<span class="badge badge-closed">✕ closed</span>',
-    "deprecated": '<span class="badge badge-deprecated">↓ deprecated</span>',
-    "minimal": '<span class="badge badge-minimal">○ minimal</span>',
-}
+STATUS_BADGES = SHARED_STATUS_BADGES
