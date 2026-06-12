@@ -6,6 +6,8 @@ on task_type. No LLM involved in the dispatch decision.
 
 Routing table:
   WRITE_GATED            → runner_writegated.py  (--gate-approved required)
+  TV_WRITE_GATED         → runner_tv.py          (--gate-approved required, SSH cursor-ai)
+  TV_SNAPSHOT            → runner_tv.py          (read-only, no gate)
   all other task types   → runner_readonly.py
 
 Exit codes:
@@ -40,12 +42,14 @@ def _cleanup_tmp() -> None:
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 JOB_PACKETS_DIR = REPO_ROOT / "scripts/ai/workers/job_packets"
-RUNNER_READONLY = REPO_ROOT / "scripts/ai/workers/runner_readonly.py"
+RUNNER_READONLY   = REPO_ROOT / "scripts/ai/workers/runner_readonly.py"
 RUNNER_WRITEGATED = REPO_ROOT / "scripts/ai/workers/runner_writegated.py"
-MODELS_REGISTRY = REPO_ROOT / "scripts/ai/workers/models.registry.json"
-TASKS_INDEX = REPO_ROOT / "scripts/ai/workers/tasks.index.json"
+RUNNER_TV         = REPO_ROOT / "scripts/ai/workers/runner_tv.py"
+MODELS_REGISTRY   = REPO_ROOT / "scripts/ai/workers/models.registry.json"
+TASKS_INDEX       = REPO_ROOT / "scripts/ai/workers/tasks.index.json"
 
 WRITEGATED_TASK_TYPES = {"WRITE_GATED"}
+TV_TASK_TYPES         = {"TV_SNAPSHOT", "TV_WRITE_GATED"}
 
 DISPATCHER_NAME = "openclaw_strict_worker_dispatcher"
 
@@ -197,6 +201,8 @@ def main():
         _exit_refused(f"unknown or unverified worker: '{worker}'", job_packet_id)
 
     is_writegated = task_type in WRITEGATED_TASK_TYPES
+    is_tv         = task_type in TV_TASK_TYPES
+    is_tv_write   = task_type == "TV_WRITE_GATED"
 
     if is_writegated and not args.dry_run and not args.gate_approved:
         _exit_refused(
@@ -204,7 +210,18 @@ def main():
             job_packet_id,
         )
 
-    runner = RUNNER_WRITEGATED if is_writegated else RUNNER_READONLY
+    if is_tv_write and not args.dry_run and not args.gate_approved:
+        _exit_refused(
+            "TV_WRITE_GATED task_type requires --gate-approved (or --dry-run to simulate)",
+            job_packet_id,
+        )
+
+    if is_tv:
+        runner = RUNNER_TV
+    elif is_writegated:
+        runner = RUNNER_WRITEGATED
+    else:
+        runner = RUNNER_READONLY
     runner_name = runner.name
 
     rc, runner_result = _call_runner(runner, packet_path, args.dry_run, args.gate_approved)

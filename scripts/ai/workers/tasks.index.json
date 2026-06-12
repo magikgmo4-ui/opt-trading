@@ -110,6 +110,35 @@
       "forbidden_targets": ["docs/index/GO_INDEX.md", "docs/index/BRANCH_STATE.md", "scripts/ai/workers/run_task.sh", "scripts/ai/workers/_validate_job.py", "scripts/ai/workers/models.registry.json", "scripts/ai/workers/tasks.index.json"],
       "required_sections": ["13_ESTABLISHED", "14_HYPOTHESIS", "WRITE_PLAN", "WRITE_DIFF_ATTENDU", "VALIDATION_EXTERNE", "DRY_RUN_RESULT", "RISQUES", "VERDICT_WRITE_GATED"],
       "preferred_workers": ["glm-5.1", "qwen3.6-plus", "kimi-k2.6", "big-pickle"]
+    },
+    "TV_SNAPSHOT": {
+      "autonomy_max": "A2",
+      "writes_code": false,
+      "mutation": false,
+      "machine": "cursor-ai",
+      "runner": "modules/tradingview_orchestrator/app/tv_runner.py",
+      "allowed_outputs": ["reports/tradingview/**"],
+      "allowed_job_types": ["snapshot", "alert.list", "screenshot"],
+      "required_sections": ["JOB_TYPE", "PARAMS", "RESULT_PATH"],
+      "preferred_workers": ["big-pickle", "qwen3.6-plus"]
+    },
+    "TV_WRITE_GATED": {
+      "autonomy_max": "A0",
+      "writes_code": false,
+      "mutation": true,
+      "machine": "cursor-ai",
+      "runner": "modules/tradingview_orchestrator/app/tv_runner.py",
+      "requires_gate_approved": true,
+      "dry_run_required": true,
+      "allowed_outputs": ["reports/tradingview/**"],
+      "allowed_job_types": [
+        "alert.create", "alert.delete", "alert.rotate_webhook_key",
+        "indicator.add", "indicator.remove", "indicator.set",
+        "symbol.set", "timeframe.set", "pine.set", "pine.save",
+        "layout.switch"
+      ],
+      "required_sections": ["JOB_TYPE", "PARAMS", "DRY_RUN_RESULT", "RISQUES", "GATE_APPROVAL"],
+      "preferred_workers": ["big-pickle", "glm-5.1"]
     }
   }
 }

@@ -1,0 +1,12 @@
+{
+  "schema": "tv_job_v1",
+  "id": "tv_job_20260612_snapshot",
+  "type": "snapshot",
+  "params": {},
+  "gate": "approved",
+  "created_at": "2026-06-12T00:00:00Z",
+  "approved_at": "2026-06-12T00:00:00Z",
+  "approved_by": "operator",
+  "status": "approved",
+  "notes": "Full read-only TradingView state: alerts, chart, indicators, quote"
+}
