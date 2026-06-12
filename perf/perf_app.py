@@ -67,8 +67,11 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#0a0e14;color:#c8
   <a href="/desk/ui" class="card">
     <span class="icon">📊</span><span class="title">Desk Pro</span><span class="desc">Pipeline, perf, status, alerts</span>
   </a>
-  <a href="/desk/spacex/ui" class="card spcx">
-    <span class="icon">🚀</span><span class="title">SPCX Command Center</span><span class="desc">Market, scores, setups, analogs</span>
+  <a href="/cms/spacex" class="card spcx">
+    <span class="icon">🚀</span><span class="title">SpaceX Cmd Center</span><span class="desc">LocalCMS sidebar — all tabs working</span>
+  </a>
+  <a href="/desk/spacex/command-center" class="card">
+    <span class="icon">📡</span><span class="title">SpaceX JSON API</span><span class="desc">18-field command center data</span>
   </a>
   <a href="/cms/" class="card">
     <span class="icon">🖥️</span><span class="title">LocalCMS</span><span class="desc">TMUX, journal, metrics, signals, credentials</span>
