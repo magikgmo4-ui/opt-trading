@@ -26,9 +26,10 @@ def _fetch(url: str, timeout: int = 10) -> dict | list:
 def collect_derivatives_proxy(symbols: list[str] | None = None) -> dict[str, Any]:
     symbols = symbols or SYMBOLS
     result = {
-        "source": "binance_derivatives_proxy",
+        "source": "risk_proxy_crypto_derivatives",
         "collected_at": datetime.now(timezone.utc).isoformat(),
         "ok": False,
+        "note": "RISK PROXY ONLY — not SPCX direct data, max weight 0.05 in trade_ready",
         "funding": {},
         "open_interest": {},
         "long_short_ratio": {},
