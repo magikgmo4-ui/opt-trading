@@ -16,73 +16,128 @@ def _read_json(path: Path) -> dict:
 
 def enriched_to_snapshot(enriched: dict) -> MarketSnapshot:
     data = enriched.get("snapshot", enriched)
+
+    # Handle enriched format: candle + consensus + smart_money
+    candle = data.get("candle", {})
+    consensus = data.get("consensus", {})
+    smart_money = data.get("smart_money", {})
+    indicators = data.get("indicators", {})
+    scores = data.get("scores", {})
+    context = data.get("context", {})
+
+    # Price from candle (primary) or consensus (fallback)
     price_data = data.get("price", {})
+    price = price_data.get("last", price_data.get("close",
+        candle.get("close", consensus.get("consensus_price", 0))))
+
+    # VWAP from candle or indicators
+    vwap = price_data.get("vwap") or candle.get("vwap") or indicators.get("vwap")
+
+    # Volume
     volume_data = data.get("volume", {})
-    structure_data = data.get("structure", {})
-    news_data = data.get("news", {})
-    sources = data.get("sources", {})
+    volume = volume_data.get("total", volume_data.get("shares",
+        int(candle.get("volume", 0))))
 
-    price = price_data.get("last", price_data.get("close", 0))
-    price_status = price_data.get("status", "missing")
-    vwap = price_data.get("vwap")
-    spread_pct = price_data.get("spread_pct", 0)
-    volume = volume_data.get("total", volume_data.get("shares", 0))
-    dollar_volume = volume_data.get("dollar_volume", volume_data.get("dollar", 0))
+    dollar_volume = volume_data.get("dollar_volume", volume_data.get("dollar",
+        volume * price if volume and price else 0))
 
+    # Price status: determine from candle session + source_confidence
+    session = candle.get("session", "")
+    source_conf = candle.get("source_confidence", 0)
+    if session == "regular_hours" and source_conf > 0:
+        price_status = "live"
+    elif session == "regular_hours":
+        price_status = "delayed"
+    elif session == "after_hours":
+        price_status = "stale"
+    else:
+        price_status = price_data.get("status", "missing")
+
+    # Bars count from consensus or inferred
     bars_count = len(data.get("bars", []))
-    source_count = len(sources) if isinstance(sources, dict) else (sources if isinstance(sources, int) else 0)
-    if source_count == 0:
-        source_count = 1
+    if bars_count == 0:
+        bars_count = 1 if candle.get("close") else 0
 
-    price_trust = price_data.get("trust", 0)
+    # Source count
+    source_count = consensus.get("source_count", consensus.get("trusted_source_count", 0))
+    if source_count == 0:
+        source_count = 1 if candle.get("close") else 0
+
+    # Price trust from consensus
+    price_trust = consensus.get("weighted_trust_score", 0)
     if price_trust == 0 and price_status == "live":
         price_trust = 80
     elif price_trust == 0:
-        price_trust = 30
+        price_trust = int(source_conf * 100) if source_conf else 30
 
+    # Spread estimate
+    spread_pct = price_data.get("spread_pct", 0)
+    if spread_pct == 0 and candle.get("high") and candle.get("low"):
+        h, l = candle["high"], candle["low"]
+        if (h + l) > 0:
+            spread_pct = abs(h - l) / ((h + l) / 2) * 100
+
+    # Halt detection
     halt_active = data.get("halt", {}).get("active", False)
 
+    # Source contradictions
     nasdaq_contradiction = False
     yahoo_contradiction = False
-    tv_source = (sources.get("tradingview", {}) if isinstance(sources, dict) else {})
-    yahoo_source = (sources.get("yahoo", {}) if isinstance(sources, dict) else {})
-    if isinstance(tv_source, dict) and isinstance(yahoo_source, dict):
-        tv_price = tv_source.get("price", 0)
-        yahoo_price = yahoo_source.get("price", 0)
-        if tv_price and yahoo_price and abs(tv_price - yahoo_price) / max(tv_price, 1) > 0.05:
+    sources = data.get("sources", {})
+    if not sources:
+        stale_sources = consensus.get("stale_sources", [])
+        if stale_sources:
             nasdaq_contradiction = True
 
+    # SMC structures from smart_money
     smc_structures = []
-    fvg = structure_data.get("fvg", [])
-    if isinstance(fvg, list):
-        for f in fvg:
-            f_type = f.get("type", f.get("direction", ""))
-            if f_type.lower() in ("bullish", "up", "long"):
-                smc_structures.append({"type": "FVG_BULLISH"})
-            elif f_type.lower() in ("bearish", "down", "short"):
-                smc_structures.append({"type": "FVG_BEARISH"})
-    bos = structure_data.get("bos", False)
-    choch = structure_data.get("choch", False)
-    ob = structure_data.get("order_blocks", [])
-    if bos:
+    structure_data = data.get("structure", {})
+    if smart_money.get("fvg_bullish"):
+        smc_structures.append({"type": "FVG_BULLISH"})
+    if smart_money.get("fvg_bearish"):
+        smc_structures.append({"type": "FVG_BEARISH"})
+    if smart_money.get("bos"):
         smc_structures.append({"type": "BOS"})
-    if choch:
+    if smart_money.get("choch"):
         smc_structures.append({"type": "CHOCH"})
-    if ob:
+    if smart_money.get("liquidity_sweep_low"):
+        smc_structures.append({"type": "LIQUIDITY_SWEEP_LOW"})
+    if smart_money.get("liquidity_sweep_high"):
+        smc_structures.append({"type": "LIQUIDITY_SWEEP_HIGH"})
+    if smart_money.get("order_block_bullish") or smart_money.get("order_block_bearish"):
         smc_structures.append({"type": "ORDER_BLOCK"})
 
-    liquidity_sweeps = structure_data.get("liquidity_sweeps", {})
-    if isinstance(liquidity_sweeps, dict):
-        if liquidity_sweeps.get("low"):
-            smc_structures.append({"type": "LIQUIDITY_SWEEP_LOW"})
-        if liquidity_sweeps.get("high"):
-            smc_structures.append({"type": "LIQUIDITY_SWEEP_HIGH"})
+    # Also check structure_data for backward compat
+    if not smc_structures:
+        fvg = structure_data.get("fvg", [])
+        if isinstance(fvg, list):
+            for f in fvg:
+                f_type = f.get("type", f.get("direction", ""))
+                if f_type.lower() in ("bullish", "up", "long"):
+                    smc_structures.append({"type": "FVG_BULLISH"})
+                elif f_type.lower() in ("bearish", "down", "short"):
+                    smc_structures.append({"type": "FVG_BEARISH"})
+        if structure_data.get("bos"):
+            smc_structures.append({"type": "BOS"})
+        if structure_data.get("choch"):
+            smc_structures.append({"type": "CHOCH"})
+        ob = structure_data.get("order_blocks", [])
+        if ob:
+            smc_structures.append({"type": "ORDER_BLOCK"})
+        ls = structure_data.get("liquidity_sweeps", {})
+        if isinstance(ls, dict):
+            if ls.get("low"):
+                smc_structures.append({"type": "LIQUIDITY_SWEEP_LOW"})
+            if ls.get("high"):
+                smc_structures.append({"type": "LIQUIDITY_SWEEP_HIGH"})
 
+    # News
+    news_data = data.get("news", {})
     news_headline = news_data.get("headline")
     news_sentiment = news_data.get("sentiment")
 
-    symbol = data.get("symbol", "SPCX")
-    timestamp = data.get("ts", data.get("timestamp", ""))
+    symbol = data.get("symbol", candle.get("symbol", "SPCX"))
+    timestamp = data.get("ts", data.get("timestamp", candle.get("timestamp", "")))
 
     return MarketSnapshot(
         symbol=symbol,
@@ -93,7 +148,7 @@ def enriched_to_snapshot(enriched: dict) -> MarketSnapshot:
         volume=int(volume) if volume else 0,
         price_trust=int(price_trust) if price_trust else 0,
         source_count=source_count,
-        spread_pct=float(spread_pct) if spread_pct else 0.0,
+        spread_pct=round(float(spread_pct), 4) if spread_pct else 0.0,
         dollar_volume=float(dollar_volume) if dollar_volume else 0.0,
         vwap=float(vwap) if vwap is not None else None,
         halt_active=bool(halt_active),
