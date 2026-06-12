@@ -48,11 +48,15 @@ def enrich_candles(
     bv_capture_map = {}
     bv_comp_map = {}
     bv_spcx_count = 0
+    bv_visual_price = None
     for bv in bot_vision_events:
         if bv.get("ok"):
             bv_spcx_count = max(bv_spcx_count, bv.get("spcx_capture_count", 0))
             bv_capture_map = bv.get("spcx_capture_map", {}) or bv_capture_map
             bv_comp_map = bv.get("comparable_map", {}) or bv_comp_map
+            vp = bv.get("visual_price")
+            if vp is not None:
+                bv_visual_price = float(vp) if not isinstance(vp, (int, float)) else vp
     tv_events = [e for e in events if e.get("source") == "tradingview_webhook"]
 
     last_timestamp = bars[-1].get("ts") if bars else None
@@ -150,6 +154,7 @@ def enrich_candles(
             "bot_vision_capture_count": bv_spcx_count,
             "bot_vision_capture_map": bv_capture_map,
             "bot_vision_comparable_map": bv_comp_map,
+            "bot_vision_visual_price": bv_visual_price,
             "tv_alert_active": any(e.get("ok") for e in tv_events),
         },
     }

@@ -1,13 +1,15 @@
 from __future__ import annotations
+from pathlib import Path
 from typing import Any
 from ..io import REPO_ROOT, utc_now, read_json
 
 def collect_bot_vision_context(limit: int = 200) -> dict[str, Any]:
     roots = [
-        REPO_ROOT / "data/vision_inbox",
-        REPO_ROOT / "data/deskpro/inputs",
-        REPO_ROOT / "data/data_center/views",
-        REPO_ROOT / "modules/bot_vision/headless_capture",
+        REPO_ROOT / "data" / "vision_inbox",
+        Path("/srv/sftp/shared_files/shared/vision_inbox"),
+        REPO_ROOT / "data" / "deskpro" / "inputs",
+        REPO_ROOT / "data" / "data_center" / "views",
+        REPO_ROOT / "modules" / "bot_vision" / "headless_capture",
     ]
     hits = []
     spcx_captures = []
@@ -34,6 +36,17 @@ def collect_bot_vision_context(limit: int = 200) -> dict[str, Any]:
                         item["symbol"] = preview.get("symbol", "")
                         item["timeframe"] = preview.get("timeframe", "")
                         item["visual_status"] = preview.get("visual_status", "")
+                        # Surface DOM-extracted data
+                        dom = preview.get("dom_extracted", {})
+                        if dom and isinstance(dom, dict):
+                            item["dom_price"] = dom.get("price") or dom.get("regularMarketPrice") or dom.get("close")
+                            item["dom_open"] = dom.get("open")
+                            item["dom_high"] = dom.get("high")
+                            item["dom_low"] = dom.get("low")
+                            item["dom_close"] = dom.get("close")
+                            item["dom_volume"] = dom.get("volume")
+                            item["dom_change"] = dom.get("change")
+                            item["dom_change_percent"] = dom.get("changePercent") or dom.get("regularMarketChangePercent")
                     else:
                         item["page_id"] = ""
                         item["source"] = ""
@@ -72,6 +85,17 @@ def collect_bot_vision_context(limit: int = 200) -> dict[str, Any]:
                 "mtime": h["mtime"],
             }
 
+    # Extract visual price from DOM data
+    visual_price = None
+    for h in spcx_items:
+        dp = h.get("dom_price")
+        if dp:
+            try:
+                visual_price = float(str(dp).replace(",", ""))
+                break
+            except (ValueError, TypeError):
+                pass
+
     return {
         "source": "bot_vision_adapter",
         "collected_at": utc_now(),
@@ -82,4 +106,5 @@ def collect_bot_vision_context(limit: int = 200) -> dict[str, Any]:
         "spcx_capture_map": capture_map,
         "comparable_count": len(comp_items),
         "comparable_map": comp_map,
+        "visual_price": visual_price,
     }
