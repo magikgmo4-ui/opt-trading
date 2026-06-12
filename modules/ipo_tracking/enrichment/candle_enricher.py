@@ -201,8 +201,27 @@ def _atr_volatility(smc: dict, indicators: dict) -> float:
 
 
 def _liquidity_score(indicators: dict) -> float:
-    rel_vol = indicators.get("relative_volume") or 1.0
+    rel_vol = indicators.get("relative_volume") or 0.0
     vol_z = indicators.get("volume_zscore") or 0.0
+    abs_vol = indicators.get("volume") or 0
+
+    # Fallback to absolute volume when relative_volume is 0 (post-close / new IPO)
+    if rel_vol <= 0 and abs_vol > 0:
+        if abs_vol > 5_000_000:
+            rel_vol = 3.0
+        elif abs_vol > 1_000_000:
+            rel_vol = 2.0
+        elif abs_vol > 500_000:
+            rel_vol = 1.5
+        elif abs_vol > 100_000:
+            rel_vol = 1.0
+        else:
+            rel_vol = 0.5
+
+    # If still 0, use volume_zscore as-is (can be negative post-close)
+    if rel_vol <= 0 and vol_z:
+        rel_vol = max(0.3, min(2.0, 1.0 + vol_z * 0.3))
+
     return round(max(0, min(1, (rel_vol * 0.3 + (vol_z / 2) * 0.7))), 3)
 
 
