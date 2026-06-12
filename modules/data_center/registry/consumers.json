@@ -169,6 +169,30 @@
       "migration_needed": false,
       "read_path_current": null,
       "validated_at": "2026-05-30"
+    },
+    {
+      "consumer_id": "desk_pro__spacex_super_desk",
+      "surface": "PF_DESK_PRO",
+      "contract_class": "spacex_super_desk.v1",
+      "read_path": "data/data_center/views/spacex_super_desk/latest.json",
+      "access_pattern": "latest_only",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-06-12"
+    },
+    {
+      "consumer_id": "google_sheets__spacex_super_desk",
+      "surface": "PF_GOOGLE_SHEETS",
+      "contract_class": "spacex_super_desk.v1",
+      "read_path": "data/data_center/views/spacex_super_desk/latest.json",
+      "access_pattern": "latest_only",
+      "fallback": "silent_empty",
+      "implementation_status": "implemented",
+      "migration_needed": false,
+      "read_path_current": null,
+      "validated_at": "2026-06-12"
     }
   ]
 }

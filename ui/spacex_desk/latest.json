@@ -49,12 +49,12 @@
     },
     "bot_vision_adapter": {
       "source": "bot_vision_adapter",
-      "collected_at": "2026-06-12T06:47:11.744358+00:00",
+      "collected_at": "2026-06-12T07:02:11.188615+00:00",
       "ok": true,
       "items": [
         {
           "path": "data/data_center/views/telegram_signals/trade_history/FXTradingVision_signals.json",
-          "mtime": 1781246820.0272226,
+          "mtime": 1781247613.2543151,
           "suffix": ".json",
           "json_preview": [
             {
@@ -63,7 +63,7 @@
               "source": "telegram_screener_bridge",
               "channel": "FXTradingVision",
               "parsed_at": "2026-06-11T09:48:00+00:00",
-              "produced_at": "2026-06-11T10:00:13.873710+00:00",
+              "produced_at": "2026-06-12T07:00:13.258843+00:00",
               "pair": "XAUUSD",
               "asset": "XAUUSD",
               "direction": "LONG",
@@ -82,7 +82,7 @@
         },
         {
           "path": "modules/bot_vision/headless_capture/profiles.spacex.v5.json",
-          "mtime": 1781246825.5352712,
+          "mtime": 1781247128.461932,
           "suffix": ".json",
           "json_preview": {
             "version": "v5",
@@ -2284,5 +2284,5 @@
       "count": 25
     }
   },
-  "written_at": "2026-06-12T06:47:11.745497+00:00"
+  "written_at": "2026-06-12T07:02:11.189627+00:00"
 }

@@ -25,3 +25,7 @@ def collect_sec_edgar(cik: int = 1181412, *, timeout: int = 15) -> dict[str, Any
     except Exception as exc:
         out["error"] = str(exc)
     return out
+
+
+def fetch_sec_submissions(cik: str = "1181412", *, timeout: int = 15) -> dict[str, Any]:
+    return collect_sec_edgar(cik=int(cik), timeout=timeout)

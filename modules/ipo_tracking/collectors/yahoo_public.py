@@ -27,6 +27,10 @@ def collect_yahoo_quote(symbol: str = "SPCX", *, range_: str = "1d", interval: s
         out["error"] = str(exc)
     return out
 
+
+def fetch_chart(symbol: str = "SPCX", *, range_: str = "1d", interval: str = "1m", timeout: int = 15) -> dict[str, Any]:
+    return collect_yahoo_quote(symbol=symbol, range_=range_, interval=interval, timeout=timeout)
+
 def _idx(arr, i):
     try:
         return arr[i]

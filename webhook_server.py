@@ -25,6 +25,8 @@ pos_manager = PositionManager()
 
 from modules.auth.webhook_key import payload_key_is_valid
 
+REPO_ROOT = pathlib.Path(__file__).resolve().parent
+
 # [DISABLED: was top-level code causing SyntaxError]
 # action = enforce_single_open(engine, symbol, side, price)
 # [DISABLED: was top-level code causing SyntaxError]
@@ -603,6 +605,49 @@ async def tv_webhook(req: Request):
              log.info(f"POSITION UPDATED: {pos}")
 
     return {"ok": True}
+
+
+@app.post("/tv/spacex")
+async def tv_spacex_webhook(req: Request):
+    payload = await req.json()
+    client_ip = req.client.host if req.client else None
+    try:
+        require_key(payload, client_ip)
+    except HTTPException as e:
+        raise e
+
+    symbol = payload.get("symbol") or payload.get("ticker") or "SPCX"
+    event = payload.get("event") or payload.get("alert_name") or payload.get("setup", "unknown")
+    produced_at = payload.get("time") or payload.get("timestamp") or datetime.utcnow().isoformat()
+
+    from modules.ipo_tracking.collectors.tradingview_webhook import normalize_tradingview_payload
+    from modules.ipo_tracking.config import load_config
+    from modules.ipo_tracking.storage import persist_event
+
+    normalized = normalize_tradingview_payload(payload)
+    cfg = load_config()
+    persist_event(normalized, cfg)
+
+    log.info(f"[tv/spacex] {symbol} event={event} ok")
+
+    try:
+        from modules.ipo_tracking.cli import collect_once
+        collect_once(cfg, offline=False, tv_json=None)
+    except Exception as collect_err:
+        log.warning(f"[tv/spacex] collect_once failed (non-fatal): {collect_err}")
+
+    try:
+        from modules.ipo_tracking.telegram_dispatcher import send_spacex_alert
+        from modules.ipo_tracking.io import read_json
+        snap = read_json(
+            REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {}
+        )
+        if snap:
+            send_spacex_alert(snap, channel="push")
+    except Exception as tg_err:
+        log.warning(f"[tv/spacex] telegram dispatch failed (non-fatal): {tg_err}")
+
+    return {"ok": True, "symbol": symbol, "event": event}
 
 
 # -------------------- API --------------------

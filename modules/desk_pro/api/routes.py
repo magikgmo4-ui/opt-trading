@@ -473,6 +473,22 @@ def desk_vision_telegram_claim():
     return read_telegram_claim_panel_data()
 
 
+@router.get("/spacex")
+def desk_spacex():
+    spath = Path("data/data_center/views/spacex_super_desk/latest.json")
+    if spath.exists():
+        return json.loads(spath.read_text(encoding="utf-8"))
+    return {"ok": False, "error": "no spacex_super_desk data yet", "action": "run spacex-super-desk collect-once"}
+
+
+@router.get("/spacex/snapshot")
+def desk_spacex_snapshot():
+    spath = Path("data/ipo/spacex/scored/latest_snapshot.json")
+    if spath.exists():
+        return json.loads(spath.read_text(encoding="utf-8"))
+    return {"ok": False, "error": "no snapshot yet"}
+
+
 @router.get("/logs/latest")
 def desk_logs_latest(n: int = 200):
     # Returns last N lines of /opt/trading/tmp/desk_pro_ui.log
