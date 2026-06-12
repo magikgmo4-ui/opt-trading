@@ -133,6 +133,8 @@ def enrich_candles(
             "missing_sources": consensus.get("missing_source_flags"),
             "market_phase": market_phase,
             "price_status": price_status,
+            "visual_price": consensus.get("visual_price"),
+            "visual_price_delta_pct": consensus.get("visual_price_delta_pct"),
         },
         "scores": mega_scores,
         "pipeline_state": {
