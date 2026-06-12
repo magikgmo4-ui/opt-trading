@@ -28,6 +28,7 @@ from .sector_intelligence import compute_sector_intelligence, sector_summary, co
 from .edge_engine import compute_setup_probabilities, edge_summary
 from .market_microstructure import detect_market_regime, analyze_opening_auction, compute_volume_curve
 from .data_quality_guardian import audit_sources, audit_features
+from .command_center import render_command_center, command_center_json
 
 
 def main(argv=None) -> int:
@@ -87,6 +88,7 @@ def main(argv=None) -> int:
     sub.add_parser("edge")
     sub.add_parser("microstructure")
     sub.add_parser("guardian")
+    sub.add_parser("command-center")
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -365,6 +367,9 @@ def main(argv=None) -> int:
         events = read_raw_events(cfg)
         sources = audit_sources(events)
         print(json.dumps({"source_audit": sources}, indent=2, default=str))
+        return 0
+    if args.cmd == "command-center":
+        print(render_command_center())
         return 0
     return 2
 
