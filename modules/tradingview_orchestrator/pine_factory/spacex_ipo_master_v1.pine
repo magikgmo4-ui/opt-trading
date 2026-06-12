@@ -1,0 +1,91 @@
+//@version=5
+// SpaceX IPO Monitor v1 — Master Pine Script
+// GO_SPACEX_TV_AUTOMATION_MAX_01
+// Generates alertcondition() for each SPCX setup type
+indicator("SPCX IPO Monitor v1", overlay=true, max_labels_count=500)
+
+// ── INPUTS ─────────────────────────────────
+orbLength = input.int(5, "ORB Length (bars)", minval=1)
+vwapSrc = hlc3
+ema20Len = input.int(20, "EMA Fast")
+ema50Len = input.int(50, "EMA Medium")
+ema200Len = input.int(200, "EMA Slow")
+rsiLen = input.int(14, "RSI Length")
+atrLen = input.int(14, "ATR Length")
+volAvgLen = input.int(20, "Volume MA Length")
+volSpikeMult = input.float(2.0, "Volume Spike Multiplier")
+
+// ── INDICATORS ─────────────────────────────
+ema20 = ta.ema(close, ema20Len)
+ema50 = ta.ema(close, ema50Len)
+ema200 = ta.ema(close, ema200Len)
+rsi = ta.rsi(close, rsiLen)
+atr = ta.atr(atrLen)
+vwap = ta.vwap(vwapSrc)
+volAvg = ta.sma(volume, volAvgLen)
+
+// ── OPENING RANGE ──────────────────────────
+var float orbHigh = na
+var float orbLow = na
+isNewDay = timeframe.change("D")
+if isNewDay
+    orbHigh := high
+    orbLow := low
+else if bar_index - ta.barssince(isNewDay) < orbLength
+    orbHigh := math.max(orbHigh, high)
+    orbLow := math.min(orbLow, low)
+
+orbBreakUp = close > orbHigh and not na(orbHigh)
+orbBreakDown = close < orbLow and not na(orbLow)
+
+// ── VWAP ───────────────────────────────────
+vwapReclaim = ta.crossover(close, vwap)
+vwapReject = ta.crossunder(close, vwap)
+
+// ── VOLUME SPIKE ───────────────────────────
+volSpike = volume > volAvg * volSpikeMult
+
+// ── EMA STRUCTURE ──────────────────────────
+emaBullish = ema20 > ema50 and ema50 > ema200
+emaBearish = ema20 < ema50 and ema50 < ema200
+
+// ── RSI REGIME ─────────────────────────────
+rsiOverbought = rsi > 70
+rsiOversold = rsi < 30
+
+// ── FVG DETECTION ──────────────────────────
+fvgBullish = low > high[2] and close > open
+fvgBearish = high < low[2] and close < open
+
+// ── BOS / CHOCH ────────────────────────────
+var float swingHigh = na
+var float swingLow = na
+pivotLen = 5
+isPivotHigh = ta.pivothigh(high, pivotLen, pivotLen)
+isPivotLow = ta.pivotlow(low, pivotLen, pivotLen)
+
+bos = not na(isPivotHigh) and close > isPivotHigh[1]
+choch = not na(isPivotLow) and close > ta.pivotlow(low, pivotLen, pivotLen)[1]
+
+// ── PLOTS ──────────────────────────────────
+plot(ema20, "EMA20", color=color.blue)
+plot(ema50, "EMA50", color=color.orange)
+plot(ema200, "EMA200", color=color.red)
+plot(vwap, "VWAP", color=color.green)
+plot(orbHigh, "ORB High", color=color.purple, linewidth=2)
+plot(orbLow, "ORB Low", color=color.purple, linewidth=2)
+
+// ── ALERT CONDITIONS ───────────────────────
+alertcondition(orbBreakUp, "SPCX_ORB_BREAK_UP", "Price breaks above opening range high")
+alertcondition(orbBreakDown, "SPCX_ORB_BREAK_DOWN", "Price breaks below opening range low")
+alertcondition(vwapReclaim, "SPCX_VWAP_RECLAIM", "Price reclaims VWAP")
+alertcondition(vwapReject, "SPCX_VWAP_REJECT", "Price rejected at VWAP")
+alertcondition(volSpike, "SPCX_VOLUME_SPIKE", "Volume spike detected")
+alertcondition(emaBullish and ta.crossover(ema20, ema50), "SPCX_EMA_BULLISH_CROSS", "EMA20 crosses above EMA50")
+alertcondition(emaBearish and ta.crossunder(ema20, ema50), "SPCX_EMA_BEARISH_CROSS", "EMA20 crosses below EMA50")
+alertcondition(rsiOversold and close > open, "SPCX_RSI_OVERSOLD_REVERSAL", "RSI oversold reversal")
+alertcondition(rsiOverbought and close < open, "SPCX_RSI_OVERBOUGHT_REVERSAL", "RSI overbought reversal")
+alertcondition(fvgBullish, "SPCX_FVG_BULLISH", "Bullish Fair Value Gap")
+alertcondition(fvgBearish, "SPCX_FVG_BEARISH", "Bearish Fair Value Gap")
+alertcondition(bos, "SPCX_BOS", "Break of Structure")
+alertcondition(choch, "SPCX_CHOCH", "Change of Character")

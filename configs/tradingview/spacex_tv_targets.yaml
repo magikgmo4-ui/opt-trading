@@ -1,0 +1,83 @@
+# SpaceX TradingView Target State — Source of Truth
+# GO_SPACEX_TV_AUTOMATION_MAX_01
+# Read by: scripts/ipo/spacex_tv_reconcile.py
+
+symbol: SPCX
+symbol_tv: BATS:SPCX
+webhook_url: https://spacex-tv.magikgmo4.uk/tv/spacex
+mode: monitor_only
+paper_only: true
+
+required_timeframes:
+  - "1"
+  - "5"
+  - "15"
+  - "60"
+  - "240"
+  - "D"
+
+required_indicators:
+  - name: VWAP
+    type: builtin
+  - name: EMA
+    type: builtin
+    params: {length: 20}
+  - name: EMA
+    type: builtin
+    params: {length: 50}
+  - name: EMA
+    type: builtin
+    params: {length: 200}
+  - name: RSI
+    type: builtin
+    params: {length: 14}
+  - name: Volume
+    type: builtin
+  - name: ATR
+    type: builtin
+    params: {length: 14}
+
+required_alerts:
+  - id: SPCX_ON_BAR_CLOSE_HEARTBEAT
+    condition: crossing
+    price: 1
+    frequency: on_bar_close
+    message_template: spacex_webhook
+
+  - id: SPCX_PRICE_ABOVE_VWAP
+    condition: greater_than
+    price: 0
+    frequency: once_per_bar
+    message_template: spacex_vwap_reclaim
+
+  - id: SPCX_PRICE_BELOW_VWAP
+    condition: less_than
+    price: 0
+    frequency: once_per_bar
+    message_template: spacex_vwap_reject
+
+  - id: SPCX_VOLUME_SPIKE
+    condition: greater_than
+    price: 0
+    frequency: once_per_bar
+    message_template: spacex_volume
+
+webhook_payload:
+  schema: spacex_tv_event_v1
+  source: tradingview
+  mode: monitor_only
+  fields:
+    - symbol: "{{ticker}}"
+    - exchange: "{{exchange}}"
+    - timeframe: "{{interval}}"
+    - event: "{{alert_name}}"
+    - ts: "{{time}}"
+    - fired_at: "{{timenow}}"
+    - open: "{{open}}"
+    - high: "{{high}}"
+    - low: "{{low}}"
+    - close: "{{close}}"
+    - price: "{{close}}"
+    - volume: "{{volume}}"
+    - vwap: "{{plot(\"VWAP\")}}"
+    - key: "__TV_WEBHOOK_KEY__"
