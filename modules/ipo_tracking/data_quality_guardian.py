@@ -11,6 +11,9 @@ SOURCE_HEALTH_BASELINE: dict[str, dict[str, Any]] = {
     "yahoo_news_rss": {"max_staleness_s": 3600, "min_events_per_cycle": 1, "critical": False},
     "tradingview_webhook": {"max_staleness_s": 600, "min_events_per_cycle": 1, "critical": True},
     "bot_vision_adapter": {"max_staleness_s": 1200, "min_events_per_cycle": 1, "critical": False},
+    "desk_pro_latest": {"max_staleness_s": 600, "min_events_per_cycle": 0, "critical": False},
+    "google_sheets_latest": {"max_staleness_s": 3600, "min_events_per_cycle": 0, "critical": False},
+    "telegram_channel": {"max_staleness_s": 1800, "min_events_per_cycle": 0, "critical": True},
 }
 
 
