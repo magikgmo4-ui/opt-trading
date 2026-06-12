@@ -14,7 +14,7 @@ from modules.youtube_video_ingestion import (
     run_vision_benchmark,
     write_vision_annotation_template,
 )
-from modules.youtube_video_ingestion.cli import _normalize_source, _parsed_jsonl_path
+from modules.youtube_video_ingestion.cli import _normalize_source, _parsed_jsonl_path, build_parser
 from modules.youtube_video_ingestion.ocr import FfmpegFrameOcrRunner, FrameSamplingContract, OcrResult
 from modules.youtube_video_ingestion.yt_dlp_runner import CommandResult
 from modules.youtube_video_ingestion.yt_dlp_runner import discover_urls_for_source
@@ -252,7 +252,25 @@ def test_ocr_disabled_by_default_uses_noop(tmp_path: Path) -> None:
 
     parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "live_xau_001.json")
     assert parser_input["ocr_status"] == "skipped"
+    assert parser_input["ocr_command"] is None
     assert not any(command.startswith("ffmpeg ") for command in runner.commands)
+
+
+def test_cli_parses_ocr_command_bridge_options() -> None:
+    args = build_parser().parse_args(
+        [
+            "--source",
+            "@trademachineoff",
+            "--ocr-command",
+            "tesseract {image} stdout -l eng",
+            "--ocr-timeout-seconds",
+            "3",
+        ]
+    )
+
+    assert args.source == "@trademachineoff"
+    assert args.ocr_command == "tesseract {image} stdout -l eng"
+    assert args.ocr_timeout_seconds == 3
 
 
 def test_ffmpeg_ocr_runner_samples_frames_without_ocr_command(tmp_path: Path) -> None:
@@ -286,6 +304,70 @@ def test_ffmpeg_ocr_runner_failure_is_non_fatal_result(tmp_path: Path) -> None:
 
     assert result.status == "failed"
     assert "ffmpeg frame sampling failed" in result.error_summary
+
+
+def test_ocr_command_template_populates_segments_and_vision(tmp_path: Path) -> None:
+    runner = FakeCommandRunner(tmp_path, write_subtitles=False)
+    ocr_runner = FakeOcrCommandRunner(tmp_path)
+    client = YtDlpPilotClient(
+        urls=["https://youtube.com/shorts/live_xau_001"],
+        work_dir=tmp_path / "outputs" / "youtube",
+        runner=runner,
+        ocr_runner=FfmpegFrameOcrRunner(
+            runner=ocr_runner,
+            ocr_command="fake-ocr {image} stdout",
+            ocr_timeout_seconds=3,
+        ),
+        frame_sampling=FrameSamplingContract(fps=1, max_frames=2),
+    )
+
+    result = run_trademachineoff_pilot(tmp_path, client=client, limit=1, collected_at="2026-06-11T00:00:00Z")
+
+    parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "live_xau_001.json")
+    raw = _read_json(tmp_path / "outputs" / "youtube" / "raw_metadata" / "live_xau_001.json")
+    ocr_lines = (tmp_path / "outputs" / "youtube" / "ocr" / "live_xau_001.jsonl").read_text(encoding="utf-8").splitlines()
+    parsed = _read_json(tmp_path / "outputs" / "youtube" / "parsed" / "live_xau_001.json")
+
+    assert result["videos_collected"] == 1
+    assert raw["ocr_command"] == "fake-ocr {image} stdout"
+    assert parser_input["ocr_command"] == "fake-ocr {image} stdout"
+    assert parser_input["ocr_status"] == "ok"
+    assert parser_input["screen_text"] == "XAUUSD BUY ABOVE 2345 SL 2335\nTP1 2360 TP2 2375 M5 EMA"
+    assert len(parser_input["ocr_segments"]) == 2
+    assert len(ocr_lines) == 2
+    assert parser_input["vision"]["symbols_detected"][0]["symbol"] == "XAUUSD"
+    assert parser_input["vision"]["timeframes_detected"][0]["timeframe"] == "M5"
+    assert parsed["classification"] == "candidate_complete"
+    assert any(command.startswith("fake-ocr ") for command in ocr_runner.commands)
+
+
+def test_ocr_command_failure_is_recorded_without_breaking_batch(tmp_path: Path) -> None:
+    runner = FakeCommandRunner(tmp_path, write_subtitles=False)
+    ocr_runner = FakeOcrCommandRunner(tmp_path, fail_ocr=True)
+    client = YtDlpPilotClient(
+        urls=["https://youtube.com/shorts/live_xau_001"],
+        work_dir=tmp_path / "outputs" / "youtube",
+        runner=runner,
+        ocr_runner=FfmpegFrameOcrRunner(
+            runner=ocr_runner,
+            ocr_command="fake-ocr {image} stdout",
+            ocr_timeout_seconds=3,
+        ),
+        frame_sampling=FrameSamplingContract(fps=1, max_frames=2),
+    )
+
+    result = run_trademachineoff_pilot(tmp_path, client=client, limit=1, collected_at="2026-06-11T00:00:00Z")
+
+    parser_input = _read_json(tmp_path / "outputs" / "youtube" / "parser_input" / "live_xau_001.json")
+    parsed_jsonl = (tmp_path / "outputs" / "youtube" / "parsed" / "trademachineoff_pilot.jsonl").read_text(encoding="utf-8")
+
+    assert result["videos_collected"] == 1
+    assert parser_input["ocr_status"] == "failed"
+    assert parser_input["ocr_command"] == "fake-ocr {image} stdout"
+    assert "fake OCR failure" in parser_input["ocr_error_summary"]
+    assert len(parser_input["ocr_segments"]) == 1
+    assert parser_input["vision"]["symbols_detected"] == []
+    assert "live_xau_001" in parsed_jsonl
 
 
 def test_vision_layer_v1_extracts_trading_overlay_fields() -> None:
@@ -420,9 +502,10 @@ class FakeCommandRunner:
 
 
 class FakeOcrCommandRunner:
-    def __init__(self, root: Path, *, fail_ffmpeg: bool = False) -> None:
+    def __init__(self, root: Path, *, fail_ffmpeg: bool = False, fail_ocr: bool = False) -> None:
         self.root = root
         self.fail_ffmpeg = fail_ffmpeg
+        self.fail_ocr = fail_ocr
         self.commands: list[str] = []
 
     def run(self, args: list[str], cwd: Path | None = None) -> CommandResult:
@@ -441,6 +524,13 @@ class FakeOcrCommandRunner:
             for index in range(1, 3):
                 (pattern.parent / f"frame_{index:06d}.jpg").write_bytes(b"fake frame")
             return CommandResult(tuple(args), 0, "", "")
+        if args and args[0] == "fake-ocr":
+            if self.fail_ocr:
+                return CommandResult(tuple(args), 1, "", "fake OCR failure: bad image")
+            frame = Path(args[1])
+            if frame.name == "frame_000001.jpg":
+                return CommandResult(tuple(args), 0, "XAUUSD BUY ABOVE 2345 SL 2335", "")
+            return CommandResult(tuple(args), 0, "TP1 2360 TP2 2375 M5 EMA", "")
         return CommandResult(tuple(args), 1, "", "unexpected command")
 
 

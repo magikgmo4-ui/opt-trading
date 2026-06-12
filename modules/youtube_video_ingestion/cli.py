@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .benchmark import run_vision_benchmark, write_vision_annotation_template
 from .collector import run_trademachineoff_pilot
-from .ocr import FfmpegFrameOcrRunner, FrameSamplingContract
+from .ocr import DEFAULT_OCR_TIMEOUT_SECONDS, FfmpegFrameOcrRunner, FrameSamplingContract
 from .yt_dlp_runner import YtDlpPilotClient, discover_urls_for_source
 
 
@@ -27,6 +27,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--whisper-model", default="small")
     parser.add_argument("--enable-ocr", action="store_true", help="Download video and sample frames with ffmpeg for OCR")
     parser.add_argument("--frame-rate", type=float, default=1.0, help="Frame sampling rate in frames per second")
+    parser.add_argument("--ocr-command", default=None, help="OCR command template, for example: tesseract {image} stdout -l eng")
+    parser.add_argument("--ocr-timeout-seconds", type=float, default=DEFAULT_OCR_TIMEOUT_SECONDS)
 
     subparsers = parser.add_subparsers(dest="command")
     run_parser = subparsers.add_parser("run-trademachineoff", help="Run controlled @trademachineoff yt-dlp pilot")
@@ -39,6 +41,8 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--whisper-model", default=None)
     run_parser.add_argument("--enable-ocr", action="store_true")
     run_parser.add_argument("--frame-rate", type=float, default=None)
+    run_parser.add_argument("--ocr-command", default=None)
+    run_parser.add_argument("--ocr-timeout-seconds", type=float, default=None)
 
     template_parser = subparsers.add_parser("benchmark-vision-template", help="Write manual annotation template from parser_input artifacts")
     template_parser.add_argument("--parser-input-dir", required=True)
@@ -81,8 +85,23 @@ def _dispatch(args: argparse.Namespace, parser: argparse.ArgumentParser) -> dict
         whisper_model = args.whisper_model or "small"
         enable_ocr = args.enable_ocr
         frame_rate = args.frame_rate if args.frame_rate is not None else 1.0
+        ocr_command = args.ocr_command
+        ocr_timeout_seconds = args.ocr_timeout_seconds if args.ocr_timeout_seconds is not None else DEFAULT_OCR_TIMEOUT_SECONDS
         urls = _read_urls(urls_file)
-        return _run(root, urls, limit, output, subtitle_lang, parsed_jsonl, audio_fallback, whisper_model, enable_ocr, frame_rate)
+        return _run(
+            root,
+            urls,
+            limit,
+            output,
+            subtitle_lang,
+            parsed_jsonl,
+            audio_fallback,
+            whisper_model,
+            enable_ocr,
+            frame_rate,
+            ocr_command,
+            ocr_timeout_seconds,
+        )
 
     if args.command == "benchmark-vision-template":
         return write_vision_annotation_template(
@@ -117,6 +136,8 @@ def _dispatch(args: argparse.Namespace, parser: argparse.ArgumentParser) -> dict
             args.whisper_model,
             args.enable_ocr,
             args.frame_rate,
+            args.ocr_command,
+            args.ocr_timeout_seconds,
         )
 
     parser.print_help()
@@ -134,10 +155,16 @@ def _run(
     whisper_model: str,
     enable_ocr: bool,
     frame_rate: float,
+    ocr_command: str | None,
+    ocr_timeout_seconds: float,
 ) -> dict:
     output_root = _output_root(root, output)
     frame_sampling = FrameSamplingContract(fps=frame_rate)
-    ocr_runner = FfmpegFrameOcrRunner() if enable_ocr else None
+    ocr_runner = (
+        FfmpegFrameOcrRunner(ocr_command=ocr_command, ocr_timeout_seconds=ocr_timeout_seconds)
+        if enable_ocr or ocr_command
+        else None
+    )
     client = YtDlpPilotClient(
         urls=urls,
         work_dir=output_root,

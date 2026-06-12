@@ -132,6 +132,7 @@ def _raw_metadata(video: dict[str, Any], source: dict[str, Any], collected_at: s
         "is_short": _bool_or_default(video.get("is_short"), True),
         "raw_collected_at": collected_at,
         "selection_reason": _string_or_none(video.get("selection_reason")),
+        "ocr_command": _string_or_none(video.get("ocr_command")),
     }
 
 
@@ -159,6 +160,7 @@ def _parser_input(video: dict[str, Any], source: dict[str, Any]) -> dict[str, An
         "frame_sampling_rate": _string_or_empty(video.get("frame_sampling_rate") or "1fps"),
         "ocr_status": _string_or_empty(video.get("ocr_status") or "not_run"),
         "ocr_error_summary": _string_or_none(video.get("ocr_error_summary")),
+        "ocr_command": _string_or_none(video.get("ocr_command")),
         "vision": vision,
         "parser_profile": source.get("parser_profile") or PARSER_PROFILE,
     }

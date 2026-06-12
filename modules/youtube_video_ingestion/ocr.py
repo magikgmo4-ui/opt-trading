@@ -1,13 +1,18 @@
 from __future__ import annotations
 
+import shlex
+import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Protocol
 
 
+DEFAULT_OCR_TIMEOUT_SECONDS = 10.0
+
+
 @dataclass(frozen=True)
 class FrameSamplingContract:
-    fps: int = 1
+    fps: float = 1
     max_frames: int = 60
     image_format: str = "jpg"
 
@@ -22,6 +27,7 @@ class OcrResult:
     segments: list[dict[str, Any]] = field(default_factory=list)
     status: str = "not_run"
     error_summary: str | None = None
+    command: str | None = None
 
 
 class OcrRunner(Protocol):
@@ -37,8 +43,28 @@ class OcrRunner(Protocol):
 
 
 class OcrCommandRunner(Protocol):
-    def run(self, args: list[str], cwd: Path | None = None) -> Any:
+    def run(self, args: list[str], cwd: Path | None = None, timeout_seconds: float | None = None) -> Any:
         """Run an external command and return an object with returncode/stdout/stderr."""
+
+
+@dataclass(frozen=True)
+class OcrCommandResult:
+    args: tuple[str, ...]
+    returncode: int
+    stdout: str
+    stderr: str
+
+
+class SubprocessOcrCommandRunner:
+    def run(self, args: list[str], cwd: Path | None = None, timeout_seconds: float | None = None) -> OcrCommandResult:
+        try:
+            completed = subprocess.run(args, cwd=cwd, capture_output=True, text=True, check=False, timeout=timeout_seconds)
+        except subprocess.TimeoutExpired as exc:
+            stdout = exc.stdout if isinstance(exc.stdout, str) else ""
+            stderr = exc.stderr if isinstance(exc.stderr, str) else ""
+            summary = stderr or f"command timed out after {timeout_seconds:g}s"
+            return OcrCommandResult(tuple(args), 124, stdout, summary)
+        return OcrCommandResult(tuple(args), completed.returncode, completed.stdout, completed.stderr)
 
 
 class FfmpegFrameOcrRunner:
@@ -49,13 +75,15 @@ class FfmpegFrameOcrRunner:
         *,
         runner: OcrCommandRunner | None = None,
         ocr_command: str | None = None,
+        ocr_timeout_seconds: float = DEFAULT_OCR_TIMEOUT_SECONDS,
     ) -> None:
         if runner is None:
-            from .yt_dlp_runner import SubprocessCommandRunner
-
-            runner = SubprocessCommandRunner()
+            runner = SubprocessOcrCommandRunner()
         self.runner = runner
-        self.ocr_command = ocr_command
+        self.ocr_command = ocr_command.strip() if ocr_command else None
+        if self.ocr_command and "{image}" not in self.ocr_command:
+            raise ValueError("ocr_command must include the {image} placeholder")
+        self.ocr_timeout_seconds = ocr_timeout_seconds
 
     def extract(
         self,
@@ -115,8 +143,6 @@ class FfmpegFrameOcrRunner:
         texts = []
         for index, frame in enumerate(frames, start=1):
             text, status, error = self._ocr_frame(frame)
-            if status == "failed":
-                return OcrResult(status="failed", error_summary=error)
             if text:
                 texts.append(text)
             segments.append(
@@ -128,6 +154,14 @@ class FfmpegFrameOcrRunner:
                     "confidence": None,
                 }
             )
+            if status == "failed":
+                return OcrResult(
+                    text="\n".join(texts).strip(),
+                    segments=segments,
+                    status="failed",
+                    error_summary=f"OCR command failed for {frame.name}: {error}",
+                    command=self.ocr_command,
+                )
 
         if self.ocr_command is None:
             return OcrResult(
@@ -136,15 +170,31 @@ class FfmpegFrameOcrRunner:
                 status="frames_sampled",
                 error_summary="OCR command not configured",
             )
-        return OcrResult(text="\n".join(texts).strip(), segments=segments, status="ok")
+        return OcrResult(text="\n".join(texts).strip(), segments=segments, status="ok", command=self.ocr_command)
 
     def _ocr_frame(self, frame: Path) -> tuple[str, str, str | None]:
         if self.ocr_command is None:
             return "", "skipped", None
-        result = self.runner.run([self.ocr_command, str(frame), "stdout"], cwd=frame.parent)
+        try:
+            args = self._ocr_command_args(frame)
+        except ValueError as exc:
+            return "", "failed", str(exc)
+        result = _run_with_timeout(self.runner, args, frame.parent, self.ocr_timeout_seconds)
         if getattr(result, "returncode", 1) != 0:
             return "", "failed", _summarize_error(getattr(result, "stderr", ""))
         return str(getattr(result, "stdout", "")).strip(), "ok", None
+
+    def _ocr_command_args(self, frame: Path) -> list[str]:
+        if self.ocr_command is None:
+            return []
+        try:
+            args = shlex.split(self.ocr_command)
+        except ValueError as exc:
+            raise ValueError(f"invalid OCR command template: {exc}") from exc
+        rendered = [arg.replace("{image}", str(frame)) for arg in args]
+        if not rendered:
+            raise ValueError("OCR command template produced no command")
+        return rendered
 
 
 class NoopOcrRunner:
@@ -167,3 +217,15 @@ def _summarize_error(stderr: str) -> str:
         if "ERROR:" in line or "Error" in line:
             return line[-300:]
     return lines[-1][-300:]
+
+
+def _run_with_timeout(
+    runner: OcrCommandRunner,
+    args: list[str],
+    cwd: Path,
+    timeout_seconds: float,
+) -> Any:
+    try:
+        return runner.run(args, cwd=cwd, timeout_seconds=timeout_seconds)
+    except TypeError:
+        return runner.run(args, cwd=cwd)

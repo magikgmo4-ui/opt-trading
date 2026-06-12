@@ -18,6 +18,44 @@ vision
 Si `vision` manque, le benchmark recalcule Vision Layer V1 depuis
 `screen_text` + `ocr_segments`.
 
+## OCR prerequisites
+
+Sur Windows, le benchmark réel nécessite que les outils vidéo/OCR soient
+installés et disponibles dans le `PATH`, ou qu'une commande OCR custom soit
+fournie.
+
+Pré-requis usuels :
+
+```text
+yt-dlp
+ffmpeg
+tesseract
+```
+
+PowerShell doit toujours quoter le handle source :
+
+```bash
+--source '@trademachineoff'
+```
+
+Run OCR configurable :
+
+```bash
+python -m modules.youtube_video_ingestion.cli \
+  --source '@trademachineoff' \
+  --limit 50 \
+  --output outputs/youtube/pilots/trademachineoff_real_ocr \
+  --subtitle-lang en \
+  --enable-ocr \
+  --frame-rate 1 \
+  --ocr-command "tesseract {image} stdout -l eng" \
+  --parsed-jsonl outputs/youtube/parsed/trademachineoff_real_ocr.jsonl
+```
+
+La commande OCR doit inclure le placeholder `{image}`. Le stdout devient le
+texte OCR de la frame. Un exit non-zero est capturé dans `ocr_error_summary` et
+ne bloque pas le batch.
+
 ## Annotation template
 
 Commande locale :

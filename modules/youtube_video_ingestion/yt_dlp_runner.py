@@ -87,6 +87,7 @@ class YtDlpPilotClient:
                     ocr.segments,
                     ocr.status,
                     ocr.error_summary,
+                    ocr.command,
                     self.frame_sampling.label,
                 )
             )
@@ -217,6 +218,7 @@ def _video_from_metadata(
     ocr_segments: list[dict[str, Any]],
     ocr_status: str,
     ocr_error_summary: str | None,
+    ocr_command: str | None,
     frame_sampling_rate: str,
 ) -> dict[str, Any]:
     video_id = _safe_video_id(str(metadata.get("id") or ""))
@@ -240,6 +242,7 @@ def _video_from_metadata(
         "ocr_segments": ocr_segments,
         "ocr_status": ocr_status,
         "ocr_error_summary": ocr_error_summary,
+        "ocr_command": ocr_command,
         "frame_sampling_rate": frame_sampling_rate,
     }
 
