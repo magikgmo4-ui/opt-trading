@@ -1,0 +1,8 @@
+docs/chantiers/GO_SPACEX_V2_DESK_TELEGRAM_SHEETS_EXPORT_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_SPACEX_V2_DESK_TELEGRAM_SHEETS_EXPORT_01/FILE_SCOPE.txt
+modules/spcx_v2/export_desk.py
+modules/spcx_v2/export_telegram.py
+modules/spcx_v2/export_sheets.py
+modules/spcx_v2/daily_summary.py
+scripts/ipo/spacex_export_daily_v2.sh
+tests/test_spcx_v2_export.py
