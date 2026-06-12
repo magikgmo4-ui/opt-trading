@@ -1,0 +1,32 @@
+{
+  "schema_version": "vision_benchmark_annotations_v1",
+  "annotations": [
+    {
+      "video_id": "tm_xau_001",
+      "expected": {
+        "symbols": ["XAUUSD"],
+        "prices": [
+          {"role": "entry", "value": 2345.0},
+          {"role": "stop_loss", "value": 2335.0},
+          {"role": "take_profit", "value": 2360.0},
+          {"role": "take_profit", "value": 2375.0}
+        ],
+        "timeframes": ["M5"],
+        "indicators": ["EMA"],
+        "chart_detected": true
+      },
+      "notes": "Complete overlay fixture."
+    },
+    {
+      "video_id": "tm_btc_context_001",
+      "expected": {
+        "symbols": [],
+        "prices": [],
+        "timeframes": [],
+        "indicators": [],
+        "chart_detected": false
+      },
+      "notes": "Context-only fixture used to expose symbol and chart false positives."
+    }
+  ]
+}

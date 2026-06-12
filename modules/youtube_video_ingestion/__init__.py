@@ -1,3 +1,4 @@
+from .benchmark import run_vision_benchmark, write_vision_annotation_template
 from .collector import SeedJsonClient, run_trademachineoff_pilot
 from .parser import parse_youtube_trading_short
 from .registry import DEFAULT_TRADEMACHINEOFF_SOURCE, ensure_trademachineoff_source, load_youtube_sources
@@ -14,4 +15,6 @@ __all__ = [
     "load_youtube_sources",
     "parse_youtube_trading_short",
     "run_trademachineoff_pilot",
+    "run_vision_benchmark",
+    "write_vision_annotation_template",
 ]

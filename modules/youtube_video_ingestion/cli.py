@@ -5,6 +5,7 @@ import json
 import sys
 from pathlib import Path
 
+from .benchmark import run_vision_benchmark, write_vision_annotation_template
 from .collector import run_trademachineoff_pilot
 from .ocr import FfmpegFrameOcrRunner, FrameSamplingContract
 from .yt_dlp_runner import YtDlpPilotClient, discover_urls_for_source
@@ -38,6 +39,18 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--whisper-model", default=None)
     run_parser.add_argument("--enable-ocr", action="store_true")
     run_parser.add_argument("--frame-rate", type=float, default=None)
+
+    template_parser = subparsers.add_parser("benchmark-vision-template", help="Write manual annotation template from parser_input artifacts")
+    template_parser.add_argument("--parser-input-dir", required=True)
+    template_parser.add_argument("--output", required=True)
+    template_parser.add_argument("--limit", type=int, default=None)
+
+    benchmark_parser = subparsers.add_parser("benchmark-vision", help="Score Vision Layer V1 against manual annotations")
+    benchmark_parser.add_argument("--parser-input-dir", required=True)
+    benchmark_parser.add_argument("--annotations", required=True)
+    benchmark_parser.add_argument("--output", default="outputs/youtube/benchmark")
+    benchmark_parser.add_argument("--fixtures-output", default=None)
+    benchmark_parser.add_argument("--limit", type=int, default=None)
     return parser
 
 
@@ -70,6 +83,22 @@ def _dispatch(args: argparse.Namespace, parser: argparse.ArgumentParser) -> dict
         frame_rate = args.frame_rate if args.frame_rate is not None else 1.0
         urls = _read_urls(urls_file)
         return _run(root, urls, limit, output, subtitle_lang, parsed_jsonl, audio_fallback, whisper_model, enable_ocr, frame_rate)
+
+    if args.command == "benchmark-vision-template":
+        return write_vision_annotation_template(
+            parser_input_dir=_resolve_root_path(root, args.parser_input_dir),
+            output_path=_resolve_root_path(root, args.output),
+            limit=args.limit,
+        )
+
+    if args.command == "benchmark-vision":
+        return run_vision_benchmark(
+            parser_input_dir=_resolve_root_path(root, args.parser_input_dir),
+            annotations_path=_resolve_root_path(root, args.annotations),
+            output_root=_resolve_root_path(root, args.output),
+            limit=args.limit,
+            fixtures_output_dir=_resolve_root_path(root, args.fixtures_output) if args.fixtures_output else None,
+        )
 
     if args.source:
         source = _normalize_source(args.source)
@@ -132,6 +161,11 @@ def _output_root(root: Path, output: str | None) -> Path:
         path = Path(output)
         return path if path.is_absolute() else (root / path)
     return root / "outputs" / "youtube"
+
+
+def _resolve_root_path(root: Path, raw: str) -> Path:
+    path = Path(raw)
+    return path if path.is_absolute() else (root / path)
 
 
 def _subtitle_languages(raw: str) -> tuple[str, ...]:

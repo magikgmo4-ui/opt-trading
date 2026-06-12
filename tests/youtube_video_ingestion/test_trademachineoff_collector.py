@@ -11,6 +11,8 @@ from modules.youtube_video_ingestion import (
     load_youtube_sources,
     parse_youtube_trading_short,
     run_trademachineoff_pilot,
+    run_vision_benchmark,
+    write_vision_annotation_template,
 )
 from modules.youtube_video_ingestion.cli import _normalize_source, _parsed_jsonl_path
 from modules.youtube_video_ingestion.ocr import FfmpegFrameOcrRunner, FrameSamplingContract, OcrResult
@@ -19,6 +21,9 @@ from modules.youtube_video_ingestion.yt_dlp_runner import discover_urls_for_sour
 
 
 FIXTURE = Path(__file__).resolve().parents[1] / "fixtures" / "youtube_video_ingestion" / "trademachineoff_seed.json"
+BENCHMARK_ANNOTATIONS = (
+    Path(__file__).resolve().parents[1] / "fixtures" / "youtube_video_ingestion" / "vision_benchmark_annotations.json"
+)
 
 
 def test_ensure_trademachineoff_source_is_idempotent(tmp_path: Path) -> None:
@@ -328,6 +333,53 @@ def test_parser_consumes_structured_vision_when_screen_text_is_not_flattened() -
     assert parsed["classification"] == "candidate_complete"
     assert parsed["chart_detected"] is True
     assert parsed["vision_confidence"] >= 0.8
+
+
+def test_vision_benchmark_scores_annotations_and_writes_artifacts(tmp_path: Path) -> None:
+    run_trademachineoff_pilot(
+        tmp_path,
+        client=SeedJsonClient(FIXTURE),
+        limit=20,
+        collected_at="2026-06-11T00:00:00Z",
+    )
+
+    result = run_vision_benchmark(
+        parser_input_dir=tmp_path / "outputs" / "youtube" / "parser_input",
+        annotations_path=BENCHMARK_ANNOTATIONS,
+        output_root=tmp_path / "outputs" / "youtube" / "benchmark",
+        fixtures_output_dir=tmp_path / "outputs" / "youtube" / "benchmark" / "fixtures_real_world",
+    )
+
+    assert result["videos_evaluated"] == 2
+    assert result["metrics"]["symbols"]["true_positive"] == 1
+    assert result["metrics"]["symbols"]["false_positive"] == 1
+    assert result["metrics"]["symbols"]["precision"] == 0.5
+    assert result["metrics"]["prices"]["f1"] == 1.0
+    assert result["metrics"]["chart_detected"]["accuracy"] == 0.5
+    assert (tmp_path / "outputs" / "youtube" / "benchmark" / "benchmark_results.json").exists()
+    assert (tmp_path / "outputs" / "youtube" / "benchmark" / "benchmark_report.md").exists()
+    assert (tmp_path / "outputs" / "youtube" / "benchmark" / "fixtures_real_world" / "tm_xau_001.json").exists()
+
+
+def test_vision_annotation_template_uses_parser_input_records(tmp_path: Path) -> None:
+    run_trademachineoff_pilot(
+        tmp_path,
+        client=SeedJsonClient(FIXTURE),
+        limit=1,
+        collected_at="2026-06-11T00:00:00Z",
+    )
+
+    result = write_vision_annotation_template(
+        parser_input_dir=tmp_path / "outputs" / "youtube" / "parser_input",
+        output_path=tmp_path / "outputs" / "youtube" / "benchmark" / "annotation_template.json",
+        limit=1,
+    )
+    payload = _read_json(tmp_path / "outputs" / "youtube" / "benchmark" / "annotation_template.json")
+
+    assert result["annotations_written"] == 1
+    assert payload["schema_version"] == "vision_benchmark_annotations_v1"
+    assert payload["annotations"][0]["video_id"] == "tm_xau_001"
+    assert payload["annotations"][0]["expected"]["symbols"] == ["XAUUSD"]
 
 
 class FakeCommandRunner:
