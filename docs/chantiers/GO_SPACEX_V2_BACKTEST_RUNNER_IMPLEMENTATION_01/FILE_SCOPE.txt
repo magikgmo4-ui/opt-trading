@@ -1,0 +1,15 @@
+docs/chantiers/GO_SPACEX_V2_BACKTEST_RUNNER_IMPLEMENTATION_01/00_INITIAL_PROJECT_DOC.md
+docs/chantiers/GO_SPACEX_V2_BACKTEST_RUNNER_IMPLEMENTATION_01/FILE_SCOPE.txt
+modules/spcx_v2/__init__.py
+modules/spcx_v2/config.py
+modules/spcx_v2/setup_detector.py
+modules/spcx_v2/paper_logger.py
+modules/spcx_v2/perf_calculator.py
+modules/spcx_v2/runner.py
+modules/spcx_v2/scripts/cmd.sh
+modules/spcx_v2/scripts/menu.sh
+modules/spcx_v2/scripts/sanity_check.sh
+modules/spcx_v2/scripts/install_shortcuts.sh
+tests/test_spcx_v2_setup_detector.py
+tests/test_spcx_v2_paper_logger.py
+tests/test_spcx_v2_perf_calculator.py
