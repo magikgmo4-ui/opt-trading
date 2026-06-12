@@ -1,0 +1,62 @@
+{
+  "schema_version": "vision_benchmark_annotations_v1",
+  "generated_at": "2026-06-12T02:06:17Z",
+  "parser_input_dir": "C:\\Users\\ghost\\opt-trading\\outputs\\youtube\\pilots\\trademachineoff\\parser_input",
+  "annotations": [
+    {
+      "video_id": "g5E-NC89BKI",
+      "expected": {
+        "symbols": [],
+        "prices": [],
+        "timeframes": [],
+        "indicators": [],
+        "chart_detected": false
+      },
+      "notes": "Review manually before using this annotation for benchmark scoring."
+    },
+    {
+      "video_id": "h03-oX9zX0s",
+      "expected": {
+        "symbols": [],
+        "prices": [],
+        "timeframes": [],
+        "indicators": [],
+        "chart_detected": false
+      },
+      "notes": "Review manually before using this annotation for benchmark scoring."
+    },
+    {
+      "video_id": "iuqvcd47J2g",
+      "expected": {
+        "symbols": [],
+        "prices": [],
+        "timeframes": [],
+        "indicators": [],
+        "chart_detected": false
+      },
+      "notes": "Review manually before using this annotation for benchmark scoring."
+    },
+    {
+      "video_id": "nqVAI0NG5Zs",
+      "expected": {
+        "symbols": [],
+        "prices": [],
+        "timeframes": [],
+        "indicators": [],
+        "chart_detected": false
+      },
+      "notes": "Review manually before using this annotation for benchmark scoring."
+    },
+    {
+      "video_id": "VNfrsingdZI",
+      "expected": {
+        "symbols": [],
+        "prices": [],
+        "timeframes": [],
+        "indicators": [],
+        "chart_detected": false
+      },
+      "notes": "Review manually before using this annotation for benchmark scoring."
+    }
+  ]
+}

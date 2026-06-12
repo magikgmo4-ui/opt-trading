@@ -1,0 +1,35 @@
+{
+  "video_id": "h03-oX9zX0s",
+  "asset": "unknown",
+  "market_type": "unknown",
+  "direction": "long",
+  "entry": null,
+  "stop_loss": null,
+  "take_profits": [],
+  "timeframe": null,
+  "indicators": [
+    "FVG"
+  ],
+  "pattern": null,
+  "strategy_rules": [],
+  "risk_rules": [],
+  "confidence": 0.3,
+  "classification": "context_only",
+  "missing_fields": [
+    "asset",
+    "entry",
+    "stop_loss",
+    "take_profits"
+  ],
+  "raw_evidence": [
+    {
+      "field": "direction",
+      "text": "bullish"
+    },
+    {
+      "field": "indicators",
+      "text": "FVG"
+    }
+  ],
+  "conflict_detected": false
+}

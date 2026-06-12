@@ -1,0 +1,16 @@
+{
+  "source_type": "youtube_video",
+  "channel_handle": "@trademachineoff",
+  "video_id": "iuqvcd47J2g",
+  "url": "https://www.youtube.com/watch?v=iuqvcd47J2g",
+  "title": "SMC setup #trading #fvg",
+  "description": "Simple setup explaining Smart Money Concepts",
+  "duration_seconds": 10,
+  "published_at": "2026-05-19T17:08:47Z",
+  "view_count": 13687,
+  "like_count": 190,
+  "tags": [],
+  "is_short": true,
+  "raw_collected_at": "2026-06-11T20:28:02Z",
+  "selection_reason": "controlled yt-dlp run for @trademachineoff"
+}

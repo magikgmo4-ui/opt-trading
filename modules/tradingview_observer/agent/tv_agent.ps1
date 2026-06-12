@@ -1,4 +1,4 @@
-# TradingView Orchestrator Agent — cursor-ai desktop session
+# TradingView Orchestrator Agent - cursor-ai desktop session
 # Runs as a scheduled task (OnLogon) in the interactive session.
 # Watches jobs/pending/ for tv_job_v1 packets, executes via tradingview-mcp CLI,
 # writes results to jobs/done/ or jobs/failed/.
@@ -23,6 +23,8 @@ foreach ($d in @($JOBS_PENDING, $JOBS_DONE, $JOBS_FAILED)) {
     if (-not (Test-Path $d)) { New-Item -ItemType Directory -Force $d | Out-Null }
 }
 
+function Coalesce($a, $b) { if ($null -ne $a -and $a -ne '') { $a } else { $b } }
+
 function Log($msg) {
     $line = "$(Get-Date -Format 'yyyy-MM-ddTHH:mm:ss') $msg"
     Write-Host $line
@@ -30,19 +32,18 @@ function Log($msg) {
 }
 
 function Tv {
-    param([string[]]$Args)
-    $raw = & node $TV_CLI @Args 2>&1 | Out-String
+    param([Parameter(ValueFromRemainingArguments=$true)][string[]]$CmdArgs)
+    $raw = & node $TV_CLI @CmdArgs 2>&1 | Out-String
     try   { $raw | ConvertFrom-Json }
     catch { @{success=$false; error="json_parse_failed"; raw=$raw.Trim()} }
 }
 
 function CheckCdp {
-    try {
-        $r = (Invoke-WebRequest 'http://127.0.0.1:9222/json/version' -UseBasicParsing -TimeoutSec 5).Content | ConvertFrom-Json
-        return @{ok=$true; browser=$r.Browser}
-    } catch {
-        return @{ok=$false; error="$_"}
-    }
+    # Use TCP probe (Invoke-WebRequest hangs on MSIX loopback in non-desktop sessions)
+    $tcp = Test-NetConnection -ComputerName 127.0.0.1 -Port 9222 `
+               -WarningAction SilentlyContinue -InformationLevel Quiet
+    if ($tcp) { return @{ok=$true; browser="TradingView:9222"} }
+    return @{ok=$false; error="Port 9222 not listening"}
 }
 
 function ExecJob($job) {
@@ -62,14 +63,26 @@ function ExecJob($job) {
         }
         "alert.list" { Tv alert list }
         "alert.create" {
-            $flags = @("-c", $params.condition ?? "crossing")
-            if ($params.price)   { $flags += @("-p", "$($params.price)") }
+            # Build individual args — pass via --arg=value form to avoid PowerShell quote-mangling
+            $argList = @(
+                $TV_CLI,
+                "alert", "create",
+                "--condition", (Coalesce $params.condition "greater_than")
+            )
+            if ($null -ne $params.price -and $params.price -ne '') {
+                $argList += @("--price", "$($params.price)")
+            }
             if ($params.message) {
                 $msg = if ($params.message -is [string]) { $params.message }
                        else { $params.message | ConvertTo-Json -Compress }
-                $flags += @("-m", $msg)
+                $argList += @("--message", $msg)
             }
-            Tv alert create @flags
+            if ($params.webhook_url) { $argList += @("--webhook", "$($params.webhook_url)") }
+            if ($params.name)        { $argList += @("--name",    "$($params.name)") }
+            if ($params.frequency)   { $argList += @("--frequency", "$($params.frequency)") }
+            $raw = & node @argList 2>&1 | Out-String
+            try   { $raw | ConvertFrom-Json }
+            catch { @{success=$false; error="json_parse_failed"; raw=$raw.Trim()} }
         }
         "alert.delete" {
             Tv alert delete "--id" $params.alert_id
@@ -119,7 +132,7 @@ function ExecJob($job) {
         }
         "pine.save"     { Tv pine save }
         "screenshot" {
-            $outPath = $params.output_path ?? (Join-Path $AGENT_ROOT "output\screenshot_$(Get-Date -Format 'yyyyMMdd_HHmmss').png")
+            $outPath = Coalesce $params.output_path (Join-Path $AGENT_ROOT "output\screenshot_$(Get-Date -Format 'yyyyMMdd_HHmmss').png")
             Tv screenshot "--file" $outPath
         }
         "layout.switch" { Tv layout switch $params.name }
@@ -134,14 +147,14 @@ function ProcessJob($file) {
     try {
         $job = Get-Content $file.FullName -Raw | ConvertFrom-Json
     } catch {
-        Log "FAIL parse JSON: $($file.Name) — $_"
+        Log "FAIL parse JSON: $($file.Name) - $_"
         Move-Item $file.FullName (Join-Path $JOBS_FAILED $file.Name) -Force
         return
     }
 
     $cdp = CheckCdp
     if (-not $cdp.ok) {
-        Log "WARN: CDP not available — $($cdp.error)"
+        Log "WARN: CDP not available - $($cdp.error)"
         $result = @{success=$false; error="CDP_UNAVAILABLE: $($cdp.error)"}
     } else {
         try {
@@ -156,7 +169,7 @@ function ProcessJob($file) {
             Log "PASS: $jobId type=$($job.type)"
         } catch {
             $result = @{success=$false; job_id=$job.id; error="$_"; executed_at=(Get-Date -Format 'o')}
-            Log "FAIL: $jobId — $_"
+            Log "FAIL: $jobId - $_"
         }
     }
 
@@ -166,12 +179,12 @@ function ProcessJob($file) {
     Move-Item $file.FullName (Join-Path $JOBS_DONE "$($file.Name).done") -Force -ErrorAction SilentlyContinue
 }
 
-Log "TV Agent started — polling $JOBS_PENDING every ${PollIntervalMs}ms"
+Log "TV Agent started - polling $JOBS_PENDING every ${PollIntervalMs}ms"
 Log "CLI: $TV_CLI"
 
 $cdp = CheckCdp
 if ($cdp.ok) { Log "CDP OK: $($cdp.browser)" }
-else         { Log "WARN: CDP not available at startup — will retry per job" }
+else         { Log "WARN: CDP not available at startup - will retry per job" }
 
 if ($Once) {
     $files = Get-ChildItem $JOBS_PENDING -Filter "*.json" | Sort-Object LastWriteTime

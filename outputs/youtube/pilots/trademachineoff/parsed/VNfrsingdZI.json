@@ -1,0 +1,35 @@
+{
+  "video_id": "VNfrsingdZI",
+  "asset": "unknown",
+  "market_type": "unknown",
+  "direction": "long",
+  "entry": null,
+  "stop_loss": null,
+  "take_profits": [],
+  "timeframe": null,
+  "indicators": [
+    "liquidity"
+  ],
+  "pattern": null,
+  "strategy_rules": [],
+  "risk_rules": [],
+  "confidence": 0.3,
+  "classification": "context_only",
+  "missing_fields": [
+    "asset",
+    "entry",
+    "stop_loss",
+    "take_profits"
+  ],
+  "raw_evidence": [
+    {
+      "field": "direction",
+      "text": "Buy"
+    },
+    {
+      "field": "indicators",
+      "text": "liquidity"
+    }
+  ],
+  "conflict_detected": false
+}

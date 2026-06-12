@@ -1,0 +1,6 @@
+# Runtime job execution artifacts — contain webhook keys and secrets
+*.result.json
+*.json.done
+*.done
+# Ad-hoc probe files
+test_scp_probe.json

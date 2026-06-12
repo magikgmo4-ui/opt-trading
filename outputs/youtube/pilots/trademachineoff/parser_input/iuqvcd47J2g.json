@@ -1,0 +1,16 @@
+{
+  "video_id": "iuqvcd47J2g",
+  "url": "https://www.youtube.com/watch?v=iuqvcd47J2g",
+  "title": "SMC setup #trading #fvg",
+  "description": "Simple setup explaining Smart Money Concepts",
+  "spoken_transcript": "",
+  "screen_text": "",
+  "ocr_segments": [],
+  "subtitle_source": "none",
+  "subtitle_status": "missing",
+  "subtitle_error_summary": null,
+  "frame_sampling_rate": "1fps",
+  "ocr_status": "skipped",
+  "ocr_error_summary": "OCR runner not configured",
+  "parser_profile": "youtube_trading_short_v1"
+}

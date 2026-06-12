@@ -1,0 +1,32 @@
+{
+  "video_id": "iuqvcd47J2g",
+  "asset": "unknown",
+  "market_type": "unknown",
+  "direction": "unknown",
+  "entry": null,
+  "stop_loss": null,
+  "take_profits": [],
+  "timeframe": null,
+  "indicators": [
+    "FVG"
+  ],
+  "pattern": null,
+  "strategy_rules": [],
+  "risk_rules": [],
+  "confidence": 0.1,
+  "classification": "reject_noise",
+  "missing_fields": [
+    "asset",
+    "direction",
+    "entry",
+    "stop_loss",
+    "take_profits"
+  ],
+  "raw_evidence": [
+    {
+      "field": "indicators",
+      "text": "FVG"
+    }
+  ],
+  "conflict_detected": false
+}

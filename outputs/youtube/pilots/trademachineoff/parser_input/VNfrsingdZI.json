@@ -1,0 +1,16 @@
+{
+  "video_id": "VNfrsingdZI",
+  "url": "https://www.youtube.com/watch?v=VNfrsingdZI",
+  "title": "What is liquidity in trading?",
+  "description": "Buy-side liquidity, liquidity grab and reversal.\n\n#daytrading #liquidity #smc #ict",
+  "spoken_transcript": "Kind: captions\nLanguage: en\nEvery time you place your stop loss\nabove a high, you're placing it where\nthousands of other traders place theirs,\ntoo.\nSee these equal highs? That's not\nliquidity. Liquidity is all the stop\nlosses above the high. What does price\ndo? Price pushes up, takes all those\nstops, grabs the liquidity, and then\nreverses. The high wasn't the target.\nLiquidity was the target.",
+  "screen_text": "",
+  "ocr_segments": [],
+  "subtitle_source": "manual|auto",
+  "subtitle_status": "ok",
+  "subtitle_error_summary": null,
+  "frame_sampling_rate": "1fps",
+  "ocr_status": "skipped",
+  "ocr_error_summary": "OCR runner not configured",
+  "parser_profile": "youtube_trading_short_v1"
+}
