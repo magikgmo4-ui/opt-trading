@@ -12,7 +12,7 @@ from fastapi import FastAPI, HTTPException, Query, Body
 from modules.desk_pro.api.routes import router as desk_router
 from modules.perf_engine.app.perf_engine import score_strategy_events
 
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from modules.desk_pro.mount import mount as mount_desk_pro
 from shared.pydantic_compat import BaseModel, Field
 
@@ -35,12 +35,28 @@ app = FastAPI(title="perf", version="1.0")
 app.include_router(desk_router, prefix="/desk", tags=["desk"])
 mount_desk_pro(app)
 
-# LocalCMS — full system cockpit
+# LocalCMS — full system cockpit, mounted at /cms
 try:
     from modules.localcms.app.main import app as localcms_app
     app.mount("/cms", localcms_app)
 except Exception:
     pass
+
+# Redirects: LocalCMS internal links → /cms/* (fixes broken sidebar nav)
+@app.get("/spacex")
+def redirect_spacex(): return RedirectResponse(url="/cms/spacex")
+
+@app.get("/journal")
+def redirect_journal(): return RedirectResponse(url="/cms/journal")
+
+@app.get("/metrics")
+def redirect_metrics(): return RedirectResponse(url="/cms/metrics")
+
+@app.get("/credentials")
+def redirect_credentials(): return RedirectResponse(url="/cms/credentials")
+
+@app.get("/signals")
+def redirect_signals(): return RedirectResponse(url="/cms/signals")
 
 # Unified landing page
 @app.get("/", response_class=HTMLResponse)
