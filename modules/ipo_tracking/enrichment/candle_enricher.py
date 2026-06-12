@@ -20,17 +20,25 @@ def enrich_candles(
     smc = compute_smart_money(bars)
     consensus = compute_consensus(events, snapshot)
 
+    price_status = consensus.get("price_status", "missing")
+    market_phase = consensus.get("market_phase", "unknown")
+    has_real_bars = len(bars) > 0 and any(
+        isinstance(b.get("volume"), (int, float)) and b.get("volume", 0) > 0
+        for b in bars if b.get("close") is not None
+    )
+    is_live = price_status == "live" or has_real_bars
+
     scores = snapshot.get("scores", {})
     mega_scores = {
         "momentum_score": scores.get("momentum", 0),
-        "volatility_score": _atr_volatility(smc, indicators),
-        "liquidity_score": _liquidity_score(indicators),
+        "volatility_score": _atr_volatility(smc, indicators) if is_live else 0.0,
+        "liquidity_score": _liquidity_score(indicators) if is_live else 0.0,
         "news_score": scores.get("news_velocity", 0),
         "catalyst_score": _catalyst_score(events),
-        "smart_money_score": smc.get("smc_score", 0),
-        "trend_score": _trend_score(indicators, smc),
+        "smart_money_score": smc.get("smc_score", 0) if is_live else 0.0,
+        "trend_score": _trend_score(indicators, smc) if is_live else 0.0,
         "risk_score": scores.get("risk", 0),
-        "trade_ready_score": scores.get("trade_ready", 0),
+        "trade_ready_score": scores.get("trade_ready", 0) if is_live else 0.0,
         "accumulation_score": scores.get("accumulation", 0),
     }
 
@@ -38,6 +46,19 @@ def enrich_candles(
     news_events = [e for e in events if e.get("source") == "yahoo_news_rss"]
     bot_vision_events = [e for e in events if e.get("source") == "bot_vision_adapter"]
     tv_events = [e for e in events if e.get("source") == "tradingview_webhook"]
+
+    bv_capture_map = {}
+    bv_comp_map = {}
+    bv_spcx_count = 0
+    bv_visual_price = None
+    for bv in bot_vision_events:
+        if bv.get("ok"):
+            bv_spcx_count = max(bv_spcx_count, bv.get("spcx_capture_count", 0))
+            bv_capture_map = bv.get("spcx_capture_map", {}) or bv_capture_map
+            bv_comp_map = bv.get("comparable_map", {}) or bv_comp_map
+            vp = bv.get("visual_price")
+            if vp is not None:
+                bv_visual_price = float(vp) if not isinstance(vp, (int, float)) else vp
 
     last_timestamp = bars[-1].get("ts") if bars else None
 
@@ -107,14 +128,36 @@ def enrich_candles(
             "trusted_source_count": consensus.get("trusted_source_count"),
             "source_disagreement_score": consensus.get("source_disagreement_score"),
             "weighted_trust_score": consensus.get("weighted_trust_score"),
+            "price_trust": consensus.get("price_trust"),
+            "info_trust": consensus.get("info_trust"),
             "stale_sources": consensus.get("stale_source_flags"),
             "missing_sources": consensus.get("missing_source_flags"),
+            "market_phase": market_phase,
+            "price_status": price_status,
+            "visual_price": consensus.get("visual_price"),
+            "visual_price_delta_pct": consensus.get("visual_price_delta_pct"),
         },
         "scores": mega_scores,
+        "pipeline_state": {
+            "market_phase": market_phase,
+            "price_status": price_status,
+            "scores_blocked": not is_live,
+            "blocked_score_keys": [
+                "momentum_score", "volatility_score", "liquidity_score",
+                "smart_money_score", "trend_score", "trade_ready_score"
+            ] if not is_live else [],
+            "active_score_keys": [
+                "catalyst_score", "news_score", "risk_score", "accumulation_score"
+            ],
+        },
         "context": {
             "news_count": sum(e.get("count", len(e.get("articles", []))) for e in news_events if e.get("ok")),
             "sec_filings_count": sum(len(e.get("filings", [])) for e in sec_events if e.get("ok")),
             "bot_vision_available": any(e.get("ok") for e in bot_vision_events),
+            "bot_vision_capture_count": bv_spcx_count,
+            "bot_vision_capture_map": bv_capture_map,
+            "bot_vision_comparable_map": bv_comp_map,
+            "bot_vision_visual_price": bv_visual_price,
             "tv_alert_active": any(e.get("ok") for e in tv_events),
         },
     }
