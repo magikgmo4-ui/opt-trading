@@ -501,6 +501,15 @@ def desk_spacex_command_center():
     return {"ok": False, "error": "no data yet"}
 
 
+@router.get("/spacex/ui", response_class=HTMLResponse)
+def desk_spacex_ui():
+    try:
+        from modules.localcms.app.main import _spacex_html
+        return HTMLResponse(content=_spacex_html())
+    except Exception:
+        return HTMLResponse(content="<h1>LocalCMS not available</h1>", status_code=503)
+
+
 @router.get("/logs/latest")
 def desk_logs_latest(n: int = 200):
     # Returns last N lines of /opt/trading/tmp/desk_pro_ui.log
