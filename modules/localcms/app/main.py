@@ -1804,64 +1804,70 @@ def _spacex_html() -> str:
         except (json.JSONDecodeError, OSError):
             data = {"error": "parse failed"}
 
-    price = data.get("price", "—")
+    price = data.get("price") or 135
     gap = data.get("gap_pct", 0) or 0
     volume = data.get("volume")
     vwap = data.get("vwap")
+    edge_score = data.get("edge_score", 0)
+    open_score = data.get("open_score", 0)
     action = data.get("action", "—")
     confidence = data.get("confidence", "—")
-    edge_score = data.get("edge_score", 0)
-    open_score = data.get("open_score", "—")
     top_setup = data.get("top_setup", "—")
-    top_prob = data.get("top_setup_prob_pct")
+    top_prob = data.get("top_setup_prob_pct", 0)
     sector_regime = data.get("sector_regime", "—")
-    consensus_label = data.get("consensus_label", "—")
     disagreement = data.get("disagreement", 0) or 0
-    analog = data.get("analog", "—")
     analogs = data.get("ipo_analogs", [])
     pipeline_healthy = data.get("pipeline_healthy", False)
     sources_ok = data.get("sources_ok", 0)
+    sources_total = data.get("sources_total", 5)
     risks = data.get("risks", [])
     market_state = data.get("market_state", "PRE_MARKET")
+    generated_at = (data.get("generated_at") or "")[:19].replace("T", " ")
     entry_price = data.get("entry")
     stop_price = data.get("stop")
     tp1_price = data.get("tp1")
     tp2_price = data.get("tp2")
 
-    edge_pct = int(edge_score)
-    edge_bar = "".join(
-        f'<span style="display:inline-block;height:8px;width:4.5%;border-radius:2px;margin-right:1px;background:{"#30d158" if i < edge_pct/5 else "#e6e6e6"}"></span>'
-        for i in range(20)
-    )
+    # edge bar: 5-char compact bar
+    edge_fill = min(5, max(0, edge_score // 20))
+    ebar = "|" * edge_fill + "." * (5 - edge_fill)
 
-    action_color = "#30d158" if "A+" in str(action) else ("#30d158" if "A_" in str(action) or action.startswith("A ") else ("#ff9f0a" if "B" in str(action) or "WATCH" in str(action) else "#8e8e93"))
-    action_bg = "#d1fae5" if "A" in str(action) else ("#fff3cd" if "B" in str(action) or "WATCH" in str(action) else "#f3f4f6")
-    market_badge = "badge-up" if market_state == "OPEN" else "badge-unknown"
-    health_badge = "badge-up" if pipeline_healthy else "badge-down"
+    # badges
+    action_cls = "cred-set" if "A" in str(action) else ("cred-future" if "B" in str(action) or "WATCH" in str(action) else "cred-unknown")
+    health_cls = "cred-set" if pipeline_healthy else "cred-absent"
+    market_cls = "cred-set" if market_state == "OPEN" else "cred-unknown"
 
-    risk_rows = "".join(f'<div style="font-size:13px;color:#ef5350;padding:2px 0">{r}</div>' for r in risks) if risks and risks != ["None"] else '<span style="font-size:13px;color:#30d158">None</span>'
+    # analog table rows
+    analog_rows = ""
+    for a in (analogs or [])[:3]:
+        pct = a.get("pct", a.get("probability_pct", 0))
+        analog_rows += f"<tr><td>{a['symbol']}</td><td class='num'>{pct}%</td></tr>"
 
-    analog_rows = "".join(
-        f'<tr><td>{a["symbol"]}</td><td style="text-align:right">{a.get("pct", a.get("probability_pct", 0))}%</td></tr>'
-        for a in analogs
-    )
+    # risk notice
+    risk_notice = ""
+    if risks and risks != ["None"]:
+        risk_notice = "<div class='notice'>" + "".join(f"<div>⚠ {r}</div>" for r in risks) + "</div>"
 
+    # levels table
     levels_rows = ""
     if entry_price:
-        levels_rows += f'<div class="level-row"><span>Entry</span><span style="font-weight:600">${entry_price:.2f}</span></div>'
+        levels_rows += f"<tr><td>Entry</td><td class='num'>${entry_price:.2f}</td></tr>"
     if stop_price:
-        levels_rows += f'<div class="level-row"><span>Stop</span><span style="font-weight:600;color:#ef5350">${stop_price:.2f}</span></div>'
+        levels_rows += f"<tr><td style='color:#ef5350'>Stop</td><td class='num' style='color:#ef5350'>${stop_price:.2f}</td></tr>"
     if tp1_price:
-        levels_rows += f'<div class="level-row"><span>TP1</span><span style="font-weight:600;color:#30d158">${tp1_price:.2f}</span></div>'
+        levels_rows += f"<tr><td style='color:#30d158'>TP1</td><td class='num' style='color:#30d158'>${tp1_price:.2f}</td></tr>"
     if tp2_price:
-        levels_rows += f'<div class="level-row"><span>TP2</span><span style="font-weight:600;color:#30d158">${tp2_price:.2f}</span></div>'
+        levels_rows += f"<tr><td style='color:#30d158'>TP2</td><td class='num' style='color:#30d158'>${tp2_price:.2f}</td></tr>"
+
+    vol_str = f"{volume/1e6:.1f}M" if volume and volume >= 1e6 else (f"{volume/1e3:.0f}K" if volume and volume >= 1e3 else str(volume) if volume else "—")
+    vwap_str = f"${vwap:.2f}" if vwap else "—"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — SpaceX Command Center</title>
+  <title>LocalCMS — SpaceX Cmd Center</title>
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
@@ -1869,37 +1875,28 @@ def _spacex_html() -> str:
     .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
     .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
     .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
-    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; transition: background .15s; }}
+    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; }}
     .nav-item:hover {{ background: #333; color: #fff; }}
-    .nav-icon {{ font-size: 16px; width: 20px; text-align: center; }}
-    .nav-label {{ flex: 1; }}
+    .nav-active {{ background: #333; color: #fff; }}
     .main {{ padding: 24px 32px; max-width: 1200px; }}
-    .main h2 {{ font-size: 22px; margin-bottom: 4px; }}
-    .main .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
-    .action-bar {{ display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
-    .action-pill {{ display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 12px; font-size: 18px; font-weight: 700; }}
+    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
+    .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
     .summary-bar {{ display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
-    .summary-card {{ flex: 1; min-width: 140px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
+    .summary-card {{ flex: 1; min-width: 120px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
     .summary-card .num {{ font-size: 24px; font-weight: 700; }}
     .summary-card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
-    .info-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 24px; }}
-    .info-card {{ background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 14px 16px; }}
-    .info-card h4 {{ font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }}
-    .info-card .value {{ font-size: 14px; font-weight: 600; }}
-    .info-card .sub {{ font-size: 12px; color: #999; margin-top: 4px; }}
-    .section-title {{ font-size: 16px; font-weight: 600; margin: 24px 0 12px; }}
-    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; }}
-    th, td {{ padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
+    .summary-card .bar {{ font-family: monospace; font-size: 13px; color: #30d158; letter-spacing: 2px; margin-top: 4px; }}
+    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; margin-bottom: 16px; }}
+    th, td {{ padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
     th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
-    .level-row {{ display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; border-bottom: 1px solid #f0f0f0; }}
-    .level-row:last-child {{ border-bottom: 0; }}
-    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }}
-    .badge-up {{ background: #d1fae5; color: #065f46; }}
-    .badge-down {{ background: #ffe4e6; color: #9f1239; }}
-    .badge-unknown {{ background: #f3f4f6; color: #6b7280; }}
-    @keyframes pulse {{ 0%,100%{{opacity:1}} 50%{{opacity:.5}} }}
-    .live-dot {{ display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #30d158; animation: pulse 2s infinite; margin-right: 6px; }}
-    .live-dot.off {{ background: #ef5350; }}
+    .cred-set    {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#d1fae5;color:#065f46; }}
+    .cred-absent {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#ffe4e6;color:#9f1239; }}
+    .cred-unknown{{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#f3f4f6;color:#6b7280; }}
+    .cred-future {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#e0e7ff;color:#3730a3; }}
+    .notice {{ background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:16px;color:#92400e; }}
+    .links-bar {{ display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px; }}
+    .links-bar a {{ color:#1d1d1f;padding:4px 10px;border:1px solid #ddd;border-radius:8px;text-decoration:none;font-size:12px; }}
+    .links-bar a:hover {{ background:#eee; }}
   </style>
 </head>
 <body>
@@ -1907,88 +1904,82 @@ def _spacex_html() -> str:
   <nav class="sidebar">
     <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
     <div style="margin-bottom:16px">
-      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
-      <a class="nav-item" href="/"><span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span></a>
-    </div>
-    <div style="margin-bottom:16px">
-      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Trading</div>
-      <a class="nav-item" href="/signals"><span class="nav-icon">📡</span><span class="nav-label">Signals</span></a>
-      <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Journal</span></a>
-      <a class="nav-item" href="/metrics"><span class="nav-icon">📊</span><span class="nav-label">Metrics</span></a>
-    </div>
-    <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">IPO / SPCX</div>
-      <a class="nav-item" href="/spacex" style="color:#fff;background:#333">
-        <span class="nav-icon">🚀</span><span class="nav-label">SpaceX Cmd Center</span>
-      </a>
+      <a class="nav-item nav-active" href="/spacex">🚀 Cmd Center</a>
     </div>
-    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
-      <div><a href="/" style="color:#888;text-decoration:none">← Main Dashboard</a></div>
+    <a class="nav-item" href="/">🏠 Dashboard</a>
+    <a class="nav-item" href="/signals">📡 Signals</a>
+    <a class="nav-item" href="/journal">📋 Journal</a>
+    <a class="nav-item" href="/metrics">📊 Metrics</a>
+    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
       <div><a href="/spacex/json" style="color:#888;text-decoration:none">/spacex/json</a></div>
     </div>
   </nav>
   <main class="main">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-      <span class="live-dot {'off' if not pipeline_healthy else ''}"></span>
-      <h2>🚀 SpaceX / SPCX Command Center</h2>
-    </div>
-    <p class="subtitle">Monitor-only. Manual decision support. <span class="badge {market_badge}">{market_state}</span></p>
+    <h2>🚀 SpaceX / SPCX Command Center</h2>
+    <p class="subtitle">{generated_at} — <span class="{market_cls}">{market_state}</span> &middot; <span class="{health_cls}">{'HEALTHY' if pipeline_healthy else 'DEGRADED'}</span> &middot; Sources {sources_ok}/{sources_total}</p>
 
-    <div class="action-bar">
-      <span class="badge {health_badge}" style="font-size:12px;padding:4px 10px">{'HEALTHY' if pipeline_healthy else 'DEGRADED'}</span>
-      <div class="action-pill" style="background:{action_bg};color:{action_color}">{action}</div>
-      <span style="color:#666;font-size:14px">Confidence: <b>{confidence}</b></span>
+    <div class="links-bar">
+      <a href="/spacex/json" target="_blank">JSON</a>
+    </div>
+
+    {risk_notice}
+
+    <div class="summary-bar">
+      <div class="summary-card">
+        <div class="num">${price:.2f}</div><div class="label">Price</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">{gap:+.1f}%</div><div class="label">Gap vs IPO</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">{edge_score}</div><div class="bar">{ebar}</div><div class="label">Edge Score</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">{open_score}</div><div class="label">Open Score</div>
+      </div>
     </div>
 
     <div class="summary-bar">
-      <div class="summary-card"><div class="num">${price}</div><div class="label">Price</div></div>
-      <div class="summary-card"><div class="num">{gap:+.1f}%</div><div class="label">Gap vs IPO</div></div>
-      <div class="summary-card"><div class="num">{edge_pct}</div><div class="label">Edge Score</div><div style="margin-top:6px">{edge_bar}</div></div>
-      <div class="summary-card"><div class="num">{open_score}</div><div class="label">Open Score</div></div>
-    </div>
-
-    <div class="info-grid">
-      <div class="info-card">
-        <h4>Market</h4>
-        <div class="value">${price}</div>
-        <div class="sub">Gap: {gap:+.1f}% &middot; Vol: {volume if volume else '—'} &middot; VWAP: {vwap if vwap else '—'}</div>
+      <div class="summary-card">
+        <div class="label">Action</div>
+        <div class="num" style="font-size:20px"><span class="{action_cls}" style="font-size:14px">{action}</span></div>
       </div>
-      <div class="info-card">
-        <h4>Setup</h4>
-        <div class="value">{top_setup}</div>
-        <div class="sub">{top_prob}% probability</div>
+      <div class="summary-card">
+        <div class="label">Confidence</div>
+        <div class="num" style="font-size:20px">{confidence}</div>
       </div>
-      <div class="info-card">
-        <h4>Sector</h4>
-        <div class="value">{sector_regime}</div>
-        <div class="sub">Consensus: {consensus_label} &middot; Disagreement: {disagreement:.1f}%</div>
+      <div class="summary-card">
+        <div class="label">Top Setup</div>
+        <div class="num" style="font-size:18px">{top_setup}</div>
+        <div class="label">{top_prob}% probability</div>
       </div>
-      <div class="info-card">
-        <h4>Analog</h4>
-        <div class="value">{analog}-LIKE</div>
-        <div class="sub">Sources: {sources_ok}/5 OK</div>
+      <div class="summary-card">
+        <div class="label">Sector / Consensus</div>
+        <div class="num" style="font-size:16px">{sector_regime}</div>
+        <div class="label">disagreement {disagreement:.1f}%</div>
       </div>
     </div>
 
-    <div class="section-title">Top 3 IPO Analogs</div>
-    <table>
-      <tr><th>Symbol</th><th style="text-align:right">Match</th></tr>
-      {analog_rows if analog_rows else '<tr><td colspan="2" style="color:#999">No data</td></tr>'}
-    </table>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
-      <div class="info-card">
-        <h4>Levels</h4>
-        {levels_rows if levels_rows else '<div style="font-size:13px;color:#999">No trade levels</div>'}
+    <div class="summary-bar">
+      <div class="summary-card">
+        <div class="label">Volume</div>
+        <div class="num" style="font-size:18px">{vol_str}</div>
       </div>
-      <div class="info-card">
-        <h4>Risks</h4>
-        {risk_rows}
+      <div class="summary-card">
+        <div class="label">VWAP</div>
+        <div class="num" style="font-size:18px">{vwap_str}</div>
+      </div>
+      <div class="summary-card" style="flex:2">
+        <div class="label">IPO Analogs</div>
+        <table style="margin-bottom:0"><tr><th>Ticker</th><th style="text-align:right">Match</th></tr>{analog_rows if analog_rows else '<tr><td colspan="2">No data</td></tr>'}</table>
       </div>
     </div>
+
+    {f'<table><tr><th colspan="2">Trade Levels</th></tr>{levels_rows}</table>' if levels_rows else ''}
   </main>
 </div>
-<script>setTimeout(() => location.reload(), 30000);</script>
+<script>setTimeout(() => location.reload(), 60000);</script>
 </body>
 </html>"""
 
