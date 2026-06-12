@@ -16,6 +16,12 @@ from .backtest import load_ohlcv_csv, backtest_orb
 from .pipeline import run_full_pipeline, replay_from_raw
 from .normalizer import normalize_events, normalized_summary
 from .verify import validate_full_pipeline, validate_raw_events, validate_normalized_events, validate_scored_snapshot
+from .backtest_engine import run_backtest, run_all_setups, run_scan, BacktestRun
+from .setups import get_setup, list_setups, SETUPS, CATEGORIES
+from .accumulation import compute_accumulation_score, accumulation_summary, classify_zone
+from .scoring_engine import compute_composite_score
+from .playbook import generate_playbook
+
 
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="spacex-super-desk")
@@ -34,6 +40,22 @@ def main(argv=None) -> int:
     h = sub.add_parser("history")
     h.add_argument("--stage", choices=["raw", "normalized", "scored", "verifications"], default="scored")
     h.add_argument("--limit", type=int, default=10)
+
+    bt = sub.add_parser("backtest")
+    bt.add_argument("--setup", choices=list(SETUPS.keys()), default="IPO_ORB_5M")
+    bt.add_argument("--csv", required=True)
+    bt.add_argument("--rr", type=float, default=None)
+
+    sc = sub.add_parser("scan")
+    sc.add_argument("--csv")
+    sc.add_argument("--category", choices=list(CATEGORIES.keys()), default=None)
+
+    sub.add_parser("setups")
+    sub.add_parser("playbook")
+
+    ac = sub.add_parser("accumulation")
+    ac.add_argument("--price", type=float, default=None)
+
     args = p.parse_args(argv)
     cfg = load_config()
     if args.cmd == "smoke":
@@ -85,6 +107,67 @@ def main(argv=None) -> int:
         for fp in files:
             entries.append({"file": fp.name, "size": fp.stat().st_size, "mtime": utc_now(), "snapshot": read_json(fp)})
         print(json.dumps({"ok": True, "stage": stage, "count": len(entries), "entries": entries}, indent=2, default=str))
+        return 0
+    if args.cmd == "backtest":
+        bars = load_ohlcv_csv(args.csv)
+        setup = get_setup(args.setup)
+        if not setup:
+            print(json.dumps({"ok": False, "error": f"unknown setup: {args.setup}"}))
+            return 1
+        result = run_backtest(bars, setup, rr=args.rr)
+        print(json.dumps({
+            "setup_id": result.setup_id,
+            "total_trades": result.total_trades,
+            "wins": result.wins,
+            "losses": result.losses,
+            "win_rate": result.win_rate,
+            "avg_r": result.avg_r,
+            "profit_factor": result.profit_factor,
+            "expectancy_r": result.expectancy_r,
+            "max_dd_r": result.max_dd_r,
+            "sharpe": result.sharpe_estimate,
+            "best_r": result.best_r,
+            "worst_r": result.worst_r,
+            "consecutive_losses": result.consecutive_losses,
+            "trades": [{"result": t.result, "r": t.r_multiple, "bars": t.bars_held, "exit": t.exit_reason} for t in result.trades],
+        }, indent=2))
+        return 0
+    if args.cmd == "scan":
+        bars = []
+        if args.csv:
+            bars = load_ohlcv_csv(args.csv)
+        else:
+            snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+            yahoo = (snap.get("latest_events", {}) or {}).get("yahoo_chart", {})
+            bars = yahoo.get("bars", [])
+        if not bars:
+            snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+            bars = _offline_quote(cfg).get("bars", [])
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        result = run_scan(bars, snap)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "setups":
+        setups = list_setups()
+        summary = [{"id": s.setup_id, "name": s.name, "category": s.category, "direction": s.direction, "timeframe": s.timeframe, "rr": s.rr_target} for s in setups]
+        print(json.dumps({"total": len(summary), "setups": summary}, indent=2))
+        return 0
+    if args.cmd == "playbook":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        acc = accumulation_summary(snap)
+        composite = compute_composite_score(snap, acc)
+        playbook = generate_playbook(snap)
+        playbook["composite_score"] = composite
+        playbook["accumulation"] = acc
+        print(json.dumps(playbook, indent=2, default=str))
+        return 0
+    if args.cmd == "accumulation":
+        price = args.price
+        if price is None:
+            snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+            price = snap.get("price")
+        result = compute_accumulation_score(price or 135)
+        print(json.dumps(result, indent=2, default=str))
         return 0
     return 2
 
