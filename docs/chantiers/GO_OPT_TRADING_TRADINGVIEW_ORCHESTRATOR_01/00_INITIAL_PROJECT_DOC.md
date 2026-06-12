@@ -81,13 +81,27 @@ tv-orchestrator run jobs/examples/tv_job_rotate_webhook_key.json --dry-run
 
 ## Prérequis cursor-ai
 
-- TradingView Desktop ouvert avec CDP actif (`tv launch` ou manuel)
 - `C:\Users\ghost\.claude\tools\tradingview-mcp\src\cli\index.js` installé
 - SSH depuis admin-trading vers cursor-ai fonctionnel
 - `C:\Users\ghost\opt-trading\` repo présent
+- Loopback exemption MSIX : `CheckNetIsolation.exe LoopbackExempt -a -n="TradingView.Desktop_n534cwy3pjxzj"` (déjà appliqué, permanent)
+
+## Démarrage TradingView avec CDP (obligatoire avant chaque session)
+
+TradingView MSIX doit être lancé avec `--remote-debugging-port=9222`. Le raccourci
+`TradingView_CDP.vbs` sur le bureau de cursor-ai (ghost) fait tout automatiquement :
+
+1. Double-cliquer `C:\Users\ghost\Desktop\TradingView_CDP.vbs`
+2. TradingView s'ouvre — port 9222 actif
+3. Vérifier depuis admin-trading : `ssh cursor-ai "cmd /c netstat -ano | findstr :9222"`
+
+**Note** : TradingView ouvert depuis le menu Start n'active PAS le CDP.
+Toujours utiliser le VBS ou `launch_tv_cdp_direct.ps1` pour les sessions orchestrées.
+
+Le TVOrchestratorAgent (Task Scheduler) démarre automatiquement au logon de ghost.
+Vérification : `ssh cursor-ai "schtasks /query /tn TVOrchestratorAgent /fo csv"`
 
 ## Prochaine étape
 
-Exécuter `tv-orchestrator snapshot` pour valider la connexion E2E,
-puis `tv-orchestrator run jobs/examples/tv_job_rotate_webhook_key.json --gate-approved`
+`tv-orchestrator run jobs/examples/tv_job_rotate_webhook_key.json --gate-approved`
 pour finaliser la rotation TV_WEBHOOK_KEY dans les alertes TradingView.
