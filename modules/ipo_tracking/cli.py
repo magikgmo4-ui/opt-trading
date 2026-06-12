@@ -91,6 +91,7 @@ def main(argv=None) -> int:
     cc = sub.add_parser("command-center")
     cc.add_argument("--json-out", default=None)
     cc.add_argument("--md-out", default=None)
+    cc.add_argument("--mode", choices=["full", "lazy"], default="full")
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -371,7 +372,7 @@ def main(argv=None) -> int:
         print(json.dumps({"source_audit": sources}, indent=2, default=str))
         return 0
     if args.cmd == "command-center":
-        output = render_command_center()
+        output = render_command_center(mode=args.mode)
         print(output)
         if args.json_out:
             from .io import atomic_write_json

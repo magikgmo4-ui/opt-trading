@@ -3,7 +3,13 @@ from typing import Any
 from .io import utc_now, read_json, REPO_ROOT
 
 
-def render_command_center() -> str:
+def render_command_center(mode: str = "full") -> str:
+    if mode == "lazy":
+        return _render_lazy()
+    return _render_full()
+
+
+def _render_full() -> str:
     snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
     enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
 
@@ -217,6 +223,54 @@ def _fmt_vol(v: float | None) -> str:
     if v >= 1_000_000: return f"{v/1_000_000:.1f}M"
     if v >= 1_000: return f"{v/1_000:.0f}K"
     return f"{v:.0f}"
+
+
+def _render_lazy() -> str:
+    snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+    enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+    indicators = enriched.get("indicators", {})
+    smart_money = enriched.get("smart_money", {})
+    consensus = enriched.get("consensus", {})
+
+    price = indicators.get("close") or snap.get("price", 135)
+    gap_pct = indicators.get("ipo_gap_pct") or 0
+    rel_vol = indicators.get("relative_volume")
+    staleness = len(consensus.get("stale_sources", []))
+    disagreement = consensus.get("source_disagreement_score", 0) or 0
+    ipo_price = snap.get("ipo_price", 135)
+    is_open = price is not None and price != 135 and price != ipo_price
+
+    from .ipo_analogs import compute_analog_score
+    analog = compute_analog_score({"gap_pct": gap_pct, "relative_volume": rel_vol or 1, "fvg_bullish": smart_money.get("fvg_bullish", False), "bos": smart_money.get("bos", False)})
+    from .edge_engine import compute_setup_probabilities
+    edge = compute_setup_probabilities(indicators, smart_money, consensus, snap.get("scores", {}), enriched, analog)
+    edge_score = int(edge.get("edge_score", 0) * 100)
+    classification = edge.get("classification", "NO_TRADE")
+    best_setup = edge.get("best_setup", {})
+    best_prob = int(best_setup.get("probability", 0) * 100)
+
+    from .sector_intelligence import compute_sector_health
+    sector = compute_sector_health({"RKLB": 100.0}, {"RKLB": 2.5})
+    sector_regime = sector.get("regime", "NEUTRAL")
+
+    risks = []
+    if disagreement > 20: risks.append("high_disagreement")
+    if staleness > 0: risks.append("stale")
+    if edge_score < 60: risks.append("low_edge")
+    if sector_regime == "RISK_OFF": risks.append("risk_off")
+    if price and ipo_price and abs(price - ipo_price) / max(1, ipo_price) > 0.5: risks.append("extreme_gap")
+    risk_line = ", ".join(risks) if risks else "none"
+
+    health_dot = "\u25cf" if staleness == 0 else "\u25cb"
+    health_label = "HEALTHY" if staleness == 0 else "DEGRADED"
+
+    action_map = {"A+": "A+", "A": "A", "B": "WATCH", "C": "WATCH"}
+    action_label = action_map.get(classification, "NO_TRADE") if classification != "NO_TRADE" else "NO_TRADE"
+
+    lines = []
+    lines.append(f"  {health_dot} {'OPEN' if is_open else 'PRE'}  {price:.2f}  {gap_pct:+.1f}%  {action_label:>8s}  {classification:>5s}  {best_prob:>3d}%  {best_setup.get('id', '—')}  [{health_label}]  [{risk_line}]")
+    lines.append("")
+    return "\n".join(lines)
 
 
 def _compute_open_score(gap_pct: float, rel_vol: float | None, smc: dict, edge: float) -> int:

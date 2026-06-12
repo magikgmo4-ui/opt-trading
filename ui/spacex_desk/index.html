@@ -7,10 +7,14 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,-apple-system,sans-serif;background:#0a0e14;color:#c8d6e5;padding:16px;min-height:100vh}
-h1{font-size:18px;color:#e8eef7;margin-bottom:12px;text-align:center;letter-spacing:2px}
+h1{font-size:16px;color:#e8eef7;margin-bottom:8px;text-align:center;letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:10px}
+.mode-toggle{font-size:11px;background:#1e2733;border:1px solid #2a3544;color:#5c7a99;padding:4px 10px;border-radius:6px;cursor:pointer;letter-spacing:0}
+.mode-toggle.active{background:#1e3a5f;color:#64b5f6;border-color:#64b5f6}
+.mode-bar{display:flex;justify-content:center;gap:6px;margin-bottom:10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;max-width:1200px;margin:0 auto}
+.grid.lazy{grid-template-columns:1fr;max-width:800px}
 .card{background:#121820;border:1px solid #1e2733;border-radius:10px;padding:14px 16px}
-.card h2{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#5c7a99;margin-bottom:8px}
+.card h2{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#5c7a99;margin-bottom:4px}
 .card .value{font-size:28px;font-weight:700;color:#e8eef7}
 .card .sub{font-size:13px;color:#6b8299;margin-top:2px}
 .bar{display:flex;gap:1px;margin-top:4px}
@@ -30,106 +34,161 @@ h1{font-size:18px;color:#e8eef7;margin-bottom:12px;text-align:center;letter-spac
 .healthy{background:#1b5e20;color:#81c784}.degraded{background:#e65100;color:#ffcc80}
 .refresh{font-size:10px;color:#3d546a;text-align:center;margin-top:12px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4caf50;animation:pulse 2s infinite;margin-right:6px}
+.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;animation:pulse 2s infinite;margin-right:4px}
+.live-dot.on{background:#4caf50}.live-dot.off{background:#ef5350}
+
+/* Lazy one-liner */
+.lazy-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px;padding:8px 0;font-family:monospace}
+.lazy-line .ll-state{font-weight:700;font-size:12px;padding:2px 8px;border-radius:4px}
+.ll-open{background:#1b5e20;color:#81c784}.ll-pre{background:#1e2733;color:#546e7a}
+.lazy-line .ll-price{font-weight:700;font-size:18px;color:#e8eef7}
+.lazy-line .ll-gap{font-size:13px}
+.lazy-line .ll-action{font-weight:700;font-size:13px;padding:2px 8px;border-radius:4px}
+.lazy-line .ll-setup{color:#64b5f6;font-size:13px}
+.lazy-line .ll-risk{color:#ef5350;font-size:11px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lazy-line .ll-health{font-size:11px;padding:2px 6px;border-radius:4px}
 </style>
 </head>
 <body>
-<h1><span class="live-dot"></span>SPCX COMMAND CENTER</h1>
-<div class="grid">
-  <div class="card" id="action-card"><h2>ACTION</h2><div class="value" id="action"></div></div>
-  <div class="card"><h2>CONFIDENCE</h2><div class="value" id="confidence"></div></div>
-  <div class="card"><h2>EDGE SCORE</h2><div class="value" id="edge-score"></div><div class="bar" id="edge-bar"></div></div>
-  <div class="card"><h2>PRICE</h2><div class="value" id="price"></div><div class="sub" id="volume"></div></div>
-  <div class="card"><h2>GAP</h2><div class="value" id="gap"></div><div class="sub" id="vwap"></div></div>
-  <div class="card"><h2>OPEN SCORE</h2><div class="value" id="open-score"></div></div>
-  <div class="card"><h2>SECTOR</h2><div class="value" id="sector-regime"></div></div>
-  <div class="card"><h2>CONSENSUS</h2><div class="value" id="consensus"></div><div class="sub" id="disagreement"></div></div>
-  <div class="card"><h2>ANALOG</h2><div class="value" id="analog"></div></div>
-  <div class="card"><h2>IPO ANALOGS</h2><div id="analogs"></div></div>
-  <div class="card"><h2>TOP SETUP</h2><div class="value" id="top-setup"></div><div class="sub" id="setup-prob"></div><div id="setup-levels"></div></div>
-  <div class="card"><h2>WHY NOT TRADE</h2><div id="risks"></div></div>
-  <div class="card"><h2>PIPELINE</h2><div id="pipeline-health"></div><div class="sub" id="sources"></div></div>
+<div class="mode-bar">
+  <button class="mode-toggle active" onclick="setMode('lazy')" id="btn-lazy">LAZY</button>
+  <button class="mode-toggle" onclick="setMode('full')" id="btn-full">FULL</button>
 </div>
-<div class="refresh">auto-refresh 60s &middot; last: <span id="ts"></span></div>
+<h1 id="title"><span class="live-dot on" id="dot"></span>SPCX COMMAND CENTER</h1>
+<div class="grid lazy" id="grid"></div>
+<div class="refresh">auto 60s &middot; <span id="ts"></span></div>
 
 <script>
-const DATA_URL = "/opt/trading/data/ipo/spacex/command_center/latest.json";
-const API_URL = "/desk/spacex/command-center";
+let mode = "lazy";
+let data = null;
+
+function setMode(m) {
+  mode = m;
+  document.getElementById("btn-lazy").classList.toggle("active", m === "lazy");
+  document.getElementById("btn-full").classList.toggle("active", m === "full");
+  if (data) render(data);
+}
 
 async function load() {
   try {
-    if (typeof deskApi === "undefined" || !deskApi) throw new Error("no desk api");
     const r = await fetch("/desk/spacex/command-center");
-    if (r.ok) { render(await r.json()); return; }
+    if (r.ok) { data = await r.json(); render(data); return; }
   } catch(e) {}
   try {
     const r = await fetch("/opt/trading/data/ipo/spacex/command_center/latest.json");
-    if (r.ok) { render(await r.json()); return; }
+    if (r.ok) { data = await r.json(); render(data); return; }
   } catch(e) {}
   try {
     const r = await fetch("../../data/ipo/spacex/command_center/latest.json");
-    if (r.ok) { render(await r.json()); return; }
+    if (r.ok) { data = await r.json(); render(data); return; }
   } catch(e) {}
   setTimeout(load, 5000);
 }
 
 function render(d) {
   document.getElementById("ts").textContent = d.generated_at ? new Date(d.generated_at).toLocaleTimeString() : "—";
+  const healthy = d.pipeline_healthy;
+  const dot = document.getElementById("dot");
+  dot.className = "live-dot " + (healthy ? "on" : "off");
 
-  const action = d.action || "NO_TRADE";
-  const el = document.getElementById("action");
-  el.textContent = action;
-  el.className = "action-badge " + (action.includes("A+") ? "aplus" : action.includes("A_") ? "a" : action.includes("B") ? "b" : action.includes("WATCH") ? "watch" : "notrade");
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
 
-  document.getElementById("confidence").textContent = d.confidence || "—";
-  const es = d.edge_score || 0;
-  document.getElementById("edge-score").textContent = es;
-  const bar = document.getElementById("edge-bar");
-  bar.innerHTML = "";
-  for (let i = 0; i < 20; i++) {
-    bar.innerHTML += '<span class="' + (i < es/5 ? 'on' : 'off') + '"></span>';
-  }
-
-  document.getElementById("price").textContent = d.price ? "$" + d.price.toFixed(2) : "—";
-  document.getElementById("volume").textContent = d.volume ? "Vol: " + (d.volume >= 1e6 ? (d.volume/1e6).toFixed(1)+"M" : d.volume >= 1e3 ? Math.round(d.volume/1e3)+"K" : d.volume) : "";
-  document.getElementById("gap").textContent = d.gap_pct != null ? (d.gap_pct >= 0 ? "+" : "") + d.gap_pct.toFixed(1) + "%" : "—";
-  document.getElementById("vwap").textContent = d.vwap ? "VWAP: $" + d.vwap.toFixed(2) : "";
-  document.getElementById("open-score").textContent = d.open_score || "—";
-  document.getElementById("sector-regime").textContent = d.sector_regime || "—";
-
-  const c = d.consensus_label || (d.disagreement < 5 ? "STRONG" : d.disagreement < 15 ? "MODERATE" : "WEAK");
-  document.getElementById("consensus").textContent = c;
-  document.getElementById("disagreement").textContent = d.disagreement != null ? "Disagreement: " + d.disagreement.toFixed(1) + "%" : "";
-
-  document.getElementById("analog").textContent = d.analog ? d.analog + "-LIKE" : "—";
-
-  const analogs = document.getElementById("analogs");
-  analogs.innerHTML = "";
-  (d.ipo_analogs || []).forEach((a, i) => {
-    analogs.innerHTML += '<div class="analog-row"><span>' + (i+1) + ". " + a.symbol + '</span><span>' + (a.pct || a.probability_pct || 0) + '%</span></div>';
-  });
-
-  document.getElementById("top-setup").textContent = d.top_setup || "—";
-  document.getElementById("setup-prob").textContent = d.top_setup_prob_pct != null ? "Probability: " + d.top_setup_prob_pct + "%" : "";
-
-  const levels = document.getElementById("setup-levels");
-  levels.innerHTML = "";
-  if (d.entry) levels.innerHTML += '<div class="setup-entry"><span>Entry</span><span>$' + d.entry.toFixed(2) + '</span></div>';
-  if (d.stop) levels.innerHTML += '<div class="setup-entry"><span>Stop</span><span>$' + d.stop.toFixed(2) + '</span></div>';
-  if (d.tp1) levels.innerHTML += '<div class="setup-entry"><span>TP1</span><span>$' + d.tp1.toFixed(2) + '</span></div>';
-  if (d.tp2) levels.innerHTML += '<div class="setup-entry"><span>TP2</span><span>$' + d.tp2.toFixed(2) + '</span></div>';
-
-  const risks = document.getElementById("risks");
-  risks.innerHTML = "";
-  if (!d.risks || !d.risks.length || d.risks[0] === "None") {
-    risks.innerHTML = '<span class="risk-none">None</span>';
+  if (mode === "lazy") {
+    grid.className = "grid lazy";
+    renderLazy(d, grid, healthy);
   } else {
-    d.risks.forEach(r => { risks.innerHTML += '<div class="risk-item">' + r + '</div>'; });
+    grid.className = "grid";
+    renderFull(d, grid, healthy);
   }
+}
 
-  const ph = document.getElementById("pipeline-health");
-  ph.innerHTML = '<span class="health ' + (d.pipeline_healthy ? "healthy" : "degraded") + '">' + (d.pipeline_healthy ? "HEALTHY" : "DEGRADED") + '</span>';
-  document.getElementById("sources").textContent = "Sources: " + (d.sources_ok || "—") + "/" + (d.sources_total || 5) + " | Stale: " + (d.stale_sources || 0);
+function renderLazy(d, grid, healthy) {
+  const isOpen = d.market_state === "OPEN";
+  const price = d.price ? "$" + d.price.toFixed(2) : "—";
+  const gap = d.gap_pct != null ? (d.gap_pct >= 0 ? "+" : "") + d.gap_pct.toFixed(1) + "%" : "—";
+  const action = d.action || "NO_TRADE";
+  const confidence = d.confidence || "—";
+  const prob = d.top_setup_prob_pct != null ? d.top_setup_prob_pct + "%" : "—";
+  const setup = d.top_setup || "—";
+  const risks = (d.risks || []).join(", ") || "none";
+
+  const card = document.createElement("div");
+  card.className = "card";
+  card.style.padding = "12px 16px";
+
+  card.innerHTML =
+    '<div class="lazy-line">' +
+    '<span class="ll-state ' + (isOpen ? 'll-open' : 'll-pre') + '">' + (isOpen ? 'OPEN' : 'PRE') + '</span>' +
+    '<span class="ll-price">' + price + '</span>' +
+    '<span class="ll-gap">' + gap + '</span>' +
+    '<span class="ll-action ' + (action.includes("NO_TRADE") ? "notrade" : action.includes("A") ? "a" : "watch") + '">' + action + '</span>' +
+    '<span>' + confidence + '</span>' +
+    '<span>' + prob + '</span>' +
+    '<span class="ll-setup">' + setup + '</span>' +
+    '<span class="ll-health ' + (healthy ? "healthy" : "degraded") + '">' + (healthy ? "OK" : "DEGRADED") + '</span>' +
+    '<span class="ll-risk" title="' + risks + '">' + risks + '</span>' +
+    '</div>';
+
+  grid.appendChild(card);
+}
+
+function renderFull(d, grid, healthy) {
+  const cards = [];
+  const action = d.action || "NO_TRADE";
+  cards.push({h: "ACTION", v: action, cls: action.includes("A+") ? "aplus" : action.includes("A_") ? "a" : action.includes("B") ? "b" : "notrade", badge: true});
+  cards.push({h: "CONFIDENCE", v: d.confidence || "—"});
+  cards.push({h: "EDGE SCORE", v: d.edge_score || 0, bar: true});
+  cards.push({h: "PRICE", v: d.price ? "$"+d.price.toFixed(2) : "—", sub: d.volume ? "Vol: " + (d.volume>=1e6?(d.volume/1e6).toFixed(1)+"M":d.volume>=1e3?Math.round(d.volume/1e3)+"K":d.volume) : ""});
+  cards.push({h: "GAP", v: d.gap_pct != null ? (d.gap_pct>=0?"+":"")+d.gap_pct.toFixed(1)+"%" : "—", sub: d.vwap ? "VWAP: $"+d.vwap.toFixed(2) : ""});
+  cards.push({h: "OPEN SCORE", v: d.open_score || "—"});
+  cards.push({h: "SECTOR", v: d.sector_regime || "—"});
+  cards.push({h: "CONSENSUS", v: d.consensus_label || "—", sub: d.disagreement != null ? "Disagreement: "+d.disagreement.toFixed(1)+"%" : ""});
+  cards.push({h: "ANALOG", v: d.analog ? d.analog+"-LIKE" : "—"});
+
+  const analogsEl = document.createElement("div");
+  analogsEl.innerHTML = (d.ipo_analogs || []).map((a,i) => '<div class="analog-row"><span>'+(i+1)+'. '+a.symbol+'</span><span>'+(a.pct||a.probability_pct||0)+'%</span></div>').join("");
+  cards.push({h: "IPO ANALOGS", html: analogsEl.outerHTML});
+
+  cards.push({h: "TOP SETUP", v: d.top_setup || "—", sub: d.top_setup_prob_pct != null ? "Probability: "+d.top_setup_prob_pct+"%" : ""});
+  const lvls = [];
+  if (d.entry) lvls.push('<div class="setup-entry"><span>Entry</span><span>$'+d.entry.toFixed(2)+'</span></div>');
+  if (d.stop) lvls.push('<div class="setup-entry"><span>Stop</span><span>$'+d.stop.toFixed(2)+'</span></div>');
+  if (d.tp1) lvls.push('<div class="setup-entry"><span>TP1</span><span>$'+d.tp1.toFixed(2)+'</span></div>');
+  if (d.tp2) lvls.push('<div class="setup-entry"><span>TP2</span><span>$'+d.tp2.toFixed(2)+'</span></div>');
+  if (lvls.length) cards.push({h: "LEVELS", html: lvls.join("")});
+
+  const risksEl = document.createElement("div");
+  if (!d.risks || !d.risks.length || d.risks[0]==="None") {
+    risksEl.innerHTML = '<span class="risk-none">None</span>';
+  } else {
+    risksEl.innerHTML = d.risks.map(r => '<div class="risk-item">'+r+'</div>').join("");
+  }
+  cards.push({h: "WHY NOT TRADE", html: risksEl.outerHTML});
+
+  const pipeEl = document.createElement("div");
+  pipeEl.innerHTML = '<span class="health '+(healthy?"healthy":"degraded")+'">'+(healthy?"HEALTHY":"DEGRADED")+'</span>';
+  cards.push({h: "PIPELINE", html: pipeEl.outerHTML, sub: "Sources: "+(d.sources_ok||"—")+"/"+(d.sources_total||5)+" | Stale: "+(d.stale_sources||0)});
+
+  cards.forEach(c => {
+    const div = document.createElement("div");
+    div.className = "card";
+    let inner = "<h2>" + c.h + "</h2>";
+    if (c.badge) {
+      inner += '<span class="action-badge ' + (c.cls||"") + '">' + c.v + '</span>';
+    } else if (c.bar) {
+      inner += '<div class="value">' + c.v + '</div><div class="bar">';
+      for (let i = 0; i < 20; i++) inner += '<span class="' + (i < c.v/5 ? 'on' : 'off') + '"></span>';
+      inner += '</div>';
+    } else if (c.html) {
+      inner += c.html;
+    } else if (c.v !== undefined) {
+      inner += '<div class="value">' + c.v + '</div>';
+    }
+    if (c.sub) inner += '<div class="sub">' + c.sub + '</div>';
+    div.innerHTML = inner;
+    grid.appendChild(div);
+  });
 }
 
 load();
