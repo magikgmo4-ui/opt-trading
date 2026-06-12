@@ -1,11 +1,11 @@
 # SpaceX / SPCX Daily Super Desk Report
 
-Generated: 2026-06-12T07:19:09.675525+00:00
+Generated: 2026-06-12T07:39:14.358793+00:00
 
 ## Market
 
 - Symbol: SPCX
-- Price: 135.0
+- Price: 135
 - IPO price: 135
 - Gap vs IPO: 0.0
 
@@ -13,11 +13,11 @@ Generated: 2026-06-12T07:19:09.675525+00:00
 
 - momentum: 0
 - news_velocity: 0
-- sec_activity: 1
+- sec_activity: 0
 - smart_money: 0
 - risk: 0
 - trade_ready: 0.15
-- accumulation: 1
+- accumulation: 0.9
 
 ## Signals
 
