@@ -6,6 +6,10 @@ from .collectors.sec_edgar import collect_sec_edgar
 from .collectors.yahoo_public import collect_yahoo_quote
 from .collectors.rss_news import collect_yahoo_rss
 from .collectors.bot_vision_adapter import collect_bot_vision_context
+from .collectors.nasdaq_quote import collect_nasdaq_quote
+from .collectors.desk_pro import collect_desk_pro
+from .collectors.sheets import collect_sheets
+from .collectors.telegram_signal import collect_telegram_signal
 from .collectors.tradingview_webhook import normalize_tradingview_payload
 from .storage import persist_event, persist_snapshot, persist_normalized, write_history_snapshot, write_pipeline_verification
 from .scoring import score_snapshot
@@ -133,17 +137,22 @@ def _collect(cfg: dict, *, offline: bool = False, tv_json: str | None = None, sy
         events.append(normalize_tradingview_payload(payload))
     if offline:
         events += [
+            {"source": "nasdaq_quote", "ok": False, "symbol": symbol, "regular_market_price": None, "market_phase": "closed", "price_status": "missing", "ipo_cross_state": "unknown"},
             {"source": "yahoo_chart", "ok": True, "symbol": symbol, "regular_market_price": ipo_price, "previous_close": ipo_price, "bars": [{"open": ipo_price, "high": ipo_price, "low": ipo_price, "close": ipo_price, "volume": 1000}]},
             {"source": "sec_edgar", "ok": False, "filings": [], "offline": True},
             {"source": "yahoo_news_rss", "ok": False, "articles": [], "offline": True},
         ]
     else:
         events += [
+            collect_nasdaq_quote(symbol),
             collect_yahoo_quote(symbol),
             collect_sec_edgar(cik),
             collect_yahoo_rss(f"{symbol} OR SpaceX OR Starlink"),
         ]
     events.append(collect_bot_vision_context())
+    events.append(collect_desk_pro(symbol))
+    events.append(collect_sheets(symbol))
+    events.append(collect_telegram_signal(symbol))
     return events
 
 
