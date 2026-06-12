@@ -99,25 +99,22 @@ def scp_from_cursor(remote_win_path: str, local_path: Path, timeout: int = 20) -
 
 
 def poll_for_result(job_id: str, timeout: int = AGENT_POLL_TIMEOUT) -> dict | None:
-    """Poll cursor-ai jobs/done/<job_id>.result.json until it appears or timeout."""
+    """Poll cursor-ai jobs/done/<job_id>.result.json — SCP attempt each interval (fast)."""
     remote_result = rf"{TV_DONE_WIN}\{job_id}.result.json"
+    local_tmp = REPORTS_DIR / f"_result_{job_id}.json"
     deadline = time.time() + timeout
     while time.time() < deadline:
-        rc, out, _ = ssh_simple(
-            f'powershell -NoProfile -NonInteractive -Command "Test-Path \'{remote_result}\'"',
-            timeout=10,
-        )
-        if rc == 0 and "True" in out:
-            local_tmp = REPORTS_DIR / f"_result_{job_id}.json"
-            rc2, err2 = scp_from_cursor(remote_result, local_tmp)
-            if rc2 == 0:
-                try:
-                    data = json.loads(local_tmp.read_text(encoding="utf-8", errors="replace"))
-                    local_tmp.unlink(missing_ok=True)
-                    return data
-                except json.JSONDecodeError:
-                    return {"success": False, "error": "result JSON parse failed",
-                            "raw": local_tmp.read_text(errors="replace")}
+        rc, _ = scp_from_cursor(remote_result, local_tmp, timeout=8)
+        if rc == 0 and local_tmp.exists() and local_tmp.stat().st_size > 0:
+            try:
+                data = json.loads(local_tmp.read_text(encoding="utf-8", errors="replace"))
+                local_tmp.unlink(missing_ok=True)
+                return data
+            except json.JSONDecodeError:
+                raw = local_tmp.read_text(errors="replace")
+                local_tmp.unlink(missing_ok=True)
+                return {"success": False, "error": "result JSON parse failed", "raw": raw}
+        local_tmp.unlink(missing_ok=True)
         time.sleep(AGENT_POLL_INTERVAL)
     return None
 
