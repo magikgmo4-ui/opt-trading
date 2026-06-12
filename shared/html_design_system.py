@@ -61,6 +61,8 @@ CARD_CSS = (
     f"border: 1px solid {COLORS['card_border']}; background: {COLORS['card_bg']}; }}\n"
     f".summary-card .num {{ font-size: 28px; font-weight: 700; }}\n"
     f".summary-card .label {{ font-size: 12px; color: {COLORS['muted']}; margin-top: 4px; }}\n"
+    f".summary-card .bar {{ font-family: monospace; font-size: 13px; color: {COLORS['accent_green']}; "
+    f"letter-spacing: 2px; margin-top: 4px; }}\n"
 
     f".summary-ok      {{ border-left: 4px solid {COLORS['accent_green']}; }}\n"
     f".summary-warn    {{ border-left: 4px solid {COLORS['accent_orange']}; }}\n"
@@ -149,6 +151,23 @@ MISC_CSS = (
     f".module-row {{ display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 13px; }}\n"
     f".module-label {{ flex: 1; }}\n"
     f".module-machine {{ font-size: 11px; color: #999; font-family: monospace; }}\n"
+
+    f".card-row {{ display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }}\n"
+    f".card-pass    {{ border-left: 4px solid {COLORS['accent_green']}; }}\n"
+    f".card-fail    {{ border-left: 4px solid {COLORS['accent_red']}; }}\n"
+    f".card-blue    {{ border-left: 4px solid {COLORS['accent_blue']}; }}\n"
+    f".card-win     {{ border-left: 4px solid {COLORS['accent_green']}; }}\n"
+    f".card-loss    {{ border-left: 4px solid {COLORS['accent_red']}; }}\n"
+    f".card-neutral {{ border-left: 4px solid #8e8e93; }}\n"
+
+    f".info-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); "
+    f"gap: 12px; margin-bottom: 24px; }}\n"
+    f".info-card {{ background: {COLORS['card_bg']}; border: 1px solid {COLORS['card_border']}; "
+    f"border-radius: {COLORS['card_radius']}; padding: 14px 16px; }}\n"
+    f".info-card h4 {{ font-size: 12px; color: {COLORS['muted']}; text-transform: uppercase; "
+    f"letter-spacing: .5px; margin-bottom: 6px; }}\n"
+    f".info-card .value {{ font-size: 14px; font-weight: 600; }}\n"
+    f".info-card .value-mono {{ font-family: monospace; font-size: 13px; }}\n"
 )
 
 STANDARD_CSS = (
