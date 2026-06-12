@@ -72,9 +72,18 @@ def ssh_simple(cmd_str: str, timeout: int = 15) -> tuple[int, str, str]:
         return 5, "", str(e)
 
 
+def _win_to_scp(win_path: str) -> str:
+    """Convert Windows path (C:\foo\bar) to SCP POSIX form (/C:/foo/bar)."""
+    p = win_path.replace("\\", "/")
+    if len(p) >= 2 and p[1] == ":":
+        p = "/" + p
+    return p
+
+
 def scp_to_cursor(local_path: Path, remote_win_path: str, timeout: int = 20) -> tuple[int, str]:
     """SCP a local file to cursor-ai Windows path."""
-    cmd = ["scp", "-o", "BatchMode=yes", str(local_path), f"{SSH_HOST}:{remote_win_path}"]
+    remote = f"{SSH_HOST}:{_win_to_scp(remote_win_path)}"
+    cmd = ["scp", "-o", "BatchMode=yes", str(local_path), remote]
     try:
         r = subprocess.run(cmd, capture_output=True, timeout=timeout)
         err = r.stderr.decode("utf-8", errors="replace").strip()
@@ -87,7 +96,8 @@ def scp_to_cursor(local_path: Path, remote_win_path: str, timeout: int = 20) -> 
 
 def scp_from_cursor(remote_win_path: str, local_path: Path, timeout: int = 20) -> tuple[int, str]:
     """SCP a file from cursor-ai Windows path to local."""
-    cmd = ["scp", "-o", "BatchMode=yes", f"{SSH_HOST}:{remote_win_path}", str(local_path)]
+    remote = f"{SSH_HOST}:{_win_to_scp(remote_win_path)}"
+    cmd = ["scp", "-o", "BatchMode=yes", remote, str(local_path)]
     try:
         r = subprocess.run(cmd, capture_output=True, timeout=timeout)
         err = r.stderr.decode("utf-8", errors="replace").strip()
@@ -107,11 +117,12 @@ def poll_for_result(job_id: str, timeout: int = AGENT_POLL_TIMEOUT) -> dict | No
         rc, _ = scp_from_cursor(remote_result, local_tmp, timeout=8)
         if rc == 0 and local_tmp.exists() and local_tmp.stat().st_size > 0:
             try:
-                data = json.loads(local_tmp.read_text(encoding="utf-8", errors="replace"))
+                # utf-8-sig strips BOM that PowerShell Set-Content -Encoding UTF8 adds
+                data = json.loads(local_tmp.read_text(encoding="utf-8-sig", errors="replace"))
                 local_tmp.unlink(missing_ok=True)
                 return data
             except json.JSONDecodeError:
-                raw = local_tmp.read_text(errors="replace")
+                raw = local_tmp.read_text(encoding="utf-8-sig", errors="replace")
                 local_tmp.unlink(missing_ok=True)
                 return {"success": False, "error": "result JSON parse failed", "raw": raw}
         local_tmp.unlink(missing_ok=True)
