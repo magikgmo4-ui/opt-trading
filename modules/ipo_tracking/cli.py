@@ -24,7 +24,7 @@ from .playbook import generate_playbook
 from .enrichment import enrich_from_snapshot, CANDLE_SCHEMA, ENRICHED_CANDLE_FEATURES
 from .signal_quality import build_signal_quality_matrix, run_feature_ablation, score_source_reliability, evaluate_alert_precision
 from .ipo_dataset import IPO_DATASET, compute_analog_match, dataset_stats, query_dataset
-from .sector_intelligence import compute_sector_intelligence, sector_summary
+from .sector_intelligence import compute_sector_intelligence, sector_summary, compute_correlation_matrix, detect_lead_lag, compute_relative_strength, detect_capital_rotation, compute_sector_health
 
 
 def main(argv=None) -> int:
@@ -64,6 +64,21 @@ def main(argv=None) -> int:
     sub.add_parser("dataset")
     sub.add_parser("analogs")
     sub.add_parser("sector")
+
+    sc2 = sub.add_parser("sector-correlation")
+    sc2.add_argument("--tickers", nargs="*", default=["SPCX", "RKLB", "ASTS", "TSLA", "ARKX", "QQQ"])
+    sc2.add_argument("--bars", type=int, default=50)
+
+    sl = sub.add_parser("sector-leadlag")
+    sl.add_argument("--leader", default="SPCX")
+    sl.add_argument("--follower", default="RKLB")
+
+    sr = sub.add_parser("sector-strength")
+    sr.add_argument("--benchmark", default="SPY")
+
+    sr2 = sub.add_parser("sector-rotation")
+
+    sh = sub.add_parser("sector-health")
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -250,6 +265,62 @@ def main(argv=None) -> int:
             spcx_scoring=scores,
         )
         result["sector_summary"] = sector_summary()
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-correlation":
+        import random
+        rng = random.Random(42)
+        prices = {}
+        for t in args.tickers:
+            base = 100.0 if t != "SPCX" else 135.0
+            series = [base]
+            for _ in range(args.bars):
+                series.append(series[-1] * (1 + rng.uniform(-0.03, 0.03)))
+            prices[t] = series
+        result = compute_correlation_matrix(prices)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-leadlag":
+        import random
+        rng = random.Random(42)
+        leader_price = 135.0
+        follower_price = 10.0
+        leader_series = [leader_price]
+        follower_series = [follower_price]
+        for _ in range(30):
+            l_chg = rng.uniform(-0.02, 0.03)
+            leader_price *= (1 + l_chg)
+            follower_price *= (1 + l_chg * 0.6 + rng.uniform(-0.01, 0.01))
+            leader_series.append(leader_price)
+            follower_series.append(follower_price)
+        result = detect_lead_lag(leader_series, follower_series)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-strength":
+        changes = {
+            "SPCX": 0.0, "RKLB": 2.5, "ASTS": 1.8, "RDW": -0.5, "LUNR": -1.2, "PL": 0.3,
+            "TSLA": 1.2, "NVDA": 3.1,
+            "ARKX": 0.8, "UFO": 0.5, "ITA": -0.2, "XAR": -0.8,
+            "QQQ": 0.5, "SPY": 0.3, "IWM": -0.1,
+        }
+        prices = {t: 100.0 for t in changes}
+        result = compute_relative_strength(prices, args.benchmark, changes)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-rotation":
+        flows = {"space_stocks": 5.2, "semiconductors": 12.5, "defense": -3.1, "fintech": -2.8, "consumer": -8.0, "energy": 1.5}
+        result = detect_capital_rotation(flows)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-health":
+        changes = {
+            "SPCX": 0.0, "RKLB": 2.5, "ASTS": 1.8, "RDW": -0.5, "LUNR": -1.2, "PL": 0.3,
+            "TSLA": 1.2, "NVDA": 3.1,
+            "ARKX": 0.8, "UFO": 0.5, "ITA": -0.2, "XAR": -0.8,
+            "QQQ": 0.5, "SPY": 0.3, "IWM": -0.1,
+        }
+        prices = {t: 100.0 for t in changes}
+        result = compute_sector_health(prices, changes)
         print(json.dumps(result, indent=2, default=str))
         return 0
     return 2
