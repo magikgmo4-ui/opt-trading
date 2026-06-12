@@ -11,24 +11,26 @@ Usage:
 Exit codes: 0=PASS, 1=INVALID_INPUT, 3=REJECTED(no gate), 4=REFUSED(wrong type), 5=RUNNER_ERROR
 """
 import argparse
+import base64
 import json
 import os
 import subprocess
 import sys
-import tempfile
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT   = Path(__file__).resolve().parents[3]
 REPORTS_DIR = REPO_ROOT / "reports" / "tradingview"
-JOBS_DONE   = REPO_ROOT / "modules" / "tradingview_orchestrator" / "jobs" / "done"
-JOBS_FAILED = REPO_ROOT / "modules" / "tradingview_orchestrator" / "jobs" / "failed"
 
-SSH_HOST       = "cursor-ai"
-TV_MODULE_WIN  = r"C:\Users\ghost\opt-trading\modules\tradingview_observer"
-TV_CLI_WIN     = r"C:\Users\ghost\.claude\tools\tradingview-mcp\src\cli\index.js"
-EXECUTOR_WIN   = rf"{TV_MODULE_WIN}\app\job_executor.ps1"
+SSH_HOST        = "cursor-ai"
+TV_OBS_WIN      = r"C:\Users\ghost\opt-trading\modules\tradingview_observer"
+TV_PENDING_WIN  = rf"{TV_OBS_WIN}\jobs\pending"
+TV_DONE_WIN     = rf"{TV_OBS_WIN}\jobs\done"
+TV_CLI_WIN      = r"C:\Users\ghost\.claude\tools\tradingview-mcp\src\cli\index.js"
+
+AGENT_POLL_TIMEOUT = 120   # max seconds to wait for agent result
+AGENT_POLL_INTERVAL = 2
 
 READ_ONLY_TYPES = {"snapshot", "alert.list", "screenshot"}
 MUTATION_TYPES  = {
@@ -56,35 +58,68 @@ def load_env_var(name: str) -> str:
     return val
 
 
-def ssh_run_ps(ps_command: str, timeout: int = 60) -> tuple[int, str, str]:
-    cmd = ["ssh", "-o", "BatchMode=yes", "-o", f"ConnectTimeout={timeout}", SSH_HOST,
-           f"powershell -NoProfile -NonInteractive -Command \"{ps_command}\""]
+def ssh_simple(cmd_str: str, timeout: int = 15) -> tuple[int, str, str]:
+    """Run a simple shell command on cursor-ai via SSH."""
+    cmd = ["ssh", "-o", "BatchMode=yes", "-o", f"ConnectTimeout={timeout}", SSH_HOST, cmd_str]
     try:
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout + 5)
-        return r.returncode, r.stdout.strip(), r.stderr.strip()
+        r = subprocess.run(cmd, capture_output=True, timeout=timeout + 5)
+        out = r.stdout.decode("utf-8", errors="replace").strip()
+        err = r.stderr.decode("utf-8", errors="replace").strip()
+        return r.returncode, out, err
     except subprocess.TimeoutExpired:
-        return 5, "", "SSH command timed out"
+        return 5, "", f"SSH timed out after {timeout}s"
     except Exception as e:
         return 5, "", str(e)
 
 
-def ssh_run_ps_file(local_ps1: Path, timeout: int = 90) -> tuple[int, str, str]:
-    """SCP a PS1 script to cursor-ai, execute it, return output."""
-    remote_tmp = rf"C:\Users\ghost\AppData\Local\Temp\tv_job_{ts()}.ps1"
-    scp_cmd = ["scp", "-o", "BatchMode=yes", str(local_ps1),
-               f"{SSH_HOST}:{remote_tmp}"]
+def scp_to_cursor(local_path: Path, remote_win_path: str, timeout: int = 20) -> tuple[int, str]:
+    """SCP a local file to cursor-ai Windows path."""
+    cmd = ["scp", "-o", "BatchMode=yes", str(local_path), f"{SSH_HOST}:{remote_win_path}"]
     try:
-        r = subprocess.run(scp_cmd, capture_output=True, text=True, timeout=30)
-        if r.returncode != 0:
-            return 5, "", f"SCP failed: {r.stderr}"
+        r = subprocess.run(cmd, capture_output=True, timeout=timeout)
+        err = r.stderr.decode("utf-8", errors="replace").strip()
+        return r.returncode, err
+    except subprocess.TimeoutExpired:
+        return 5, f"SCP timed out after {timeout}s"
     except Exception as e:
-        return 5, "", f"SCP error: {e}"
+        return 5, str(e)
 
-    rc, out, err = ssh_run_ps(
-        f"& '{remote_tmp}'; Remove-Item -Force '{remote_tmp}' -ErrorAction SilentlyContinue",
-        timeout=timeout
-    )
-    return rc, out, err
+
+def scp_from_cursor(remote_win_path: str, local_path: Path, timeout: int = 20) -> tuple[int, str]:
+    """SCP a file from cursor-ai Windows path to local."""
+    cmd = ["scp", "-o", "BatchMode=yes", f"{SSH_HOST}:{remote_win_path}", str(local_path)]
+    try:
+        r = subprocess.run(cmd, capture_output=True, timeout=timeout)
+        err = r.stderr.decode("utf-8", errors="replace").strip()
+        return r.returncode, err
+    except subprocess.TimeoutExpired:
+        return 5, f"SCP timed out after {timeout}s"
+    except Exception as e:
+        return 5, str(e)
+
+
+def poll_for_result(job_id: str, timeout: int = AGENT_POLL_TIMEOUT) -> dict | None:
+    """Poll cursor-ai jobs/done/<job_id>.result.json until it appears or timeout."""
+    remote_result = rf"{TV_DONE_WIN}\{job_id}.result.json"
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        rc, out, _ = ssh_simple(
+            f'powershell -NoProfile -NonInteractive -Command "Test-Path \'{remote_result}\'"',
+            timeout=10,
+        )
+        if rc == 0 and "True" in out:
+            local_tmp = REPORTS_DIR / f"_result_{job_id}.json"
+            rc2, err2 = scp_from_cursor(remote_result, local_tmp)
+            if rc2 == 0:
+                try:
+                    data = json.loads(local_tmp.read_text(encoding="utf-8", errors="replace"))
+                    local_tmp.unlink(missing_ok=True)
+                    return data
+                except json.JSONDecodeError:
+                    return {"success": False, "error": "result JSON parse failed",
+                            "raw": local_tmp.read_text(errors="replace")}
+        time.sleep(AGENT_POLL_INTERVAL)
+    return None
 
 
 def build_ps1_for_job(job: dict, creds: dict | None = None) -> str:
@@ -194,51 +229,63 @@ def run_job(job: dict, gate_approved: bool, dry_run: bool) -> dict:
         print(f"REFUSED: {jtype} is a mutation — requires --gate-approved", file=sys.stderr)
         sys.exit(3)
 
-    creds = None
+    # Inject credentials into params for types that need them
     if jtype == "alert.rotate_webhook_key":
         key = load_env_var("TV_WEBHOOK_KEY")
         if not key:
             print("RUNNER_ERROR: TV_WEBHOOK_KEY not found in environment or .env", file=sys.stderr)
             sys.exit(5)
-        creds = {"TV_WEBHOOK_KEY": key}
-
-    ps1_script = build_ps1_for_job(job, creds)
+        job = dict(job)
+        job["params"] = dict(job.get("params", {}))
+        job["params"]["new_key_value"] = key  # agent reads this; never committed
 
     if dry_run:
-        print("=== DRY RUN — PS1 script that would execute on cursor-ai ===")
-        print(ps1_script.replace(creds["TV_WEBHOOK_KEY"] if creds else "", "<TV_WEBHOOK_KEY_MASKED>")
-              if creds else ps1_script)
+        print(f"=== DRY RUN — job packet that would be submitted to cursor-ai agent ===")
+        display = dict(job)
+        if "params" in display and "new_key_value" in display["params"]:
+            display["params"] = dict(display["params"])
+            display["params"]["new_key_value"] = "<TV_WEBHOOK_KEY_MASKED>"
+        print(json.dumps(display, indent=2))
         return {"status": "dry_run", "job_type": jtype}
 
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    with tempfile.NamedTemporaryFile(mode="w", suffix=".ps1", delete=False) as f:
-        f.write(ps1_script)
-        tmp_ps1 = Path(f.name)
+    # Write job packet locally, SCP to cursor-ai jobs/pending/
+    job_id = job["id"]
+    local_packet = REPORTS_DIR / f"_pending_{job_id}.json"
+    local_packet.write_text(json.dumps(job, indent=2, ensure_ascii=False))
 
-    try:
-        rc, out, err = ssh_run_ps_file(tmp_ps1)
-    finally:
-        tmp_ps1.unlink(missing_ok=True)
+    remote_pending = rf"{TV_PENDING_WIN}\{job_id}.json"
+    rc, err = scp_to_cursor(local_packet, remote_pending)
+    local_packet.unlink(missing_ok=True)
 
-    result = {
-        "job_id":    job["id"],
-        "job_type":  jtype,
-        "executed_at": datetime.now(timezone.utc).isoformat(),
-        "exit_code": rc,
-        "success":   rc == 0,
-        "stderr":    err if err else None,
-    }
+    if rc != 0:
+        result = {"job_id": job_id, "job_type": jtype, "success": False,
+                  "error": f"SCP to cursor-ai failed: {err}",
+                  "executed_at": datetime.now(timezone.utc).isoformat()}
+        report_path = REPORTS_DIR / f"{job_id}_{ts()}.json"
+        report_path.write_text(json.dumps(result, indent=2))
+        print(f"Report: {report_path}")
+        return result
 
-    try:
-        result["output"] = json.loads(out) if out else None
-    except json.JSONDecodeError:
-        result["output_raw"] = out
+    print(f"Job dispatched to cursor-ai agent: {job_id} (type={jtype})")
+    print(f"Waiting for result (timeout={AGENT_POLL_TIMEOUT}s)...")
 
-    report_path = REPORTS_DIR / f"{job['id']}_{ts()}.json"
+    agent_result = poll_for_result(job_id)
+
+    if agent_result is None:
+        result = {"job_id": job_id, "job_type": jtype, "success": False,
+                  "error": f"Agent timeout after {AGENT_POLL_TIMEOUT}s — agent running?",
+                  "executed_at": datetime.now(timezone.utc).isoformat()}
+    else:
+        result = agent_result
+        result["job_id"]      = job_id
+        result["job_type"]    = jtype
+        result["executed_at"] = result.get("executed_at", datetime.now(timezone.utc).isoformat())
+
+    report_path = REPORTS_DIR / f"{job_id}_{ts()}.json"
     report_path.write_text(json.dumps(result, indent=2, ensure_ascii=False))
     print(f"Report: {report_path}")
-
     return result
 
 

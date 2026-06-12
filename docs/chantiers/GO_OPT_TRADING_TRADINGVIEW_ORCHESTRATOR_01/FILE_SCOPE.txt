@@ -9,6 +9,8 @@ modules/tradingview_orchestrator/jobs/examples/tv_job_snapshot.json
 modules/tradingview_orchestrator/jobs/examples/tv_job_alert_create.json
 modules/tradingview_orchestrator/jobs/examples/tv_job_rotate_webhook_key.json
 modules/tradingview_orchestrator/jobs/examples/tv_job_indicator_add.json
+modules/tradingview_observer/agent/tv_agent.ps1
+modules/tradingview_observer/agent/install_agent.ps1
 modules/tradingview_observer/app/job_executor.ps1
 schemas/tv_job_v1.json
 scripts/ai/workers/runner_tv.py
