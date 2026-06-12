@@ -731,15 +731,6 @@ def metrics_html():
 
 # ── Journal HTML views ───────────────────────────────────────────────
 
-_JOURNAL_SIDEBAR_LINKS = """
-    <div style="margin-bottom:16px">
-      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
-      <a class="nav-item" href="/journal">
-        <span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span>
-      </a>
-    </div>
-"""
-
 
 def _pnl_badge(outcome: str) -> str:
     return pnl_badge(outcome)
