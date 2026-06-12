@@ -1,7 +1,7 @@
 {
   "input_class": "spacex_super_desk.v1",
   "symbol": "SPCX",
-  "price": 135,
+  "price": 135.0,
   "ipo_price": 135,
   "gap_vs_ipo_pct": 0.0,
   "gap_vs_previous_close_pct": 0.0,
@@ -9,11 +9,11 @@
   "scores": {
     "momentum": 0,
     "news_velocity": 0,
-    "sec_activity": 0,
+    "sec_activity": 1,
     "smart_money": 0,
     "risk": 0,
     "trade_ready": 0.15,
-    "accumulation": 0.9
+    "accumulation": 1
   },
   "signals": [
     "SPCX_ACCUMULATION_ZONE_WATCH"
@@ -21,40 +21,287 @@
   "latest_events": {
     "yahoo_chart": {
       "source": "yahoo_chart",
-      "ok": true,
       "symbol": "SPCX",
-      "regular_market_price": 135,
-      "previous_close": 135,
-      "bars": [
-        {
-          "open": 135,
-          "high": 135,
-          "low": 135,
-          "close": 135,
-          "volume": 1000
-        }
-      ]
+      "collected_at": "2026-06-12T07:19:08.595078+00:00",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/SPCX?range=1d&interval=1m",
+      "ok": true,
+      "bars": [],
+      "error": null,
+      "currency": "USD",
+      "exchange": "NMS",
+      "regular_market_price": 135.0,
+      "previous_close": 135.0
     },
     "sec_edgar": {
       "source": "sec_edgar",
-      "ok": false,
-      "filings": [],
-      "offline": true
+      "collected_at": "2026-06-12T07:19:08.729290+00:00",
+      "url": "https://data.sec.gov/submissions/CIK0001181412.json",
+      "ok": true,
+      "filings": [
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042636",
+          "primary_document": "xslF345X06/wk-form3_1781226111.xml"
+        },
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042635",
+          "primary_document": "xslF345X06/wk-form3_1781226103.xml"
+        },
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042634",
+          "primary_document": "xslF345X06/wk-form3_1781226095.xml"
+        },
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042633",
+          "primary_document": "xslF345X06/wk-form3_1781226087.xml"
+        },
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042632",
+          "primary_document": "xslF345X06/wk-form3_1781226079.xml"
+        },
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042631",
+          "primary_document": "xslF345X06/wk-form3_1781226070.xml"
+        },
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042630",
+          "primary_document": "xslF345X06/wk-form3_1781226062.xml"
+        },
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042629",
+          "primary_document": "xslF345X06/wk-form3_1781226053.xml"
+        },
+        {
+          "form": "3",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042628",
+          "primary_document": "xslF345X06/wk-form3_1781226017.xml"
+        },
+        {
+          "form": "FWP",
+          "filing_date": "2026-06-11",
+          "accession": "0001628280-26-042466",
+          "primary_document": "spaceexplorationtechnologi.htm"
+        },
+        {
+          "form": "CERT",
+          "filing_date": "2026-06-10",
+          "accession": "0000876796-26-000014",
+          "primary_document": "SPCX_8A_Cert_0001181412.pdf"
+        },
+        {
+          "form": "CERT",
+          "filing_date": "2026-06-10",
+          "accession": "0001354457-26-000562",
+          "primary_document": "SPCX_8A_Cert_0001181412.pdf"
+        },
+        {
+          "form": "8-A12B",
+          "filing_date": "2026-06-10",
+          "accession": "0001628280-26-042109",
+          "primary_document": "spaceexplorationtechnologi.htm"
+        },
+        {
+          "form": "8-A12B",
+          "filing_date": "2026-06-10",
+          "accession": "0001628280-26-042107",
+          "primary_document": "spaceexplorationtechnologi.htm"
+        },
+        {
+          "form": "FWP",
+          "filing_date": "2026-06-09",
+          "accession": "0001628280-26-041761",
+          "primary_document": "fwp_cfointerview.htm"
+        },
+        {
+          "form": "FWP",
+          "filing_date": "2026-06-08",
+          "accession": "0001628280-26-041365",
+          "primary_document": "eu_interviewtranscript06.htm"
+        },
+        {
+          "form": "FWP",
+          "filing_date": "2026-06-05",
+          "accession": "0001628280-26-041150",
+          "primary_document": "spacexagreementfwp.htm"
+        },
+        {
+          "form": "FWP",
+          "filing_date": "2026-06-05",
+          "accession": "0001628280-26-041013",
+          "primary_document": "japanfwp_06042026.htm"
+        },
+        {
+          "form": "FWP",
+          "filing_date": "2026-06-04",
+          "accession": "0001628280-26-040874",
+          "primary_document": "spacexukfwp.htm"
+        },
+        {
+          "form": "FWP",
+          "filing_date": "2026-06-04",
+          "accession": "0001628280-26-040610",
+          "primary_document": "spacexfwp.htm"
+        },
+        {
+          "form": "S-1/A",
+          "filing_date": "2026-06-03",
+          "accession": "0001628280-26-040364",
+          "primary_document": "spaceexplorationtechnologib.htm"
+        },
+        {
+          "form": "S-1/A",
+          "filing_date": "2026-06-01",
+          "accession": "0001628280-26-039276",
+          "primary_document": "spaceexplorationtechnologi.htm"
+        },
+        {
+          "form": "S-1",
+          "filing_date": "2026-05-20",
+          "accession": "0001628280-26-036936",
+          "primary_document": "spaceexplorationtechnologi.htm"
+        },
+        {
+          "form": "DRS/A",
+          "filing_date": "2026-05-07",
+          "accession": "0001628279-26-000583",
+          "primary_document": "filename1.htm"
+        },
+        {
+          "form": "DRS",
+          "filing_date": "2026-03-30",
+          "accession": "0001628280-26-021860",
+          "primary_document": "filename1.htm"
+        },
+        {
+          "form": "D",
+          "filing_date": "2022-08-05",
+          "accession": "0001181412-22-000003",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D/A",
+          "filing_date": "2022-06-30",
+          "accession": "0001181412-22-000002",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2022-06-13",
+          "accession": "0001181412-22-000001",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2021-12-29",
+          "accession": "0001181412-21-000004",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2021-11-15",
+          "accession": "0001181412-21-000003",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D/A",
+          "filing_date": "2021-04-14",
+          "accession": "0001181412-21-000002",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2021-02-23",
+          "accession": "0001181412-21-000001",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2020-08-18",
+          "accession": "0001181412-20-000003",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D/A",
+          "filing_date": "2020-05-26",
+          "accession": "0001181412-20-000002",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2020-03-13",
+          "accession": "0001181412-20-000001",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2019-07-09",
+          "accession": "0001181412-19-000005",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D/A",
+          "filing_date": "2019-05-24",
+          "accession": "0001181412-19-000004",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D/A",
+          "filing_date": "2019-05-24",
+          "accession": "0001181412-19-000003",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2019-04-17",
+          "accession": "0001181412-19-000002",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        },
+        {
+          "form": "D",
+          "filing_date": "2019-01-03",
+          "accession": "0001181412-19-000001",
+          "primary_document": "xslFormDX08/primary_doc.xml"
+        }
+      ],
+      "error": null,
+      "company_name": "SPACE EXPLORATION TECHNOLOGIES CORP",
+      "tickers": [
+        "SPCX"
+      ]
     },
     "yahoo_news_rss": {
       "source": "yahoo_news_rss",
+      "query": "SpaceX OR SPCX OR Starlink OR Starship",
+      "collected_at": "2026-06-12T07:19:08.912992+00:00",
+      "url": "https://news.search.yahoo.com/rss?p=SpaceX%20OR%20SPCX%20OR%20Starlink%20OR%20Starship",
       "ok": false,
       "articles": [],
-      "offline": true
+      "error": "syntax error: line 2, column 16"
     },
     "bot_vision_adapter": {
       "source": "bot_vision_adapter",
-      "collected_at": "2026-06-12T07:02:11.188615+00:00",
+      "collected_at": "2026-06-12T07:19:09.654804+00:00",
       "ok": true,
       "items": [
         {
           "path": "data/data_center/views/telegram_signals/trade_history/FXTradingVision_signals.json",
-          "mtime": 1781247613.2543151,
+          "mtime": 1781247750.5756252,
           "suffix": ".json",
           "json_preview": [
             {
@@ -63,7 +310,7 @@
               "source": "telegram_screener_bridge",
               "channel": "FXTradingVision",
               "parsed_at": "2026-06-11T09:48:00+00:00",
-              "produced_at": "2026-06-12T07:00:13.258843+00:00",
+              "produced_at": "2026-06-11T10:00:13.873710+00:00",
               "pair": "XAUUSD",
               "asset": "XAUUSD",
               "direction": "LONG",
@@ -2284,5 +2531,5 @@
       "count": 25
     }
   },
-  "written_at": "2026-06-12T07:02:11.189627+00:00"
+  "written_at": "2026-06-12T07:19:09.657336+00:00"
 }
