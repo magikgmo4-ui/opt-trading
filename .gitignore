@@ -115,3 +115,4 @@ logs/
 modules/collector_binance_spot/outputs/
 modules/collector_binance_spot/logs/
 reports/tradingview/
+data/ipo/spacex/raw/

@@ -102,6 +102,10 @@ RISK_ALLOWED_SYMBOLS = set(s.strip() for s in os.getenv("RISK_ALLOWED_SYMBOLS", 
 DAILY_PNL_FILE = STATE_DIR / "daily_pnl.json"
 ORDER_COUNT_FILE = STATE_DIR / "order_count.json"
 
+SPACEX_DATA_DIR = BASE_DIR / "data" / "ipo" / "spacex" / "raw"
+SPACEX_EVENTS_JSONL = SPACEX_DATA_DIR / "spacex_snapshots.jsonl"
+SPACEX_LATEST_JSON  = SPACEX_DATA_DIR.parent / "latest_snapshot.json"
+
 def _load_json_file(path: pathlib.Path, default=None):
     try:
         with open(path) as f:
@@ -603,6 +607,61 @@ async def tv_webhook(req: Request):
              log.info(f"POSITION UPDATED: {pos}")
 
     return {"ok": True}
+
+
+# -------------------- SpaceX observer --------------------
+@app.post("/tv/spacex")
+async def tv_spacex(req: Request):
+    """
+    Observer-only endpoint for TradingView SpaceX desk alerts.
+    No trade/risk engine — validates key, persists event, fires collect_once.
+    """
+    payload = await req.json()
+    if not isinstance(payload, dict):
+        raise HTTPException(status_code=400, detail="JSON must be object")
+
+    require_key(payload, req.client.host if req.client else None)
+
+    evt = {
+        "schema": "spacex_tv_event_v1",
+        "received_at": iso_utc(utc_now()),
+        "source": (payload.get("source") or "tradingview").strip(),
+        "symbol": (payload.get("symbol") or payload.get("ticker") or "").strip(),
+        "exchange": (payload.get("exchange") or "").strip(),
+        "interval": str(payload.get("interval") or payload.get("tf") or ""),
+        "price": payload.get("price") or payload.get("close"),
+        "alert_name": (payload.get("alert_name") or "").strip(),
+        "signal": (payload.get("signal") or "").strip().upper(),
+        "note": (payload.get("note") or payload.get("message") or "").strip(),
+        "raw": {k: v for k, v in payload.items() if k != "key"},
+    }
+
+    SPACEX_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    append_jsonl(SPACEX_EVENTS_JSONL, evt)
+    try:
+        SPACEX_LATEST_JSON.write_text(json.dumps(evt, indent=2, ensure_ascii=False))
+    except Exception:
+        pass
+
+    # Fire-and-forget collect_once (non-blocking)
+    try:
+        import subprocess as _sp, sys as _sys
+        collect_script = BASE_DIR / "modules" / "derivatives_collector" / "scripts" / "cmd.sh"
+        if collect_script.exists():
+            _sp.Popen(
+                [str(collect_script), "--once", "--source", "spacex_tv"],
+                stdout=_sp.DEVNULL, stderr=_sp.DEVNULL,
+            )
+    except Exception:
+        pass
+
+    telegram_send(
+        f"[SpaceX TV] {evt['symbol']} {evt['signal'] or 'alert'} @ {evt['price']} | {evt['alert_name']}",
+        channel="pipeline",
+    )
+
+    log.info(f"tv/spacex event received: symbol={evt['symbol']} signal={evt['signal']}")
+    return {"ok": True, "schema": "spacex_tv_event_v1", "received_at": evt["received_at"]}
 
 
 # -------------------- API --------------------
