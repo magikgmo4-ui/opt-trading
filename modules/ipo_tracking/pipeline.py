@@ -16,16 +16,17 @@ from .io import REPO_ROOT, utc_now, read_json, append_jsonl, atomic_write_json
 from .enrichment import enrich_candles, enrich_from_snapshot
 
 
-def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, config_path: str | None = None) -> dict[str, Any]:
+def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, config_path: str | None = None, symbol_override: str | None = None) -> dict[str, Any]:
     cfg = load_config(config_path)
     pipeline_id = utc_now()
     pipeline_result: dict[str, Any] = {
         "pipeline_id": pipeline_id,
         "mode": "offline" if offline else "live",
+        "symbol_override": symbol_override,
         "started_at": pipeline_id,
     }
 
-    events = _collect(cfg, offline=offline, tv_json=tv_json)
+    events = _collect(cfg, offline=offline, tv_json=tv_json, symbol_override=symbol_override)
     for e in events:
         persist_event(e, cfg)
     pipeline_result["raw_events_count"] = len(events)
@@ -120,25 +121,32 @@ def replay_from_raw(*, config_path: str | None = None) -> dict[str, Any]:
     }
 
 
-def _collect(cfg: dict, *, offline: bool = False, tv_json: str | None = None) -> list[dict[str, Any]]:
+def _collect(cfg: dict, *, offline: bool = False, tv_json: str | None = None, symbol_override: str | None = None) -> list[dict[str, Any]]:
     import json
     from pathlib import Path
+    symbol = symbol_override or (cfg.get("asset") or {}).get("primary_symbol", "SPCX")
+    cik = int((cfg.get("asset") or {}).get("sec_cik", 1181412)) if not symbol_override else _cik_for_symbol(symbol_override)
+    ipo_price = (cfg.get("asset") or {}).get("ipo_price_usd", 135)
     events: list[dict[str, Any]] = []
     if tv_json:
         payload = json.loads(Path(tv_json).read_text(encoding="utf-8"))
         events.append(normalize_tradingview_payload(payload))
     if offline:
-        ipo = (cfg.get("asset") or {}).get("ipo_price_usd", 135)
         events += [
-            {"source": "yahoo_chart", "ok": True, "symbol": "SPCX", "regular_market_price": ipo, "previous_close": ipo, "bars": [{"open": ipo, "high": ipo, "low": ipo, "close": ipo, "volume": 1000}]},
+            {"source": "yahoo_chart", "ok": True, "symbol": symbol, "regular_market_price": ipo_price, "previous_close": ipo_price, "bars": [{"open": ipo_price, "high": ipo_price, "low": ipo_price, "close": ipo_price, "volume": 1000}]},
             {"source": "sec_edgar", "ok": False, "filings": [], "offline": True},
             {"source": "yahoo_news_rss", "ok": False, "articles": [], "offline": True},
         ]
     else:
         events += [
-            collect_yahoo_quote((cfg.get("asset") or {}).get("primary_symbol", "SPCX")),
-            collect_sec_edgar(int((cfg.get("asset") or {}).get("sec_cik", 1181412))),
-            collect_yahoo_rss("SpaceX OR SPCX OR Starlink OR Starship"),
+            collect_yahoo_quote(symbol),
+            collect_sec_edgar(cik),
+            collect_yahoo_rss(f"{symbol} OR SpaceX OR Starlink"),
         ]
     events.append(collect_bot_vision_context())
     return events
+
+
+def _cik_for_symbol(symbol: str) -> int:
+    mapping = {"RKLB": 1818644, "TSLA": 1318605, "NVDA": 1045810, "SPCX": 1181412}
+    return mapping.get(symbol.upper(), 0)

@@ -23,6 +23,12 @@ from .scoring_engine import compute_composite_score
 from .playbook import generate_playbook
 from .enrichment import enrich_from_snapshot, CANDLE_SCHEMA, ENRICHED_CANDLE_FEATURES
 from .signal_quality import build_signal_quality_matrix, run_feature_ablation, score_source_reliability, evaluate_alert_precision
+from .ipo_dataset import IPO_DATASET, compute_analog_match, dataset_stats, query_dataset
+from .sector_intelligence import compute_sector_intelligence, sector_summary, compute_correlation_matrix, detect_lead_lag, compute_relative_strength, detect_capital_rotation, compute_sector_health
+from .edge_engine import compute_setup_probabilities, edge_summary
+from .market_microstructure import detect_market_regime, analyze_opening_auction, compute_volume_curve
+from .data_quality_guardian import audit_sources, audit_features
+from .command_center import render_command_center, command_center_json
 
 
 def main(argv=None) -> int:
@@ -32,6 +38,7 @@ def main(argv=None) -> int:
     c = sub.add_parser("collect-once")
     c.add_argument("--offline", action="store_true")
     c.add_argument("--tradingview-json")
+    c.add_argument("--symbol", default=None)
     sub.add_parser("report")
     b = sub.add_parser("backtest-orb")
     b.add_argument("--csv", required=True)
@@ -59,6 +66,32 @@ def main(argv=None) -> int:
     sub.add_parser("ablation")
     sub.add_parser("source-reliability")
     sub.add_parser("alert-precision")
+    sub.add_parser("dataset")
+    sub.add_parser("analogs")
+    sub.add_parser("sector")
+
+    sc2 = sub.add_parser("sector-correlation")
+    sc2.add_argument("--tickers", nargs="*", default=["SPCX", "RKLB", "ASTS", "TSLA", "ARKX", "QQQ"])
+    sc2.add_argument("--bars", type=int, default=50)
+
+    sl = sub.add_parser("sector-leadlag")
+    sl.add_argument("--leader", default="SPCX")
+    sl.add_argument("--follower", default="RKLB")
+
+    sr = sub.add_parser("sector-strength")
+    sr.add_argument("--benchmark", default="SPY")
+
+    sr2 = sub.add_parser("sector-rotation")
+
+    sh = sub.add_parser("sector-health")
+
+    sub.add_parser("edge")
+    sub.add_parser("microstructure")
+    sub.add_parser("guardian")
+    cc = sub.add_parser("command-center")
+    cc.add_argument("--json-out", default=None)
+    cc.add_argument("--md-out", default=None)
+    cc.add_argument("--mode", choices=["full", "lazy"], default="full")
 
     ac = sub.add_parser("accumulation")
     ac.add_argument("--price", type=float, default=None)
@@ -66,9 +99,9 @@ def main(argv=None) -> int:
     args = p.parse_args(argv)
     cfg = load_config()
     if args.cmd == "smoke":
-        return smoke(cfg)
+        return smoke(cfg, symbol_override=args.symbol if hasattr(args, 'symbol') else None)
     if args.cmd == "collect-once":
-        result = run_full_pipeline(offline=args.offline, tv_json=args.tradingview_json)
+        result = run_full_pipeline(offline=args.offline, tv_json=args.tradingview_json, symbol_override=args.symbol)
         print(json.dumps(result, indent=2, default=str))
         return 0 if result.get("ok") else 1
     if args.cmd == "report":
@@ -214,6 +247,151 @@ def main(argv=None) -> int:
         summary = [{"event": r.alert_event, "total": r.total_count, "precision": r.precision, "recall": r.recall, "avg_r": r.avg_r_after} for r in precision]
         print(json.dumps({"ok": True, "alerts": summary}, indent=2, default=str))
         return 0
+    if args.cmd == "dataset":
+        stats = dataset_stats()
+        print(json.dumps({"ok": True, "total_ipos": len(IPO_DATASET), "stats": stats, "sectors": list(set(r.sector for r in IPO_DATASET))}, indent=2, default=str))
+        return 0
+    if args.cmd == "analogs":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+        indicators = enriched.get("indicators", {})
+        smart_money = enriched.get("smart_money", {})
+
+        result = compute_analog_match(
+            spcx_gap_pct=indicators.get("ipo_gap_pct") or 0,
+            spcx_rel_vol=indicators.get("relative_volume") or 1,
+            spcx_fvg=smart_money.get("fvg_bullish", False),
+            spcx_bos=smart_money.get("bos", False),
+        )
+        print(json.dumps({"ok": True, "analogs": result}, indent=2, default=str))
+        return 0
+    if args.cmd == "sector":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+        indicators = enriched.get("indicators", {})
+        scores = snap.get("scores", {})
+        vol_class = "NORMAL"
+
+        result = compute_sector_intelligence(
+            spcx_gap_pct=indicators.get("ipo_gap_pct") or 0,
+            spcx_volume_class=vol_class,
+            spcx_scoring=scores,
+        )
+        result["sector_summary"] = sector_summary()
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-correlation":
+        import random
+        rng = random.Random(42)
+        prices = {}
+        for t in args.tickers:
+            base = 100.0 if t != "SPCX" else 135.0
+            series = [base]
+            for _ in range(args.bars):
+                series.append(series[-1] * (1 + rng.uniform(-0.03, 0.03)))
+            prices[t] = series
+        result = compute_correlation_matrix(prices)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-leadlag":
+        import random
+        rng = random.Random(42)
+        leader_price = 135.0
+        follower_price = 10.0
+        leader_series = [leader_price]
+        follower_series = [follower_price]
+        for _ in range(30):
+            l_chg = rng.uniform(-0.02, 0.03)
+            leader_price *= (1 + l_chg)
+            follower_price *= (1 + l_chg * 0.6 + rng.uniform(-0.01, 0.01))
+            leader_series.append(leader_price)
+            follower_series.append(follower_price)
+        result = detect_lead_lag(leader_series, follower_series)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-strength":
+        changes = {
+            "SPCX": 0.0, "RKLB": 2.5, "ASTS": 1.8, "RDW": -0.5, "LUNR": -1.2, "PL": 0.3,
+            "TSLA": 1.2, "NVDA": 3.1,
+            "ARKX": 0.8, "UFO": 0.5, "ITA": -0.2, "XAR": -0.8,
+            "QQQ": 0.5, "SPY": 0.3, "IWM": -0.1,
+        }
+        prices = {t: 100.0 for t in changes}
+        result = compute_relative_strength(prices, args.benchmark, changes)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-rotation":
+        flows = {"space_stocks": 5.2, "semiconductors": 12.5, "defense": -3.1, "fintech": -2.8, "consumer": -8.0, "energy": 1.5}
+        result = detect_capital_rotation(flows)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "sector-health":
+        changes = {
+            "SPCX": 0.0, "RKLB": 2.5, "ASTS": 1.8, "RDW": -0.5, "LUNR": -1.2, "PL": 0.3,
+            "TSLA": 1.2, "NVDA": 3.1,
+            "ARKX": 0.8, "UFO": 0.5, "ITA": -0.2, "XAR": -0.8,
+            "QQQ": 0.5, "SPY": 0.3, "IWM": -0.1,
+        }
+        prices = {t: 100.0 for t in changes}
+        result = compute_sector_health(prices, changes)
+        print(json.dumps(result, indent=2, default=str))
+        return 0
+    if args.cmd == "edge":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+        indicators = enriched.get("indicators", {})
+        smart_money = enriched.get("smart_money", {})
+        consensus = enriched.get("consensus", {})
+        scores = snap.get("scores", {})
+
+        from .ipo_analogs import compute_analog_score
+        spcx = {"gap_pct": indicators.get("ipo_gap_pct") or 0, "relative_volume": indicators.get("relative_volume") or 1, "fvg_bullish": smart_money.get("fvg_bullish", False), "bos": smart_money.get("bos", False)}
+        analog = compute_analog_score(spcx)
+
+        result = compute_setup_probabilities(indicators, smart_money, consensus, scores, enriched, analog)
+        print(edge_summary(result))
+        return 0
+    if args.cmd == "microstructure":
+        snap = read_json(REPO_ROOT / "data/ipo/spacex/scored/latest_snapshot.json", {})
+        enriched = read_json(REPO_ROOT / "data/ipo/spacex/enriched/latest.json", {})
+        yahoo = (snap.get("latest_events") or {}).get("yahoo_chart", {})
+        bars = yahoo.get("bars", [])
+        if not bars:
+            bars = [{"open": 135, "high": 135, "low": 135, "close": 135, "volume": 1000}]
+        indicators = enriched.get("indicators", {})
+        smart_money = enriched.get("smart_money", {})
+
+        regime = detect_market_regime(bars, indicators, smart_money)
+        auction = analyze_opening_auction(bars, snap.get("ipo_price", 135))
+        vol_curve = compute_volume_curve(bars)
+        print(json.dumps({"regime": regime, "auction": auction, "volume_curve": vol_curve}, indent=2, default=str))
+        return 0
+    if args.cmd == "guardian":
+        events = read_raw_events(cfg)
+        sources = audit_sources(events)
+        print(json.dumps({"source_audit": sources}, indent=2, default=str))
+        return 0
+    if args.cmd == "command-center":
+        output = render_command_center(mode=args.mode)
+        print(output)
+        if args.json_out:
+            from .io import atomic_write_json
+            atomic_write_json(REPO_ROOT / args.json_out, command_center_json())
+        if args.md_out:
+            from .io import atomic_write_json
+            md_path = REPO_ROOT / args.md_out
+            md_path.parent.mkdir(parents=True, exist_ok=True)
+            lines = []
+            for line in output.split("\n"):
+                stripped = line.lstrip()
+                if stripped.startswith("==") or stripped.startswith("--"):
+                    continue
+                if stripped and stripped[0].isalpha():
+                    lines.append(f"## {stripped}")
+                elif stripped:
+                    lines.append(stripped)
+            md_path.write_text("\n".join(lines))
+        return 0
     return 2
 
 def collect_once(cfg, offline=False, tv_json=None):
@@ -235,8 +413,8 @@ def collect_once(cfg, offline=False, tv_json=None):
     print(json.dumps({"ok": True, "events": len(events), "snapshot": snap}, indent=2, default=str))
     return 0
 
-def smoke(cfg):
-    return collect_once(cfg, offline=True)
+def smoke(cfg, symbol_override=None):
+    return collect_once(cfg, offline=True, symbol_override=symbol_override)
 
 def _offline_quote(cfg):
     ipo = (cfg.get("asset") or {}).get("ipo_price_usd", 135)

@@ -12,7 +12,7 @@ from fastapi import FastAPI, HTTPException, Query, Body
 from modules.desk_pro.api.routes import router as desk_router
 from modules.perf_engine.app.perf_engine import score_strategy_events
 
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from modules.desk_pro.mount import mount as mount_desk_pro
 from shared.pydantic_compat import BaseModel, Field
 
@@ -31,10 +31,78 @@ EQUITY0 = float(os.getenv("PERF_EQUITY0", "10000"))  # simulated start equity
 
 app = FastAPI(title="perf", version="1.0")
 
-
 # Desk Pro
 app.include_router(desk_router, prefix="/desk", tags=["desk"])
 mount_desk_pro(app)
+
+# LocalCMS — full system cockpit, mounted at /cms
+try:
+    from modules.localcms.app.main import app as localcms_app
+    app.mount("/cms", localcms_app)
+except Exception:
+    pass
+
+# Redirects: LocalCMS internal links → /cms/* (fixes broken sidebar nav)
+@app.get("/spacex")
+def redirect_spacex(): return RedirectResponse(url="/cms/spacex")
+
+@app.get("/journal")
+def redirect_journal(): return RedirectResponse(url="/cms/journal")
+
+@app.get("/metrics")
+def redirect_metrics(): return RedirectResponse(url="/cms/metrics")
+
+@app.get("/credentials")
+def redirect_credentials(): return RedirectResponse(url="/cms/credentials")
+
+@app.get("/signals")
+def redirect_signals(): return RedirectResponse(url="/cms/signals")
+
+# Unified landing page
+@app.get("/", response_class=HTMLResponse)
+def unified_index():
+    return HTMLResponse(content="""<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>opt-trading</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0a0e14;color:#c8d6e5;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:700px;padding:24px}
+.card{background:#121820;border:1px solid #1e2733;border-radius:14px;padding:20px;text-decoration:none;color:#c8d6e5;transition:background .2s,border .2s;display:flex;flex-direction:column;gap:6px}
+.card:hover{background:#1a2430;border-color:#2a3544}
+.card .icon{font-size:28px}
+.card .title{font-size:16px;font-weight:600;color:#e8eef7}
+.card .desc{font-size:12px;color:#5c7a99;line-height:1.4}
+.card.spcx{border-color:#1e3a5f;background:linear-gradient(135deg,#121820,#141e2a)}
+.card.spcx:hover{background:linear-gradient(135deg,#1a2430,#1c2a38);border-color:#2a5080}
+.card.spcx .title{color:#64b5f6}
+</style></head>
+<body>
+<div class="grid">
+  <a href="/desk/ui" class="card">
+    <span class="icon">📊</span><span class="title">Desk Pro</span><span class="desc">Pipeline, perf, status, alerts</span>
+  </a>
+  <a href="/cms/spacex" class="card spcx">
+    <span class="icon">🚀</span><span class="title">SpaceX Cmd Center</span><span class="desc">LocalCMS sidebar — all tabs working</span>
+  </a>
+  <a href="/desk/spacex/command-center" class="card">
+    <span class="icon">📡</span><span class="title">SpaceX JSON API</span><span class="desc">18-field command center data</span>
+  </a>
+  <a href="/cms/" class="card">
+    <span class="icon">🖥️</span><span class="title">LocalCMS</span><span class="desc">TMUX, journal, metrics, signals, credentials</span>
+  </a>
+  <a href="/cms/signals" class="card">
+    <span class="icon">📡</span><span class="title">Telegram Signals</span><span class="desc">Live signal pipeline dashboard</span>
+  </a>
+  <a href="/perf/summary" class="card">
+    <span class="icon">📈</span><span class="title">Perf Summary</span><span class="desc">Trading performance metrics</span>
+  </a>
+  <a href="/desk/logs/latest" class="card">
+    <span class="icon">📋</span><span class="title">Logs</span><span class="desc">Desk Pro recent logs</span>
+  </a>
+</div>
+</body></html>""")
 
 # ---------------- Models ----------------
 class PerfEvent(BaseModel):

@@ -16,7 +16,7 @@ def write_daily_report(snapshot: dict) -> Path:
     return out
 
 def write_ui(snapshot: dict) -> Path:
-    ui = REPO_ROOT / "ui/spacex_desk/index.html"
+    ui = REPO_ROOT / "ui/spacex_desk/legacy_snapshot.html"
     ui.parent.mkdir(parents=True, exist_ok=True)
     scores = snapshot.get("scores", {})
     cards = "".join(f'<div class="card"><b>{k}</b><span>{v}</span></div>' for k, v in scores.items())

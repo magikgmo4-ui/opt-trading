@@ -1560,6 +1560,10 @@ def ui_index(request: Request):
       <a class="nav-item" href="/credentials"><span class="nav-icon">🔑</span><span class="nav-label">Credentials</span></a>
     </div>
     <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">IPO / SPCX</div>
+      <a class="nav-item" href="/spacex"><span class="nav-icon">🚀</span><span class="nav-label">SpaceX Cmd Center</span></a>
+    </div>
+    <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Menu</div>
       {nav_items}
     </div>
@@ -1785,6 +1789,213 @@ def signals_page(request: Request):
 </body>
 </html>"""
     return HTMLResponse(content=html)
+
+
+# ── SpaceX / SPCX Command Center ───────────────────────────────────────
+_SPACEX_CC_JSON = PROJECT_ROOT / "data" / "ipo" / "spacex" / "command_center" / "latest.json"
+_SPACEX_SNAPSHOT = PROJECT_ROOT / "data" / "ipo" / "spacex" / "scored" / "latest_snapshot.json"
+
+
+def _spacex_html() -> str:
+    data = {}
+    if _SPACEX_CC_JSON.exists():
+        try:
+            data = json.loads(_SPACEX_CC_JSON.read_text())
+        except (json.JSONDecodeError, OSError):
+            data = {"error": "parse failed"}
+
+    price = data.get("price") or 135
+    gap = data.get("gap_pct", 0) or 0
+    volume = data.get("volume")
+    vwap = data.get("vwap")
+    edge_score = data.get("edge_score", 0)
+    open_score = data.get("open_score", 0)
+    action = data.get("action", "—")
+    confidence = data.get("confidence", "—")
+    top_setup = data.get("top_setup", "—")
+    top_prob = data.get("top_setup_prob_pct", 0)
+    sector_regime = data.get("sector_regime", "—")
+    disagreement = data.get("disagreement", 0) or 0
+    analogs = data.get("ipo_analogs", [])
+    pipeline_healthy = data.get("pipeline_healthy", False)
+    sources_ok = data.get("sources_ok", 0)
+    sources_total = data.get("sources_total", 5)
+    risks = data.get("risks", [])
+    market_state = data.get("market_state", "PRE_MARKET")
+    generated_at = (data.get("generated_at") or "")[:19].replace("T", " ")
+    entry_price = data.get("entry")
+    stop_price = data.get("stop")
+    tp1_price = data.get("tp1")
+    tp2_price = data.get("tp2")
+
+    # edge bar: 5-char compact bar
+    edge_fill = min(5, max(0, edge_score // 20))
+    ebar = "|" * edge_fill + "." * (5 - edge_fill)
+
+    # badges
+    action_cls = "cred-set" if "A" in str(action) else ("cred-future" if "B" in str(action) or "WATCH" in str(action) else "cred-unknown")
+    health_cls = "cred-set" if pipeline_healthy else "cred-absent"
+    market_cls = "cred-set" if market_state == "OPEN" else "cred-unknown"
+
+    # analog table rows
+    analog_rows = ""
+    for a in (analogs or [])[:3]:
+        pct = a.get("pct", a.get("probability_pct", 0))
+        analog_rows += f"<tr><td>{a['symbol']}</td><td class='num'>{pct}%</td></tr>"
+
+    # risk notice
+    risk_notice = ""
+    if risks and risks != ["None"]:
+        risk_notice = "<div class='notice'>" + "".join(f"<div>⚠ {r}</div>" for r in risks) + "</div>"
+
+    # levels table
+    levels_rows = ""
+    if entry_price:
+        levels_rows += f"<tr><td>Entry</td><td class='num'>${entry_price:.2f}</td></tr>"
+    if stop_price:
+        levels_rows += f"<tr><td style='color:#ef5350'>Stop</td><td class='num' style='color:#ef5350'>${stop_price:.2f}</td></tr>"
+    if tp1_price:
+        levels_rows += f"<tr><td style='color:#30d158'>TP1</td><td class='num' style='color:#30d158'>${tp1_price:.2f}</td></tr>"
+    if tp2_price:
+        levels_rows += f"<tr><td style='color:#30d158'>TP2</td><td class='num' style='color:#30d158'>${tp2_price:.2f}</td></tr>"
+
+    vol_str = f"{volume/1e6:.1f}M" if volume and volume >= 1e6 else (f"{volume/1e3:.0f}K" if volume and volume >= 1e3 else str(volume) if volume else "—")
+    vwap_str = f"${vwap:.2f}" if vwap else "—"
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LocalCMS — SpaceX Cmd Center</title>
+  <style>
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; }}
+    .layout {{ display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }}
+    .sidebar {{ background: #1d1d1f; color: #f5f5f7; padding: 20px 12px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }}
+    .sidebar h1 {{ font-size: 16px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; }}
+    .sidebar h1 small {{ display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }}
+    .nav-item {{ display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: #ccc; text-decoration: none; font-size: 13px; margin-bottom: 2px; }}
+    .nav-item:hover {{ background: #333; color: #fff; }}
+    .nav-active {{ background: #333; color: #fff; }}
+    .main {{ padding: 24px 32px; max-width: 1200px; }}
+    .main h2 {{ font-size: 22px; margin-bottom: 8px; }}
+    .subtitle {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
+    .summary-bar {{ display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }}
+    .summary-card {{ flex: 1; min-width: 120px; padding: 16px; border-radius: 12px; border: 1px solid #e6e6e6; background: #fff; }}
+    .summary-card .num {{ font-size: 24px; font-weight: 700; }}
+    .summary-card .label {{ font-size: 12px; color: #666; margin-top: 4px; }}
+    .summary-card .bar {{ font-family: monospace; font-size: 13px; color: #30d158; letter-spacing: 2px; margin-top: 4px; }}
+    table {{ width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e6e6e6; margin-bottom: 16px; }}
+    th, td {{ padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }}
+    th {{ background: #fafafa; font-weight: 600; color: #666; text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }}
+    .cred-set    {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#d1fae5;color:#065f46; }}
+    .cred-absent {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#ffe4e6;color:#9f1239; }}
+    .cred-unknown{{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#f3f4f6;color:#6b7280; }}
+    .cred-future {{ display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#e0e7ff;color:#3730a3; }}
+    .notice {{ background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:16px;color:#92400e; }}
+    .links-bar {{ display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px; }}
+    .links-bar a {{ color:#1d1d1f;padding:4px 10px;border:1px solid #ddd;border-radius:8px;text-decoration:none;font-size:12px; }}
+    .links-bar a:hover {{ background:#eee; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">IPO / SPCX</div>
+      <a class="nav-item nav-active" href="/spacex">🚀 Cmd Center</a>
+    </div>
+    <a class="nav-item" href="/">🏠 Dashboard</a>
+    <a class="nav-item" href="/signals">📡 Signals</a>
+    <a class="nav-item" href="/journal">📋 Journal</a>
+    <a class="nav-item" href="/metrics">📊 Metrics</a>
+    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
+      <div><a href="/spacex/json" style="color:#888;text-decoration:none">/spacex/json</a></div>
+    </div>
+  </nav>
+  <main class="main">
+    <h2>🚀 SpaceX / SPCX Command Center</h2>
+    <p class="subtitle">{generated_at} — <span class="{market_cls}">{market_state}</span> &middot; <span class="{health_cls}">{'HEALTHY' if pipeline_healthy else 'DEGRADED'}</span> &middot; Sources {sources_ok}/{sources_total}</p>
+
+    <div class="links-bar">
+      <a href="/spacex/json" target="_blank">JSON</a>
+    </div>
+
+    {risk_notice}
+
+    <div class="summary-bar">
+      <div class="summary-card">
+        <div class="num">${price:.2f}</div><div class="label">Price</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">{gap:+.1f}%</div><div class="label">Gap vs IPO</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">{edge_score}</div><div class="bar">{ebar}</div><div class="label">Edge Score</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">{open_score}</div><div class="label">Open Score</div>
+      </div>
+    </div>
+
+    <div class="summary-bar">
+      <div class="summary-card">
+        <div class="label">Action</div>
+        <div class="num" style="font-size:20px"><span class="{action_cls}" style="font-size:14px">{action}</span></div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Confidence</div>
+        <div class="num" style="font-size:20px">{confidence}</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Top Setup</div>
+        <div class="num" style="font-size:18px">{top_setup}</div>
+        <div class="label">{top_prob}% probability</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Sector / Consensus</div>
+        <div class="num" style="font-size:16px">{sector_regime}</div>
+        <div class="label">disagreement {disagreement:.1f}%</div>
+      </div>
+    </div>
+
+    <div class="summary-bar">
+      <div class="summary-card">
+        <div class="label">Volume</div>
+        <div class="num" style="font-size:18px">{vol_str}</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">VWAP</div>
+        <div class="num" style="font-size:18px">{vwap_str}</div>
+      </div>
+      <div class="summary-card" style="flex:2">
+        <div class="label">IPO Analogs</div>
+        <table style="margin-bottom:0"><tr><th>Ticker</th><th style="text-align:right">Match</th></tr>{analog_rows if analog_rows else '<tr><td colspan="2">No data</td></tr>'}</table>
+      </div>
+    </div>
+
+    {f'<table><tr><th colspan="2">Trade Levels</th></tr>{levels_rows}</table>' if levels_rows else ''}
+  </main>
+</div>
+<script>setTimeout(() => location.reload(), 60000);</script>
+</body>
+</html>"""
+
+
+@app.get("/spacex", response_class=HTMLResponse)
+def spacex_html():
+    return HTMLResponse(content=_spacex_html())
+
+
+@app.get("/spacex/json")
+def spacex_json():
+    if _SPACEX_CC_JSON.exists():
+        return JSONResponse(content=json.loads(_SPACEX_CC_JSON.read_text()))
+    if _SPACEX_SNAPSHOT.exists():
+        return JSONResponse(content=json.loads(_SPACEX_SNAPSHOT.read_text()))
+    return JSONResponse(content={"error": "No SpaceX data yet", "action": "run spacex-super-desk collect-once"}, status_code=200)
 
 
 STATUS_BADGES = {
