@@ -1,10 +1,12 @@
 {
   "job_id": "repo-orphan-files-audit",
-  "checked_at": "2026-06-10T04:17:02.681312Z",
-  "tracked_scripts": 1527,
-  "orphan_candidates": 139,
+  "checked_at": "2026-06-12T04:17:03.292908Z",
+  "tracked_scripts": 1599,
+  "orphan_candidates": 147,
   "candidates": [
+    "modules/analysis_bundles/scripts/discover_channels_api.py",
     "modules/bot_vision/headless_capture/scripts/run_orchestrator.sh",
+    "modules/collector_telegram/scripts/tg_resolve_candidates.py",
     "modules/collector_telegram/tests/test_collector_telegram_module.py",
     "modules/collector_telegram/tests/test_collector_telegram_real_fixtures.py",
     "modules/data_center/google_sheets_market_reporting_consumer.py",
@@ -16,7 +18,6 @@
     "modules/datasheet_writer/tests/test_sheets_adapter.py",
     "modules/datasheet_writer/tests/test_sheets_integration.py",
     "modules/desk_pro/desk_snapshot_adapter.py",
-    "modules/desk_pro/service/telegram_claim_reader.py",
     "modules/desk_pro/visual_context_adapter.py",
     "modules/notification_dispatcher/tests/test_import_safety.py",
     "modules/perf_engine/replay_context_reader.py",
@@ -32,8 +33,7 @@
     "scripts/ai/workers/ai_team_role_registry_check.py",
     "scripts/ai/workers/anti_leak_scan.py",
     "scripts/ai/workers/approval_expiry_check.py",
-    "scripts/ai/workers/capability_matrix_validate.py",
-    "scripts/ai/workers/deny_by_default_check.py"
+    "scripts/ai/workers/capability_matrix_validate.py"
   ],
   "status": "WARN"
 }

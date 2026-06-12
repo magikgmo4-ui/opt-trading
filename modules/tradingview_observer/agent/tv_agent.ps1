@@ -32,8 +32,8 @@ function Log($msg) {
 }
 
 function Tv {
-    param([string[]]$Args)
-    $raw = & node $TV_CLI @Args 2>&1 | Out-String
+    param([Parameter(ValueFromRemainingArguments=$true)][string[]]$CmdArgs)
+    $raw = & node $TV_CLI @CmdArgs 2>&1 | Out-String
     try   { $raw | ConvertFrom-Json }
     catch { @{success=$false; error="json_parse_failed"; raw=$raw.Trim()} }
 }

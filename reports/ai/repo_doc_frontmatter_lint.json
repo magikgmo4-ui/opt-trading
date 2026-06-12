@@ -1,7 +1,7 @@
 {
   "job_id": "repo-doc-frontmatter-lint",
-  "scanned": 4887,
-  "findings": 3656,
+  "scanned": 4980,
+  "findings": 3722,
   "status": "PASS",
   "details": [
     {

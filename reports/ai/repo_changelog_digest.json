@@ -1,10 +1,162 @@
 {
   "job_id": "repo-changelog-digest",
   "period": "24 hours ago",
-  "generated_at": "2026-06-10T04:18:01.771018Z",
-  "commit_count": 0,
-  "commits": [],
-  "files_changed_count": 0,
-  "files_changed": [],
+  "generated_at": "2026-06-12T04:18:01.485477Z",
+  "commit_count": 36,
+  "commits": [
+    {
+      "sha": "e04fc952",
+      "subject": "docs(security): add credential rotation schedule for GO_SECURITY_CREDENTIAL_ROTATION_SCHEDULE_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 22:17:49 -0400"
+    },
+    {
+      "sha": "b647be71",
+      "subject": "feat(security): open GO_SECURITY_CREDENTIAL_ROTATION_SCHEDULE_01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 22:11:41 -0400"
+    },
+    {
+      "sha": "f9b94282",
+      "subject": "feat(security): credential hardening scan \u2014 PASS, permissions fixed fleet (#1114)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 22:11:07 -0400"
+    },
+    {
+      "sha": "502ee4f2",
+      "subject": "Merge pull request #1092 from magikgmo4-ui/docs/audit-llm-912-risks-safe-pass-01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 21:21:08 -0400"
+    },
+    {
+      "sha": "d50e9e68",
+      "subject": "docs(audit): add neutral RISKS sections to safe docs",
+      "author": "student",
+      "date": "2026-06-05 02:03:43 -0400"
+    },
+    {
+      "sha": "f69199b5",
+      "subject": "GO_LOCAL_LLM_WORKER_STUDENT_TEST_01 \u2014 worker LLM local valid\u00e9 sur student",
+      "author": "student",
+      "date": "2026-05-27 06:09:52 -0400"
+    },
+    {
+      "sha": "5751e32d",
+      "subject": "Merge pull request #1113 from magikgmo4-ui/go/credentials-figma-botpress-registry-01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 18:47:32 -0400"
+    },
+    {
+      "sha": "5bab1eeb",
+      "subject": "feat(credentials): Figma + Botpress registry complete \u2014 token validated HTTP 200",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 18:46:07 -0400"
+    },
+    {
+      "sha": "1dbd0f23",
+      "subject": "feat(validation): live runtime validation GO \u2014 24h monitoring script (#1111)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 18:00:57 -0400"
+    },
+    {
+      "sha": "8a91a19a",
+      "subject": "fix(registry): news_sentiment score 0.69 to match PARTIAL status",
+      "author": "magikgmo4",
+      "date": "2026-06-11 06:15:55 -0400"
+    },
+    {
+      "sha": "32820100",
+      "subject": "fix(registry): news_sentiment \u2192 PARTIAL (no view on disk yet), validator handles null view_path",
+      "author": "magikgmo4",
+      "date": "2026-06-11 06:15:16 -0400"
+    },
+    {
+      "sha": "f25302e2",
+      "subject": "fix(registry): correct view_path for news_sentiment, options_surface to PARTIAL",
+      "author": "magikgmo4",
+      "date": "2026-06-11 06:14:19 -0400"
+    },
+    {
+      "sha": "fd545256",
+      "subject": "feat(data_center): contract registry reconciliation \u2014 28 contracts, validator + tests (#1110)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 06:08:45 -0400"
+    },
+    {
+      "sha": "42daa96a",
+      "subject": "docs(reference): canonical data reference \u2014 28 contracts, 7 domains, normalized naming",
+      "author": "magikgmo4",
+      "date": "2026-06-11 05:56:54 -0400"
+    },
+    {
+      "sha": "1f15be15",
+      "subject": "docs(automation): acceptance report \u2014 16 producers automated, 0 manual remaining (#1109)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 05:52:40 -0400"
+    },
+    {
+      "sha": "4ce31a7c",
+      "subject": "docs(gap_matrix): update after bot_vision macro/news expansion (#1108)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 05:23:21 -0400"
+    },
+    {
+      "sha": "316e16c1",
+      "subject": "feat(data_center): fill 4 more gaps \u2014 fundamentals, options, compliance, commodities (#1107)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 04:52:49 -0400"
+    },
+    {
+      "sha": "7d021e6a",
+      "subject": "Merge pull request #1106 from magikgmo4-ui/go/credentials-botpress-figma-activation-01",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 04:46:37 -0400"
+    },
+    {
+      "sha": "c3d75a38",
+      "subject": "feat(data_center): fill 5 missing gaps \u2014 rates, crypto, flows, position, commodities (#1105)",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 04:45:36 -0400"
+    },
+    {
+      "sha": "abc6545c",
+      "subject": "feat(credentials): add Botpress role + activate Figma \u2014 credentials registry",
+      "author": "magikgmo4-ui",
+      "date": "2026-06-11 04:45:30 -0400"
+    }
+  ],
+  "files_changed_count": 11933,
+  "files_changed": [
+    ".gitignore",
+    "configs/env/registry/credentials.yaml",
+    "configs/env/registry/machines.yaml",
+    "configs/env/registry/roles.yaml",
+    "configs/env/roles/botpress_operator.env.example",
+    "configs/env/roles/figma_designer.env.example",
+    "configs/telegram/discovery_candidates.json",
+    "configs/telegram/discovery_channels.json",
+    "configs/telegram/discovery_keywords.json",
+    "configs/telegram/web_osint_candidates.json",
+    "data/data_center/_registry/compiled/_compiled.json",
+    "data/data_center/_registry/compiled/by_contract_class.json",
+    "data/data_center/_registry/compiled/by_data_key.json",
+    "data/data_center/_registry/compiled/by_priority.json",
+    "data/data_center/_registry/compiled/by_source.json",
+    "data/data_center/_registry/compiled/by_symbol.json",
+    "data/data_center/_registry/contracts.json",
+    "data/data_center/_registry/producers.json",
+    "data/data_center/views/analysis/cross_correlation/latest.json",
+    "data/data_center/views/coinglass/squeeze_alerts/latest.json",
+    "data/data_center/views/data_center_coverage/latest.json",
+    "data/data_center/views/market_metrics/by_symbol/BTCUSDT.json",
+    "data/data_center/views/market_metrics/by_symbol/DOGEUSDT.json",
+    "data/data_center/views/market_metrics/by_symbol/DXY.json",
+    "data/data_center/views/market_metrics/by_symbol/ETHUSDT.json",
+    "data/data_center/views/market_metrics/by_symbol/SPY.json",
+    "data/data_center/views/market_metrics/by_symbol/WTI.json",
+    "data/data_center/views/market_metrics/by_symbol/XAUUSD.json",
+    "data/data_center/views/market_metrics/by_symbol/XRPUSDT.json",
+    "data/data_center/views/market_metrics/latest.json"
+  ],
   "status": "PASS"
 }
