@@ -1,6 +1,6 @@
 {
   "job_id": "kill-switch-state-check",
-  "checked_at": "2026-06-11T22:45:01.554514Z",
+  "checked_at": "2026-06-12T10:00:01.881679Z",
   "state_file": "data/runtime_health/kill_switch.state",
   "state_value": "OK",
   "findings": [],

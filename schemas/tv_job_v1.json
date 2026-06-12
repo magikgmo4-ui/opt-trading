@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TradingView Orchestrator Job Packet v1",
+  "type": "object",
+  "required": ["schema", "id", "type", "created_at"],
+  "properties": {
+    "schema":      { "const": "tv_job_v1" },
+    "id":          { "type": "string", "pattern": "^tv_job_[0-9]{8}_[a-z0-9_]+$" },
+    "type": {
+      "type": "string",
+      "enum": [
+        "snapshot",
+        "alert.list",
+        "alert.create",
+        "alert.delete",
+        "alert.rotate_webhook_key",
+        "indicator.add",
+        "indicator.remove",
+        "indicator.set",
+        "symbol.set",
+        "timeframe.set",
+        "pine.set",
+        "pine.save",
+        "screenshot",
+        "layout.switch"
+      ]
+    },
+    "params":      { "type": "object" },
+    "gate":        { "type": "string", "enum": ["pending", "approved", "dry_run"] },
+    "created_at":  { "type": "string", "format": "date-time" },
+    "approved_at": { "type": ["string", "null"] },
+    "approved_by": { "type": ["string", "null"] },
+    "status":      { "type": "string", "enum": ["pending", "approved", "executing", "done", "failed"] },
+    "notes":       { "type": "string" }
+  },
+  "if": {
+    "properties": { "type": { "enum": [
+      "alert.create", "alert.delete", "alert.rotate_webhook_key",
+      "indicator.add", "indicator.remove", "indicator.set",
+      "symbol.set", "timeframe.set", "pine.set", "pine.save",
+      "layout.switch"
+    ]}}
+  },
+  "then": {
+    "required": ["gate"],
+    "properties": { "gate": { "enum": ["approved", "dry_run"] }}
+  }
+}

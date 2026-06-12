@@ -1,0 +1,9 @@
+{
+  "job_id": "tv_job_20260612_snapshot",
+  "job_type": "snapshot",
+  "executed_at": "2026-06-12T07:44:43.066467+00:00",
+  "exit_code": 5,
+  "success": false,
+  "stderr": "SSH command timed out",
+  "output": null
+}

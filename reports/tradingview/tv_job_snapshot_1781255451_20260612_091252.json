@@ -1,0 +1,7 @@
+{
+  "job_id": "tv_job_snapshot_1781255451",
+  "job_type": "snapshot",
+  "success": false,
+  "error": "Agent timeout after 120s — agent running?",
+  "executed_at": "2026-06-12T09:12:52.809403+00:00"
+}

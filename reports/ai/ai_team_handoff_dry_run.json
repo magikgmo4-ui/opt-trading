@@ -1,6 +1,6 @@
 {
   "job_id": "ai-team-handoff-dry-run",
-  "checked_at": "2026-06-11T05:01:02.153138Z",
+  "checked_at": "2026-06-12T05:01:01.330917Z",
   "dry_run": true,
   "specs_found": 10,
   "steps": [
