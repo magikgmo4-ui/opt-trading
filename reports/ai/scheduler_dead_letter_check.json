@@ -1,6 +1,6 @@
 {
   "job_id": "scheduler-dead-letter-check",
-  "checked_at": "2026-06-12T17:47:01.974422Z",
+  "checked_at": "2026-06-12T21:47:01.459819Z",
   "lookback_hours": 24,
   "failures_found": 20,
   "failures": [
