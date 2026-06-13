@@ -63,6 +63,21 @@ function ExecJob($job) {
         }
         "alert.list" { Tv alert list }
         "alert.create" {
+            $supportedFrequencies = @("on_bar_close", "on_first_fire")
+            if ($params.PSObject.Properties.Name -contains "webhook" -and -not $params.webhook_url) {
+                return @{success=$false; error="alert.create requires params.webhook_url; legacy params.webhook is refused"}
+            }
+            if (-not $params.webhook_url) {
+                return @{success=$false; error="alert.create requires params.webhook_url"}
+            }
+            if (-not $params.message) {
+                return @{success=$false; error="alert.create requires params.message"}
+            }
+            $freq = Coalesce $params.frequency "on_bar_close"
+            if ($supportedFrequencies -notcontains $freq) {
+                return @{success=$false; error="unsupported alert.create frequency: $freq"}
+            }
+
             # Build individual args — pass via --arg=value form to avoid PowerShell quote-mangling
             $argList = @(
                 $TV_CLI,
@@ -72,14 +87,15 @@ function ExecJob($job) {
             if ($null -ne $params.price -and $params.price -ne '') {
                 $argList += @("--price", "$($params.price)")
             }
-            if ($params.message) {
-                $msg = if ($params.message -is [string]) { $params.message }
-                       else { $params.message | ConvertTo-Json -Compress }
-                $argList += @("--message", $msg)
+            $msg = if ($params.message -is [string]) { $params.message }
+                   else { $params.message | ConvertTo-Json -Compress }
+            if ($msg -match "__TV_WEBHOOK_KEY__|<TV_WEBHOOK_KEY>") {
+                return @{success=$false; error="alert.create message still contains TV webhook key placeholder"}
             }
-            if ($params.webhook_url) { $argList += @("--webhook", "$($params.webhook_url)") }
+            $argList += @("--message", $msg)
+            $argList += @("--webhook", "$($params.webhook_url)")
             if ($params.name)        { $argList += @("--name",    "$($params.name)") }
-            if ($params.frequency)   { $argList += @("--frequency", "$($params.frequency)") }
+            $argList += @("--frequency", "$freq")
             $raw = & node @argList 2>&1 | Out-String
             try   { $raw | ConvertFrom-Json }
             catch { @{success=$false; error="json_parse_failed"; raw=$raw.Trim()} }

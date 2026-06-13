@@ -12,6 +12,7 @@ Exit codes: 0=PASS, 1=INVALID_INPUT, 3=REJECTED(no gate), 4=REFUSED(wrong type),
 """
 import argparse
 import base64
+import copy
 import json
 import os
 import subprocess
@@ -39,6 +40,9 @@ MUTATION_TYPES  = {
     "symbol.set", "timeframe.set", "pine.set", "pine.save",
     "layout.switch"
 }
+SUPPORTED_ALERT_FREQUENCIES = {"on_bar_close", "on_first_fire"}
+TV_WEBHOOK_KEY_PLACEHOLDERS = ("__TV_WEBHOOK_KEY__", "<TV_WEBHOOK_KEY>")
+TV_WEBHOOK_KEY_MASK = "<TV_WEBHOOK_KEY_MASKED>"
 
 
 def ts() -> str:
@@ -56,6 +60,83 @@ def load_env_var(name: str) -> str:
                     val = line.split("=", 1)[1].strip().strip('"\'')
                     break
     return val
+
+
+def contains_webhook_key_placeholder(value) -> bool:
+    if isinstance(value, str):
+        return any(p in value for p in TV_WEBHOOK_KEY_PLACEHOLDERS)
+    if isinstance(value, dict):
+        return any(contains_webhook_key_placeholder(v) for v in value.values())
+    if isinstance(value, list):
+        return any(contains_webhook_key_placeholder(v) for v in value)
+    return False
+
+
+def replace_webhook_key_placeholders(value, key: str):
+    if isinstance(value, str):
+        for placeholder in TV_WEBHOOK_KEY_PLACEHOLDERS:
+            value = value.replace(placeholder, key)
+        return value
+    if isinstance(value, dict):
+        return {k: replace_webhook_key_placeholders(v, key) for k, v in value.items()}
+    if isinstance(value, list):
+        return [replace_webhook_key_placeholders(v, key) for v in value]
+    return value
+
+
+def mask_webhook_key(value, key: str = ""):
+    if isinstance(value, str):
+        if key:
+            value = value.replace(key, TV_WEBHOOK_KEY_MASK)
+        for placeholder in TV_WEBHOOK_KEY_PLACEHOLDERS:
+            value = value.replace(placeholder, TV_WEBHOOK_KEY_MASK)
+        return value
+    if isinstance(value, dict):
+        return {k: mask_webhook_key(v, key) for k, v in value.items()}
+    if isinstance(value, list):
+        return [mask_webhook_key(v, key) for v in value]
+    return value
+
+
+def prepare_job_for_dispatch(job: dict, require_secrets: bool) -> dict:
+    """Validate job packet and materialize runtime-only secrets before dispatch."""
+    job = copy.deepcopy(job)
+    jtype = job["type"]
+    params = job.setdefault("params", {})
+
+    if jtype == "alert.create":
+        if "webhook" in params and "webhook_url" not in params:
+            raise ValueError("alert.create params must use webhook_url, not legacy webhook")
+        if not params.get("webhook_url"):
+            raise ValueError("alert.create requires params.webhook_url")
+        if not params.get("message"):
+            raise ValueError("alert.create requires params.message")
+
+        frequency = params.get("frequency") or "on_bar_close"
+        if frequency not in SUPPORTED_ALERT_FREQUENCIES:
+            allowed = ", ".join(sorted(SUPPORTED_ALERT_FREQUENCIES))
+            raise ValueError(f"alert.create frequency '{frequency}' is unsupported; allowed: {allowed}")
+        params["frequency"] = frequency
+
+        if contains_webhook_key_placeholder(params.get("message")):
+            if not require_secrets:
+                return job
+            key = load_env_var("TV_WEBHOOK_KEY")
+            if not key:
+                raise ValueError("TV_WEBHOOK_KEY not found in environment or .env")
+            params["message"] = replace_webhook_key_placeholders(params["message"], key)
+
+        if require_secrets and contains_webhook_key_placeholder(params.get("message")):
+            raise ValueError("alert.create message still contains TV webhook key placeholder")
+
+    elif jtype == "alert.rotate_webhook_key":
+        if require_secrets:
+            key = load_env_var("TV_WEBHOOK_KEY")
+            if not key:
+                raise ValueError("TV_WEBHOOK_KEY not found in environment or .env")
+            params["new_key_value"] = key  # agent reads this; never committed
+
+    return job
 
 
 def ssh_simple(cmd_str: str, timeout: int = 15) -> tuple[int, str, str]:
@@ -163,6 +244,12 @@ def build_ps1_for_job(job: dict, creds: dict | None = None) -> str:
         flags = f"-c {condition} -m \\\"{message}\\\""
         if price:
             flags = f"-p {price} {flags}"
+        if params.get("webhook_url"):
+            flags = f"{flags} --webhook \\\"{params['webhook_url']}\\\""
+        if params.get("name"):
+            flags = f"{flags} --name \\\"{params['name']}\\\""
+        if params.get("frequency"):
+            flags = f"{flags} --frequency {params['frequency']}"
         lines.append(f"tv alert create {flags} | ConvertTo-Json -Depth 10")
     elif jtype == "alert.delete":
         alert_id = params.get("alert_id", "")
@@ -237,24 +324,19 @@ def run_job(job: dict, gate_approved: bool, dry_run: bool) -> dict:
         print(f"REFUSED: {jtype} is a mutation — requires --gate-approved", file=sys.stderr)
         sys.exit(3)
 
-    # Inject credentials into params for types that need them
-    if jtype == "alert.rotate_webhook_key":
-        key = load_env_var("TV_WEBHOOK_KEY")
-        if not key:
-            print("RUNNER_ERROR: TV_WEBHOOK_KEY not found in environment or .env", file=sys.stderr)
-            sys.exit(5)
-        job = dict(job)
-        job["params"] = dict(job.get("params", {}))
-        job["params"]["new_key_value"] = key  # agent reads this; never committed
+    try:
+        job = prepare_job_for_dispatch(job, require_secrets=not dry_run)
+    except ValueError as e:
+        print(f"INVALID_INPUT: {e}", file=sys.stderr)
+        sys.exit(1)
 
     if dry_run:
         print(f"=== DRY RUN — job packet that would be submitted to cursor-ai agent ===")
-        display = dict(job)
+        display = mask_webhook_key(copy.deepcopy(job), load_env_var("TV_WEBHOOK_KEY"))
         if "params" in display and "new_key_value" in display["params"]:
-            display["params"] = dict(display["params"])
-            display["params"]["new_key_value"] = "<TV_WEBHOOK_KEY_MASKED>"
+            display["params"]["new_key_value"] = TV_WEBHOOK_KEY_MASK
         print(json.dumps(display, indent=2))
-        return {"status": "dry_run", "job_type": jtype}
+        return {"success": True, "status": "dry_run", "job_type": jtype}
 
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 

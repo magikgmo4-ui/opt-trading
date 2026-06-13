@@ -1,0 +1,6 @@
+docs/chantiers/GO_TV_JOB_SCHEMA_HARDENING_01/**
+configs/tradingview/spacex_tv_targets.yaml
+modules/spcx_v2/alert_engine/**
+modules/tradingview_observer/agent/tv_agent.ps1
+modules/tradingview_orchestrator/**
+scripts/ipo/spacex_tv_reconcile.py
