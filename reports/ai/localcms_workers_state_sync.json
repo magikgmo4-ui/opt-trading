@@ -1,6 +1,6 @@
 {
   "job_id": "localcms-workers-state-sync",
-  "synced_at": "2026-06-12T17:30:01.242682Z",
+  "synced_at": "2026-06-12T22:00:01.594158Z",
   "reports_synced": 11,
   "output": "tmp/localcms_workers_state.json",
   "status": "PASS"
