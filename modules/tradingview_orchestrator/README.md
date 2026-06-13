@@ -99,7 +99,12 @@ The runner checks this field; missing or wrong value exits code 3.
 }
 ```
 
-Replace `<TV_WEBHOOK_KEY>` with the actual value from `.env` before dispatching.
+Keep `<TV_WEBHOOK_KEY>` or `__TV_WEBHOOK_KEY__` in committed job templates. The
+runner materializes the real `TV_WEBHOOK_KEY` from the runtime environment or
+`.env` immediately before dispatch and masks it in dry-run output.
+
+Do not use the legacy `webhook` field. `alert.create` jobs must use
+`params.webhook_url`; otherwise the runner and Windows agent refuse the job.
 
 ### 2. Frequency values
 
@@ -107,6 +112,9 @@ Replace `<TV_WEBHOOK_KEY>` with the actual value from `.env` before dispatching.
 |---|---|---|
 | `on_bar_close` | Chaque fois | Fires every bar while condition is met |
 | `on_first_fire` | Une fois seulement | Fires once, then deactivates |
+
+Legacy values such as `once_per_bar` and `every_bar_close` are not accepted by
+the orchestrator because the TradingView API rejected them during live testing.
 
 ### 3. Dispatch
 
@@ -172,7 +180,7 @@ ssh cursor-ai "schtasks /query /tn TVOrchestratorAgent /fo list | Select-String 
 ## Security notes
 
 - Job packets committed to git must use `<TV_WEBHOOK_KEY>` as the key placeholder.
-  Substitute the real value at dispatch time (tv_runner reads from `.env`).
+  The runner substitutes the real value at dispatch time.
 - `*.result.json` and `*.json.done` files in `jobs/done/` are gitignored — they
   contain the literal key value from the executed alert message.
 - The `--gate-approved` flag is a human checkpoint; do not script it unconditionally.

@@ -13,6 +13,11 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SUPPORTED_ALERT_FREQUENCIES = {"on_bar_close", "on_first_fire"}
+FREQUENCY_ALIASES = {
+    "once_per_bar": "on_bar_close",
+    "every_bar_close": "on_bar_close",
+}
 
 def load_targets() -> dict:
     import yaml
@@ -57,11 +62,33 @@ def reconcile(targets: dict, actual: dict) -> dict:
 
     return report
 
+def normalize_frequency(value: str | None) -> str:
+    frequency = (value or "on_bar_close").strip()
+    frequency = FREQUENCY_ALIASES.get(frequency, frequency)
+    if frequency not in SUPPORTED_ALERT_FREQUENCIES:
+        allowed = ", ".join(sorted(SUPPORTED_ALERT_FREQUENCIES))
+        raise ValueError(f"unsupported TradingView frequency '{frequency}' (allowed: {allowed})")
+    return frequency
+
+def build_webhook_message(targets: dict, alert_id: str) -> dict:
+    """Flatten the YAML webhook payload template into the alert message body."""
+    payload_template = targets.get("webhook_payload", {})
+    message = {
+        k: v for k, v in payload_template.items()
+        if k != "fields" and not isinstance(v, (dict, list))
+    }
+    for item in payload_template.get("fields", []):
+        if isinstance(item, dict):
+            message.update(item)
+    message.setdefault("event", alert_id)
+    message.setdefault("alert_name", alert_id)
+    message.setdefault("signal", alert_id)
+    return message
+
 def generate_missing_jobs(targets: dict, report: dict) -> list[dict]:
     """Generate tv_job_v1 alert.create jobs for missing alerts."""
     jobs = []
     webhook_url = targets.get("webhook_url", "")
-    payload_template = targets.get("webhook_payload", {})
 
     for alert in targets.get("required_alerts", []):
         if alert["id"] in report.get("missing_alerts", []):
@@ -73,10 +100,10 @@ def generate_missing_jobs(targets: dict, report: dict) -> list[dict]:
                     "symbol": targets.get("symbol_tv", "BATS:SPCX"),
                     "condition": alert.get("condition", "crossing"),
                     "price": alert.get("price", 1),
-                    "frequency": alert.get("frequency", "once_per_bar"),
+                    "frequency": normalize_frequency(alert.get("frequency")),
                     "name": alert["id"],
-                    "webhook": webhook_url,
-                    "message": payload_template,
+                    "webhook_url": webhook_url,
+                    "message": build_webhook_message(targets, alert["id"]),
                 },
                 "gate": "approved",
                 "created_at": datetime.now(timezone.utc).isoformat(),

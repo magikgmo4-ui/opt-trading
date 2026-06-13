@@ -7,6 +7,7 @@
     "condition": "greater_than",
     "price": 1,
     "name": "SpaceX Wire",
+    "frequency": "on_bar_close",
     "webhook_url": "https://spacex-tv.magikgmo4.uk/tv/spacex",
     "message": "{\"key\": \"<TV_WEBHOOK_KEY>\", \"source\": \"tradingview\", \"symbol\": \"{{ticker}}\", \"exchange\": \"{{exchange}}\", \"interval\": \"{{interval}}\", \"price\": \"{{close}}\", \"volume\": \"{{volume}}\", \"alert_name\": \"{{alert_name}}\", \"signal\": \"SPACEX_WIRE\", \"time\": \"{{time}}\"}"
   },

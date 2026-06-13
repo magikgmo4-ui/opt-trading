@@ -47,19 +47,19 @@ required_alerts:
   - id: SPCX_PRICE_ABOVE_VWAP
     condition: greater_than
     price: 0
-    frequency: once_per_bar
+    frequency: on_bar_close
     message_template: spacex_vwap_reclaim
 
   - id: SPCX_PRICE_BELOW_VWAP
     condition: less_than
     price: 0
-    frequency: once_per_bar
+    frequency: on_bar_close
     message_template: spacex_vwap_reject
 
   - id: SPCX_VOLUME_SPIKE
     condition: greater_than
     price: 0
-    frequency: once_per_bar
+    frequency: on_bar_close
     message_template: spacex_volume
 
 webhook_payload:
