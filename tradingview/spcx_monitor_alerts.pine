@@ -1,0 +1,59 @@
+//@version=5
+indicator("SPCX Monitor Alerts | opt-trading", overlay=true, max_labels_count=100)
+
+// Monitor-only Pine helper for SpaceX/SPCX TradingView webhook events.
+// Create one TradingView alert on this indicator using "Any alert() function call".
+
+send_alerts = input.bool(true, "Send webhook alerts", group="Webhook")
+tv_key = input.string("", "TV_WEBHOOK_KEY", group="Webhook")
+volume_len = input.int(20, "Volume SMA length", minval=1, group="Signals")
+volume_mult = input.float(2.0, "Volume spike multiplier", minval=0.1, step=0.1, group="Signals")
+heartbeat_every_bars = input.int(1, "Heartbeat every N confirmed bars", minval=1, group="Signals")
+
+vwap_value = ta.vwap(hlc3)
+volume_avg = ta.sma(volume, volume_len)
+
+heartbeat = barstate.isconfirmed and bar_index % heartbeat_every_bars == 0
+price_above_vwap = ta.crossover(close, vwap_value)
+price_below_vwap = ta.crossunder(close, vwap_value)
+volume_spike = barstate.isconfirmed and not na(volume_avg) and volume > volume_avg * volume_mult
+
+plot(vwap_value, "VWAP", color=color.orange, linewidth=2)
+plotshape(price_above_vwap, title="SPCX Above VWAP", style=shape.triangleup, location=location.belowbar, color=color.lime, size=size.tiny, text="VWAP+")
+plotshape(price_below_vwap, title="SPCX Below VWAP", style=shape.triangledown, location=location.abovebar, color=color.red, size=size.tiny, text="VWAP-")
+plotshape(volume_spike, title="SPCX Volume Spike", style=shape.circle, location=location.bottom, color=color.aqua, size=size.tiny, text="VOL")
+
+f_json(signal) =>
+    "{\"key\":\"" + tv_key +
+      "\",\"schema\":\"spacex_tv_event_v1" +
+      "\",\"source\":\"tradingview" +
+      "\",\"mode\":\"monitor_only" +
+      "\",\"symbol\":\"" + syminfo.ticker +
+      "\",\"exchange\":\"" + syminfo.prefix +
+      "\",\"timeframe\":\"" + timeframe.period +
+      "\",\"event\":\"" + signal +
+      "\",\"alert_name\":\"" + signal +
+      "\",\"signal\":\"" + signal +
+      "\",\"ts\":\"" + str.tostring(time) +
+      "\",\"price\":\"" + str.tostring(close, format.mintick) +
+      "\",\"open\":\"" + str.tostring(open, format.mintick) +
+      "\",\"high\":\"" + str.tostring(high, format.mintick) +
+      "\",\"low\":\"" + str.tostring(low, format.mintick) +
+      "\",\"close\":\"" + str.tostring(close, format.mintick) +
+      "\",\"volume\":\"" + str.tostring(volume) +
+      "\",\"vwap\":\"" + str.tostring(vwap_value, format.mintick) +
+      "\"}"
+
+f_emit(signal, condition) =>
+    if send_alerts and str.length(tv_key) > 0 and condition
+        alert(f_json(signal), alert.freq_once_per_bar_close)
+
+f_emit("SPCX_ON_BAR_CLOSE_HEARTBEAT", heartbeat)
+f_emit("SPCX_PRICE_ABOVE_VWAP", price_above_vwap)
+f_emit("SPCX_PRICE_BELOW_VWAP", price_below_vwap)
+f_emit("SPCX_VOLUME_SPIKE", volume_spike)
+
+alertcondition(heartbeat, title="SPCX_ON_BAR_CLOSE_HEARTBEAT", message="SPCX_ON_BAR_CLOSE_HEARTBEAT")
+alertcondition(price_above_vwap, title="SPCX_PRICE_ABOVE_VWAP", message="SPCX_PRICE_ABOVE_VWAP")
+alertcondition(price_below_vwap, title="SPCX_PRICE_BELOW_VWAP", message="SPCX_PRICE_BELOW_VWAP")
+alertcondition(volume_spike, title="SPCX_VOLUME_SPIKE", message="SPCX_VOLUME_SPIKE")

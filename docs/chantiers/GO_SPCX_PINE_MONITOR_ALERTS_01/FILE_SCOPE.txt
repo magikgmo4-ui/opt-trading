@@ -1,0 +1,2 @@
+docs/chantiers/GO_SPCX_PINE_MONITOR_ALERTS_01/**
+tradingview/spcx_monitor_alerts.pine
