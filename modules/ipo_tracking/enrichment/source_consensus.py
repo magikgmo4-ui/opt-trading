@@ -167,7 +167,7 @@ def compute_consensus(
                     visual_price = float(vp)
                     if consensus_price and consensus_price > 0:
                         visual_price_delta_pct = round(abs(visual_price - consensus_price) / consensus_price * 100, 3)
-                    if visual_price_delta_pct is not None and visual_price_delta_pct <= 1.0:
+                    if visual_price_delta_pct is not None and visual_price_delta_pct <= 3.0:
                         prices["bot_vision_dom"] = visual_price
                         price_statuses["bot_vision_dom"] = "live"
                         staleness["bot_vision_dom"] = False
