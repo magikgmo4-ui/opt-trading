@@ -1,5 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
+from typing import Any
 from .io import REPO_ROOT, utc_now
 
 def write_daily_report(snapshot: dict) -> Path:
@@ -12,6 +13,87 @@ def write_daily_report(snapshot: dict) -> Path:
         lines.append(f"- {k}: {v}")
     lines += ["", "## Signals", ""] + [f"- {s}" for s in snapshot.get("signals", [])]
     lines += ["", "## Next actions", "", "- Validate TradingView real alert feed.", "- Validate Bot Vision SPCX profile.", "- Accumulate OHLCV for backtests.", "- Keep monitor-only."]
+    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return out
+
+
+def write_orderflow_report(snapshot: dict, orderflow_score: dict | None = None, ownership_score: dict | None = None) -> Path:
+    day = utc_now()[:10].replace("-", "")
+    out = REPO_ROOT / "reports/ipo/spacex" / f"spcx_day1_orderflow_ownership_{day}.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    lines = [
+        "# SPCX Day-1 Orderflow & Ownership Ledger",
+        "",
+        f"Generated: {utc_now()}",
+        f"Symbol: SPCX",
+        f"IPO Price: $135.00",
+        f"First Trade: 2026-06-12",
+        "",
+    ]
+
+    # Market snapshot
+    lines += [
+        "## Market Snapshot",
+        "",
+        f"- Price: ${snapshot.get('price')}",
+        f"- Gap vs IPO: {snapshot.get('gap_vs_ipo_pct')}%",
+        f"- Relative Volume: {snapshot.get('relative_volume_estimate')}",
+        "",
+    ]
+
+    # Orderflow scoring
+    if orderflow_score:
+        lines += [
+            "## Orderflow Analysis",
+            "",
+            f"### Composite Score: {orderflow_score.get('score')}/100",
+            "",
+        ]
+        comps = orderflow_score.get("component_scores", {})
+        for name, comp in comps.items():
+            if isinstance(comp, dict):
+                s = comp.get("score", "?")
+                reasons = ", ".join(comp.get("reasons", []))
+                lines.append(f"- **{name}**: {s}/100" + (f" ({reasons})" if reasons else ""))
+        signals = orderflow_score.get("signals", [])
+        if signals:
+            lines += ["", "### Signals"] + [f"- {s}" for s in signals]
+        lines.append("")
+
+    # Ownership scoring
+    if ownership_score:
+        lines += [
+            "## Ownership Pressure",
+            "",
+            f"### Pressure Score: {ownership_score.get('score')}/100",
+            "",
+        ]
+        comps = ownership_score.get("component_scores", {})
+        for name, comp in comps.items():
+            if isinstance(comp, dict):
+                s = comp.get("score", "?")
+                reasons = ", ".join(comp.get("reasons", []))
+                lines.append(f"- **{name}**: {s}/100" + (f" ({reasons})" if reasons else ""))
+        signals = ownership_score.get("signals", [])
+        warnings = ownership_score.get("warnings", [])
+        if signals:
+            lines += ["", "### Signals"] + [f"- {s}" for s in signals]
+        if warnings:
+            lines += ["", "### Warnings"] + [f"- {w}" for w in warnings]
+        lines.append("")
+
+    lines += [
+        "## Data Quality Notes",
+        "",
+        "- Aggressor side inferred via quote rule (trade vs bid/ask midpoint)",
+        "- Micro-trades (< $25K, < 100 shares) filtered",
+        "- Large prints > $500K tracked individually",
+        "- Ownership data from public SEC filings + press reports",
+        "- Pre-IPO cost basis marked as *estimated* unless confirmed in filing",
+        "- Individual buyer/seller identities NOT tracked (legally impossible in real-time)",
+    ]
+
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return out
 

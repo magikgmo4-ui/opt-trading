@@ -35,6 +35,7 @@ def parse_args():
     parser.add_argument("--once", action="store_true", help="single-cycle detection + logging")
     parser.add_argument("--watch", action="store_true", help="continuous loop")
     parser.add_argument("--replay", type=str, metavar="FILE", help="replay from events JSONL file")
+    parser.add_argument("--pipeline", action="store_true", help="read from enriched pipeline snapshot (end-of-day backtest)")
     parser.add_argument("--summary", action="store_true", help="print current summary and exit")
     return parser.parse_args()
 
@@ -59,6 +60,10 @@ def snapshot_from_event(event: dict) -> MarketSnapshot:
         news_headline=data.get("news_headline"),
         news_sentiment=data.get("news_sentiment"),
         smc_structures=data.get("smc_structures", []),
+        orderflow_score=float(data["orderflow_score"]) if data.get("orderflow_score") is not None else None,
+        ownership_pressure_score=float(data["ownership_pressure_score"]) if data.get("ownership_pressure_score") is not None else None,
+        orderflow_source=data.get("orderflow_source"),
+        large_prints_count=int(data.get("large_prints_count", 0)),
     )
 
 
@@ -212,13 +217,42 @@ def main():
         print(json.dumps(summary, indent=2, default=str))
     elif args.replay:
         run_replay(args.replay)
+    elif args.pipeline:
+        run_pipeline_backtest()
     elif args.watch:
         run_watch()
     elif args.once:
         run_once()
     else:
-        print("Usage: runner.py --once | --watch | --replay FILE | --summary")
+        print("Usage: runner.py --once | --watch | --replay FILE | --pipeline | --summary")
         sys.exit(1)
+
+
+def run_pipeline_backtest():
+    """End-of-day backtest: read enriched snapshot with orderflow/ownership,
+    run detection, log results, print summary with stats."""
+    logger.info("SPCX V2 runner --pipeline (end-of-day backtest) started")
+
+    from modules.spcx_v2.pipeline_adapter import load_enriched_snapshot
+
+    snap = load_enriched_snapshot()
+    candidate = detect(snap)
+
+    if candidate.grade == "reject":
+        cid = log_reject(candidate)
+        logger.info("backtest reject | %s | reasons=%s | of=%.1f ow=%.1f",
+                    cid, candidate.reason_codes,
+                    snap.orderflow_score or 0, snap.ownership_pressure_score or 0)
+    else:
+        cid = log_candidate(candidate)
+        logger.info("backtest accepted | %s | %s | grade=%s | of=%.1f ow=%.1f",
+                    cid, candidate.setup_type, candidate.grade,
+                    snap.orderflow_score or 0, snap.ownership_pressure_score or 0)
+
+    summary = get_summary()
+    summary["orderflow_score"] = snap.orderflow_score
+    summary["ownership_pressure_score"] = snap.ownership_pressure_score
+    print(json.dumps(summary, indent=2, default=str))
 
 
 if __name__ == "__main__":

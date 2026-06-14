@@ -101,6 +101,10 @@ class MarketSnapshot:
     news_headline: Optional[str] = None
     news_sentiment: Optional[str] = None
     smc_structures: list = field(default_factory=list)
+    orderflow_score: Optional[float] = None
+    ownership_pressure_score: Optional[float] = None
+    orderflow_source: Optional[str] = None
+    large_prints_count: int = 0
 
 
 @dataclass

@@ -1,0 +1,222 @@
+version: 1
+project_id: GO_SPACEX_DAY1_ORDERFLOW_AND_OWNERSHIP_LEDGER_01
+mode: data_collection_only
+priority: critical
+asset:
+  company: Space Exploration Technologies Corp.
+  primary_symbol: SPCX
+  exchange: NASDAQ
+  sec_cik: 1181412
+  ipo_price_usd: 135
+  first_trade_date: 2026-06-12
+
+sources:
+  sip_nbbo:
+    enabled: true
+    role: consolidated_quote_and_trade
+    priority: 1
+    tier: P0
+    feeds:
+      - utp_tape_c
+      - cta_cts_cqs
+    provides:
+      - best_bid
+      - best_ask
+      - last_trade_price
+      - last_trade_size
+      - consolidated_volume
+    notes: SIP consolidates quotes/trades for NASDAQ-listed (Tape C). Top-of-book only, no depth.
+    provider_options:
+      - polygon_io
+      - alpaca_markets
+      - databento
+      - sqs_fallback
+
+  l2_market_by_price:
+    enabled: true
+    role: depth_of_book
+    priority: 1
+    tier: P0
+    feeds:
+      - nasdaq_totalview
+      - nasdaq_itch
+    provides:
+      - top_5_bids
+      - top_5_asks
+      - top_10_bids
+      - top_10_asks
+      - bid_depth_1pct_usd
+      - ask_depth_1pct_usd
+      - orderbook_imbalance
+      - largest_bid_wall
+      - largest_ask_wall
+      - quote_count
+      - quote_update_rate
+    notes: Full depth order book. Requires vendor (Databento/AlgoSeek) or broker L2 subscription.
+    provider_options:
+      - interactive_brokers_api
+      - databento
+      - algoseek
+      - polygon_io
+      - dxfeed
+      - das_trader_pro
+
+  tape_trades:
+    enabled: true
+    role: executed_transactions
+    priority: 1
+    tier: P0
+    feeds:
+      - sip_tape_c
+      - nasdaq_totalview
+      - trf_off_exchange
+    provides:
+      - trade_timestamp
+      - price
+      - size
+      - venue
+      - trade_condition
+      - trade_value_usd
+      - inferred_aggressor_side
+      - large_print_flag
+      - block_trade_flag
+      - sweep_candidate_flag
+    notes: Aggressor side inferred via quote rule (compare trade price vs bid/ask midpoint).
+
+  auctions:
+    enabled: true
+    role: opening_closing_imbalance
+    priority: 1
+    tier: P0
+    feeds:
+      - nasdaq_auction
+      - nyse_auction
+    provides:
+      - indicative_price
+      - paired_shares
+      - imbalance_shares
+      - imbalance_side
+      - near_price
+      - far_price
+    notes: Critical for Day-1/Day-2 institutional flow detection at open/close.
+
+  sec_ownership:
+    enabled: true
+    role: regulatory_ownership_data
+    priority: 1
+    tier: P0
+    feeds:
+      - 424B4_prospectus
+      - S-1_registration
+      - Form_3_initial_ownership
+    provides:
+      - shares_outstanding
+      - insider_holdings
+      - institutional_allocation
+      - lockup_schedule
+      - greenshoe_shares
+      - class_structure
+      - voting_rights
+    notes: EDGAR filings parsed. Data is as-disclosed, not real-time.
+
+  insider_forms:
+    enabled: true
+    role: insider_transactions_watcher
+    priority: 2
+    tier: P1
+    feeds:
+      - Form_4_dispositions
+      - Form_144_intent_to_sell
+    provides:
+      - insider_buys
+      - insider_sells
+      - acquisition_prices
+      - exercise_conversions
+      - restricted_control_intentions
+    notes: Form 4 filed within 2 biz days. Form 144 = intent to sell restricted/control securities.
+
+  institutional_ownership:
+    enabled: true
+    role: institutional_flows
+    priority: 2
+    tier: P1
+    feeds:
+      - 13D_early_warning
+      - 13G_passive_ownership
+      - 13F_quarterly_holdings
+    provides:
+      - beneficial_ownership_5pct
+      - institutional_positions
+      - quarterly_changes
+      - passive_vs_active
+    notes: 13D/13G for >5% ownership. 13F quarterly with 45-day lag.
+
+  private_market:
+    enabled: true
+    role: pre_ipo_cost_basis
+    priority: 2
+    tier: P1
+    feeds:
+      - forge_global
+      - equityzen
+      - caplight
+      - hiive
+      - pitchbook
+      - cb_insights
+    provides:
+      - private_share_price_estimates
+      - tender_offer_data
+      - round_history
+      - cost_basis_estimated
+    notes: Private market data is often partial. Cost basis always marked as `cost_basis_estimated: true`.
+
+  dark_pools:
+    enabled: false
+    role: off_exchange_volume
+    priority: 3
+    tier: P2
+    feeds:
+      - trf_alternative_trading_system
+      - finra_atds
+    provides:
+      - dark_volume
+      - dark_trade_count
+      - dark_vs_lit_ratio
+    notes: Requires FINRA ATS data. Deferred to P2.
+
+  options_chain:
+    enabled: false
+    role: derivatives_flow
+    priority: 3
+    tier: P2
+    feeds:
+      - options_chain_spcx
+    provides:
+      - call_volume
+      - put_volume
+      - open_interest
+      - implied_volatility
+      - max_pain
+      - gamma_exposure
+    notes: Only applicable once SPCX options are listed.
+
+aggregation:
+  bucket_seconds: [1, 5, 60]
+  bucket_1s_enabled: false
+  bucket_5s_enabled: true
+  bucket_60s_enabled: true
+  micro_trade_filter: true
+
+trade_filters:
+  ignore_odd_lots: true
+  min_trade_size_shares: 100
+  min_trade_value_usd: 25000
+  large_print_threshold_usd: 500000
+  block_trade_threshold_usd: 1000000
+
+storage:
+  root: state/ipo/spacex
+  orderflow_buckets: state/ipo/spacex/orderflow_buckets
+  ownership_ledger: state/ipo/spacex/ownership
+  auction_snapshots: state/ipo/spacex/auctions
+  reports: reports/ipo/spacex

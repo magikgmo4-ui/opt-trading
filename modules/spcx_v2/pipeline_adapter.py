@@ -145,6 +145,24 @@ def enriched_to_snapshot(enriched: dict) -> MarketSnapshot:
     symbol = data.get("symbol", candle.get("symbol", "SPCX"))
     timestamp = data.get("ts", data.get("timestamp", candle.get("timestamp", "")))
 
+    # --- Orderflow + Ownership injection ---
+    orderflow_score_val = None
+    ownership_pressure_score_val = None
+    orderflow_source_val = None
+    large_prints_count = 0
+
+    of_data = data.get("orderflow_score") or data.get("orderflow", {})
+    if isinstance(of_data, dict) and of_data.get("score") is not None:
+        orderflow_score_val = float(of_data["score"])
+        orderflow_source_val = "pipeline"
+    ow_data = data.get("ownership_score") or data.get("ownership_pressure", {})
+    if isinstance(ow_data, dict) and ow_data.get("score") is not None:
+        ownership_pressure_score_val = float(ow_data["score"])
+
+    lp = data.get("large_prints", [])
+    if isinstance(lp, list):
+        large_prints_count = len(lp)
+
     return MarketSnapshot(
         symbol=symbol,
         timestamp=timestamp,
@@ -163,6 +181,10 @@ def enriched_to_snapshot(enriched: dict) -> MarketSnapshot:
         news_headline=news_headline,
         news_sentiment=news_sentiment,
         smc_structures=smc_structures,
+        orderflow_score=orderflow_score_val,
+        ownership_pressure_score=ownership_pressure_score_val,
+        orderflow_source=orderflow_source_val,
+        large_prints_count=large_prints_count,
     )
 
 
@@ -177,4 +199,51 @@ def load_enriched_snapshot(path: Optional[str] = None) -> MarketSnapshot:
         alt = PROJECT_ROOT / "data" / "ipo" / "spacex" / "scored" / "latest.json"
         enriched = _read_json(alt)
 
+    # Inject orderflow/ownership scores from pipeline output
+    enriched = _inject_orderflow_ownership(enriched)
+
     return enriched_to_snapshot(enriched)
+
+
+def _inject_orderflow_ownership(enriched: dict) -> dict:
+    """Inject orderflow and ownership pressure scores from pipeline output."""
+    if enriched.get("orderflow_score") or enriched.get("ownership_score"):
+        return enriched
+
+    # Try loading from orderflow bucket output
+    of_path = PROJECT_ROOT / "state" / "ipo" / "spacex" / "orderflow_buckets" / "latest.json"
+    of_data = _read_json(of_path)
+    if of_data:
+        enriched["orderflow_data"] = of_data
+
+    # Run scoring if data available but no scores
+    try:
+        from modules.ipo_tracking.collectors.spcx_sip_tape import collect_spcx_sip_tape
+        from modules.ipo_tracking.collectors.spcx_l2_depth import collect_spcx_l2_depth
+        from modules.ipo_tracking.collectors.spcx_auction_imbalance import collect_spcx_auction_imbalance
+        from modules.ipo_tracking.scoring.spcx_orderflow_score import score_orderflow
+
+        tape = collect_spcx_sip_tape()
+        depth = collect_spcx_l2_depth()
+        auction = collect_spcx_auction_imbalance()
+        of_score = score_orderflow(tape, depth, auction)
+        enriched["orderflow_score"] = of_score
+        enriched["large_prints"] = tape.get("large_prints", [])
+    except Exception:
+        pass
+
+    try:
+        from modules.ipo_tracking.collectors.spcx_sec_ownership import collect_spcx_sec_ownership
+        from modules.ipo_tracking.scoring.spcx_ownership_pressure_score import score_ownership_pressure
+
+        ownership = collect_spcx_sec_ownership()
+        current_price = enriched.get("price", {}).get("last")
+        if not current_price:
+            candle = enriched.get("candle", {})
+            current_price = candle.get("close")
+        ow_score = score_ownership_pressure(ownership, float(current_price) if current_price else None)
+        enriched["ownership_score"] = ow_score
+    except Exception:
+        pass
+
+    return enriched

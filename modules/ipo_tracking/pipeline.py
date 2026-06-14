@@ -7,11 +7,17 @@ from .collectors.yahoo_public import collect_yahoo_quote
 from .collectors.rss_news import collect_yahoo_rss
 from .collectors.bot_vision_adapter import collect_bot_vision_context
 from .collectors.tradingview_webhook import normalize_tradingview_payload
+from .collectors.spcx_sip_tape import collect_spcx_sip_tape, bucket_tape_1m
+from .collectors.spcx_l2_depth import collect_spcx_l2_depth
+from .collectors.spcx_auction_imbalance import collect_spcx_auction_imbalance
+from .collectors.spcx_sec_ownership import collect_spcx_sec_ownership
 from .storage import persist_event, persist_snapshot, persist_normalized, write_history_snapshot, write_pipeline_verification
 from .scoring import score_snapshot
+from .scoring.spcx_orderflow_score import score_orderflow
+from .scoring.spcx_ownership_pressure_score import score_ownership_pressure
 from .normalizer import normalize_events, normalized_summary
 from .verify import validate_full_pipeline
-from .reports import write_daily_report, write_ui
+from .reports import write_daily_report, write_ui, write_orderflow_report
 from .io import REPO_ROOT, utc_now, read_json, append_jsonl, atomic_write_json
 from .enrichment import enrich_candles, enrich_from_snapshot
 
@@ -64,9 +70,39 @@ def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, conf
     pipeline_result["enriched_features"] = len(enriched.get("indicators", {}))
     pipeline_result["enriched_path"] = str(enriched_path.relative_to(REPO_ROOT))
 
+    # --- Orderflow + Ownership collection ---
+    orderflow_events = _collect_orderflow(cfg, offline=offline)
+    for e in orderflow_events:
+        persist_event(e, cfg)
+    pipeline_result["orderflow_sources"] = sorted(set(e.get("source", "unknown") for e in orderflow_events))
+
+    # Orderflow scoring
+    tape_data = next((e for e in orderflow_events if e.get("source") == "spcx_sip_tape"), None)
+    depth_data = next((e for e in orderflow_events if e.get("source") == "spcx_l2_depth"), None)
+    auction_data = next((e for e in orderflow_events if e.get("source") == "spcx_auction_imbalance"), None)
+    ownership_data = next((e for e in orderflow_events if e.get("source") == "spcx_sec_ownership"), None)
+
+    orderflow_score = score_orderflow(tape_data, depth_data, auction_data)
+    pipeline_result["orderflow_score"] = orderflow_score
+
+    current_price = snap.get("price")
+    ownership_score = score_ownership_pressure(ownership_data, current_price)
+    pipeline_result["ownership_score"] = ownership_score
+
+    # Orderflow bucket generation
+    tape_bars = _extract_bars_for_bucketing(events)
+    buckets = bucket_tape_1m(tape_bars)
+    pipeline_result["orderflow_bucket_count"] = len(buckets)
+    if buckets:
+        buckets_dir = REPO_ROOT / "state" / "ipo" / "spacex" / "orderflow_buckets"
+        buckets_dir.mkdir(parents=True, exist_ok=True)
+        atomic_write_json(buckets_dir / "latest.json", {"buckets": buckets, "generated_at": utc_now(), "bucket_seconds": 60, "count": len(buckets), "symbol": "SPCX"})
+
     report_path = write_daily_report(snap)
+    of_report_path = write_orderflow_report(snap, orderflow_score, ownership_score)
     ui_path = write_ui(snap)
     pipeline_result["report_path"] = str(report_path.relative_to(REPO_ROOT)) if report_path else None
+    pipeline_result["orderflow_report_path"] = str(of_report_path.relative_to(REPO_ROOT)) if of_report_path else None
     pipeline_result["ui_path"] = str(ui_path.relative_to(REPO_ROOT)) if ui_path else None
 
     pipeline_result["completed_at"] = utc_now()
@@ -150,3 +186,41 @@ def _collect(cfg: dict, *, offline: bool = False, tv_json: str | None = None, sy
 def _cik_for_symbol(symbol: str) -> int:
     mapping = {"RKLB": 1818644, "TSLA": 1318605, "NVDA": 1045810, "SPCX": 1181412}
     return mapping.get(symbol.upper(), 0)
+
+
+def _collect_orderflow(cfg: dict, *, offline: bool = False) -> list[dict[str, Any]]:
+    if offline:
+        return [
+            {"source": "spcx_sip_tape", "ok": False, "offline": True},
+            {"source": "spcx_l2_depth", "ok": False, "offline": True},
+            {"source": "spcx_auction_imbalance", "ok": False, "offline": True},
+            {"source": "spcx_sec_ownership", "ok": False, "offline": True},
+        ]
+    return [
+        collect_spcx_sip_tape(),
+        collect_spcx_l2_depth(),
+        collect_spcx_auction_imbalance(),
+        collect_spcx_sec_ownership(),
+    ]
+
+
+def _extract_bars_for_bucketing(events: list[dict]) -> list[dict]:
+    for e in events:
+        if e.get("source") == "yahoo_chart" and e.get("bars"):
+            return _normalize_bars(e["bars"])
+    return []
+
+
+def _normalize_bars(bars: list[dict]) -> list[dict]:
+    out = []
+    for b in bars:
+        ts = b.get("ts") or b.get("timestamp")
+        out.append({
+            "timestamp": ts,
+            "open": b.get("open"),
+            "high": b.get("high"),
+            "low": b.get("low"),
+            "close": b.get("close"),
+            "volume": b.get("volume") or 0,
+        })
+    return out

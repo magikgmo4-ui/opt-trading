@@ -1,0 +1,11 @@
+[Unit]
+Description=SPCX Orderflow pipeline timer (every 1 min during market hours)
+RefuseManualStart=false
+
+[Timer]
+OnCalendar=Mon..Fri 13:30..20:00:00/1
+Persistent=true
+RandomizedDelaySec=10
+
+[Install]
+WantedBy=timers.target

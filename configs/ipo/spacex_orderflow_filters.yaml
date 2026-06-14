@@ -1,0 +1,111 @@
+version: 1
+description: Anti-noise filters and threshold configuration for SPCX orderflow collection
+
+trade_filtering:
+  ignore_odd_lots: true
+  min_trade_size_shares: 100
+  min_trade_value_usd: 25000
+  exclude_conditions:
+    - form_t  # Form T trades (late/out of sequence)
+    - bunched  # Bunched trades
+    - bunched_sold  # Bunched sold trades
+    - average_price
+    - odd_lot
+    - derivative_priced
+    - auto_execution
+    - reorg
+  keep_conditions:
+    - regular
+    - intermarket_sweep  # ISO — keep, may indicate sweep candidate
+    - single_price_auction
+    - opening_prints
+    - closing_prints
+
+large_print:
+  enabled: true
+  threshold_usd: 500000
+  persist_individually: true
+  mark_as: large_print
+
+block_trade:
+  enabled: true
+  threshold_usd: 1000000
+  persist_individually: true
+  mark_as: block_trade
+
+sweep_detection:
+  enabled: true
+  max_window_ms: 500
+  min_trade_count: 3
+  min_aggregate_size_shares: 500
+  persist_individually: false  # sweeps summarized in bucket, not individual trades
+
+bucket_aggregation:
+  buckets:
+    - seconds: 1
+      enabled: false
+      purpose: ultra_high_frequency_debug
+    - seconds: 5
+      enabled: true
+      purpose: short_term_orderflow_analysis
+    - seconds: 60
+      enabled: true
+      purpose: primary_trading_rhythm
+
+  fields_per_bucket:
+    price:
+      - open
+      - high
+      - low
+      - close
+      - vwap
+    volume:
+      - shares
+      - usd
+      - trade_count
+      - large_prints_count
+      - large_prints_usd
+    flow:
+      - buy_initiated_volume
+      - sell_initiated_volume
+      - delta_volume
+      - delta_pct
+      - sweep_count
+    book_snapshot:
+      - spread_pct_at_bucket_close
+      - bid_depth_1pct_usd
+      - ask_depth_1pct_usd
+
+aggressor_inference:
+  method: quote_rule
+  fallback: lee_ready
+  quote_rule:
+    description: Trade price > bid/ask midpoint = buy-initiated. Trade price < midpoint = sell-initiated.
+    midpoint_tolerance_pct: 0.01
+  lee_ready:
+    description: Trade price > previous trade price = buy-initiated. Trade price < previous = sell-initiated.
+    tiebreaker: use_quote_rule
+
+auction_filters:
+  opening:
+    min_paired_shares: 10000
+    min_imbalance_ratio: 2.0  # imbalance / paired > 2 = significant
+    significant_threshold_usd: 5000000
+  closing:
+    min_paired_shares: 10000
+    min_imbalance_ratio: 2.0
+    significant_threshold_usd: 5000000
+
+quality_checks:
+  max_spread_pct: 5.0  # flag if spread > 5% of price (likely data error)
+  max_price_change_pct_per_second: 10.0  # flag if price moves > 10%/sec (likely data error)
+  stale_quote_threshold_seconds: 5  # quote older than 5s is stale
+  require_bid_ask_valid: true  # bid must be < ask
+  min_quote_updates_per_bucket: 1  # at least 1 quote update in the bucket
+
+output:
+  persist_raw_buckets: true
+  persist_large_prints: true
+  persist_block_trades: true
+  format: jsonl
+  compression: none

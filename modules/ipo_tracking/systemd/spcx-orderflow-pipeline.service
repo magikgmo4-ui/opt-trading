@@ -1,0 +1,20 @@
+[Unit]
+Description=SPCX Orderflow + Ownership Ledger Pipeline
+After=network-online.target
+Wants=network-online.target
+Documentation=https://github.com/anomalyco/opt-trading
+
+[Service]
+Type=oneshot
+User=fantome
+Group=fantome
+Restart=no
+StartLimitIntervalSec=0
+StartLimitBurst=0
+WorkingDirectory=/home/fantome/opt-trading-clean
+ExecStart=/home/fantome/opt-trading-clean/modules/ipo_tracking/scripts/run_orderflow.sh
+StandardOutput=append:/home/fantome/opt-trading-clean/data/logs/spcx_orderflow/stdout.log
+StandardError=append:/home/fantome/opt-trading-clean/data/logs/spcx_orderflow/stderr.log
+
+[Install]
+WantedBy=multi-user.target

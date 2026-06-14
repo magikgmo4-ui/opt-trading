@@ -1,0 +1,19 @@
+[Unit]
+Description=SPCX V2 End-of-Day Backtest (orderflow + ownership pipeline)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=fantome
+Group=fantome
+Restart=no
+StartLimitIntervalSec=0
+StartLimitBurst=0
+WorkingDirectory=/home/fantome/opt-trading-clean
+ExecStart=/home/fantome/opt-trading-clean/modules/spcx_v2/scripts/backtest.sh pipeline
+StandardOutput=append:/home/fantome/opt-trading-clean/data/logs/spcx_v2/stdout.log
+StandardError=append:/home/fantome/opt-trading-clean/data/logs/spcx_v2/stderr.log
+
+[Install]
+WantedBy=multi-user.target

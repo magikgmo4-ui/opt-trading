@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "spcx_orderflow_bucket.v1",
+  "type": "object",
+  "required": [
+    "symbol",
+    "bucket_seconds",
+    "bucket_start",
+    "bucket_end"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "spcx_orderflow_bucket_v1"
+    },
+    "symbol": {
+      "type": "string",
+      "const": "SPCX"
+    },
+    "bucket_seconds": {
+      "type": "integer",
+      "enum": [1, 5, 60]
+    },
+    "bucket_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "bucket_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "price": {
+      "$ref": "#/$defs/price"
+    },
+    "volume": {
+      "$ref": "#/$defs/volume"
+    },
+    "flow": {
+      "$ref": "#/$defs/flow"
+    },
+    "book_snapshot": {
+      "$ref": "#/$defs/book_snapshot"
+    },
+    "quality": {
+      "$ref": "#/$defs/quality"
+    }
+  },
+  "$defs": {
+    "price": {
+      "type": "object",
+      "properties": {
+        "open": {
+          "type": ["number", "null"],
+          "description": "First trade price in bucket"
+        },
+        "high": {
+          "type": ["number", "null"],
+          "description": "Highest trade price in bucket"
+        },
+        "low": {
+          "type": ["number", "null"],
+          "description": "Lowest trade price in bucket"
+        },
+        "close": {
+          "type": ["number", "null"],
+          "description": "Last trade price in bucket"
+        },
+        "vwap": {
+          "type": ["number", "null"],
+          "description": "Volume-weighted average price"
+        }
+      }
+    },
+    "volume": {
+      "type": "object",
+      "properties": {
+        "shares": {
+          "type": ["number", "null"],
+          "description": "Total shares traded in bucket"
+        },
+        "usd": {
+          "type": ["number", "null"],
+          "description": "Total USD value traded in bucket"
+        },
+        "trade_count": {
+          "type": ["integer", "null"],
+          "description": "Number of qualifying trades in bucket"
+        },
+        "large_prints_count": {
+          "type": ["integer", "null"],
+          "description": "Number of trades exceeding large_print_threshold"
+        },
+        "large_prints_usd": {
+          "type": ["number", "null"],
+          "description": "Total USD value of large print trades"
+        }
+      }
+    },
+    "flow": {
+      "type": "object",
+      "properties": {
+        "buy_initiated_volume": {
+          "type": ["number", "null"],
+          "description": "Shares from trades where aggressor is inferred as buyer"
+        },
+        "sell_initiated_volume": {
+          "type": ["number", "null"],
+          "description": "Shares from trades where aggressor is inferred as seller"
+        },
+        "delta_volume": {
+          "type": ["number", "null"],
+          "description": "buy_initiated_volume minus sell_initiated_volume"
+        },
+        "delta_pct": {
+          "type": ["number", "null"],
+          "description": "delta_volume / total_shares * 100"
+        },
+        "sweep_count": {
+          "type": ["integer", "null"],
+          "description": "Number of detected sweep sequences"
+        },
+        "large_print_buy_count": {
+          "type": ["integer", "null"],
+          "description": "Number of large prints inferred as buy-initiated"
+        },
+        "large_print_sell_count": {
+          "type": ["integer", "null"],
+          "description": "Number of large prints inferred as sell-initiated"
+        }
+      }
+    },
+    "book_snapshot": {
+      "type": "object",
+      "properties": {
+        "spread_pct_at_bucket_close": {
+          "type": ["number", "null"],
+          "description": "Spread as percentage of price at bucket close"
+        },
+        "bid_price": {
+          "type": ["number", "null"],
+          "description": "Best bid at bucket close"
+        },
+        "ask_price": {
+          "type": ["number", "null"],
+          "description": "Best ask at bucket close"
+        },
+        "bid_depth_1pct_usd": {
+          "type": ["number", "null"],
+          "description": "USD available on bid within 1% of best bid"
+        },
+        "ask_depth_1pct_usd": {
+          "type": ["number", "null"],
+          "description": "USD available on ask within 1% of best ask"
+        },
+        "bid_depth_5pct_usd": {
+          "type": ["number", "null"],
+          "description": "USD available on bid within 5% of best bid"
+        },
+        "ask_depth_5pct_usd": {
+          "type": ["number", "null"],
+          "description": "USD available on ask within 5% of best ask"
+        },
+        "orderbook_imbalance": {
+          "type": ["number", "null"],
+          "description": "(bid_depth_1pct - ask_depth_1pct) / (bid_depth_1pct + ask_depth_1pct)"
+        },
+        "largest_bid_wall_size": {
+          "type": ["number", "null"],
+          "description": "Size in shares of the largest single bid level"
+        },
+        "largest_bid_wall_price": {
+          "type": ["number", "null"],
+          "description": "Price of the largest single bid level"
+        },
+        "largest_ask_wall_size": {
+          "type": ["number", "null"],
+          "description": "Size in shares of the largest single ask level"
+        },
+        "largest_ask_wall_price": {
+          "type": ["number", "null"],
+          "description": "Price of the largest single ask level"
+        },
+        "quote_update_count": {
+          "type": ["integer", "null"],
+          "description": "Number of quote updates in the bucket"
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "required": [
+        "source",
+        "aggressor_side_method",
+        "micro_trades_filtered"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["SIP", "L2", "ITCH", "BROKER", "TV_DOM"],
+          "description": "Primary data source for this bucket"
+        },
+        "aggressor_side_method": {
+          "type": "string",
+          "enum": ["quote_rule", "lee_ready", "native", "unknown"],
+          "description": "Method used to infer aggressor side (buyer/seller initiation)"
+        },
+        "micro_trades_filtered": {
+          "type": "boolean",
+          "description": "Whether micro-trades (odd lots, small value) were filtered"
+        },
+        "spread_flag": {
+          "type": "boolean",
+          "description": "True if spread exceeded max_spread_pct quality threshold"
+        },
+        "price_spike_flag": {
+          "type": "boolean",
+          "description": "True if price change exceeded max_price_change_pct threshold"
+        },
+        "stale_quote_flag": {
+          "type": "boolean",
+          "description": "True if quotes were stale at any point in bucket"
+        },
+        "quote_count": {
+          "type": ["integer", "null"],
+          "description": "Number of quote updates received in the bucket"
+        },
+        "trade_count_raw": {
+          "type": ["integer", "null"],
+          "description": "Raw trade count before micro-trade filtering"
+        },
+        "filtered_trade_count": {
+          "type": ["integer", "null"],
+          "description": "Number of trades removed by micro-trade filter"
+        }
+      }
+    }
+  }
+}
