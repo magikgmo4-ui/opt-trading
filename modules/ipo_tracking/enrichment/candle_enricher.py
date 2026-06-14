@@ -169,6 +169,8 @@ def enrich_candles(
         },
         "perp": {
             "binance_spcxusdt": _get_perp_snapshot(),
+            "bitget_rspcx": _get_bitget_snapshot(),
+            "coingecko": _get_coingecko_snapshot(),
         },
     }
 
@@ -279,6 +281,32 @@ def _get_perp_snapshot() -> dict:
             "volume_24h": p.get("volume_24h"),
             "change_pct_24h": p.get("change_pct_24h"),
             "bars_1m_count": len(p.get("bars_1m", [])),
+        }
+    except Exception:
+        return {"available": False}
+
+
+def _get_bitget_snapshot() -> dict:
+    try:
+        from modules.ipo_tracking.collectors.spcx_multi_venue import collect_bitget_rspcx
+        b = collect_bitget_rspcx()
+        return {
+            "price": b.get("price"), "open_24h": b.get("open_24h"),
+            "high_24h": b.get("high_24h"), "low_24h": b.get("low_24h"),
+            "volume_usdt": b.get("volume_usdt"),
+        }
+    except Exception:
+        return {"available": False}
+
+
+def _get_coingecko_snapshot() -> dict:
+    try:
+        from modules.ipo_tracking.collectors.spcx_multi_venue import collect_coingecko_spcx
+        cg = collect_coingecko_spcx()
+        md = cg.get("market_data", {})
+        return {
+            "price_usd": md.get("price_usd"), "market_cap_usd": md.get("market_cap_usd"),
+            "volume_24h_usd": md.get("total_volume_usd"), "change_pct_24h": md.get("price_change_pct_24h"),
         }
     except Exception:
         return {"available": False}
