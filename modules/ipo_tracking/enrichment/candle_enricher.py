@@ -44,6 +44,12 @@ def enrich_candles(
 
     sec_events = [e for e in events if e.get("source") == "sec_edgar"]
     news_events = [e for e in events if e.get("source") == "yahoo_news_rss"]
+    news_sentiment = {"polarity": "neutral", "bullish_count": 0, "bearish_count": 0, "neutral_count": 0}
+    for ne in news_events:
+        s = ne.get("sentiment", {})
+        if s and s.get("polarity"):
+            news_sentiment = s
+            break
     bot_vision_events = [e for e in events if e.get("source") == "bot_vision_adapter"]
     tv_events = [e for e in events if e.get("source") == "tradingview_webhook"]
 
@@ -152,6 +158,7 @@ def enrich_candles(
         },
         "context": {
             "news_count": sum(e.get("count", len(e.get("articles", []))) for e in news_events if e.get("ok")),
+            "news_sentiment": news_sentiment,
             "sec_filings_count": sum(len(e.get("filings", [])) for e in sec_events if e.get("ok")),
             "bot_vision_available": any(e.get("ok") for e in bot_vision_events),
             "bot_vision_capture_count": bv_spcx_count,
