@@ -1,0 +1,267 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "spcx_ownership_ledger.v1",
+  "type": "object",
+  "required": [
+    "source",
+    "as_of_date",
+    "holder_type"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "spcx_ownership_ledger_v1"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "424B4",
+        "S-1",
+        "S-1_A",
+        "Form3",
+        "Form4",
+        "Form144",
+        "13D",
+        "13G",
+        "13F",
+        "press",
+        "private_market",
+        "tender_offer",
+        "analyst_report"
+      ],
+      "description": "SEC filing type or other data source"
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date this ownership data is valid as of"
+    },
+    "filing_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the source document was filed/published"
+    },
+    "accession_number": {
+      "type": "string",
+      "description": "SEC accession number if from EDGAR"
+    },
+    "holder": {
+      "type": ["string", "null"],
+      "description": "Name of the holder entity or person"
+    },
+    "holder_type": {
+      "type": "string",
+      "enum": [
+        "insider",
+        "institution",
+        "retail_pool",
+        "underwriter",
+        "fund",
+        "etf",
+        "index_fund",
+        "pension_fund",
+        "hedge_fund",
+        "mutual_fund",
+        "sovereign_fund",
+        "private_equity",
+        "venture_capital",
+        "unknown"
+      ],
+      "description": "Classification of the holder"
+    },
+    "shares": {
+      "type": ["number", "null"],
+      "description": "Number of shares held"
+    },
+    "class": {
+      "type": "string",
+      "enum": ["Class A", "Class B", "Class C", "unknown"],
+      "description": "Share class"
+    },
+    "ownership_pct": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percentage of total shares outstanding"
+    },
+    "voting_power_pct": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percentage of total voting power"
+    },
+    "acquisition_price": {
+      "type": ["number", "null"],
+      "description": "Price per share at acquisition (IPO price or private round)"
+    },
+    "cost_basis_estimated": {
+      "type": "boolean",
+      "description": "True if acquisition price is estimated rather than confirmed"
+    },
+    "cost_basis_source": {
+      "type": "string",
+      "enum": ["prospectus", "filing", "press", "private_market_aggregator", "tender_letter", "estimate"],
+      "description": "Source of the acquisition price data"
+    },
+    "lockup_until": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Date until which these shares are locked up"
+    },
+    "lockup_type": {
+      "type": "string",
+      "enum": ["standard_180d", "custom", "none", "unknown"],
+      "description": "Type of lock-up agreement"
+    },
+    "reported_transaction": {
+      "type": "object",
+      "properties": {
+        "transaction_type": {
+          "type": "string",
+          "enum": [
+            "ipo_allocation",
+            "open_market_purchase",
+            "open_market_sale",
+            "option_exercise",
+            "rsu_vest",
+            "gift",
+            "conversion",
+            "secondary_offering",
+            "tender",
+            "private_placement",
+            "greenshoe_exercise",
+            "stabilization"
+          ]
+        },
+        "transaction_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "shares": {
+          "type": "number"
+        },
+        "price_per_share": {
+          "type": "number"
+        },
+        "total_value_usd": {
+          "type": "number"
+        }
+      }
+    },
+    "filing_disposition": {
+      "type": "string",
+      "enum": ["initial", "amendment", "exit", "partial_sale", "acquisition", "unknown"],
+      "description": "Nature of the filing: initial ownership, change, or exit"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-text notes about this entry"
+    }
+  },
+  "$defs": {
+    "insider_summary": {
+      "type": "object",
+      "properties": {
+        "total_insider_shares": {
+          "type": "number",
+          "description": "Total shares held by all insiders"
+        },
+        "total_insider_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "total_voting_power_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "insider_count": {
+          "type": "integer"
+        },
+        "locked_shares": {
+          "type": "number"
+        },
+        "unlocked_shares": {
+          "type": "number"
+        },
+        "next_lockup_expiry": {
+          "type": "string",
+          "format": "date"
+        },
+        "form4_filings_last_5_days": {
+          "type": "integer"
+        },
+        "form144_filings_last_5_days": {
+          "type": "integer"
+        },
+        "net_insider_flow_shares": {
+          "type": "number",
+          "description": "Insider buys minus sells over lookback window"
+        }
+      }
+    },
+    "institutional_summary": {
+      "type": "object",
+      "properties": {
+        "total_institutional_shares": {
+          "type": "number"
+        },
+        "total_institutional_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "institution_count": {
+          "type": "integer"
+        },
+        "five_pct_holders_count": {
+          "type": "integer",
+          "description": "Number of entities holding >5%"
+        },
+        "float_shares": {
+          "type": "number",
+          "description": "Shares in public float (not insider/strategic locked)"
+        },
+        "float_pct": {
+          "type": "number"
+        },
+        "etf_holders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ticker": { "type": "string" },
+              "shares": { "type": "number" },
+              "weight_pct": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "greenshoe_stabilization": {
+      "type": "object",
+      "properties": {
+        "greenshoe_shares": {
+          "type": "number",
+          "description": "Total greenshoe overallotment shares"
+        },
+        "greenshoe_pct": {
+          "type": "number"
+        },
+        "stabilization_agent": {
+          "type": "string"
+        },
+        "stabilization_notices_count": {
+          "type": "integer"
+        },
+        "exercised_shares": {
+          "type": "number"
+        },
+        "exercised_pct": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

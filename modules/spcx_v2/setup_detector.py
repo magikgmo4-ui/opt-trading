@@ -210,6 +210,35 @@ def compute_scores(snapshot: MarketSnapshot, matches: list[SetupMatch]) -> Score
             catalyst += 10
     catalyst = min(catalyst, 100)
 
+    # --- Orderflow integration ---
+    if snapshot.orderflow_score is not None:
+        of = snapshot.orderflow_score
+        if of >= 80:
+            trade_ready += 15
+            liquidity += 10
+        elif of >= 65:
+            trade_ready += 8
+            liquidity += 5
+        elif of < 35:
+            risk += 15
+            trade_ready -= 5
+        if snapshot.large_prints_count >= 5:
+            catalyst += 10
+        trade_ready = max(0, min(trade_ready, 100))
+        liquidity = min(liquidity, 100)
+
+    # --- Ownership pressure integration ---
+    if snapshot.ownership_pressure_score is not None:
+        op = snapshot.ownership_pressure_score
+        if op >= 75:
+            risk -= 10
+            trade_ready += 5
+        elif op < 40:
+            risk += 20
+            trade_ready -= 5
+        risk = max(0, min(risk, 100))
+        trade_ready = max(0, min(trade_ready, 100))
+
     return ScoreSet(
         trade_ready=trade_ready,
         liquidity=liquidity,

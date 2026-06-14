@@ -167,6 +167,11 @@ def enrich_candles(
             "bot_vision_visual_price": bv_visual_price,
             "tv_alert_active": any(e.get("ok") for e in tv_events),
         },
+        "perp": {
+            "binance_spcxusdt": _get_perp_snapshot(),
+            "bitget_rspcx": _get_bitget_snapshot(),
+            "coingecko": _get_coingecko_snapshot(),
+        },
     }
 
     return enriched
@@ -259,3 +264,49 @@ def _trend_score(indicators: dict, smc: dict) -> float:
         score += 0.10
 
     return round(min(1.0, score), 3)
+
+
+def _get_perp_snapshot() -> dict:
+    """Get SPCX Binance perpetual snapshot. Graceful fallback."""
+    try:
+        from modules.ipo_tracking.collectors.spcx_binance_perp import collect_spcx_perp
+        p = collect_spcx_perp()
+        return {
+            "price": p.get("price"),
+            "mark_price": p.get("mark_price"),
+            "index_price": p.get("index_price"),
+            "funding_rate": p.get("funding_rate"),
+            "open_interest": p.get("open_interest"),
+            "spread_pct": p.get("spread_pct"),
+            "volume_24h": p.get("volume_24h"),
+            "change_pct_24h": p.get("change_pct_24h"),
+            "bars_1m_count": len(p.get("bars_1m", [])),
+        }
+    except Exception:
+        return {"available": False}
+
+
+def _get_bitget_snapshot() -> dict:
+    try:
+        from modules.ipo_tracking.collectors.spcx_multi_venue import collect_bitget_rspcx
+        b = collect_bitget_rspcx()
+        return {
+            "price": b.get("price"), "open_24h": b.get("open_24h"),
+            "high_24h": b.get("high_24h"), "low_24h": b.get("low_24h"),
+            "volume_usdt": b.get("volume_usdt"),
+        }
+    except Exception:
+        return {"available": False}
+
+
+def _get_coingecko_snapshot() -> dict:
+    try:
+        from modules.ipo_tracking.collectors.spcx_multi_venue import collect_coingecko_spcx
+        cg = collect_coingecko_spcx()
+        md = cg.get("market_data", {})
+        return {
+            "price_usd": md.get("price_usd"), "market_cap_usd": md.get("market_cap_usd"),
+            "volume_24h_usd": md.get("total_volume_usd"), "change_pct_24h": md.get("price_change_pct_24h"),
+        }
+    except Exception:
+        return {"available": False}
