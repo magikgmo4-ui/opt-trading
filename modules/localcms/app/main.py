@@ -57,6 +57,11 @@ GLOBAL_MENU_SECTIONS = [
 
 app = FastAPI(title="LocalCMS", version="1.0.0")
 
+# PWA static assets
+_STATIC_DIR = PROJECT_ROOT / "modules" / "localcms" / "static"
+_STATIC_DIR.mkdir(parents=True, exist_ok=True)
+app.mount("/static", StaticFiles(directory=str(_STATIC_DIR)), name="static")
+
 
 def _read_json(path: Path) -> dict | list:
     if not path.exists():
@@ -1752,6 +1757,120 @@ def spacex_json():
 
 
 STATUS_BADGES = SHARED_STATUS_BADGES
+
+
+# ── PWA & Access ───────────────────────────────────────────────────────
+_LOCALCMS_STATIC = PROJECT_ROOT / "modules" / "localcms" / "static"
+
+
+@app.get("/manifest.webmanifest")
+def manifest():
+    path = _LOCALCMS_STATIC / "manifest.webmanifest"
+    if path.exists():
+        return JSONResponse(content=json.loads(path.read_text()), media_type="application/manifest+json")
+    return JSONResponse(content={}, status_code=404)
+
+
+@app.get("/service-worker.js")
+def service_worker():
+    path = _LOCALCMS_STATIC / "service-worker.js"
+    if path.exists():
+        from fastapi.responses import Response
+        return Response(content=path.read_text(), media_type="application/javascript")
+    return Response(content="", status_code=404)
+
+
+@app.get("/access", response_class=HTMLResponse)
+def access_page():
+    import socket
+    hostname = socket.gethostname()
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <meta name="theme-color" content="#0b0d12"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="LocalCMS"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192.png"/>
+  <link rel="apple-touch-icon" href="/static/icon-192.png"/>
+  <title>LocalCMS — Acces</title>
+  <style>
+    {STANDARD_CSS}
+    .access-card {{ background: var(--card-bg,#151a24); border:1px solid var(--card-border,#2a3345);
+      border-radius: var(--card-radius,10px); padding: 14px; margin-bottom: 10px; }}
+    .access-card h3 {{ color: #a8c7ff; font-size: 13px; margin-bottom: 6px; }}
+    .access-card a {{ color: #58a6ff; text-decoration: none; font-size: 12px; display: block; padding: 3px 0; }}
+    .access-card .note {{ font-size: 10px; color: #555; margin-top: 6px; }}
+    .install-btn {{ background: #1a3050; color:#a8c7ff; border:1px solid #4477cc;
+      border-radius:8px; padding:10px 20px; font-size:13px; cursor:pointer; margin:12px 0; }}
+    .install-btn:hover {{ background:#243050; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Acces</div>
+      <a class="nav-item nav-active" href="/access">🔑 Acces</a>
+    </div>
+    <a class="nav-item" href="/">🏠 Dashboard</a>
+    <a class="nav-item" href="/voice">🎙️ Voice</a>
+    <a class="nav-item" href="/spacex">🚀 SpaceX</a>
+  </nav>
+  <main class="main">
+    <h2>🔑 LocalCMS — Acces Prive</h2>
+    <p class="subtitle">Cockpit prive — aucune exposition publique. Reseau local ou WireGuard uniquement.</p>
+
+    <button class="install-btn" onclick="installPWA()" id="install-btn" style="display:none">📱 Installer l'app</button>
+
+    <div class="access-card">
+      <h3>📱 Voice Operator</h3>
+      <a href="/voice">/voice</a>
+      <a href="/voice/analytics">/voice/analytics</a>
+    </div>
+    <div class="access-card">
+      <h3>🚀 SPCX</h3>
+      <a href="/spacex">/spacex</a>
+      <a href="/desk/spacex/command-center">/desk/spacex/command-center</a>
+      <a href="/desk/spacex/snapshot">/desk/spacex/snapshot</a>
+    </div>
+    <div class="access-card">
+      <h3>📊 Systeme</h3>
+      <a href="/">/ (Dashboard)</a>
+      <a href="/desk/status">/desk/status</a>
+      <a href="/signals">/signals</a>
+      <a href="/journal">/journal</a>
+      <a href="/metrics">/metrics</a>
+      <a href="/credentials">/credentials</a>
+    </div>
+    <div class="access-card">
+      <h3>🔌 Technique</h3>
+      <div class="note">Host: {hostname}</div>
+      <div class="note">Port: 8010 (perf_app) ou 8700 (localcms direct)</div>
+      <div class="note">⚠️ Aucune exposition publique. Acces via LAN ou WireGuard.</div>
+      <div class="note">📱 Ajouter a l'ecran d'accueil pour utiliser comme app native.</div>
+    </div>
+  </main>
+</div>
+<script>
+if ('serviceWorker' in navigator) {{
+  navigator.serviceWorker.register('/service-worker.js').catch(() => {{}});
+}}
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {{
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('install-btn').style.display = 'block';
+}});
+function installPWA() {{
+  if (deferredPrompt) {{ deferredPrompt.prompt(); deferredPrompt = null; }}
+}}
+</script>
+</body>
+</html>"""
 
 
 # ── Voice Operator ─────────────────────────────────────────────────────
