@@ -2240,19 +2240,29 @@ def _handle_composite(composite_type: str) -> dict:
         # SPCX
         spx_price = sp.get("price") if isinstance(sp, dict) else None
         cards.append({"label": "SPCX", "value": f"${spx_price:.1f}" if spx_price and spx_price > 0 else "MARKET CLOSED"})
-        # BTC (from open trades)
-        btc_trades = [t for t in perf_trades if "BTC" in str(t.get("symbol", ""))]
-        cards.append({"label": "BTC", "value": f"{len(btc_trades)} trade actif" if btc_trades else "Surveille"})
-        # XAU
-        xau_trades = [t for t in perf_trades if "XAU" in str(t.get("symbol", ""))]
-        cards.append({"label": "Gold", "value": f"{len(xau_trades)} trade actif" if xau_trades else "Surveille"})
-        # Other active
+        # Vision analysis symbols (read from data_center views)
+        from pathlib import Path
+        import json as _json
+        vision_dir = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "vision_analysis" / "by_symbol"
+        vision_symbols = ["BTCUSDT.P", "ETHUSDT.P", "SOLUSDT.P", "OANDA:XAUUSD", "TVC:DXY", "SPY", "TVC:VIX"]
+        for sym in vision_symbols:
+            vf = vision_dir / f"{sym}.json"
+            if vf.exists():
+                try:
+                    vd = _json.loads(vf.read_text())
+                    fresh = vd.get("freshness_state", "") if isinstance(vd, dict) else ""
+                    trend = vd.get("trend", vd.get("direction", "")) if isinstance(vd, dict) else ""
+                    label = sym.replace("OANDA:", "").replace("TVC:", "").replace("BTCUSDT.P", "BTC").replace("ETHUSDT.P", "ETH").replace("SOLUSDT.P", "SOL")
+                    val = f"{trend}" if trend else "Surveille"
+                    if fresh == "fresh": val += " LIVE"
+                    cards.append({"label": label, "value": val[:30]})
+                except: pass
+        # Perf trades
         for t in perf_trades[:2]:
             sym = t.get("symbol", "?")
-            if sym not in ("BTCUSDT", "XAUUSD"):
-                cards.append({"label": sym, "value": t.get("engine", "actif")})
-        rich["cards"] = cards[:6]
-        symbols = " · ".join(c["label"] for c in cards)
+            cards.append({"label": sym, "value": t.get("engine", "actif")})
+        rich["cards"] = cards[:10]
+        symbols = " · ".join(c["label"] for c in cards[:6])
         rich["spoken_text"] = f"Vue marche. {symbols}."
         one_line = symbols
 
@@ -2325,33 +2335,68 @@ def _handle_composite(composite_type: str) -> dict:
 
     elif composite_type == "spcx_full":
         sp = _get_spcx()
+        # Also read from spacex_super_desk JSON for richer data
+        from pathlib import Path
+        import json as _json
+        cc_path = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "spacex_super_desk" / "latest.json"
+        cc = {}
+        if cc_path.exists():
+            try: cc = _json.loads(cc_path.read_text())
+            except: pass
         cards = []
-        for k, label in [("price", "Prix"), ("vwap_state", "VWAP"), ("vwap_score", "VWAP Score"),
-                          ("gap_ipo_pct", "Gap IPO"), ("orderflow_score", "Orderflow"),
-                          ("ownership_pressure_score", "Ownership"), ("trade_ready", "Trade Ready"),
-                          ("source_quality", "Qualite source"), ("pipeline_state", "Pipeline")]:
-            v = sp.get(k) if isinstance(sp, dict) else None
+        # All available fields from both sources
+        for k, label in [
+            ("price", "Prix"), ("gap_ipo_pct", "Gap IPO"), ("volume", "Volume"),
+            ("vwap_state", "VWAP"), ("vwap_score", "VWAP Score"),
+            ("orderflow_score", "Orderflow"), ("ownership_pressure_score", "Ownership"),
+            ("trade_ready", "Trade Ready"), ("edge_score", "Edge Score"), ("open_score", "Open Score"),
+            ("source_quality", "Qualite source"), ("pipeline_state", "Pipeline"),
+            ("action", "Action"), ("confidence", "Confiance"), ("top_setup", "Top Setup"),
+            ("sector_regime", "Secteur"), ("market_state", "Marche"),
+            ("sources_ok", "Sources OK"), ("sources_total", "Sources Total"),
+        ]:
+            v = sp.get(k) if isinstance(sp, dict) and sp.get(k) is not None else cc.get(k)
             if v is not None:
                 if isinstance(v, float):
                     v = f"{v:.1f}" if abs(v) < 100 else f"{v:.0f}"
-                cards.append({"label": label, "value": str(v)})
-        rich["cards"] = cards[:8]
-        price = sp.get("price", "?") if isinstance(sp, dict) else "?"
+                elif isinstance(v, int):
+                    v = str(v)
+                cards.append({"label": label, "value": str(v)[:40]})
+        # Trade levels from cc
+        for k, label in [("entry", "Entry"), ("stop", "Stop"), ("tp1", "TP1"), ("tp2", "TP2")]:
+            v = cc.get(k)
+            if v:
+                cards.append({"label": label, "value": f"${v:.2f}" if isinstance(v, (int, float)) else str(v)[:20]})
+        # IPO analogs
+        analogs = cc.get("ipo_analogs", [])[:2]
+        for a in analogs:
+            cards.append({"label": f"Analog {a.get('symbol','?')}", "value": f"{a.get('pct', a.get('probability_pct', '?'))}%"})
+        rich["cards"] = cards[:15]
         rich["spoken_text"] = f"SPCX complet. {len(cards)} champs disponibles."
         one_line = f"🚀 SPCX {len(cards)} champs"
 
     elif composite_type == "spcx_risk":
         sp = _get_spcx()
+        from pathlib import Path
+        import json as _json
+        cc_path = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "spacex_super_desk" / "latest.json"
+        cc = {}
+        if cc_path.exists():
+            try: cc = _json.loads(cc_path.read_text())
+            except: pass
         ow = sp.get("ownership_pressure_score", "N/A") if isinstance(sp, dict) else "N/A"
-        gap = sp.get("gap_ipo_pct") if isinstance(sp, dict) else None
+        gap = sp.get("gap_ipo_pct") if isinstance(sp, dict) else cc.get("gap_pct")
         cards = [
             {"label": "Ownership pressure", "value": str(ow)},
             {"label": "Lockup", "value": "2026-12-09 (180j)"},
             {"label": "Insider concentration", "value": "41% / 77.8% vote"},
         ]
-        if gap is not None:
-            cards.append({"label": "Gap IPO", "value": f"{gap:+.1f}%"})
-        rich["cards"] = cards
+        if gap is not None: cards.append({"label": "Gap IPO", "value": f"{gap:+.1f}%" if isinstance(gap, (int, float)) else str(gap)})
+        risks = cc.get("risks", [])
+        for r in (risks or [])[:3]:
+            if r and r != "None":
+                cards.append({"label": "Risque", "value": str(r)[:60]})
+        rich["cards"] = cards[:8]
         rich["spoken_text"] = f"Risques SPCX. Ownership pressure {ow}."
         one_line = f"⚠️ SPCX risk | Ownership {ow}"
 
