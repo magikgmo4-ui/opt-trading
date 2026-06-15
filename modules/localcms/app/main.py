@@ -2332,6 +2332,14 @@ def voice_operator_query(q: str = ""):
         result = call(routed.endpoint, routed.params if routed.params else None)
         latency_ms = int((_time.time() - _start) * 1000)
 
+        # Analytics: log command + response
+        try:
+            from modules.voice_operator.analytics.collector import log_command, log_response
+            log_command(q, routed.intent, routed.endpoint)
+            log_response(routed.intent, latency_ms, result.get("ok", True), result.get("source_quality", result.get("pipeline_state", "ok")))
+        except Exception:
+            pass
+
         return JSONResponse(content={
             "intent": routed.intent,
             "endpoint": routed.endpoint,
@@ -2347,6 +2355,11 @@ def voice_operator_query(q: str = ""):
             "mode": "monitor_only",
         })
     except Exception as e:
+        try:
+            from modules.voice_operator.analytics.collector import log_error
+            log_error("error", str(e)[:200])
+        except Exception:
+            pass
         return JSONResponse(content={
             "intent": "error",
             "endpoint": "",
@@ -2355,3 +2368,90 @@ def voice_operator_query(q: str = ""):
             "ok": False,
             "mode": "monitor_only",
         })
+
+
+@app.get("/voice/analytics", response_class=HTMLResponse)
+def voice_analytics_html():
+    """Voice Operator usage analytics dashboard."""
+    from modules.voice_operator.analytics.aggregator import compute_stats
+
+    stats_all = compute_stats(days=0)
+    stats_7d = compute_stats(days=7)
+    stats_1d = compute_stats(days=1)
+
+    def _render_stats(s, label):
+        cmds = "".join(
+            f'<tr><td>{c["command"]}</td><td class="num">{c["count"]}</td></tr>'
+            for c in s.get("top_commands", [])[:5]
+        ) or '<tr><td colspan="2">Aucune donnee</td></tr>'
+
+        l = s.get("latency", {})
+        source_rows = ""
+        for src, h in s.get("source_health", {}).items():
+            cls = "source-ok" if h["errors"] == 0 else "source-down"
+            source_rows += f'<tr><td><span class="source-badge {cls}">{src.upper()}</span></td><td class="num">{h["responses"]}</td><td class="num">{h["errors"]}</td></tr>'
+
+        return f"""\
+<div class="stat-block">
+<h4>{label}</h4>
+<div class="summary-bar">
+  <div class="summary-card"><div class="num">{s['total_commands']}</div><div class="label">Commandes</div></div>
+  <div class="summary-card"><div class="num">{s['error_rate_pct']}%</div><div class="label">Erreurs</div></div>
+  <div class="summary-card"><div class="num">{s['tts_ratio_pct']}%</div><div class="label">TTS</div></div>
+  <div class="summary-card"><div class="num">{l.get('avg_ms',0)}ms</div><div class="label">Lat. moy</div></div>
+  <div class="summary-card"><div class="num">{l.get('p95_ms',0)}ms</div><div class="label">Lat. p95</div></div>
+</div>
+<table>
+  <thead><tr><th colspan="2">Top commandes</th></tr></thead>
+  <tbody>{cmds}</tbody>
+</table>
+</div>"""
+
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LocalCMS — Voice Analytics</title>
+  <style>
+    {STANDARD_CSS}
+    .stat-block {{ margin-bottom: 28px; }}
+    .stat-block h4 {{ color: #a8c7ff; margin-bottom: 10px; font-size: 15px; }}
+    table {{ width: auto; }}
+    th, td {{ padding: 6px 12px; font-size: 12px; }}
+    .num {{ text-align: right; font-family: monospace; }}
+    .source-badge {{ display:inline-block;padding:1px 6px;border-radius:3px;font-size:9px; }}
+    .source-ok {{ background:#1b3a1b;color:#30d158; }}
+    .source-down {{ background:#3a1b1b;color:#ef5350; }}
+    .refresh-note {{ font-size:10px;color:#555;margin-top:24px; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Voice Operator</div>
+      <a class="nav-item" href="/voice">🎙️ Voice Operator</a>
+      <a class="nav-item nav-active" href="/voice/analytics">📊 Analytics</a>
+    </div>
+    <a class="nav-item" href="/">🏠 Dashboard</a>
+    <a class="nav-item" href="/spacex">🚀 SpaceX</a>
+    <a class="nav-item" href="/signals">📡 Signals</a>
+    <a class="nav-item" href="/journal">📋 Journal</a>
+    <a class="nav-item" href="/metrics">📊 Metrics</a>
+  </nav>
+  <main class="main">
+    <h2>📊 Voice Operator Analytics</h2>
+    <p class="subtitle">Usage reel — aucune telemetrie externe</p>
+
+    {_render_stats(stats_1d, "Aujourd'hui")}
+    {_render_stats(stats_7d, "7 jours")}
+    {_render_stats(stats_all, "Total")}
+
+    <div class="refresh-note">Auto-refresh: 60s. Evenements stockes dans data/logs/voice_events.jsonl</div>
+  </main>
+</div>
+<script>setTimeout(() => location.reload(), 60000);</script>
+</body>
+</html>"""
