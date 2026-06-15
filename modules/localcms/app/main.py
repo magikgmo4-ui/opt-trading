@@ -1843,10 +1843,34 @@ def _voice_operator_html() -> str:
       cursor: pointer;
       transition: all 0.15s;
       white-space: nowrap;
+      position: relative;
     }}
     .voice-btn:hover {{ background: #1e2840; border-color: #4477cc; }}
     .voice-btn:active {{ background: #243050; }}
     .voice-btn.loading {{ opacity: 0.5; pointer-events: none; }}
+    .voice-btn .star {{
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 10px;
+      opacity: 0;
+      transition: opacity 0.15s;
+      color: #ffd700;
+    }}
+    .voice-btn:hover .star {{ opacity: 0.4; }}
+    .voice-btn.fav .star {{ opacity: 1; }}
+    .voice-btn.fav {{ border-color: #665500; }}
+    .favorites-section {{
+      margin-bottom: 24px;
+      padding: 14px;
+      background: var(--card-bg, #151a24);
+      border: 1px solid #665500;
+      border-radius: var(--card-radius, 10px);
+      display: none;
+    }}
+    .favorites-section.has-favs {{ display: block; }}
+    .favorites-section h3 {{ color: #ffd700; margin-bottom: 10px; font-size: 14px; }}
+    .empty-fav {{ color: #555; font-size: 12px; font-style: italic; }}
     .response-area {{
       margin-top: 20px;
       padding: 16px;
@@ -1895,6 +1919,13 @@ def _voice_operator_html() -> str:
     <div class="status-bar">
       <span>TTS: <span id="tts-status" class="tts-indicator tts-inactive">inactif</span></span>
       <span id="last-query" style="color:#555"></span>
+      <span style="margin-left:auto;font-size:10px;color:#555">⭐ = clic droit pour favori</span>
+    </div>
+
+    <div id="favorites" class="favorites-section">
+      <h3>⭐ Favoris</h3>
+      <div class="voice-buttons" id="fav-buttons"></div>
+      <div class="empty-fav" id="fav-empty">Clic droit sur un bouton pour l'ajouter aux favoris.</div>
     </div>
 
     {sections_html}
@@ -1915,13 +1946,21 @@ def _voice_operator_html() -> str:
 
 <script>
 const HISTORY_KEY = 'voice_operator_history';
+const FAV_KEY = 'voice_operator_favorites';
 let history = [];
-let ttsAvailable = false;
+let favorites = [];
 
 try {{
     const stored = localStorage.getItem(HISTORY_KEY);
     if (stored) history = JSON.parse(stored);
     if (history.length > 0) renderHistory();
+}} catch(e) {{}}
+
+try {{
+    const stored = localStorage.getItem(FAV_KEY);
+    if (stored) favorites = JSON.parse(stored);
+    renderFavorites();
+    markFavButtons();
 }} catch(e) {{}}
 
 // Check TTS availability
@@ -1982,6 +2021,72 @@ function speak(text) {{
     u.pitch = 1.0;
     window.speechSynthesis.speak(u);
 }}
+
+function toggleFavorite(command, label) {{
+    const idx = favorites.findIndex(f => f.command === command);
+    if (idx >= 0) {{
+        favorites.splice(idx, 1);
+    }} else {{
+        favorites.push({{ command: command, label: label }});
+        if (favorites.length > 10) favorites.shift();
+    }}
+    localStorage.setItem(FAV_KEY, JSON.stringify(favorites));
+    renderFavorites();
+    markFavButtons();
+}}
+
+function renderFavorites() {{
+    const section = document.getElementById('favorites');
+    const buttons = document.getElementById('fav-buttons');
+    const empty = document.getElementById('fav-empty');
+
+    if (favorites.length === 0) {{
+        section.classList.remove('has-favs');
+        empty.style.display = 'block';
+        return;
+    }}
+    section.classList.add('has-favs');
+    empty.style.display = 'none';
+
+    buttons.innerHTML = favorites.map(f =>
+        '<button class="voice-btn fav" onclick="voiceQuery(\'' + f.command.replace(/'/g, "\\'") + '\')" oncontextmenu="toggleFavorite(\'' + f.command.replace(/'/g, "\\'") + '\',\'' + (f.label || f.command).replace(/'/g, "\\'") + '\');return false" title="Clic: executer | Clic droit: retirer">' +
+        '<span class="star">⭐</span>' + (f.label || f.command) + '</button>'
+    ).join('');
+}}
+
+function markFavButtons() {{
+    document.querySelectorAll('.voice-btn:not(.fav)').forEach(btn => {{
+        const cmd = btn.getAttribute('onclick') || '';
+        const match = cmd.match(/voiceQuery\('(.+?)'\)/);
+        if (match && favorites.some(f => f.command === match[1])) {{
+            btn.classList.add('fav');
+            if (!btn.querySelector('.star')) {{
+                const star = document.createElement('span');
+                star.className = 'star';
+                star.textContent = '⭐';
+                btn.appendChild(star);
+            }}
+        }}
+    }});
+}}
+
+// Right-click on any voice button to toggle favorite
+document.addEventListener('DOMContentLoaded', function() {{
+    setTimeout(function() {{
+        document.querySelectorAll('.voice-btn').forEach(function(btn) {{
+            if (btn.closest('#fav-buttons')) return;
+            btn.addEventListener('contextmenu', function(e) {{
+                e.preventDefault();
+                const cmd = btn.getAttribute('onclick') || '';
+                const match = cmd.match(/voiceQuery\('(.+?)'\)/);
+                if (match) {{
+                    const label = btn.textContent.replace('⭐', '').trim();
+                    toggleFavorite(match[1], label);
+                }}
+            }});
+        }});
+    }}, 200);
+}});
 
 function renderHistory() {{
     const area = document.getElementById('history-area');
