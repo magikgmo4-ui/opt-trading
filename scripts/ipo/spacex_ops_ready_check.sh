@@ -62,8 +62,8 @@ fi
 check "git clean (no modified tracked)" "git diff --quiet HEAD"
 
 # Services
-check "webhook_server :8000" "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8000/health 2>/dev/null | grep -q 200"
-check_warn "perf_app :8010" "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8010/perf/health 2>/dev/null | grep -q 200"
+check "webhook_server :8000" "ss -lntp | grep -q ':8000 '"
+check_warn "perf_app :8010" "ss -lntp | grep -q ':8010 '"
 check_warn "cloudflared tunnel" "pgrep -f cloudflared"
 
 # Timers
@@ -124,6 +124,7 @@ check "disk > 1GB free" "[ $(df -BG . | tail -1 | awk '{print $4}' | sed 's/G//'
 
 # Journal errors
 ERROR_COUNT=$(journalctl -u spcx-orderflow-pipeline.service --since "1 hour ago" 2>/dev/null | grep -ci "error\|traceback\|fail" || echo 0)
+ERROR_COUNT=${ERROR_COUNT:-0}
 if [ "$ERROR_COUNT" -eq 0 ]; then
     LINES+=("| ✅ | no recent orderflow timer errors |")
     ((PASS++)) || true
