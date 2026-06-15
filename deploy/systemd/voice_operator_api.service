@@ -1,0 +1,19 @@
+[Unit]
+Description=Voice Operator read-only API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ghost
+Group=ghost
+WorkingDirectory=/opt/trading
+Environment=PYTHONPATH=/opt/trading
+ExecStart=/opt/trading/venv/bin/python3 -m uvicorn modules.voice_operator.api.routes:app --host 127.0.0.1 --port 8020 --log-level warning
+Restart=always
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target
