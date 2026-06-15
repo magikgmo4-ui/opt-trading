@@ -1,0 +1,26 @@
+{
+  "producer_id": "spacex_true_value",
+  "status": "inactive",
+  "activation": "manual_trigger_only",
+  "go": "GO_SPACEX_TRUE_VALUE_DATACENTER_PRODUCER_01",
+  "module": "modules.stock_true_value",
+  "entrypoint": "python -m modules.stock_true_value.cli --fixture-only",
+  "outputs": [
+    {
+      "path_template": "outputs/stock_true_value/latest/scores.json",
+      "schema": "schemas/stock_true_value/output.schema.json",
+      "required": true
+    },
+    {
+      "path_template": "outputs/spacex_true_value/latest/scores.json",
+      "schema": "schemas/ipo/spacex_true_value_final.v1.schema.json",
+      "required": false
+    }
+  ],
+  "runtime_guards": {
+    "monitor_only": true,
+    "no_broker": true,
+    "no_live_collectors": true,
+    "inactive_by_default": true
+  }
+}

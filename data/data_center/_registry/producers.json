@@ -34,6 +34,15 @@
         }
       },
       "updated_at": "2026-06-12T06:47:11.758363+00:00"
+    },
+    "spacex_true_value": {
+      "producer_id": "spacex_true_value",
+      "contract_class": "spacex_true_value.v1",
+      "last_write": null,
+      "last_output_path": null,
+      "status": "inactive",
+      "evidence": {},
+      "updated_at": "2026-06-15T00:00:00+00:00"
     }
   }
 }
