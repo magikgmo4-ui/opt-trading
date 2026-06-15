@@ -20,6 +20,8 @@ from .verify import validate_full_pipeline
 from .reports import write_daily_report, write_ui, write_orderflow_report
 from .io import REPO_ROOT, utc_now, read_json, append_jsonl, atomic_write_json
 from .enrichment import enrich_candles, enrich_from_snapshot
+from .source_quality import classify_source_quality, cap_trade_ready_from_quality
+from .freshness_watchdog import check_freshness, apply_degraded_caps
 
 
 def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, config_path: str | None = None, symbol_override: str | None = None) -> dict[str, Any]:
@@ -97,6 +99,29 @@ def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, conf
         buckets_dir = REPO_ROOT / "state" / "ipo" / "spacex" / "orderflow_buckets"
         buckets_dir.mkdir(parents=True, exist_ok=True)
         atomic_write_json(buckets_dir / "latest.json", {"buckets": buckets, "generated_at": utc_now(), "bucket_seconds": 60, "count": len(buckets), "symbol": "SPCX"})
+
+    # --- Source quality classification ---
+    price_status = snap.get("price_status", "missing")
+    source_quality = classify_source_quality(tape_data, depth_data, auction_data, ownership_data, price_status)
+    pipeline_result["source_quality"] = source_quality
+
+    # --- Freshness watchdog ---
+    freshness = check_freshness()
+    pipeline_result["freshness"] = freshness
+
+    # --- Apply degraded caps to scores ---
+    snap_scores = snap.get("scores", {})
+    if freshness.get("degraded") or not source_quality.get("can_affect_trade_ready"):
+        snap["scores"] = apply_degraded_caps(snap_scores, freshness)
+        snap["scores"]["trade_ready_capped_by_quality"] = not source_quality.get("can_affect_trade_ready")
+        pipeline_result["degraded"] = True
+        pipeline_result["degraded_reasons"] = freshness.get("warnings", []) + source_quality.get("degraded_reasons", [])
+    else:
+        pipeline_result["degraded"] = False
+
+    # Inject source_quality into snapshot
+    snap["source_quality"] = source_quality
+    snap["pipeline_state"] = freshness.get("pipeline_state", "healthy")
 
     report_path = write_daily_report(snap)
     of_report_path = write_orderflow_report(snap, orderflow_score, ownership_score)
