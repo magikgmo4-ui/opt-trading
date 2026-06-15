@@ -479,6 +479,37 @@ def desk_vision_telegram_claim():
     return read_telegram_claim_panel_data()
 
 
+@router.get("/voice")
+def desk_voice(q: str = ""):
+    """Voice Operator — text command router.
+
+    Query param ?q= accepts natural language commands.
+    Supported: "score spcx", "help", "?"
+    Returns: matched, intent, response (human-readable), data (raw payload).
+    Read-only. monitor_only enforced.
+    """
+    from modules.desk_pro.service.voice_operator import dispatch_command
+    return dispatch_command(q)
+
+
+@router.get("/spacex/score")
+def desk_spacex_score():
+    """SPCX composite score — reads recent CDP + webhook events and scores the setup.
+
+    Voice Operator command: "Score SPCX"
+
+    Returns the full score_spcx() payload enriched with data_source metadata.
+    Read-only. monitor_only=True always.
+    """
+    from modules.desk_pro.service.spcx_score_reader import read_spcx_score
+    return read_spcx_score()
+
+    Returns: score (0-100), grade (C/B/A/A+), setup_state, levels, risk_notes, monitor_only.
+    """
+    from modules.desk_pro.service.spcx_score_reader import read_spcx_score
+    return read_spcx_score()
+
+
 @router.get("/logs/latest")
 def desk_logs_latest(n: int = 200):
     # Returns last N lines of /opt/trading/tmp/desk_pro_ui.log

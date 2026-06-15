@@ -608,11 +608,112 @@ el('btnVision').addEventListener('click', refreshVision);
 el('btnNewsVision').addEventListener('click', refreshNewsVision);
 el('btnScreenerVision').addEventListener('click', refreshScreenerVision);
 el('btnTelegramClaim').addEventListener('click', refreshTelegramClaim);
+
+// -- SPCX Score
+
+function gradeColor(grade){
+  const m={'A+':'#2e7d32','A':'#4caf50','B':'#e65100','C':'#c62828'};
+  return m[grade]||'#888';
+}
+function stateColor(state){
+  const m={'active':'#2e7d32','watch':'#e65100','invalidated':'#c62828'};
+  return m[state]||'#888';
+}
+function renderSpcxCard(j){
+  const grade=j.grade||'?',state=j.setup_state||'?',score=j.score??0;
+  const bias=j.bias||'?',lvl=j.levels||{};
+  const events=(j.events||[]).join(', ')||'-';
+  const risk=(j.risk_notes||[]).join(', ')||'-';
+  const inv=j.invalidation||{},ds=j.data_source||{};
+  const fmtN=v=>v!=null?Number(v).toFixed(2):'-';
+  let invHtml='';
+  if(inv.vwap_loss) invHtml+='<div>VWAP loss @ '+fmtN(inv.vwap_loss.level)+' -- '+(inv.vwap_loss.note||'')+'</div>';
+  if(inv.orb_loss)  invHtml+='<div>ORB loss @ '+fmtN(inv.orb_loss.level)+' -- '+(inv.orb_loss.note||'')+'</div>';
+  const gradeBadge='<div style="font-size:42px;font-weight:700;line-height:1;color:'+gradeColor(grade)+'">'+grade+'</div>';
+  const scoreBadge='<div style="font-size:22px;font-weight:600;color:#333">'+score+'<span style="font-size:13px;color:#888">/100</span></div>';
+  const stateBadge='<div style="margin-top:4px;padding:2px 8px;border-radius:999px;background:'+stateColor(state)+';color:#fff;font-size:11px;font-weight:600;display:inline-block">'+state.toUpperCase()+'</div>';
+  let rows='<tr><td style="color:#888;padding:2px 8px 2px 0;white-space:nowrap">Bias</td><td>'+bias+'</td></tr>';
+  rows+='<tr><td style="color:#888;padding:2px 8px 2px 0">Prix</td><td>'+fmtN(lvl.price)+'</td></tr>';
+  rows+='<tr><td style="color:#888;padding:2px 8px 2px 0">VWAP</td><td>'+fmtN(lvl.vwap)+'</td></tr>';
+  rows+='<tr><td style="color:#888;padding:2px 8px 2px 0">ORB High</td><td>'+fmtN(lvl.orb_high)+'</td></tr>';
+  rows+='<tr><td style="color:#888;padding:2px 8px 2px 0">Signaux</td><td style="font-size:12px">'+events+'</td></tr>';
+  if(risk!=='-') rows+='<tr><td style="color:#e65100;padding:2px 8px 2px 0">Risque</td><td style="color:#e65100;font-size:12px">'+risk+'</td></tr>';
+  if(invHtml) rows+='<tr><td style="color:#888;padding:2px 8px 2px 0;vertical-align:top">Invalide si</td><td style="font-size:12px;color:#555">'+invHtml+'</td></tr>';
+  return '<div style="display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:start"><div style="text-align:center;min-width:70px">'+gradeBadge+scoreBadge+stateBadge+'</div><table style="font-size:13px;border-collapse:collapse;width:100%">'+rows+'</table></div><div style="margin-top:8px;font-size:11px;color:#aaa">Source: '+(ds.cdp_events||0)+' CDP + '+(ds.wire_events||0)+' wire | <span style="color:#2e7d32">monitor_only</span></div>';
+}
+async function refreshSpcx(){
+  const btn=el('btnSpcx'),meta=el('spcxMeta'),content=el('spcxContent');
+  if(btn) btn.disabled=true;
+  if(meta) meta.textContent='loading...';
+  try{
+    const r=await fetch('/desk/spacex/score');
+    const j=await r.json();
+    if(content) content.innerHTML=renderSpcxCard(j);
+    if(meta) meta.textContent=new Date().toLocaleTimeString();
+  }catch(e){
+    if(content) content.innerHTML='<span class="muted">Error: '+e+'</span>';
+    if(meta) meta.textContent='';
+  }finally{
+    if(btn) btn.disabled=false;
+  }
+}
+async function sendVoiceCommand(){
+  const inp=el('voiceInput'),out=el('voiceOutput'),btn=el('btnVoiceCmd');
+  const q=(inp?inp.value:'').trim();
+  if(!q) return;
+  if(btn) btn.disabled=true;
+  if(out) out.textContent='...';
+  try{
+    const r=await fetch('/desk/voice?q='+encodeURIComponent(q));
+    const j=await r.json();
+    if(out) out.textContent=j.response||'(no response)';
+    if(j.intent==='spcx_score'&&j.data){
+      const c=el('spcxContent');
+      if(c) c.innerHTML=renderSpcxCard(j.data);
+    }
+  }catch(e){
+    if(out) out.textContent='Error: '+e;
+  }finally{
+    if(btn) btn.disabled=false;
+  }
+}
+if(el('btnSpcx')) el('btnSpcx').addEventListener('click',refreshSpcx);
+if(el('btnVoiceCmd')) el('btnVoiceCmd').addEventListener('click',sendVoiceCommand);
+if(el('voiceInput')) el('voiceInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendVoiceCommand();});
+
 refreshStatus();
 refreshNewsVision();
 refreshScreenerVision();
 refreshTelegramClaim();
 </script>
 
+  <!-- SPCX Score card -->
+  <details class="tools-section" id="spcxPanel" style="margin-top:16px" ontoggle="if(this.open&&el('spcxContent')&&!el('spcxContent').innerHTML.trim())refreshSpcx()">
+    <summary>SPCX Score</summary>
+    <div class="card" style="margin-top:10px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <button id="btnSpcx" class="action-btn">Refresh</button>
+        <a href="/desk/spacex/score" class="action-link" target="_blank">JSON</a>
+        <span id="spcxMeta" class="muted" style="font-size:12px"></span>
+      </div>
+      <div id="spcxContent"><span class="muted">Cliquez Refresh pour charger le score SPCX.</span></div>
+    </div>
+  </details>
+
+  <!-- Voice Operator -->
+  <details class="tools-section" id="voicePanel" style="margin-top:16px">
+    <summary>Voice Operator</summary>
+    <div class="card" style="margin-top:10px">
+      <div class="muted" style="margin-bottom:8px">Commande texte/voix -- reponse lecture seule</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input id="voiceInput" placeholder='"score spcx" ou "help"'
+               style="flex:1;padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px" />
+        <button id="btnVoiceCmd" class="action-btn">Envoyer</button>
+      </div>
+      <pre id="voiceOutput" style="margin-top:10px;font-size:13px;min-height:40px;white-space:pre-wrap"></pre>
+    </div>
+  </details>
+
 </body>
-</html>"""
+</html>
+"""
