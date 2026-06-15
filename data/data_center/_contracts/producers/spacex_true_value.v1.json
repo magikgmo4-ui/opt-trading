@@ -1,10 +1,11 @@
 {
   "producer_id": "spacex_true_value",
-  "status": "inactive",
-  "activation": "manual_trigger_only",
-  "go": "GO_SPACEX_TRUE_VALUE_DATACENTER_PRODUCER_01",
+  "status": "active",
+  "activation": "manual_trigger_or_timer",
+  "go": "GO_SPACEX_TRUE_VALUE_DATA_CENTER_ACTIVATION_01",
   "module": "modules.stock_true_value",
-  "entrypoint": "python -m modules.stock_true_value.cli --fixture-only",
+  "entrypoint": "python modules/stock_true_value/production_runtime.py",
+  "dc_publisher": "modules/stock_true_value/dc_publisher.py",
   "outputs": [
     {
       "path_template": "outputs/stock_true_value/latest/scores.json",
@@ -12,15 +13,20 @@
       "required": true
     },
     {
-      "path_template": "outputs/spacex_true_value/latest/scores.json",
-      "schema": "schemas/ipo/spacex_true_value_final.v1.schema.json",
-      "required": false
+      "path_template": "data/data_center/views/spacex_true_value.v1/latest.json",
+      "schema": "schemas/stock_true_value/output.schema.json",
+      "required": true
+    },
+    {
+      "path_template": "data/data_center/views/spacex_true_value.v1/by_symbol/<TICKER>.json",
+      "schema": "schemas/stock_true_value/score_snapshot.schema.json",
+      "required": true
     }
   ],
   "runtime_guards": {
     "monitor_only": true,
     "no_broker": true,
-    "no_live_collectors": true,
-    "inactive_by_default": true
+    "no_live_collectors": false,
+    "inactive_by_default": false
   }
 }
