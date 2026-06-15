@@ -158,7 +158,7 @@ def _webhook_send(alert: dict) -> dict:
     if not url:
         return {"sent": False, "reason": "not configured"}
     if _TELEGRAM_API_HOST in url:
-        return {"sent": False, "reason": "webhook_url_is_telegram_api — use TELEGRAM_BOT_TOKEN for Telegram"}
+        return {"sent": False, "reason": "webhook_url_is_telegram_api ÔÇö use TELEGRAM_BOT_TOKEN for Telegram"}
     try:
         payload = json.dumps(alert).encode()
         req = urllib.request.Request(url, data=payload, method="POST")
@@ -268,7 +268,7 @@ def desk_alert_test():
     alert = {
         "ts": datetime.datetime.utcnow().isoformat() + "Z",
         "status": "test",
-        "message": "Desk Pro test alert — this is a smoke test",
+        "message": "Desk Pro test alert ÔÇö this is a smoke test",
     }
     dispatch = _dispatch_alert(alert)
     results = []
@@ -319,13 +319,13 @@ def ui():
 
 @router.get("/toolbox", response_class=HTMLResponse)
 def desk_toolbox():
-    """Boîte à outils info (Commandes + Endpoints + Tunnel SSH)."""
+    """Bo├«te ├á outils info (Commandes + Endpoints + Tunnel SSH)."""
     html = """
     <html>
       <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Desk Pro — Boîte à outils info</title>
+        <title>Desk Pro ÔÇö Bo├«te ├á outils info</title>
         <style>
           body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 24px; }
           h1 { margin: 0 0 6px; }
@@ -340,8 +340,8 @@ def desk_toolbox():
         </style>
       </head>
       <body>
-        <h1>Desk Pro — Boîte à outils info</h1>
-        <p class="muted">Raccourcis, endpoints, et accès Windows via tunnel SSH.</p>
+        <h1>Desk Pro ÔÇö Bo├«te ├á outils info</h1>
+        <p class="muted">Raccourcis, endpoints, et acc├¿s Windows via tunnel SSH.</p>
 
         <div class="card">
           <div><strong>Endpoints</strong></div>
@@ -356,7 +356,7 @@ def desk_toolbox():
 
         <div class="row">
           <div class="card">
-            <div><strong>Windows → UI (recommandé)</strong></div>
+            <div><strong>Windows ÔåÆ UI (recommand├®)</strong></div>
             <p class="muted">Dans PowerShell Windows (garde la session ouverte) :</p>
             <pre>ssh -L 18010:127.0.0.1:8010 ghost@admin-trading</pre>
             <p class="muted">Puis dans le navigateur Windows :</p>
@@ -369,7 +369,7 @@ def desk_toolbox():
 cmd-desk_pro sanity
 cmd-desk_pro health
 cmd-desk_pro logs 200</pre>
-            <p class="muted">Réinstaller les shortcuts :</p>
+            <p class="muted">R├®installer les shortcuts :</p>
             <pre>sudo bash /opt/trading/scripts/install_desk_pro_shortcuts.sh</pre>
           </div>
         </div>
@@ -384,13 +384,13 @@ curl -sS http://127.0.0.1:8010/desk/health</pre>
         <div class="card">
           <div><strong>Notes</strong></div>
           <ul>
-            <li>Si le port local est occupé sur Windows, change 18010 → 28010, etc.</li>
-            <li>Ne lance pas <code>netstat/findstr</code> dans Debian; c'est côté Windows.</li>
+            <li>Si le port local est occup├® sur Windows, change 18010 ÔåÆ 28010, etc.</li>
+            <li>Ne lance pas <code>netstat/findstr</code> dans Debian; c'est c├┤t├® Windows.</li>
           </ul>
         </div>
       
         <div class="card">
-          <h3>Desk Pro — Diagnostics</h3>
+          <h3>Desk Pro ÔÇö Diagnostics</h3>
           <div class="row">
             <div>
               <div class="muted">Status (live via /desk/health)</div>
@@ -407,7 +407,7 @@ cmd-desk_pro logs 200</pre>
             </div>
           </div>
           <div style="margin-top:10px">
-            <div class="muted">Dernières lignes log UI</div>
+            <div class="muted">Derni├¿res lignes log UI</div>
             <pre id="dp_logs">loading...</pre>
             <button id="dp_logs_btn">Refresh logs</button>
           </div>
@@ -587,7 +587,7 @@ th{{background:#fafafa;font-weight:600;color:#666;text-transform:uppercase;font-
 </style></head>
 <body>
 <h1>🚀 SpaceX / SPCX Command Center</h1>
-<p class="subtitle">{generated_at} — <span class="{market_cls}">{market_state}</span> &middot; <span class="{health_cls}">{'HEALTHY' if pipeline_healthy else 'DEGRADED'}</span> &middot; Sources {sources_ok}/{sources_total}</p>
+<p class="subtitle">{generated_at} — <span class="{market_cls}">{market_state}</span> · <span class="{health_cls}">{'HEALTHY' if pipeline_healthy else 'DEGRADED'}</span> · Sources {sources_ok}/{sources_total}</p>
 
 <div class="links-bar">
   <a href="/desk/spacex/command-center" target="_blank">JSON</a>
@@ -624,6 +624,28 @@ th{{background:#fafafa;font-weight:600;color:#666;text-transform:uppercase;font-
 </body></html>""")
 
 
+@router.get("/voice")
+def desk_voice(q: str = ""):
+    """Voice Operator — text command router.
+
+    Query param ?q= accepts natural language commands.
+    Supported: "score spcx", "help", "?"
+    Returns: matched, intent, response (human-readable), data (raw payload).
+    Read-only. monitor_only enforced.
+    """
+    from modules.desk_pro.service.voice_operator import dispatch_command
+    return dispatch_command(q)
+
+
+@router.get("/spacex/score")
+def desk_spacex_score():
+    """SPCX composite score — reads recent CDP + webhook events and scores the setup.
+
+    Returns the full score_spcx() payload enriched with data_source metadata.
+    Read-only. monitor_only=True always.
+    """
+    from modules.desk_pro.service.spcx_score_reader import read_spcx_score
+    return read_spcx_score()
 @router.get("/logs/latest")
 def desk_logs_latest(n: int = 200):
     # Returns last N lines of /opt/trading/tmp/desk_pro_ui.log
