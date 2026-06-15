@@ -2354,6 +2354,17 @@ def voice_operator_query(q: str = ""):
         if routed.endpoint == "/read/composite":
             result = _handle_composite(routed.params.get("type", ""))
             latency_ms = int((_time.time() - _start) * 1000)
+            # Add freshness to composite results
+            from modules.voice_operator.models.freshness import classify_freshness
+            price_val = None
+            if result.get("one_line") and "$" in result["one_line"]:
+                try:
+                    import re
+                    m = re.search(r'\$([0-9.]+)', result["one_line"])
+                    if m: price_val = float(m.group(1))
+                except: pass
+            freshness = classify_freshness(price=price_val if price_val and price_val > 0 else None,
+                                           source_quality="composite", source="composite")
             return JSONResponse(content={
                 "intent": routed.intent,
                 "endpoint": routed.endpoint,
@@ -2365,6 +2376,13 @@ def voice_operator_query(q: str = ""):
                 "latency_ms": latency_ms,
                 "mode": "monitor_only",
                 "rich": result.get("rich", {}),
+                "freshness": {
+                    "state": freshness["freshness_state"],
+                    "badge": freshness["badge"],
+                    "css_class": freshness["css_class"],
+                    "spoken": freshness["spoken"],
+                    "warning": freshness["warning"],
+                },
             })
 
         result = call(routed.endpoint, routed.params if routed.params else None)
