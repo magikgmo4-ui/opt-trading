@@ -2335,51 +2335,46 @@ def _handle_composite(composite_type: str) -> dict:
 
     elif composite_type == "spcx_full":
         sp = _get_spcx()
-        # Also read from spacex_super_desk JSON for richer data
         from pathlib import Path
         import json as _json
-        cc_path = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "spacex_super_desk" / "latest.json"
+        cc_path = Path(__file__).resolve().parents[3] / "data" / "ipo" / "spacex" / "command_center" / "latest.json"
         cc = {}
         if cc_path.exists():
             try: cc = _json.loads(cc_path.read_text())
             except: pass
         cards = []
-        # All available fields from both sources
         for k, label in [
-            ("price", "Prix"), ("gap_ipo_pct", "Gap IPO"), ("volume", "Volume"),
-            ("vwap_state", "VWAP"), ("vwap_score", "VWAP Score"),
-            ("orderflow_score", "Orderflow"), ("ownership_pressure_score", "Ownership"),
-            ("trade_ready", "Trade Ready"), ("edge_score", "Edge Score"), ("open_score", "Open Score"),
-            ("source_quality", "Qualite source"), ("pipeline_state", "Pipeline"),
-            ("action", "Action"), ("confidence", "Confiance"), ("top_setup", "Top Setup"),
+            ("price", "Prix"), ("gap_pct", "Gap IPO"), ("volume", "Volume"),
+            ("vwap", "VWAP"), ("edge_score", "Edge Score"), ("action", "Action"),
+            ("confidence", "Confiance"), ("top_setup", "Top Setup"),
             ("sector_regime", "Secteur"), ("market_state", "Marche"),
-            ("sources_ok", "Sources OK"), ("sources_total", "Sources Total"),
+            ("sources_ok", "Sources"), ("pipeline_healthy", "Pipeline"),
+            ("disagreement", "Disagreement"), ("rsi", "RSI"),
         ]:
             v = sp.get(k) if isinstance(sp, dict) and sp.get(k) is not None else cc.get(k)
             if v is not None:
                 if isinstance(v, float):
                     v = f"{v:.1f}" if abs(v) < 100 else f"{v:.0f}"
-                elif isinstance(v, int):
-                    v = str(v)
                 cards.append({"label": label, "value": str(v)[:40]})
-        # Trade levels from cc
-        for k, label in [("entry", "Entry"), ("stop", "Stop"), ("tp1", "TP1"), ("tp2", "TP2")]:
-            v = cc.get(k)
-            if v:
-                cards.append({"label": label, "value": f"${v:.2f}" if isinstance(v, (int, float)) else str(v)[:20]})
+        # From sp (voice operator enriched)
+        for k, label in [("orderflow_score", "Orderflow"), ("ownership_pressure_score", "Ownership"),
+                          ("source_quality", "Qualite"), ("vwap_state", "VWAP State")]:
+            v = sp.get(k) if isinstance(sp, dict) else None
+            if v is not None:
+                cards.append({"label": label, "value": str(v)[:40]})
         # IPO analogs
         analogs = cc.get("ipo_analogs", [])[:2]
         for a in analogs:
             cards.append({"label": f"Analog {a.get('symbol','?')}", "value": f"{a.get('pct', a.get('probability_pct', '?'))}%"})
         rich["cards"] = cards[:15]
-        rich["spoken_text"] = f"SPCX complet. {len(cards)} champs disponibles."
+        rich["spoken_text"] = f"SPCX complet. {len(cards)} champs."
         one_line = f"🚀 SPCX {len(cards)} champs"
 
     elif composite_type == "spcx_risk":
         sp = _get_spcx()
         from pathlib import Path
         import json as _json
-        cc_path = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "spacex_super_desk" / "latest.json"
+        cc_path = Path(__file__).resolve().parents[3] / "data" / "ipo" / "spacex" / "command_center" / "latest.json"
         cc = {}
         if cc_path.exists():
             try: cc = _json.loads(cc_path.read_text())
