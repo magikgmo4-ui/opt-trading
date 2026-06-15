@@ -2211,8 +2211,10 @@ def _handle_composite(composite_type: str) -> dict:
         nonlocal open_trades
         if open_trades is None:
             from modules.voice_operator.api.readers.perf_reader import read_open_trades
-            open_trades = read_open_trades()
-        return open_trades
+            raw = read_open_trades()
+            trades = raw.get("open", []) if isinstance(raw, dict) else []
+            open_trades = [t for t in trades if t.get("symbol")]
+        return open_trades  # always list
 
     if composite_type == "morning_brief":
         a = _get_alerts()
@@ -2221,7 +2223,7 @@ def _handle_composite(composite_type: str) -> dict:
         active = s.get("active", 0) if isinstance(s, dict) else 0
         a_plus = s.get("a_plus", 0) if isinstance(s, dict) else 0
         ot = _get_open_trades()
-        perf_open = len(ot.get("open", [])) if isinstance(ot, dict) else 0
+        perf_open = len(ot)
         rich["cards"] = [
             {"label": "Setups actifs", "value": f"{active} setups ({a_plus} A+)"},
             {"label": "Trades ouverts", "value": str(perf_open) if perf_open else "0"},
@@ -2233,7 +2235,7 @@ def _handle_composite(composite_type: str) -> dict:
     elif composite_type == "market_view":
         sp = _get_spcx()
         ot = _get_open_trades()
-        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        perf_trades = ot if isinstance(ot, list) else ot.get("open", [])
         cards = []
         # SPCX
         spx_price = sp.get("price") if isinstance(sp, dict) else None
@@ -2269,7 +2271,7 @@ def _handle_composite(composite_type: str) -> dict:
     elif composite_type == "risks":
         sp = _get_spcx()
         ot = _get_open_trades()
-        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        perf_trades = ot if isinstance(ot, list) else ot.get("open", [])
         cards = []
         cards.append({"label": "Trades ouverts", "value": str(len(perf_trades))})
         ows = sp.get("ownership_pressure_score") if isinstance(sp, dict) else None
@@ -2302,7 +2304,7 @@ def _handle_composite(composite_type: str) -> dict:
         s = _get_setups()
         ot = _get_open_trades()
         items = s.get("items", []) if isinstance(s, dict) else []
-        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        perf_trades = ot if isinstance(ot, list) else ot.get("open", [])
         # Merge SPCX setups + perf trades
         all_items = list(items)
         for t in perf_trades[:3]:
@@ -2355,7 +2357,7 @@ def _handle_composite(composite_type: str) -> dict:
 
     elif composite_type == "gold_full":
         ot = _get_open_trades()
-        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        perf_trades = ot if isinstance(ot, list) else ot.get("open", [])
         xau_trades = [t for t in perf_trades if "XAU" in str(t.get("symbol", ""))]
         cards = [{"label": "Trades XAU actifs", "value": str(len(xau_trades))}]
         for t in xau_trades[:2]:
@@ -2371,7 +2373,7 @@ def _handle_composite(composite_type: str) -> dict:
 
     elif composite_type == "gold_danger":
         ot = _get_open_trades()
-        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        perf_trades = ot if isinstance(ot, list) else ot.get("open", [])
         xau_trades = [t for t in perf_trades if "XAU" in str(t.get("symbol", ""))]
         cards = [{"label": "Trades XAU", "value": str(len(xau_trades))}]
         for t in xau_trades[:2]:
