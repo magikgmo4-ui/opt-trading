@@ -1,7 +1,7 @@
-"""Live collector framework for stock_true_value — Yahoo Finance adapter (Phase 6).
+"""Live collector framework for stock_true_value — Yahoo Finance + SEC EDGAR.
 
-Activation: 1 collector at a time. Current: Yahoo Finance only.
-Other sources (SEC, TV, ETF, Analyst) are stubs to be activated later.
+Activation: Yahoo Finance (Phase 6) + SEC EDGAR (Remediation R2).
+Other sources (ETF, Analyst) are stubs to be activated later.
 """
 
 from __future__ import annotations
@@ -21,7 +21,7 @@ WATCHLIST = ["SPCX", "NVDA", "AVGO", "AMD", "MRVL", "MU", "PLTR", "RKLB", "ASTS"
 
 COLLECTOR_STATUS = {
     "yahoo_finance": "active",
-    "sec_edgar": "stub",
+    "sec_edgar": "active",
     "etf_flows": "stub",
     "analyst_revisions": "stub",
 }
@@ -55,18 +55,59 @@ def _yahoo_quote(symbol: str, timeout: int = 10) -> dict[str, Any]:
     }
 
 
-def _price_to_raw_scores(quote: dict) -> dict:
-    """Convert Yahoo quote to raw scores expected by scoring_engine.
+def _sec_edgar_filings(cik: str = "1181412", timeout: int = 10) -> dict[str, Any]:
+    """Fetch SEC EDGAR filings for given CIK. Default: SPCX (CIK 1181412)."""
+    url = f"https://data.sec.gov/submissions/CIK{int(cik):010d}.json"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 opt-trading stock_true_value"})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+    except Exception as e:
+        return {"cik": cik, "ok": False, "error": str(e)}
+    filings = data.get("filings", {}).get("recent", {})
+    forms = filings.get("form", [])[:20]
+    dates = filings.get("filingDate", [])[:20]
+    return {
+        "cik": cik,
+        "ok": True,
+        "name": data.get("name", ""),
+        "recent_forms": forms,
+        "recent_dates": dates,
+        "filing_count": len(forms),
+    }
+
+
+def _sec_signal(filings: dict) -> float:
+    """Convert SEC filing activity to a signal score (0-100).
     
-    This is a minimal mapping — live data provides only price-related signals.
-    Full multi-source scoring requires SEC, ETF, Analyst collectors (stubs).
+    Higher score = more recent and diverse filings.
+    """
+    if not filings.get("ok"):
+        return 50.0
+    forms = filings.get("recent_forms", [])
+    if not forms:
+        return 50.0
+    # Score: more filings + more diverse forms = higher score
+    unique_forms = len(set(forms))
+    filing_count = len(forms)
+    # 0-15 filings → 50-70, 15+ diverse → 70-100
+    signal = min(100, 50 + unique_forms * 3 + filing_count * 0.5)
+    return signal
+
+
+def _price_to_raw_scores(quote: dict, sec_signal: float | None = None) -> dict:
+    """Convert Yahoo quote + optional SEC signal to raw scores.
+    
+    SEC signal enriches fundamental_score when available.
     """
     price = quote.get("price") or 0
     prev_close = quote.get("previous_close") or price or 1
     change_pct = ((price - prev_close) / prev_close * 100) if prev_close else 0
 
+    sec_boost = sec_signal if sec_signal is not None else 50.0
+
     return {
-        "fundamental_score": min(100, max(0, 50 + change_pct * 2)),
+        "fundamental_score": min(100, max(0, (50 + change_pct * 2) * 0.6 + sec_boost * 0.4)),
         "valuation_score": min(100, max(0, 50 + (1 - price / 500 if price else 50))),
         "flow_score": 50.0,
         "speculation_score": 50.0,
@@ -97,6 +138,11 @@ def collect_and_score(dry_run: bool = False) -> dict:
     sources_ok = 0
     sources_err = 0
 
+    # Fetch SEC data once (SPCX only — CIK 1181412)
+    sec_filings = _sec_edgar_filings()
+    sec_signal_value = _sec_signal(sec_filings) if sec_filings.get("ok") else None
+    print(f"  SEC EDGAR: {sec_filings.get('filing_count', 0)} filings, signal={sec_signal_value:.0f}" if sec_signal_value else "  SEC EDGAR: fetch failed")
+
     for ticker in WATCHLIST:
         quote = _yahoo_quote(ticker)
         if not quote.get("ok"):
@@ -105,12 +151,15 @@ def collect_and_score(dry_run: bool = False) -> dict:
             continue
         sources_ok += 1
 
-        raw = _price_to_raw_scores(quote)
+        # Apply SEC signal only to SPCX
+        ticker_sec = sec_signal_value if ticker == "SPCX" else None
+        raw = _price_to_raw_scores(quote, ticker_sec)
         snapshot = compute_score_snapshot(
             ticker=ticker,
             universe="spacex_watchlist",
             raw_scores=raw,
-            source_health_payload={"required_sources_available": 1, "optional_sources_available": 0,
+            source_health_payload={"required_sources_available": 2 if ticker == "SPCX" else 1,
+                                   "optional_sources_available": 0,
                                    "missing_sources": [], "stale_sources": [], "data_conflicts": []},
         )
         results.append(snapshot.to_dict())
