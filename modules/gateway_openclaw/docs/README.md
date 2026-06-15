@@ -1,6 +1,9 @@
 # gateway_openclaw
 
-Module durable de pilotage du gateway OpenClaw via `tmux`, adapté au mode opératoire validé sur `db-layer` lorsque `systemd --user` n'est pas disponible.
+Module durable de pilotage du gateway OpenClaw.
+
+Mode opérationnel courant: `openclaw-gateway.service` sur `fantome`.
+Les scripts `tmux` restent disponibles pour diagnostic manuel ou reprise legacy sur `db-layer`.
 
 ## Surface
 - `sanity`
@@ -15,11 +18,22 @@ Module durable de pilotage du gateway OpenClaw via `tmux`, adapté au mode opér
 
 ## Principe
 - utilisateur cible par défaut : `openclaw`
+- service systemd courant : `openclaw-gateway.service`
+- hôte courant : `fantome`
 - session `tmux` par défaut : `openclaw-gateway`
 - log par défaut : `~openclaw/.openclaw/logs/gateway_foreground.log`
 - backend de démarrage : `openclaw gateway run`
 
 ## Exécution
+Exploitation courante :
+```bash
+sudo systemctl status openclaw-gateway.service
+sudo systemctl restart openclaw-gateway.service
+sudo -iu openclaw openclaw gateway health
+sudo -iu openclaw openclaw gateway probe --timeout 30000
+```
+
+Exécution legacy/manual :
 Le module est conçu pour être exécuté **sous l'utilisateur `openclaw`**.
 
 Exemple :
