@@ -77,6 +77,40 @@ INTENT_PATTERNS: list[tuple[list[str], str, str, dict]] = [
     (["top movers", "movers", "bouge", "mouvements"],
      "top_movers", "/read/composite", {"type": "top_movers"}),
 
+    # ── Detail commands (before generic patterns) ──
+    (["analyse btc", "btc complet", "btc detail", "analyse bitcoin", "btc analyse"],
+     "btc_full", "/read/composite", {"type": "btc_full"}),
+
+    (["analyse gold", "analyse or", "gold complet", "or complet", "analyse xau"],
+     "gold_full", "/read/composite", {"type": "gold_full"}),
+
+    (["alertes telegram", "telegram alerts", "signaux telegram", "telegram signals"],
+     "telegram_alerts", "/read/composite", {"type": "telegram_alerts"}),
+
+    (["setups actifs", "setups", "setup actifs", "all setups", "tous les setups"],
+     "setups_all", "/read/composite", {"type": "setups_all"}),
+
+    (["setup btc", "setup bitcoin"],
+     "setup_detail", "/read/composite", {"type": "setup_detail", "symbol": "BTC"}),
+
+    (["setup gold", "setup or", "setup xau", "setup xauusd"],
+     "setup_detail", "/read/composite", {"type": "setup_detail", "symbol": "XAUUSD"}),
+
+    (["setup spcx", "setup spacex"],
+     "setup_detail", "/read/composite", {"type": "setup_detail", "symbol": "SPCX"}),
+
+    (["score btc", "score bitcoin"],
+     "score_detail", "/read/composite", {"type": "score_detail", "symbol": "BTC"}),
+
+    (["score gold", "score or", "score xau"],
+     "score_detail", "/read/composite", {"type": "score_detail", "symbol": "XAUUSD"}),
+
+    (["score spcx", "score spacex", "note spcx"],
+     "score_detail", "/read/composite", {"type": "score_detail", "symbol": "SPCX"}),
+
+    (["rapport quotidien", "rapport daily", "daily report", "rapport journalier"],
+     "daily_report", "/read/composite", {"type": "daily_report"}),
+
     (["resume executif", "exec summary", "resume", "bref"],
      "exec_summary", "/read/composite", {"type": "exec_summary"}),
 ]

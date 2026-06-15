@@ -1,0 +1,3 @@
+docs/chantiers/GO_VOICE_OPERATOR_COMMAND_CONTRACTS_AUDIT_01/**
+modules/voice_operator/engine/intent_router.py
+modules/localcms/app/main.py
