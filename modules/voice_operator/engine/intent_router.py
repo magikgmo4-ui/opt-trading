@@ -33,7 +33,8 @@ INTENT_PATTERNS: list[tuple[list[str], str, str, dict]] = [
      "morning_brief", "/read/composite", {"type": "morning_brief"}),
 
     (["vue marche", "market view", "snapshot marche", "marches", "tous les marches",
-      "rapport marche", "rapport marche", "rapport des marches", "market report"],
+      "rapport marche", "rapport marche", "rapport des marches", "market report",
+      "rapport marché", "marché", "vue marché"],
      "market_view", "/read/composite", {"type": "market_view"}),
 
     (["nouveautes", "quoi de neuf", "derniers changements", "updates"],
@@ -41,7 +42,8 @@ INTENT_PATTERNS: list[tuple[list[str], str, str, dict]] = [
 
     (["spcx complet", "spcx full", "spcx detail", "tout spcx",
       "resume spcx", "resume spcx", "spcx resume", "spcx summary",
-      "resume SPCX", "SPCX resume"],
+      "resume SPCX", "SPCX resume",
+      "resumer spcx", "spcx resumer"],
      "spcx_full", "/read/composite", {"type": "spcx_full"}),
 
     (["spcx risque", "spcx risk", "spcx danger", "risque spcx"],
