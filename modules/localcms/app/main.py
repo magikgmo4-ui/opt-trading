@@ -2216,6 +2216,16 @@ def _handle_composite(composite_type: str) -> dict:
             open_trades = [t for t in trades if t.get("symbol")]
         return open_trades  # always list
 
+    def _get_analysis():
+        nonlocal open_trades  # reuse variable
+        from pathlib import Path as _Path
+        import json as _json
+        p = _Path(__file__).resolve().parents[3] / "data" / "deskpro" / "inputs" / "analysis_report" / "latest.json"
+        if p.exists():
+            try: return _json.loads(p.read_text())
+            except: pass
+        return {}
+
     if composite_type == "morning_brief":
         a = _get_alerts()
         s = _get_setups()
@@ -2224,12 +2234,23 @@ def _handle_composite(composite_type: str) -> dict:
         a_plus = s.get("a_plus", 0) if isinstance(s, dict) else 0
         ot = _get_open_trades()
         perf_open = len(ot)
+        # Deskpro analysis context
+        ana = _get_analysis()
+        regimes = ana.get("regimes", {}) if isinstance(ana, dict) else {}
+        consensus = ana.get("class_consensus", {}) if isinstance(ana, dict) else {}
+        signals = ana.get("actionable_signals", [])[:3] if isinstance(ana, dict) else []
         rich["cards"] = [
             {"label": "Setups actifs", "value": f"{active} setups ({a_plus} A+)"},
-            {"label": "Trades ouverts", "value": str(perf_open) if perf_open else "0"},
+            {"label": "Trades ouverts", "value": str(perf_open)},
             {"label": "Alertes", "value": f"{crit} critiques"},
         ]
-        rich["spoken_text"] = f"Briefing. {active} setups actifs, {a_plus} A+. {perf_open} trades ouverts. {crit} alertes."
+        if regimes:
+            for k, v in list(regimes.items())[:3]:
+                rich["cards"].append({"label": f"Regime {k}", "value": str(v)[:40]})
+        if signals:
+            for sig in signals[:2]:
+                rich["cards"].append({"label": "Signal", "value": str(sig.get("symbol", sig.get("type", "?")))[:40]})
+        rich["spoken_text"] = f"Briefing. {active} setups, {a_plus} A+. {perf_open} trades. {crit} alertes."
         one_line = f"📊 {active} setups | {a_plus} A+ | {perf_open} trades | {crit} alertes"
 
     elif composite_type == "market_view":
@@ -2279,25 +2300,18 @@ def _handle_composite(composite_type: str) -> dict:
         one_line = f"🆕 {n_alerts} alertes | {n_setups} setups"
 
     elif composite_type == "risks":
-        sp = _get_spcx()
-        ot = _get_open_trades()
-        perf_trades = ot if isinstance(ot, list) else ot.get("open", [])
-        cards = []
-        cards.append({"label": "Trades ouverts", "value": str(len(perf_trades))})
-        ows = sp.get("ownership_pressure_score") if isinstance(sp, dict) else None
-        if ows is not None:
-            cards.append({"label": "SPCX ownership risk", "value": f"{ows:.0f}/100" if ows else "N/A"})
-        # Check for trades near SL
-        for t in perf_trades[:3]:
-            entry = t.get("entry", 0)
-            stop = t.get("stop", 0)
-            if entry and stop and entry > 0:
-                dist_pct = abs(entry - stop) / entry * 100
-                if dist_pct < 2:
-                    cards.append({"label": f"SL proche {t.get('symbol','?')}", "value": f"{dist_pct:.1f}%"})
-        rich["cards"] = cards[:6]
-        rich["spoken_text"] = f"Risques. {len(perf_trades)} trades ouverts."
-        one_line = f"⚠️ {len(perf_trades)} trades | {len(cards)-1} risques"
+        ana = _get_analysis()
+        alerts_list = ana.get("alerts", []) if isinstance(ana, dict) else []
+        signals = ana.get("actionable_signals", []) if isinstance(ana, dict) else []
+        squeeze = ana.get("squeeze_alert", {}) if isinstance(ana, dict) else {}
+        cards = [{"label": "Alertes GPT", "value": str(len(alerts_list))}]
+        for sig in signals[:3]:
+            cards.append({"label": f"Signal {sig.get('symbol','?')}", "value": str(sig.get('type', sig.get('direction', '?')))[:40]})
+        if squeeze:
+            cards.append({"label": "Squeeze", "value": str(squeeze.get("status", squeeze.get("level", "?")))[:30]})
+        rich["cards"] = cards[:7]
+        rich["spoken_text"] = f"Risques. {len(alerts_list)} alertes analyse, {len(signals)} signaux."
+        one_line = f"⚠️ {len(signals)} signaux | {len(alerts_list)} alertes"
 
     elif composite_type == "urgencies":
         a = _get_alerts()
