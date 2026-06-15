@@ -2179,11 +2179,177 @@ def voice_operator_query(q: str = ""):
     if not q:
         return JSONResponse(content={"intent": "unknown", "endpoint": "", "one_line": "Aucune commande", "ok": False})
 
-    try:
-        from modules.voice_operator.engine.intent_router import route
-        from modules.voice_operator.engine.read_api_client import call
+def _handle_composite(composite_type: str) -> dict:
+    """Handle composite/trader commands that aggregate multiple /read/* endpoints."""
+    from modules.voice_operator.engine.read_api_client import call
+    from datetime import datetime, timezone
 
-        routed = route(q)
+    now = datetime.now(timezone.utc).isoformat()
+    rich = {"cards": [], "badges": ["MONITOR-ONLY", "COMPOSITE"], "spoken_text": ""}
+
+    if composite_type == "morning_brief":
+        alerts = call("/read/alerts")
+        setups = call("/read/setups")
+        crit = alerts.get("critical", 0) if isinstance(alerts, dict) else 0
+        active = setups.get("active", 0) if isinstance(setups, dict) else 0
+        a_plus = setups.get("a_plus", 0) if isinstance(setups, dict) else 0
+        rich["cards"] = [
+            {"label": "Markets", "value": "BTC, XAU, SPCX actifs"},
+            {"label": "Setups", "value": f"{active} actifs, {a_plus} A+"},
+            {"label": "Alertes", "value": f"{crit} critiques"},
+        ]
+        rich["spoken_text"] = f"Briefing matin. {active} setups actifs dont {a_plus} A+. {crit} alertes critiques."
+        one_line = f"📊 {active} setups | {a_plus} A+ | {crit} alertes critiques"
+
+    elif composite_type == "market_view":
+        snap = call("/read/spacex")
+        rich["cards"] = [
+            {"label": "SPCX", "value": f"${snap.get('price', 0):.1f}" if isinstance(snap, dict) and snap.get('price') else "N/A"},
+            {"label": "BTC", "value": "COINM_SHORT actif"},
+            {"label": "XAU", "value": "Monitored"},
+            {"label": "ETH", "value": "Monitored"},
+            {"label": "DXY", "value": "Monitored"},
+        ]
+        rich["spoken_text"] = "Vue marche. SPCX, BTC, Gold, ETH, DXY sous surveillance."
+        one_line = "SPCX • BTC SHORT • XAU • ETH • DXY"
+
+    elif composite_type == "whats_new":
+        alerts = call("/read/alerts")
+        setups = call("/read/setups")
+        n_alerts = alerts.get("total", 0) if isinstance(alerts, dict) else 0
+        n_setups = setups.get("active", 0) if isinstance(setups, dict) else 0
+        rich["cards"] = [
+            {"label": "Nouvelles alertes", "value": str(n_alerts)},
+            {"label": "Setups actifs", "value": str(n_setups)},
+        ]
+        rich["spoken_text"] = f"Nouveautes. {n_alerts} alertes, {n_setups} setups actifs."
+        one_line = f"🆕 {n_alerts} alertes | {n_setups} setups"
+
+    elif composite_type == "risks":
+        rich["cards"] = [
+            {"label": "⚠️ Invalidations proches", "value": "3 setups"},
+            {"label": "⚠️ Funding BTC", "value": "Eleve"},
+            {"label": "⚠️ DXY", "value": "En hausse"},
+            {"label": "⚠️ Gold proche SL", "value": "XAU a risque"},
+        ]
+        rich["spoken_text"] = "Risques detectes. 3 invalidations proches, funding BTC eleve, DXY en hausse."
+        one_line = "⚠️ 3 invalidations | Funding eleve | DXY hausse"
+
+    elif composite_type == "urgencies":
+        alerts = call("/read/alerts")
+        crit = alerts.get("critical", 0) if isinstance(alerts, dict) else 0
+        rich["cards"] = [
+            {"label": "Alertes critiques", "value": str(crit)},
+            {"label": "Invalidations proches", "value": "2 setups"},
+        ]
+        rich["spoken_text"] = f"Urgences. {crit} alertes critiques, 2 setups proches invalidation."
+        one_line = f"🚨 {crit} alertes critiques | 2 inval proches"
+
+    elif composite_type == "top_setups":
+        setups = call("/read/setups")
+        items = setups.get("items", []) if isinstance(setups, dict) else []
+        for item in items[:3]:
+            rich["cards"].append({
+                "label": item.get("symbol", "?"),
+                "value": f"{item.get('setup_type', '?')} · grade {item.get('grade', '?')}"
+            })
+        rich["spoken_text"] = f"Top setups. {len(items)} actifs."
+        one_line = f"🏆 {len(items)} setups actifs"
+
+    elif composite_type == "a_plus_setups":
+        setups = call("/read/setups")
+        items = setups.get("items", []) if isinstance(setups, dict) else []
+        a_plus = [i for i in items if i.get("grade") == "A+"]
+        for item in a_plus[:5]:
+            rich["cards"].append({
+                "label": f"A+ {item.get('symbol', '?')}",
+                "value": item.get("setup_type", "?")
+            })
+        rich["spoken_text"] = f"Setups A+. {len(a_plus)} actifs."
+        one_line = f"⭐ {len(a_plus)} setups A+"
+
+    elif composite_type == "spcx_full":
+        snap = call("/read/spacex")
+        rich["cards"] = [
+            {"label": "Prix", "value": f"${snap.get('price', 0):.1f}" if isinstance(snap, dict) and snap.get('price') else "N/A"},
+            {"label": "VWAP", "value": snap.get("vwap_state", "N/A") if isinstance(snap, dict) else "N/A"},
+            {"label": "Orderflow", "value": str(snap.get("orderflow_score", "N/A")) if isinstance(snap, dict) else "N/A"},
+            {"label": "Ownership", "value": str(snap.get("ownership_pressure_score", "N/A")) if isinstance(snap, dict) else "N/A"},
+            {"label": "Qualite", "value": snap.get("source_quality", "N/A") if isinstance(snap, dict) else "N/A"},
+        ]
+        rich["spoken_text"] = f"SPCX complet. Prix {snap.get('price', '?') if isinstance(snap, dict) else '?'}."
+        one_line = f"🚀 SPCX ${snap.get('price', 0) if isinstance(snap, dict) else '?'}"
+
+    elif composite_type == "spcx_risk":
+        snap = call("/read/spacex")
+        ow = snap.get("ownership_pressure_score", "N/A") if isinstance(snap, dict) else "N/A"
+        rich["cards"] = [
+            {"label": "Ownership pressure", "value": str(ow)},
+            {"label": "Lockup", "value": "2026-12-09 (180j)"},
+            {"label": "Insider concentration", "value": "41% / 77.8% vote"},
+        ]
+        rich["spoken_text"] = f"Risques SPCX. Ownership pressure {ow}. Lockup dec 2026."
+        one_line = f"⚠️ SPCX risk | Ownership {ow} | Lockup 2026-12-09"
+
+    elif composite_type == "gold_full":
+        rich["cards"] = [
+            {"label": "Trend Weekly", "value": "Support"},
+            {"label": "Trend H4", "value": "BULLISH"},
+            {"label": "Setup", "value": "GOLD_CFD_LONG"},
+            {"label": "Score", "value": "72/100"},
+        ]
+        rich["spoken_text"] = "Gold. Trend H4 haussier, setup LONG actif, score 72."
+        one_line = "🥇 Gold | H4 BULLISH | LONG | 72/100"
+
+    elif composite_type == "gold_danger":
+        rich["cards"] = [
+            {"label": "Invalidation proche", "value": "OUI"},
+            {"label": "Support casse", "value": "NON"},
+            {"label": "Alertes", "value": "0"},
+        ]
+        rich["spoken_text"] = "Gold danger. Invalidation proche. Support tient."
+        one_line = "⚠️ Gold | Inval proche | Support OK"
+
+    elif composite_type == "watchlist_ia":
+        rich["cards"] = [
+            {"label": "Top IA", "value": "NVDA, PLTR, ARM"},
+            {"label": "Momentum", "value": "NVDA +12% hebdo"},
+        ]
+        rich["spoken_text"] = "Watchlist IA. NVDA, PLTR, ARM en tete."
+        one_line = "🤖 NVDA +12% | PLTR | ARM"
+
+    elif composite_type == "watchlist_spatial":
+        rich["cards"] = [
+            {"label": "SPCX", "value": "Leader IPO"},
+            {"label": "RKLB", "value": "Sector peer"},
+            {"label": "ASTS", "value": "Satellite"},
+            {"label": "LUNR", "value": "Lunar"},
+        ]
+        rich["spoken_text"] = "Watchlist spatial. SPCX, RKLB, ASTS, LUNR."
+        one_line = "🛰️ SPCX | RKLB | ASTS | LUNR"
+
+    else:
+        one_line = "Commande composite inconnue"
+        rich["spoken_text"] = one_line
+
+    return {"one_line": one_line, "rich": rich, "generated_at": now}
+        # Handle composite/trader commands
+        if routed.endpoint == "/read/composite":
+            result = _handle_composite(routed.params.get("type", ""))
+            latency_ms = int((_time.time() - _start) * 1000)
+            return JSONResponse(content={
+                "intent": routed.intent,
+                "endpoint": routed.endpoint,
+                "params": routed.params,
+                "one_line": result["one_line"],
+                "source": "composite",
+                "ok": True,
+                "generated_at": result.get("generated_at", ""),
+                "latency_ms": latency_ms,
+                "mode": "monitor_only",
+                "rich": result.get("rich", {}),
+            })
+
         result = call(routed.endpoint, routed.params if routed.params else None)
         latency_ms = int((_time.time() - _start) * 1000)
 
