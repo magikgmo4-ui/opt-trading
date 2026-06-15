@@ -74,6 +74,7 @@ check "EOD backtest timer active" "systemctl is-active spcx-v2-backtest.timer 2>
 SNAPSHOT_PATH="data/ipo/spacex/scored/latest_snapshot.json"
 if [ -f "$SNAPSHOT_PATH" ]; then
     SNAP_AGE=$(($(date +%s) - $(stat -c %Y "$SNAPSHOT_PATH" 2>/dev/null || echo 0)))
+    TV_ACTIVE=$(python3 -c "import json; d=json.load(open('$SNAPSHOT_PATH')); print(d.get('tv_alert_active','false'))" 2>/dev/null || echo "false")
     if [ "$SNAP_AGE" -lt 600 ]; then
         LINES+=("| ✅ | latest_snapshot.json fresh (${SNAP_AGE}s) |")
         ((PASS++)) || true
@@ -84,6 +85,16 @@ if [ -f "$SNAPSHOT_PATH" ]; then
         LINES+=("| ❌ | latest_snapshot.json very stale (${SNAP_AGE}s) |")
         ((FAIL++)) || true
     fi
+    if [ "$TV_ACTIVE" = "True" ] || [ "$TV_ACTIVE" = "true" ]; then
+        LINES+=("| ✅ | tv_alert_active=True |")
+        ((PASS++)) || true
+    else
+        LINES+=("| ⚠️ | tv_alert_active=False (no real TradingView fire yet) |")
+        ((WARN++)) || true
+    fi
+    PIPELINE_STATE=$(python3 -c "import json; d=json.load(open('$SNAPSHOT_PATH')); print(d.get('pipeline_state','unknown'))" 2>/dev/null || echo "unknown")
+    SQ_TIER=$(python3 -c "import json; d=json.load(open('$SNAPSHOT_PATH')); print(d.get('source_quality',{}).get('overall_tier','unknown'))" 2>/dev/null || echo "unknown")
+    LINES+=("| ℹ️ | pipeline_state=$PIPELINE_STATE source_quality=$SQ_TIER |")
 else
     LINES+=("| ❌ | latest_snapshot.json missing |")
     ((FAIL++)) || true
@@ -105,17 +116,18 @@ else
     ((WARN++)) || true
 fi
 
-EVENTS_PATH="state/events.jsonl"
-if [ -f "$EVENTS_PATH" ]; then
-    LAST_EVENT_TS=$(tail -1 "$EVENTS_PATH" 2>/dev/null | python3 -c "import sys,json; d=json.loads(sys.stdin.read()); print(d.get('received_at',''))" 2>/dev/null || echo "")
-    if [ -n "$LAST_EVENT_TS" ]; then
-        LINES+=("| ℹ️ | last webhook event: $LAST_EVENT_TS |")
-    else
-        LINES+=("| ⚠️ | webhook events.jsonl empty or unparseable |")
-        ((WARN++)) || true
-    fi
+SPCX_WEBHOOK_JSONL="data/ipo/spacex/raw/spacex_snapshots.jsonl"
+GENERIC_EVENTS_JSONL="state/events.jsonl"
+
+if [ -s "$SPCX_WEBHOOK_JSONL" ] && tail -n 1 "$SPCX_WEBHOOK_JSONL" 2>/dev/null | python3 -c "import sys,json; json.loads(sys.stdin.read())" 2>/dev/null; then
+    LAST_EVENT=$(tail -n 1 "$SPCX_WEBHOOK_JSONL" 2>/dev/null | python3 -c "import sys,json; d=json.loads(sys.stdin.read()); print(d.get('received_at','')[:19])" 2>/dev/null || echo "?")
+    LINES+=("| ✅ | SPCX webhook jsonl parseable (last: $LAST_EVENT) |")
+    ((PASS++)) || true
+elif [ -s "$GENERIC_EVENTS_JSONL" ] && tail -n 1 "$GENERIC_EVENTS_JSONL" 2>/dev/null | python3 -c "import sys,json; json.loads(sys.stdin.read())" 2>/dev/null; then
+    LINES+=("| ⚠️ | generic webhook events (SPCX raw path empty) |")
+    ((WARN++)) || true
 else
-    LINES+=("| ⚠️ | webhook events.jsonl not found |")
+    LINES+=("| ⚠️ | webhook events jsonl empty or unparseable |")
     ((WARN++)) || true
 fi
 
