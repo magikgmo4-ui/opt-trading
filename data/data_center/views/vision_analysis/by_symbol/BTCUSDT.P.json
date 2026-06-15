@@ -56942,5 +56942,1922 @@
       "summary_json": "2026-06-11_05-43-27",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-11_05-43-15.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032243_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-14T23:22:41-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-22-34",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65800.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "chercher achat sur support 64000 avec objectif 65800, stop sous 64000",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cours sous 64000",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette depuis le creux autour de 63 700 USDT, avec un fort gap up marquant un breakout important.  \n- Structure récente en HH/HL, validant un impulsion acheteuse sur ce timeframe 15m.  \n- Zone clé support vers 64 000 USDT, résistance immédiate vers 65 800 USDT, plafond actuel.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure montre une série de creux et sommets plus hauts (HL et HH) depuis l'avant-dernière baisse aux environs de 63 700 USDT. Un fort mouvement haussier a permis un gap up massif au-dessus de 64 500 USDT, validant la sortie d’une zone de consolidation. Le prix bute désormais sur une résistance près de 65 800 USDT, créant un plafond à court terme. La zone de 64 000 USDT représente le support clé à surveiller en cas de pullback. Scénario acheteur priviligié tant que ce support tient, invalidation sous 64 000 qui ramènerait en range.\n\nC) DeskPro  \n{\"run_id\":\"20240615_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"s",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-22-34",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-14_23-22-22.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032303_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-14T23:23:01-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-22-54",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 65400.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur retest support 64000 ou sur breakout 66000",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture 1h sous 63500",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante depuis plusieurs jours, marquée par des HL et HH clairs.  \n- Structure actuelle en push haussier fort, avec cassure nette d’une résistance précédente vers 65 300-65 400.  \n- Zone de support clé vers 64 000, à défendre pour maintenir le biais haussier; invalidation sous 63 500.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une dynamique haussière progressive, avec une série de hauts et bas ascendante (HH/HL). Le dernier mouvement est un fort breakout à la hausse, confirmé par un volume en hausse. La résistance cassée aux alentours de 65 400 devient support potentiel. Pour continuer la hausse, il faut maintenir les prix au-dessus de 64 000. Un retour sous 63 500 invaliderait ce scénario et pourrait engendrer un retracement profond. En l’état, le plan est d’acheter sur les supports clés ou breakout, avec un stop sous 63 500.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"support",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-22-54",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-14_23-22-46.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032352_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-14T23:23:50-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-23-44",
+    "signals": [
+      {
+        "type": "resistance_level",
+        "value": 66400.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur support 64000 avec cible 66400+ extension",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure sous 64000",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Environnement global haussier sur le timeframe 1h avec une forte poussée récente.  \n- Structure de prix correcte avec des HL et HH visibles, pas de retournement clair à ce stade.  \n- Zones clés à surveiller sur les supports récents pour valider la continuation ou scénario de pullback.  \n\nB) Chart 1 (haut-gauche):  \n- Symbol/timeframe : BTCUSDT 1h (Binance).  \n- Tendance : haussière confirmée à court terme avec des HH/HL sur le graphique.  \n- Structure : oscillation propre avec une série de HL et HH, dernière bougie poussée forte.  \n- Zones clés : support vers 64 000-64 200$ ; résistance prochaine autour de 66 400$ (plus haut récent).  \n- Scénario : continuation possible si support 64k tient, viser 66 400 et extension.  \n- Invalidation : cassure sous 64 000 annule scénario haussier.  \n\nC) Chart 2 (haut-droit):  \n- Inconnu (symbole/timeframe non visible).  \n\nD) Chart 3 (bas-gauche):  \n- Inconnu (symbole/timeframe non visible).  \n\nE) Chart 4 (bas-droit):  \n- Inconnu (",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-23-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-14_23-23-31.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_034306_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-14T23:43:04-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-42-57",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 63.0,
+        "confidence": 0.7,
+        "note": "s 63"
+      },
+      {
+        "type": "support_level",
+        "value": 64.0,
+        "confidence": 0.7,
+        "note": "s 64"
+      },
+      {
+        "type": "support_level",
+        "value": 64700.0,
+        "confidence": 0.7,
+        "note": "s 64700"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière de court terme sur la première moitié du graphique, avec une série de LL (Lower Lows) et LH (Lower Highs).  \n- Forte cassure haussière nette avec une impulsion majeure en volume en fin de graphique, invalidant la structure baissière précédente.  \n- Structure haussière en formation post-cassure avec HH (Higher High) et HL (Higher Low) à confirmer dans le court terme.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLa structure initiale montre une tendance baissière (LL et LH) jusqu’à un point bas vers 63 300. La zone clé de support a bien tenu. Une forte impulsion haussière a ensuite entraîné une cassure franche au-dessus de la résistance aux environs de 64 700. Cette rupture s’accompagne d’un volume important, renforçant la validité du retournement. La tendance immédiate est désormais haussière avec une structure HH/HL en formation. Scenario principal: chercher à initier des entrées longues au-dessus de 65 300, avec comme invalidation la rechute sous 64 700 ",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-42-57",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-14_23-42-43.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_034331_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-14T23:43:29-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-43-23",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 62800.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 63000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65600.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur retracement proche support 62800-63000 avec objectif vers le plus haut actuel / breakout 65600. Vendre si clôture horaire sous 63000 (invalidation).",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture horaire sous 63000",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette avec des HH et HL bien marqués sur le graph 1h.  \n- Zone clé de support vers 62 800-63 000 USDT, récemment validée.  \n- Scénario d'accélération haussière possible avec breakout récent au-dessus de 65 600 USDT, invalidation sous 63 000 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h): La structure montre une progression régulière d’un bas vers un sommet plus élevé (HH/HL). Le prix a franchi une résistance majeure vers 65 600 USDT sur un volume accru, signalant une force acheteuse. Le support solide est identifié au niveau 62 800-63 000 USDT, qui correspond aux derniers HL. Le biais reste haussier tant que ce support tient. Une invalidation en cassure sous ce support remettrait en cause la tendance haussière.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"62800\",\"63000\"],\"resistances\":[\"65600\"],\"plan\":\"Acheter sur retracement proche support 62800-63000 avec objectif vers le plus haut actue",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-43-23",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-14_23-43-09.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_034423_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-14T23:44:21-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-44-12",
+    "signals": [
+      {
+        "type": "resistance_level",
+        "value": 65830.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Pullback sur support puis reprise haussière",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 62200 à forte force",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur la majorité des graphiques, avec forces récentes confirmées par des breaks.  \n- Structures montrent plusieurs HH (Higher Highs) et HL (Higher Lows), signalant une dynamique acheteuse dominante.  \n- Zones clés clairement identifiées avec support autour de l’ancien range et résistances testées/faibles actuellement.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h   \n- Tendance haussière claire avec HH/HL bien formés.  \n- Structure récemment cassé avec montée forte (breakout) au-dessus d'une résistance entre 64 400 et 65 000.  \n- Support clé vers 62 200-62 800 (zone VL récente).  \n- Résistance proche dernier sommet à 65 830, à suivre pour confirmer continuation.  \n- Scénario favori: pullback sur support suivi reprise du mouvement haussier.  \n- Invalidation: retour sous 62 200 avec force, possible correction plus profonde.\n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \n- Impossibilité d’analyse précise, manque d’infos.  \n- Pas d",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-44-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-14_23-43-59.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_040312_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T00:03:10-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-03-03",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Rechercher longs sur retest support 64000 avec confirmation volume. Prendre profits partiels proche résistance 66000.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "rupture sous 64000 avec closing 15m",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière nette sur ce timeframe 15 minutes depuis le creux récent.\n- Structure en HH/HL confirmée après un repli, suivi d’un puissant breakout.\n- Zones clés de support autour de 64 000 USD et résistance majeure proche de 66 000 USD.\n\nB) Chart unique (BTCUSDT.P 15m):\nLa structure récente montre un creux majeur formant un HL, validant une reprise haussière après correction. On observe ensuite un fort mouvement impulsif à la hausse, générant un HH sur les 65 800 USD. Volume en forte augmentation lors de ce breakout, confirmant la dynamique acheteuse. Le support le plus proche est à 64 000 USD, niveau à surveiller en cas de pullback. Scénario principal bullish tant que le support tient. Invalidation en cas de rupture claire sous 64 000 USD qui casserait la structure haussière.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"64000\"],\"resistances\":[\"66000\"],\"plan\":\"Rechercher longs sur retest support 64000 a",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-03-03",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_00-02-54.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_040336_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:03:33-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-03-27",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 63400.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée sur repli proche support, viser extension vers 66000. Stop sous 63400 pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Break clair sous 63400 avec bougies fermantes significatives",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette avec une structure en HH (Higher High) et HL (Higher Low) bien marquée.  \n- Reprise forte sur la dernière bougie avec un gap haussier signe de momentum.  \n- Zones clés identifiées autour de 63 400 en support et 66 000 en résistance à surveiller.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa structure affiche une série claire de creux et sommets ascendants (HL/HH) sur le timeframe 1h, confirmant un biais haussier. Le prix a cassé une résistance intermédiaire vers 64 400 puis a accéléré jusqu’à 65 800. Le volume confirme le mouvement de reprise. Le scénario favori est un maintien au-dessus des supports vers 63 400 - 64 000, avec potentiel de continuation vers 66 000. Invalidation en cas de rupture des HL récents sous 63 400, ce qui invaliderait la structure haussière.  \n\nC) DeskPro  \n```json  \n{\"run_id\":\"20240615_0403\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[63400,64000],\"resistances\":[66000],\"plan\":\"Entrée sur ",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-03-27",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_00-03-15.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_040434_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:04:32-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-04-22",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 62400.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 62800.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65750.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat après breakout avec suivi sous support clé",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "repli sous 62400",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Le dashboard montre un focus clair sur Bitcoin (BTC), sans visibilité directe sur les autres symboles/timeframe des autres graphiques.  \n- La tendance observée sur le chart BTC 1h est haussière, avec une structure de prix formant des HL et HH récents.  \n- La forte impulsion haussière finale indique un possible breakout, mais vigilance sur niveaux de résistances proches.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance haussière claire sur le 1h. Structure de prix avec HH/HL bien formés.  \n- Zones clés identifiées : support autour 62,400 - 62,800 et résistance importante vers 65,750 (plus haut récent).  \n- Scénario prioritaire : poursuite de la hausse après breakout récent de résistance.  \n- Invalidation : repli sous le dernier plus bas important vers 62,400 qui indiquerait possible correction ou consolidation.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \n- Impossible d’analyser faute d’information lisible.  \n- Recommandation : vérifier ",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-04-22",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_00-04-08.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_042425_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T00:24:23-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-24-17",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 65700.0,
+        "confidence": 0.7,
+        "note": "s 65,700"
+      },
+      {
+        "type": "support_level",
+        "value": 66000.0,
+        "confidence": 0.7,
+        "note": "s 66,000."
+      },
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.7,
+        "note": "s 64,000,"
+      },
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.7,
+        "note": "s 64,000"
+      },
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.7,
+        "note": "support 64,000"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.7,
+        "note": "r à 66,000."
+      },
+      {
+        "type": "price_target",
+        "value": 66000.0,
+        "confidence": 0.5,
+        "note": "target 66,000"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le 15m avec une cassure forte accompagnée d’un pic de volume.  \n- Structure en HH/HL claire depuis le creux autour de 63,600 jusqu’au sommet à 65,900.  \n- Zone de support clé aux environs de 64,000, résistance récente à surveiller à 66,000.  \n\nB) Chart unique (BTCUSDT.P 15m):  \nLe graphique montre une reprise haussière soutenue après une correction, confirmée par la formation de HL successifs. La cassure vers 65,700 avec volume élevé valide le scénario d’expansion. La structure est orientée bullish, avec un potentiel de test des 66,000. Invalidation si le prix redescend sous 64,000, ce qui fragiliserait la dynamique haussière. Scénario prioritaire : conserver la position long avec un stop sous 64,000 et viser un test de 66,000+.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[64000],\"resistances\":[66000],\"plan\":\"achat proche du support 64,000 avec target 66,000+\",\"invalidation",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-24-17",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_00-24-03.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_042448_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:24:46-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-24-40",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 65.0,
+        "confidence": 0.7,
+        "note": "s 65"
+      },
+      {
+        "type": "support_level",
+        "value": 64.0,
+        "confidence": 0.7,
+        "note": "s 64"
+      },
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.7,
+        "note": "s 64000,"
+      },
+      {
+        "type": "resistance_level",
+        "value": 67000.0,
+        "confidence": 0.7,
+        "note": "r 67000"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière établie sur le 1h avec des structures de creux et sommets plus hauts (HL/HH).  \n- Rejet récent à 65 900 USDT, suivi d’un léger pullback sous résistance.  \n- Volume en augmentation significative lors de la dernière montée, suggérant une accélération possible.\n\nB) Chart unique (BTCUSDT.P 1h):  \nOn observe une dynamique haussière claire par la formation d’une série de HL et HH depuis le 10. La zone vers 65 900 USDT agit comme résistance clé. Le dernier mouvement montre une forte impulsion suivie d’une consolidation, indiquant un potentiel test ou franchissement de cette résistance. Le support immédiat se trouve autour de 64 000 UDS. Un breakout au-dessus de 66 000 validerait la poursuite de la tendance haussière; en cas de retour sous 64 000, le scénario haussier serait remis en question.\n\nC) DeskPro  \n```json\n{\"run_id\":\"20240615_0424\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":[\"HL\",\"HH\"],\"supports\":[64000,62000],\"resistances\":[65900,",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-24-40",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_00-24-28.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_042533_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:25:30-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-25-22",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 62000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "poursuite hausse au-dessus 65500, viser 66000+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte durable sous 64000 avec structure LH/LL",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "pas d'analyse, symbole/timeframe non lisible",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "pas d'analyse, symbole/timeframe non lisible",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "pas d'analyse, symbole/timeframe non lisible",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Forte dynamique haussière récente sur le BTCUSDT en UT 1h, avec un breakout marqué.  \n- Structure globale de tendance haussière claire, validée par des HH/HL successifs.  \n- Zones clés de support à surveiller autour de 62 000 et 64 000, résistance immédiate à 66 000.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nTendance haussière nette, avec structures HH (Higher High) et HL (Higher Low) formées.  \nLe prix a cassé une résistance majeure vers 65 000-65 500, confirmant le biais haussier.  \nVolume en hausse au breakout, confirmation forte de l’intérêt acheteur.  \nSupports clés à 62 000 et 64 000, zones S/R à surveiller pour pullback.  \nScénario principal : poursuite de la hausse vers 66 000+ dans le court terme.  \nInvalidation si perte durable sous 64 000 avec structure en LH/LL.\n\nC) Chart 2 (haut-droit): symbole et timeframe inconnu  \nLa lecture est impossible, symbole/timeframe non lisible clairement.  \nAucune analyse fiable ne peut être produite sans identification.\n\nD)",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-25-22",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_00-25-07.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_044501_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T00:44:59-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-44-52",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "achat sur support avec stop sous 64200, cible 65800-66000",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "sous 64200",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette avec une cassure forte visible vers 65 800.  \n- Structure récente en HH/HL, mais consolidation après le gros gap haussier.  \n- Zone clé de support autour de 64 200-64 300, résistance immédiate vers 65 800-65 900.\n\nB) Chart unique (BTCUSDT.P 15m):  \nLe marché montre une structure haussière claire avec des hauts et bas plus hauts (HH/HL) jusqu'à la forte impulsion haussière qui casse la zone vers 65 800. Après ce mouvement, une phase de consolidation latérale s'est mise en place en haut, indiquant une prise de souffle ou une potentielle distribution avant nouvelle direction. Le volume augmente nettement au moment de la cassure, validant cette impulsion. Un scénario haussier reste privilégie tant que le support vers 64 200-64 300 tient. Invalidation du biais haussier sous ce niveau qui ouvrirait vers un retour à une structure corrective ou baissière.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\"",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-44-52",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_00-44-39.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_044523_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:45:21-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-45-15",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 63000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 62400.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur repli vers support avec objectif extension vers résistance, suivi de prise de profit partielle à 66000",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture horaire sous 62400",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur 1h avec une série de Higher Highs (HH) et Higher Lows (HL) formés.  \n- Structure consolidative et reprise haussière marquée par un spike haussier récent.  \n- Zones clés à surveiller autour des supports à 63 000 USDT et résistances proches du nouveau sommet à 66 000 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h): Le marché est clairement dans une dynamique ascendante avec une alternance stable de HH et HL. Les replis sont des opportunités d'achat, consolidant la structure haussière. La forte impulsion haussière récente valide un intérêt acheteur important, suggérant une possible poursuite vers de nouveaux plus hauts. La zone support majeure à 63 000 USDT sert de base pour les acheteurs, tandis que la résistance aux alentours de 66 000 USDT constituera un niveau de prise de décision pour la suite. Invalidation du scénario haussier si baisse sous le dernier HL aux environs de 62 400 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\"",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-45-15",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_00-45-03.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_044606_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:46:04-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-45-57",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 63600.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 62800.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65900.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée longue sur support 63600, stop sous 62800, TP avant 65900",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure sous 62800",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Présence majoritaire d’une tendance haussière, avec des rebonds structurels clairs.  \n- Zones clés de support identifiées sous chaque plus bas local récent, résistances à surveiller sur derniers sommets.  \n- Scénarios principaux à la hausse si invalidation des seuils support, sinon prudence sur retournement potentiel.\n\nB) Chart 1 (haut-gauche):  \nSymbol/timeframe: BTCUSDT, 1h  \nBias: Haussier  \nStructure: HH/HL clairement définis sur la majorité des derniers bougies.  \nSupports clés: ~63 600 / 62 800  \nRésistances clés: ~65 900 (plus haut récent)  \nPlan: Entrée longue sur rebond vers support 63 600 avec stop sous 62 800. Prise de profit proche résistance.  \nInvalidation: Cassure ferme sous 62 800 invalide la tendance haussière court terme.\n\nC) Chart 2 (haut-droit):  \nInconnu (pas lisible sur l’image)  \n\nD) Chart 3 (bas-gauche):  \nInconnu (pas lisible sur l’image)  \n\nE) Chart 4 (bas-droit):  \nInconnu (pas lisible sur l’image)  \n\nF) DeskPro  \n{\"run_id\":\"001\",\"charts\"",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-45-57",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_00-45-44.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_050532_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T01:05:30-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-05-19",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 63700.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 65200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65900.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée possible sur retracement proche support 65200 avec stop sous 63700. Objectif extension vers 67000+.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "fermeture stable sous 63700 USDT.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale récente haussière avec un rebond fort visible en fin de graphique.  \n- Structure montrant un bas récent suivi d’un rallye important confirmant un HL (Higher Low) et HH (Higher High).  \n- Zones clés identifiées : support proche autour de 63 700 USDT, résistance initiale contournée vers 65 900 USDT.\n\nB) Chart unique (BTCUSDT.P 15m) : La paire BTCUSDT.P évolue sur un timeframe 15 minutes. On observe une tendance haussière nette amorcée après un creux local vers 63 700 USDT, suivi d’un rebond puissant qui casse nettement la résistance intermédiaire vers 65 200 USDT. La structure est haussière (HL puis HH). Volume en forte hausse lors de la cassure. Scénario : poursuite probable de la hausse tant que le support 65 200 USDT tient, invalidation sous 63 700 USDT.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL puis HH\",\"supports\":[\"63700\",\"65200\"],\"resistances\":[\"65900\"],\"plan\":\"Entrée possible sur retracement pro",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-05-19",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_01-05-09.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_050609_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:06:07-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-05-59",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 63200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 63600.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65200.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65600.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur retracement vers support 63200-63600, viser extension au-delà de 65600",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure claire sous 63200",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h avec une série de HH (Higher Highs) et HL (Higher Lows) bien formés.  \n- Zone support clé autour de 63 200 - 63 600 USDT, résistance immédiate rompue vers 65 200 USDT en extension.  \n- Scénario bullish avec continuation possible au-dessus de 65 600 USDT, invalidation sous 63 200 USDT.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nTendance haussière en place, structure impulsive avec HH/HL confirmés. Support essentiel identifié autour de 63 200-63 600 USDT, zone à surveiller en cas de retracement. Résistance historique cassée autour de 65 200 USDT, laissant place à un potentiel breakout. Volume en légère hausse sur les derniers chandeliers haussiers, confirmant l’intérêt des acheteurs. Le plan est de privilégier des prises longues sur replis vers support, avec une invalidation sous 63 200 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bullish\",\"structure\":\"HH/HL\",\"supports\":[63200,63600],\"resistances\":[65200,65600",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-05-59",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_01-05-36.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_050654_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:06:52-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-06-42",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "achat au-dessus de 65 600 avec prise de profit sur pullback",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 63 600",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Dominateur biais haussier sur BTCUSDT en UT 1h avec poussée récente.\n- Structure de marché en HH/HL claire renforçant le scénario long.\n- Zone clé de support vers 63 600-64 000 et résistance immédiate autour de 65 600.\n\nB) Chart 1 (haut-gauche):\n- Actif: BTCUSDT, timeframe 1h (lisible).\n- Tendance haussière confirmée par une série de HH/HL depuis environ une semaine.\n- Support clé identifié autour de 63 600-64 000, zone d’accumulation visible.\n- Résistance immédiate autour de 65 600, testée avec un récent breakout.\n- Scénario favori: continuation haussière au-dessus de 65 600 avec prise de profit envisagée sur pullback.\n- Invalidation: retour sous 63 600, signalant possible correction.\n\nC) Chart 2 (haut-droit):\n- Symbole/timeframe inconnu.\n- Analyse impossible sans identification claire.\n\nD) Chart 3 (bas-gauche):\n- Symbole/timeframe inconnu.\n- Absence d’information claire empêche analyse.\n\nE) Chart 4 (bas-droit):\n- Symbole/timeframe inconnu.\n- Données insuffisantes p",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-06-42",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_01-06-29.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_052558_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T01:25:56-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-25-50",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65900.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur retest support 64000 avec objectif 65900 puis extension possible",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "break sous 64000",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale haussière en 15m, avec un bas récent marqué à environ 63 700 USDT suivi d’un rallye rapide.  \n- Structure en HH/HL claire depuis le bas, rupture de résistance vers 65 000 USDT avec forte impulsion.  \n- Zone clé support autour de 64 000 USDT, résistance immédiate sur le plus haut à 65 900 USDT.  \n\nB) Chart unique (BTCUSDT.P 15m): Le graphique montre une tendance haussière avec une structure de creux et sommets plus hauts (HL/HH). Après une correction jusqu’à environ 63 700 USDT (creux recent), le prix a fortement rebondi avec un volume en augmentation notable. La zone de 64 000 USDT sert désormais de support clé contre une reprise baissière. La résistance à court terme est sur le dernier sommet à 65 900 USDT. La dynamique actuelle privilégie un scénario haussier tant que le support 64 000 USDT tient. Invalidation sous ce support qui induirait une possible correction plus large.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"hauss",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-25-50",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_01-25-38.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_052620_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:26:18-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-26-13",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64.0,
+        "confidence": 0.7,
+        "note": "s 64"
+      },
+      {
+        "type": "support_level",
+        "value": 65.0,
+        "confidence": 0.7,
+        "note": "s 65"
+      },
+      {
+        "type": "support_level",
+        "value": 63.0,
+        "confidence": 0.7,
+        "note": "support 63"
+      },
+      {
+        "type": "support_level",
+        "value": 63.0,
+        "confidence": 0.7,
+        "note": "s 63"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le 1h avec une succession de HH et HL depuis début de graphique.  \n- Structure claire d'impulsion : le prix progresse par paliers avec retracements contrôlés.  \n- Zone de résistance testée récemment autour de 65 800, support clé à 63 600 à surveiller.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa tendance est haussière avec une structure en higher highs (HH) et higher lows (HL) bien marquée. Le prix a récemment franchi une résistance intermédiaire vers 64 600 et a accéléré en direction des 65 800. Le volume confirme ce mouvement haussier. Un scénario d'attente à l'achat sur retour vers support 63 600/64 000 ou breakout confirmé au-dessus de 65 800 est pertinent. Invalidation sous 63 600 qui remettrait en cause la dynamique.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[63600,64000],\"resistances\":[65800],\"plan\":\"achat sur support ou breakout résistance\",\"invalidation\":63600}]}",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-26-13",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_01-26-01.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_052708_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:27:06-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-26-59",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Pullback support puis rebond possible vers résistance",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Break sous 63800",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Le marché montre une tendance haussière générale sur la période récente.  \n- La structure dessine des HH/HL clairs, confirmant la force acheteuse.  \n- Zones de support et résistance proches à surveiller pour un possible pullback ou continuation.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance haussière nette avec une série de HH (Higher Highs) et HL (Higher Lows).  \n- Structure porteuse, pas d’invalidation immédiate visible.  \n- Zone clé support autour de 63,800-64,000 USD, résistance immédiate aux alentours de 65,800-66,000 USD.  \n- Scénario privilégié : pullback vers support pour un bounce vers résistance.  \n- Invalidation si rupture franche sous HL récent vers 63,800 USD.\n\nC) Chart 2 (haut-droit): inconnu  \n- Pas de symbole/timeframe lisible, analyse impossible.  \n- Nécessite identification graphique pour lecture pertinente.\n\nD) Chart 3 (bas-gauche): inconnu  \n- Pas de symbole/timeframe lisible, analyse impossible.  \n- Nécessite identification graphique pour ",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-26-59",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_01-26-47.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_054649_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T01:46:47-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-46-41",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 64200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65900.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée long sur pullback support 64000-64200. Stop sous 63700. Objectif 65900 puis extension si cassure.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Break et clôture sous 63700",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- La tendance 15m est haussière, avec des HH et HL bien visibles.\n- Zone de support clé autour de 64 000 USD suite au rebond fort.\n- Résistance proche à 65 900 USD, à surveiller pour confirmation ou rejet.\n\nB) Chart unique (BTCUSDT.P 15m):\nLa structure montre une impulsion haussière nette avec prise d’élan à partir de 63 400 USD. Après une correction baissière formant un HL à 63 700, le prix a explosé vers 65 900 USD (HH). Actuellement, il consolide sous cette résistance majeure. La zone de 64 000-64 200 USD agit comme support solide. Un pullback vers ce support permettrait un bon point d’entrée long. Invalidation du scénario haussier en clôture sous 63 700 USD (dernier HL).\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"64000\",\"64200\"],\"resistances\":[\"65900\"],\"plan\":\"Entrée long sur pullback support 64000-64200. Stop sous 63700. Objectif 65900 puis extension si cassure.\",\"invalidation\":\"Break et clôture sous 6",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-46-41",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_01-46-28.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_054711_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:47:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-47-03",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64800.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 64500.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66800.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur repli vers support 64800, stop sous 64500, viser zone 66000-66800",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture horaire sous 64800",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire avec une série de HH et HL bien marqués.  \n- Structure positive renforcée par un breakout récent au-dessus de la résistance majeure à ~64,800.  \n- Volume en hausse sur le dernier mouvement confirme la force acheteuse; attention à une possible prise de profit ou pullback.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLa structure montre une succession de creux plus hauts (HL) et de sommets plus hauts (HH), confirmant une dynamique haussière. La cassure récente d’une résistance clé vers 64,800 valide ce biais. Le prix évolue actuellement autour de 65,700, avec un support immédiat identifié sur 64,800 (ancienne résistance). Résistances à surveiller vers 66,000 puis 66,800. Un repli sous 64,800 invaliderait le scénario haussier court terme et pourrait signaler un retour vers 63,500. Plan d’action : privilégier des achats sur repli vers support 64,800 avec stop sous 64,500, viser la zone 66,000-66,800.  \n\nC) DeskPro  \n{\"run_id\":\"1234\",\"charts\":[{\"slot\":",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-47-03",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_01-46-51.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_054801_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:47:59-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-47-48",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64400.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 63200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Pullback vers support 64,400 pour acheter",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure 63,200",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Attendre confirmation",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Attente de signal clair",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Observez sans intervenir",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- La majorité des graphiques affichent une tendance haussière avec des structures de type HH/HL.\n- Les volumes sont variables, sans pic évident sur la dernière bougie visible.\n- Les zones clés de support et résistance sont à repérer pour valider des entrées ou des sorties.\n\nB) Chart 1 (haut-gauche) : BTCUSDT 1h\n- Tendance haussière claire sur le timeframe 1h, avec une structure HH/HL bien définie.\n- Prix actuel proche d’une nouvelle résistance potentielle vers 65,800-66,000.\n- Supports clés à 64,400 puis 63,200.\n- Scénario prioritaire : pullback vers support (64,400) pour nouvelle jambe haussière.\n- Invalidation sous 63,200 invalide la continuation bullish.\n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non visible)\n- Impossible d’analyser précisément sans identification du symbole/timeframe.\n- Conserver vigilance, rechercher zones S/R et structure HH/HL LH/LL avant prise de position.\n\nD) Chart 3 (bas-gauche) : inconnu (symbole/timeframe non visible)\n- Idem char",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-47-48",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_01-47-36.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_060745_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T02:07:43-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-07-32",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64.0,
+        "confidence": 0.7,
+        "note": "s 64"
+      },
+      {
+        "type": "support_level",
+        "value": 65.0,
+        "confidence": 0.7,
+        "note": "s 65"
+      },
+      {
+        "type": "support_level",
+        "value": 63.0,
+        "confidence": 0.7,
+        "note": "s 63"
+      },
+      {
+        "type": "support_level",
+        "value": 65.0,
+        "confidence": 0.7,
+        "note": "s 65"
+      },
+      {
+        "type": "support_level",
+        "value": 64.0,
+        "confidence": 0.7,
+        "note": "support 64"
+      },
+      {
+        "type": "support_level",
+        "value": 64.0,
+        "confidence": 0.7,
+        "note": "s 64"
+      },
+      {
+        "type": "resistance_level",
+        "value": 15.0,
+        "confidence": 0.7,
+        "note": "r 15"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66.0,
+        "confidence": 0.7,
+        "note": "r 66"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66.0,
+        "confidence": 0.7,
+        "note": "résistance 66"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur 15m suite à un fort gap-up à 21h.  \n- Structure en HH/HL claire post-correction, signalant reprise du momentum acheteur.  \n- Zones clés S vers 64 100 (ancien creux avant gap), résistance proche aux plus hauts vers 65 900-66 000.  \n\nB) Chart unique (BTCUSDT.P 15m): La paire montre un creux vers 63 800 avant un rebond brutal marqué par un gap haussier important. La structure est haussière avec une série de hauts et bas plus hauts (HH/HL). La zone de support clé se situe autour de 64 100 avant la rupture, zone validée par le volume. La résistance immédiate se trouve vers 65 900-66 000, niveau ultime à franchir pour continuer l'expansion. Scénario préféré : maintien au-dessus de 64 100 pour viser 66 000. Invalidation si perte durable de 64 100.  \n\nC) DeskPro {\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussière\",\"structure\":\"HH/HL\",\"supports\":[64100],\"resistances\":[65900,66000],\"plan\":\"Entrée à l'achat proche support 64 100, visée rési",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-07-32",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_02-07-12.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_060812_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:08:10-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-08-01",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64400.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 63200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65800.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Chercher des opportunités long au-dessus de 65800 avec cible nouveaux sommets. Protection sous 64400.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "repli en dessous de 64400",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière clairement établie avec des mouvements de HH/HL depuis plusieurs séances.  \n- Prix vient de casser une résistance locale vers 65 800 USDT, confirmant la vigueur des acheteurs.  \n- Support important à 64 400 USDT à surveiller en cas de repli, invalidation sous ce niveau pour scénario haussier.  \n\nB) Chart unique (BTCUSDT.P 1h):  \nLe graphique montre une structure haussière classique avec des creux et sommets de plus en plus hauts (HL/HH). Le récent breakout au-dessus de la zone 65 800 USDT valide la reprise de momentum. La zone de support clé se situe autour de 64 400 USDT, niveau testant régulièrement la demande. En-dessous, le support secondaire est à 63 200 USDT. Le scénario principal privilégie la poursuite de la hausse vers de nouveaux sommets avec une invalidation sous 64 400 USDT.  \n\nC) DeskPro  \n{\"run_id\":\"unique_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"64400\",\"63200\"],\"resistances\":[\"65800\"],\"plan",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-08-01",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_02-07-47.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_060904_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:09:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-08-53",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 65000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur retracement proche support 65000, viser nouveaux sommets",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure sous 63600",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur BTCUSDT en 1h avec structure de prix orientée haussière (HH/HL).  \n- Volume stable avec récent pic accompagnant la forte montée, signe de confirmation.  \n- Zones clés à surveiller autour de 65 000 (support récent) et résistance potentielle autour de 66 000.\n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \nLa tendance est clairement haussière avec une succession de hauts (HH) et bas (HL) toujours intacts. La figure montre une dynamique ascendante soutenue. La récente bougie avec gros volume valide une poussée vers une résistance proche à 66 000. Zone de support visible à 65 000, niveau à surveiller en cas de repli. Le scénario idéal reste une continuation vers de nouveaux sommets. Invalidation en cas de cassure significative sous dernier HL vers 63 600.\n\nC) Chart 2 (haut-droit): Inconnu  \nLe symbole et timeframe ne sont pas clairement lisibles. Pas d’analyse possible.\n\nD) Chart 3 (bas-gauche): Inconnu  \nLe symbole et timeframe ne sont pas clairem",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-08-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_02-08-41.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_062806_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T02:28:04-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-27-56",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64.0,
+        "confidence": 0.7,
+        "note": "s 64"
+      },
+      {
+        "type": "support_level",
+        "value": 64200.0,
+        "confidence": 0.7,
+        "note": "s 64200"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière nette sur le 15m, avec un fort momentum récent.\n- Structure en HH/HL claire après correction en LH/LL temporaire.\n- Zones clés à surveiller autour de 64 200 en support et 66 000 en résistance prochaine.\n\nB) Chart unique (BTCUSDT.P 15m):\nLe graphique montre une tendance haussière dominante avec une correction marquée sous forme de lowering highs et lowering lows (LH/LL) sur la matinée du 14, suivie d’un rebond très puissant sur volume à partir de 18h, formant de nouveaux higher highs (HH) et higher lows (HL). La zone 64 200 agit désormais comme support majeur. La prochaine résistance significative à valider se situe autour de 66 000. Un retour sous 64 200 invaliderait le scénario bullish court terme.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[64200],\"resistances\":[66000],\"plan\":\"attendre breakout au-dessus de 66000 pour poursuite bullish, ou pullback vers 64200 pour entrée longue\",\"inval",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-27-56",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_02-27-43.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_062829_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:28:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-28-21",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65900.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur pullback support 64000, viser extension 66500+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "close 1h sous 64000",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le 1h avec séquence de HH (Higher Highs) et HL (Higher Lows) bien marquée.  \n- Cassure récente d’une résistance proche de 65 000 USD validant un nouveau sommet à 65 900 USD.  \n- Support clé à 64 000 USD servant de base pour les achats en cas de retracement.\n\nB) Chart unique (BTCUSDT.P 1h): La structure montre une série d’Higher Highs et Higher Lows, confirmant une tendance haussière solide. Le prix a cassé à la hausse après une consolidation autour de 64 000-64 800 USD. Le volume a augmenté sur la cassure, renforçant le mouvement. Zone de support immédiate à 64 000 USD, résistance sur le nouveau haut à 65 900 USD. Scénario recommandable: chercher un pullback sur support pour entrer long avec objectif vers 66 500+ dans le cas d’une continuation haussière. Invalidation sous 64 000 USD qui remettrait en cause la structure haussière.\n\nC) DeskPro  \n{\"run_id\":\"20240615_0630\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"s",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-28-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_02-28-08.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_062911_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:29:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-29-03",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 63.0,
+        "confidence": 0.7,
+        "note": "s 63"
+      },
+      {
+        "type": "support_level",
+        "value": 66.0,
+        "confidence": 0.7,
+        "note": "s 66"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière dominante, avec des creux et sommets globalement plus hauts.  \n- Plusieurs zones clés support confirmées, signe d'une structure bull solide.  \n- Points d'invalidation à surveiller pour éviter retournement majeur.\n\nB) Chart 1 (haut-gauche): inconnu  \nStructure visible: Tendance haussière avec HH/HL.  \nSupports: zone autour des 63 000 USDT, plusieurs rebonds confirmés sur ce niveau.  \nRésistances: zone récente vers 66 000 USDT, prix atteignant un sommet local.  \nScénario bullish: poursuite de la tendance si le prix tient les supports clés.  \nInvalidation: cassure et maintien en dessous de 63 000 USDT pourrait invalider la structure haussière.  \n\nC) Chart 2 (haut-droit): inconnu  \nDonnées non analysables, image voxelisation ou hors champ.  \n\nD) Chart 3 (bas-gauche): inconnu  \nDonnées non analysables, image voxelisation ou hors champ.  \n\nE) Chart 4 (bas-droit): inconnu  \nDonnées non analysables, image voxelisation ou hors champ.  \n\nF) DeskPro  \n{\"run",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-29-03",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_02-28-51.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_064852_BTCUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T02:48:50-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-48-44",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64000.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 65900.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "rester acheteur à la cassure des 65900 avec stop sous 64000, viser extension vers 66600",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 64000 avec volume soutenu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière nette avec une cassure franche après une phase de correction.\n- Structure récente en HH (Higher High) et HL (Higher Low), confirmant la reprise acheteuse.\n- Zone clé de support autour de 64 000 USDT, résistance immédiate vers 65 900 USDT.\n\nB) Chart unique (BTCUSDT.P 15m): Le graphique montre une tendance globalement haussière avec une forte impulsion à la hausse visible depuis la zone basse vers 63 700 USDT. Avant cette impulsion, une petite correction a formé un creux plus bas (LL) suivi d’un rebond solide. L’action des prix forme une structure en HH/HL à court terme, confirmant une dynamique acheteuse. Le volume augmente significativement lors de la poussée haussière, validant la force du mouvement. L’invalidation se produirait en cas de retour sous le support vers 64 000 USDT.\n\nC) DeskPro\n{\"run_id\":\"20240615_0648\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"64000\"],\"resistances\":[\"65900\"],\"plan\":\"rester acheteur",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-48-44",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_15m_2026-06-15_02-48-37.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_064917_BTCUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:49:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-49-07",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 64200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur rebond support ou breakout résistance",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "close sous 64200",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire sur le timeframe 1h avec une série de creux et sommets plus hauts (HL/HH).  \n- Structure de marché en phase d’expansion après une reprise solide post-pullback.  \n- Zone clé support autour de 64 200 USDT, résistance immédiate sur 66 000 USDT à surveiller pour breakout.\n\nB) Chart unique (BTCUSDT.P 1h):  \nLa configuration montre une dynamique haussière caractérisée par des creux plus hauts (HL) et des sommets plus hauts (HH), validant une tendance bullish. La récente forte bougie verte confirme une réaction acheteuse vigoureuse après un retracement modéré. Le support principal se situe autour de 64 200 USDT, servant de zone de rebond. La résistance à 66 000 USDT agit comme une barrière majeure, point de prise de décision pour un éventuel prolongement de la hausse. Le scénario privilégié reste un continu de la tendance tant que le support est préservé; invalidation en cas de franchissement baissier sous 64 200 USDT.\n\nC) DeskPro  \n{\"run_id\":\"00",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-49-07",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_02-48-55.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_065010_BTCUSDT.P_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "BTCUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:50:08-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-49-55",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 63200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 64200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 66000.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur cassure 66000 avec stop sous 63000",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture horaire sous 63000",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "non analysable",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "non analysable",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "non analysable",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "non analysable",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "non analysable",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "non analysable",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance générale haussière sur la majorité des actifs avec des prises de profit visibles sur certains indices.  \n- Le BTCUSDT présente un regain de momentum acheteur après une phase de retracement, signalant un possible new high local.  \n- Zones clés S/R à surveiller sont en résistance vers 66 000 sur BTC, et supports intermédiaires autour de 63 000.  \n\nB) Chart 1 (haut-gauche): BTCUSDT 1h  \n- Tendance haussière claire avec structure HH/HL depuis début de graphique.  \n- Confirmation d’un nouveau haut local sur 65 900+ validé par un gap haussier.  \n- Supports clés à 64 200 puis 63 000 (ancien HL). Résistance immédiate vers 66 000 (psychologique et précédent sommet).  \n- Scénario principal : poursuite vers 66 000 puis extension si breakout confirmé.  \n- Invalidation sur clôture horaire sous 63 000, potentiel repli plus profond.  \n\nC) Chart 2 (haut-droit): Inconnu  \n- Symbole/timeframe non lisible, aucune analyse possible.  \n\nD) Chart 3 (bas-gauche): Inconnu  \n- Symb",
+    "symbols_found": [
+      "BTCUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-49-55",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_BTCUSDT.P_1h_2026-06-15_02-49-43.png"
+    }
   }
 ]

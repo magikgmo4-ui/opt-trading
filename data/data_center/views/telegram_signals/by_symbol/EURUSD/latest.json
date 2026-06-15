@@ -4,7 +4,7 @@
   "total": 6,
   "signals": [
     {
-      "id": "tg_458_20260611T100009",
+      "id": "tg_458_20260615T070009",
       "channel": "btcusdt_xauusd_eurusd_signal",
       "direction": "SHORT",
       "entry_price": 1.15378,
@@ -14,7 +14,7 @@
       "parsed_at": "2026-06-10T11:51:21+00:00"
     },
     {
-      "id": "tg_156_20260611T100009",
+      "id": "tg_156_20260615T070009",
       "channel": "forex_gold_signals",
       "direction": "LONG",
       "entry_price": 1.0812,
@@ -24,7 +24,7 @@
       "parsed_at": "2020-05-06T11:48:18+00:00"
     },
     {
-      "id": "tg_35_20260611T100009",
+      "id": "tg_35_20260615T070009",
       "channel": "gold_forex_signals",
       "direction": "LONG",
       "entry_price": null,
@@ -34,7 +34,7 @@
       "parsed_at": "2019-08-01T15:31:51+00:00"
     },
     {
-      "id": "tg_3622_20260611T100009",
+      "id": "tg_3622_20260615T070009",
       "channel": "xauusd_signals",
       "direction": "LONG",
       "entry_price": null,
@@ -44,7 +44,7 @@
       "parsed_at": "2026-06-10T16:16:01+00:00"
     },
     {
-      "id": "tg_3607_20260611T100009",
+      "id": "tg_3607_20260615T070009",
       "channel": "xauusd_signals",
       "direction": "LONG",
       "entry_price": null,
@@ -54,7 +54,7 @@
       "parsed_at": "2026-06-08T08:03:15+00:00"
     },
     {
-      "id": "tg_969_20260611T100009",
+      "id": "tg_969_20260615T070009",
       "channel": "xauusd_trading_free",
       "direction": "SHORT",
       "entry_price": 1.15378,
@@ -64,5 +64,5 @@
       "parsed_at": "2026-06-10T11:55:38+00:00"
     }
   ],
-  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+  "produced_at": "2026-06-15T07:00:09.411096+00:00"
 }

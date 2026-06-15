@@ -2,8 +2,8 @@
   "contract_version": "v1",
   "module_id": "collector_telegram",
   "provider_id": "telegram",
-  "run_id": "20260611T100136Z-f13d6448",
-  "generated_at": "2026-06-11T10:01:37Z",
+  "run_id": "20260615T070003Z-19ee6133",
+  "generated_at": "2026-06-15T07:00:04Z",
   "artifacts": {
     "manifest": "outputs/manifest.json",
     "status": "outputs/status.json",
@@ -11,7 +11,7 @@
     "events": "outputs/events.jsonl",
     "errors": "outputs/errors.jsonl",
     "raw_messages_dir": "outputs/raw",
-    "channel_results": "outputs/channel_results/channel_results_20260611T100136Z-f13d6448.json"
+    "channel_results": "outputs/channel_results/channel_results_20260615T070003Z-19ee6133.json"
   },
   "normalized_contract": {
     "schema_version": "v1.0",

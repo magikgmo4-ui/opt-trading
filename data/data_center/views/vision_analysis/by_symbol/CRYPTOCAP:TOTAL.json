@@ -5955,5 +5955,285 @@
       "summary_json": "2026-06-11_05-26-36",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-11_05-26-21.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_033055_CRYPTOCAP:TOTAL_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-14T23:30:53-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-30-45",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveiller franchissement 2.3T pour entrée long, sinon privilégier short sous résistance",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "franchissement et maintien au-dessus de 2.3T",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière confirmée par une série de LL (Lower Lows) et LH (Lower Highs).  \n- Structure récente tente une reprise en formant un HL depuis le plus bas de juin, signalant un potentiel retournement ou correction haussière.  \n- Zone clé de résistance proche autour de 2.3T USD, zone de support majeur autour de 2.0T USD.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1d): La tendance est baissière avec des points hauts et bas déclinants (LH et LL), mais un HL formé récemment autour de 2.1T montre une tentative de rebond. La zone 2.3T joue le rôle de résistance importante à franchir pour valider un retournement durable. Le support principal est à 2.0T, en dessous invalidant la reprise haussière. Le scénario prioritaire reste la poursuite baissière en cas d’échec sous 2.3T, avec un possible test 2.0T. Invalidation du scénario bearish avec un franchissement clair et suivi volumétrique au-dessus de 2.3T.\n\nC) DeskPro  \n{\"run_id\":\"unique_1\",\"charts\":[{\"slot\":\"single\",\"bi",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-30-45",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-14_23-30-30.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_033116_CRYPTOCAP:TOTAL_1w",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL",
+    "timeframe": "1w",
+    "analysis_ts": "2026-06-14T23:31:14-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-31-07",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance rebond sur 2.1T; long si franchissement 2.8T confirmé; short en cassure 2.1T",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture hebdo > 2.8T (baisse invalidée) ou < 2.1T (rejet support)",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance globale baissière récente, avec une série de lower highs (LH) et lower lows (LL) depuis le sommet autour de 4.4T.\n- Structure actuelle baissière mais tentative de rebond observée sur un support majeur proche des 2.1T.\n- Zone clé de résistance marquée vers 2.8-3T, à valider pour un retour haussier durable.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1w) : \nLa structure montre un HL historique sur 2023 puis un renversement en LH depuis mi-2025, avec des LL qui confirment une tendance baissière. Le prix teste actuellement une zone de support importante vers 2.1T, correspondant à des anciens plus bas et un volume élevé. Risque de consolidation latérale ou rebond technique possible. Un franchissement à la hausse des 2.8T annulerait la tendance baissière récente et ouvrirait la voie à une reprise haussière plus nette. En revanche, une cassure en dessous de 2.1T invaliderait tout scénario de rebond et renforcerait la pression vendeuse.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-31-07",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-14_23-30-57.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_043237_CRYPTOCAP:TOTAL_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-15T00:32:35-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-32-30",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure au-dessus de 2.37T pour potentielle continuation haussière court terme, sinon repli vers 1.97T.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Perte de 1.97T confirme reprise baissière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière confirmée par des creux plus bas (LL) et des sommets plus bas (LH).  \n- Récente tentative de rebond avec un HL local visible sur les derniers jours.  \n- Zone clé de résistance autour de 2.37T-2.40T, support proche à 1.97T-2.00T à surveiller.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1d):  \nLe graphique montre une structure baissière claire avec une série de LH/LL depuis l'automne 2025. Le plus bas récent near 1.97T a formé un HL validant une possible correction. Le prix teste maintenant la résistance sur 2.37T, zone critique pour valider un rebond ou repartir à la baisse. Un retour sous 1.97T invaliderait ce scénario haussier de court terme et relancerait la tendance baissière. Le volume reste soutenu, indiquant un intérêt fort sur ces niveaux.\n\nC) DeskPro  \n{\"run_id\":\"run_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish avec correction\",\"structure\":\"LH/LL avec HL récent\",\"supports\":[\"1.97T\",\"2.00T\"],\"resistances\":[\"2.37T\",\"2.40T\"],\"plan\":\"Surv",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-32-30",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-15_00-32-13.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_043301_CRYPTOCAP:TOTAL_1w",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL",
+    "timeframe": "1w",
+    "analysis_ts": "2026-06-15T00:32:59-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-32-54",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond sur 2.0T pour swing long, envisager short si break 2.0T",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Close hebdo > 2.6T valide rebond haussier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante de moyen terme baissière, avec plusieurs HH/HL cassés en LH/LL récents.  \n- Structure engagée dans une phase corrective, testant une zone de support autour de 2.0T.  \n- Scénario principal: rebond potentiel si support tenu, mais invalidation rapide en cas de casse sous 2.0T.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1w):  \nLa structure montre une série de hauts et bas plus bas (LH/LL), signalant une tendance baissière dominante. Les prix ont récemment testé une zone clé de support vers 2.0T USD, support maintenu jusqu’ici mais fragilisé. Un rebond technique est en train de se dessiner, cependant la dynamique reste baissière tant que le dernier plus bas (sub-2.0T) n’est pas invalidée. Résistance immédiate proche des 2.6T USD (ancien support devenu résistance). Confirmation d’un retournement haussier conditionnée à la formation de HH/HL supérieurs au-dessus de 2.6T.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bearish to neutral\",\"structur",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-32-54",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-15_00-32-39.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_053419_CRYPTOCAP:TOTAL_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-15T01:34:17-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-34-10",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller la réaction sur 2.37T pour un breakout haussier ou un rejet baissier. En cas de rejet, retour vers 1.97T possible.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure haussière du niveau 2.37T confirmée avec volume",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante baissière sur le timeframe journalier, avec une série de Lower Highs (LH) et Lower Lows (LL) bien marquée depuis plusieurs mois.  \n- Action récente de rebond probable sur support proche de 1.97T suite à une forte chute, ce qui pourrait amorcer une possible correction/interruption du mouvement baissier.  \n- Zone de résistance clé à court terme autour de 2.37T à surveiller pour confirmer soit une reprise haussière (breakout) soit la poursuite de la baisse (rejet).\n\nB) Chart unique (CRYPTOCAP:TOTAL 1d):  \nLe marché montre une structure clairement baissière avec des Lower Highs et Lower Lows depuis la fin d’année 2025. Le prix a trouvé un support proche de 1.97T, base d’un rebond modéré. Pour valider un retournement haussier, il faudra observer une cassure des résistances majeures autour de 2.37T, qui a servi de support/résistance intermédiaire historique. Sans ce breakout, le scénario principal reste la poursuite du downtrend. L’invalidation serait ",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-34-10",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-15_01-33-45.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_053447_CRYPTOCAP:TOTAL_1w",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL",
+    "timeframe": "1w",
+    "analysis_ts": "2026-06-15T01:34:45-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-34-39",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveillance maintien support 2.2T, repli sous 2.1T pour poursuite baissière, breakout >2.6T pour inversion",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture hebdo > 2.6T",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance dominante hebdo baissière depuis le sommet en 2025, avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Structure en cours marquée par une tentative de rebond sur support clé vers 2.1-2.2T USD.\n- Scénario prioritaire: consolidation latérale proches des niveaux actuels avant une possible continuation baissière ou reprise haussière.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1w) :\n- Structure : succession de LH et LL claire depuis le pic 2025, signal d’une tendance baissière long terme.\n- Supports : zone clé 2.1-2.2T USD, rétention récente des prix sur ce niveau.\n- Résistances : 2.6T USD (puissant pivot baissier précédent), puis 3T USD pour résistance majeure.\n- Plan : surveiller la tenue du support 2.2T ; un repli sous 2.1T invaliderait un rebond, favorisant alors la reprise baissière vers de nouveaux creux.\n- Invalidation : franchissement clair et maintien au-dessus de 2.6T invaliderait le scénario baissier dominant, ouvrant vers un retour d’une tendance haussiè",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-34-39",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-15_01-34-21.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_063653_CRYPTOCAP:TOTAL_1d",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL",
+    "timeframe": "1d",
+    "analysis_ts": "2026-06-15T02:36:51-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-36-46",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "surveiller rebond et cassure 2.35T pour valider reprise, gestion du risque en dessous 1.95T",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "maintien sous 1.95T USD",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance dominante baissière avec des structures HL/HH absentes sur la majeure partie du graphique.\n- Support clé autour de 1.95T USD testé récemment, suivi d’un rebond initié.\n- Résistance majeure en zone 2.35-2.4T USD, scénario haussier conditionné à une cassure/soutien au-dessus.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1d) :  \nLe graphique montre une tendance baissière marquée par des lower lows (LL) et lower highs (LH) depuis le début de la période. Un support important est visible autour de 1.95T USD où a eu lieu un rebond notable, indiquant une possible zone d’accumulation. La structure récente laisse apparaître un premier HL court terme, signe potentiel d’un retournement ou d’une correction haussière. La prochaine zone de résistance attendue se trouve vers 2.35-2.4T USD, niveau à surveiller pour valider la reprise. En invalidation, une rechute en dessous de 1.95T annulerait le potentiel de retournement et relancerait la tendance baissière.\n\nC) DeskPro  \n{\"run_id\":\"0",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-36-46",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1d_2026-06-15_02-36-30.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_063722_CRYPTOCAP:TOTAL_1w",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "CRYPTOCAP:TOTAL",
+    "timeframe": "1w",
+    "analysis_ts": "2026-06-15T02:37:20-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-37-13",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller rebond au support 2.2T, cibler rebond si maintien. Stop en invalidation sous 2.2T, risque de poursuite baissière vers 1.8-2.0T.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour durable au-dessus de 2.6T",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale récente baissière, avec structure de lower highs (LH) et lower lows (LL) confirmée depuis le pic de mi-2025.  \n- Zone clé de support autour de 2.2T USD testée plusieurs fois avec léger rebond récent.  \n- Scénario à suivre : rebond possible si support tient, sinon poursuite de la baisse vers 1.8T-2T en invalidation du retour haussier.\n\nB) Chart unique (CRYPTOCAP:TOTAL 1w):  \nLa tendance est baissière à moyen terme avec une série de LH/LL depuis le sommet à environ 4.4T. Une structure baissière claire est en place depuis mi-2025. Le prix vient de rebondir à proximité d’un support majeur vers 2.2T, ancien point de congestion et support horizontal. La validation d’un nouveau plus bas sous ce niveau confirmerait la poursuite de la tendance. Un retour au-dessus de 2.6T serait nécessaire pour envisager un changement de biais vers une reprise haussière. La gestion du risque doit s’appuyer sur le support actuel, avec une invalidation en cas de cassure ne",
+    "symbols_found": [
+      "CRYPTOCAP:TOTAL"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-37-13",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_CRYPTOCAP:TOTAL_1w_2026-06-15_02-36-55.png"
+    }
   }
 ]

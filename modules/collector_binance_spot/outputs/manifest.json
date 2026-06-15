@@ -2,17 +2,17 @@
   "contract_version": "v1",
   "module_id": "collector_binance_spot",
   "provider_id": "binance_spot",
-  "run_id": "20260611T100007Z-43d9c5f0",
-  "generated_at": "2026-06-11T10:00:09Z",
+  "run_id": "20260615T070007Z-40b6ce6d",
+  "generated_at": "2026-06-15T07:00:09Z",
   "artifacts": {
     "manifest": "outputs/manifest.json",
     "status": "outputs/status.json",
     "latest": "outputs/latest.json",
     "events": "outputs/events.jsonl",
     "errors": "outputs/errors.jsonl",
-    "raw_exchange_info": "outputs/raw/20260611T100007Z-43d9c5f0/exchange_info.json",
-    "raw_ticker_24hr": "outputs/raw/20260611T100007Z-43d9c5f0/ticker_24hr.json",
-    "normalized_output": "outputs/normalized/pair_market_snapshot_20260611T100007Z-43d9c5f0.json",
+    "raw_exchange_info": "outputs/raw/20260615T070007Z-40b6ce6d/exchange_info.json",
+    "raw_ticker_24hr": "outputs/raw/20260615T070007Z-40b6ce6d/ticker_24hr.json",
+    "normalized_output": "outputs/normalized/pair_market_snapshot_20260615T070007Z-40b6ce6d.json",
     "snapshots_dir": "outputs/snapshots"
   },
   "normalized_contract": {

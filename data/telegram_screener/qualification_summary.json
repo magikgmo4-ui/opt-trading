@@ -1,6 +1,6 @@
 {
   "contract": "telegram_qualification_summary.v1",
-  "produced_at": "2026-06-11T10:00:13.667440+00:00",
+  "produced_at": "2026-06-15T07:00:13.634728+00:00",
   "mode": "regex_only",
   "llm_used": false,
   "ocr_used": false

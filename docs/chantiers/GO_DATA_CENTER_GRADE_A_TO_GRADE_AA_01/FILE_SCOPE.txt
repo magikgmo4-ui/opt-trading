@@ -1,0 +1,6 @@
+data/data_center/**
+data/telegram_screener/**
+data/deskpro/**
+modules/collector_binance_spot/outputs/**
+modules/collector_telegram/outputs/**
+docs/chantiers/GO_DATA_CENTER_GRADE_A_TO_GRADE_AA_01/**

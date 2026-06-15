@@ -5,7 +5,7 @@
     "source": "telegram_screener_bridge",
     "channel": "xauusd",
     "parsed_at": "2026-06-10T07:56:44+00:00",
-    "produced_at": "2026-06-11T10:00:14.649805+00:00",
+    "produced_at": "2026-06-15T07:00:14.717697+00:00",
     "pair": "XAUUSD",
     "asset": "XAUUSD",
     "direction": "LONG",
@@ -18,5 +18,25 @@
     ],
     "leverage": null,
     "raw_text": "\u26a0\ufe0f FREE SIGNAL\n\n\ud83d\udea8 BUY GOLD NOW  \ud83d\udcc8\n\n\ud83c\udfaf Entry Point: 4184.0 / 4177.0\n\u274c Stop Loss:  4174.0\n\n\u2705 TP1: 4194.0\n\u2705 TP2: 4204.0\n\u2705 TP3: OPEN"
+  },
+  {
+    "contract": "telegram_trade_signal.v1",
+    "id": "trade_xauusd_5667_2026-06-11T13:31:52+00:00",
+    "source": "telegram_screener_bridge",
+    "channel": "xauusd",
+    "parsed_at": "2026-06-11T13:31:52+00:00",
+    "produced_at": "2026-06-15T07:00:14.719689+00:00",
+    "pair": "XAUUSD",
+    "asset": "XAUUSD",
+    "direction": "SHORT",
+    "entry_price": 4080.0,
+    "sl": 4091.0,
+    "tp": 4060.0,
+    "tps": [
+      4060.0,
+      4070.0
+    ],
+    "leverage": null,
+    "raw_text": "\u26a0\ufe0f FREE SIGNAL\n\n\ud83d\udea8 SELL GOLD NOW  \ud83d\udcc9\n\n\ud83c\udfaf Entry Point: 4080.0 / 4088.0\n\u274c Stop Loss:  4091.0\n\n\u2705 TP1: 4070.0\n\u2705 TP2: 4060.0\n\u2705 TP3: OPEN"
   }
 ]

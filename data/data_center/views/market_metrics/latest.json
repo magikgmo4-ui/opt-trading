@@ -3,7 +3,7 @@
   "input_class": "market_metrics.v1",
   "module_id": "analysis_bundles.live",
   "symbol": "BTCUSDT",
-  "metrics_ts": "2026-06-11T10:00:07.896287+00:00",
+  "metrics_ts": "2026-06-15T07:00:07.615599+00:00",
   "freshness_state": "fresh",
   "provider_coverage": {
     "status": "partial",
@@ -34,5 +34,5 @@
   },
   "provider_id": "binance_spot",
   "warnings": [],
-  "last_price": 62926.01
+  "last_price": 65810.0
 }

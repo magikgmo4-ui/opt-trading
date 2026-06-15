@@ -1972,5 +1972,135 @@
       "summary_json": "2026-06-11_00-52-37",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-11_00-52-22.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_040600_TVC:DXY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:05:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-05-47",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.5,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 99.2,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 100.3,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.8,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure 99.50 pour baisse sinon retour vers 100.30",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture au-dessus 100.30",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Analyse impossible",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Données manquantes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Données manquantes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Situation mixte avec recentrage du DXY après une forte impulsion haussière (zone inconnue sans timeframe précis).  \n- Structure montrant des hauts et bas sans tendance claire, avec une possible correction en cours.  \n- Zones clés autour de 99.50 (support récent) et 100.30 (résistance haute), vigilance sur invalidation scénario baissier.  \n\nB) Chart 1 (haut-gauche) : DXY 1h  \n- Tendance : neutre à court terme après forte impulsion haussière.  \n- Structure : HH puis LH, HL formés récemment, signalant plus de consolidation.  \n- Supports : 99.50, 99.20.  \n- Résistances : 100.30, 99.80.  \n- Plan : surveiller cassure 99.50 pour scénario baissier, sinon retour possible vers 100.30.  \n- Invalidation : clôture solide au-dessus de 100.30 invalide le scénario baissier court terme.  \n\nC) Chart 2 (haut-droit) : symbole/timeframe inconnu  \n- Tendance : inconnu (pas lisible clairement).  \n- Structure : inconnue.  \n- Supports / résistances : non identifiables.  \n- Plan : analyse i",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-05-47",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-15_00-05-29.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041246_TVC:DXY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:DXY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:12:45-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-12-37",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 99.45,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.75,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 99.85,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "vendre sous 99.75 avec cible 99.45, stopper au-dessus de 99.85",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "prix > 99.85 en clôture 1h",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance 1h en retournement : les plus hauts sont passés de HH (plus hauts) à LH (plus bas), la structure baissière s’impose.  \n- Zone clé support à 99.45 testée, à surveiller pour un rebond ou poursuite de la baisse.  \n- Scénario principal baissier avec invalidation au-dessus de 99.85 (ancien support devenu résistance).\n\nB) Chart unique (TVC:DXY 1h):  \nLa structure montre un changement clair : une série de HH suivis d’un LH récent, indiquant une possible bascule vers la faiblesse. Le prix est venu tester la zone de support clé vers 99.45. Tant que ce support tient, un rebond technique est possible, mais la présence de résistances autour de 99.75-99.85 limite le potentiel haussier immédiat. En cas de franchissement clair de 99.85, la tendance haussière pourrait se réinstaller temporairement. Invalidation du biais baissier si le prix revient au-dessus de cette zone sans obstacle. La prudence reste de mise, le momentum baissier semble toutefois dominant sur ce timefr",
+    "symbols_found": [
+      "TVC:DXY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-12-37",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:DXY_1h_2026-06-15_00-12-22.png"
+    }
   }
 ]

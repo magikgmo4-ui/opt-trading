@@ -9728,5 +9728,417 @@
       "summary_json": "2026-06-11_05-03-42",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-11_05-03-24.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032417_OANDA:XAUUSD_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-14T23:24:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-24-06",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Long si break confirmé 4340+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 4120",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "-",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Marchés actions US plutôt haussiers sur court terme, oscillant avec volatilité, indices majeurs en légère hausse.  \n- XAUUSD (or) en forte reprise sur 1h après longue tendance baissière, potentiel début d'inversion à surveiller.  \n- Sentiment un peu mitigé avec VIX et DXY en légère tension, zones clés à respecter pour confirmer ou invalider structure.\n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \nTendance baissière dominante avec cycles HL/LL puis forte reprise récente initiant un HL et un HH partiel.  \nStructure: après une série de LH/LL, apparition d’un HL puis HH ce qui pourrait signaler un retournement à court terme.  \nZones clés: support majeur vers 4120-4140, résistance immédiate à valider vers 4340-4360.  \nScénario: une cassure confirmée du HH à 4340-4360 ouvrirait une continuation haussière.  \nInvalidation: repli sous 4120 annulerait le retournement et renforcerait la tendance baissière.\n\nC) Chart 2 (haut-droit): inconnu (détails du graphique non lisibles)  \nTenda",
+    "symbols_found": [
+      "OANDA:XAUUSD"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-24-06",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-14_23-23-54.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032601_OANDA:XAUUSD_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-14T23:25:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-25-52",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 4200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller franchissement résistance 4340 pour entrer long, cibler 4400+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour en dessous de 4200 avec momentum baissier",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière visible avec une série de plus bas (LL) et plus hauts (LH) descendants jusqu’au 11/12.  \n- Reprise haussière nette depuis le 11/12 marquée par une cassure de la zone de résistance intermédiaire vers 4320 USD.  \n- Structure en cours montre un potentiel retournement ou rallye technique avec un nouveau plus haut relatif (HH) sur le court terme.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLe graphique présente une tendance globale baissière confirmée par des LL et LH sur plusieurs jours. Depuis le 11/12, une forte reprise haussière modifie la structure avec la formation d’un HL puis d’un HH récent, indiquant une possible inversion de tendance ou au moins un rebond significatif à court terme. La zone 4200-4220 USD servait de support avant la hausse. La résistance principale à surveiller est autour de 4340-4350 USD, niveau à franchir pour confirmer un retour haussier durable. Invalidation du scénario haussier si le prix redescend en dessous du sup",
+    "symbols_found": [
+      "OANDA:XAUUSD"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-25-52",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-14_23-25-34.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_042600_OANDA:XAUUSD_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:25:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-25-50",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "suivre la cassure et maintien au-dessus des supports pour entrée longue",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 4150",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Rebond visible sur le XAUUSD (or) après une forte baisse, possiblement un retournement de court terme.  \n- La structure technique montre un passage de tendance baissière à neutre/haussière sur les UT courtes.  \n- Zones clés à surveiller : résistances dynamiques proches du récent sommet local, supports à minima sur creux précédents.  \n\nB) Chart 1 (haut-gauche): XAUUSD 1h  \nLa tendance récente était baissière marquée par des Lower Highs (LH) et Lower Lows (LL). Actuellement, on observe un changement avec une succession de Higher Lows (HL) et un dernier price action proche d’un Higher High (HH), indiquant un possible retournement haussier. La zone clé à surveiller est la résistance vers 4330-4340 qui pourrait freiner la poursuite haussière. Le support de court terme se situe autour des 4150-4170. Scénario haussier valide tant que le dernier HL tient, invalidation si retour sous 4150.  \n\nC) Chart 2 (haut-droit): inconnu (symbole/timeframe non lisible)  \nInformations in",
+    "symbols_found": [
+      "OANDA:XAUUSD"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-25-50",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-15_00-25-35.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_042744_OANDA:XAUUSD_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:27:42-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-27-35",
+    "signals": [
+      {
+        "type": "resistance_level",
+        "value": 4320.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter au maintien du support 4180-4200 avec prise de profit proche de 4400.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Retour sous 4180 sur H1.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance principale baissière visible avec une série de Lower Highs (LH) et Lower Lows (LL).\n- Reprise haussière récente marquée par un franchissement de résistance intermédiaire à ~4320.\n- Scénario possible d’inversion ou de correction haussière à confirmer par maintien du support actuel.\n\nB) Chart unique (OANDA:XAUUSD 1h) :  \nLa structure présente une tendance baissière claire avec une succession de LL et LH jusqu’au 11 avril, suivie d’une forte impulsion haussière. Le prix a franchi la résistance située vers 4320, ce qui crée un nouveau High temporaire. La zone de support est identifiée autour de 4180-4200. Le scénario prioritaire reste la correction haussière dans une tendance globalement bearish, avec une invalidation si le prix repasse sous 4180 sur 1h, signalant un retour de la pression vendeuse.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bullish correction\",\"structure\":\"LH puis HL récent\",\"supports\":[\"4180-4200\"],\"resistances\":[\"4320\"],\"",
+    "symbols_found": [
+      "OANDA:XAUUSD"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-27-35",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-15_00-27-18.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_052736_OANDA:XAUUSD_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:27:33-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-27-26",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 4180.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 4050.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 4340.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 4400.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur cassure 4350 avec stop sous 4180",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 4180",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "inconnu",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Rebond haussier notable après une forte tendance baissière sur le graphique principal (XAUUSD H1).  \n- Plusieurs zones clés importantes à surveiller pour valider un changement de structure ou confirmer une poursuite.  \n- Scénarios de retournement ou continuation à affiner selon la cassure ou rebond sur les niveaux S/R identifiés.  \n\nB) Chart 1 (haut-gauche): XAUUSD H1  \n- Tendance récente : baissière suivie d’un rebond fort.  \n- Structure : dernière phase montre un possible bas HL (Higher Low), en tentative de retournement.  \n- Supports clés : 4180-4200 (zone de rebond intermédiaire), 4050 (support majeur).  \n- Résistances clés : 4340-4350 (plus haut récent), puis 4400.  \n- Scénario principal : continuation haussière si cassure/franchissement 4350 avec maintien du HL.  \n- Invalidation : retour sous 4180 qui remettrait en cause la reprise haussière.  \n\nC) Chart 2 (haut-droit): Inconnu (symbole/timeframe non visible)  \n- Tendance, structure et zones clés non identifi",
+    "symbols_found": [
+      "OANDA:XAUUSD"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-27-26",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-15_01-27-10.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_052916_OANDA:XAUUSD_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:29:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-29-09",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 4180.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 4200.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 4325.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 4340.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "chercher un break/retour au-delà de 4340 pour trade long, stops sous 4200",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 4180 confirmerait reprise baissière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière dominante sur les premières sessions, avec une forte chute marquée par des LL (Lower Lows) et LH (Lower Highs).  \n- Reprise haussière récente initiée, formant une structure de retour HL (Higher Lows) et HH (Higher Highs) sur le court terme.  \n- Zone de résistance visible autour de 4330-4340 à surveiller pour confirmer continuation bullish ou possible retournement.  \n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure principale est baissière sur la majeure partie du graphique avec des Lower Highs et Lower Lows nets, indiquant une pression vendeuse forte. Depuis le dernier point bas, on observe un retournement haussier avec un rebond marqué, formant un premier Higher Low puis Higher High sur les dernières heures. La zone 4325-4340 correspond à une résistance clé, testée actuellement par le prix. Un franchissement solide confirmerait un changement de tendance court terme à bullish, un échec pourrait ramener de la pression vendeuse. Le support immédi",
+    "symbols_found": [
+      "OANDA:XAUUSD"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-29-09",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-15_01-28-56.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_062939_OANDA:XAUUSD_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:29:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-29-29",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "acheter sur franchissement 4340",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 4060",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Repli marqué suivi d’une tentative de rebond à court terme.  \n- Volumes en hausse lors du creux, signe d’une possible reprise.  \n- Zones clés à surveiller pour valider le retournement ou un retour baissier.  \n\nB) Chart 1 (haut-gauche):  \n- Symbole: XAUUSD, timeframe: 1h.  \n- Tendance récente : baisse nette avec structure de bas en bas (LL) jusqu’au 11, suivi d’un rebond (HH en formation).  \n- Supports clés : zone 4,040-4,060 (plus bas récent, forte demande).  \n- Résistances à surveiller : 4,320-4,340 (plus hauts récents du rebond).  \n- Scénario : rebond possible en cours, viser confirmation par franchissement de 4,340 pour continuation haussière.  \n- Invalidation : retour sous 4,060 annule scénario bullish, risque de poursuite baissière.  \n\nC) Chart 2 (haut-droit): inconnu (pas visible).  \n\nD) Chart 3 (bas-gauche): inconnu (pas visible).  \n\nE) Chart 4 (bas-droit): inconnu (pas visible).  \n\nF) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"haut-gauche\",\"bias\":\"haussier ",
+    "symbols_found": [
+      "OANDA:XAUUSD"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-29-29",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-15_02-29-13.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_063134_OANDA:XAUUSD_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:31:32-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-31-24",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Surveiller cassure resistance 4340 pour confirmation haussière. Stop sous 4120 pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture horaire en dessous de 4120",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance 1h baissière claire avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Dernière zone de rebond marquée par un pullback haussier dans une structure de retournement potentiel.  \n- Zone clé de résistance vers 4340-4350, support important vers 4120-4130.\n\nB) Chart unique (OANDA:XAUUSD 1h):  \nLa structure montre d'abord une chute prononcée avec des LL et LH confirmés, caractérisant une forte tendance baissière. Un retournement haussier s'amorce depuis le 11 juin, matérialisé par un HL récent en cours de test. Le prix rencontre une résistance proche de 4340, où le récent top semble freiner la dynamique haussière. En cas de rupture claire de ce niveau, validation d'un changement de tendance vers plus de haussier. Invalidation si le support vers 4120-4130 est clôturé en chandelier horaire, ce qui relancerait la pression vendeuse.\n\nC) DeskPro  \n{\"run_id\":\"20240614-0631\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre baissier avec potentiel retournement\",\"structu",
+    "symbols_found": [
+      "OANDA:XAUUSD"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-31-24",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_OANDA:XAUUSD_1h_2026-06-15_02-31-07.png"
+    }
   }
 ]

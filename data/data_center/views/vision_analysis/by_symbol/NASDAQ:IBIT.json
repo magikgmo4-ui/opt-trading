@@ -780,5 +780,52 @@
       "summary_json": "2026-06-05_23-49-19",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-05_23-49-09.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_040949_NASDAQ:IBIT_1h",
+    "screen_type": "ETF_CRYPTO",
+    "symbol": "NASDAQ:IBIT",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:09:47-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-09-40",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 34.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 36.5,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "surveiller rupture haussière >36.50 USD pour confirmation de rebond. En cas de retour <34.00 USD, reprise forte de la baisse.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "passage sous 34.00 USD, nouvelles LL",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance principale baissière confirmée avec une série de Lower Highs (LH) et Lower Lows (LL).  \n- Depuis début juin, tentative de rebond marquée par plusieurs Higher Lows (HL), signalant une structure potentiellement en construction.  \n- Volume croissant sur les creux récents, indiquant un intérêt acheteur possible, mais résistance visible autour de 36.50 USD.\n\nB) Chart unique (NASDAQ:IBIT 1h):  \nLe cours évolue dans une tendance baissière claire (LH et LL) depuis fin mai, avec une forte chute début juin. Depuis le 8 juin, on observe un changement de tonalité avec des HL formés autour de 34.00 USD et des tentatives de reprise vers 36.50 USD qui font résistance. Ce niveau de 36.50 USD est clé; un franchissement pourrait signaler un retournement ou une correction plus ample. En dessous de 34.00 USD, la tendance baissière reste dominante. Invalidation du scénario haussier sous 34.00 USD.\n\nC) DeskPro  \n```json\n{\"run_id\":\"20240612-ib1h\",\"charts\":[{\"slot\":\"single\",\"bias",
+    "symbols_found": [
+      "NASDAQ:IBIT"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-09-40",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:IBIT_1h_2026-06-15_00-09-24.png"
+    }
   }
 ]

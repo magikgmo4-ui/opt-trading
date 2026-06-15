@@ -4362,5 +4362,211 @@
       "summary_json": "2026-06-11_05-06-55",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-11_05-06-44.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032911_XRPUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "XRPUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-14T23:29:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-29-04",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1.18,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1.19,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur support 1.18 avec stop sous 1.18, prise de profit sous 1.19",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture en 15m sous 1.18",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance majoritairement baissière sur la première partie, avec structure en LL (Lower Lows) et LH (Lower Highs).  \n- Forte impulsion haussière violente marquant un renversement net et formation d’un HH significatif.  \n- Conso latérale récente au-dessus du niveau 1.18, zone clé à surveiller pour poursuite ou retour baissier.  \n\nB) Chart unique (XRPUSDT.P 15m) :  \nTendance initiale baissière confirmée par une série de LL et LH jusqu’à environ 1.13. Puis une impulsion haussière forte casse ces structures et forme un HH à près de 1.19. Le prix consolide actuellement au-dessus de 1.18, formant une micro-structure latérale. Zones clés à retenir : support à 1.18 (ancien breakout), résistance à 1.19 (plus haut récent). Scénario principal haussier tant que 1.18 tient, invalidation sous 1.18 avec retour probable vers 1.13.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH après LL/LH\",\"supports\":[1.18],\"resistances\":[1.19],\"plan\":\"",
+    "symbols_found": [
+      "XRPUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-29-04",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-14_23-28-52.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_043058_XRPUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "XRPUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T00:30:56-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-30-50",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1.135,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 1.14,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1.195,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "chercher achats sur retours de support pour viser 1.1950 puis 1.20 si franchissement",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture 15m sous 1.1350",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière forte en 15m suite à une grosse impulsion haussière.  \n- Structure récente montre un HH significatif suite à un plus bas local (HL) formé avant la montée.  \n- Zone clé support autour de 1.1350-1.1400, résistance visible proche de 1.1950.\n\nB) Chart unique (XRPUSDT.P 15m) :  \nOn observe un rebond marqué après une phase de correction marquée par des plus bas plus hauts (HL), confirmant tentative de retournement haussier. La grosse mèche baissière suivie d’une chandelle très longue verte signale une forte pression acheteuse. La dynamique est ascendante, mais la résistance proche des 1.1950 devra être surveillée pour la poursuite. Invalidation du scénario haussier en cas de retour sous 1.1350, qui marquerait un nouveau LS/LL.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1.1350\",\"1.1400\"],\"resistances\":[\"1.1950\"],\"plan\":\"chercher achats sur retours de support pour viser 1.1950 puis 1.20 si ",
+    "symbols_found": [
+      "XRPUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-30-50",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-15_00-30-38.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_053227_XRPUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "XRPUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T01:32:25-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-32-20",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1.135,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1.195,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée long sur retest support avec target proche résistance. Stop sous 1.1350.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure en clôture sous 1.1350.",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière nette impulsive visible sur les dernières bougies, avec un gap de volume important.\n- Structure récente en HH/HL indiquant une dynamique d’achat forte après une phase de correction.\n- Zone clé de support autour de 1.1350, résistance proche autour de 1.1950 à surveiller pour confirmation de continuation.\n\nB) Chart unique (XRPUSDT.P 15m) : On observe une cassure nette d’une phase de baisse accompagnée d’un fort volume acheteur, entraînant une impulsion haussière marquée. La structure montre un creux plus haut (HL) puis un sommet plus haut (HH) récemment formé. La zone de support 1.1350 sert de base solide. La résistance majeure se situe vers 1.1950, point à valider avant une poursuite haussière durable. Scénario privilégié : poursuite de la hausse avec prise de profit possible sous résistance majeure. Invalidation sous 1.1350 confirmerait retour en consolide ou baisse.\n\nC) DeskPro {\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structur",
+    "symbols_found": [
+      "XRPUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-32-20",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-15_01-32-12.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_063510_XRPUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "XRPUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T02:35:08-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-35-01",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1.165,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 1.17,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1.19,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1.195,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée possible sur repli proche support 1.1650-1.1700 avec stop sous ce niveau. Cible prioritaire proche résistance 1.1900-1.1950.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "perte claire du support 1.1650",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le timeframe 15m, marquée par un puissant gap et une forte dynamique acheteuse.  \n- Structure récente en HH/HL claire après le rebond important, signifiant une reprise dynamique du cours.  \n- Zone clé de support immédiat vers 1.1650-1.1700 et résistance autour de 1.1900-1.1950, à surveiller pour la suite.  \n\nB) Chart unique (XRPUSDT.P 15m):  \nLe graphique présente une forte impulsion haussière marquée par un gap qui a fait passer le prix de 1.1400 vers 1.1800 en très peu de temps. Après ce gap, la structure montre des hauts plus hauts (HH) et bas plus hauts (HL), confirmant la continuation haussière. Une consolidation latérale s’installe sous 1.1900, valeur qui devient résistance. Le support à surveiller se situe autour de 1.1650-1.1700, zone où le prix a rebondi après le mouvement. Le scénario préférentiel reste haussier tant que le support n’est pas invalidé durablement. En cas de cassure sous 1.1650, une correction plus large pourrai",
+    "symbols_found": [
+      "XRPUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-35-01",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_XRPUSDT.P_15m_2026-06-15_02-34-47.png"
+    }
   }
 ]

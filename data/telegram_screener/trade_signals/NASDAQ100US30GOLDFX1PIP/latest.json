@@ -5,7 +5,7 @@
     "source": "telegram_screener_bridge",
     "channel": "NASDAQ100US30GOLDFX1PIP",
     "parsed_at": "2026-06-11T04:26:00+00:00",
-    "produced_at": "2026-06-11T10:00:13.953530+00:00",
+    "produced_at": "2026-06-15T07:00:13.960828+00:00",
     "pair": "XAUUSD",
     "asset": "XAUUSD",
     "direction": "SHORT",

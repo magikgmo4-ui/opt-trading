@@ -138,5 +138,40 @@
       "summary_json": "2026-06-05_10-15-49",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:US10Y_1h_2026-06-05_10-15-34.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041356_TVC:US10Y_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:US10Y",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:13:55-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-13-48",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "achat sur support 4.440% avec cible résistance 4.560%. Stop sous 4.440% invalide le scénario haussier.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture horaire sous 4.440%",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière initiale suivie d'une nette correction baissière.  \n- Structure récente en bas de cycle avec un dernier rebond, formant un possible HL.  \n- Zone clé support identifié autour de 4.440%, résistance vers 4.560%.\n\nB) Chart unique (TVC:US10Y 1h):  \nSur le timeframe 1h, la tendance dominante montre un mouvement haussier marqué par des HH/HL jusqu'à atteindre un sommet proche de 4.580%, suivi d'un retournement baissier important avec formation de LH et LL. Le prix teste actuellement une zone de support autour de 4.440% avant de tenter un rebond qui pourrait initier une nouvelle structure haussière si le prix crée un HL. La résistance majeure à surveiller se situe proche du dernier sommet à 4.560%. Le scénario privilégie un retour à la hausse si ce support tien, sinon une continuation baissière sous 4.440% invalidera le rebond.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",\"structure\":\"HH/HL initial puis LH/LL avec der",
+    "symbols_found": [
+      "TVC:US10Y"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-13-48",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:US10Y_1h_2026-06-15_00-13-33.png"
+    }
   }
 ]

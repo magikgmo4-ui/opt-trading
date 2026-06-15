@@ -4,7 +4,7 @@
   "total": 4,
   "signals": [
     {
-      "id": "tg_9388_20260611T100009",
+      "id": "tg_9388_20260615T070009",
       "pair": "XAU/USD",
       "direction": "LONG",
       "entry_price": 1631.52,
@@ -14,7 +14,7 @@
       "parsed_at": "2026-06-08T13:18:28+00:00"
     },
     {
-      "id": "tg_9385_20260611T100009",
+      "id": "tg_9385_20260615T070009",
       "pair": "BTCUSDT",
       "direction": "SHORT",
       "entry_price": null,
@@ -24,7 +24,7 @@
       "parsed_at": "2026-06-05T13:34:27+00:00"
     },
     {
-      "id": "tg_9382_20260611T100009",
+      "id": "tg_9382_20260615T070009",
       "pair": "ETHUSDT",
       "direction": "LONG",
       "entry_price": null,
@@ -34,7 +34,7 @@
       "parsed_at": "2026-06-04T13:21:02+00:00"
     },
     {
-      "id": "tg_9381_20260611T100009",
+      "id": "tg_9381_20260615T070009",
       "pair": "XAU/USD",
       "direction": "LONG",
       "entry_price": 1691.57,
@@ -44,5 +44,5 @@
       "parsed_at": "2026-06-04T13:20:56+00:00"
     }
   ],
-  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+  "produced_at": "2026-06-15T07:00:09.411096+00:00"
 }

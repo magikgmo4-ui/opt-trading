@@ -4,7 +4,7 @@
   "total": 9,
   "signals": [
     {
-      "id": "tg_11974_20260611T100009",
+      "id": "tg_11974_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": 4110.0,
@@ -14,7 +14,7 @@
       "parsed_at": "2026-06-11T07:27:37+00:00"
     },
     {
-      "id": "tg_11972_20260611T100009",
+      "id": "tg_11972_20260615T070009",
       "pair": "XAU/USD",
       "direction": "LONG",
       "entry_price": null,
@@ -24,7 +24,7 @@
       "parsed_at": "2026-06-10T16:00:59+00:00"
     },
     {
-      "id": "tg_11969_20260611T100009",
+      "id": "tg_11969_20260615T070009",
       "pair": "XAU/USD",
       "direction": "LONG",
       "entry_price": null,
@@ -34,7 +34,7 @@
       "parsed_at": "2026-06-10T15:24:37+00:00"
     },
     {
-      "id": "tg_11966_20260611T100009",
+      "id": "tg_11966_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": null,
@@ -44,7 +44,7 @@
       "parsed_at": "2026-06-09T10:18:59+00:00"
     },
     {
-      "id": "tg_11963_20260611T100009",
+      "id": "tg_11963_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": 4337.0,
@@ -54,7 +54,7 @@
       "parsed_at": "2026-06-09T01:55:57+00:00"
     },
     {
-      "id": "tg_11959_20260611T100009",
+      "id": "tg_11959_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": 4506.0,
@@ -64,7 +64,7 @@
       "parsed_at": "2026-06-04T12:58:43+00:00"
     },
     {
-      "id": "tg_11958_20260611T100009",
+      "id": "tg_11958_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": 4501.5,
@@ -74,7 +74,7 @@
       "parsed_at": "2026-06-04T12:41:14+00:00"
     },
     {
-      "id": "tg_11951_20260611T100009",
+      "id": "tg_11951_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": 4492.0,
@@ -84,7 +84,7 @@
       "parsed_at": "2026-06-03T00:52:38+00:00"
     },
     {
-      "id": "tg_11947_20260611T100009",
+      "id": "tg_11947_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": null,
@@ -94,5 +94,5 @@
       "parsed_at": "2026-06-02T09:18:51+00:00"
     }
   ],
-  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+  "produced_at": "2026-06-15T07:00:09.411096+00:00"
 }

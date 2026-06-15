@@ -380,5 +380,117 @@
       "summary_json": "2026-06-05_10-27-08",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-05_10-26-53.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041423_NYMEX:CL1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:14:22-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-14-14",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 80.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 86.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 87.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "rechercher ventes sur rebond proche résistance 86-87 USD, viser 80 USD puis 78 USD. Stop au-dessus de 87 USD.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "franchissement et clôture au-dessus de 87 USD avec volume",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière claire sur le 1h avec une série de creux et sommets descendants (LH/LL).  \n- Structure fracturée après un dernier rebond infructueux proche de 86 USD, suivi d’un fort rejet baissier.  \n- Zones clés à surveiller : support court terme autour de 80 USD, résistance majeure proche de 86-87 USD.  \n\nB) Chart unique (NYMEX:CL1! 1h) :  \nLe marché montre une dynamique baissière nette, marquée par des lower highs (LH) et lower lows (LL), indiquant un biais vendeur dominant. Après un point bas récent autour de 80 USD, un rebond technique a échoué à franchir la résistance à environ 86 USD, confirmant la structure baissière. Le volume augmente lors des baisses, ce qui valide la pression vendeuse. Le scénario privilégié reste la continuation baissière avec un test possible du support immédiat vers 80 USD. Une cassure sous ce niveau validerait la poursuite vers 78 USD et plus bas. Invalidation du scénario bearish en cas de franchissement clair et durable au-dess",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-14-14",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_1h_2026-06-15_00-13-58.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041518_NYMEX:CL1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:CL1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-15T00:15:17-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-15-12",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 80.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 78.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 88.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 90.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "vendre sur rebond ou cassure du support 80 pour viser 78 puis plus bas",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "remontée claire au-dessus de 90 USD",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance baissière claire sur le 4h avec une série de lower highs (LH) et lower lows (LL).\n- Présence de résistances importantes autour de 88-90 USD, zone de pullbacks récents.\n- Supports à court terme proches des 80 USD, invalidation de la baisse sous 78 USD.\n\nB) Chart unique (NYMEX:CL1! 4h) :\nLa structure affiche des lower highs et lower lows, confirmant une tendance baissière. Le prix teste actuellement un support clé autour de 80 USD. La zone résistance majeure se situe entre 88 et 90 USD, stoppant les tentatives de rebond. Le scénario prioritaire reste une poursuite de la baisse en cas de cassure des 80 USD, avec un point d’invalidation sous 78 USD. Un rebond au-dessus de 88 USD affaiblirait ce biais.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[80,78],\"resistances\":[88,90],\"plan\":\"vendre sur rebond ou cassure du support 80 pour viser 78 puis plus bas\",\"invalidation\":\"remontée claire au-dessus de 90 USD",
+    "symbols_found": [
+      "NYMEX:CL1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-15-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:CL1!_4h_2026-06-15_00-14-55.png"
+    }
   }
 ]

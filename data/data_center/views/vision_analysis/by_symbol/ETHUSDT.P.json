@@ -24179,5 +24179,1105 @@
       "summary_json": "2026-06-11_05-43-54",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-11_05-43-42.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032329_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-14T23:23:27-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-23-21",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1700.0,
+        "confidence": 0.7,
+        "note": "s 1700"
+      },
+      {
+        "type": "support_level",
+        "value": 1700.0,
+        "confidence": 0.7,
+        "note": "s 1700,"
+      },
+      {
+        "type": "support_level",
+        "value": 1740.0,
+        "confidence": 0.7,
+        "note": "s 1740"
+      },
+      {
+        "type": "support_level",
+        "value": 1700.0,
+        "confidence": 0.7,
+        "note": "s 1700"
+      },
+      {
+        "type": "support_level",
+        "value": 1700.0,
+        "confidence": 0.7,
+        "note": "s 1700"
+      },
+      {
+        "type": "support_level",
+        "value": 1730.0,
+        "confidence": 0.7,
+        "note": "s 1730"
+      },
+      {
+        "type": "support_level",
+        "value": 1750.0,
+        "confidence": 0.7,
+        "note": "s 1750"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le 15m après un fort breakout à 1700.  \n- Structure claire de HH/HL post breakout, signalant une dynamique acheteuse.  \n- Zones clés à surveiller : support vers 1700 et résistance récente autour de 1730.  \n\nB) Chart unique (ETHUSDT.P 15m): La tendance est haussière, marquée par une rupture franche d’une zone de résistance vers 1700, suivie de creux plus hauts (HL) et de sommets plus hauts (HH). Le volume augmente significativement lors du breakout, confirmant la force acheteuse. Le prix teste actuellement une résistance proche de 1730. Le support majeur immédiat se situe autour de 1700, zone à défendre pour maintenir la structure haussière. Scénario principal : poursuite du momentum bullish tant que 1700 tient, avec possible extension vers 1740-1750. Invalidation en cas de cassure franche sous 1700 avec retour sous le dernier HL.  \n\nC) DeskPro  \n{\"run_id\":\"0001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\"",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-23-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-14_23-23-06.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032440_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-14T23:24:38-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-24-32",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1680.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1740.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1750.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Prendre position à cassure 1720, viser continuation haussière, stop sous 1680",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "chute sous 1680",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance récente haussière clairement marquée par une forte impulsion sur la droite du graphique.\n- Structure : série de HL/LH pendant la consolidation, puis cassure nette d’une résistance.\n- Zones clés : support autour de 1680, résistance invalidante à 1740-1750.\n\nB) Chart unique (ETHUSDT.P 1h): Le marché évoluait en range avec une alternance de HL et LH, indiquant une structure neutre à légèrement baissière. La récente bougie haussière puissante a cassé la résistance locale vers 1710-1720, initiant un possible nouveau mouvement haussier. Le volume a augmenté sur la cassure, validant la force acheteuse. Invalidation possible sous le dernier support autour de 1680. Le plan consiste à viser une continuation au-dessus de 1720 avec un stop serré sous 1680.\n\nC) DeskPro\n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL/LH en range puis cassure haussière\",\"supports\":[1680],\"resistances\":[1740,1750],\"plan\":\"Prendre position à cassure 1720, viser con",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-24-32",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-14_23-24-19.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_034356_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-14T23:43:54-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-43-47",
+    "signals": [
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "long sur support avec confirmation ou break résistance 1730",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 1670",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance récente en 15m : forte impulsion haussière suivie d’une consolidation.\n- Structure de prix avant rupture : succession de HL/HH modérée, puis explosion par un gap haussier.\n- Zones clés : support autour de 1670-1680 (niveau avant explosion), résistance short-terme vers 1730 (plus haut local).\n\nB) Chart unique (ETHUSDT.P 15m) : \nLe marché a évolué en tendance de consolidation avec des hauts et bas relativement stables (HL/HH modérés), puis une accélération haussière marquée par une forte bougie d’impulsion vers 1725-1730. La structure valide un tournant haussier clair. Volume important à l’impulsion. La zone 1670-1680 se pose en support critique; invalidation du scénario haussier si franchie à la baisse. La résistance immédiate se situe à 1730, à surveiller pour la poursuite du mouvement. Plans d’entrée possibles sur retour sur support ou break de 1730 avec confirmation.\n\nC) DeskPro\n{\"run_id\":\"eth15m_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-43-47",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-14_23-43-33.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_034443_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-14T23:44:41-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-44-33",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1680.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 1700.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Long sur rebond support ou pullback sur breakout",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "close 1h sous 1680",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur la dernière heure avec breakout violent.  \n- Structure de plus hauts et plus bas élevés (HH/HL) depuis début période, confirmant une dynamique acheteuse.  \n- Zones clés à surveiller : support vers 1680-1700, résistance récente autour de 1730.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLa paire ETHUSDT.P montre une tendance haussière affirmée après une période de consolidation latérale entre 1650 et 1700. On observe des structures HH/HL régulières marquant un mouvement upward. Le récent breakout a franchi la résistance à 1700-1710 avec un volume en forte hausse, signalant une poursuite possible du mouvement. Les supports à 1680 et 1700 sont des zones à garder pour gestion du risque. L’invalidation du scénario haussier se ferait par un retour sous 1680 en clôture 1h.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1680\",\"1700\"],\"resistances\":[\"1730\"],\"plan\":\"Long sur rebond support ou ",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-44-33",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-14_23-44-25.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_040404_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T00:04:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-03-55",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1700.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 1710.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1725.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Attendre retour sur support 1700-1710 pour potentiel long, stop sous 1698",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure en clôture 1698 vers le bas",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominée par un fort mouvement haussier brusque survenu récemment, interrompant une phase de baisse.  \n- Structure passée de lower highs/lower lows (LH/LL) à un potentiel début de higher highs/higher lows (HH/HL) sur le plus court terme.  \n- Zone clé support immédiate à 1700 USDT, résistance à surveiller vers le dernier plus haut à 1730 USDT.  \n\nB) Chart unique (ETHUSDT.P 15m): Le marché montre une nette cassure haussière après une période de consolidation baissière. La structure est passée d’un range baissier avec des plus bas et plus hauts déclinants à un rebond fort formant un nouveau plus haut local (HH). Le prix teste actuellement une zone de résistance autour de 1725-1730, qui constitue un point d’invalidation pour un retour baissier si franchie à la baisse. Le support majeur immédiat est la zone 1700-1710, seuil à défendre pour préserver la dynamique haussière. Le scénario à privilégier est une attente d’une correction technique vers le support, suiv",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-03-55",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_00-03-38.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_040501_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:04:59-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-04-51",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1650.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1750.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Sur achat sur retest de 1710-1720 avec objectif 1730 puis 1750. Stop en dessous 1650 pour invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Cassure en clôture sous 1650",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale haussière avec une dernière impulsion forte à la hausse.  \n- Structure en HH/HL bien formée sur la majeure partie du graphique.  \n- Cassure nette d’une résistance récente vers 1710-1720, zone à surveiller maintenant comme support.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une dynamique bullish claire avec des hauts et bas ascendants (HH/HL) depuis le début de la séquence visible. Une consolidation latérale a eu lieu entre 1650 et 1700, suivie d’une puissante bougie verte confirmant la cassure d’une résistance majeure vers 1710-1720. Le prix se stabilise actuellement au-dessus de cette zone, ce qui valide un scénario haussier. En cas de repli, la zone 1710-1720 servira de support clé, suivi plus bas par 1650. Le scénario haussier sera invalidé si le prix casse durablement en dessous de 1650, indiquant un possible retournement en tendance baissière.\n\nC) DeskPro  \n{\"run_id\":\"20240615_eth1h\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"st",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-04-51",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_00-04-37.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_042504_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T00:25:02-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-24-57",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1680.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur retour ou cassure 1730 pour viser nouveaux plus hauts",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "remontée invalidée sous 1680",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance courte terme baissière avant une explosion haussière nette.\n- Structure actuelle montre un HL formé après la forte hausse.\n- Zone clé de support majeure à 1680, résistance intraday proche de 1730.\n\nB) Chart unique (ETHUSDT.P 15m):\nLe graphique présente initialement une série de lower highs (LH) et lower lows (LL) traduisant une tendance baissière. Puis, une forte impulsion haussière verticale casse la structure baissière. Après cette montée rapide, un higher low (HL) se forme, suggérant un possible changement de polarité pour une tendance haussière naissante. La zone autour de 1680 constitue le support clé où les acheteurs sont entrés massivement. La zone de résistance à surveiller est entre 1728 et 1730, correspondant aux sommets juste avant consolidation. Le scénario principal à privilégier est une poursuite haussière si le support tient et la résistance est cassée, sinon une invalidation du rebond sous 1680 pourrait relancer la baisse.\n\nC) DeskPro {\"run_i",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-24-57",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_00-24-50.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_042625_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:26:23-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-26-16",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1670.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Surveiller tenue du support 1670 pour entrer long. Objectif 1730 puis extension possible. Stop sous 1670 en invalidation.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "casse ferme sous 1670",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance récente haussière avec un fort gap up et une tentative de breakout au-dessus des 1 720.\n- Structure en HH/HL confirmée sur la montée, signant une dynamique acheteuse.\n- Zone support clé autour de 1 670 et résistance immédiate vers 1 730; scénario favorable à la poursuite du rebond si le support tient.\n\nB) Chart unique (ETHUSDT.P 1h) : \nLe graphique montre une progression de prix avec des creux et sommets de plus en plus hauts (HL/HH). Un gap up marquant une forte impulsion haussière est visible à l’extrémité droite, poussant le prix au-dessus des résistances antérieures. Le volume augmente sur cette poussée, ce qui valide la force acheteuse. Le support à 1 670 a permis de relancer la tendance, tandis que la résistance à 1 730 pourrait faire office de pause ou d’invalidation si franchie ou rejetée.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1670\"],\"resistances\":[\"1730\"],\"plan\":\"Surveiller tenue du",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-26-16",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_00-26-02.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_044542_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T00:45:40-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-45-32",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1730.0,
+        "confidence": 0.7,
+        "note": "s 1730"
+      },
+      {
+        "type": "support_level",
+        "value": 1725.0,
+        "confidence": 0.7,
+        "note": "s 1725"
+      },
+      {
+        "type": "support_level",
+        "value": 1680.0,
+        "confidence": 0.7,
+        "note": "s 1680"
+      },
+      {
+        "type": "support_level",
+        "value": 1680.0,
+        "confidence": 0.7,
+        "note": "support 1680"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1680.0,
+        "confidence": 0.7,
+        "note": "r à 1680"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance de fond haussière récente confirmée par un fort gap up sur le graphique 15m.  \n- Structure passée de consolidation avec HL/HH à une impulsion haussière nette puis retracement léger.  \n- Zone clé support autour de 1680$ (breakout précédent) et résistance immédiate vers 1730$ (plus haut local).  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLa séquence récente montre un retournement haussier puissant après une phase de baisse avec des bas et hauts décroissants (LL/LH). Un gap haussier massif crée un nouveau HH net au-dessus de 1720$, indiquant un changement de polarité et un renforcement haussier. Le prix corrige légèrement sous 1725-1730 en formant un petit range, suggérant une zone de résistance à court terme. La structure porteuse reste valide tant que le support majeur à 1680$ tient. Scénario privilégié : continuation haussière au-dessus de 1730$, invalidation nette sous 1680$.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structur",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-45-32",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_00-45-25.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_044623_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:46:22-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-46-16",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1650.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur replis proches 1650-1680, viser 1730-1740",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 1650",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente haussière marquée par une forte cassure à la hausse sur le dernier mouvement.  \n- Structure chaotique avec alternance de HH/HL puis consolidation latérale entre 1650-1700, suivie d’un breakout.  \n- Zones clés détectées autour de 1650 en support et 1730 en résistance immédiate.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLa structure montre une accumulation latérale après une tendance haussière initiale. Le prix a oscillé entre 1650 (support) et 1700 (résistance) avant d’effectuer une cassure nette au-dessus de 1700 avec une forte impulsion. La tendance de court terme est haussière (HH/HL), confirmée par le récent breakout. Une invalidation se situerait en cas de retour sous 1650, remettant en cause la dynamique haussière. Le prochain objectif de résistance à surveiller est vers 1730-1740.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL, breakout sur résistance\",\"supports\":[\"1650\"],\"resistances\":[\"1730\"],\"plan\":\"",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-46-16",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_00-46-08.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_050627_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T01:06:26-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-06-19",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1670.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur cassure 1730 avec stop sous 1670",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 1670",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance intraday passée de bearish à un fort retournement haussier.\n- Structure récente avec un gap d’impulsion suivi d’une consolidation latérale.\n- Zone clé support identifiée proche de 1670 USDT, résistance immédiate autour de 1730 USDT.\n\nB) Chart unique (ETHUSDT.P 15m) : \nLa tendance intraday montre une structure initiale en baisse avec des bas plus bas (LL) et des hauts plus bas (LH). Un puissant mouvement haussier en gap a modifié cette dynamique, brisant la structure baissière. Actuellement, le prix consolide latéralement en forme de range sous résistance majeure à 1730. Le support clé à 1670 a tenu avant le rallye, ce qui reste une zone d’invalidation du scénario haussier. Le plan privilégié est une poursuite de la hausse si la zone 1730 est franchie, avec un stop sous 1670. Un retour sous ce support invaliderait le biais haussier court terme.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier potentiel\",\"structure\":\"retournement d’un L",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-06-19",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_01-06-11.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_050717_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:07:15-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-07-09",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1670.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur repli proche support 1670 avec prise de profits partielle proche résistance 1730.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Clôture horaire sous 1670",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance actuelle globalement haussière sur le 1h avec une structure en HH et HL bien marquée.  \n- Récente forte impulsion haussière sortie d’une petite consolidation, confirmant la reprise de momentum.  \n- Zone clé résistive proche des 1 730 USDT, support important à 1 670 USDT, invalidation sous ce dernier pourrait signaler un retournement.  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nLe graphique montre une tendance haussière de moyen terme matérialisée par une série de plus hauts et plus bas ascendants (HH/HL). Après une phase de latéralisation et consolidation entre 1 620 et 1 680 USDT, une impulsion rapide a fait bondir le prix jusqu’à la zone de 1 730 USDT. Cette zone agit pour l’instant comme une résistance dynamique. Le support majeur à surveiller est à 1 670 USDT, zone qui a servi de plancher avant la rupture haussière récente. Un rejet sous ce support invaliderait le scénario haussier et pourrait ouvrir une correction plus large. La faible taille des chandelier",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-07-09",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_01-06-56.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_052645_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T01:26:43-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-26-35",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "achat sur pullback support, viser breakout 1735",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 1700 et rupture HL",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Forte cassure haussière explosive après une tendance baissière marquée sur le 15m.  \n- Structure passée de LH/LL à potentielle inversion avec HH/HL post-montée.  \n- Zone support immédiate autour de 1700-1710, résistance à surveiller vers 1730-1735.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance baissière avec une succession de HL/LL jusqu’à une forte bougie verte impulsive qui casse la structure et crée un HH significatif. Après ce spike, consolidation autour des 1715-1725 qui fait office de zone clé de support/resistance. Pour valider la poursuite haussière, il faudra que les prix maintiennent des HH/HL et dépassent la résistance à 1730-1735. Invalidation en cas de retour sous 1700 avec retour à une structure baissière (LH/LL).  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier potentiel\",\"structure\":\"inversion récente HH/HL après LH/LL\",\"supports\":[\"1700-1710\"],\"resistances\":[\"1730-1735\"],\"plan\":\"achat sur pullback",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-26-35",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_01-26-22.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_052802_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:28:01-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-27-53",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1660.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 1630.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1720.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1750.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur maintien au-dessus de 1720 avec prise de profit partielle vers 1750",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 1660",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale haussière confirmée par une structure de HH/HL visible depuis le début du graphique.  \n- Zone de support clé autour de 1 660 USD, zone de résistance majeure rompue vers 1 710-1 720 USD.  \n- Scénario haussier confirmé sous condition de maintien au-dessus des récents plus hauts (1 720 USD), invalidation sous 1 660 USD.  \n\nB) Chart unique (ETHUSDT.P 1h) :  \nLa structure montre une progression avec des hauts plus hauts (HH) et des bas plus hauts (HL) jusqu’à une phase de consolidation avant une forte impulsion haussière récente. La cassure au-dessus de 1 710-1 720 USD est significative, suggérant un potentiel de continuation. Les supports à surveiller sont situés autour de 1 660 USD et 1 630 USD, zones d’accumulation antérieures. La résistance potentielle sur ce timeframe semble proche du plus haut local aux environs de 1 740-1 750 USD.  \n\nC) DeskPro  \n```json\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-27-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_01-27-38.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_054734_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T01:47:32-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-47-26",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1660.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 1670.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1740.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "entrer long sur confirmation de maintien au-dessus 1700 avec cible 1730-1740, stop sous 1660",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 1660 marque reprise pression vendeuse",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente haussière forte visible sur le dernier 15m avec une grande bougie verte impulsive.  \n- Structure passée majoritairement baissière avec des Lower Highs et Lower Lows avant le spike haussier.  \n- Zone clé Résistance autour de 1730-1740 USDT à surveiller, support proche en zone 1660-1670 USDT.  \n\nB) Chart unique (ETHUSDT.P 15m):  \nLe graphique montre une tendance corrective baissière (LH/LL) jusqu’à une forte impulsion haussière vers 1700+ USDT marquant un changement de dynamique. La structure en bascule vers un potentiel début de tendance haussière ou pullback après rupture forte. Les volumes augmentent lors de la cassure. À court terme, la consolidation vers 1715-1720 USDT peut aboutir à une poursuite haussière vers la zone des 1730-1740 USDT (ancienne résistance). Invalidation du scénario haussier si le prix retombe sous 1660 USDT, indiquant un retour à la pression vendeuse.  \n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\"",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-47-26",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_01-47-14.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_054823_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T01:48:21-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-48-15",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1700.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1735.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "buy sur pullback support 1700 avec cible vers 1735+",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "prix < 1700",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière nette reprenant après une phase de consolidation latérale marquée.\n- Structure récente: cassure de résistance clé sur 1710 USDT, formation de HH sur timeframe 1h.\n- Scénario bullish à suivre avec invalidation sous le support 1700 USDT.\n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une première impulsion haussière claire débutant aux environs de 1500 USDT, suivie d’une longue phase latérale de range entre 1630 et 1705 USDT. Une forte cassure par le haut a récemment eu lieu vers 1720 USDT, confirmant un breakout avec volume associé. La structure est en tendance haussière, avec des HH (higher highs) et HL (higher lows) visibles depuis le dernier pivot bas. Zones clés à surveiller : support à 1700 USDT (ancienne résistance cassée), résistance immédiate à 1735 USDT. Un maintien au-dessus du support valide ce scénario haussier, en dessous l’invalidation se ferait vers un retest du range.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-48-15",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_01-48-03.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_060839_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T02:08:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-08-29",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "acheter sur support ou break résistance 1730-1740 avec stop sous 1660",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "chute sous 1660 remet en cause la reprise haussière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Forte cassure haussière violente après une phase de tendance latérale baissière/consolidation.  \n- Structure claire : plus bas descendante (LL) avant breakout, puis nouveau plus haut significatif (HH) après la forte impulsion.  \n- Zones clés : support majeur à ~1660-1670 (base du rallye), résistance à 1730-1740 à surveiller.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa tendance avant la dernière bougie est haussière suite à un breakout net d’une zone de consolidation et de structure baissière. On note une structure LL clairement invalidée par un mouvement haussier puissant créant un HH. Le volume augmente fortement sur la montée impulsive ce qui valide la dynamique acheteuse. La zone 1660-1670 constitue désormais un support important; une invalidation baissière passerait sous ce niveau. La résistance immédiate à valider est vers 1730-1740, où le prix plafonne actuellement. Le scénario favori reste la continuation haussière tant que le support tient.\n\nC) DeskPro  \n{\"run_i",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-08-29",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_02-08-15.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_060931_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:09:29-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-09-21",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1680.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "long sur repli support 1680 ou cassure resistance 1730",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 1680",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Tendance haussière nette sur le 1h avec série de HL puis rupture récente à la hausse.\n- Structure : après une consolidation latérale marquée (range), un breakout haussier fort vient confirmer un potentiel rally.\n- Zones clés à surveiller : support vers 1680 et résistance récente validée autour de 1730.\n\nB) Chart unique (ETHUSDT.P 1h) :\nLa paire ETHUSDT.P montre une phase de reprise d'impulsion haussière après une longue période de range horizontal entre 1600 et 1680. La structure affiche une alternance de HH/HL avec une cassure récente d’une résistance majeure à 1700-1720 accompagnée d’un fort volume. La nouvelle zone support à 1680 est un niveau clé pour maintenir le biais haussier. Le scénario privilégié reste une continuation vers 1750, invalidé en cas de retour sous 1680.\n\nC) DeskPro \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL avec breakout\",\"supports\":[1680],\"resistances\":[1730],\"plan\":\"long sur repli support 1680 ou cassure ",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-09-21",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_02-09-07.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_062849_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T02:28:47-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-28-41",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1670.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 1680.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1735.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur retest des supports ou break résistance 1735",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "prix sous 1650",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance globale 15m en reprise haussière forte après une correction.  \n- Structure majeure cassée avec un gap haussier marquant un nouveau HH net (>1730).  \n- Zone support clé autour de 1670-1680, résistance immédiate à surveiller vers 1730-1735.\n\nB) Chart unique (ETHUSDT.P 15m):  \nLa structure était en baisse (succession de LH et LL) jusqu'à un point bas vers 1650. Une puissante bougie haussière a provoqué un gap remontant au-dessus de l'ancienne résistance à 1680, générant un nouveau Higher High (HH) vers 1730. Le prix corrige ensuite légèrement dans un range entre 1710 et 1730, consolidant la zone de support récente. La tendance court terme passe donc haussière avec support dynamique à 1680 et zone d'invalidation sous 1650. Un break au-dessus de 1735 pourrait prolonger ce rallye.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH après cassure, HL intermédiaires\",\"supports\":[1670,1680],\"resistances\":[1730,1735],\"plan\":\"ac",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-28-41",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_02-28-31.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_063011_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:30:09-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-29-53",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "Entrée sur pullback support 1680-1700 avec stop sous 1680. Objectif nouveaux plus hauts au-dessus de 1730.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Perte confirmée sous 1680",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette visible sur 1h avec structure de HH (Higher Highs) et HL (Higher Lows) formée depuis le début du graphique.  \n- Reprise dynamique avec un grand chandelier haussier récent qui a cassé une résistance majeure vers 1720-1730.  \n- Zone clé de support autour de 1680 à garder pour valider la poursuite du scénario haussier.\n\nB) Chart unique (ETHUSDT.P 1h): Structure haussière avec des HH/HL bien formés. La cassure d’une résistance forte vers 1720-1730 valide un potentiel continuation vers des nouveaux plus hauts. Le pullback possible sur 1680-1700 servira de zone support. Invalidation si le prix casse le niveau 1680 à la baisse, ce qui pourrait amener à revoir la structure haussière. Le volume en forte hausse soutien cette impulsion.\n\nC) DeskPro  \n```json  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL\",\"supports\":[\"1680-1700\"],\"resistances\":[\"1720-1730\"],\"plan\":\"Entrée sur pullback support 1680-1700 avec stop sous",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-29-53",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_02-29-41.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_064941_ETHUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T02:49:39-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-49-32",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1680.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 1690.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1730.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1740.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat sur retracement 1680-1690, cible 1730-1740",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 1680",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global\n- Structure récente en retournement haussier avec un gap-up majeur, marquant un fort changement de sentiment.\n- Tendance 15m : rebond après une séquence de lower lows (LL), passage en higher highs (HH) post-gap.\n- Zones clés à surveiller : support vers 1680-1690, résistance immédiate autour de 1730-1740.\n\nB) Chart unique (ETHUSDT.P 15m) : \nTendance : haussière courte terme via un gap-up massif.  \nStructure : avant le gap, LL/LH confirmée, puis cassure nette avec HH/HL post-gap.  \nSupports : zone 1680-1690, base du range avant la cassure.  \nRésistances : 1730-1740, sommet provisoire post-gap.  \nPlan : privilégier des achats sur retracement vers support 1680-1690 avec prise de profits proche résistance 1730-1740.  \nInvalidation : retour sous 1680 annulerait le scénario haussier et pourrait relancer une pression vendeuse.\n\nC) DeskPro\n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HH/HL post gap, LL/LH avant gap\",\"supports\":[1680,1690],\"resistanc",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-49-32",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_15m_2026-06-15_02-49-19.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_065033_ETHUSDT.P_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T02:50:31-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-50-24",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 1720.0,
+        "confidence": 0.7,
+        "note": "s 1720"
+      },
+      {
+        "type": "support_level",
+        "value": 1700.0,
+        "confidence": 0.7,
+        "note": "s 1700"
+      },
+      {
+        "type": "support_level",
+        "value": 1630.0,
+        "confidence": 0.7,
+        "note": "s 1630"
+      },
+      {
+        "type": "support_level",
+        "value": 1630.0,
+        "confidence": 0.7,
+        "note": "s 1630,"
+      },
+      {
+        "type": "resistance_level",
+        "value": 1700.0,
+        "confidence": 0.7,
+        "note": "r 1700"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière confirmée sur le 1h avec une série de HL (Higher Lows) après un fort rebond.  \n- Structure latérale visible entre 1630 et 1700 USDT avant la cassure haussière récente vers 1720 USDT.  \n- Zone clé support identifiée autour de 1630-1650, résistance précédente des 1700-1710 transformée en support potentiel.  \n\nB) Chart unique (ETHUSDT.P 1h):  \nLe graphique montre une tendance haussière nette suite à une phase de consolidation latérale entre 1630 et 1700. Après plusieurs rebonds sur des HL, une cassure franche au-dessus de 1710-1720 a eu lieu, signalant une possible continuation haussière. La structure est en majorité de type HL-HH (Higher Lows - Higher Highs) depuis le 6 juin. La zone de support principale est vers 1630-1650, servant de plancher lors de la consolidation. L'invalidation du scénario haussier se ferait sous 1630, en cas de rupture claire avec volume conséquent.  \n\nC) DeskPro  \n{\"run_id\":\"20240615_ethusdt_1h\",\"charts\":[{\"slot\":\"single\",",
+    "symbols_found": [
+      "ETHUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-50-24",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_ETHUSDT.P_1h_2026-06-15_02-50-12.png"
+    }
   }
 ]

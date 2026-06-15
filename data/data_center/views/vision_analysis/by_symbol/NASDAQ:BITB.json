@@ -173,5 +173,40 @@
       "summary_json": "2026-06-05_23-59-25",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:BITB_1h_2026-06-05_23-59-14.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041200_NASDAQ:BITB_1h",
+    "screen_type": "ETF_CRYPTO",
+    "symbol": "NASDAQ:BITB",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:11:58-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-11-54",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "impossible à établir sans données chartistes",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "symbole invalide ou données absentes",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Le symbole NASDAQ:BITB au timeframe 1h n'existe pas ou n'est pas disponible.  \n- Absence de données chartistes empêche toute analyse de tendance ou structure.  \n- Pas de zones clés identifiables ni plan d’action possible sans graphique visible.  \n\nB) Chart unique (NASDAQ:BITB 1h): Symbole invalide ou données indisponibles, analyse impossible.  \n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"inconnu\",\"structure\":\"inconnue\",\"supports\":[],\"resistances\":[],\"plan\":\"impossible à établir sans données chartistes\",\"invalidation\":\"symbole invalide ou données absentes\"}]}",
+    "symbols_found": [
+      "NASDAQ:BITB"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-11-54",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NASDAQ:BITB_1h_2026-06-15_00-11-40.png"
+    }
   }
 ]
