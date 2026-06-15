@@ -1,0 +1,12 @@
+[Unit]
+Description=Run admin failover sync every 15 minutes
+Requires=opt-trading-admin-failover-sync.service
+
+[Timer]
+OnBootSec=180s
+OnUnitActiveSec=15min
+Persistent=true
+Unit=opt-trading-admin-failover-sync.service
+
+[Install]
+WantedBy=timers.target

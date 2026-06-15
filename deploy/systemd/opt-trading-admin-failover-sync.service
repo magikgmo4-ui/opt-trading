@@ -1,0 +1,18 @@
+[Unit]
+Description=Opt Trading Admin Failover Sync onto fantome
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=fantome
+Group=fantome
+WorkingDirectory=/opt/trading
+ExecStart=/opt/trading/scripts/fantome_admin_failover_sync.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ot-admin-failover-sync
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
