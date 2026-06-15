@@ -22,6 +22,7 @@ from .io import REPO_ROOT, utc_now, read_json, append_jsonl, atomic_write_json
 from .enrichment import enrich_candles, enrich_from_snapshot
 from .source_quality import classify_source_quality, cap_trade_ready_from_quality
 from .freshness_watchdog import check_freshness, apply_degraded_caps
+from .scoring.vwap_analyzer import analyze_vwap, analyze_multi_symbol
 
 
 def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, config_path: str | None = None, symbol_override: str | None = None) -> dict[str, Any]:
@@ -122,6 +123,29 @@ def run_full_pipeline(*, offline: bool = False, tv_json: str | None = None, conf
     # Inject source_quality into snapshot
     snap["source_quality"] = source_quality
     snap["pipeline_state"] = freshness.get("pipeline_state", "healthy")
+
+    # --- VWAP Analysis ---
+    current_price = snap.get("price")
+    bars_for_vwap = _extract_bars_for_bucketing(events)
+    vwap_result = analyze_vwap(
+        symbol="SPCX",
+        price=float(current_price) if current_price else 0.0,
+        vwap=tape_data.get("vwap") if tape_data else None,
+        day_high=tape_data.get("high_today") if tape_data else None,
+        day_low=tape_data.get("low_today") if tape_data else None,
+        relative_volume=snap.get("relative_volume_estimate"),
+        bars=bars_for_vwap,
+        smc_structures=snap.get("smc_structures", []),
+    )
+    pipeline_result["vwap_analysis"] = vwap_result
+    snap["vwap_analysis"] = {
+        "vwap_state": vwap_result["vwap_state"],
+        "vwap_score": vwap_result["vwap_score"],
+        "bias": vwap_result["bias"],
+        "setup": vwap_result["setup"],
+        "confidence": vwap_result["confidence"],
+        "summary": vwap_result["one_line_summary"],
+    }
 
     report_path = write_daily_report(snap)
     of_report_path = write_orderflow_report(snap, orderflow_score, ownership_score)
