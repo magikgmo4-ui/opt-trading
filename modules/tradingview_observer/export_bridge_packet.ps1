@@ -13,7 +13,7 @@ $REPORT_PATH = Join-Path $OUTPUT_DIR "latest_report.json"
 $BRIDGE_PATH = Join-Path $OUTPUT_DIR "latest_bridge_packet.json"
 
 if (-not (Test-Path $REPORT_PATH)) {
-    Write-Error "latest_report.json not found at $REPORT_PATH — run observer export first."
+    Write-Error "latest_report.json not found at $REPORT_PATH - run observer export first."
     exit 1
 }
 
@@ -51,7 +51,7 @@ if ($alerts.PSObject.Properties['alerts']) {
     }
 }
 
-# Quote summary (no raw OHLC — synthèse seulement)
+# Quote summary (no raw OHLC - synthese seulement)
 $quoteSummary = @{}
 if ($quote.PSObject.Properties['symbol'])   { $quoteSummary['symbol'] = $quote.symbol }
 if ($quote.PSObject.Properties['close'])    { $quoteSummary['close']  = $quote.close }
@@ -103,13 +103,13 @@ $bridge = [ordered]@{
     }
     limits          = $limits
     raw_files       = @{
-        latest_report  = "not_embedded — see output/latest_report.json"
-        latest_quote   = "not_embedded — see output/latest_quote.json"
-        latest_state   = "not_embedded — see output/latest_state.json"
-        latest_values  = "not_embedded — see output/latest_values.json"
-        latest_alerts  = "not_embedded — see output/latest_alert_inventory.json"
+        latest_report  = "not_embedded - see output/latest_report.json"
+        latest_quote   = "not_embedded - see output/latest_quote.json"
+        latest_state   = "not_embedded - see output/latest_state.json"
+        latest_values  = "not_embedded - see output/latest_values.json"
+        latest_alerts  = "not_embedded - see output/latest_alert_inventory.json"
     }
-    transfer_policy = "dry-run only — no automated transfer, no admin-trading ingestion, no SSH"
+    transfer_policy = "dry-run only - no automated transfer, no admin-trading ingestion, no SSH"
 }
 
 $bridgeJson = $bridge | ConvertTo-Json -Depth 6
@@ -127,5 +127,5 @@ if ($Json) {
     Write-Host "  Size  : ${sizeKB} KB" -ForegroundColor Cyan
     Write-Host "  Symbol: $($bridge.symbol) @ $($bridge.timeframe)min" -ForegroundColor Cyan
     Write-Host "  Alerts: $alertTotal total, $alertActive active" -ForegroundColor Cyan
-    Write-Host "  Status: dry-run only — no transfer executed" -ForegroundColor Yellow
+    Write-Host "  Status: dry-run only - no transfer executed" -ForegroundColor Yellow
 }

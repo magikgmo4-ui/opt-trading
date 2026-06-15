@@ -12,6 +12,27 @@ param(
 
 $ErrorActionPreference = 'Continue'
 
+$MUTEX_NAME = "Local\OptTradingTvOrchestratorAgent"
+$script:TvAgentMutex = New-Object System.Threading.Mutex($false, $MUTEX_NAME)
+$script:TvAgentHasMutex = $false
+try {
+    $script:TvAgentHasMutex = $script:TvAgentMutex.WaitOne(0, $false)
+} catch [System.Threading.AbandonedMutexException] {
+    $script:TvAgentHasMutex = $true
+}
+
+if (-not $script:TvAgentHasMutex) {
+    Write-Host "$(Get-Date -Format 'yyyy-MM-ddTHH:mm:ss') TV Agent already running - exiting"
+    exit 0
+}
+
+Register-EngineEvent PowerShell.Exiting -Action {
+    if ($script:TvAgentHasMutex -and $script:TvAgentMutex) {
+        $script:TvAgentMutex.ReleaseMutex()
+        $script:TvAgentMutex.Dispose()
+    }
+} | Out-Null
+
 $AGENT_ROOT  = Split-Path $PSScriptRoot -Parent
 $JOBS_PENDING = Join-Path $AGENT_ROOT "jobs\pending"
 $JOBS_DONE    = Join-Path $AGENT_ROOT "jobs\done"

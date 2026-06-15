@@ -1,4 +1,4 @@
-# TradingView Observer — Sanity Check
+# TradingView Observer - Sanity Check
 param(
     [int]$TimeoutSec = 10
 )
@@ -18,7 +18,7 @@ function Write-Check($Label, $Ok, $Detail) {
         Write-Host "[$ts] [PASS] $Label" -ForegroundColor Green
         $script:PassCount++
     } else {
-        Write-Host "[$ts] [FAIL] $Label  —  $Detail" -ForegroundColor Red
+        Write-Host "[$ts] [FAIL] $Label  -  $Detail" -ForegroundColor Red
         $script:FailCount++
     }
 }
@@ -122,5 +122,5 @@ Write-Check "Mutation locked" $true "alert_create/delete/webhook_update disabled
 $duration = [math]::Round(((Get-Date) - $StartTime).TotalSeconds, 1)
 $color = if ($FailCount -eq 0) { "Green" } else { "Yellow" }
 Write-Host ""
-Write-Host "=== $PassCount PASS / $FailCount FAIL — ${duration}s ===" -ForegroundColor $color
+Write-Host "=== $PassCount PASS / $FailCount FAIL - ${duration}s ===" -ForegroundColor $color
 exit $FailCount

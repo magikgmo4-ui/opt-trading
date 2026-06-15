@@ -1,4 +1,4 @@
-# TradingView Observer — Product Sanity (12 checks)
+# TradingView Observer - Product Sanity (12 checks)
 # Verifie l'integrite complete du produit local.
 # Usage: .\product_sanity.ps1
 param([int]$TimeoutSec = 10)
@@ -20,13 +20,13 @@ function Write-Check($Num, $Label, $Ok, $Detail) {
         Write-Host "[$ts] [$Num] [PASS] $Label" -ForegroundColor Green
         $script:PassCount++
     } else {
-        Write-Host "[$ts] [$Num] [FAIL] $Label  —  $Detail" -ForegroundColor Red
+        Write-Host "[$ts] [$Num] [FAIL] $Label  -  $Detail" -ForegroundColor Red
         $script:FailCount++
     }
 }
 
 Write-Host "================================================" -ForegroundColor Cyan
-Write-Host "  TradingView Observer — Product Sanity" -ForegroundColor Cyan
+Write-Host "  TradingView Observer - Product Sanity" -ForegroundColor Cyan
 Write-Host "  Started: $($StartTime.ToString('yyyy-MM-dd HH:mm:ss'))" -ForegroundColor Cyan
 Write-Host "================================================" -ForegroundColor Cyan
 Write-Host ""
@@ -35,7 +35,7 @@ Write-Host ""
 $wrapperExists = Test-Path (Join-Path $MOD "cmd.ps1")
 Write-Check 1 "Wrapper present" $wrapperExists "modules/tradingview_observer/cmd.ps1"
 if (-not $wrapperExists) {
-    Write-Host "  FATAL: wrapper missing — cannot continue" -ForegroundColor Red
+    Write-Host "  FATAL: wrapper missing - cannot continue" -ForegroundColor Red
     exit 1
 }
 
@@ -63,7 +63,7 @@ if ($tvExists) {
         Write-Check 5 "cmd.ps1 sanity PASS" $false $_.Exception.Message
     }
 } else {
-    Write-Check 5 "cmd.ps1 sanity" $false "skipped — tradingview-mcp missing"
+    Write-Check 5 "cmd.ps1 sanity" $false "skipped - tradingview-mcp missing"
 }
 
 # 6. Wrapper snapshot PASS
@@ -78,7 +78,7 @@ if ($wrapperSanityOK) {
         Write-Check 6 "cmd.ps1 snapshot PASS" $false $_.Exception.Message
     }
 } else {
-    Write-Check 6 "cmd.ps1 snapshot" $false "skipped — sanity failed"
+    Write-Check 6 "cmd.ps1 snapshot" $false "skipped - sanity failed"
 }
 
 # 7. Bridge packet export PASS
@@ -91,7 +91,7 @@ if ($snapshotOK) {
         Write-Check 7 "export_bridge_packet.ps1 PASS" $false $_.Exception.Message
     }
 } else {
-    Write-Check 7 "export_bridge_packet.ps1" $false "skipped — snapshot failed"
+    Write-Check 7 "export_bridge_packet.ps1" $false "skipped - snapshot failed"
 }
 
 # 8. OpenClaw run.ps1 PASS (sanity)
@@ -138,7 +138,7 @@ foreach ($script in $scripts) {
     if (-not (Test-Path $script)) { continue }
     $content = Get-Content $script -Raw
     if ($content -notmatch "AllowMutation" -and $content -notmatch "read-only" -and $script -ne (Join-Path $MOD "app\observer_runner.ps1")) {
-        # observer_runner supports AllowMutation as a gated flag — that's fine
+        # observer_runner supports AllowMutation as a gated flag - that's fine
     }
     if ($content -match "alert_create|alert_delete" -and $content -notmatch "AllowMutation|FORBIDDEN|forbidden") {
         $mutationCheckOK = $false
@@ -152,7 +152,7 @@ $color = if ($FailCount -eq 0) { "Green" } elseif ($FailCount -le 2) { "Yellow" 
 
 Write-Host ""
 Write-Host "================================================" -ForegroundColor $color
-Write-Host "  $PassCount PASS / $FailCount FAIL — ${duration}s" -ForegroundColor $color
+Write-Host "  $PassCount PASS / $FailCount FAIL - ${duration}s" -ForegroundColor $color
 Write-Host "================================================" -ForegroundColor $color
 
 if ($FailCount -eq 0) {

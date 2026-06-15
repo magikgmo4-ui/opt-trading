@@ -1,0 +1,26 @@
+symbol: SPCX
+exchange: NASDAQ
+mode: monitor_only
+timeframe: 15m
+webhook_url: http://<HOST>:8000/tv/cdp
+
+levels:
+  ipo_low: 148
+  support_intraday: 160
+  vwap_reference: 164.7
+  premarket_zone_low: 170
+  premarket_zone_high: 171
+  breakout_1: 174
+  breakout_2: 180
+  extension: 190
+
+alerts:
+  - SPCX_VWAP_RECLAIM
+  - SPCX_VWAP_LOST
+  - SPCX_VWAP_REJECT
+  - SPCX_ORB_HIGH_BREAK
+  - SPCX_ORB_LOW_BREAK
+  - SPCX_BREAK_174
+  - SPCX_BREAK_180
+  - SPCX_LOST_160
+  - SPCX_TEST_148
