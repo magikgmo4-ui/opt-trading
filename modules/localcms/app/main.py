@@ -1366,6 +1366,7 @@ def ui_index(request: Request):
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">IPO / SPCX</div>
       <a class="nav-item" href="/spacex"><span class="nav-icon">🚀</span><span class="nav-label">SpaceX Cmd Center</span></a>
+      <a class="nav-item" href="/true-value"><span class="nav-icon">📐</span><span class="nav-label">True Value</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Menu</div>
@@ -1576,6 +1577,115 @@ def signals_page(request: Request):
 # ── SpaceX / SPCX Command Center ───────────────────────────────────────
 _SPACEX_CC_JSON = PROJECT_ROOT / "data" / "ipo" / "spacex" / "command_center" / "latest.json"
 _SPACEX_SNAPSHOT = PROJECT_ROOT / "data" / "ipo" / "spacex" / "scored" / "latest_snapshot.json"
+_TRUE_VALUE_SCORES = PROJECT_ROOT / "outputs" / "stock_true_value" / "latest" / "scores.json"
+
+
+def _true_value_html() -> str:
+    data = {}
+    if _TRUE_VALUE_SCORES.exists():
+        try:
+            data = json.loads(_TRUE_VALUE_SCORES.read_text())
+        except (json.JSONDecodeError, OSError):
+            data = {"error": "parse failed"}
+
+    items = data.get("items", [])
+    summary = data.get("summary", {})
+    asof = (data.get("asof") or "")[:19].replace("T", " ")
+
+    grades = summary.get("grades", {})
+    total = summary.get("count", len(items))
+    low_conf = summary.get("low_confidence_count", 0)
+
+    grade_color = {
+        "A+": "#30d158", "A": "#7ddc6e", "B": "#ffd60a", "C": "#ff9f0a",
+        "D": "#ff453a", "RESEARCH_REQUIRED": "#bf5af2",
+    }
+
+    rows = ""
+    for it in (items or [])[:20]:
+        ticker = it.get("ticker", it.get("symbol", "?"))
+        grade = it.get("grade", "?")
+        tv = it.get("true_value", 0)
+        hype = it.get("hype", 0)
+        risk = it.get("risk", 0)
+        conf = it.get("confidence", 0)
+        action = it.get("action", it.get("action_bias", ""))
+        drivers = it.get("drivers", {})
+        pos = ", ".join(drivers.get("positive", []))
+        neg = ", ".join(drivers.get("negative", []))
+        flags = it.get("flags", [])
+        flag_str = " ".join(f'<span class="pill pill-danger">{f}</span>' for f in (flags or [])[:3])
+        gcolor = grade_color.get(grade, "#888")
+        rows += f"""<tr>
+  <td style="font-weight:600">{ticker}</td>
+  <td><span style="color:{gcolor};font-weight:700">{grade}</span></td>
+  <td class="num">{tv:.1f}</td>
+  <td class="num">{hype:.1f}</td>
+  <td class="num">{risk:.1f}</td>
+  <td class="num">{conf:.0f}%</td>
+  <td style="font-size:11px">{action}</td>
+  <td style="font-size:10px">{pos[:60]}</td>
+  <td style="font-size:10px">{neg[:60]}</td>
+  <td style="font-size:10px">{flag_str}</td>
+</tr>"""
+
+    grade_dist = ""
+    for g, c in grades.items():
+        gc = grade_color.get(g, "#888")
+        grade_dist += f'<div class="summary-card"><div class="num" style="font-size:28px;color:{gc}">{c}</div><div class="label">{g}</div></div>'
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LocalCMS — True Value</title>
+  <style>
+    {STANDARD_CSS}
+    th, td {{ padding: 6px 10px; font-size: 12px; }}
+    .num {{ text-align: right; font-family: monospace; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Analysis</div>
+      <a class="nav-item nav-active" href="/true-value">📐 True Value</a>
+    </div>
+    <a class="nav-item" href="/">🏠 Dashboard</a>
+    <a class="nav-item" href="/spacex">🚀 SpaceX</a>
+    <a class="nav-item" href="/signals">📡 Signals</a>
+    <a class="nav-item" href="/journal">📋 Journal</a>
+    <a class="nav-item" href="/metrics">📊 Metrics</a>
+    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
+      <div><a href="/true-value/json" style="color:#888;text-decoration:none">/true-value/json</a></div>
+    </div>
+  </nav>
+  <main class="main">
+    <h2>📐 Stock / SpaceX True Value</h2>
+    <p class="subtitle">{asof} &middot; Model: {data.get('model_version', '—')} &middot; {total} items &middot; {low_conf} low confidence</p>
+
+    <div class="section-title">Grade Distribution</div>
+    <div class="summary-bar">{grade_dist}</div>
+
+    <div class="section-title">Score Summary</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th><th>Grade</th><th>True Value</th><th>Hype</th>
+          <th>Risk</th><th>Confidence</th><th>Action</th>
+          <th>+ Drivers</th><th>- Drivers</th><th>Flags</th>
+        </tr>
+      </thead>
+      <tbody>{rows if rows else '<tr><td colspan="10">No scores available. Run: python -m modules.stock_true_value.cli --fixture-only</td></tr>'}</tbody>
+    </table>
+  </main>
+</div>
+<script>setTimeout(() => location.reload(), 120000);</script>
+</body>
+</html>"""
 
 
 def _spacex_html() -> str:
@@ -1754,6 +1864,18 @@ def spacex_json():
     if _SPACEX_SNAPSHOT.exists():
         return JSONResponse(content=json.loads(_SPACEX_SNAPSHOT.read_text()))
     return JSONResponse(content={"error": "No SpaceX data yet", "action": "run spacex-super-desk collect-once"}, status_code=200)
+
+
+@app.get("/true-value", response_class=HTMLResponse)
+def true_value_html():
+    return HTMLResponse(content=_true_value_html())
+
+
+@app.get("/true-value/json")
+def true_value_json():
+    if _TRUE_VALUE_SCORES.exists():
+        return JSONResponse(content=json.loads(_TRUE_VALUE_SCORES.read_text()))
+    return JSONResponse(content={"error": "No scores yet", "action": "run python -m modules.stock_true_value.cli --fixture-only"}, status_code=200)
 
 
 STATUS_BADGES = SHARED_STATUS_BADGES
