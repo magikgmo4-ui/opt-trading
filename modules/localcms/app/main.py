@@ -2170,15 +2170,6 @@ def voice_operator_html():
     return HTMLResponse(content=_voice_operator_html())
 
 
-@app.get("/voice/query")
-def voice_operator_query(q: str = ""):
-    """Route a voice command through intent_router → /read/* → enriched response."""
-    import time as _time
-    _start = _time.time()
-
-    if not q:
-        return JSONResponse(content={"intent": "unknown", "endpoint": "", "one_line": "Aucune commande", "ok": False})
-
 def _handle_composite(composite_type: str) -> dict:
     """Handle composite/trader commands that aggregate multiple /read/* endpoints."""
     from modules.voice_operator.engine.read_api_client import call
@@ -2333,6 +2324,22 @@ def _handle_composite(composite_type: str) -> dict:
         rich["spoken_text"] = one_line
 
     return {"one_line": one_line, "rich": rich, "generated_at": now}
+
+
+@app.get("/voice/query")
+def voice_operator_query(q: str = ""):
+    """Route a voice command through intent_router → /read/* → enriched response."""
+    import time as _time
+    _start = _time.time()
+
+    if not q:
+        return JSONResponse(content={"intent": "unknown", "endpoint": "", "one_line": "Aucune commande", "ok": False})
+
+    try:
+        from modules.voice_operator.engine.intent_router import route
+        from modules.voice_operator.engine.read_api_client import call
+
+        routed = route(q)
         # Handle composite/trader commands
         if routed.endpoint == "/read/composite":
             result = _handle_composite(routed.params.get("type", ""))
@@ -2349,6 +2356,8 @@ def _handle_composite(composite_type: str) -> dict:
                 "mode": "monitor_only",
                 "rich": result.get("rich", {}),
             })
+
+        result = call(routed.endpoint, routed.params if routed.params else None)
 
         result = call(routed.endpoint, routed.params if routed.params else None)
         latency_ms = int((_time.time() - _start) * 1000)
