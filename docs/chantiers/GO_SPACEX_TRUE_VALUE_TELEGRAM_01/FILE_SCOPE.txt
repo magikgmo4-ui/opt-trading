@@ -1,0 +1,2 @@
+docs/chantiers/GO_SPACEX_TRUE_VALUE_TELEGRAM_01/**
+modules/stock_true_value/telegram_alerter.py
