@@ -2061,6 +2061,11 @@ async function sendCommand(cmd) {{
     const source = data.source || '?';
     const rich = data.rich || {{}};
     lastOneLine = rich.spoken_text || oneLine;
+    // Add freshness context to spoken text
+    const freshSpoken = data.freshness ? data.freshness.spoken : '';
+    if (freshSpoken && freshSpoken !== 'donnee live') {{
+      lastOneLine = lastOneLine + '. ' + freshSpoken + '.';
+    }}
 
     // Build rich card HTML
     let cardHTML = '';
@@ -2078,13 +2083,18 @@ async function sendCommand(cmd) {{
     // Badges
     let badgeHTML = '';
     const badges = rich.badges || [];
-    if (badges.length) {{
-      badgeHTML = '<div style="margin-top:4px">';
-      badges.forEach(b => {{
-        badgeHTML += '<span style="font-size:8px;background:#1a2540;color:#aaa;border-radius:3px;padding:1px 5px;margin-right:3px">' + b + '</span>';
-      }});
-      badgeHTML += '</div>';
+    // Always add freshness badge if present
+    const freshness = data.freshness || {{}};
+    if (freshness.badge) {{
+      const fcss = freshness.css_class || 'freshness-unknown';
+      badgeHTML += '<span style="font-size:8px;background:#1a2540;color:#aaa;border-radius:3px;padding:1px 5px">' + freshness.badge + '</span>';
     }}
+    if (badges.length) {{
+      badges.forEach(b => {{
+        badgeHTML += '<span style="font-size:8px;background:#1a2540;color:#aaa;border-radius:3px;padding:1px 5px;margin-left:2px">' + b + '</span>';
+      }});
+    }}
+    if (!badgeHTML) badgeHTML = '<span class="monitor-badge">MONITOR-ONLY</span>';
 
     let meta = badgeHTML || '<span class="monitor-badge">MONITOR-ONLY</span>';
     meta += ' <span>' + intent + '</span>';
@@ -2362,6 +2372,17 @@ def voice_operator_query(q: str = ""):
         result = call(routed.endpoint, routed.params if routed.params else None)
         latency_ms = int((_time.time() - _start) * 1000)
 
+        # --- Freshness classification ---
+        from modules.voice_operator.models.freshness import classify_freshness, compute_age_minutes
+        price_val = result.get("price") if isinstance(result, dict) else None
+        freshness = classify_freshness(
+            price=price_val,
+            source_quality=result.get("source_quality") if isinstance(result, dict) else None,
+            source=result.get("source") if isinstance(result, dict) else None,
+            data_age_minutes=compute_age_minutes(result.get("generated_at") if isinstance(result, dict) else None),
+            pipeline_state=result.get("pipeline_state") if isinstance(result, dict) else None,
+        )
+
         # Extract one_line properly — handle both string and dict results
         raw_one_line = result.get("one_line", "")
         if isinstance(raw_one_line, dict):
@@ -2406,6 +2427,13 @@ def voice_operator_query(q: str = ""):
             "latency_ms": latency_ms,
             "mode": "monitor_only",
             "rich": rich,
+            "freshness": {
+                "state": freshness["freshness_state"],
+                "badge": freshness["badge"],
+                "css_class": freshness["css_class"],
+                "spoken": freshness["spoken"],
+                "warning": freshness["warning"],
+            },
         })
     except Exception as e:
         try:
