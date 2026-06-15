@@ -1,0 +1,2 @@
+docs/chantiers/GO_SPACEX_TRUE_VALUE_LOCALCMS_01/**
+modules/localcms/app/main.py
