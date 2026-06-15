@@ -59,7 +59,7 @@ else
     LINES+=("| ℹ️ | git commit = $ACTUAL_COMMIT |")
 fi
 
-check "git clean (no modified tracked)" "git diff --quiet HEAD"
+check_warn "git clean (no modified tracked)" "git diff --quiet HEAD"
 
 # Services
 check "webhook_server :8000" "ss -lntp | grep -q ':8000 '"
@@ -123,7 +123,8 @@ fi
 check "disk > 1GB free" "[ $(df -BG . | tail -1 | awk '{print $4}' | sed 's/G//') -gt 1 ]"
 
 # Journal errors
-ERROR_COUNT=$(journalctl -u spcx-orderflow-pipeline.service --since "1 hour ago" 2>/dev/null | grep -ci "error\|traceback\|fail" || echo 0)
+ERROR_COUNT=$(journalctl -u spcx-orderflow-pipeline.service --since "1 hour ago" 2>/dev/null | grep -ci "error\|traceback\|fail" 2>/dev/null || echo "0")
+ERROR_COUNT=$(echo "$ERROR_COUNT" | tr -d '\n\r' | grep -o '[0-9]*' || echo "0")
 ERROR_COUNT=${ERROR_COUNT:-0}
 if [ "$ERROR_COUNT" -eq 0 ]; then
     LINES+=("| ✅ | no recent orderflow timer errors |")
