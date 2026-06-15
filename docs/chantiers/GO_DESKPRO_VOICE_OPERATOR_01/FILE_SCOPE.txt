@@ -1,0 +1,2 @@
+docs/chantiers/GO_DESKPRO_VOICE_OPERATOR_01/**
+modules/voice_operator/**
