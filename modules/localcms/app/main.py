@@ -2231,7 +2231,7 @@ async function sendCommand(cmd) {{
     if (cardHTML) messageHTML += cardHTML;
 
     addMessage('bot', messageHTML, meta, actions, data.ok === false ? 'msg-error' : 'msg-bot', true);
-    if (ttsReady) speak(oneLine);
+    if (ttsReady) speak(lastOneLine);
 
   }} catch(e) {{
     document.getElementById('diag-backend').className = 'diag-fail';
@@ -2274,7 +2274,9 @@ function speak(text) {{
   if (!ttsReady) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'fr-FR'; u.rate = 1.1;
+  u.lang = 'fr-FR';
+  u.rate = 0.88;
+  u.pitch = 0.95;
   window.speechSynthesis.speak(u);
 }}
 
@@ -2406,7 +2408,7 @@ def _handle_composite(composite_type: str) -> dict:
             cards.append({"label": sym, "value": t.get("engine", "actif")})
         rich["cards"] = cards[:10]
         symbols = " · ".join(c["label"] for c in cards[:6])
-        rich["spoken_text"] = f"Vue marche. {symbols}."
+        rich["spoken_text"] = f"Vue marche. {len(all_top)} symboles suivis. {symbols}."
         one_line = symbols
 
     elif composite_type == "whats_new":
@@ -2503,7 +2505,7 @@ def _handle_composite(composite_type: str) -> dict:
         for a in analogs:
             cards.append({"label": f"Analog {a.get('symbol','?')}", "value": f"{a.get('pct', a.get('probability_pct', '?'))}%"})
         rich["cards"] = cards[:15]
-        rich["spoken_text"] = f"SPCX complet. {len(cards)} champs."
+        rich["spoken_text"] = f"SPCX. Prix {cc.get(\"price\",\"?\")}. VWAP {cc.get(\"vwap\",\"?\")}. Edge score {cc.get(\"edge_score\",\"?\")}. Confiance {cc.get(\"confidence\",\"?\")}. Setup principal {cc.get(\"top_setup\",\"?\")}. Qualite source {sp.get(\"source_quality\",\"?\") if isinstance(sp, dict) else \"?\"}. Aucun signal d execution."
         one_line = f"🚀 SPCX {len(cards)} champs"
 
     elif composite_type == "spcx_risk":
