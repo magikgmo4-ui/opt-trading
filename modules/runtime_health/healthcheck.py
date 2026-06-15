@@ -69,6 +69,14 @@ DEFAULT_CONFIG = {
     "env": {
         "required": ["TELEGRAM_BOT_TOKEN", "ALLOWED_CHAT_ID", "OPENAI_API_KEY"],
         "optional": ["TV_WEBHOOK_KEY", "TELEGRAM_CHAT_ID"],
+        "files": [
+            "/opt/trading/.env",
+            "/etc/trading/telegram.env",
+            "/etc/trading/runtime.env",
+            "/opt/trading/env/telegram.env",
+            "/opt/trading/env/runtime.env",
+            "/opt/trading/modules/bot_vision_step2/config/bot_vision.env",
+        ],
     },
     "ports": {
         "optional": [
@@ -298,15 +306,38 @@ def check_venv(path: str, label: str = "", required: bool = True) -> dict:
     }
 
 
-def check_env_key(key: str, required: bool = True) -> dict:
+def _env_file_keys(paths: list[str]) -> set[str]:
+    """Return keys present in env files. Values are never returned or logged."""
+    keys: set[str] = set()
+    for path_str in paths:
+        p = Path(path_str)
+        if not p.exists() or not p.is_file():
+            continue
+        try:
+            for raw in p.read_text(encoding="utf-8", errors="ignore").splitlines():
+                line = raw.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key = line.split("=", 1)[0].strip()
+                if key and key.replace("_", "").isalnum() and not key[0].isdigit():
+                    keys.add(key)
+        except OSError:
+            continue
+    return keys
+
+
+def check_env_key(key: str, required: bool = True, file_keys: set[str] | None = None) -> dict:
     """Check presence of env key. NEVER logs the value."""
-    present = key in os.environ
+    in_process = key in os.environ
+    in_file = key in (file_keys or set())
+    present = in_process or in_file
     status = "PASS" if present else ("FAIL" if required else "WARN")
     return {
         "check": f"env:{key}",
         "status": status,
         "key": key,
         "present": present,
+        "source": "process" if in_process else ("env_file" if in_file else "missing"),
         "required": required,
         # value is intentionally omitted
     }
@@ -477,6 +508,7 @@ def check_log_errors_journal(unit: str, since: str = "10 minutes ago") -> dict:
             "status": "WARN",
             "unit": unit,
             "since": since,
+            "required": True,
             "error_lines": 0,
             "detail": f"journalctl unavailable: {err}",
         }
@@ -490,6 +522,7 @@ def check_log_errors_journal(unit: str, since: str = "10 minutes ago") -> dict:
         "status": status,
         "unit": unit,
         "since": since,
+        "required": True,
         "error_lines": count,
         "detail": f"{count} error line(s)" if count else "no errors",
     }
@@ -557,13 +590,48 @@ def check_tmux_session(session: str, required: bool = False) -> dict:
 
 
 def _block_status(results: list) -> str:
-    """Compute block-level status from list of check results."""
-    statuses = {r["status"] for r in results}
+    """Compute operational block status, ignoring advisory-only results."""
+    statuses = {
+        r["status"]
+        for r in results
+        if not r.get("advisory", False)
+    }
     if "FAIL" in statuses:
         return "FAIL"
     if "WARN" in statuses:
         return "WARN"
     return "PASS"
+
+
+def _mark_advisories(checks: dict[str, list]) -> dict:
+    """Mark non-PASS optional checks as advisory without hiding them."""
+    by_block: dict[str, int] = {}
+    examples: list[str] = []
+    total = 0
+
+    for block, results in checks.items():
+        block_count = 0
+        for result in results:
+            status = result.get("status")
+            is_optional = result.get("required") is False
+            if is_optional and status != "PASS":
+                result["advisory"] = True
+                result["operational_status"] = "PASS"
+                block_count += 1
+                total += 1
+                if len(examples) < 12:
+                    examples.append(result.get("check", "unknown"))
+            else:
+                result["advisory"] = False
+                result["operational_status"] = status
+        if block_count:
+            by_block[block] = block_count
+
+    return {
+        "total": total,
+        "by_block": by_block,
+        "examples": examples,
+    }
 
 
 def run_systemd_services(cfg: dict) -> list:
@@ -602,10 +670,11 @@ def run_venvs(cfg: dict) -> list:
 def run_env(cfg: dict) -> list:
     results = []
     env_cfg = cfg.get("env", {})
+    file_keys = _env_file_keys(env_cfg.get("files", []))
     for key in env_cfg.get("required", []):
-        results.append(check_env_key(key, required=True))
+        results.append(check_env_key(key, required=True, file_keys=file_keys))
     for key in env_cfg.get("optional", []):
-        results.append(check_env_key(key, required=False))
+        results.append(check_env_key(key, required=False, file_keys=file_keys))
     return results
 
 
@@ -677,9 +746,12 @@ def run_logs(cfg: dict) -> list:
 
     log_files_cfg = logs_cfg.get("log_files", {})
     for path_str in log_files_cfg.get("required", []):
-        results.append(check_logfile_errors(path_str))
+        r = check_logfile_errors(path_str)
+        r["required"] = True
+        results.append(r)
     for path_str in log_files_cfg.get("optional", []):
         r = check_logfile_errors(path_str)
+        r["required"] = False
         # downgrade FAIL to WARN for optional files
         if r["status"] == "FAIL":
             r["status"] = "WARN"
@@ -786,8 +858,9 @@ def maybe_notify_telegram(
 
 def compute_overall_status(block_statuses: dict, checks: dict, cfg: dict) -> str:
     """
-    FAIL if any required check is FAIL.
-    WARN if any check is WARN.
+    FAIL if any operational block fails.
+    WARN if any operational block warns.
+    Advisory-only optional checks do not degrade operational status.
     PASS otherwise.
     """
     all_statuses = set(block_statuses.values())
@@ -830,6 +903,7 @@ def write_outputs(report: dict, data_dir: str, dry_run: bool) -> None:
         "hostname": report["hostname"],
         "overall_status": report["overall_status"],
         "block_statuses": report["block_statuses"],
+        "advisory_total": report.get("advisory_summary", {}).get("total", 0),
         "elapsed_seconds": report["elapsed_seconds"],
     }
     with open(jsonl_path, "a") as fh:
@@ -934,6 +1008,7 @@ def main() -> int:
     checks["LOGS"] = run_logs(cfg)
     checks["ORCHESTRATOR"] = run_orchestrator(cfg)
 
+    advisory_summary = _mark_advisories(checks)
     block_statuses = {block: _block_status(results) for block, results in checks.items()}
     overall_status = compute_overall_status(block_statuses, checks, cfg)
 
@@ -948,6 +1023,7 @@ def main() -> int:
         "run_id": run_id,
         "overall_status": overall_status,
         "block_statuses": block_statuses,
+        "advisory_summary": advisory_summary,
         "checks": checks,
         "elapsed_seconds": elapsed,
     }
@@ -964,6 +1040,7 @@ def main() -> int:
             "run_id": run_id,
             "overall_status": overall_status,
             "block_statuses": block_statuses,
+            "advisory_summary": advisory_summary,
             "elapsed_seconds": elapsed,
         },
         indent=2,

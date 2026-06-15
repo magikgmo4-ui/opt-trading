@@ -209,6 +209,8 @@ def collect_machine_status(
             pass
 
     machine_status = collected.get("overall_status", WARN)
+    advisory_summary = collected.get("advisory_summary", {}) or {}
+    advisory_count = int(advisory_summary.get("total", 0) or 0)
 
     if stale:
         fleet_status = WARN
@@ -227,6 +229,8 @@ def collect_machine_status(
         "age_minutes": round(age_min, 1) if age_min is not None else None,
         "stale": stale,
         "block_statuses": collected.get("block_statuses", {}),
+        "advisory_count": advisory_count,
+        "advisory_summary": advisory_summary,
         "detail": detail,
     }
 
@@ -256,6 +260,11 @@ def run_fleet(
     failing = [r["machine"] for r in machine_results if r["status"] == FAIL]
     unreachable = [r["machine"] for r in machine_results if not r["reachable"]]
     stale = [r["machine"] for r in machine_results if r.get("stale", False)]
+    advisory = [
+        r["machine"]
+        for r in machine_results
+        if r.get("advisory_count", 0) > 0
+    ]
 
     if failing:
         fleet_overall = FAIL
@@ -278,6 +287,7 @@ def run_fleet(
         "failing_machines": failing,
         "unreachable_machines": unreachable,
         "stale_machines": stale,
+        "advisory_machines": advisory,
         "machines": {r["machine"]: r for r in machine_results},
     }
 
@@ -299,6 +309,7 @@ def run_fleet(
             "failing": failing,
             "unreachable": unreachable,
             "stale": stale,
+            "advisory": advisory,
         }
         with open(out_dir / "fleet_status.jsonl", "a", encoding="utf-8") as f:
             f.write(json.dumps(line) + "\n")
@@ -445,6 +456,7 @@ def main() -> int:
         "failing": report["failing_machines"],
         "unreachable": report["unreachable_machines"],
         "stale": report["stale_machines"],
+        "advisory": report.get("advisory_machines", []),
         "elapsed_seconds": elapsed,
     }
     print(json.dumps(summary, indent=2))

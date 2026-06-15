@@ -7,9 +7,11 @@
   "required": [
     "timestamp",
     "hostname",
+    "machine",
     "run_id",
     "overall_status",
     "block_statuses",
+    "advisory_summary",
     "checks",
     "elapsed_seconds"
   ],
@@ -23,6 +25,10 @@
       "type": "string",
       "description": "Hostname of the machine running the check"
     },
+    "machine": {
+      "type": "string",
+      "description": "Canonical machine name from machine_runtime_map.yml"
+    },
     "run_id": {
       "type": "string",
       "description": "UUID v4 uniquely identifying this run"
@@ -30,7 +36,7 @@
     "overall_status": {
       "type": "string",
       "enum": ["PASS", "WARN", "FAIL"],
-      "description": "Aggregate status: FAIL if any required check fails, WARN if any check warns, else PASS"
+      "description": "Operational aggregate status: FAIL/WARN only for non-advisory checks"
     },
     "block_statuses": {
       "type": "object",
@@ -38,6 +44,29 @@
       "additionalProperties": {
         "type": "string",
         "enum": ["PASS", "WARN", "FAIL"]
+      }
+    },
+    "advisory_summary": {
+      "type": "object",
+      "description": "Optional non-PASS checks that are visible but do not degrade operational status",
+      "required": ["total", "by_block", "examples"],
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "by_block": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "checks": {
@@ -59,6 +88,13 @@
             },
             "required": {
               "type": "boolean"
+            },
+            "advisory": {
+              "type": "boolean"
+            },
+            "operational_status": {
+              "type": "string",
+              "enum": ["PASS", "WARN", "FAIL"]
             },
             "detail": {
               "type": "string"

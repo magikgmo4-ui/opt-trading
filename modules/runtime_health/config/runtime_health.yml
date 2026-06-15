@@ -33,6 +33,13 @@ env:
   optional:
     - TV_WEBHOOK_KEY
     - TELEGRAM_CHAT_ID
+  files:
+    - /opt/trading/.env
+    - /etc/trading/telegram.env
+    - /etc/trading/runtime.env
+    - /opt/trading/env/telegram.env
+    - /opt/trading/env/runtime.env
+    - /opt/trading/modules/bot_vision_step2/config/bot_vision.env
 
 ports:
   optional:
