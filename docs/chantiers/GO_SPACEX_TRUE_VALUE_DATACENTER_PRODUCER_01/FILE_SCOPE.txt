@@ -1,0 +1,3 @@
+docs/chantiers/GO_SPACEX_TRUE_VALUE_DATACENTER_PRODUCER_01/**
+data/data_center/_registry/producers.json
+data/data_center/_contracts/producers/spacex_true_value.v1.json
