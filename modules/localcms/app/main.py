@@ -2187,144 +2187,215 @@ def _handle_composite(composite_type: str) -> dict:
 
     now = datetime.now(timezone.utc).isoformat()
     rich = {"cards": [], "badges": ["MONITOR-ONLY", "COMPOSITE"], "spoken_text": ""}
+    one_line = ""
+
+    # Shared data fetches (lazy, only when needed)
+    alerts = setups = spcx = open_trades = None
+
+    def _get_alerts():
+        nonlocal alerts
+        if alerts is None: alerts = call("/read/alerts")
+        return alerts
+
+    def _get_setups():
+        nonlocal setups
+        if setups is None: setups = call("/read/setups")
+        return setups
+
+    def _get_spcx():
+        nonlocal spcx
+        if spcx is None: spcx = call("/read/spacex")
+        return spcx
+
+    def _get_open_trades():
+        nonlocal open_trades
+        if open_trades is None:
+            from modules.voice_operator.api.readers.perf_reader import read_open_trades
+            open_trades = read_open_trades()
+        return open_trades
 
     if composite_type == "morning_brief":
-        alerts = call("/read/alerts")
-        setups = call("/read/setups")
-        crit = alerts.get("critical", 0) if isinstance(alerts, dict) else 0
-        active = setups.get("active", 0) if isinstance(setups, dict) else 0
-        a_plus = setups.get("a_plus", 0) if isinstance(setups, dict) else 0
+        a = _get_alerts()
+        s = _get_setups()
+        crit = a.get("critical", 0) if isinstance(a, dict) else 0
+        active = s.get("active", 0) if isinstance(s, dict) else 0
+        a_plus = s.get("a_plus", 0) if isinstance(s, dict) else 0
+        ot = _get_open_trades()
+        perf_open = len(ot.get("open", [])) if isinstance(ot, dict) else 0
         rich["cards"] = [
-            {"label": "Markets", "value": "BTC, XAU, SPCX actifs"},
-            {"label": "Setups", "value": f"{active} actifs, {a_plus} A+"},
+            {"label": "Setups actifs", "value": f"{active} setups ({a_plus} A+)"},
+            {"label": "Trades ouverts", "value": str(perf_open) if perf_open else "0"},
             {"label": "Alertes", "value": f"{crit} critiques"},
         ]
-        rich["spoken_text"] = f"Briefing matin. {active} setups actifs dont {a_plus} A+. {crit} alertes critiques."
-        one_line = f"📊 {active} setups | {a_plus} A+ | {crit} alertes critiques"
+        rich["spoken_text"] = f"Briefing. {active} setups actifs, {a_plus} A+. {perf_open} trades ouverts. {crit} alertes."
+        one_line = f"📊 {active} setups | {a_plus} A+ | {perf_open} trades | {crit} alertes"
 
     elif composite_type == "market_view":
-        snap = call("/read/spacex")
-        rich["cards"] = [
-            {"label": "SPCX", "value": f"${snap.get('price', 0):.1f}" if isinstance(snap, dict) and snap.get('price') else "N/A"},
-            {"label": "BTC", "value": "COINM_SHORT actif"},
-            {"label": "XAU", "value": "Monitored"},
-            {"label": "ETH", "value": "Monitored"},
-            {"label": "DXY", "value": "Monitored"},
-        ]
-        rich["spoken_text"] = "Vue marche. SPCX, BTC, Gold, ETH, DXY sous surveillance."
-        one_line = "SPCX • BTC SHORT • XAU • ETH • DXY"
+        sp = _get_spcx()
+        ot = _get_open_trades()
+        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        cards = []
+        # SPCX
+        spx_price = sp.get("price") if isinstance(sp, dict) else None
+        cards.append({"label": "SPCX", "value": f"${spx_price:.1f}" if spx_price and spx_price > 0 else "MARKET CLOSED"})
+        # BTC (from open trades)
+        btc_trades = [t for t in perf_trades if "BTC" in str(t.get("symbol", ""))]
+        cards.append({"label": "BTC", "value": f"{len(btc_trades)} trade actif" if btc_trades else "Surveille"})
+        # XAU
+        xau_trades = [t for t in perf_trades if "XAU" in str(t.get("symbol", ""))]
+        cards.append({"label": "Gold", "value": f"{len(xau_trades)} trade actif" if xau_trades else "Surveille"})
+        # Other active
+        for t in perf_trades[:2]:
+            sym = t.get("symbol", "?")
+            if sym not in ("BTCUSDT", "XAUUSD"):
+                cards.append({"label": sym, "value": t.get("engine", "actif")})
+        rich["cards"] = cards[:6]
+        symbols = " · ".join(c["label"] for c in cards)
+        rich["spoken_text"] = f"Vue marche. {symbols}."
+        one_line = symbols
 
     elif composite_type == "whats_new":
-        alerts = call("/read/alerts")
-        setups = call("/read/setups")
-        n_alerts = alerts.get("total", 0) if isinstance(alerts, dict) else 0
-        n_setups = setups.get("active", 0) if isinstance(setups, dict) else 0
+        a = _get_alerts()
+        s = _get_setups()
+        n_alerts = a.get("total", 0) if isinstance(a, dict) else 0
+        n_setups = s.get("active", 0) if isinstance(s, dict) else 0
         rich["cards"] = [
-            {"label": "Nouvelles alertes", "value": str(n_alerts)},
+            {"label": "Alertes", "value": str(n_alerts)},
             {"label": "Setups actifs", "value": str(n_setups)},
         ]
-        rich["spoken_text"] = f"Nouveautes. {n_alerts} alertes, {n_setups} setups actifs."
+        rich["spoken_text"] = f"Nouveautes. {n_alerts} alertes, {n_setups} setups."
         one_line = f"🆕 {n_alerts} alertes | {n_setups} setups"
 
     elif composite_type == "risks":
-        rich["cards"] = [
-            {"label": "⚠️ Invalidations proches", "value": "3 setups"},
-            {"label": "⚠️ Funding BTC", "value": "Eleve"},
-            {"label": "⚠️ DXY", "value": "En hausse"},
-            {"label": "⚠️ Gold proche SL", "value": "XAU a risque"},
-        ]
-        rich["spoken_text"] = "Risques detectes. 3 invalidations proches, funding BTC eleve, DXY en hausse."
-        one_line = "⚠️ 3 invalidations | Funding eleve | DXY hausse"
+        sp = _get_spcx()
+        ot = _get_open_trades()
+        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        cards = []
+        cards.append({"label": "Trades ouverts", "value": str(len(perf_trades))})
+        ows = sp.get("ownership_pressure_score") if isinstance(sp, dict) else None
+        if ows is not None:
+            cards.append({"label": "SPCX ownership risk", "value": f"{ows:.0f}/100" if ows else "N/A"})
+        # Check for trades near SL
+        for t in perf_trades[:3]:
+            entry = t.get("entry", 0)
+            stop = t.get("stop", 0)
+            if entry and stop and entry > 0:
+                dist_pct = abs(entry - stop) / entry * 100
+                if dist_pct < 2:
+                    cards.append({"label": f"SL proche {t.get('symbol','?')}", "value": f"{dist_pct:.1f}%"})
+        rich["cards"] = cards[:6]
+        rich["spoken_text"] = f"Risques. {len(perf_trades)} trades ouverts."
+        one_line = f"⚠️ {len(perf_trades)} trades | {len(cards)-1} risques"
 
     elif composite_type == "urgencies":
-        alerts = call("/read/alerts")
-        crit = alerts.get("critical", 0) if isinstance(alerts, dict) else 0
-        rich["cards"] = [
-            {"label": "Alertes critiques", "value": str(crit)},
-            {"label": "Invalidations proches", "value": "2 setups"},
-        ]
-        rich["spoken_text"] = f"Urgences. {crit} alertes critiques, 2 setups proches invalidation."
-        one_line = f"🚨 {crit} alertes critiques | 2 inval proches"
+        a = _get_alerts()
+        crit = a.get("critical", 0) if isinstance(a, dict) else 0
+        items = a.get("items", []) if isinstance(a, dict) else []
+        rich["cards"] = [{"label": "Alertes critiques", "value": str(crit)}]
+        for item in items[:2]:
+            if item.get("severity") == "critical":
+                rich["cards"].append({"label": item.get("source", "?"), "value": item.get("message", "")[:60]})
+        rich["spoken_text"] = f"Urgences. {crit} alertes critiques."
+        one_line = f"🚨 {crit} alertes critiques"
 
     elif composite_type == "top_setups":
-        setups = call("/read/setups")
-        items = setups.get("items", []) if isinstance(setups, dict) else []
-        for item in items[:3]:
-            rich["cards"].append({
-                "label": item.get("symbol", "?"),
-                "value": f"{item.get('setup_type', '?')} · grade {item.get('grade', '?')}"
-            })
-        rich["spoken_text"] = f"Top setups. {len(items)} actifs."
-        one_line = f"🏆 {len(items)} setups actifs"
+        s = _get_setups()
+        ot = _get_open_trades()
+        items = s.get("items", []) if isinstance(s, dict) else []
+        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        # Merge SPCX setups + perf trades
+        all_items = list(items)
+        for t in perf_trades[:3]:
+            all_items.append({"symbol": t.get("symbol", "?"), "setup_type": t.get("engine", "?"), "grade": "ACTIVE", "source": "tv_webhook"})
+        for item in all_items[:5]:
+            rich["cards"].append({"label": item.get("symbol", "?"), "value": f"{item.get('setup_type', '?')} · grade {item.get('grade', '?')}"})
+        rich["spoken_text"] = f"Top setups. {len(all_items)} actifs."
+        one_line = f"🏆 {len(all_items)} actifs"
 
     elif composite_type == "a_plus_setups":
-        setups = call("/read/setups")
-        items = setups.get("items", []) if isinstance(setups, dict) else []
+        s = _get_setups()
+        items = s.get("items", []) if isinstance(s, dict) else []
         a_plus = [i for i in items if i.get("grade") == "A+"]
         for item in a_plus[:5]:
-            rich["cards"].append({
-                "label": f"A+ {item.get('symbol', '?')}",
-                "value": item.get("setup_type", "?")
-            })
+            rich["cards"].append({"label": f"A+ {item.get('symbol', '?')}", "value": item.get("setup_type", "?")})
         rich["spoken_text"] = f"Setups A+. {len(a_plus)} actifs."
-        one_line = f"⭐ {len(a_plus)} setups A+"
+        one_line = f"⭐ {len(a_plus)} A+"
 
     elif composite_type == "spcx_full":
-        snap = call("/read/spacex")
-        rich["cards"] = [
-            {"label": "Prix", "value": f"${snap.get('price', 0):.1f}" if isinstance(snap, dict) and snap.get('price') else "N/A"},
-            {"label": "VWAP", "value": snap.get("vwap_state", "N/A") if isinstance(snap, dict) else "N/A"},
-            {"label": "Orderflow", "value": str(snap.get("orderflow_score", "N/A")) if isinstance(snap, dict) else "N/A"},
-            {"label": "Ownership", "value": str(snap.get("ownership_pressure_score", "N/A")) if isinstance(snap, dict) else "N/A"},
-            {"label": "Qualite", "value": snap.get("source_quality", "N/A") if isinstance(snap, dict) else "N/A"},
-        ]
-        rich["spoken_text"] = f"SPCX complet. Prix {snap.get('price', '?') if isinstance(snap, dict) else '?'}."
-        one_line = f"🚀 SPCX ${snap.get('price', 0) if isinstance(snap, dict) else '?'}"
+        sp = _get_spcx()
+        cards = []
+        for k, label in [("price", "Prix"), ("vwap_state", "VWAP"), ("vwap_score", "VWAP Score"),
+                          ("gap_ipo_pct", "Gap IPO"), ("orderflow_score", "Orderflow"),
+                          ("ownership_pressure_score", "Ownership"), ("trade_ready", "Trade Ready"),
+                          ("source_quality", "Qualite source"), ("pipeline_state", "Pipeline")]:
+            v = sp.get(k) if isinstance(sp, dict) else None
+            if v is not None:
+                if isinstance(v, float):
+                    v = f"{v:.1f}" if abs(v) < 100 else f"{v:.0f}"
+                cards.append({"label": label, "value": str(v)})
+        rich["cards"] = cards[:8]
+        price = sp.get("price", "?") if isinstance(sp, dict) else "?"
+        rich["spoken_text"] = f"SPCX complet. {len(cards)} champs disponibles."
+        one_line = f"🚀 SPCX {len(cards)} champs"
 
     elif composite_type == "spcx_risk":
-        snap = call("/read/spacex")
-        ow = snap.get("ownership_pressure_score", "N/A") if isinstance(snap, dict) else "N/A"
-        rich["cards"] = [
+        sp = _get_spcx()
+        ow = sp.get("ownership_pressure_score", "N/A") if isinstance(sp, dict) else "N/A"
+        gap = sp.get("gap_ipo_pct") if isinstance(sp, dict) else None
+        cards = [
             {"label": "Ownership pressure", "value": str(ow)},
             {"label": "Lockup", "value": "2026-12-09 (180j)"},
             {"label": "Insider concentration", "value": "41% / 77.8% vote"},
         ]
-        rich["spoken_text"] = f"Risques SPCX. Ownership pressure {ow}. Lockup dec 2026."
-        one_line = f"⚠️ SPCX risk | Ownership {ow} | Lockup 2026-12-09"
+        if gap is not None:
+            cards.append({"label": "Gap IPO", "value": f"{gap:+.1f}%"})
+        rich["cards"] = cards
+        rich["spoken_text"] = f"Risques SPCX. Ownership pressure {ow}."
+        one_line = f"⚠️ SPCX risk | Ownership {ow}"
 
     elif composite_type == "gold_full":
-        rich["cards"] = [
-            {"label": "Trend Weekly", "value": "Support"},
-            {"label": "Trend H4", "value": "BULLISH"},
-            {"label": "Setup", "value": "GOLD_CFD_LONG"},
-            {"label": "Score", "value": "72/100"},
-        ]
-        rich["spoken_text"] = "Gold. Trend H4 haussier, setup LONG actif, score 72."
-        one_line = "🥇 Gold | H4 BULLISH | LONG | 72/100"
+        ot = _get_open_trades()
+        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        xau_trades = [t for t in perf_trades if "XAU" in str(t.get("symbol", ""))]
+        cards = [{"label": "Trades XAU actifs", "value": str(len(xau_trades))}]
+        for t in xau_trades[:2]:
+            cards.append({"label": t.get("engine", "Setup"), "value": f"Entry {t.get('entry','?')} SL {t.get('stop','?')}"})
+        if not xau_trades:
+            cards.extend([
+                {"label": "Trend H4", "value": "BULLISH"},
+                {"label": "Setup", "value": "GOLD_CFD_LONG"},
+            ])
+        rich["cards"] = cards[:5]
+        rich["spoken_text"] = f"Gold. {len(xau_trades)} trades actifs."
+        one_line = f"🥇 Gold | {len(xau_trades)} trades | H4 BULLISH"
 
     elif composite_type == "gold_danger":
-        rich["cards"] = [
-            {"label": "Invalidation proche", "value": "OUI"},
-            {"label": "Support casse", "value": "NON"},
-            {"label": "Alertes", "value": "0"},
-        ]
-        rich["spoken_text"] = "Gold danger. Invalidation proche. Support tient."
-        one_line = "⚠️ Gold | Inval proche | Support OK"
+        ot = _get_open_trades()
+        perf_trades = ot.get("open", []) if isinstance(ot, dict) else []
+        xau_trades = [t for t in perf_trades if "XAU" in str(t.get("symbol", ""))]
+        cards = [{"label": "Trades XAU", "value": str(len(xau_trades))}]
+        for t in xau_trades[:2]:
+            cards.append({"label": "SL distance", "value": f"Entry {t.get('entry','?')}"})
+        cards.append({"label": "Alertes Gold", "value": "0 critiques"})
+        rich["cards"] = cards[:4]
+        rich["spoken_text"] = "Gold danger. Verification des stops."
+        one_line = f"⚠️ Gold | {len(xau_trades)} trades | Verifier stops"
 
     elif composite_type == "watchlist_ia":
         rich["cards"] = [
-            {"label": "Top IA", "value": "NVDA, PLTR, ARM"},
-            {"label": "Momentum", "value": "NVDA +12% hebdo"},
+            {"label": "NVDA", "value": "Leader IA"},
+            {"label": "PLTR", "value": "Defense/AI"},
+            {"label": "ARM", "value": "Semi-conducteurs"},
         ]
-        rich["spoken_text"] = "Watchlist IA. NVDA, PLTR, ARM en tete."
-        one_line = "🤖 NVDA +12% | PLTR | ARM"
+        rich["spoken_text"] = "Watchlist IA. NVDA, PLTR, ARM."
+        one_line = "🤖 NVDA | PLTR | ARM"
 
     elif composite_type == "watchlist_spatial":
         rich["cards"] = [
-            {"label": "SPCX", "value": "Leader IPO"},
-            {"label": "RKLB", "value": "Sector peer"},
+            {"label": "SPCX", "value": "IPO Leader"},
+            {"label": "RKLB", "value": "Lanceur"},
             {"label": "ASTS", "value": "Satellite"},
-            {"label": "LUNR", "value": "Lunar"},
+            {"label": "LUNR", "value": "Lunaire"},
         ]
         rich["spoken_text"] = "Watchlist spatial. SPCX, RKLB, ASTS, LUNR."
         one_line = "🛰️ SPCX | RKLB | ASTS | LUNR"
