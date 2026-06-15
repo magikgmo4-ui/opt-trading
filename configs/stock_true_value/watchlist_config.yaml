@@ -1,0 +1,32 @@
+model_version: spacex_true_value_final_v1
+
+default_universe: CORE_WATCHLIST_PRIORITY
+
+universes:
+  CORE_WATCHLIST_PRIORITY:
+    tickers: [SPCX, NVDA, AVGO, MU, AMD, MRVL, PLTR, ARM, TSM, RKLB, ASTS, LUNR]
+
+  CORE_AI:
+    tickers: [NVDA, AMD, AVGO, PLTR, ARM]
+
+  CORE_SEMI:
+    tickers: [NVDA, AMD, AVGO, MU, MRVL, ARM, TSM]
+
+  CORE_SPACE:
+    tickers: [SPCX, RKLB, LUNR, ASTS, RDW, PL, BKSY]
+
+  CORE_MACRO:
+    tickers: [QQQ, NDX, SPY, BTCUSDT, XAUUSD]
+
+ticker_metadata:
+  SPCX:
+    status: special_case
+    tier: 0
+    notes:
+      - Verify live listing/tradability before treating as ESTABLISHED.
+      - Use special-case metrics if standard valuation ratios are unavailable.
+  NVDA: {status: active_watch, sectors: [AI, SEMI]}
+  AVGO: {status: active_watch, sectors: [AI, SEMI]}
+  MU: {status: active_watch, sectors: [SEMI]}
+  MRVL: {status: active_watch, sectors: [SEMI]}
+  AMD: {status: active_watch, sectors: [AI, SEMI]}

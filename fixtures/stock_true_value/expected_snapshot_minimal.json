@@ -1,0 +1,9 @@
+{
+  "model_version": "spacex_true_value_final_v1",
+  "expected_cases": [
+    "NVDA",
+    "MU",
+    "SPCX"
+  ],
+  "notes": "Golden fixture for fixture-only CLI and basic score contract validation."
+}

@@ -1,0 +1,31 @@
+model_version: spacex_true_value_final_v1
+
+source_priority:
+  conflict_resolution_order:
+    - sec_edgar
+    - company_ir
+    - nasdaq
+    - yahoo_finance
+    - tradingview
+    - analyst_consensus
+    - options_data
+    - etf_flows
+    - sentiment_sources
+
+sources:
+  sec_edgar: {enabled: true, tier: 1, role: [filings, company_ticker_map, official_documents]}
+  company_ir: {enabled: false, tier: 1, role: [earnings_releases, guidance, investor_presentations]}
+  yahoo_finance: {enabled: true, tier: 2, role: [price, volume, fundamentals_proxy, earnings_date_proxy]}
+  tradingview: {enabled: true, tier: 2, role: [technicals, alerts, chart_state]}
+  nasdaq: {enabled: true, tier: 2, role: [earnings_calendar, listing_reference]}
+  analyst_consensus: {enabled: false, tier: 3, role: [eps_estimates, revenue_estimates, revisions, upgrades_downgrades]}
+  etf_flows: {enabled: false, tier: 3, role: [sector_flows, thematic_demand, index_pressure]}
+  options_data: {enabled: false, tier: 3, role: [call_put_ratio, open_interest, implied_volatility, unusual_activity]}
+  sentiment_sources: {enabled: false, tier: 4, role: [social_trend_score, news_volume_score, narrative_heat]}
+
+missing_data_policy:
+  keep_ticker_in_report: true
+  compute_partial_scores: true
+  reduce_confidence_score: true
+  add_missing_source_flags: true
+  never_invent_data: true
