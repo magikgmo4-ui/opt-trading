@@ -163,9 +163,11 @@ class MachineMap:
         }
 
         # Env
+        base_env = base_cfg.get("env", {})
         cfg["env"] = {
             "required": scope.get("required_env", []),
             "optional": scope.get("optional_env", []),
+            "files": scope.get("env_files", base_env.get("files", [])),
         }
 
         # Logs: keep journal_units from scope

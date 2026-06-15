@@ -124,7 +124,7 @@ machines:
         port: 18789
       - label: algo_hf_api
         host: 127.0.0.1
-        port: 8000
+        port: 9100
 
     required_paths:
       - path: /opt/trading
@@ -217,25 +217,37 @@ machines:
 
   fantome:
     role: secondary_operator
-    description: "Opérateur secondaire, automation, tests isolés"
+    description: "Opérateur secondaire, automation, tests isolés, secours LocalCMS/fleet si db-layer indisponible"
 
-    required_services: []
-    optional_services: []     # openclaw-gateway est sur db-layer, pas fantome
+    required_services:
+      - shared-sshfs.service
+      - localcms.service
+      - openclaw-gateway.service
+    optional_services: []
 
-    required_timers: []
-    optional_timers:
+    required_timers:
       - opt-trading-runtime-health.timer
+      - opt-trading-fleet-orchestrator.timer
+    optional_timers: []
 
     required_venvs:
       - path: /opt/trading/venv
         label: main
         required: false
 
-    required_ports: []
-    optional_ports: []        # port 18789 suit openclaw-gateway (db-layer)
+    required_ports:
+      - label: localcms
+        host: 127.0.0.1
+        port: 8700
+      - label: openclaw_gateway
+        host: 127.0.0.1
+        port: 18789
+    optional_ports: []
 
     required_paths:
       - path: /opt/trading
+        writable: false
+      - path: /shared
         writable: false
 
     optional_paths: []
@@ -253,7 +265,8 @@ machines:
 
     log_units: []
 
-    # fantome ne fait pas tourner webhook/perf/desk_pro ni openclaw-gateway
+    # fantome ne fait pas tourner webhook/perf/desk_pro
+    # Il porte le cockpit, l'orchestration read-only et le gateway OpenClaw en secours de db-layer.
     # runtime-health.timer est deploye comme timer systeme read-only pour la visibilite fleet
     optional_http_checks: []
     optional_artifact_paths: []

@@ -3,7 +3,8 @@ Tests: GO_OPT_TRADING_RUNTIME_HEALTH_FLEET_WARN_CLASSIFICATION_01
 
 Verifies that admin-trading, db-layer, and student scope changes correctly
 suppress base-config false positives via optional_http_checks / optional_artifact_paths
-/ optional_log_files / optional_tmux_sessions.
+/ optional_log_files / optional_tmux_sessions, while optional non-PASS checks
+remain visible as advisory signals.
 """
 
 import sys
@@ -13,6 +14,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 
+from modules.runtime_health.healthcheck import _block_status, _mark_advisories, compute_overall_status
 from modules.runtime_health.machine_map import MachineMap
 
 _MAP_PATH = str(REPO_ROOT / "config" / "machine_runtime_map.yml")
@@ -24,7 +26,7 @@ BASE_CFG = {
     "venvs": [],
     "ports": {"required": [], "optional": []},
     "paths": {"required": [], "optional": []},
-    "env": {"required": [], "optional": []},
+    "env": {"required": [], "optional": [], "files": ["/opt/trading/.env"]},
     "logs": {
         "journal_units": [],
         "log_files": {
@@ -97,6 +99,10 @@ class TestAdminTradingScope(unittest.TestCase):
         units = self.cfg["logs"]["journal_units"]
         self.assertGreater(len(units), 0)
 
+    def test_env_files_preserved(self):
+        """Base env files are preserved unless a machine scope overrides them."""
+        self.assertIn("/opt/trading/.env", self.cfg["env"].get("files", []))
+
 
 # ---------------------------------------------------------------------------
 # db-layer
@@ -125,6 +131,12 @@ class TestDbLayerScope(unittest.TestCase):
         mm = _mm()
         scope = mm.scope_for("db-layer")
         self.assertNotEqual(scope.get("os_family", "linux").lower(), "windows")
+
+    def test_algo_hf_api_port_is_current(self):
+        ports = self.cfg["ports"]["optional"]
+        algo = next((p for p in ports if p.get("label") == "algo_hf_api"), None)
+        self.assertIsNotNone(algo)
+        self.assertEqual(algo["port"], 9100)
 
 
 # ---------------------------------------------------------------------------
@@ -167,11 +179,12 @@ class TestOtherMachinesUnchanged(unittest.TestCase):
         self.assertIn("optional_tmux_sessions", scope)
         self.assertEqual(scope["optional_tmux_sessions"], [])
 
-    def test_fantome_runtime_health_timer_present(self):
+    def test_fantome_runtime_timers_required(self):
         mm = _mm()
         scope = mm.scope_for("fantome")
-        self.assertIn("optional_timers", scope)
-        self.assertIn("opt-trading-runtime-health.timer", scope["optional_timers"])
+        self.assertIn("required_timers", scope)
+        self.assertIn("opt-trading-runtime-health.timer", scope["required_timers"])
+        self.assertIn("opt-trading-fleet-orchestrator.timer", scope["required_timers"])
 
     def test_db_layer_fleet_orchestrator_timer_present(self):
         mm = _mm()
@@ -183,6 +196,52 @@ class TestOtherMachinesUnchanged(unittest.TestCase):
         mm = _mm()
         for machine in ["admin-trading", "db-layer", "cursor-ai", "fantome", "student"]:
             self.assertIsNotNone(mm.scope_for(machine), f"{machine} missing from map")
+
+
+# ---------------------------------------------------------------------------
+# Advisory classification
+# ---------------------------------------------------------------------------
+
+class TestAdvisoryClassification(unittest.TestCase):
+
+    def test_optional_warn_is_advisory_not_operational_warn(self):
+        checks = {
+            "PORTS": [
+                {"check": "port:optional_api", "status": "WARN", "required": False},
+            ],
+        }
+        summary = _mark_advisories(checks)
+
+        self.assertEqual(summary["total"], 1)
+        self.assertEqual(summary["by_block"], {"PORTS": 1})
+        self.assertTrue(checks["PORTS"][0]["advisory"])
+        self.assertEqual(checks["PORTS"][0]["operational_status"], "PASS")
+        self.assertEqual(_block_status(checks["PORTS"]), "PASS")
+        self.assertEqual(compute_overall_status({"PORTS": "PASS"}, checks, {}), "PASS")
+
+    def test_required_warn_still_warns(self):
+        checks = {
+            "LOGS": [
+                {"check": "journal:required_unit", "status": "WARN", "required": True},
+            ],
+        }
+        summary = _mark_advisories(checks)
+
+        self.assertEqual(summary["total"], 0)
+        self.assertFalse(checks["LOGS"][0]["advisory"])
+        self.assertEqual(_block_status(checks["LOGS"]), "WARN")
+
+    def test_required_fail_still_fails(self):
+        checks = {
+            "SERVICES": [
+                {"check": "service:required_unit", "status": "FAIL", "required": True},
+            ],
+        }
+        summary = _mark_advisories(checks)
+
+        self.assertEqual(summary["total"], 0)
+        self.assertFalse(checks["SERVICES"][0]["advisory"])
+        self.assertEqual(_block_status(checks["SERVICES"]), "FAIL")
 
 
 if __name__ == "__main__":
