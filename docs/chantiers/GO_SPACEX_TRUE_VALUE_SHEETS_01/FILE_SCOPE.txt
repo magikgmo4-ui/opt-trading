@@ -1,0 +1,3 @@
+docs/chantiers/GO_SPACEX_TRUE_VALUE_SHEETS_01/**
+modules/stock_true_value/sheets_consumer.py
+modules/google_sheets_global_schema/validator.py
