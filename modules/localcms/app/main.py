@@ -1752,3 +1752,393 @@ def spacex_json():
 
 
 STATUS_BADGES = SHARED_STATUS_BADGES
+
+
+# ── Voice Operator ─────────────────────────────────────────────────────
+_VOICE_SECTIONS = [
+    {
+        "title": "Système",
+        "icon": "⚙️",
+        "commands": [
+            ("État système", "Etat systeme"),
+        ],
+    },
+    {
+        "title": "Marché",
+        "icon": "📈",
+        "commands": [
+            ("Rapport marché", "Rapport marche"),
+            ("Analyse BTC", "Analyse BTC"),
+            ("Analyse Gold", "Analyse Gold"),
+            ("Résumé SPCX", "Resume SPCX"),
+        ],
+    },
+    {
+        "title": "Alertes",
+        "icon": "🔔",
+        "commands": [
+            ("Alertes Telegram", "Alertes Telegram"),
+        ],
+    },
+    {
+        "title": "Setups",
+        "icon": "🎯",
+        "commands": [
+            ("Setups actifs", "Setups actifs"),
+            ("Setup BTC", "Setup BTC"),
+            ("Setup Gold", "Setup Gold"),
+            ("Setup SPCX", "Setup SPCX"),
+        ],
+    },
+    {
+        "title": "Scores / Risques",
+        "icon": "📊",
+        "commands": [
+            ("Score BTC", "Score BTC"),
+            ("Score Gold", "Score Gold"),
+            ("Score SPCX", "Score SPCX"),
+        ],
+    },
+    {
+        "title": "Rapports",
+        "icon": "📋",
+        "commands": [
+            ("Rapport quotidien", "Rapport quotidien"),
+        ],
+    },
+]
+
+
+def _voice_operator_html() -> str:
+    sections_html = ""
+    for section in _VOICE_SECTIONS:
+        buttons = ""
+        for label, command in section["commands"]:
+            buttons += f'<button class="voice-btn" onclick="voiceQuery(\'{command}\')" title="{command}">{label}</button>\n'
+        sections_html += f"""\
+<div class="voice-section">
+  <h3>{section['icon']} {section['title']}</h3>
+  <div class="voice-buttons">{buttons}</div>
+</div>
+"""
+
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LocalCMS — Voice Operator</title>
+  <style>
+    {STANDARD_CSS}
+    .voice-section {{ margin-bottom: 24px; }}
+    .voice-section h3 {{ color: #a8c7ff; margin-bottom: 10px; font-size: 15px; }}
+    .voice-buttons {{ display: flex; flex-wrap: wrap; gap: 8px; }}
+    .voice-btn {{
+      background: var(--card-bg, #151a24);
+      color: var(--text, #e8eef7);
+      border: 1px solid var(--card-border, #2a3345);
+      border-radius: var(--card-radius, 10px);
+      padding: 10px 18px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+      position: relative;
+    }}
+    .voice-btn:hover {{ background: #1e2840; border-color: #4477cc; }}
+    .voice-btn:active {{ background: #243050; }}
+    .voice-btn.loading {{ opacity: 0.5; pointer-events: none; }}
+    .voice-btn .star {{
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 10px;
+      opacity: 0;
+      transition: opacity 0.15s;
+      color: #ffd700;
+    }}
+    .voice-btn:hover .star {{ opacity: 0.4; }}
+    .voice-btn.fav .star {{ opacity: 1; }}
+    .voice-btn.fav {{ border-color: #665500; }}
+    .favorites-section {{
+      margin-bottom: 24px;
+      padding: 14px;
+      background: var(--card-bg, #151a24);
+      border: 1px solid #665500;
+      border-radius: var(--card-radius, 10px);
+      display: none;
+    }}
+    .favorites-section.has-favs {{ display: block; }}
+    .favorites-section h3 {{ color: #ffd700; margin-bottom: 10px; font-size: 14px; }}
+    .empty-fav {{ color: #555; font-size: 12px; font-style: italic; }}
+    .response-area {{
+      margin-top: 20px;
+      padding: 16px;
+      background: var(--card-bg, #151a24);
+      border: 1px solid var(--card-border, #2a3345);
+      border-radius: var(--card-radius, 10px);
+      min-height: 60px;
+      display: none;
+    }}
+    .response-area.visible {{ display: block; }}
+    .response-intent {{ font-size: 11px; color: #666; margin-bottom: 4px; }}
+    .response-endpoint {{ font-size: 11px; color: #555; margin-bottom: 8px; font-family: monospace; }}
+    .response-text {{ font-size: 15px; color: #e8eef7; line-height: 1.5; }}
+    .response-mode {{ font-size: 10px; color: #ff9800; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }}
+    .history-area {{ margin-top: 24px; }}
+    .history-area h3 {{ color: #a8c7ff; font-size: 14px; margin-bottom: 8px; }}
+    .history-item {{ font-size: 12px; color: #888; padding: 4px 0; border-bottom: 1px solid #1a1f2a; cursor: pointer; }}
+    .history-item:hover {{ color: #a8c7ff; }}
+    .tts-indicator {{ display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; margin-left: 8px; }}
+    .tts-active {{ background: #1b3a1b; color: #30d158; }}
+    .tts-inactive {{ background: #3a1b1b; color: #ef5350; }}
+    .status-bar {{ display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 12px; color: #888; }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <div style="margin-bottom:16px">
+      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Voice Operator</div>
+      <a class="nav-item nav-active" href="/voice">🎙️ Voice Operator</a>
+    </div>
+    <a class="nav-item" href="/">🏠 Dashboard</a>
+    <a class="nav-item" href="/spacex">🚀 SpaceX</a>
+    <a class="nav-item" href="/signals">📡 Signals</a>
+    <a class="nav-item" href="/journal">📋 Journal</a>
+    <a class="nav-item" href="/metrics">📊 Metrics</a>
+    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
+      <div><a href="/voice/query?q=Etat+systeme" style="color:#888;text-decoration:none">/voice/query</a></div>
+    </div>
+  </nav>
+  <main class="main">
+    <h2>🎙️ Voice Operator</h2>
+    <p class="subtitle">Monitor-Only — Validation humaine obligatoire</p>
+
+    <div class="status-bar">
+      <span>TTS: <span id="tts-status" class="tts-indicator tts-inactive">inactif</span></span>
+      <span id="last-query" style="color:#555"></span>
+      <span style="margin-left:auto;font-size:10px;color:#555">⭐ = clic droit pour favori</span>
+    </div>
+
+    <div id="favorites" class="favorites-section">
+      <h3>⭐ Favoris</h3>
+      <div class="voice-buttons" id="fav-buttons"></div>
+      <div class="empty-fav" id="fav-empty">Clic droit sur un bouton pour l'ajouter aux favoris.</div>
+    </div>
+
+    {sections_html}
+
+    <div id="response" class="response-area">
+      <div class="response-intent" id="resp-intent"></div>
+      <div class="response-endpoint" id="resp-endpoint"></div>
+      <div class="response-text" id="resp-text"></div>
+      <div class="response-mode">MONITOR-ONLY — VALIDATION HUMAINE REQUISE</div>
+    </div>
+
+    <div class="history-area" id="history-area" style="display:none">
+      <h3>📜 Historique</h3>
+      <div id="history-list"></div>
+    </div>
+  </main>
+</div>
+
+<script>
+const HISTORY_KEY = 'voice_operator_history';
+const FAV_KEY = 'voice_operator_favorites';
+let history = [];
+let favorites = [];
+
+try {{
+    const stored = localStorage.getItem(HISTORY_KEY);
+    if (stored) history = JSON.parse(stored);
+    if (history.length > 0) renderHistory();
+}} catch(e) {{}}
+
+try {{
+    const stored = localStorage.getItem(FAV_KEY);
+    if (stored) favorites = JSON.parse(stored);
+    renderFavorites();
+    markFavButtons();
+}} catch(e) {{}}
+
+// Check TTS availability
+if ('speechSynthesis' in window) {{
+    ttsAvailable = true;
+    document.getElementById('tts-status').className = 'tts-indicator tts-active';
+    document.getElementById('tts-status').textContent = 'actif';
+}}
+
+async function voiceQuery(command) {{
+    const btns = document.querySelectorAll('.voice-btn');
+    btns.forEach(b => b.classList.add('loading'));
+
+    document.getElementById('last-query').textContent = '⏳ ' + command;
+
+    try {{
+        const resp = await fetch('/voice/query?q=' + encodeURIComponent(command));
+        const data = await resp.json();
+
+        const responseEl = document.getElementById('response');
+        responseEl.classList.add('visible');
+        document.getElementById('resp-intent').textContent = 'Intent: ' + (data.intent || '?');
+        document.getElementById('resp-endpoint').textContent = 'Endpoint: ' + (data.endpoint || '?');
+        document.getElementById('resp-text').textContent = data.one_line || '(pas de reponse)';
+
+        // Add to history
+        history.unshift({{
+            ts: new Date().toISOString(),
+            command: command,
+            intent: data.intent,
+            one_line: data.one_line,
+        }});
+        if (history.length > 50) history.length = 50;
+        localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+        renderHistory();
+
+        // TTS
+        if (ttsAvailable && data.one_line) {{
+            speak(data.one_line);
+        }}
+
+        document.getElementById('last-query').textContent = '✓ ' + command;
+    }} catch(e) {{
+        document.getElementById('resp-text').textContent = 'Erreur: ' + e.message;
+        document.getElementById('response').classList.add('visible');
+        document.getElementById('last-query').textContent = '✗ ' + command;
+    }}
+
+    btns.forEach(b => b.classList.remove('loading'));
+}}
+
+function speak(text) {{
+    if (!ttsAvailable) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 1.1;
+    u.pitch = 1.0;
+    window.speechSynthesis.speak(u);
+}}
+
+function toggleFavorite(command, label) {{
+    const idx = favorites.findIndex(f => f.command === command);
+    if (idx >= 0) {{
+        favorites.splice(idx, 1);
+    }} else {{
+        favorites.push({{ command: command, label: label }});
+        if (favorites.length > 10) favorites.shift();
+    }}
+    localStorage.setItem(FAV_KEY, JSON.stringify(favorites));
+    renderFavorites();
+    markFavButtons();
+}}
+
+function renderFavorites() {{
+    const section = document.getElementById('favorites');
+    const buttons = document.getElementById('fav-buttons');
+    const empty = document.getElementById('fav-empty');
+
+    if (favorites.length === 0) {{
+        section.classList.remove('has-favs');
+        empty.style.display = 'block';
+        return;
+    }}
+    section.classList.add('has-favs');
+    empty.style.display = 'none';
+
+    buttons.innerHTML = favorites.map(f =>
+        '<button class="voice-btn fav" onclick="voiceQuery(\'' + f.command.replace(/'/g, "\\'") + '\')" oncontextmenu="toggleFavorite(\'' + f.command.replace(/'/g, "\\'") + '\',\'' + (f.label || f.command).replace(/'/g, "\\'") + '\');return false" title="Clic: executer | Clic droit: retirer">' +
+        '<span class="star">⭐</span>' + (f.label || f.command) + '</button>'
+    ).join('');
+}}
+
+function markFavButtons() {{
+    document.querySelectorAll('.voice-btn:not(.fav)').forEach(btn => {{
+        const cmd = btn.getAttribute('onclick') || '';
+        const match = cmd.match(/voiceQuery\('(.+?)'\)/);
+        if (match && favorites.some(f => f.command === match[1])) {{
+            btn.classList.add('fav');
+            if (!btn.querySelector('.star')) {{
+                const star = document.createElement('span');
+                star.className = 'star';
+                star.textContent = '⭐';
+                btn.appendChild(star);
+            }}
+        }}
+    }});
+}}
+
+// Right-click on any voice button to toggle favorite
+document.addEventListener('DOMContentLoaded', function() {{
+    setTimeout(function() {{
+        document.querySelectorAll('.voice-btn').forEach(function(btn) {{
+            if (btn.closest('#fav-buttons')) return;
+            btn.addEventListener('contextmenu', function(e) {{
+                e.preventDefault();
+                const cmd = btn.getAttribute('onclick') || '';
+                const match = cmd.match(/voiceQuery\('(.+?)'\)/);
+                if (match) {{
+                    const label = btn.textContent.replace('⭐', '').trim();
+                    toggleFavorite(match[1], label);
+                }}
+            }});
+        }});
+    }}, 200);
+}});
+
+function renderHistory() {{
+    const area = document.getElementById('history-area');
+    const list = document.getElementById('history-list');
+    if (history.length === 0) {{ area.style.display = 'none'; return; }}
+    area.style.display = 'block';
+    list.innerHTML = history.slice(0, 15).map((h, i) => {{
+        const time = h.ts ? h.ts.substr(11, 8) : '';
+        return '<div class="history-item" onclick="voiceQuery(\'' + h.command.replace(/'/g, "\\'") + '\')" title="Rejouer">' +
+               time + ' ' + h.command + ' → ' + (h.one_line || '').substr(0, 80) + '</div>';
+    }}).join('');
+}}
+
+document.addEventListener('keydown', function(e) {{
+    if (e.key === 'Escape') {{
+        window.speechSynthesis.cancel();
+        document.getElementById('last-query').textContent = '⏹ TTS stoppé';
+    }}
+}});
+</script>
+</body>
+</html>"""
+
+
+@app.get("/voice", response_class=HTMLResponse)
+def voice_operator_html():
+    return HTMLResponse(content=_voice_operator_html())
+
+
+@app.get("/voice/query")
+def voice_operator_query(q: str = ""):
+    """Route a voice command through intent_router → /read/* → one_line."""
+    if not q:
+        return JSONResponse(content={"intent": "unknown", "endpoint": "", "one_line": "Aucune commande"})
+
+    try:
+        from modules.voice_operator.engine.intent_router import route
+        from modules.voice_operator.engine.read_api_client import call
+
+        routed = route(q)
+        result = call(routed.endpoint, routed.params if routed.params else None)
+        return JSONResponse(content={
+            "intent": routed.intent,
+            "endpoint": routed.endpoint,
+            "params": routed.params,
+            "one_line": result.get("one_line", str(result)),
+            "mode": "monitor_only",
+        })
+    except Exception as e:
+        return JSONResponse(content={
+            "intent": "error",
+            "endpoint": "",
+            "one_line": f"Erreur voix: {str(e)[:200]}",
+            "mode": "monitor_only",
+        })
