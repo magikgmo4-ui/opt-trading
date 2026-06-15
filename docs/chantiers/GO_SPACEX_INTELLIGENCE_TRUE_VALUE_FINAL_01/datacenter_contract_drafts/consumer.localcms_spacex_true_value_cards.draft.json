@@ -1,0 +1,23 @@
+{
+  "consumer_id": "localcms_spacex_true_value_cards",
+  "status": "draft_only",
+  "activation": "prohibited",
+  "reads": [
+    "outputs/stock_true_value/latest/scores.json"
+  ],
+  "visible_fields": [
+    "ticker",
+    "final_grade",
+    "final_score",
+    "true_value_score",
+    "hype_score",
+    "risk_score",
+    "confidence_score",
+    "flags"
+  ],
+  "promotion_requirements": [
+    "producer output exists",
+    "schema validation PASS",
+    "LocalCMS PR separate from producer registration"
+  ]
+}

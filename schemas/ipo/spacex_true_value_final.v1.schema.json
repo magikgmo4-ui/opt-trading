@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "spacex_true_value_final.daily_output.v1",
+  "title": "SpaceX True Value Final Daily Output",
+  "type": "object",
+  "required": [
+    "asof",
+    "model_version",
+    "items"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "asof": {
+      "type": "string"
+    },
+    "model_version": {
+      "type": "string"
+    },
+    "universe": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "score_snapshot.schema.json"
+      }
+    },
+    "summary": {
+      "type": "object"
+    }
+  }
+}

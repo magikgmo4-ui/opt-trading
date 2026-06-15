@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stock_true_value.score_snapshot.v1",
+  "title": "Stock True Value Score Snapshot",
+  "type": "object",
+  "required": [
+    "ticker",
+    "asof",
+    "model_version",
+    "universe",
+    "true_value_score",
+    "hype_score",
+    "risk_score",
+    "confidence_score",
+    "final_grade",
+    "flags",
+    "source_health"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "ticker": {
+      "type": "string"
+    },
+    "asof": {
+      "type": "string"
+    },
+    "model_version": {
+      "type": "string"
+    },
+    "universe": {
+      "type": "string"
+    },
+    "fundamental_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "valuation_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "flow_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "speculation_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "surprise_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "catalyst_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "ecosystem_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "true_value_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "hype_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "risk_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "final_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "final_grade": {
+      "type": "string",
+      "enum": [
+        "A+",
+        "A",
+        "B",
+        "C",
+        "D",
+        "RESEARCH_REQUIRED"
+      ]
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_health": {
+      "type": "object"
+    }
+  }
+}

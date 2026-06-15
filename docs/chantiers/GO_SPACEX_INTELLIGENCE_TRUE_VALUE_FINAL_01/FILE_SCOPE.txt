@@ -1,0 +1,9 @@
+docs/chantiers/GO_SPACEX_INTELLIGENCE_TRUE_VALUE_FINAL_01/**
+docs/index/inbox/GO_SPACEX_INTELLIGENCE_TRUE_VALUE_FINAL_01.md
+configs/ipo/spacex_true_value_final.yaml
+configs/stock_true_value/**
+modules/stock_true_value/**
+schemas/ipo/spacex_true_value_final.v1.schema.json
+schemas/stock_true_value/**
+fixtures/stock_true_value/**
+tests/stock_true_value/**

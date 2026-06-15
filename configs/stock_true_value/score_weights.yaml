@@ -1,0 +1,62 @@
+model_version: spacex_true_value_final_v1
+
+default_weights:
+  true_value_score:
+    fundamental_score: 0.35
+    valuation_score: 0.35
+    flow_score: 0.15
+    surprise_score: 0.15
+
+  hype_score:
+    speculation_score: 0.60
+    social_trend_score: 0.20
+    options_pressure_score: 0.20
+
+  final_score_spacex_context:
+    catalyst_score: 0.25
+    ecosystem_score: 0.20
+    true_value_score: 0.25
+    surprise_score: 0.15
+    inverse_risk_score: 0.15
+
+  final_score_equity_context:
+    true_value_score: 0.45
+    flow_score: 0.20
+    surprise_score: 0.20
+    inverse_risk_score: 0.15
+
+universe_overrides:
+  CORE_AI:
+    true_value_score:
+      fundamental_score: 0.30
+      valuation_score: 0.25
+      flow_score: 0.20
+      surprise_score: 0.25
+
+  CORE_SEMI:
+    true_value_score:
+      fundamental_score: 0.30
+      valuation_score: 0.25
+      flow_score: 0.15
+      surprise_score: 0.30
+
+  CORE_SPACE:
+    true_value_score:
+      fundamental_score: 0.25
+      valuation_score: 0.20
+      flow_score: 0.25
+      surprise_score: 0.30
+
+ticker_overrides:
+  SPCX:
+    mode: special_case
+    disabled_metrics:
+      - pe_forward
+      - price_to_fcf
+      - peg_ratio
+    additional_metrics:
+      - backlog_score
+      - launch_cadence_score
+      - contract_pipeline_score
+      - starlink_growth_proxy
+      - index_flow_probability
