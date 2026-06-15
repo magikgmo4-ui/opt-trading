@@ -1,12 +1,12 @@
 from __future__ import annotations
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from pathlib import Path
 import json
 import re
+import shlex
+import socket
 import subprocess
-import sys
 from datetime import date, datetime, timezone
 
 from shared.html_helpers import pnl_badge, verdict_badge, closeout_badge, cred_status_badge, badge, STATUS_BADGES as SHARED_STATUS_BADGES
@@ -15,44 +15,60 @@ from shared.html_design_system import STANDARD_CSS, SIGNALS_DARK_CSS
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 MENU_FILE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "opt_trading_menu.json"
 STATE_CACHE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "state_cache.json"
+STATE_CACHE_GENERATOR = PROJECT_ROOT / "scripts" / "ai" / "menu" / "menu_state_aggregator.sh"
+STATE_CACHE_MAX_AGE_S = 300
 TMUX_LOG_DIR = PROJECT_ROOT / "logs"
+SCRIPTS_DIR = PROJECT_ROOT / "scripts"
+SHARED_DESK_DIR = Path("/shared/desk_pro/latest")
 LOCALCMS_LATEST_JSON = PROJECT_ROOT / "tmp" / "localcms_latest.json"
 JOURNAL_DIR = PROJECT_ROOT / "data" / "journal" / "daily"
 SYNC_LOG = PROJECT_ROOT / "data" / "journal" / "sync_log.jsonl"
 
 CRITICAL_SESSIONS: frozenset[str] = frozenset({
-    "openclaw-core",
-    "screeners",
-    "strict-workers",
+    "admin-trading/tv-webhook.service",
+    "admin-trading/tv-perf.service",
+    "admin-trading/bot_vision_step2.service",
+    "fantome/shared-sshfs.service",
+    "fantome/localcms.service",
+    "fantome/openclaw-gateway.service",
+    "fantome/opt-trading-fleet-orchestrator.timer",
+    "fantome/opt-trading-runtime-health.timer",
 })
 
 ALL_SESSIONS: list[dict] = [
-    {"session": "openclaw-core",    "critical": True,  "machine": "db-layer",      "description": "Gateway + Bridge + Health + Logs"},
-    {"session": "screeners",        "critical": True,  "machine": "admin-trading",  "description": "TradingView + Webhook + Bot Vision + Telegram"},
-    {"session": "strict-workers",   "critical": True,  "machine": "admin-trading",  "description": "8 pipeline workers (DRY_RUN=1)"},
-    {"session": "trading-pipeline", "critical": False, "machine": "admin-trading",  "description": "kil_v1 + SimEx + Execution + Risk + Position"},
-    {"session": "market-data",      "critical": False, "machine": "admin-trading",  "description": "Binance + CoinGecko + Derivatives + Analyzers + Scanner + Hub"},
-    {"session": "apps-connectors",  "critical": False, "machine": "db-layer",      "description": "Airtable + ClickUp + Sheets + Health"},
-    {"session": "desk-pro",         "critical": False, "machine": "admin-trading",  "description": "Runner + Orchestrator + Perf + Logs"},
-    {"session": "kg-repo",          "critical": False, "machine": "db-layer",      "description": "Memory Bricks + Learning Feeder + Health"},
-    {"session": "localcms-ui",      "critical": False, "machine": "db-layer",      "description": "LocalCMS Consumer + Health + Logs"},
+    {"session": "admin-trading/tv-webhook.service", "unit": "tv-webhook.service", "critical": True, "machine": "admin-trading", "description": "TradingView webhook receiver on port 8000"},
+    {"session": "admin-trading/tv-perf.service", "unit": "tv-perf.service", "critical": True, "machine": "admin-trading", "description": "Desk Pro/performance API on port 8010"},
+    {"session": "admin-trading/bot_vision_step2.service", "unit": "bot_vision_step2.service", "critical": True, "machine": "admin-trading", "description": "Vision automation runtime"},
+    {"session": "admin-trading/bot_vision_step2_prune.timer", "unit": "bot_vision_step2_prune.timer", "critical": False, "machine": "admin-trading", "description": "Vision cleanup timer"},
+    {"session": "admin-trading/bot-vision-coinglass-capture.timer", "unit": "bot-vision-coinglass-capture.timer", "critical": False, "machine": "admin-trading", "description": "Coinglass capture timer"},
+    {"session": "db-layer/shared-sshfs.service", "unit": "shared-sshfs.service", "critical": False, "machine": "db-layer", "description": "Original db-layer /shared mount; inactive while db-layer is off"},
+    {"session": "db-layer/algo-hf-api.service", "unit": "algo-hf-api.service", "critical": False, "machine": "db-layer", "description": "Algo/Hugging Face API"},
+    {"session": "db-layer/snap.ollama.listener.service", "unit": "snap.ollama.listener.service", "critical": False, "machine": "db-layer", "description": "Ollama snap listener"},
+    {"session": "student/ollama.service", "unit": "ollama.service", "critical": False, "machine": "student", "description": "Student LLM runtime"},
+    {"session": "student/opt-trading-localcms.service", "unit": "opt-trading-localcms.service", "critical": False, "machine": "student", "description": "Fallback LocalCMS dashboard on port 8700"},
+    {"session": "fantome/shared-sshfs.service", "unit": "shared-sshfs.service", "critical": True, "machine": "fantome", "description": "Emergency read-only /shared route from admin-trading"},
+    {"session": "fantome/localcms.service", "unit": "localcms.service", "critical": True, "machine": "fantome", "description": "Emergency primary LocalCMS dashboard on port 8700"},
+    {"session": "fantome/openclaw-gateway.service", "unit": "openclaw-gateway.service", "critical": True, "machine": "fantome", "description": "OpenClaw gateway on loopback port 18789"},
+    {"session": "fantome/opt-trading-fleet-orchestrator.timer", "unit": "opt-trading-fleet-orchestrator.timer", "critical": True, "machine": "fantome", "description": "Emergency fleet orchestration timer"},
+    {"session": "fantome/opt-trading-runtime-health.timer", "unit": "opt-trading-runtime-health.timer", "critical": True, "machine": "fantome", "description": "Emergency runtime health timer"},
+    {"session": "fantome/fail2ban.service", "unit": "fail2ban.service", "critical": False, "machine": "fantome", "description": "SSH protection only; no trading runtime expected"},
 ]
 
 GLOBAL_MENU_SECTIONS = [
-    {"id": "runtime",       "label": "Runtime",       "icon": "⚡"},
-    {"id": "trading",       "label": "Trading",       "icon": "📈"},
-    {"id": "data",          "label": "Market Data",   "icon": "📊"},
-    {"id": "ai",            "label": "AI & Providers","icon": "🧠"},
-    {"id": "desk",          "label": "Desk Pro",      "icon": "🖥️"},
-    {"id": "vision",        "label": "Vision",        "icon": "👁️"},
-    {"id": "perf",          "label": "Performance",   "icon": "📉"},
-    {"id": "infra",         "label": "Infrastructure","icon": "🔌"},
-    {"id": "registries",    "label": "Registries",    "icon": "🗂️"},
-    {"id": "workers",       "label": "Workers",       "icon": "⚙️"},
-    {"id": "ops",           "label": "Ops",           "icon": "🔧"},
-    {"id": "tooling",       "label": "Tooling",       "icon": "🛠️"},
-    {"id": "shared",        "label": "Shared Libs",   "icon": "📦"},
-    {"id": "archive",       "label": "Archive",       "icon": "🗄️"},
+    {"id": "runtime",       "label": "Runtime",       "icon": "ÔÜí"},
+    {"id": "trading",       "label": "Trading",       "icon": "­ƒôê"},
+    {"id": "data",          "label": "Market Data",   "icon": "­ƒôè"},
+    {"id": "ai",            "label": "AI & Providers","icon": "­ƒºá"},
+    {"id": "desk",          "label": "Desk Pro",      "icon": "­ƒûÑ´©Å"},
+    {"id": "vision",        "label": "Vision",        "icon": "­ƒæü´©Å"},
+    {"id": "perf",          "label": "Performance",   "icon": "­ƒôë"},
+    {"id": "infra",         "label": "Infrastructure","icon": "­ƒöî"},
+    {"id": "registries",    "label": "Registries",    "icon": "­ƒùé´©Å"},
+    {"id": "workers",       "label": "Workers",       "icon": "ÔÜÖ´©Å"},
+    {"id": "ops",           "label": "Ops",           "icon": "­ƒöº"},
+    {"id": "tooling",       "label": "Tooling",       "icon": "­ƒøá´©Å"},
+    {"id": "shared",        "label": "Shared Libs",   "icon": "­ƒôª"},
+    {"id": "archive",       "label": "Archive",       "icon": "­ƒùä´©Å"},
 ]
 
 app = FastAPI(title="LocalCMS", version="1.0.0")
@@ -72,6 +88,98 @@ def _read_json(path: Path) -> dict | list:
         return {"error": f"Failed to read {path.name}: {e}"}
 
 
+def _refresh_state_cache() -> str | None:
+    if not STATE_CACHE_GENERATOR.exists():
+        return f"Generator not found: {STATE_CACHE_GENERATOR.name}"
+    try:
+        r = subprocess.run(
+            ["bash", str(STATE_CACHE_GENERATOR)],
+            capture_output=True,
+            text=True,
+            timeout=15,
+            cwd=PROJECT_ROOT,
+        )
+    except (subprocess.TimeoutExpired, FileNotFoundError, OSError) as e:
+        return str(e)
+
+    if r.returncode == 0:
+        return None
+
+    detail = (r.stderr or r.stdout).strip()
+    return detail or f"Generator exited with status {r.returncode}"
+
+
+def _load_state_cache() -> dict | list:
+    data = _read_json(STATE_CACHE)
+    needs_refresh = isinstance(data, dict) and "error" in data
+
+    try:
+        if not needs_refresh and STATE_CACHE.exists():
+            age_s = (datetime.now(timezone.utc).timestamp() - STATE_CACHE.stat().st_mtime)
+            needs_refresh = age_s > STATE_CACHE_MAX_AGE_S
+    except OSError:
+        needs_refresh = True
+
+    if not needs_refresh:
+        return data
+
+    refresh_error = _refresh_state_cache()
+    if refresh_error is None:
+        return _read_json(STATE_CACHE)
+
+    if isinstance(data, dict):
+        return {**data, "refresh_error": refresh_error}
+    return {"error": f"File not found: {STATE_CACHE.name}", "refresh_error": refresh_error}
+
+
+def _safe_child(base: Path, relative_path: str) -> Path | None:
+    try:
+        candidate = (base / relative_path).resolve()
+        candidate.relative_to(base.resolve())
+    except (OSError, ValueError):
+        return None
+    return candidate
+
+
+def _readable_file_response(path: Path) -> FileResponse:
+    media_type = "text/plain; charset=utf-8"
+    if path.suffix == ".json":
+        media_type = "application/json"
+    elif path.suffix in {".html", ".htm"}:
+        media_type = "text/html; charset=utf-8"
+    return FileResponse(path, media_type=media_type, filename=path.name)
+
+
+def _directory_listing_html(base: Path, current: Path, title: str, url_prefix: str) -> HTMLResponse:
+    if not current.exists():
+        return HTMLResponse(content=f"<h2>{title} not found</h2>", status_code=404)
+    if not current.is_dir():
+        return HTMLResponse(content=f"<h2>{title} is not a directory</h2>", status_code=400)
+
+    rows = []
+    for child in sorted(current.iterdir(), key=lambda p: (not p.is_dir(), p.name.lower())):
+        rel = child.relative_to(base).as_posix()
+        href = f"{url_prefix}/{rel}" if rel else url_prefix
+        display = child.name + ("/" if child.is_dir() else "")
+        kind = "dir" if child.is_dir() else "file"
+        size = "-" if child.is_dir() else str(child.stat().st_size)
+        rows.append(f"<tr><td><a href='{href}'>{display}</a></td><td>{kind}</td><td>{size}</td></tr>")
+
+    parent_link = ""
+    if current != base:
+        parent_rel = current.parent.relative_to(base).as_posix()
+        parent_href = url_prefix if parent_rel == "." else f"{url_prefix}/{parent_rel}"
+        parent_link = f"<p><a href='{parent_href}'>..</a></p>"
+
+    html = (
+        f"<html><body><h2>{title}</h2>{parent_link}"
+        "<table border='1' cellpadding='6' cellspacing='0'>"
+        "<thead><tr><th>Name</th><th>Type</th><th>Size</th></tr></thead>"
+        f"<tbody>{''.join(rows) or '<tr><td colspan=3>(empty)</td></tr>'}</tbody></table></body></html>"
+    )
+    return HTMLResponse(content=html)
+
+
 def _list_tmux_sessions() -> list[str]:
     try:
         r = subprocess.run(
@@ -85,26 +193,76 @@ def _list_tmux_sessions() -> list[str]:
         return []
 
 
-def _build_tmux_report() -> dict:
-    active = _list_tmux_sessions()
-    active_set = frozenset(active)
-    expected_ids = frozenset(s["session"] for s in ALL_SESSIONS)
-    up = expected_ids & active_set
-    missing = expected_ids - active_set
-    critical_down = missing & CRITICAL_SESSIONS
-    non_critical_down = missing - CRITICAL_SESSIONS
+def _current_hostnames() -> frozenset[str]:
+    names = {socket.gethostname(), socket.getfqdn(), "localhost", "127.0.0.1"}
+    try:
+        r = subprocess.run(["hostname"], capture_output=True, text=True, timeout=2)
+        if r.returncode == 0 and r.stdout.strip():
+            names.add(r.stdout.strip())
+    except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
+        pass
+    return frozenset(n for n in names if n)
 
+
+def _systemctl_statuses(machine: str, units: list[str]) -> dict[str, tuple[bool, str]]:
+    cmd = ["systemctl", "is-active", *units]
+    if machine not in _current_hostnames():
+        remote_cmd = shlex.join(cmd)
+        cmd = [
+            "ssh",
+            "-o", "BatchMode=yes",
+            "-o", "ConnectTimeout=2",
+            machine,
+            remote_cmd,
+        ]
+
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
+    except subprocess.TimeoutExpired:
+        return {unit: (False, "timeout") for unit in units}
+    except (FileNotFoundError, OSError) as e:
+        return {unit: (False, f"check_error:{e}") for unit in units}
+
+    lines = [line.strip() for line in r.stdout.splitlines() if line.strip()]
+    fallback = r.stderr.strip().splitlines()[0] if r.stderr.strip() else f"exit={r.returncode}"
+    statuses: dict[str, tuple[bool, str]] = {}
+    for index, unit in enumerate(units):
+        value = lines[index] if index < len(lines) else fallback
+        statuses[unit] = (value == "active", value)
+    return statuses
+
+
+def _build_tmux_report() -> dict:
+    expected_ids = frozenset(s["session"] for s in ALL_SESSIONS)
+
+    units_by_machine: dict[str, list[str]] = {}
+    for s in ALL_SESSIONS:
+        units_by_machine.setdefault(s["machine"], []).append(s["unit"])
+
+    statuses_by_machine = {
+        machine: _systemctl_statuses(machine, units)
+        for machine, units in units_by_machine.items()
+    }
+
+    up: set[str] = set()
     sessions_detail = []
     for s in ALL_SESSIONS:
         sid = s["session"]
-        running = sid in active_set
+        running, status = statuses_by_machine[s["machine"]].get(s["unit"], (False, "missing"))
+        if running:
+            up.add(sid)
         sessions_detail.append({
             "session": sid,
             "running": running,
+            "status": status,
             "critical": s["critical"],
             "machine": s["machine"],
             "description": s["description"],
         })
+
+    missing = expected_ids - frozenset(up)
+    critical_down = missing & CRITICAL_SESSIONS
+    non_critical_down = missing - CRITICAL_SESSIONS
 
     return {
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -119,7 +277,7 @@ def _build_tmux_report() -> dict:
     }
 
 
-# ── Credentials panel ────────────────────────────────────────────────
+# ÔöÇÔöÇ Credentials panel ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 _DOTENV_FILE = PROJECT_ROOT / ".env"
 _ROLES_DIR = Path("/etc/opt-trading/env.d/roles")
@@ -142,7 +300,7 @@ _CREDS: list[dict] = [
     {"id": "tv_webhook_key",           "provider": "TradingView", "env_var": "TV_WEBHOOK_KEY",                   "storage": "env",      "file": str(_DOTENV_FILE)},
     {"id": "tv_webhook_secret",        "provider": "TradingView", "env_var": "TV_WEBHOOK_SECRET",                "storage": "env",      "file": str(_DOTENV_FILE)},
     {"id": "ops_admin_key",            "provider": "Internal",    "env_var": "OPS_ADMIN_KEY",                    "storage": "env",      "file": str(_DOTENV_FILE)},
-    # Google — auth via ADC (gcloud auth application-default login), no service account JSON
+    # Google ÔÇö auth via ADC (gcloud auth application-default login), no service account JSON
     {"id": "google_sheets_sync_id",    "provider": "Google",      "env_var": "GOOGLE_SHEETS_SYNC_SHEET_ID",      "storage": "env",      "file": str(_DOTENV_FILE)},
     {"id": "gemini_api_key",           "provider": "Google",      "env_var": "GEMINI_API_KEY",                   "storage": "env",      "file": str(_DOTENV_FILE)},
     # GitHub
@@ -243,7 +401,7 @@ def _build_credentials_status() -> list[dict]:
 
 def _cred_update_cmd(cred: dict) -> str:
     if cred.get("cred_status") == "future":
-        return "—"
+        return "ÔÇö"
     storage = cred.get("storage", "")
     role = cred.get("role", "")
     file_path = cred.get("file", "")
@@ -256,7 +414,7 @@ def _cred_update_cmd(cred: dict) -> str:
     if storage == "env":
         short = file_path.replace(str(Path.home()), "~")
         return f"vim {short}"
-    return "—"
+    return "ÔÇö"
 
 
 def _cred_status_badge(status: str) -> str:
@@ -283,7 +441,7 @@ def _credentials_html(creds: list[dict]) -> str:
             rows += f"""
 <tr>
   <td><code style="font-size:11px">{c['id']}</code></td>
-  <td><code style="font-size:11px">{c.get('env_var') or '—'}</code></td>
+  <td><code style="font-size:11px">{c.get('env_var') or 'ÔÇö'}</code></td>
   <td>{_cred_status_badge(c['status'])}</td>
   <td style="font-size:11px;color:#666">{c['storage']}</td>
   <td style="font-size:11px;color:#888;font-family:monospace;word-break:break-all">{fshort}</td>
@@ -306,7 +464,7 @@ def _credentials_html(creds: list[dict]) -> str:
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — Credentials</title>
+  <title>LocalCMS ÔÇö Credentials</title>
   <style>
     {STANDARD_CSS}
     th, td {{ padding: 8px 12px; }}
@@ -316,19 +474,19 @@ def _credentials_html(creds: list[dict]) -> str:
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
-    <a class="nav-item" href="/">← Dashboard</a>
-    <a class="nav-item" href="/journal">📋 Journal</a>
-    <a class="nav-item" href="/metrics">📊 Metrics</a>
-    <a class="nav-item nav-active" href="/credentials">🔑 Credentials</a>
+    <h1>LocalCMS<small>Central UI ÔÇö opt-trading</small></h1>
+    <a class="nav-item" href="/">ÔåÉ Dashboard</a>
+    <a class="nav-item" href="/journal">­ƒôï Journal</a>
+    <a class="nav-item" href="/metrics">­ƒôè Metrics</a>
+    <a class="nav-item nav-active" href="/credentials">­ƒöæ Credentials</a>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
       <div><a href="/health" style="color:#888;text-decoration:none">/health</a></div>
       <div><a href="/credentials/json" style="color:#888;text-decoration:none">/credentials/json</a></div>
     </div>
   </nav>
   <main class="main">
-    <h2>🔑 Credentials Registry</h2>
-    <p class="subtitle">Statut de tous les credentials par provider — valeurs jamais affichées.</p>
+    <h2>­ƒöæ Credentials Registry</h2>
+    <p class="subtitle">Statut de tous les credentials par provider ÔÇö valeurs jamais affich├®es.</p>
     <div class="summary-bar">
       <div class="summary-card" style="border-left:4px solid #30d158"><div class="num">{set_n}</div><div class="label">SET</div></div>
       <div class="summary-card" style="border-left:4px solid #ff453a"><div class="num">{absent_n}</div><div class="label">ABSENT</div></div>
@@ -337,16 +495,16 @@ def _credentials_html(creds: list[dict]) -> str:
       <div class="summary-card"><div class="num">{len(active)}</div><div class="label">Total actifs</div></div>
     </div>
     <div class="notice">
-      Lecture seule — aucune valeur n'est affichée. Pour mettre à jour :
+      Lecture seule ÔÇö aucune valeur n'est affich├®e. Pour mettre ├á jour :
       <code style="background:#fff;border:1px solid #ddd;padding:1px 6px;border-radius:4px">python3 scripts/credentials_form.py</code>
     </div>
     <div class="links-bar">
-      <a href="/">← Dashboard</a>
+      <a href="/">ÔåÉ Dashboard</a>
       <a href="/credentials/json">JSON API</a>
     </div>
     {provider_tables}
     <div style="margin-top:16px;font-size:12px;color:#666">
-      Dernière vérification : {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}
+      Derni├¿re v├®rification : {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}
     </div>
     <div style="height:40px"></div>
   </main>
@@ -355,7 +513,7 @@ def _credentials_html(creds: list[dict]) -> str:
 </html>"""
 
 
-# ── API endpoints ────────────────────────────────────────────────────
+# ÔöÇÔöÇ API endpoints ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 @app.get("/health")
 def health():
@@ -370,7 +528,7 @@ def get_menu():
 
 @app.get("/menu/state")
 def get_menu_state():
-    data = _read_json(STATE_CACHE)
+    data = _load_state_cache()
     return JSONResponse(content=data)
 
 
@@ -382,22 +540,67 @@ def get_runtime_tmux():
 
 @app.get("/runtime/tmux/live")
 def get_runtime_tmux_live():
-    active = _list_tmux_sessions()
+    report = _build_tmux_report()
     return JSONResponse(content={
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "active_sessions": sorted(active),
+        "active_checks": sorted(s["session"] for s in report["sessions"] if s["running"]),
+        "checks": report["sessions"],
     })
 
 
-# ── Data Center endpoints ────────────────────────────────────────────
+# ÔöÇÔöÇ Data Center endpoints ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 @app.get("/data-center/health")
 def get_data_center_health():
-    from modules.data_center.localcms_health_reader import read_data_center_health
+    try:
+        from modules.data_center.localcms_health_reader import read_data_center_health
+    except ModuleNotFoundError as e:
+        return JSONResponse(content={
+            "ok": False,
+            "consumer_id": "localcms__data_center_health",
+            "source": "data_center_registry",
+            "error": str(e),
+            "warning": "modules.data_center is not deployed on this machine",
+            "read_at": datetime.now(timezone.utc).isoformat(),
+        }, status_code=503)
+
     return JSONResponse(content=read_data_center_health())
 
 
-# ── Journal endpoints ────────────────────────────────────────────────
+@app.get("/scripts/{relative_path:path}")
+def get_script_asset(relative_path: str):
+    path = _safe_child(SCRIPTS_DIR, relative_path)
+    if path is None or not path.exists():
+        return HTMLResponse(content=f"<h2>Script not found: {relative_path}</h2>", status_code=404)
+    if path.is_dir():
+        return _directory_listing_html(SCRIPTS_DIR, path, f"Scripts: {relative_path}", "/scripts")
+    return _readable_file_response(path)
+
+
+@app.get("/logs")
+def get_logs_root():
+    return _directory_listing_html(TMUX_LOG_DIR, TMUX_LOG_DIR, "Logs", "/logs")
+
+
+@app.get("/logs/{relative_path:path}")
+def get_log_asset(relative_path: str):
+    path = _safe_child(TMUX_LOG_DIR, relative_path)
+    if path is None or not path.exists():
+        return HTMLResponse(content=f"<h2>Log path not found: {relative_path}</h2>", status_code=404)
+    if path.is_dir():
+        return _directory_listing_html(TMUX_LOG_DIR, path, f"Logs: {relative_path}", "/logs")
+    return _readable_file_response(path)
+
+
+@app.get("/desk/ui")
+def get_desk_shared_dashboard():
+    dashboard = SHARED_DESK_DIR / "dashboard_latest.html"
+    if not dashboard.exists():
+        return HTMLResponse(content="<h2>Desk shared dashboard not found</h2>", status_code=404)
+    return _readable_file_response(dashboard)
+
+
+# ÔöÇÔöÇ Journal endpoints ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 def _list_journal_entries() -> list[dict]:
     if not JOURNAL_DIR.exists():
@@ -583,7 +786,7 @@ def _metrics_html(m: dict, tmux: dict) -> str:
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — Metrics</title>
+  <title>LocalCMS ÔÇö Metrics</title>
   <style>
     {STANDARD_CSS}
     .card-row > .card {{ flex: 1; min-width: 130px; padding: 16px; }}
@@ -592,19 +795,19 @@ def _metrics_html(m: dict, tmux: dict) -> str:
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <h1>LocalCMS<small>Central UI ÔÇö opt-trading</small></h1>
     <div class="nav-section" style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
-      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
-      <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">­ƒûÑ´©Å</span><span class="nav-label">Runtime Checks</span></a>
+      <a class="nav-item" href="/#health-status"><span class="nav-icon">ÔØñ´©Å</span><span class="nav-label">Health Status</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
-      <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span></a>
+      <a class="nav-item" href="/journal"><span class="nav-icon">­ƒôï</span><span class="nav-label">Daily Sessions</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Metrics</div>
-      <a class="nav-item" href="/metrics" style="color:#fff;background:#333"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+      <a class="nav-item" href="/metrics" style="color:#fff;background:#333"><span class="nav-icon">­ƒôè</span><span class="nav-label">Dashboard</span></a>
     </div>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
       <div><a href="/ui" style="color:#888;text-decoration:none">Main Dashboard</a></div>
@@ -613,8 +816,8 @@ def _metrics_html(m: dict, tmux: dict) -> str:
     </div>
   </nav>
   <main class="main">
-    <h2>📊 Metrics Dashboard</h2>
-    <p class="subtitle">Agrégats daily session — lecture seule. Généré à {m['generated_at'][:19]} UTC.</p>
+    <h2>­ƒôè Metrics Dashboard</h2>
+    <p class="subtitle">Agr├®gats daily session ÔÇö lecture seule. G├®n├®r├® ├á {m['generated_at'][:19]} UTC.</p>
 
     <div class="section-title">Runs</div>
     <div class="card-row">
@@ -636,7 +839,7 @@ def _metrics_html(m: dict, tmux: dict) -> str:
     <div class="card-row">
       <div class="card" style="border-left:4px solid {pnl_color}">
         <div class="num" style="color:{pnl_color}">{pnl_sign}{m['pnl_cumulative']:.2f}</div>
-        <div class="label">P&L cumulé (paper)</div>
+        <div class="label">P&L cumul├® (paper)</div>
       </div>
       <div class="card card-win">
         <div class="num">{m['win_count']}</div>
@@ -656,7 +859,7 @@ def _metrics_html(m: dict, tmux: dict) -> str:
       </div>
     </div>
 
-    <div class="section-title">Dernière session</div>
+    <div class="section-title">Derni├¿re session</div>
     <div class="info-grid">
       <div class="info-card">
         <h4>Run ID</h4>
@@ -684,14 +887,14 @@ def _metrics_html(m: dict, tmux: dict) -> str:
       </div>
     </div>
 
-    <div class="section-title">État runtime</div>
+    <div class="section-title">├ëtat runtime</div>
     <div class="info-grid">
       <div class="info-card">
-        <h4>TMUX Sessions</h4>
+        <h4>Runtime checks</h4>
         <div class="value" style="color:{tmux_color}">{tmux_up}/{tmux_total} UP</div>
       </div>
       <div class="info-card">
-        <h4>Critical sessions DOWN</h4>
+        <h4>Critical checks DOWN</h4>
         <div class="value">{'none' if not tmux.get('critical_down') else ', '.join(tmux['critical_down'])}</div>
       </div>
     </div>
@@ -717,9 +920,9 @@ def _metrics_html(m: dict, tmux: dict) -> str:
     </div>
 
     <div style="margin-top:24px">
-      <a href="/metrics/daily">📄 JSON API → /metrics/daily</a>
-      &nbsp;·&nbsp;
-      <a href="/journal">📋 Journal → /journal</a>
+      <a href="/metrics/daily">­ƒôä JSON API ÔåÆ /metrics/daily</a>
+      &nbsp;┬À&nbsp;
+      <a href="/journal">­ƒôï Journal ÔåÆ /journal</a>
     </div>
   </main>
 </div>
@@ -734,7 +937,7 @@ def metrics_html():
     return HTMLResponse(content=_metrics_html(m, tmux))
 
 
-# ── Journal HTML views ───────────────────────────────────────────────
+# ÔöÇÔöÇ Journal HTML views ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 
 def _pnl_badge(outcome: str) -> str:
@@ -772,7 +975,7 @@ def _journal_html(entries: list[dict]) -> str:
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — Journal</title>
+  <title>LocalCMS ÔÇö Journal</title>
   <style>
     {STANDARD_CSS}
     .summary-card {{ min-width: 140px; }}
@@ -781,19 +984,19 @@ def _journal_html(entries: list[dict]) -> str:
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <h1>LocalCMS<small>Central UI ÔÇö opt-trading</small></h1>
     <div class="nav-section" style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
-      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
-      <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">­ƒûÑ´©Å</span><span class="nav-label">Runtime Checks</span></a>
+      <a class="nav-item" href="/#health-status"><span class="nav-icon">ÔØñ´©Å</span><span class="nav-label">Health Status</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
-      <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span></a>
+      <a class="nav-item" href="/journal"><span class="nav-icon">­ƒôï</span><span class="nav-label">Daily Sessions</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Metrics</div>
-      <a class="nav-item" href="/metrics"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+      <a class="nav-item" href="/metrics"><span class="nav-icon">­ƒôè</span><span class="nav-label">Dashboard</span></a>
     </div>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
       <div><a href="/ui" style="color:#888;text-decoration:none">Main Dashboard</a></div>
@@ -802,8 +1005,8 @@ def _journal_html(entries: list[dict]) -> str:
     </div>
   </nav>
   <main class="main">
-    <h2>📋 Daily Session Journal</h2>
-    <p class="subtitle">E2E dry-run pipeline — historique des sessions quotidiennes traçables.</p>
+    <h2>­ƒôï Daily Session Journal</h2>
+    <p class="subtitle">E2E dry-run pipeline ÔÇö historique des sessions quotidiennes tra├ºables.</p>
 
     <div class="summary-bar">
       <div class="summary-card summary-blue">
@@ -835,7 +1038,7 @@ def _journal_html(entries: list[dict]) -> str:
     </table>
 
     <div style="margin-top:24px">
-      <a href="/journal/daily">📄 JSON API → /journal/daily</a>
+      <a href="/journal/daily">­ƒôä JSON API ÔåÆ /journal/daily</a>
     </div>
   </main>
 </div>
@@ -880,7 +1083,7 @@ def _journal_detail_html(entry: dict) -> str:
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — Journal {entry.get('run_id', '')}</title>
+  <title>LocalCMS ÔÇö Journal {entry.get('run_id', '')}</title>
   <style>
     {STANDARD_CSS}
     .info-grid {{ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }}
@@ -889,31 +1092,31 @@ def _journal_detail_html(entry: dict) -> str:
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <h1>LocalCMS<small>Central UI ÔÇö opt-trading</small></h1>
     <div class="nav-section" style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
-      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
-      <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">­ƒûÑ´©Å</span><span class="nav-label">Runtime Checks</span></a>
+      <a class="nav-item" href="/#health-status"><span class="nav-icon">ÔØñ´©Å</span><span class="nav-label">Health Status</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
-      <a class="nav-item" href="/journal"><span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span></a>
+      <a class="nav-item" href="/journal"><span class="nav-icon">­ƒôï</span><span class="nav-label">Daily Sessions</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Metrics</div>
-      <a class="nav-item" href="/metrics"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+      <a class="nav-item" href="/metrics"><span class="nav-icon">­ƒôè</span><span class="nav-label">Dashboard</span></a>
     </div>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666">
-      <div><a href="/journal" style="color:#888;text-decoration:none">← Back to Journal</a></div>
+      <div><a href="/journal" style="color:#888;text-decoration:none">ÔåÉ Back to Journal</a></div>
       <div><a href="/journal/daily/{entry.get('run_id', '')}" style="color:#888;text-decoration:none">JSON detail</a></div>
     </div>
   </nav>
   <main class="main">
     <div style="margin-bottom:8px">
-      <a href="/journal" style="font-size:13px">← Back to Journal</a>
+      <a href="/journal" style="font-size:13px">ÔåÉ Back to Journal</a>
     </div>
-    <h2>📋 {entry.get('run_id', 'N/A')}</h2>
-    <p class="subtitle">Daily Session — {entry.get('started_at', '')[:19] if entry.get('started_at') else ''}</p>
+    <h2>­ƒôï {entry.get('run_id', 'N/A')}</h2>
+    <p class="subtitle">Daily Session ÔÇö {entry.get('started_at', '')[:19] if entry.get('started_at') else ''}</p>
 
     <div class="info-grid">
       <div class="info-card">
@@ -950,13 +1153,13 @@ def _journal_detail_html(entry: dict) -> str:
       </div>
     </div>
 
-    <div class="section-title">📊 Pipeline Steps</div>
+    <div class="section-title">­ƒôè Pipeline Steps</div>
     <table>
       <thead><tr><th>Step</th><th>Result</th></tr></thead>
       <tbody>{steps_html}</tbody>
     </table>
 
-    <div class="section-title">🖥️ TMUX Snapshots</div>
+    <div class="section-title">­ƒûÑ´©Å TMUX Snapshots</div>
     <div class="info-grid">
       <div class="info-card">
         <h4>Before</h4>
@@ -970,7 +1173,7 @@ def _journal_detail_html(entry: dict) -> str:
       </div>
     </div>
 
-    <div class="section-title">❤️ LocalCMS Snapshots</div>
+    <div class="section-title">ÔØñ´©Å LocalCMS Snapshots</div>
     <div class="info-grid">
       <div class="info-card">
         <h4>Before</h4>
@@ -982,7 +1185,7 @@ def _journal_detail_html(entry: dict) -> str:
       </div>
     </div>
 
-    <div class="section-title">ℹ️ Metadata</div>
+    <div class="section-title">Ôä╣´©Å Metadata</div>
     <div class="info-grid">
       <div class="info-card">
         <h4>Run ID</h4>
@@ -1017,12 +1220,12 @@ def journal_html():
 def journal_detail_html(run_id: str):
     path = JOURNAL_DIR / f"{run_id}.json"
     if not path.exists():
-        return HTMLResponse(content=f"<h2>Journal entry not found: {run_id}</h2><a href='/journal'>← Back</a>", status_code=404)
+        return HTMLResponse(content=f"<h2>Journal entry not found: {run_id}</h2><a href='/journal'>ÔåÉ Back</a>", status_code=404)
     try:
         data = json.loads(path.read_text())
         return HTMLResponse(content=_journal_detail_html(data))
     except (json.JSONDecodeError, OSError) as e:
-        return HTMLResponse(content=f"<h2>Error reading journal: {e}</h2><a href='/journal'>← Back</a>", status_code=500)
+        return HTMLResponse(content=f"<h2>Error reading journal: {e}</h2><a href='/journal'>ÔåÉ Back</a>", status_code=500)
 
 
 @app.get("/credentials", response_class=HTMLResponse)
@@ -1041,7 +1244,7 @@ def credentials_json():
     ])
 
 
-# ── Signals panel ───────────────────────────────────────────────────
+# ÔöÇÔöÇ Signals panel ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 @app.get("/signals/summary")
 def signals_summary():
@@ -1085,7 +1288,7 @@ def signals_channels():
         return JSONResponse(content={"error": str(e)}, status_code=500)
 
 
-# ── Vision panel ─────────────────────────────────────────────────────
+# ÔöÇÔöÇ Vision panel ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 _VISION_COINGLASS = PROJECT_ROOT / "data" / "vision" / "coinglass" / "latest.json"
 _VISION_SCREENER = PROJECT_ROOT / "data" / "data_center" / "views" / "vision_context" / "screener" / "latest.json"
@@ -1160,7 +1363,7 @@ def vision_summary():
             }
 
 
-# ── Backtest panel ────────────────────────────────────────────────────
+# ÔöÇÔöÇ Backtest panel ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 _BACKTEST_JSON = PROJECT_ROOT / "data" / "trading_lab_v1" / "exports" / "latest.json"
 _BACKTEST_CSV_DIR = PROJECT_ROOT / "data" / "trading_lab_v1" / "exports"
@@ -1187,14 +1390,14 @@ def backtest_csv():
     return FileResponse(csv_files[0], media_type="text/csv", filename=csv_files[0].name)
 
 
-# ── HTML UI ──────────────────────────────────────────────────────────
+# ÔöÇÔöÇ HTML UI ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 @app.get("/", response_class=HTMLResponse)
 @app.get("/ui", response_class=HTMLResponse)
 def ui_index(request: Request):
     tmux = _build_tmux_report()
     menu_data = _read_json(MENU_FILE)
-    state_data = _read_json(STATE_CACHE)
+    state_data = _load_state_cache()
 
     # Proxy perf + deskpro summary
     perf_data = {}
@@ -1216,7 +1419,7 @@ def ui_index(request: Request):
         pnl_class = "pnl-positive" if pnl >= 0 else "pnl-negative"
         perf_html = f"""
     <div class="section" id="perf">
-      <h2>📈 Performance <a href="http://localhost:8010/desk/ui" target="_blank" style="font-size:11px;color:#58a6ff">(Desk Pro →)</a></h2>
+      <h2>­ƒôê Performance <a href="http://localhost:8010/desk/ui" target="_blank" style="font-size:11px;color:#58a6ff">(Desk Pro ÔåÆ)</a></h2>
       <div class="kpi-grid">
         <div class="kpi"><div class="num">{perf_data.get('total_trades', 0)}</div><div class="label">Total Trades</div></div>
         <div class="kpi"><div class="num">{perf_data.get('open_trades', 0)}</div><div class="label">Open</div></div>
@@ -1227,7 +1430,7 @@ def ui_index(request: Request):
     </div>"""
 
     # Try deskpro status
-    desk_html = '<div class="section"><h2>🖥️ Desk Pro <a href="http://localhost:8010/desk/ui" target="_blank" style="font-size:11px;color:#58a6ff">(ouvrir →)</a></h2><p style="font-size:12px;color:#8b949e">UI de trading accessible sur le port 8010</p></div>'
+    desk_html = '<div class="section"><h2>­ƒûÑ´©Å Desk Pro <a href="http://localhost:8010/desk/ui" target="_blank" style="font-size:11px;color:#58a6ff">(ouvrir ÔåÆ)</a></h2><p style="font-size:12px;color:#8b949e">UI de trading accessible sur le port 8010</p></div>'
 
     sessions_rows = ""
     for s in tmux["sessions"]:
@@ -1266,21 +1469,21 @@ def ui_index(request: Request):
     # Add Signals link first
     nav_items += """
 <a class="nav-item nav-item-signals" href="/signals">
-  <span class="nav-icon">📡</span>
+  <span class="nav-icon">­ƒôí</span>
   <span class="nav-label">Telegram Signals</span>
 </a>
 <a class="nav-item nav-item-vision" href="/vision">
-  <span class="nav-icon">👁️</span>
+  <span class="nav-icon">­ƒæü´©Å</span>
   <span class="nav-label">Bot Vision</span>
 </a>
 <a class="nav-item nav-item-backtest" href="/backtest/summary">
-  <span class="nav-icon">🧪</span>
+  <span class="nav-icon">­ƒº¬</span>
   <span class="nav-label">Backtest</span>
 </a>"""
     for domain in menu_data.get("menu", []):
         nav_items += f"""
 <a class="nav-item" href="#{domain['id']}">
-  <span class="nav-icon">{domain.get('icon', '📄')}</span>
+  <span class="nav-icon">{domain.get('icon', '­ƒôä')}</span>
   <span class="nav-label">{domain['label']}</span>
 </a>"""
 
@@ -1328,7 +1531,7 @@ def ui_index(request: Request):
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — Central UI</title>
+  <title>LocalCMS ÔÇö Central UI</title>
   <style>
     {STANDARD_CSS}
   </style>
@@ -1338,35 +1541,35 @@ def ui_index(request: Request):
   <nav class="sidebar">
     <h1>
       LocalCMS
-      <small>Central UI — opt-trading</small>
+      <small>Central UI ÔÇö opt-trading</small>
     </h1>
     <div class="nav-section" style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
       <a class="nav-item" href="#tmux-sessions">
-        <span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span>
+        <span class="nav-icon">­ƒûÑ´©Å</span><span class="nav-label">Runtime Checks</span>
       </a>
       <a class="nav-item" href="#health-status">
-        <span class="nav-icon">❤️</span><span class="nav-label">Health Status</span>
+        <span class="nav-icon">ÔØñ´©Å</span><span class="nav-label">Health Status</span>
       </a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Journal</div>
       <a class="nav-item" href="/journal">
-        <span class="nav-icon">📋</span><span class="nav-label">Daily Sessions</span>
+        <span class="nav-icon">­ƒôï</span><span class="nav-label">Daily Sessions</span>
       </a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Metrics</div>
-      <a class="nav-item" href="/metrics"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+      <a class="nav-item" href="/metrics"><span class="nav-icon">­ƒôè</span><span class="nav-label">Dashboard</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Security</div>
-      <a class="nav-item" href="/credentials"><span class="nav-icon">🔑</span><span class="nav-label">Credentials</span></a>
+      <a class="nav-item" href="/credentials"><span class="nav-icon">­ƒöæ</span><span class="nav-label">Credentials</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">IPO / SPCX</div>
-      <a class="nav-item" href="/spacex"><span class="nav-icon">🚀</span><span class="nav-label">SpaceX Cmd Center</span></a>
-      <a class="nav-item" href="/true-value"><span class="nav-icon">📐</span><span class="nav-label">True Value</span></a>
+      <a class="nav-item" href="/spacex"><span class="nav-icon">­ƒÜÇ</span><span class="nav-label">SpaceX Cmd Center</span></a>
+      <a class="nav-item" href="/true-value"><span class="nav-icon">­ƒôÉ</span><span class="nav-label">True Value</span></a>
     </div>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Menu</div>
@@ -1387,16 +1590,16 @@ def ui_index(request: Request):
 
   <main class="main">
     <h2>Central UI</h2>
-    <p class="subtitle">Cockpit de navigation système — lecture seule. 14 domaines, 9 sessions TMUX, état health.</p>
+    <p class="subtitle">Cockpit de navigation syst├¿me ÔÇö lecture seule. 14 domaines, checks runtime systemd, ├®tat health.</p>
 
     <div class="summary-bar">
       <div class="summary-card {summary_class}">
         <div class="num">{tmux['total_up']}/{tmux['total_expected']}</div>
-        <div class="label">TMUX Sessions UP</div>
+        <div class="label">Runtime Checks UP</div>
       </div>
       <div class="summary-card">
         <div class="num">{total_critical - critical_count}/{total_critical}</div>
-        <div class="label">Critical Sessions UP</div>
+        <div class="label">Critical Checks UP</div>
       </div>
       <div class="summary-card">
         <div class="num">{len(menu_data.get('menu', []))}</div>
@@ -1414,18 +1617,18 @@ def ui_index(request: Request):
       <a href="/scripts/ai/menu/opt_trading_menu.json">opt_trading_menu.json</a>
       <a href="/scripts/ai/menu/menu_state_aggregator.sh">menu_state_aggregator.sh</a>
       <a href="/logs">logs/</a>
-      <a href="/desk/ui" target="_blank">Desk Pro →</a>
+      <a href="/desk/ui" target="_blank">Desk Pro ÔåÆ</a>
     </div>
 
-    <div class="section-title" id="health-status">❤️ Health Status</div>
+    <div class="section-title" id="health-status">ÔØñ´©Å Health Status</div>
     <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap">
       <div><strong>Critical DOWN:</strong> {critical_down_html}</div>
       <div><strong>Non-critical DOWN:</strong> {non_critical_down_html}</div>
     </div>
 
-    <div class="section-title" id="tmux-sessions">🖥️ TMUX Sessions</div>
+    <div class="section-title" id="tmux-sessions">­ƒûÑ´©Å Runtime Checks</div>
     <table>
-      <thead><tr><th>Session</th><th>Status</th><th>Type</th><th>Machine</th><th>Description</th></tr></thead>
+      <thead><tr><th>Check</th><th>Status</th><th>Type</th><th>Machine</th><th>Description</th></tr></thead>
       <tbody>{sessions_rows}</tbody>
     </table>
 
@@ -1433,12 +1636,12 @@ def ui_index(request: Request):
 
     {desk_html}
 
-    <div class="section-title">📋 Global Menu — 14 Domaines</div>
+    <div class="section-title">­ƒôï Global Menu ÔÇö 14 Domaines</div>
     <div class="domain-grid">
       {domain_cards}
     </div>
 
-    <div class="section-title">🔗 Liens Utiles</div>
+    <div class="section-title">­ƒöù Liens Utiles</div>
     <table>
       <thead><tr><th>Ressource</th><th>Chemin</th></tr></thead>
       <tbody>
@@ -1455,18 +1658,18 @@ def ui_index(request: Request):
       </tbody>
     </table>
 
-    <div class="section-title">🛠️ API Endpoints</div>
+    <div class="section-title">­ƒøá´©Å API Endpoints</div>
     <table>
       <thead><tr><th>Endpoint</th><th>Description</th></tr></thead>
       <tbody>
         <tr><td><a href="/health">/health</a></td><td>LocalCMS health check</td></tr>
         <tr><td><a href="/menu">/menu</a></td><td>Menu JSON (14 domaines, 85+ modules)</td></tr>
         <tr><td><a href="/menu/state">/menu/state</a></td><td>Module state cache (health polling)</td></tr>
-        <tr><td><a href="/runtime/tmux">/runtime/tmux</a></td><td>TMUX sessions report (9 sessions, critical/non-critical)</td></tr>
-        <tr><td><a href="/runtime/tmux/live">/runtime/tmux/live</a></td><td>Live TMUX session list</td></tr>
-        <tr><td><a href="/metrics">/metrics</a></td><td>Dashboard métriques agrégées (HTML)</td></tr>
-        <tr><td><a href="/metrics/daily">/metrics/daily</a></td><td>Métriques daily session (JSON)</td></tr>
-        <tr><td><a href="/credentials">/credentials</a></td><td>Credentials registry — statut SET/ABSENT par provider (HTML)</td></tr>
+        <tr><td><a href="/runtime/tmux">/runtime/tmux</a></td><td>Runtime systemd checks report (critical/non-critical)</td></tr>
+        <tr><td><a href="/runtime/tmux/live">/runtime/tmux/live</a></td><td>Live runtime checks list</td></tr>
+        <tr><td><a href="/metrics">/metrics</a></td><td>Dashboard m├®triques agr├®g├®es (HTML)</td></tr>
+        <tr><td><a href="/metrics/daily">/metrics/daily</a></td><td>M├®triques daily session (JSON)</td></tr>
+        <tr><td><a href="/credentials">/credentials</a></td><td>Credentials registry ÔÇö statut SET/ABSENT par provider (HTML)</td></tr>
         <tr><td><a href="/credentials/json">/credentials/json</a></td><td>Credentials registry (JSON)</td></tr>
       </tbody>
     </table>
@@ -1520,15 +1723,15 @@ def signals_page(request: Request):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LocalCMS — Telegram Signals</title>
+<title>LocalCMS ÔÇö Telegram Signals</title>
 <style>
     {SIGNALS_DARK_CSS}
 </style>
 </head>
 <body>
 <header>
-  <a href="/" class="nav-back">← LocalCMS</a>
-  <h1>📡 Telegram Signals</h1>
+  <a href="/" class="nav-back">ÔåÉ LocalCMS</a>
+  <h1>­ƒôí Telegram Signals</h1>
 </header>
 <main>
   <div class="kpi-grid">
@@ -1562,7 +1765,7 @@ def signals_page(request: Request):
   </div>
 
   <details class="json-toggle">
-    <summary>📋 JSON brut</summary>
+    <summary>­ƒôï JSON brut</summary>
     <pre>{json_summary}</pre>
   </details>
 
@@ -1574,7 +1777,7 @@ def signals_page(request: Request):
     return HTMLResponse(content=html)
 
 
-# ── SpaceX / SPCX Command Center ───────────────────────────────────────
+# ÔöÇÔöÇ SpaceX / SPCX Command Center ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 _SPACEX_CC_JSON = PROJECT_ROOT / "data" / "ipo" / "spacex" / "command_center" / "latest.json"
 _SPACEX_SNAPSHOT = PROJECT_ROOT / "data" / "ipo" / "spacex" / "scored" / "latest_snapshot.json"
 _TRUE_VALUE_SCORES = PROJECT_ROOT / "outputs" / "stock_true_value" / "latest" / "scores.json"
@@ -1639,7 +1842,7 @@ def _true_value_html() -> str:
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — True Value</title>
+  <title>LocalCMS ÔÇö True Value</title>
   <style>
     {STANDARD_CSS}
     th, td {{ padding: 6px 10px; font-size: 12px; }}
@@ -1649,23 +1852,23 @@ def _true_value_html() -> str:
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <h1>LocalCMS<small>Central UI ÔÇö opt-trading</small></h1>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Analysis</div>
-      <a class="nav-item nav-active" href="/true-value">📐 True Value</a>
+      <a class="nav-item nav-active" href="/true-value">­ƒôÉ True Value</a>
     </div>
-    <a class="nav-item" href="/">🏠 Dashboard</a>
-    <a class="nav-item" href="/spacex">🚀 SpaceX</a>
-    <a class="nav-item" href="/signals">📡 Signals</a>
-    <a class="nav-item" href="/journal">📋 Journal</a>
-    <a class="nav-item" href="/metrics">📊 Metrics</a>
+    <a class="nav-item" href="/">­ƒÅá Dashboard</a>
+    <a class="nav-item" href="/spacex">­ƒÜÇ SpaceX</a>
+    <a class="nav-item" href="/signals">­ƒôí Signals</a>
+    <a class="nav-item" href="/journal">­ƒôï Journal</a>
+    <a class="nav-item" href="/metrics">­ƒôè Metrics</a>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
       <div><a href="/true-value/json" style="color:#888;text-decoration:none">/true-value/json</a></div>
     </div>
   </nav>
   <main class="main">
-    <h2>📐 Stock / SpaceX True Value</h2>
-    <p class="subtitle">{asof} &middot; Model: {data.get('model_version', '—')} &middot; {total} items &middot; {low_conf} low confidence</p>
+    <h2>­ƒôÉ Stock / SpaceX True Value</h2>
+    <p class="subtitle">{asof} &middot; Model: {data.get('model_version', 'ÔÇö')} &middot; {total} items &middot; {low_conf} low confidence</p>
 
     <div class="section-title">Grade Distribution</div>
     <div class="summary-bar">{grade_dist}</div>
@@ -1702,11 +1905,11 @@ def _spacex_html() -> str:
     vwap = data.get("vwap")
     edge_score = data.get("edge_score", 0)
     open_score = data.get("open_score", 0)
-    action = data.get("action", "—")
-    confidence = data.get("confidence", "—")
-    top_setup = data.get("top_setup", "—")
+    action = data.get("action", "ÔÇö")
+    confidence = data.get("confidence", "ÔÇö")
+    top_setup = data.get("top_setup", "ÔÇö")
     top_prob = data.get("top_setup_prob_pct", 0)
-    sector_regime = data.get("sector_regime", "—")
+    sector_regime = data.get("sector_regime", "ÔÇö")
     disagreement = data.get("disagreement", 0) or 0
     analogs = data.get("ipo_analogs", [])
     pipeline_healthy = data.get("pipeline_healthy", False)
@@ -1738,7 +1941,7 @@ def _spacex_html() -> str:
     # risk notice
     risk_notice = ""
     if risks and risks != ["None"]:
-        risk_notice = "<div class='notice'>" + "".join(f"<div>⚠ {r}</div>" for r in risks) + "</div>"
+        risk_notice = "<div class='notice'>" + "".join(f"<div>ÔÜá {r}</div>" for r in risks) + "</div>"
 
     # levels table
     levels_rows = ""
@@ -1751,15 +1954,15 @@ def _spacex_html() -> str:
     if tp2_price:
         levels_rows += f"<tr><td style='color:#30d158'>TP2</td><td class='num' style='color:#30d158'>${tp2_price:.2f}</td></tr>"
 
-    vol_str = f"{volume/1e6:.1f}M" if volume and volume >= 1e6 else (f"{volume/1e3:.0f}K" if volume and volume >= 1e3 else str(volume) if volume else "—")
-    vwap_str = f"${vwap:.2f}" if vwap else "—"
+    vol_str = f"{volume/1e6:.1f}M" if volume and volume >= 1e6 else (f"{volume/1e3:.0f}K" if volume and volume >= 1e3 else str(volume) if volume else "ÔÇö")
+    vwap_str = f"${vwap:.2f}" if vwap else "ÔÇö"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — SpaceX Cmd Center</title>
+  <title>LocalCMS ÔÇö SpaceX Cmd Center</title>
   <style>
     {STANDARD_CSS}
     .summary-card .num {{ font-size: 24px; }}
@@ -1770,22 +1973,22 @@ def _spacex_html() -> str:
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <h1>LocalCMS<small>Central UI ÔÇö opt-trading</small></h1>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">IPO / SPCX</div>
-      <a class="nav-item nav-active" href="/spacex">🚀 Cmd Center</a>
+      <a class="nav-item nav-active" href="/spacex">­ƒÜÇ Cmd Center</a>
     </div>
-    <a class="nav-item" href="/">🏠 Dashboard</a>
-    <a class="nav-item" href="/signals">📡 Signals</a>
-    <a class="nav-item" href="/journal">📋 Journal</a>
-    <a class="nav-item" href="/metrics">📊 Metrics</a>
+    <a class="nav-item" href="/">­ƒÅá Dashboard</a>
+    <a class="nav-item" href="/signals">­ƒôí Signals</a>
+    <a class="nav-item" href="/journal">­ƒôï Journal</a>
+    <a class="nav-item" href="/metrics">­ƒôè Metrics</a>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
       <div><a href="/spacex/json" style="color:#888;text-decoration:none">/spacex/json</a></div>
     </div>
   </nav>
   <main class="main">
-    <h2>🚀 SpaceX / SPCX Command Center</h2>
-    <p class="subtitle">{generated_at} — <span class="{market_cls}">{market_state}</span> &middot; <span class="{health_cls}">{'HEALTHY' if pipeline_healthy else 'DEGRADED'}</span> &middot; Sources {sources_ok}/{sources_total}</p>
+    <h2>­ƒÜÇ SpaceX / SPCX Command Center</h2>
+    <p class="subtitle">{generated_at} ÔÇö <span class="{market_cls}">{market_state}</span> &middot; <span class="{health_cls}">{'HEALTHY' if pipeline_healthy else 'DEGRADED'}</span> &middot; Sources {sources_ok}/{sources_total}</p>
 
     <div class="links-bar">
       <a href="/spacex/json" target="_blank">JSON</a>
@@ -1881,7 +2084,7 @@ def true_value_json():
 STATUS_BADGES = SHARED_STATUS_BADGES
 
 
-# ── PWA & Access ───────────────────────────────────────────────────────
+# ÔöÇÔöÇ PWA & Access ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 _LOCALCMS_STATIC = PROJECT_ROOT / "modules" / "localcms" / "static"
 
 
@@ -1917,7 +2120,7 @@ def access_page():
   <link rel="manifest" href="/manifest.webmanifest"/>
   <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192.png"/>
   <link rel="apple-touch-icon" href="/static/icon-192.png"/>
-  <title>LocalCMS — Acces</title>
+  <title>LocalCMS ÔÇö Acces</title>
   <style>
     {STANDARD_CSS}
     .access-card {{ background: var(--card-bg,#151a24); border:1px solid var(--card-border,#2a3345);
@@ -1933,34 +2136,34 @@ def access_page():
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <h1>LocalCMS<small>Central UI ÔÇö opt-trading</small></h1>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Acces</div>
-      <a class="nav-item nav-active" href="/access">🔑 Acces</a>
+      <a class="nav-item nav-active" href="/access">­ƒöæ Acces</a>
     </div>
-    <a class="nav-item" href="/">🏠 Dashboard</a>
-    <a class="nav-item" href="/voice">🎙️ Voice</a>
-    <a class="nav-item" href="/spacex">🚀 SpaceX</a>
+    <a class="nav-item" href="/">­ƒÅá Dashboard</a>
+    <a class="nav-item" href="/voice">­ƒÄÖ´©Å Voice</a>
+    <a class="nav-item" href="/spacex">­ƒÜÇ SpaceX</a>
   </nav>
   <main class="main">
-    <h2>🔑 LocalCMS — Acces Prive</h2>
-    <p class="subtitle">Cockpit prive — aucune exposition publique. Reseau local ou WireGuard uniquement.</p>
+    <h2>­ƒöæ LocalCMS ÔÇö Acces Prive</h2>
+    <p class="subtitle">Cockpit prive ÔÇö aucune exposition publique. Reseau local ou WireGuard uniquement.</p>
 
-    <button class="install-btn" onclick="installPWA()" id="install-btn" style="display:none">📱 Installer l'app</button>
+    <button class="install-btn" onclick="installPWA()" id="install-btn" style="display:none">­ƒô▒ Installer l'app</button>
 
     <div class="access-card">
-      <h3>📱 Voice Operator</h3>
+      <h3>­ƒô▒ Voice Operator</h3>
       <a href="/voice">/voice</a>
       <a href="/voice/analytics">/voice/analytics</a>
     </div>
     <div class="access-card">
-      <h3>🚀 SPCX</h3>
+      <h3>­ƒÜÇ SPCX</h3>
       <a href="/spacex">/spacex</a>
       <a href="/desk/spacex/command-center">/desk/spacex/command-center</a>
       <a href="/desk/spacex/snapshot">/desk/spacex/snapshot</a>
     </div>
     <div class="access-card">
-      <h3>📊 Systeme</h3>
+      <h3>­ƒôè Systeme</h3>
       <a href="/">/ (Dashboard)</a>
       <a href="/desk/status">/desk/status</a>
       <a href="/signals">/signals</a>
@@ -1969,11 +2172,11 @@ def access_page():
       <a href="/credentials">/credentials</a>
     </div>
     <div class="access-card">
-      <h3>🔌 Technique</h3>
+      <h3>­ƒöî Technique</h3>
       <div class="note">Host: {hostname}</div>
       <div class="note">Port: 8010 (perf_app) ou 8700 (localcms direct)</div>
-      <div class="note">⚠️ Aucune exposition publique. Acces via LAN ou WireGuard.</div>
-      <div class="note">📱 Ajouter a l'ecran d'accueil pour utiliser comme app native.</div>
+      <div class="note">ÔÜá´©Å Aucune exposition publique. Acces via LAN ou WireGuard.</div>
+      <div class="note">­ƒô▒ Ajouter a l'ecran d'accueil pour utiliser comme app native.</div>
     </div>
   </main>
 </div>
@@ -1995,52 +2198,52 @@ function installPWA() {{
 </html>"""
 
 
-# ── Voice Operator ─────────────────────────────────────────────────────
+# ÔöÇÔöÇ Voice Operator ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 _VOICE_PROFILES = {
-    "default": {"label": "Tous", "icon": "🎙️", "sections": ["Système", "Marché", "Alertes", "Setups", "Scores / Risques", "Rapports"]},
-    "matin":   {"label": "Matin", "icon": "🌅", "sections": ["Système", "Marché", "Alertes"]},
-    "intraday":{"label": "Intraday", "icon": "📈", "sections": ["Marché", "Setups", "Scores / Risques"]},
-    "risk":    {"label": "Risque", "icon": "⚠️", "sections": ["Scores / Risques", "Alertes"]},
-    "spcx":    {"label": "SPCX", "icon": "🚀", "sections": ["Marché", "Setups", "Scores / Risques"]},
-    "gold":    {"label": "Gold", "icon": "🥇", "sections": ["Marché", "Setups", "Scores / Risques"]},
-    "btc":     {"label": "BTC", "icon": "₿", "sections": ["Marché", "Setups", "Scores / Risques"]},
+    "default": {"label": "Tous", "icon": "­ƒÄÖ´©Å", "sections": ["Syst├¿me", "March├®", "Alertes", "Setups", "Scores / Risques", "Rapports"]},
+    "matin":   {"label": "Matin", "icon": "­ƒîà", "sections": ["Syst├¿me", "March├®", "Alertes"]},
+    "intraday":{"label": "Intraday", "icon": "­ƒôê", "sections": ["March├®", "Setups", "Scores / Risques"]},
+    "risk":    {"label": "Risque", "icon": "ÔÜá´©Å", "sections": ["Scores / Risques", "Alertes"]},
+    "spcx":    {"label": "SPCX", "icon": "­ƒÜÇ", "sections": ["March├®", "Setups", "Scores / Risques"]},
+    "gold":    {"label": "Gold", "icon": "­ƒÑç", "sections": ["March├®", "Setups", "Scores / Risques"]},
+    "btc":     {"label": "BTC", "icon": "Ôé┐", "sections": ["March├®", "Setups", "Scores / Risques"]},
 }
 
 _VOICE_PRESETS = [
-    ("🌅 Matin", ["Etat systeme", "Rapport marche", "Alertes Telegram"]),
-    ("📈 Intraday", ["Setups actifs", "Analyse BTC", "Analyse Gold"]),
-    ("⚠️ Risque", ["Score BTC", "Score Gold", "Alertes Telegram"]),
-    ("🚀 SPCX", ["Resume SPCX", "Setup SPCX", "Score SPCX"]),
+    ("­ƒîà Matin", ["Etat systeme", "Rapport marche", "Alertes Telegram"]),
+    ("­ƒôê Intraday", ["Setups actifs", "Analyse BTC", "Analyse Gold"]),
+    ("ÔÜá´©Å Risque", ["Score BTC", "Score Gold", "Alertes Telegram"]),
+    ("­ƒÜÇ SPCX", ["Resume SPCX", "Setup SPCX", "Score SPCX"]),
 ]
 
 _VOICE_SECTIONS = [
     {
-        "title": "Système",
-        "icon": "⚙️",
+        "title": "Syst├¿me",
+        "icon": "ÔÜÖ´©Å",
         "commands": [
-            ("État système", "Etat systeme"),
+            ("├ëtat syst├¿me", "Etat systeme"),
         ],
     },
     {
-        "title": "Marché",
-        "icon": "📈",
+        "title": "March├®",
+        "icon": "­ƒôê",
         "commands": [
-            ("Rapport marché", "Rapport marche"),
+            ("Rapport march├®", "Rapport marche"),
             ("Analyse BTC", "Analyse BTC"),
             ("Analyse Gold", "Analyse Gold"),
-            ("Résumé SPCX", "Resume SPCX"),
+            ("R├®sum├® SPCX", "Resume SPCX"),
         ],
     },
     {
         "title": "Alertes",
-        "icon": "🔔",
+        "icon": "­ƒöö",
         "commands": [
             ("Alertes Telegram", "Alertes Telegram"),
         ],
     },
     {
         "title": "Setups",
-        "icon": "🎯",
+        "icon": "­ƒÄ»",
         "commands": [
             ("Setups actifs", "Setups actifs"),
             ("Setup BTC", "Setup BTC"),
@@ -2050,7 +2253,7 @@ _VOICE_SECTIONS = [
     },
     {
         "title": "Scores / Risques",
-        "icon": "📊",
+        "icon": "­ƒôè",
         "commands": [
             ("Score BTC", "Score BTC"),
             ("Score Gold", "Score Gold"),
@@ -2059,7 +2262,7 @@ _VOICE_SECTIONS = [
     },
     {
         "title": "Rapports",
-        "icon": "📋",
+        "icon": "­ƒôï",
         "commands": [
             ("Rapport quotidien", "Rapport quotidien"),
         ],
@@ -2082,7 +2285,7 @@ def _voice_operator_html() -> str:
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
   <meta name="theme-color" content="#0b0d12"/>
-  <title>LocalCMS — Chat Operator</title>
+  <title>LocalCMS ÔÇö Chat Operator</title>
   <style>
     {STANDARD_CSS}
     body {{ background: #0b0d12; }}
@@ -2122,10 +2325,10 @@ def _voice_operator_html() -> str:
 <body>
 <div class="chat-container">
   <div class="chat-header">
-    <h2>💬 Chat Operator</h2>
+    <h2>­ƒÆ¼ Chat Operator</h2>
     <div class="diag-bar">
-      <span id="diag-backend" class="diag-ok">● backend</span>
-      <span id="diag-tts" class="diag-fail">♪ tts</span>
+      <span id="diag-backend" class="diag-ok">ÔùÅ backend</span>
+      <span id="diag-tts" class="diag-fail">ÔÖ¬ tts</span>
       <span id="diag-latency"></span>
     </div>
   </div>
@@ -2142,8 +2345,8 @@ def _voice_operator_html() -> str:
     <input type="text" id="cmd-input" placeholder="Tapez une commande..." autocomplete="off"
            onkeydown="if(event.key==='Enter')sendCommand(this.value)">
     <button onclick="sendCommand(document.getElementById('cmd-input').value)">Envoyer</button>
-    <button class="secondary" onclick="stopTTS()" title="Stop voix">⏹</button>
-    <button class="secondary" onclick="clearChat()" title="Effacer">✕</button>
+    <button class="secondary" onclick="stopTTS()" title="Stop voix">ÔÅ╣</button>
+    <button class="secondary" onclick="clearChat()" title="Effacer">Ô£ò</button>
   </div>
 </div>
 
@@ -2375,7 +2578,7 @@ def _handle_composite(composite_type: str) -> dict:
             for sig in signals[:2]:
                 rich["cards"].append({"label": "Signal", "value": str(sig.get("symbol", sig.get("type", "?")))[:40]})
         rich["spoken_text"] = f"Briefing. {active} setups, {a_plus} A+. {perf_open} trades. {crit} alertes."
-        one_line = f"📊 {active} setups | {a_plus} A+ | {perf_open} trades | {crit} alertes"
+        one_line = f"­ƒôè {active} setups | {a_plus} A+ | {perf_open} trades | {crit} alertes"
 
     elif composite_type == "market_view":
         sp = _get_spcx()
@@ -2407,7 +2610,7 @@ def _handle_composite(composite_type: str) -> dict:
             sym = t.get("symbol", "?")
             cards.append({"label": sym, "value": t.get("engine", "actif")})
         rich["cards"] = cards[:10]
-        symbols = " · ".join(c["label"] for c in cards[:6])
+        symbols = " ┬À ".join(c["label"] for c in cards[:6])
         rich["spoken_text"] = f"Vue marche. {len(cards)} symboles suivis. {symbols}."
         one_line = symbols
 
@@ -2421,7 +2624,7 @@ def _handle_composite(composite_type: str) -> dict:
             {"label": "Setups actifs", "value": str(n_setups)},
         ]
         rich["spoken_text"] = f"Nouveautes. {n_alerts} alertes, {n_setups} setups."
-        one_line = f"🆕 {n_alerts} alertes | {n_setups} setups"
+        one_line = f"­ƒåò {n_alerts} alertes | {n_setups} setups"
 
     elif composite_type == "risks":
         ana = _get_analysis()
@@ -2435,7 +2638,7 @@ def _handle_composite(composite_type: str) -> dict:
             cards.append({"label": "Squeeze", "value": str(squeeze.get("status", squeeze.get("level", "?")))[:30]})
         rich["cards"] = cards[:7]
         rich["spoken_text"] = f"Risques. {len(alerts_list)} alertes analyse, {len(signals)} signaux."
-        one_line = f"⚠️ {len(signals)} signaux | {len(alerts_list)} alertes"
+        one_line = f"ÔÜá´©Å {len(signals)} signaux | {len(alerts_list)} alertes"
 
     elif composite_type == "urgencies":
         a = _get_alerts()
@@ -2446,7 +2649,7 @@ def _handle_composite(composite_type: str) -> dict:
             if item.get("severity") == "critical":
                 rich["cards"].append({"label": item.get("source", "?"), "value": item.get("message", "")[:60]})
         rich["spoken_text"] = f"Urgences. {crit} alertes critiques."
-        one_line = f"🚨 {crit} alertes critiques"
+        one_line = f"­ƒÜ¿ {crit} alertes critiques"
 
     elif composite_type == "top_setups":
         s = _get_setups()
@@ -2458,9 +2661,9 @@ def _handle_composite(composite_type: str) -> dict:
         for t in perf_trades[:3]:
             all_items.append({"symbol": t.get("symbol", "?"), "setup_type": t.get("engine", "?"), "grade": "ACTIVE", "source": "tv_webhook"})
         for item in all_items[:5]:
-            rich["cards"].append({"label": item.get("symbol", "?"), "value": f"{item.get('setup_type', '?')} · grade {item.get('grade', '?')}"})
+            rich["cards"].append({"label": item.get("symbol", "?"), "value": f"{item.get('setup_type', '?')} ┬À grade {item.get('grade', '?')}"})
         rich["spoken_text"] = f"Top setups. {len(all_items)} actifs."
-        one_line = f"🏆 {len(all_items)} actifs"
+        one_line = f"­ƒÅå {len(all_items)} actifs"
 
     elif composite_type == "a_plus_setups":
         s = _get_setups()
@@ -2469,7 +2672,7 @@ def _handle_composite(composite_type: str) -> dict:
         for item in a_plus[:5]:
             rich["cards"].append({"label": f"A+ {item.get('symbol', '?')}", "value": item.get("setup_type", "?")})
         rich["spoken_text"] = f"Setups A+. {len(a_plus)} actifs."
-        one_line = f"⭐ {len(a_plus)} A+"
+        one_line = f"Ô¡É {len(a_plus)} A+"
 
     elif composite_type == "spcx_full":
         sp = _get_spcx()
@@ -2506,7 +2709,7 @@ def _handle_composite(composite_type: str) -> dict:
             cards.append({"label": f"Analog {a.get('symbol','?')}", "value": f"{a.get('pct', a.get('probability_pct', '?'))}%"})
         rich["cards"] = cards[:15]
         rich["spoken_text"] = f"SPCX. Prix {cc.get('price','?')}. VWAP {cc.get('vwap','?')}. Edge score {cc.get('edge_score','?')}. Confiance {cc.get('confidence','?')}. Setup principal {cc.get('top_setup','?')}. Qualite source {sp.get('source_quality','?') if isinstance(sp, dict) else '?'}. Aucun signal d execution."
-        one_line = f"🚀 SPCX {len(cards)} champs"
+        one_line = f"­ƒÜÇ SPCX {len(cards)} champs"
 
     elif composite_type == "spcx_risk":
         sp = _get_spcx()
@@ -2531,7 +2734,7 @@ def _handle_composite(composite_type: str) -> dict:
                 cards.append({"label": "Risque", "value": str(r)[:60]})
         rich["cards"] = cards[:8]
         rich["spoken_text"] = f"Risques SPCX. Ownership pressure {ow}."
-        one_line = f"⚠️ SPCX risk | Ownership {ow}"
+        one_line = f"ÔÜá´©Å SPCX risk | Ownership {ow}"
 
     elif composite_type == "gold_full":
         ot = _get_open_trades()
@@ -2547,7 +2750,7 @@ def _handle_composite(composite_type: str) -> dict:
             ])
         rich["cards"] = cards[:5]
         rich["spoken_text"] = f"Gold. {len(xau_trades)} trades actifs."
-        one_line = f"🥇 Gold | {len(xau_trades)} trades | H4 BULLISH"
+        one_line = f"­ƒÑç Gold | {len(xau_trades)} trades | H4 BULLISH"
 
     elif composite_type == "gold_danger":
         ot = _get_open_trades()
@@ -2559,7 +2762,7 @@ def _handle_composite(composite_type: str) -> dict:
         cards.append({"label": "Alertes Gold", "value": "0 critiques"})
         rich["cards"] = cards[:4]
         rich["spoken_text"] = "Gold danger. Verification des stops."
-        one_line = f"⚠️ Gold | {len(xau_trades)} trades | Verifier stops"
+        one_line = f"ÔÜá´©Å Gold | {len(xau_trades)} trades | Verifier stops"
 
     elif composite_type == "watchlist_ia":
         # Read from true_value DC views if available
@@ -2571,14 +2774,14 @@ def _handle_composite(composite_type: str) -> dict:
             if f.exists():
                 try:
                     d = _json.loads(f.read_text())
-                    cards.append({"label": t, "value": f"Grade {d.get('final_grade','?')} · TV {d.get('true_value_score',0):.0f}"})
+                    cards.append({"label": t, "value": f"Grade {d.get('final_grade','?')} ┬À TV {d.get('true_value_score',0):.0f}"})
                 except: pass
         if not cards:
             cards = [{"label": "NVDA", "value": "Leader IA"}, {"label": "PLTR", "value": "Defense/AI"}, {"label": "AVGO", "value": "Semi-conducteurs"}]
         rich["cards"] = cards[:8]
-        tl = " · ".join(c["label"] for c in cards[:4])
+        tl = " ┬À ".join(c["label"] for c in cards[:4])
         rich["spoken_text"] = f"Watchlist IA. {tl}. Donnees true value."
-        one_line = "🤖 " + tl
+        one_line = "­ƒñû " + tl
 
     elif composite_type == "watchlist_spatial":
         cards = []
@@ -2589,16 +2792,16 @@ def _handle_composite(composite_type: str) -> dict:
             if f.exists():
                 try:
                     d = _json.loads(f.read_text())
-                    cards.append({"label": t, "value": f"Grade {d.get('final_grade','?')} · TV {d.get('true_value_score',0):.0f}"})
+                    cards.append({"label": t, "value": f"Grade {d.get('final_grade','?')} ┬À TV {d.get('true_value_score',0):.0f}"})
                 except: pass
         if not cards:
             cards = [{"label": "SPCX", "value": "IPO Leader"}, {"label": "RKLB", "value": "Lanceur"}, {"label": "ASTS", "value": "Satellite"}, {"label": "LUNR", "value": "Lunaire"}]
         rich["cards"] = cards[:8]
-        tl = " · ".join(c["label"] for c in cards[:4])
+        tl = " ┬À ".join(c["label"] for c in cards[:4])
         rich["spoken_text"] = f"Watchlist spatiale. {tl}. Donnees true value."
-        one_line = "🛰️ " + tl
+        one_line = "­ƒø░´©Å " + tl
 
-    # ── New detail/query composites ──
+    # ÔöÇÔöÇ New detail/query composites ÔöÇÔöÇ
     elif composite_type == "btc_full":
         vm = _get_vision_markets()
         price = vm.get("BTC", {}).get("price", "?") if isinstance(vm, dict) else "?"
@@ -2614,7 +2817,7 @@ def _handle_composite(composite_type: str) -> dict:
             except: pass
         rich["cards"] = cards[:10]
         rich["spoken_text"] = f"BTC. Prix {price}. Tendance {trend}. {len(cards)} indicateurs disponibles."
-        one_line = f"₿ BTC {price} · {trend}"
+        one_line = f"Ôé┐ BTC {price} ┬À {trend}"
 
     elif composite_type == "telegram_alerts":
         a = _get_alerts()
@@ -2626,7 +2829,7 @@ def _handle_composite(composite_type: str) -> dict:
             cards.append({"label": it.get("symbol", "?"), "value": it.get("signal", "")[:30]})
         rich["cards"] = cards[:8]
         rich["spoken_text"] = f"Alertes Telegram. {total} alertes dont {crit} critiques."
-        one_line = f"📡 {total} alertes · {crit} critiques"
+        one_line = f"­ƒôí {total} alertes ┬À {crit} critiques"
 
     elif composite_type == "setups_all":
         s = _get_setups()
@@ -2636,7 +2839,7 @@ def _handle_composite(composite_type: str) -> dict:
             cards.append({"label": it.get("symbol", "?"), "value": it.get("setup_type", it.get("direction", "?"))})
         rich["cards"] = cards
         rich["spoken_text"] = f"Setups actifs. {len(items)} setups."
-        one_line = f"📊 {len(items)} setups"
+        one_line = f"­ƒôè {len(items)} setups"
 
     elif composite_type == "setup_detail":
         sym = params.get("symbol", "SPCX")
@@ -2647,11 +2850,11 @@ def _handle_composite(composite_type: str) -> dict:
             it = match[0]
             cards = [{"label": k, "value": str(v)[:40]} for k, v in it.items() if k not in ("_priority", "raw")][:8]
             rich["spoken_text"] = f"Setup {sym}. {it.get('setup_type', it.get('direction', '?'))}. {it.get('symbol', sym)}."
-            one_line = f"📐 {sym} {it.get('setup_type', it.get('direction', '?'))}"
+            one_line = f"­ƒôÉ {sym} {it.get('setup_type', it.get('direction', '?'))}"
         else:
             cards = []
             rich["spoken_text"] = f"Aucun setup actif pour {sym}."
-            one_line = f"📐 {sym}: aucun setup"
+            one_line = f"­ƒôÉ {sym}: aucun setup"
 
     elif composite_type == "score_detail":
         sym = params.get("symbol", "SPCX")
@@ -2668,15 +2871,15 @@ def _handle_composite(composite_type: str) -> dict:
                     {"label": "Risque", "value": f"{d.get('risk_score', 0):.0f}"},
                 ]
                 rich["spoken_text"] = f"Score {sym}. Grade {d.get('final_grade','?')}. True value {d.get('true_value_score',0):.0f}. Confiance {d.get('confidence_score',0):.0f}%."
-                one_line = f"📐 {sym} {d.get('final_grade','?')} TV{d.get('true_value_score',0):.0f}"
+                one_line = f"­ƒôÉ {sym} {d.get('final_grade','?')} TV{d.get('true_value_score',0):.0f}"
             except:
                 cards = [{"label": "Erreur", "value": "Donnees illisibles"}]
                 rich["spoken_text"] = f"Score {sym} indisponible. Donnees illisibles."
-                one_line = f"📐 {sym}: erreur"
+                one_line = f"­ƒôÉ {sym}: erreur"
         else:
             cards = [{"label": "Status", "value": "Aucune donnee"}]
             rich["spoken_text"] = f"Score {sym} indisponible. Aucune donnee true value."
-            one_line = f"📐 {sym}: indisponible"
+            one_line = f"­ƒôÉ {sym}: indisponible"
 
     elif composite_type == "daily_report":
         daily_dir = Path(__file__).resolve().parents[3] / "outputs" / "stock_true_value" / "daily"
@@ -2687,13 +2890,13 @@ def _handle_composite(composite_type: str) -> dict:
             lines = [l.strip() for l in latest.read_text().splitlines() if l.strip() and not l.startswith("#")][:8]
             cards = [{"label": f"Ligne {i+1}", "value": l[:60]} for i, l in enumerate(lines[:5])]
             rich["spoken_text"] = f"Rapport quotidien. {latest.stem}. {len(lines)} lignes."
-            one_line = f"📋 Rapport {latest.stem[:10]}"
+            one_line = f"­ƒôï Rapport {latest.stem[:10]}"
         else:
             cards = []
             rich["spoken_text"] = "Aucun rapport quotidien disponible."
-            one_line = "📋 Aucun rapport"
+            one_line = "­ƒôï Aucun rapport"
 
-    # ── Priority engine commands ──
+    # ÔöÇÔöÇ Priority engine commands ÔöÇÔöÇ
     elif composite_type == "priorities":
         s = _get_setups()
         ana = _get_analysis()
@@ -2709,9 +2912,9 @@ def _handle_composite(composite_type: str) -> dict:
             all_items.append({"symbol": sig.get("symbol", "?"), "setup_type": sig.get("type", "signal"), "confidence": 50})
         ranked = rank_items(all_items)
         for item in ranked[:5]:
-            rich["cards"].append({"label": item.get("symbol", "?"), "value": f"{item.get('setup_type', '?')} · priorite {item.get('_priority', 0):.0f}"})
+            rich["cards"].append({"label": item.get("symbol", "?"), "value": f"{item.get('setup_type', '?')} ┬À priorite {item.get('_priority', 0):.0f}"})
         rich["spoken_text"] = f"Priorites. {len(ranked)} items classes."
-        one_line = f"📌 Top {min(3, len(ranked))}: " + " · ".join(i.get("symbol", "?") for i in ranked[:3])
+        one_line = f"­ƒôî Top {min(3, len(ranked))}: " + " ┬À ".join(i.get("symbol", "?") for i in ranked[:3])
 
     elif composite_type == "attention":
         s = _get_setups()
@@ -2727,9 +2930,9 @@ def _handle_composite(composite_type: str) -> dict:
             all_items.append({"symbol": "ALERT", "setup_type": str(a)[:30], "_priority": 20})
         ranked = rank_attention(all_items)
         for item in ranked[:4]:
-            rich["cards"].append({"label": "⚠️ " + str(item.get("symbol", "?")), "value": str(item.get("setup_type", item.get("freshness", "?")))[:40]})
+            rich["cards"].append({"label": "ÔÜá´©Å " + str(item.get("symbol", "?")), "value": str(item.get("setup_type", item.get("freshness", "?")))[:40]})
         rich["spoken_text"] = f"Attention. {len(ranked)} points a surveiller."
-        one_line = f"⚠️ {len(ranked)} points d'attention"
+        one_line = f"ÔÜá´©Å {len(ranked)} points d'attention"
 
     elif composite_type == "whats_new":
         a = _get_alerts()
@@ -2741,7 +2944,7 @@ def _handle_composite(composite_type: str) -> dict:
             {"label": "Setups actifs", "value": str(n_setups)},
         ]
         rich["spoken_text"] = f"Nouveautes. {n_alerts} alertes, {n_setups} setups."
-        one_line = f"🆕 {n_alerts} alertes | {n_setups} setups"
+        one_line = f"­ƒåò {n_alerts} alertes | {n_setups} setups"
 
     elif composite_type == "top_movers":
         from pathlib import Path as _P
@@ -2761,9 +2964,9 @@ def _handle_composite(composite_type: str) -> dict:
         from modules.voice_operator.priority_engine import rank_items
         ranked = rank_items(movers)
         for m in ranked[:5]:
-            rich["cards"].append({"label": m["symbol"], "value": f"{m.get('trend','?')} · {m.get('_priority',0):.0f}"})
+            rich["cards"].append({"label": m["symbol"], "value": f"{m.get('trend','?')} ┬À {m.get('_priority',0):.0f}"})
         rich["spoken_text"] = f"Top movers. {len(ranked)} actifs."
-        one_line = f"📈 " + " · ".join(m["symbol"] for m in ranked[:4])
+        one_line = f"­ƒôê " + " ┬À ".join(m["symbol"] for m in ranked[:4])
 
     elif composite_type == "exec_summary":
         a = _get_alerts()
@@ -2787,13 +2990,13 @@ def _handle_composite(composite_type: str) -> dict:
         spoken = ". ".join(parts) + ". "
         if crit: spoken += "Attention, alertes critiques. "
         rich["spoken_text"] = spoken
-        one_line = " · ".join(parts)
+        one_line = " ┬À ".join(parts)
 
     else:
         one_line = "Commande composite inconnue"
         rich["spoken_text"] = one_line
 
-    # ── Add missing fields detection ──
+    # ÔöÇÔöÇ Add missing fields detection ÔöÇÔöÇ
     missing = []
     if not rich.get("cards"):
         missing.append("cards")
@@ -2802,7 +3005,7 @@ def _handle_composite(composite_type: str) -> dict:
     if not one_line or one_line == "Commande composite inconnue":
         missing.append("one_line")
 
-    # ── Add next_action hint ──
+    # ÔöÇÔöÇ Add next_action hint ÔöÇÔöÇ
     next_action = []
     if missing:
         next_action.append("Verifier sources de donnees")
@@ -2815,7 +3018,7 @@ def _handle_composite(composite_type: str) -> dict:
 
 @app.get("/voice/query")
 def voice_operator_query(q: str = ""):
-    """Route a voice command through intent_router → /read/* → enriched response."""
+    """Route a voice command through intent_router ÔåÆ /read/* ÔåÆ enriched response."""
     import time as _time
     _start = _time.time()
 
@@ -2878,7 +3081,7 @@ def voice_operator_query(q: str = ""):
             pipeline_state=result.get("pipeline_state") if isinstance(result, dict) else None,
         )
 
-        # Extract one_line properly — handle both string and dict results
+        # Extract one_line properly ÔÇö handle both string and dict results
         raw_one_line = result.get("one_line", "")
         if isinstance(raw_one_line, dict):
             raw_one_line = raw_one_line.get("one_line", raw_one_line.get("summary", str(raw_one_line)))
@@ -3063,7 +3266,7 @@ def voice_analytics_html():
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — Voice Analytics</title>
+  <title>LocalCMS ÔÇö Voice Analytics</title>
   <style>
     {STANDARD_CSS}
     .stat-block {{ margin-bottom: 28px; }}
@@ -3080,21 +3283,21 @@ def voice_analytics_html():
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
+    <h1>LocalCMS<small>Central UI ÔÇö opt-trading</small></h1>
     <div style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Voice Operator</div>
-      <a class="nav-item" href="/voice">🎙️ Voice Operator</a>
-      <a class="nav-item nav-active" href="/voice/analytics">📊 Analytics</a>
+      <a class="nav-item" href="/voice">­ƒÄÖ´©Å Voice Operator</a>
+      <a class="nav-item nav-active" href="/voice/analytics">­ƒôè Analytics</a>
     </div>
-    <a class="nav-item" href="/">🏠 Dashboard</a>
-    <a class="nav-item" href="/spacex">🚀 SpaceX</a>
-    <a class="nav-item" href="/signals">📡 Signals</a>
-    <a class="nav-item" href="/journal">📋 Journal</a>
-    <a class="nav-item" href="/metrics">📊 Metrics</a>
+    <a class="nav-item" href="/">­ƒÅá Dashboard</a>
+    <a class="nav-item" href="/spacex">­ƒÜÇ SpaceX</a>
+    <a class="nav-item" href="/signals">­ƒôí Signals</a>
+    <a class="nav-item" href="/journal">­ƒôï Journal</a>
+    <a class="nav-item" href="/metrics">­ƒôè Metrics</a>
   </nav>
   <main class="main">
-    <h2>📊 Voice Operator Analytics</h2>
-    <p class="subtitle">Usage reel — aucune telemetrie externe</p>
+    <h2>­ƒôè Voice Operator Analytics</h2>
+    <p class="subtitle">Usage reel ÔÇö aucune telemetrie externe</p>
 
     {_render_stats(stats_1d, "Aujourd'hui")}
     {_render_stats(stats_7d, "7 jours")}
