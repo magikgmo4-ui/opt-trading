@@ -55,7 +55,7 @@ try {
     $c = (Invoke-WebRequest $CDP_URL -UseBasicParsing -TimeoutSec 5).Content | ConvertFrom-Json
     Write-Host "  OK: $($c.Browser)" -ForegroundColor Green
 } catch {
-    Write-Host "  FAIL: port 9222 closed — TradingView Desktop not running" -ForegroundColor Red
+    Write-Host "  FAIL: port 9222 closed - TradingView Desktop not running" -ForegroundColor Red
     exit 1
 }
 

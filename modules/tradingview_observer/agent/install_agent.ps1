@@ -5,6 +5,7 @@
 $ErrorActionPreference = 'Stop'
 
 $TASK_NAME   = "TVOrchestratorAgent"
+$WATCHDOG_TASK_NAME = "TVOrchestratorAgentWatchdog"
 $AGENT_ROOT  = Split-Path $PSScriptRoot -Parent
 $AGENT_SCRIPT = Join-Path $PSScriptRoot "tv_agent.ps1"
 $LOG_DIR     = Join-Path $PSScriptRoot ""
@@ -14,25 +15,47 @@ Write-Host "  Script: $AGENT_SCRIPT"
 
 $action  = New-ScheduledTaskAction `
     -Execute "powershell" `
-    -Argument "-NoProfile -WindowStyle Hidden -File `"$AGENT_SCRIPT`""
+    -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$AGENT_SCRIPT`"" `
+    -WorkingDirectory $AGENT_ROOT
 
-$trigger = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
+$logonTrigger = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
+$watchdogTrigger = New-ScheduledTaskTrigger `
+    -Once `
+    -At (Get-Date).AddMinutes(1) `
+    -RepetitionInterval (New-TimeSpan -Minutes 5) `
+    -RepetitionDuration (New-TimeSpan -Days 3650)
 
 $settings = New-ScheduledTaskSettingsSet `
     -ExecutionTimeLimit (New-TimeSpan -Hours 0) `
-    -RestartCount 3 `
+    -RestartCount 5 `
     -RestartInterval (New-TimeSpan -Minutes 1) `
-    -MultipleInstances IgnoreNew
+    -MultipleInstances IgnoreNew `
+    -StartWhenAvailable `
+    -AllowStartIfOnBatteries `
+    -DontStopIfGoingOnBatteries
+
+try {
+    Register-ScheduledTask `
+        -TaskName $TASK_NAME `
+        -Action $action `
+        -Trigger @($logonTrigger, $watchdogTrigger) `
+        -Settings $settings `
+        -RunLevel Highest `
+        -Force | Out-Null
+
+    Write-Host "PASS: Task '$TASK_NAME' registered (OnLogon + 5min watchdog, Highest)" -ForegroundColor Green
+} catch {
+    Write-Warning "Could not update '$TASK_NAME' with RunLevel Highest: $($_.Exception.Message)"
+}
 
 Register-ScheduledTask `
-    -TaskName $TASK_NAME `
+    -TaskName $WATCHDOG_TASK_NAME `
     -Action $action `
-    -Trigger $trigger `
+    -Trigger $watchdogTrigger `
     -Settings $settings `
-    -RunLevel Highest `
     -Force | Out-Null
 
-Write-Host "PASS: Task '$TASK_NAME' registered (OnLogon, Highest)" -ForegroundColor Green
+Write-Host "PASS: Task '$WATCHDOG_TASK_NAME' registered (5min watchdog, user-level)" -ForegroundColor Green
 Write-Host ""
 Write-Host "To start immediately (without re-login):"
 Write-Host "  Start-ScheduledTask -TaskName '$TASK_NAME'"

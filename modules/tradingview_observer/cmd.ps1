@@ -1,4 +1,4 @@
-# TradingView Observer — Wrapper CLI
+# TradingView Observer - Wrapper CLI
 # Usage: .\cmd.ps1 [-Sanity] [-Export] [-Snapshot] [-Bridge] [-AllowMutation]
 param(
     [switch]$Sanity,
@@ -25,7 +25,7 @@ if ($AllowMutation) {
 }
 
 if ($Bridge) {
-    Write-Host "TradingView Observer — Bridge Packet Export" -ForegroundColor Cyan
+    Write-Host "TradingView Observer - Bridge Packet Export" -ForegroundColor Cyan
     Write-Host ""
     & "$MOD\export_bridge_packet.ps1"
     exit $LASTEXITCODE
