@@ -1,0 +1,22 @@
+[Unit]
+Description=OpenClaw Gateway
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=openclaw
+Group=openclaw
+WorkingDirectory=/home/openclaw/.openclaw/workspace-orchestrateur
+Environment=HOME=/home/openclaw
+Environment=NODE_ENV=production
+ExecStartPre=/usr/local/bin/openclaw config validate
+ExecStart=/usr/local/bin/openclaw gateway run --bind loopback --port 18789 --force
+Restart=always
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target

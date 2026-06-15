@@ -1,6 +1,9 @@
 # gateway_openclaw
 
-Pilotage du gateway OpenClaw via `tmux`, adapte au mode operatoire retenu quand `systemd --user` n'est pas disponible.
+Pilotage du gateway OpenClaw.
+
+Mode operationnel courant: `openclaw-gateway.service` sur `fantome`.
+Les scripts `tmux` restent disponibles pour diagnostic manuel ou reprise legacy.
 
 ## Role
 - demarrer, stopper et attacher la session gateway
@@ -15,8 +18,12 @@ Pilotage du gateway OpenClaw via `tmux`, adapte au mode operatoire retenu quand 
 
 ## Runtime
 - utilisateur cible par defaut : `openclaw`
+- service systemd courant : `openclaw-gateway.service`
+- hote courant : `fantome`
+- gateway URL : `127.0.0.1:18789`
 - session `tmux` : `openclaw-gateway`
 - log foreground : `~openclaw/.openclaw/logs/gateway_foreground.log`
+- validation : `sudo -iu openclaw openclaw gateway probe --timeout 30000`
 
 ## Statut
 - actif
