@@ -1948,480 +1948,189 @@ _VOICE_ACTIVE_PROFILE = "default"
 
 
 def _voice_operator_html() -> str:
-    # Profile tabs
-    profile_tabs = ""
-    for pid, p in _VOICE_PROFILES.items():
-        active = " profile-active" if pid == _VOICE_ACTIVE_PROFILE else ""
-        profile_tabs += f'<button class="profile-tab{active}" onclick="switchProfile(\'{pid}\')">{p["icon"]} {p["label"]}</button>'
-
-    # Preset bar
-    preset_buttons = ""
-    for label, commands in _VOICE_PRESETS:
-        cmd_json = "[" + ",".join(f"'{c}'" for c in commands) + "]"
-        preset_buttons += f'<button class="preset-btn" onclick="runPreset({cmd_json})" title="Batch: {", ".join(commands)}">{label}</button>'
-
-    sections_html = ""
-    for section in _VOICE_SECTIONS:
-        buttons = ""
+    # Quick buttons from sections
+    quick_btns = ""
+    for section in _VOICE_SECTIONS[:4]:  # Systeme, Marche, Alertes, Setups
         for label, command in section["commands"]:
-            sec = section["title"]
-            buttons += f'<button class="voice-btn" data-section="{sec}" onclick="voiceQuery(\'{command}\')" title="{command}">{label}</button>\n'
-        sections_html += f"""\
-<div class="voice-section" data-section="{section['title']}">
-  <h3>{section['icon']} {section['title']}</h3>
-  <div class="voice-buttons">{buttons}</div>
-</div>
-"""
+            quick_btns += f'<button class="quick-btn" onclick="sendCommand(\'{command}\')">{label}</button>'
 
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LocalCMS — Voice Operator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <meta name="theme-color" content="#0b0d12"/>
+  <title>LocalCMS — Chat Operator</title>
   <style>
     {STANDARD_CSS}
-    .voice-section {{ margin-bottom: 20px; }}
-    .voice-section h3 {{ color: #a8c7ff; margin-bottom: 8px; font-size: 14px; }}
-    .voice-buttons {{ display: flex; flex-wrap: wrap; gap: 6px; }}
-    .voice-btn {{
-      background: var(--card-bg, #151a24);
-      color: var(--text, #e8eef7);
-      border: 1px solid var(--card-border, #2a3345);
-      border-radius: var(--card-radius, 10px);
-      padding: 8px 14px;
-      font-size: 12px;
-      cursor: pointer;
-      transition: all 0.15s;
-      white-space: nowrap;
-      position: relative;
+    body {{ background: #0b0d12; }}
+    .chat-container {{ display:flex; flex-direction:column; height:100vh; max-width:700px; margin:0 auto; }}
+    .chat-header {{ padding:12px 16px; border-bottom:1px solid #1a1f2a; display:flex; align-items:center; gap:10px; flex-shrink:0; }}
+    .chat-header h2 {{ color:#a8c7ff; font-size:16px; margin:0; }}
+    .diag-bar {{ display:flex; gap:12px; font-size:10px; color:#555; margin-left:auto; }}
+    .diag-ok {{ color:#30d158; }} .diag-fail {{ color:#ef5350; }}
+    .quick-bar {{ padding:8px 16px; display:flex; flex-wrap:wrap; gap:6px; border-bottom:1px solid #1a1f2a; flex-shrink:0; }}
+    .quick-btn {{ background:#151a24; color:#a8c7ff; border:1px solid #2a3345; border-radius:6px; padding:5px 10px; font-size:11px; cursor:pointer; white-space:nowrap; }}
+    .quick-btn:hover {{ background:#1e2840; border-color:#4477cc; }}
+    .quick-btn:active {{ background:#243050; }}
+    .messages {{ flex:1; overflow-y:auto; padding:12px 16px; display:flex; flex-direction:column; gap:10px; }}
+    .msg {{ max-width:85%; padding:10px 14px; border-radius:12px; font-size:13px; line-height:1.5; animation:fadeIn 0.2s; }}
+    @keyframes fadeIn {{ from{{opacity:0;transform:translateY(4px)}} to{{opacity:1;transform:translateY(0)}} }}
+    .msg-user {{ align-self:flex-end; background:#1a3050; color:#e8eef7; border-bottom-right-radius:4px; }}
+    .msg-bot {{ align-self:flex-start; background:#151a24; color:#c8d6e5; border:1px solid #2a3345; border-bottom-left-radius:4px; }}
+    .msg-error {{ align-self:flex-start; background:#3a1b1b; color:#ef5350; border:1px solid #5a2a2a; }}
+    .msg-meta {{ font-size:9px; color:#555; margin-top:4px; display:flex; gap:10px; flex-wrap:wrap; }}
+    .msg-actions {{ margin-top:4px; display:flex; gap:6px; }}
+    .msg-actions button {{ font-size:9px; background:transparent; color:#888; border:1px solid #333; border-radius:3px; padding:1px 6px; cursor:pointer; }}
+    .msg-actions button:hover {{ color:#a8c7ff; border-color:#4477cc; }}
+    .monitor-badge {{ font-size:8px; color:#ff9800; text-transform:uppercase; letter-spacing:0.5px; }}
+    .input-bar {{ padding:10px 16px; border-top:1px solid #1a1f2a; display:flex; gap:8px; flex-shrink:0; background:#0b0d12; }}
+    .input-bar input {{ flex:1; background:#151a24; color:#e8eef7; border:1px solid #2a3345; border-radius:8px; padding:10px 14px; font-size:14px; outline:none; }}
+    .input-bar input:focus {{ border-color:#4477cc; }}
+    .input-bar button {{ background:#1a3050; color:#a8c7ff; border:1px solid #4477cc; border-radius:8px; padding:10px 16px; font-size:13px; cursor:pointer; white-space:nowrap; }}
+    .input-bar button:hover {{ background:#243050; }}
+    .input-bar button.secondary {{ background:transparent; color:#888; border-color:#333; }}
+    .empty-state {{ text-align:center; color:#444; padding:40px 16px; font-size:13px; }}
+    @media (max-width:768px) {{
+      .chat-container {{ height:100dvh; }} .chat-header h2 {{ font-size:14px; }}
+      .quick-btn {{ font-size:10px; padding:4px 8px; }} .input-bar input {{ font-size:16px; }}
     }}
-    .voice-btn:hover {{ background: #1e2840; border-color: #4477cc; }}
-    .voice-btn:active {{ background: #243050; }}
-    .voice-btn.loading {{ opacity: 0.5; pointer-events: none; }}
-    .voice-btn .star {{ position:absolute;top:2px;right:3px;font-size:9px;opacity:0;transition:opacity 0.15s;color:#ffd700; }}
-    .voice-btn:hover .star {{ opacity:0.4; }}
-    .voice-btn.fav .star {{ opacity:1; }}
-    .voice-btn.fav {{ border-color:#665500; }}
-    .voice-section.hidden {{ display:none; }}
-
-    /* Profile tabs */
-    .profile-bar {{ display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px; }}
-    .profile-tab {{
-      background:var(--card-bg,#151a24);color:#888;border:1px solid var(--card-border,#2a3345);
-      border-radius:8px;padding:6px 12px;font-size:11px;cursor:pointer;transition:all 0.15s;
-    }}
-    .profile-tab:hover {{ color:#a8c7ff;border-color:#4477cc; }}
-    .profile-tab.profile-active {{ background:#1a2540;color:#a8c7ff;border-color:#4477cc; }}
-
-    /* Preset bar */
-    .preset-bar {{ display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px; }}
-    .preset-btn {{
-      background:linear-gradient(135deg,#1a2540,#151a24);color:#a8c7ff;border:1px solid #334466;
-      border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer;transition:all 0.15s;
-    }}
-    .preset-btn:hover {{ background:#243050;border-color:#4477cc; }}
-
-    /* Console */
-    .console-bar {{ display:flex;gap:8px;margin-bottom:12px;align-items:center; }}
-    .console-input {{
-      flex:1;background:var(--card-bg,#151a24);color:var(--text,#e8eef7);
-      border:1px solid var(--card-border,#2a3345);border-radius:8px;padding:8px 12px;
-      font-size:13px;font-family:inherit;outline:none;
-    }}
-    .console-input:focus {{ border-color:#4477cc; }}
-    .console-send {{
-      background:#1a3050;color:#a8c7ff;border:1px solid #4477cc;
-      border-radius:8px;padding:8px 16px;font-size:12px;cursor:pointer;white-space:nowrap;
-    }}
-    .console-send:hover {{ background:#243050; }}
-    .console-clear {{
-      background:transparent;color:#888;border:1px solid #333;
-      border-radius:8px;padding:8px 12px;font-size:11px;cursor:pointer;
-    }}
-
-    /* Suggestions */
-    .suggestions {{ display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;min-height:0; }}
-    .suggestion {{ font-size:10px;color:#555;cursor:pointer;padding:2px 6px;border-radius:4px; }}
-    .suggestion:hover {{ color:#a8c7ff;background:#1a1f2a; }}
-
-    /* Favorites */
-    .favorites-section {{
-      margin-bottom:20px;padding:12px;background:var(--card-bg,#151a24);
-      border:1px solid #665500;border-radius:var(--card-radius,10px);display:none;
-    }}
-    .favorites-section.has-favs {{ display:block; }}
-    .favorites-section h3 {{ color:#ffd700;margin-bottom:8px;font-size:13px; }}
-    .empty-fav {{ color:#555;font-size:11px;font-style:italic; }}
-
-    /* Response */
-    .response-area {{
-      margin-top:16px;padding:14px;background:var(--card-bg,#151a24);
-      border:1px solid var(--card-border,#2a3345);border-radius:var(--card-radius,10px);
-      min-height:50px;display:none;
-    }}
-    .response-area.visible {{ display:block; }}
-    .response-meta {{ display:flex;gap:16px;font-size:10px;color:#555;margin-bottom:6px;flex-wrap:wrap; }}
-    .response-meta span {{ white-space:nowrap; }}
-    .source-badge {{ display:inline-block;padding:1px 6px;border-radius:3px;font-size:9px; }}
-    .source-ok {{ background:#1b3a1b;color:#30d158; }}
-    .source-stale {{ background:#3a301b;color:#ffa500; }}
-    .source-down {{ background:#3a1b1b;color:#ef5350; }}
-    .response-intent {{ font-size:11px;color:#666;margin-bottom:2px; }}
-    .response-endpoint {{ font-size:10px;color:#444;margin-bottom:8px;font-family:monospace; }}
-    .response-text {{ font-size:14px;color:#e8eef7;line-height:1.5; }}
-    .response-detail {{ font-size:11px;color:#777;margin-top:8px;line-height:1.4; }}
-    .response-mode {{ font-size:9px;color:#ff9800;margin-top:8px;text-transform:uppercase;letter-spacing:1px; }}
-    .response-actions {{ margin-top:8px;display:flex;gap:6px; }}
-    .resp-retry,.resp-replay {{ font-size:10px;color:#888;background:transparent;border:1px solid #333;border-radius:4px;padding:2px 8px;cursor:pointer; }}
-    .resp-retry:hover,.resp-replay:hover {{ color:#a8c7ff;border-color:#4477cc; }}
-
-    /* History */
-    .history-area {{ margin-top:20px; }}
-    .history-area h3 {{ color:#a8c7ff;font-size:13px;margin-bottom:6px; }}
-    .history-item {{ font-size:11px;color:#777;padding:3px 0;border-bottom:1px solid #1a1f2a;cursor:pointer; }}
-    .history-item:hover {{ color:#a8c7ff; }}
-    .history-time {{ color:#444;margin-right:6px; }}
-    .status-bar {{ display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:11px;color:#888;flex-wrap:wrap; }}
-    .tts-indicator {{ display:inline-block;padding:2px 8px;border-radius:4px;font-size:9px; }}
-    .tts-active {{ background:#1b3a1b;color:#30d158; }}
-    .tts-inactive {{ background:#3a1b1b;color:#ef5350; }}
-    .latency {{ font-family:monospace;font-size:10px;color:#555; }}
   </style>
 </head>
 <body>
-<div class="layout">
-  <nav class="sidebar">
-    <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
-    <div style="margin-bottom:16px">
-      <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Voice Operator</div>
-      <a class="nav-item nav-active" href="/voice">🎙️ Voice Operator</a>
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>💬 Chat Operator</h2>
+    <div class="diag-bar">
+      <span id="diag-backend" class="diag-ok">● backend</span>
+      <span id="diag-tts" class="diag-fail">♪ tts</span>
+      <span id="diag-latency"></span>
     </div>
-    <a class="nav-item" href="/">🏠 Dashboard</a>
-    <a class="nav-item" href="/spacex">🚀 SpaceX</a>
-    <a class="nav-item" href="/signals">📡 Signals</a>
-    <a class="nav-item" href="/journal">📋 Journal</a>
-    <a class="nav-item" href="/metrics">📊 Metrics</a>
-    <div style="margin-top:auto;padding-top:16px;border-top:1px solid #333;font-size:11px;color:#666;margin-left:10px">
-      <div><a href="/voice/query?q=Etat+systeme" style="color:#888;text-decoration:none">/voice/query</a></div>
+  </div>
+  <div class="quick-bar">
+    {quick_btns}
+  </div>
+  <div class="messages" id="messages">
+    <div class="empty-state">
+      Tapez une commande ou cliquez un bouton rapide.<br>
+      Ex: "Etat systeme", "Setup BTC", "Resume SPCX"
     </div>
-  </nav>
-  <main class="main">
-    <h2>🎙️ Voice Operator</h2>
-    <p class="subtitle">Monitor-Only — Validation humaine obligatoire</p>
-
-    <div class="status-bar">
-      <span>TTS: <span id="tts-status" class="tts-indicator tts-inactive">inactif</span></span>
-      <span id="last-query" style="color:#555"></span>
-      <span class="latency" id="latency-display"></span>
-      <span style="margin-left:auto;font-size:10px;color:#555">⭐ = clic droit pour favori</span>
-    </div>
-
-    <!-- Profile tabs -->
-    <div class="profile-bar">{profile_tabs}</div>
-
-    <!-- Presets -->
-    <div class="preset-bar">{preset_buttons}</div>
-
-    <!-- Console -->
-    <div class="console-bar">
-      <input type="text" class="console-input" id="console-input" placeholder="Tapez une commande (ex: Etat systeme, Setup BTC)..." autocomplete="off"
-             onkeydown="if(event.key==='Enter')voiceQuery(this.value);if(event.key==='Escape')this.value=''">
-      <button class="console-send" onclick="voiceQuery(document.getElementById('console-input').value)">Envoyer</button>
-      <button class="console-clear" onclick="clearConsole()">✕</button>
-    </div>
-    <div class="suggestions" id="suggestions"></div>
-
-    <!-- Favorites -->
-    <div id="favorites" class="favorites-section">
-      <h3>⭐ Favoris</h3>
-      <div class="voice-buttons" id="fav-buttons"></div>
-      <div class="empty-fav" id="fav-empty">Clic droit sur un bouton pour l'ajouter aux favoris.</div>
-    </div>
-
-    {sections_html}
-
-    <div id="response" class="response-area">
-      <div class="response-intent" id="resp-intent"></div>
-      <div class="response-endpoint" id="resp-endpoint"></div>
-      <div class="response-meta">
-        <span class="source-badge" id="resp-source"></span>
-        <span id="resp-latency"></span>
-        <span id="resp-ts"></span>
-      </div>
-      <div class="response-text" id="resp-text"></div>
-      <div class="response-detail" id="resp-detail"></div>
-      <div class="response-mode">MONITOR-ONLY — VALIDATION HUMAINE REQUISE</div>
-      <div class="response-actions">
-        <button class="resp-replay" onclick="replayLast()">🔊 Rejouer</button>
-        <button class="resp-retry" id="resp-retry" style="display:none" onclick="retryLast()">🔄 Reessayer</button>
-      </div>
-    </div>
-
-    <div class="history-area" id="history-area" style="display:none">
-      <h3>📜 Historique</h3>
-      <div id="history-list"></div>
-    </div>
-  </main>
+  </div>
+  <div class="input-bar">
+    <input type="text" id="cmd-input" placeholder="Tapez une commande..." autocomplete="off"
+           onkeydown="if(event.key==='Enter')sendCommand(this.value)">
+    <button onclick="sendCommand(document.getElementById('cmd-input').value)">Envoyer</button>
+    <button class="secondary" onclick="stopTTS()" title="Stop voix">⏹</button>
+    <button class="secondary" onclick="clearChat()" title="Effacer">✕</button>
+  </div>
 </div>
 
 <script>
-const HISTORY_KEY = 'voice_operator_history';
-const FAV_KEY = 'voice_operator_favorites';
-const CACHE_KEY = 'voice_operator_cache';
-let history = [];
-let favorites = [];
-let lastQuery = null;
-let lastResponse = null;
+const HIST_KEY = 'voice_chat_history';
+let messages = [];
+let lastOneLine = '';
+let ttsReady = false;
 
-try {{
-    const stored = localStorage.getItem(HISTORY_KEY);
-    if (stored) history = JSON.parse(stored);
-    if (history.length > 0) renderHistory();
-}} catch(e) {{}}
+// Init
+try {{ messages = JSON.parse(localStorage.getItem(HIST_KEY) || '[]'); }} catch(e) {{}}
+if ('speechSynthesis' in window) {{ ttsReady = true; document.getElementById('diag-tts').className = 'diag-ok'; }}
+renderMessages();
 
-try {{
-    const stored = localStorage.getItem(FAV_KEY);
-    if (stored) favorites = JSON.parse(stored);
-    renderFavorites();
-    markFavButtons();
-}} catch(e) {{}}
+async function sendCommand(cmd) {{
+  cmd = (cmd || '').trim();
+  if (!cmd) return;
+  document.getElementById('cmd-input').value = '';
 
-if ('speechSynthesis' in window) {{
-    document.getElementById('tts-status').className = 'tts-indicator tts-active';
-    document.getElementById('tts-status').textContent = 'actif';
-}} else {{
-    document.getElementById('tts-status').textContent = 'indisponible';
+  // Add user message
+  addMessage('user', cmd);
+  scrollDown();
+
+  // Check backend
+  const start = Date.now();
+  try {{
+    const resp = await fetch('/voice/query?q=' + encodeURIComponent(cmd));
+    const data = await resp.json();
+    const lat = Date.now() - start;
+
+    document.getElementById('diag-backend').className = 'diag-ok';
+    document.getElementById('diag-latency').textContent = lat + 'ms';
+
+    const intent = data.intent || '?';
+    const endpoint = data.endpoint || '?';
+    const oneLine = data.one_line || '(pas de reponse)';
+    const source = data.source || '?';
+    lastOneLine = oneLine;
+
+    let meta = '<span class="monitor-badge">MONITOR-ONLY</span>';
+    meta += ' <span>' + intent + '</span>';
+    meta += ' <span style="font-family:monospace;font-size:9px">' + endpoint + '</span>';
+    meta += ' <span>' + lat + 'ms</span>';
+    if (source !== 'ok') meta += ' <span style="color:#ffa500">src:' + source + '</span>';
+
+    let actions = '<button onclick="speakLast()">🔊 Lire</button>';
+    if (data.ok === false) actions += '<button onclick="sendCommand(\'' + cmd.replace(/'/g,"\\'") + '\')">🔄 Reessayer</button>';
+
+    addMessage('bot', oneLine, meta, actions, data.ok === false ? 'msg-error' : 'msg-bot');
+
+    // TTS
+    if (ttsReady) speak(oneLine);
+
+  }} catch(e) {{
+    document.getElementById('diag-backend').className = 'diag-fail';
+    document.getElementById('diag-backend').textContent = '● backend FAIL';
+    addMessage('bot', 'Erreur: ' + (e.name === 'TypeError' ? 'Backend inaccessible' : e.message),
+               '<span>HTTP ERR</span>', '<button onclick="sendCommand(\'' + cmd.replace(/'/g,"\\'") + '\')">🔄 Reessayer</button>', 'msg-error');
+  }}
+  scrollDown();
 }}
 
-// ── Suggestions ──
-const ALL_COMMANDS = [];
-document.querySelectorAll('.voice-btn').forEach(b => {{
-    const cmd = b.getAttribute('title') || '';
-    if (cmd && !ALL_COMMANDS.includes(cmd)) ALL_COMMANDS.push(cmd);
-}});
+function addMessage(role, text, meta, actions, cls) {{
+  const div = document.createElement('div');
+  div.className = 'msg ' + (cls || (role === 'user' ? 'msg-user' : 'msg-bot'));
+  div.innerHTML = '<div>' + text.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>' +
+    (meta ? '<div class=\"msg-meta\">' + meta + '</div>' : '') +
+    (actions ? '<div class=\"msg-actions\">' + actions + '</div>' : '');
+  document.getElementById('messages').appendChild(div);
 
-document.getElementById('console-input').addEventListener('input', function() {{
-    const val = this.value.trim().toLowerCase();
-    const sug = document.getElementById('suggestions');
-    if (!val || val.length < 2) {{ sug.innerHTML = ''; return; }}
-    const matches = ALL_COMMANDS.filter(c => c.toLowerCase().includes(val)).slice(0, 6);
-    sug.innerHTML = matches.map(c =>
-        '<span class="suggestion" onclick="voiceQuery(\'' + c.replace(/'/g,"\\\\'") + '\')">' + c + '</span>'
-    ).join('');
-}});
-
-function clearConsole() {{
-    document.getElementById('console-input').value = '';
-    document.getElementById('suggestions').innerHTML = '';
+  messages.push({{ role, text, ts: Date.now() }});
+  if (messages.length > 50) messages.shift();
+  try {{ localStorage.setItem(HIST_KEY, JSON.stringify(messages)); }} catch(e) {{}}
+  // Remove empty state
+  const es = document.querySelector('.empty-state');
+  if (es) es.remove();
 }}
 
-// ── Profile switching ──
-function switchProfile(pid) {{
-    const p = {json.dumps({k: list(v["sections"]) for k,v in _VOICE_PROFILES.items()})};
-    const sections = p[pid] || [];
-    document.querySelectorAll('.voice-section').forEach(s => {{
-        s.classList.toggle('hidden', sections.length > 0 && !sections.includes(s.dataset.section));
-    }});
-    document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('profile-active'));
-    const tab = Array.from(document.querySelectorAll('.profile-tab')).find(t => t.textContent.includes(pid));
-    if (tab) tab.classList.add('profile-active');
-    localStorage.setItem('voice_profile', pid);
-}}
-
-// Restore profile
-const savedProfile = localStorage.getItem('voice_profile') || 'default';
-if (savedProfile !== 'default') switchProfile(savedProfile);
-
-// ── Presets ──
-async function runPreset(commands) {{
-    for (const cmd of commands) {{
-        await voiceQuery(cmd);
-    }}
-}}
-
-// ── Main query ──
-let activeRequests = 0;
-
-async function voiceQuery(command, retryCount) {{
-    if (!command) return;
-    command = command.trim();
-    if (!command || command === 'undefined') return;
-
-    const btns = document.querySelectorAll('.voice-btn');
-    btns.forEach(b => b.classList.add('loading'));
-    document.getElementById('console-input').value = '';
-
-    const startTime = Date.now();
-    document.getElementById('last-query').textContent = '⏳ ' + command;
-    activeRequests++;
-
-    try {{
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 15000);
-        const resp = await fetch('/voice/query?q=' + encodeURIComponent(command), {{ signal: controller.signal }});
-        clearTimeout(timeout);
-        const data = await resp.json();
-        const latency = Date.now() - startTime;
-
-        lastQuery = command;
-        lastResponse = data;
-
-        const responseEl = document.getElementById('response');
-        responseEl.classList.add('visible');
-        document.getElementById('resp-intent').textContent = 'Intent: ' + (data.intent || '?');
-        document.getElementById('resp-endpoint').textContent = 'Endpoint: ' + (data.endpoint || '?') + (data.params && Object.keys(data.params).length ? ' ' + JSON.stringify(data.params) : '');
-        document.getElementById('resp-text').textContent = data.one_line || '(pas de reponse)';
-        document.getElementById('resp-latency').textContent = latency + 'ms';
-
-        // Source badge
-        const srcBadge = document.getElementById('resp-source');
-        const src = data.source || (data.ok === false ? 'down' : 'ok');
-        srcBadge.className = 'source-badge ' + (src === 'down' ? 'source-down' : src === 'stale' ? 'source-stale' : 'source-ok');
-        srcBadge.textContent = src.toUpperCase();
-        srcBadge.style.display = 'inline-block';
-
-        // Timestamp
-        document.getElementById('resp-ts').textContent = data.generated_at ? data.generated_at.substr(11,8) : '';
-
-        // Details
-        const details = [];
-        if (data.confidence !== undefined) details.push('Confiance: ' + data.confidence + '%');
-        if (data.source_quality) details.push('Qualite: ' + data.source_quality);
-        if (data.pipeline_state) details.push('Pipeline: ' + data.pipeline_state);
-        document.getElementById('resp-detail').textContent = details.join(' · ');
-
-        // Retry button
-        document.getElementById('resp-retry').style.display = (data.ok === false || data.source === 'down') ? 'inline-block' : 'none';
-
-        // Cache valid result
-        if (data.ok !== false && data.one_line) {{
-            const cache = {{}};
-            try {{ cache = JSON.parse(localStorage.getItem(CACHE_KEY) || '{{}}'); }} catch(e) {{}}
-            cache[data.intent || command] = {{ ts: Date.now(), one_line: data.one_line }};
-            localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-        }}
-
-        // History
-        history.unshift({{ ts: new Date().toISOString(), command: command, intent: data.intent, one_line: data.one_line, latency: latency }});
-        if (history.length > 50) history.length = 50;
-        localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-        renderHistory();
-
-        // TTS
-        if (document.getElementById('tts-status').classList.contains('tts-active') && data.one_line) {{
-            speak(data.one_line);
-        }}
-
-        document.getElementById('last-query').textContent = '✓ ' + command;
-    }} catch(e) {{
-        const latency = Date.now() - startTime;
-        document.getElementById('resp-text').textContent = 'Erreur: ' + (e.name === 'AbortError' ? 'Timeout (15s)' : e.message);
-        document.getElementById('response').classList.add('visible');
-        document.getElementById('resp-latency').textContent = latency + 'ms';
-        document.getElementById('resp-source').className = 'source-badge source-down';
-        document.getElementById('resp-source').textContent = 'DOWN';
-        document.getElementById('resp-retry').style.display = 'inline-block';
-        document.getElementById('last-query').textContent = '✗ ' + command;
-    }}
-
-    activeRequests--;
-    btns.forEach(b => b.classList.remove('loading'));
-}}
-
-function retryLast() {{
-    if (lastQuery) voiceQuery(lastQuery, true);
-}}
-
-function replayLast() {{
-    if (lastResponse && lastResponse.one_line && document.getElementById('tts-status').classList.contains('tts-active')) {{
-        speak(lastResponse.one_line);
-    }}
+function renderMessages() {{
+  if (!messages.length) return;
+  document.querySelector('.empty-state')?.remove();
+  messages.forEach(m => {{
+    const div = document.createElement('div');
+    div.className = 'msg ' + (m.role === 'user' ? 'msg-user' : 'msg-bot');
+    div.innerHTML = '<div>' + (m.text||'').replace(/</g,'&lt;') + '</div>';
+    document.getElementById('messages').appendChild(div);
+  }});
+  scrollDown();
 }}
 
 function speak(text) {{
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'fr-FR'; u.rate = 1.1; u.pitch = 1.0;
-    window.speechSynthesis.speak(u);
+  if (!ttsReady) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 1.1;
+  window.speechSynthesis.speak(u);
 }}
 
-// ── Favorites ──
-function toggleFavorite(command, label) {{
-    const idx = favorites.findIndex(f => f.command === command);
-    if (idx >= 0) {{ favorites.splice(idx, 1); }}
-    else {{ favorites.push({{ command: command, label: label }}); if (favorites.length > 10) favorites.shift(); }}
-    localStorage.setItem(FAV_KEY, JSON.stringify(favorites));
-    renderFavorites(); markFavButtons();
+function speakLast() {{ if (lastOneLine) speak(lastOneLine); }}
+function stopTTS() {{ window.speechSynthesis.cancel(); }}
+function clearChat() {{
+  document.getElementById('messages').innerHTML = '<div class="empty-state">Historique efface.</div>';
+  messages = [];
+  try {{ localStorage.removeItem(HIST_KEY); }} catch(e) {{}}
 }}
-
-function renderFavorites() {{
-    const section = document.getElementById('favorites');
-    const buttons = document.getElementById('fav-buttons');
-    const empty = document.getElementById('fav-empty');
-    if (favorites.length === 0) {{ section.classList.remove('has-favs'); empty.style.display = 'block'; return; }}
-    section.classList.add('has-favs'); empty.style.display = 'none';
-    buttons.innerHTML = favorites.map(f =>
-        '<button class="voice-btn fav" onclick="voiceQuery(\'' + f.command.replace(/'/g,"\\\\'") + '\')" oncontextmenu="toggleFavorite(\'' + f.command.replace(/'/g,"\\\\'") + '\',\'' + (f.label||f.command).replace(/'/g,"\\\\'") + '\');return false" title="Clic: executer | Clic droit: retirer">' +
-        '<span class="star">⭐</span>' + (f.label||f.command) + '</button>'
-    ).join('');
+function scrollDown() {{
+  const m = document.getElementById('messages');
+  setTimeout(() => m.scrollTop = m.scrollHeight, 50);
 }}
-
-function markFavButtons() {{
-    document.querySelectorAll('.voice-btn:not(.fav)').forEach(btn => {{
-        const cmd = btn.getAttribute('onclick') || '';
-        const match = cmd.match(/voiceQuery\\('(.+?)'\\)/);
-        if (match && favorites.some(f => f.command === match[1])) {{
-            btn.classList.add('fav');
-            if (!btn.querySelector('.star')) {{ const s = document.createElement('span'); s.className='star'; s.textContent='⭐'; btn.appendChild(s); }}
-        }}
-    }});
-}}
-
-// Right-click to toggle favorite
-document.addEventListener('DOMContentLoaded', function() {{
-    setTimeout(function() {{
-        document.querySelectorAll('.voice-btn').forEach(function(btn) {{
-            if (btn.closest('#fav-buttons')) return;
-            btn.addEventListener('contextmenu', function(e) {{
-                e.preventDefault();
-                const match = (btn.getAttribute('onclick')||'').match(/voiceQuery\\('(.+?)'\\)/);
-                if (match) toggleFavorite(match[1], btn.textContent.replace('⭐','').trim());
-            }});
-        }});
-    }}, 200);
-}});
-
-// ── History ──
-function renderHistory() {{
-    const area = document.getElementById('history-area');
-    const list = document.getElementById('history-list');
-    if (history.length === 0) {{ area.style.display = 'none'; return; }}
-    area.style.display = 'block';
-    list.innerHTML = history.slice(0, 20).map(h => {{
-        const time = h.ts ? h.ts.substr(11,8) : '';
-        const lat = h.latency ? ' <span style=\"color:#444\">' + h.latency + 'ms</span>' : '';
-        return '<div class="history-item" onclick="voiceQuery(\'' + h.command.replace(/'/g,"\\\\'") + '\')" title="Rejouer">' +
-               '<span class="history-time">' + time + '</span>' + h.command + lat + ' → ' + (h.one_line||'').substr(0,100) + '</div>';
-    }}).join('');
-}}
-
-// Keyboard shortcuts
-document.addEventListener('keydown', function(e) {{
-    if (e.key === 'Escape') {{
-        window.speechSynthesis.cancel();
-        document.getElementById('last-query').textContent = '⏹ TTS stoppé';
-    }}
-    if (e.key === '/' && document.activeElement !== document.getElementById('console-input')) {{
-        e.preventDefault();
-        document.getElementById('console-input').focus();
-    }}
-    if (e.ctrlKey && e.key === 'k') {{
-        e.preventDefault();
-        clearConsole();
-        document.getElementById('console-input').focus();
-    }}
-}});
 </script>
 </body>
 </html>"""
