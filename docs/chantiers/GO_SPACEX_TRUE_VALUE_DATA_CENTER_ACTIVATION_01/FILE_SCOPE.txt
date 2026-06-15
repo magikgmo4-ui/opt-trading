@@ -1,0 +1,4 @@
+docs/chantiers/GO_SPACEX_TRUE_VALUE_DATA_CENTER_ACTIVATION_01/**
+modules/stock_true_value/dc_publisher.py
+modules/stock_true_value/production_runtime.py
+data/data_center/_contracts/producers/spacex_true_value.v1.json

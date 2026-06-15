@@ -1,17 +1,18 @@
 """Production runtime for stock_true_value — daily pipeline at 08:30 Montréal.
 
 Steps:
-  1. Live collection (Yahoo Finance) + scoring
+  1. Live collection (Yahoo Finance + SEC) + scoring
   2. Daily ranking
   3. Daily report (summary.md)
-  4. Telegram summary (optional, --telegram flag)
+  4. Data Center publish (→ data_center/views/spacex_true_value.v1/)
+  5. Telegram summary (optional, --telegram flag)
 """
 
 from __future__ import annotations
 
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -26,7 +27,6 @@ def _utc_now() -> str:
 
 
 def _montreal_date() -> str:
-    from datetime import timedelta
     dt = datetime.now(timezone.utc) - timedelta(hours=4)
     return dt.strftime("%Y-%m-%d")
 
@@ -148,9 +148,15 @@ def run_production(send_telegram_flag: bool = False) -> dict:
     ranking_path.write_text(json.dumps(ranking, indent=2))
     result["steps"]["report"] = {"ok": True, "path": str(report_path), "ranking_path": str(ranking_path)}
 
-    # Step 4: Telegram (optional)
+    # Step 4: Data Center publish
+    print("Step 4/5: Publishing to Data Center...")
+    from modules.stock_true_value.dc_publisher import publish_to_data_center
+    dc_result = publish_to_data_center()
+    result["steps"]["dc_publish"] = dc_result
+
+    # Step 5: Telegram (optional)
     if send_telegram_flag:
-        print("Step 4/4: Sending telegram summary...")
+        print("Step 5/5: Sending telegram summary...")
         ok = step_telegram(report)
         result["steps"]["telegram"] = {"ok": ok, "sent": ok}
     else:
@@ -167,4 +173,5 @@ if __name__ == "__main__":
     print(f"\n{'PASS' if result['all_ok'] else 'FAIL'} — "
           f"Collect={result['steps']['collect']['items']} items, "
           f"Ranked={result['steps']['ranking']['tickers_ranked']}, "
+          f"DC={result['steps']['dc_publish'].get('items', 0)} published, "
           f"Telegram={'sent' if result['steps']['telegram'].get('sent') else 'skipped'}")
