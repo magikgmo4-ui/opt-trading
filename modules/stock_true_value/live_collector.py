@@ -1,7 +1,7 @@
-"""Live collector framework for stock_true_value — Yahoo Finance + SEC EDGAR.
+"""Live collector framework for stock_true_value — Yahoo + SEC + ETF Flows.
 
-Activation: Yahoo Finance (Phase 6) + SEC EDGAR (Remediation R2).
-Other sources (ETF, Analyst) are stubs to be activated later.
+Activation: Yahoo Finance (Phase 6) + SEC EDGAR (Remediation R2) + ETF Flows (G3).
+Analyst Revisions still stub.
 """
 
 from __future__ import annotations
@@ -22,9 +22,12 @@ WATCHLIST = ["SPCX", "NVDA", "AVGO", "AMD", "MRVL", "MU", "PLTR", "RKLB", "ASTS"
 COLLECTOR_STATUS = {
     "yahoo_finance": "active",
     "sec_edgar": "active",
-    "etf_flows": "stub",
+    "etf_flows": "active",
     "analyst_revisions": "stub",
 }
+
+# Space-relevant ETFs for flow signal
+ETF_WATCHLIST = ["ARKX", "UFO", "QQQ", "XAR", "ITA"]
 
 
 def _utc_now() -> str:
@@ -95,7 +98,26 @@ def _sec_signal(filings: dict) -> float:
     return signal
 
 
-def _price_to_raw_scores(quote: dict, sec_signal: float | None = None) -> dict:
+def _etf_flows_signal() -> float:
+    """Compute a flow signal from space-relevant ETF daily changes.
+    
+    Fetches 5 ETFs, averages their daily change %, maps to 0-100.
+    """
+    flows = []
+    for etf in ETF_WATCHLIST:
+        q = _yahoo_quote(etf)
+        if q.get("ok") and q.get("price") and q.get("previous_close"):
+            change = (q["price"] - q["previous_close"]) / q["previous_close"] * 100
+            flows.append(change)
+    if not flows:
+        return 50.0
+    avg_change = sum(flows) / len(flows)
+    # Map avg change % to 0-100: -5% → 25, 0% → 50, +5% → 75, +10% → 100
+    signal = min(100, max(0, 50 + avg_change * 5))
+    return signal
+
+
+def _price_to_raw_scores(quote: dict, sec_signal: float | None = None, etf_signal: float | None = None) -> dict:
     """Convert Yahoo quote + optional SEC signal to raw scores.
     
     SEC signal enriches fundamental_score when available.
@@ -106,10 +128,12 @@ def _price_to_raw_scores(quote: dict, sec_signal: float | None = None) -> dict:
 
     sec_boost = sec_signal if sec_signal is not None else 50.0
 
+    etf_boost = etf_signal if etf_signal is not None else 50.0
+
     return {
         "fundamental_score": min(100, max(0, (50 + change_pct * 2) * 0.6 + sec_boost * 0.4)),
         "valuation_score": min(100, max(0, 50 + (1 - price / 500 if price else 50))),
-        "flow_score": 50.0,
+        "flow_score": etf_boost,
         "speculation_score": 50.0,
         "surprise_score": min(100, max(0, 50 + abs(change_pct) * 2)),
         "catalyst_score": 50.0,
@@ -143,6 +167,10 @@ def collect_and_score(dry_run: bool = False) -> dict:
     sec_signal_value = _sec_signal(sec_filings) if sec_filings.get("ok") else None
     print(f"  SEC EDGAR: {sec_filings.get('filing_count', 0)} filings, signal={sec_signal_value:.0f}" if sec_signal_value else "  SEC EDGAR: fetch failed")
 
+    # Fetch ETF flows signal (once for all tickers)
+    etf_signal_value = _etf_flows_signal()
+    print(f"  ETF Flows: signal={etf_signal_value:.0f}")
+
     for ticker in WATCHLIST:
         quote = _yahoo_quote(ticker)
         if not quote.get("ok"):
@@ -153,12 +181,12 @@ def collect_and_score(dry_run: bool = False) -> dict:
 
         # Apply SEC signal only to SPCX
         ticker_sec = sec_signal_value if ticker == "SPCX" else None
-        raw = _price_to_raw_scores(quote, ticker_sec)
+        raw = _price_to_raw_scores(quote, ticker_sec, etf_signal_value)
         snapshot = compute_score_snapshot(
             ticker=ticker,
             universe="spacex_watchlist",
             raw_scores=raw,
-            source_health_payload={"required_sources_available": 2 if ticker == "SPCX" else 1,
+            source_health_payload={"required_sources_available": 3 if ticker == "SPCX" else 2,
                                    "optional_sources_available": 0,
                                    "missing_sources": [], "stale_sources": [], "data_conflicts": []},
         )
