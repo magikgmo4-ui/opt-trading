@@ -28,11 +28,58 @@ INTENT_PATTERNS: list[tuple[list[str], str, str, dict]] = [
     (["etat systeme", "status systeme", "systeme", "etat du systeme", "health", "sante"],
      "system_status", "/read/system", {}),
 
+    # ── Trader commands — MUST come before generic single-word patterns ──
+    (["briefing matin", "briefing", "morning brief", "point matin"],
+     "morning_brief", "/read/composite", {"type": "morning_brief"}),
+
+    (["vue marche", "market view", "snapshot marche", "marches", "tous les marches"],
+     "market_view", "/read/composite", {"type": "market_view"}),
+
+    (["nouveautes", "quoi de neuf", "derniers changements", "updates"],
+     "whats_new", "/read/composite", {"type": "whats_new"}),
+
+    (["spcx complet", "spcx full", "spcx detail", "tout spcx"],
+     "spcx_full", "/read/composite", {"type": "spcx_full"}),
+
+    (["spcx risque", "spcx risk", "spcx danger", "risque spcx"],
+     "spcx_risk", "/read/composite", {"type": "spcx_risk"}),
+
+    (["gold complet", "gold full", "gold detail", "tout gold", "or complet"],
+     "gold_full", "/read/composite", {"type": "gold_full"}),
+
+    (["gold danger", "gold risk", "gold risque", "danger gold", "danger or"],
+     "gold_danger", "/read/composite", {"type": "gold_danger"}),
+
+    (["top setups", "meilleurs setups", "top scores", "best setups"],
+     "top_setups", "/read/composite", {"type": "top_setups"}),
+
+    (["watchlist ia", "ia watchlist", "ai watchlist", "watchlist ai"],
+     "watchlist_ia", "/read/composite", {"type": "watchlist_ia"}),
+
+    (["watchlist spatial", "spatial watchlist", "space watchlist", "watchlist space", "spatiale"],
+     "watchlist_spatial", "/read/composite", {"type": "watchlist_spatial"}),
+
+    (["setups a+", "a+", "grade a+", "setups a plus", "meilleurs setups a+"],
+     "a_plus_setups", "/read/composite", {"type": "a_plus_setups"}),
+
+    (["risques", "risque", "danger", "alertes risque", "risk"],
+     "risks", "/read/composite", {"type": "risks"}),
+
+    (["urgences", "urgent", "critique"],
+     "urgencies", "/read/composite", {"type": "urgencies"}),
+
+    (["changements"],
+     "whats_new", "/read/composite", {"type": "whats_new"}),
+
+    # ── SPCX — generic (AFTER specific compound patterns) ──
+    (["resume spcx", "spcx resume", "spcx summary", "spcx", "spacex", "space x"],
+     "spcx_summary", "/read/spacex", {}),
+
     # ── Alerts ──
     (["alertes telegram", "alertes", "alerts", "alerte", "dernieres alertes", "notifications"],
      "alerts", "/read/alerts", {"limit": 10}),
 
-    (["alertes critiques", "critiques", "alertes urgentes", "urgences"],
+    (["alertes critiques", "critiques", "alertes urgentes"],
      "alerts_critical", "/read/alerts", {"limit": 50}),
 
     # ── Setups ──
@@ -93,47 +140,7 @@ INTENT_PATTERNS: list[tuple[list[str], str, str, dict]] = [
      "report", "/read/report", {}),
 
     (["rapport", "report"],
-     "report", "/read/report", {}),
-
-    # ── Trader commands — composite queries ──
-    (["briefing matin", "briefing", "morning brief", "matin", "point matin"],
-     "morning_brief", "/read/composite", {"type": "morning_brief"}),
-
-    (["vue marche", "market view", "snapshot marche", "marches", "tous les marches"],
-     "market_view", "/read/composite", {"type": "market_view"}),
-
-    (["nouveautes", "quoi de neuf", "changements", "derniers changements", "updates", "changements"],
-     "whats_new", "/read/composite", {"type": "whats_new"}),
-
-    (["risques", "risque", "danger", "alertes risque", "risk"],
-     "risks", "/read/composite", {"type": "risks"}),
-
-    (["urgences", "urgent", "critique", "urgences"],
-     "urgencies", "/read/composite", {"type": "urgencies"}),
-
-    (["top setups", "meilleurs setups", "top scores", "best setups"],
-     "top_setups", "/read/composite", {"type": "top_setups"}),
-
-    (["setups a+", "a+", "grade a+", "setups a plus", "meilleurs setups a+"],
-     "a_plus_setups", "/read/composite", {"type": "a_plus_setups"}),
-
-    (["spcx complet", "spcx full", "spcx detail", "tout spcx"],
-     "spcx_full", "/read/composite", {"type": "spcx_full"}),
-
-    (["spcx risque", "spcx risk", "spcx danger", "risque spcx"],
-     "spcx_risk", "/read/composite", {"type": "spcx_risk"}),
-
-    (["gold complet", "gold full", "gold detail", "tout gold", "or complet"],
-     "gold_full", "/read/composite", {"type": "gold_full"}),
-
-    (["gold danger", "gold risk", "gold risque", "danger gold", "danger or"],
-     "gold_danger", "/read/composite", {"type": "gold_danger"}),
-
-    (["watchlist ia", "ia watchlist", "ai watchlist", "watchlist ai"],
-     "watchlist_ia", "/read/composite", {"type": "watchlist_ia"}),
-
-    (["watchlist spatial", "spatial watchlist", "space watchlist", "watchlist space", "spatiale"],
-     "watchlist_spatial", "/read/composite", {"type": "watchlist_spatial"}),
+      "report", "/read/report", {}),
 ]
 
 
