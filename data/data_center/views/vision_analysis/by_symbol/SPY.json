@@ -975,5 +975,99 @@
       "summary_json": "2026-06-11_00-53-08",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-11_00-52-53.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_040627_SPY_1h",
+    "screen_type": "DASHBOARD_MACRO",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:06:25-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-06-18",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 724.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 726.0,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 758.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 760.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée longue si rupture avec volume > 758-760, sinon surveiller rebond support.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassure ferme sous 724-726",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Marché avec forte volatilité récente et rebond actuel.  \n- Structure mixte, consolidation après une baisse rapide.  \n- Zones clés à suivre pour confirmation de reprise ou poursuite baissière.  \n\nB) Chart 1 (haut-gauche) : SPY 1h  \n- Tendance : court terme haussière sur le dernier rebond, mais structure générale en retournement.  \n- Structure : succession de HH/HL sur le premier plan, puis LH/LL après le pic début juin, suivi d’un rebond formant un HL partiel.  \n- Zones clés : support majeur vers 724-726, résistance vers 758-760 (> ancien haut).  \n- Scénario : Si le prix franchit 758-760 avec volume, continuation haussière probable. Sinon, risque de retour vers 724-726.  \n- Invalidation : cassure sous 724-726 annule le scénario haussier, signalant un marché baissier renforcé.  \n\nC) Chart 2 (haut-droit) : inconnu (symbole/timeframe non lisible)  \n\nD) Chart 3 (bas-gauche) : inconnu (symbole/timeframe non lisible)  \n\nE) Chart 4 (bas-droit) : inconnu (symbole/timeframe ",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-06-18",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-15_00-06-02.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041115_SPY_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "SPY",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:11:13-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-10-30",
+    "signals": [
+      {
+        "type": "analysis_note",
+        "value": "acheter sur support 725-728 avec prise de bénéfice partielle proche résistance, surveiller cassure résistance pour ajout",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture sous 725",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière claire jusqu’au début juin avec une série de HH (Higher Highs) et HL (Higher Lows).  \n- Correction significative en début juin confirmée par un retournement de structure (LH/LL) jusqu’à un pivot bas important.  \n- Reprise haussière en cours avec tentative de retour vers des résistances récentes, mais structure incertaine à court terme.\n\nB) Chart unique (SPY 1h) :  \n- Structure : initialement haussière (HH/HL) sur mai, inversion en début juin avec création de basse locale (LL) puis rebond fort.  \n- Supports clés : zone 725-728 (point bas récent fin correction).  \n- Résistances clés : 745-748 (ancien sommet avant chute).  \n- Scénario principal : poursuite du rebond vers résistance 745-748, confirmation haussière si franchissement avec nouveau HH.  \n- Invalidation : casse en clôture 725-728 signifierait reprise de pression vendeuse et risque de nouvelle baisse.\n\nC) DeskPro  \n{\"run_id\":\"20240613_1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"neutre-haussier\",",
+    "symbols_found": [
+      "SPY"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-10-30",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_SPY_1h_2026-06-15_00-10-14.png"
+    }
   }
 ]

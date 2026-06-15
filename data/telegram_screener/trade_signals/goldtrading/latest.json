@@ -1,36 +1,22 @@
 [
   {
     "contract": "telegram_trade_signal.v1",
-    "id": "trade_goldtrading_55993_2026-06-04T04:07:39+00:00",
+    "id": "trade_goldtrading_56345_2026-06-15T05:57:14+00:00",
     "source": "telegram_screener_bridge",
     "channel": "goldtrading",
-    "parsed_at": "2026-06-04T04:07:39+00:00",
-    "produced_at": "2026-06-06T11:30:56.353963+00:00",
-    "pair": "XAUUSDUSDT",
+    "parsed_at": "2026-06-15T05:57:14+00:00",
+    "produced_at": "2026-06-15T07:00:14.546309+00:00",
+    "pair": "XAUUSD",
     "asset": "XAUUSD",
     "direction": "LONG",
-    "entry_price": 4450.0,
-    "sl": null,
-    "tp": null,
-    "tps": [],
+    "entry_price": 4306.0,
+    "sl": 4300.0,
+    "tp": 4325.0,
+    "tps": [
+      4325.0,
+      4331.0
+    ],
     "leverage": null,
-    "raw_text": "Zone BUY OB BUY \n\n@  4450 - 4447 - 4443 \u2705\n\nMendekati 10 pips boleh cicil \u2705"
-  },
-  {
-    "contract": "telegram_trade_signal.v1",
-    "id": "trade_goldtrading_56026_2026-06-05T00:10:42+00:00",
-    "source": "telegram_screener_bridge",
-    "channel": "goldtrading",
-    "parsed_at": "2026-06-05T00:10:42+00:00",
-    "produced_at": "2026-06-06T11:30:56.360142+00:00",
-    "pair": "XAUUSDUSDT",
-    "asset": "XAUUSD",
-    "direction": "LONG",
-    "entry_price": null,
-    "sl": null,
-    "tp": null,
-    "tps": [],
-    "leverage": null,
-    "raw_text": "\ud83d\udea8 \ud83d\udd24\ud83d\udd24\ud83d\udd24\ud83d\udd24\ud83d\udd24 \ud83d\udd24\ud83d\udd24\ud83d\udd24\ud83d\udd24\ud83d\udd24\ud83d\udd24\ud83d\udea8\n\n\ud83d\udd18**BITOREX VIP SCALPING DAILY REPORT**\ud83d\udd18\n\n\ud83d\uddd3 Kamis, 4 Juni 2026\n\n\ud83d\udcc8Hasil Rangkuman Profit :\n\n\n\ud83d\udfe1SEL GOLD +30 PIPS \u2705\u00a0 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +40 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1SEL GOLD +90 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +110 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1SEL GOLD +30 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1SEL GOLD +30 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1SEL GOLD -90 PIPS \ud83d\ude2e \ud83d\udc51\n\ud83d\udfe1SEL GOLD +30 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +30 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +40 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +50 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +40 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +50 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1SEL GOLD +40 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +120 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1SEL GOLD +60 PIPS \u2705 \ud83d\udc51\n\ud83d\udfe1BUY GOLD +40 PIPS \u2705 \ud83d\udc51\n\n\n\n\n\ud83e\udd11 **TOTAL PROFIT : +740 PIPS! **\ud83d\udcc8\n\n\n\u26a1\u26a1\u26a1\u26a1\u26a1\u26a1\u26a1\ud83d\ude09\ud83d\ude0c\ud83d\ude07\ud83d\ude42\n\n\n\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\n\n\nDapatkan insight trading live dari tim profesional Bitorex secara \ud83d\udd20\ud83d\udd20\ud83d\udd20\ud83d\udd20\ud83d\udd20\ud83d\udd20 \nmaksimalkan peluang **PROFIT **kamu di pasar setiap hari.\n\nLangsung hubungi @BitorexAdmin untuk bergabung bersama kami! \u2709\ufe0f"
+    "raw_text": "Siap siap BUY 06 nya guys \u2705\n\nBuy @ 4306 - 4301\n\nSL 4300\n\nTP 4325\nTP 4331"
   }
 ]

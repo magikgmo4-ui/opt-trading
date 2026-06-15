@@ -1,7 +1,7 @@
 {
   "contract": "telegram_trade_archive.v1",
-  "produced_at": "2026-06-11T10:00:13.731983+00:00",
-  "total_signals": 226,
+  "produced_at": "2026-06-15T07:00:13.712439+00:00",
+  "total_signals": 228,
   "channels": {
     "AplusFxSignal": {
       "channel": "AplusFxSignal",
@@ -416,6 +416,15 @@
         "XAUUSD"
       ]
     },
+    "goldtrading": {
+      "channel": "goldtrading",
+      "signals": 1,
+      "first_ts": "2026-06-15T05:57:14+00:00",
+      "last_ts": "2026-06-15T05:57:14+00:00",
+      "assets": [
+        "XAUUSD"
+      ]
+    },
     "indextradingnitin": {
       "channel": "indextradingnitin",
       "signals": 1,
@@ -517,9 +526,9 @@
     },
     "xauusd": {
       "channel": "xauusd",
-      "signals": 1,
+      "signals": 2,
       "first_ts": "2026-06-10T07:56:44+00:00",
-      "last_ts": "2026-06-10T07:56:44+00:00",
+      "last_ts": "2026-06-11T13:31:52+00:00",
       "assets": [
         "XAUUSD"
       ]

@@ -4293,5 +4293,211 @@
       "summary_json": "2026-06-11_05-08-48",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-11_05-08-36.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_032936_DOGEUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "DOGEUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-14T23:29:34-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-14_23-29-28",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 0.086,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "support_level",
+        "value": 0.0865,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 0.089,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 0.0895,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Entrée longue sous confirmation de maintien au-dessus de 0.0865, viser 0.0895, stop sous 0.0860",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture en 15m sous 0.0860",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière sur la majorité du graphique avec structure de Lower High (LH) et Lower Low (LL).  \n- Fort rebond à droite avec cassure nette de résistance, initiant un potentiel retournement vers une tendance haussière.  \n- Zone de support récente en 0.0860-0.0865 et résistance clé à franchir vers 0.0890-0.0895 pour confirmer le bullish.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre initialement une structure baissière avec des creux et sommets dégressifs (LL/LH). Un repli s’est formé autour de 0.0860, validé par un volume en hausse lors de la reprise. La dernière impulsion est forte, marquant une cassure claire de la résistance vers 0.0890, zone à surveiller pour confirmer le changement de polarité. Le scénario prioritaire reste donc un possible retournement haussier en cas de maintien au-dessus du support 0.0860, avec invalidation sous ce niveau.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier potentiel\",\"structure\":\"LH/LL",
+    "symbols_found": [
+      "DOGEUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-14_23-29-28",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-14_23-29-13.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_043121_DOGEUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "DOGEUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T00:31:20-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-31-12",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 0.086,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 0.089,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 0.0895,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Acheter sur retour vers support 0.0860, viser 0.0895 puis plus haut",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture sous 0.0860 avec volume confirmé",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance haussière nette sur le dernier segment après un pullback correctif.  \n- Structure récente de hauts et bas haussiers (HL, HH) indiquant un potentiel de continuation.  \n- Zone clé de support visible autour de 0.0860, résistances proches entre 0.0890-0.0895.  \n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe marché montre une reprise haussière importante avec un gap-haussier et une forte impulsion acheteuse. La structure est claire : après un creux inférieur (HL) marqué, le prix a formé un sommet plus haut (HH) avant de consolider près du niveau 0.089. La zone autour de 0.0860 sert de support solide où les acheteurs ont repris la main. À court terme, une cassure au-dessus de 0.0895 validerait la poursuite haussière, tandis qu’une rechute sous 0.0860 invaliderait ce biais haussier.\n\nC) DeskPro  \n{\"run_id\":\"auto_001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier\",\"structure\":\"HL, HH\",\"supports\":[\"0.0860\"],\"resistances\":[\"0.0890\",\"0.0895\"],\"plan\":\"Acheter sur retour vers s",
+    "symbols_found": [
+      "DOGEUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-31-12",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-15_00-31-00.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_053248_DOGEUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "DOGEUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T01:32:46-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_01-32-41",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 0.0865,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 0.089,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "achat au franchissement confirmé de 0.0890 avec stop sous 0.0865",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour sous 0.0865 sur forte dynamique baissière",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance dominante courte terme haussière après un fort rebond depuis un plus bas récent.  \n- Structure récente montre bas plus bas (LL) suivi d’un retour rapide vers un plus haut temporaire (HH local).  \n- Zone clé support autour de 0.0865, résistance importante proche de 0.0890.\n\nB) Chart unique (DOGEUSDT.P 15m):  \nOn observe une structure baissière initiale marquée par une série de plus bas (LL) et plus bas secondaires. Puis, une accélération haussière nette amène un nouveau plus haut local (HH) après un volume en forte hausse. Le prix reste actuellement sous résistance notable vers 0.0890, qui a été testée plusieurs fois sans franchissement durable. Le support immédiat valide est à 0.0865, point d’invalidation en cas de cassure significative. Scénario privilégié : poursuite haussière au-dessus de 0.0890 avec confirmation de breakout, sinon consolidation latérale.\n\nC) DeskPro  \n{\"run_id\":\"auto1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"haussier court terme\",\"structure",
+    "symbols_found": [
+      "DOGEUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_01-32-41",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-15_01-32-29.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_063532_DOGEUSDT.P_15m",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "DOGEUSDT.P",
+    "timeframe": "15m",
+    "analysis_ts": "2026-06-15T02:35:31-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_02-35-24",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 0.088,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 0.089,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "acheter sur support 0.0880 ou breakout 0.0890, stop sous 0.0880",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "cassage sous 0.0880",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance récente haussière forte après un pullback marqué sur le 15m  \n- Structure mixte, avec HH/HL depuis le rebond et une zone de résistance latérale actuelle  \n- Scénario principal bullish tant que le support 0.0880 est maintenu, invalidation sous ce niveau\n\nB) Chart unique (DOGEUSDT.P 15m):  \nLe graphique montre une phase de correction baissière puis un rebond net formant une série de Higher Highs (HH) et Higher Lows (HL), confirmant une reprise haussière. Le prix consolide près d’une résistance autour de 0.0890, zone clé à surveiller. Le support important se situe vers 0.0880, maintenu plusieurs fois. La structure récente est haussière mais fragile avec risque de repli si le support cède. L’action est à privilégier en achat à l’approche du support ou en breakout au-dessus de la résistance 0.0890. Invalidation du scénario haussier si cassure sous 0.0880.\n\nC) DeskPro  \n{\"run_id\":\"20240615_0635\",\"charts\":[{\"slot\":\"single\",\"bias\":\"bullish\",\"structure\":\"HH/HL\",\"su",
+    "symbols_found": [
+      "DOGEUSDT.P"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_02-35-24",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_DOGEUSDT.P_15m_2026-06-15_02-35-12.png"
+    }
   }
 ]

@@ -4,7 +4,7 @@
   "total": 5,
   "signals": [
     {
-      "id": "tg_2081_20260611T100009",
+      "id": "tg_2081_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": null,
@@ -14,7 +14,7 @@
       "parsed_at": "2026-06-10T15:58:35+00:00"
     },
     {
-      "id": "tg_2080_20260611T100009",
+      "id": "tg_2080_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": null,
@@ -24,7 +24,7 @@
       "parsed_at": "2026-06-10T15:57:04+00:00"
     },
     {
-      "id": "tg_2079_20260611T100009",
+      "id": "tg_2079_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": null,
@@ -34,7 +34,7 @@
       "parsed_at": "2026-06-10T15:56:19+00:00"
     },
     {
-      "id": "tg_2078_20260611T100009",
+      "id": "tg_2078_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": null,
@@ -44,7 +44,7 @@
       "parsed_at": "2026-06-10T15:55:16+00:00"
     },
     {
-      "id": "tg_2077_20260611T100009",
+      "id": "tg_2077_20260615T070009",
       "pair": "XAU/USD",
       "direction": "SHORT",
       "entry_price": 4130.0,
@@ -54,5 +54,5 @@
       "parsed_at": "2026-06-10T15:37:30+00:00"
     }
   ],
-  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+  "produced_at": "2026-06-15T07:00:09.411096+00:00"
 }

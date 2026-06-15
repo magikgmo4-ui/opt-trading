@@ -216,5 +216,52 @@
       "summary_json": "2026-06-05_10-27-33",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:VIX_1h_2026-06-05_10-27-22.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041546_TVC:VIX_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "TVC:VIX",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:15:43-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-15-36",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 17.5,
+        "confidence": 0.7,
+        "note": "s 17.50"
+      },
+      {
+        "type": "support_level",
+        "value": 17.5,
+        "confidence": 0.7,
+        "note": "s 17.50"
+      },
+      {
+        "type": "support_level",
+        "value": 20.0,
+        "confidence": 0.7,
+        "note": "s 20"
+      },
+      {
+        "type": "support_level",
+        "value": "23.50.",
+        "confidence": 0.7,
+        "note": "s 23.50."
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance claire de moyen terme baissière après un pic volatil début juin.  \n- Structure récente en LH/LL indiquant une pression vendeuse dominante.  \n- Zone clé de support vers 17.50 USD à surveiller pour un possible rebond ou cassure.\n\nB) Chart unique (TVC:VIX 1h):  \nLe VIX montre une forte impulsion haussière autour du 5 juin suivie d’un sommet proche de 23.50. Depuis, la tendance se retourne clairement à la baisse avec une série de plus bas et plus bas (LH/LL). Le prix teste actuellement un support important vers 17.50 USD. Une cassure sous ce niveau confirmerait la poursuite de la tendance baissière. Un rebond pourrait temporairement ramener le prix vers la zone de résistance vers 20-21 USD. Invalidation du biais vendeur si le VIX dépasse les récents sommets vers 23.50.\n\nC) DeskPro  \n{\"run_id\":\"1\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LH/LL\",\"supports\":[17.50],\"resistances\":[20,21,23.50],\"plan\":\"vendre sur rebond proche résistance ou à cassu",
+    "symbols_found": [
+      "TVC:VIX"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-15-36",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_TVC:VIX_1h_2026-06-15_00-15-20.png"
+    }
   }
 ]

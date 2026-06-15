@@ -874,5 +874,111 @@
       "summary_json": "2026-06-05_11-39-19",
       "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_4h_2026-06-05_11-39-03.png"
     }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041639_NYMEX:RB1!_1h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:RB1!",
+    "timeframe": "1h",
+    "analysis_ts": "2026-06-15T00:16:37-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-16-30",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 2.88,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.0,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.02,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "vendre sous 2.88 avec cible sur nouveaux plus bas. Surveiller rebond et clôture au-dessus de 3.02 pour invalidation et possible retournement.",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "clôture horaire au-dessus de 3.02",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière nette sur le timeframe 1h avec une série de Lower Highs (LH) et Lower Lows (LL) bien marqués.  \n- Structure fragile, les tentatives de rebond sont faibles, la pression vendeuse domine.  \n- Zones clés à surveiller : support vers 2.88 (plus bas actuel), résistance autour de 3.00-3.02 (dernier top local).\n\nB) Chart unique (NYMEX:RB1! 1h) :  \nLe marché forme clairement une structure baissière avec des Lower Highs (LH) et des Lower Lows (LL) successifs. Le prix a cassé plusieurs supports intermédiaires et évolue actuellement proche d’un support pivot à 2.88. Ce niveau est crucial, car sa rupture ouvrirait la voie à un nouveau mouvement baissier fort. En cas de rebond, la zone 3.00-3.02 représentera une résistance à franchir pour invalider la tendance et tenter une reprise haussière (Higher Low possible). Volume en croissance lors de la baisse, ce qui confirme la force des vendeurs. Scénario principal : poursuite baissière sous 2.88. Invalidation : ret",
+    "symbols_found": [
+      "NYMEX:RB1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-16-30",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_1h_2026-06-15_00-16-15.png"
+    }
+  },
+  {
+    "input_class": "vision_analysis.v1",
+    "capture_id": "cap_20260615_041706_NYMEX:RB1!_4h",
+    "screen_type": "CHART_TECHNICAL",
+    "symbol": "NYMEX:RB1!",
+    "timeframe": "4h",
+    "analysis_ts": "2026-06-15T00:17:04-04:00",
+    "source_module": "bot_vision_step2",
+    "source_module_version": "1.0.0",
+    "freshness_state": "fresh",
+    "capture_status": "ready",
+    "run_id": "2026-06-15_00-16-57",
+    "signals": [
+      {
+        "type": "support_level",
+        "value": 2.88,
+        "confidence": 0.75,
+        "note": "support_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.1,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "resistance_level",
+        "value": 3.4,
+        "confidence": 0.75,
+        "note": "resistance_level from DeskPro chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "Vendre sous 2.88 avec cible bas historique, ou achat temporaire si rebond confirmé sur 2.88",
+        "confidence": 0.6,
+        "note": "plan from chart analysis"
+      },
+      {
+        "type": "analysis_note",
+        "value": "retour au-dessus de 3.10",
+        "confidence": 0.6,
+        "note": "invalidation from chart analysis"
+      }
+    ],
+    "analysis_summary": "A) Résumé global  \n- Tendance baissière confirmée sur le 4h avec une série de lower highs (LH) et lower lows (LL).  \n- Prix teste actuellement une zone de support clé autour de 2.88 USD, proche d’un plus bas récent.  \n- Scénario principal : poursuite de la baisse sous ce support, invalidation en cas de retour au-dessus des 3.10 USD (dernière résistance significative).\n\nB) Chart unique (NYMEX:RB1! 4h) :  \nLe graphique montre une structure baissière claire avec des plus bas et plus bas décalés (LH/LL). Le support clé à 2.88 USD est un seuil psychologique et technique. Résistances principales vers 3.10-3.15 USD et 3.40 USD. Le volume reste stable sans signe d’inversion marquée pour l’instant. Un rejet ou un rebond à ce support peut ouvrir un rebond court terme, mais la tendance dominante reste baissière. Une cassure nette du support entraînerait une accélération vers des plus bas historiquement bas.\n\nC) DeskPro  \n{\"run_id\":\"001\",\"charts\":[{\"slot\":\"single\",\"bias\":\"baissier\",\"structure\":\"LL",
+    "symbols_found": [
+      "NYMEX:RB1!"
+    ],
+    "refs": {
+      "summary_json": "2026-06-15_00-16-57",
+      "source_screenshot": "/srv/sftp/shared_files/shared/vision_inbox/screen_tradingview_NYMEX:RB1!_4h_2026-06-15_00-16-41.png"
+    }
   }
 ]

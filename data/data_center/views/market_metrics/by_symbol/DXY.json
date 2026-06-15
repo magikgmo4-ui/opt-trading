@@ -3,7 +3,7 @@
   "input_class": "market_metrics.v1",
   "module_id": "analysis_bundles.synthetic",
   "symbol": "DXY",
-  "metrics_ts": "2026-06-11T10:00:04.431749+00:00",
+  "metrics_ts": "2026-06-15T07:00:04.154347+00:00",
   "freshness_state": "fresh",
   "provider_coverage": {
     "status": "partial",

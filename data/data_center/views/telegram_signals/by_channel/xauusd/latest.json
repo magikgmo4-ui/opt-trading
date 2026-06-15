@@ -1,10 +1,20 @@
 {
   "input_class": "telegram_signals.by_channel.v1",
   "channel": "xauusd",
-  "total": 1,
+  "total": 2,
   "signals": [
     {
-      "id": "tg_5659_20260611T100009",
+      "id": "tg_5667_20260615T070009",
+      "pair": "XAU/USD",
+      "direction": "SHORT",
+      "entry_price": 4080.0,
+      "sl": 4091.0,
+      "tp": 4070.0,
+      "confidence": "LOW",
+      "parsed_at": "2026-06-11T13:31:52+00:00"
+    },
+    {
+      "id": "tg_5659_20260615T070009",
       "pair": "XAU/USD",
       "direction": "LONG",
       "entry_price": 4184.0,
@@ -14,5 +24,5 @@
       "parsed_at": "2026-06-10T07:56:44+00:00"
     }
   ],
-  "produced_at": "2026-06-11T10:00:09.535836+00:00"
+  "produced_at": "2026-06-15T07:00:09.411096+00:00"
 }

@@ -5,7 +5,7 @@
     "source": "telegram_screener_bridge",
     "channel": "USDJPY_XAUUSD_SIGNALS",
     "parsed_at": "2026-06-10T15:37:30+00:00",
-    "produced_at": "2026-06-11T10:00:14.032051+00:00",
+    "produced_at": "2026-06-15T07:00:14.049576+00:00",
     "pair": "XAUUSD",
     "asset": "XAUUSD",
     "direction": "SHORT",

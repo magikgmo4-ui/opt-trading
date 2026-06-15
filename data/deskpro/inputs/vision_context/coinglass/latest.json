@@ -2,9 +2,9 @@
   "input_class": "vision_context.coinglass.v1",
   "symbol": "ETHUSDT.P",
   "source_id": "coinglass_headless_bot",
-  "capture_id": "cg_ls_ratio_coinglass_ETHUSDT.P_20260611_094720",
-  "screenshot_ts": "2026-06-11T09:47:19.391Z",
-  "analysis_ts": "2026-06-11T09:47:20Z",
+  "capture_id": "cg_ls_ratio_coinglass_ETHUSDT.P_20260615_065358",
+  "screenshot_ts": "2026-06-15T06:53:57.474Z",
+  "analysis_ts": "2026-06-15T06:53:58Z",
   "freshness_state": "fresh",
   "screen_type": "LS_RATIO_COINGLASS",
   "coinglass_slug": "LongShortRatio",
@@ -28,7 +28,7 @@
   "warnings": [],
   "refs": {
     "capture_source": "coinglass",
-    "image_ref": "/srv/sftp/shared_files/shared/vision_inbox/screen_coinglass_ETHUSDT.P_NOW_2026-06-11_05-46-57.png",
+    "image_ref": "/srv/sftp/shared_files/shared/vision_inbox/screen_coinglass_ETHUSDT.P_NOW_2026-06-15_02-53-35.png",
     "requested_real_ocr": false
   }
 }
