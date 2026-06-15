@@ -59,88 +59,21 @@ INTENT_PATTERNS: list[tuple[list[str], str, str, dict]] = [
     (["watchlist spatial", "spatial watchlist", "space watchlist", "watchlist space", "spatiale"],
      "watchlist_spatial", "/read/composite", {"type": "watchlist_spatial"}),
 
-    (["setups a+", "a+", "grade a+", "setups a plus", "meilleurs setups a+"],
-     "a_plus_setups", "/read/composite", {"type": "a_plus_setups"}),
+    # ── Priority commands ──
+    (["priorites", "priorite", "top priorites", "quoi regarder", "que regarder"],
+     "priorities", "/read/composite", {"type": "priorities"}),
 
-    (["risques", "risque", "danger", "alertes risque", "risk"],
-     "risks", "/read/composite", {"type": "risks"}),
+    (["attention", "avertissements", "alertes attention", "quoi surveiller", "points attention"],
+     "attention", "/read/composite", {"type": "attention"}),
 
-    (["urgences", "urgent", "critique"],
-     "urgencies", "/read/composite", {"type": "urgencies"}),
-
-    (["changements"],
+    (["changements", "nouveautes", "quoi de neuf", "derniers changements", "updates"],
      "whats_new", "/read/composite", {"type": "whats_new"}),
 
-    # ── SPCX — generic (AFTER specific compound patterns) ──
-    (["resume spcx", "spcx resume", "spcx summary", "spcx", "spacex", "space x"],
-     "spcx_summary", "/read/spacex", {}),
+    (["top movers", "movers", "bouge", "mouvements"],
+     "top_movers", "/read/composite", {"type": "top_movers"}),
 
-    # ── Alerts ──
-    (["alertes telegram", "alertes", "alerts", "alerte", "dernieres alertes", "notifications"],
-     "alerts", "/read/alerts", {"limit": 10}),
-
-    (["alertes critiques", "critiques", "alertes urgentes"],
-     "alerts_critical", "/read/alerts", {"limit": 50}),
-
-    # ── Setups ──
-    (["setups actifs", "tous les setups", "quels setups", "setups en cours", "liste setups"],
-     "setups_all", "/read/setups", {}),
-
-    (["setups a+", "setups a plus", "meilleurs setups", "top setups", "grade a+"],
-     "setups_all", "/read/setups", {}),  # /read/setups includes A+ count
-
-    # ── Setup detail (symbol-specific) — MUST come before generic spcx/btc patterns ──
-    (["setup btc", "btc setup", "bitcoin setup"],
-     "setup_detail", "/read/setup", {"symbol": "BTC"}),
-
-    (["setup gold", "gold setup", "xau setup", "xauusd setup"],
-     "setup_detail", "/read/setup", {"symbol": "XAUUSD"}),
-
-    (["setup eth", "eth setup", "ethereum setup"],
-     "setup_detail", "/read/setup", {"symbol": "ETH"}),
-
-    (["setup spcx", "spcx setup"],
-     "setup_detail", "/read/setup", {"symbol": "SPCX"}),
-
-    # ── Score detail (symbol-specific) — MUST come before generic patterns ──
-    (["score btc", "btc score", "score bitcoin", "probabilite btc"],
-     "score_detail", "/read/score", {"symbol": "BTC"}),
-
-    (["score gold", "gold score", "score xau", "probabilite gold"],
-     "score_detail", "/read/score", {"symbol": "XAUUSD"}),
-
-    (["score eth", "eth score", "score ethereum"],
-     "score_detail", "/read/score", {"symbol": "ETH"}),
-
-    (["score spcx", "spcx score"],
-     "score_detail", "/read/score", {"symbol": "SPCX"}),
-
-    # ── Generic analysis — MUST come before generic spcx/btc ──
-    (["analyse btc", "btc analyse", "analyse bitcoin"],
-     "score_detail", "/read/score", {"symbol": "BTC"}),
-
-    (["analyse gold", "gold analyse", "analyse or", "analyse xau"],
-     "score_detail", "/read/score", {"symbol": "XAUUSD"}),
-
-    (["analyse eth", "eth analyse", "analyse ethereum"],
-     "score_detail", "/read/score", {"symbol": "ETH"}),
-
-    (["analyse spcx", "spcx analyse"],
-     "score_detail", "/read/score", {"symbol": "SPCX"}),
-
-    # ── SPCX — generic (after specific setup/score/analyse patterns) ──
-    (["resume spcx", "spcx resume", "spcx summary", "spcx", "spacex", "space x"],
-     "spcx_summary", "/read/spacex", {}),
-
-    # ── Market / Report ──
-    (["rapport marche", "marche", "market", "etat du marche", "overview"],
-     "market", "/read/market", {}),
-
-    (["rapport quotidien", "rapport journalier", "daily report", "rapport du jour", "daily", "aujourd'hui"],
-     "report", "/read/report", {}),
-
-    (["rapport", "report"],
-      "report", "/read/report", {}),
+    (["resume executif", "exec summary", "resume", "bref"],
+     "exec_summary", "/read/composite", {"type": "exec_summary"}),
 ]
 
 

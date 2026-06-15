@@ -2456,6 +2456,102 @@ def _handle_composite(composite_type: str) -> dict:
         rich["spoken_text"] = "Watchlist spatial. SPCX, RKLB, ASTS, LUNR."
         one_line = "🛰️ SPCX | RKLB | ASTS | LUNR"
 
+    # ── Priority engine commands ──
+    elif composite_type == "priorities":
+        s = _get_setups()
+        ana = _get_analysis()
+        sp = _get_spcx() if isinstance(_get_spcx, type(lambda:0)) else {}
+        items = s.get("items", []) if isinstance(s, dict) else []
+        from modules.voice_operator.priority_engine import rank_items
+        # Build items from all sources
+        all_items = list(items)
+        if isinstance(sp, dict) and sp.get("price"):
+            all_items.append({"symbol": "SPCX", "setup_type": sp.get("top_setup", "?"), "edge_score": sp.get("edge_score", 0), "confidence": sp.get("confidence", 0), "_priority": 0})
+        signals = ana.get("actionable_signals", []) if isinstance(ana, dict) else []
+        for sig in signals[:3]:
+            all_items.append({"symbol": sig.get("symbol", "?"), "setup_type": sig.get("type", "signal"), "confidence": 50})
+        ranked = rank_items(all_items)
+        for item in ranked[:5]:
+            rich["cards"].append({"label": item.get("symbol", "?"), "value": f"{item.get('setup_type', '?')} · priorite {item.get('_priority', 0):.0f}"})
+        rich["spoken_text"] = f"Priorites. {len(ranked)} items classes."
+        one_line = f"📌 Top {min(3, len(ranked))}: " + " · ".join(i.get("symbol", "?") for i in ranked[:3])
+
+    elif composite_type == "attention":
+        s = _get_setups()
+        ana = _get_analysis()
+        sp = _get_spcx()
+        items = s.get("items", []) if isinstance(s, dict) else []
+        from modules.voice_operator.priority_engine import rank_attention
+        all_items = list(items)
+        if isinstance(sp, dict):
+            all_items.append({"symbol": "SPCX", "source_quality": sp.get("source_quality", "unknown"), "freshness": "MARKET_CLOSED", "_priority": 30})
+        alerts = ana.get("alerts", []) if isinstance(ana, dict) else []
+        for a in alerts[:2]:
+            all_items.append({"symbol": "ALERT", "setup_type": str(a)[:30], "_priority": 20})
+        ranked = rank_attention(all_items)
+        for item in ranked[:4]:
+            rich["cards"].append({"label": "⚠️ " + str(item.get("symbol", "?")), "value": str(item.get("setup_type", item.get("freshness", "?")))[:40]})
+        rich["spoken_text"] = f"Attention. {len(ranked)} points a surveiller."
+        one_line = f"⚠️ {len(ranked)} points d'attention"
+
+    elif composite_type == "whats_new":
+        a = _get_alerts()
+        s = _get_setups()
+        n_alerts = a.get("total", 0) if isinstance(a, dict) else 0
+        n_setups = s.get("active", 0) if isinstance(s, dict) else 0
+        rich["cards"] = [
+            {"label": "Alertes", "value": str(n_alerts)},
+            {"label": "Setups actifs", "value": str(n_setups)},
+        ]
+        rich["spoken_text"] = f"Nouveautes. {n_alerts} alertes, {n_setups} setups."
+        one_line = f"🆕 {n_alerts} alertes | {n_setups} setups"
+
+    elif composite_type == "top_movers":
+        from pathlib import Path as _P
+        import json as _J
+        vd = _P(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "vision_analysis" / "by_symbol"
+        movers = []
+        for sym in ["BTCUSDT.P", "ETHUSDT.P", "SOLUSDT.P", "OANDA:XAUUSD", "SPY"]:
+            vf = vd / f"{sym}.json"
+            if vf.exists():
+                try:
+                    d = _J.loads(vf.read_text())
+                    if isinstance(d, dict):
+                        movers.append({"symbol": sym.replace("BTCUSDT.P","BTC").replace("ETHUSDT.P","ETH").replace("SOLUSDT.P","SOL").replace("OANDA:",""),
+                                       "trend": d.get("trend", d.get("direction", "?")),
+                                       "confidence": d.get("confidence", 50)})
+                except: pass
+        from modules.voice_operator.priority_engine import rank_items
+        ranked = rank_items(movers)
+        for m in ranked[:5]:
+            rich["cards"].append({"label": m["symbol"], "value": f"{m.get('trend','?')} · {m.get('_priority',0):.0f}"})
+        rich["spoken_text"] = f"Top movers. {len(ranked)} actifs."
+        one_line = f"📈 " + " · ".join(m["symbol"] for m in ranked[:4])
+
+    elif composite_type == "exec_summary":
+        a = _get_alerts()
+        s = _get_setups()
+        sp = _get_spcx()
+        ana = _get_analysis()
+        crit = a.get("critical", 0) if isinstance(a, dict) else 0
+        active = s.get("active", 0) if isinstance(s, dict) else 0
+        signals = ana.get("actionable_signals", []) if isinstance(ana, dict) else []
+        spx_setup = sp.get("top_setup", "NONE") if isinstance(sp, dict) else "?"
+        parts = [f"{active} setups actifs"]
+        if crit: parts.append(f"{crit} alertes critiques")
+        parts.append(f"SPCX setup {spx_setup}")
+        if signals: parts.append(f"{len(signals)} signaux analyse")
+        rich["cards"] = [
+            {"label": "Setups", "value": str(active)},
+            {"label": "Alertes critiques", "value": str(crit)},
+            {"label": "SPCX", "value": str(spx_setup)},
+            {"label": "Signaux GPT", "value": str(len(signals))},
+        ]
+        spoken = ". ".join(parts) + ". "
+        if crit: spoken += "Attention, alertes critiques. "
+        rich["spoken_text"] = spoken
+        one_line = " · ".join(parts)
+
     else:
         one_line = "Commande composite inconnue"
         rich["spoken_text"] = one_line
