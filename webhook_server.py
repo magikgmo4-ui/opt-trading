@@ -633,6 +633,60 @@ async def tv_webhook(req: Request):
     return {"ok": True}
 
 
+# -------------------- CDP TradingView — monitor-only signal events --------------------
+@app.post("/tv/cdp")
+async def tv_cdp(req: Request):
+    """TradingView CDP alerts → signal_event.v1 Data Center sink.
+    
+    Monitor-only, evidence-only. No broker, no order, no execution.
+    """
+    payload = await req.json()
+    if not isinstance(payload, dict):
+        raise HTTPException(status_code=400, detail="JSON must be object")
+
+    # Optional key validation (same as /tv)
+    from fastapi import Request as _R
+    require_key(payload, req.client.host if req.client else None)
+
+    # Normalize + validate
+    from modules.tradingview.cdp_normalizer import normalize_cdp_alert, validate_monitor_only
+    result = normalize_cdp_alert(payload)
+    if not result.get("ok"):
+        raise HTTPException(status_code=400, detail=result.get("error", "unknown event"))
+
+    normalized = result["payload"]
+
+    # Guard: must be monitor_only
+    guard = validate_monitor_only(normalized)
+    if not guard.get("ok"):
+        raise HTTPException(status_code=400, detail=guard.get("error", "invalid risk_mode"))
+
+    # Write to signal_event.v1 DC views
+    try:
+        from modules.data_center.signal_event_writer import write_signal_event
+        write_result = write_signal_event(normalized)
+    except ImportError:
+        write_result = {"ok": True, "note": "signal_event_writer not available"}
+
+    # Log to events.jsonl
+    record_event({
+        "type": "cdp_signal",
+        "source": "tradingview_cdp",
+        "symbol": normalized["symbol"],
+        "event": normalized["event"],
+        "timestamp": normalized["timestamp"],
+        "dc_write": write_result.get("ok", False),
+    })
+
+    return {
+        "ok": True,
+        "mode": "monitor_only",
+        "event": normalized["event"],
+        "symbol": normalized["symbol"],
+        "dc_sink": write_result,
+    }
+
+
 # -------------------- SpaceX observer --------------------
 @app.post("/tv/spacex")
 async def tv_spacex(req: Request):
