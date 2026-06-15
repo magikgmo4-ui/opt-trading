@@ -67,7 +67,7 @@ except Exception:
 
 
 APP_TITLE = "TV Webhook Server"
-BASE_DIR = pathlib.Path("/opt/trading")
+BASE_DIR = pathlib.Path(__file__).resolve().parent
 STATE_DIR = BASE_DIR / "state"
 STATE_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -141,20 +141,28 @@ def _increment_order_count():
     data["count"] += 1
     _save_json_file(ORDER_COUNT_FILE, data)
 
-def check_trade_allowed():
-    """Check if trading is allowed (kill switch level 1)."""
+def check_trade_allowed(engine: str = ""):
+    """Check if trading is allowed (kill switch level 1).
+    TV_TEST/PAPER_TEST/test engines bypass the kill switch.
+    """
     if not TRADE_ALLOWED:
+        if engine and (engine in ("TV_TEST", "PAPER_TEST") or engine.startswith("TEST_") or engine.startswith("_TEST_")):
+            return
         raise HTTPException(
             status_code=403,
             detail={"error": "TRADE_NOT_ALLOWED", "reason": "Kill switch active: TRADE_ALLOWED=false"}
         )
 
 def check_risk_limits(engine: str, symbol: str, qty: float, notional: float):
-    """Enforce risk limits before execution."""
+    """Enforce risk limits before execution.
+    TV_TEST and TEST_ engines bypass all limits (monitor-only).
+    """
+    if engine in ("TV_TEST",) or engine.startswith("TEST_") or engine.startswith("_TEST_"):
+        return
     errors = []
     
     # Check allowed symbols (for production engines)
-    if engine not in ("PAPER_TEST", "TV_TEST") and RISK_ALLOWED_SYMBOLS and symbol not in RISK_ALLOWED_SYMBOLS:
+    if engine not in ("PAPER_TEST",) and RISK_ALLOWED_SYMBOLS and symbol not in RISK_ALLOWED_SYMBOLS:
         errors.append(f"Symbol {symbol} not in allowed list: {RISK_ALLOWED_SYMBOLS}")
     
     # Check notional limit
@@ -505,8 +513,8 @@ async def tv_webhook(req: Request):
     if signal not in ("BUY", "SELL"):
         raise HTTPException(status_code=400, detail="signal must be BUY or SELL")
 
-    # Kill switch check (level 1)
-    check_trade_allowed()
+    # Kill switch check (level 1) — test engines bypass
+    check_trade_allowed(engine)
 
     if engine == "PAPER_TEST":
         require_paper_test_runtime_guards()
@@ -534,32 +542,6 @@ async def tv_webhook(req: Request):
     side = "LONG" if signal == "BUY" else "SHORT"
     risk_for_perf = q.get("risk_real_usd") or q.get("risk_usd") or 0.0
 
-    # --- PERF: OPEN trade ledger (non-bloquant) ---
-    # --- ignore TEST engines for perf ledger ---
-    if engine in ("TV_TEST", "PAPER_TEST") or engine.startswith("TEST_") or engine.startswith("_TEST_"):
-        pass
-    else:
-        perf_side = "LONG" if signal == "BUY" else "SHORT"
-        for _t in _perf_get_open():
-            if _t.get("engine") == engine and _t.get("symbol") == symbol and _t.get("status") == "OPEN":
-                _cur_side = (_t.get("side") or "").upper()
-                if _cur_side == perf_side:
-                    return {"ok": True, "skipped": f"already_{signal.lower()}"}
-                _tid = _t.get("trade_id")
-                if _tid:
-                    _perf_close(_tid, float(price))
-
-        perf_open(
-            engine=engine,
-            symbol=symbol,
-            side=side,
-            entry=price,
-            stop=sl,
-            qty=q["qty"],
-            risk_usd=risk_for_perf,
-            meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
-        )
-
     evt = {
         "key": None,
         "engine": engine,
@@ -575,19 +557,49 @@ async def tv_webhook(req: Request):
         "qty": q["qty"],
         "risk_usd": q.get("risk_usd", None),
         "risk_real_usd": q.get("risk_real_usd", None),
-}
+    }
 
     record_event(evt)
 
-    # Telegram notify (simple, readable)
+    # Telegram notify (always fires, even on duplicate skip)
     if TELEGRAM_ENABLED:
-        # include sizing quote if possible
-        q = risk_quote(engine, price=price, sl=sl, tp=tp) if (price and sl) else None
         qty_txt = ""
         if q and q.get("qty"):
             qty_txt = f"\nqty: {q['qty']} | risk_usd: {q.get('risk_usd')}"
         msg = f"{signal} {symbol} {tf}\nengine: {engine}\nprice: {price} | tp: {tp} | sl: {sl}\nreason: {reason}{qty_txt}"
         telegram_send(msg)
+
+    # --- PERF: OPEN trade ledger (non-bloquant) ---
+    # --- ignore PAPER_TEST for perf ledger (no-op test traffic) ---
+    # --- TV_TEST and TEST_ engines DO flow to perf for monitor tracking ---
+    if engine == "PAPER_TEST":
+        pass
+    else:
+        skipped = None
+        perf_side = "LONG" if signal == "BUY" else "SHORT"
+        for _t in _perf_get_open():
+            if _t.get("engine") == engine and _t.get("symbol") == symbol and _t.get("status") == "OPEN":
+                _cur_side = (_t.get("side") or "").upper()
+                if _cur_side == perf_side:
+                    skipped = f"already_{signal.lower()}"
+                    break
+                _tid = _t.get("trade_id")
+                if _tid:
+                    _perf_close(_tid, float(price))
+
+        if skipped:
+            return {"ok": True, "skipped": skipped}
+
+        perf_open(
+            engine=engine,
+            symbol=symbol,
+            side=side,
+            entry=price,
+            stop=sl,
+            qty=q["qty"],
+            risk_usd=risk_for_perf,
+            meta={"tf": tf, "tp": tp, "reason": reason, "src": "/tv"}
+        )
 
     # --- EXECUTION (Optional/Test) ---
     if engine == "PAPER_TEST":
@@ -615,6 +627,70 @@ async def tv_webhook(req: Request):
              log.info(f"POSITION UPDATED: {pos}")
 
     return {"ok": True}
+
+
+# -------------------- CDP TradingView endpoint (lightweight, monitor-only) --------------------
+CDP_EVENTS_JSONL = STATE_DIR / "events_cdp.jsonl"
+
+_CDP_EVENT_TYPES = {
+    "vwap_reclaim", "vwap_loss", "price_above_vwap_hold", "price_below_vwap_reject",
+    "orb_break_high", "orb_break_low", "premarket_high_break", "premarket_low_loss", "opening_range_retest",
+    "volume_spike", "relative_volume_gt_2", "relative_volume_gt_3", "volume_on_breakout", "volume_without_followthrough",
+    "bos_bull", "bos_bear", "choch_bull", "choch_bear", "fvg_created", "fvg_filled",
+    "liquidity_sweep_high", "liquidity_sweep_low",
+    "breakout_high", "breakdown_low", "vwap_state",
+}
+
+@app.post("/tv/cdp")
+async def tv_cdp(req: Request):
+    payload = await req.json()
+    if not isinstance(payload, dict):
+        raise HTTPException(status_code=400, detail="JSON must be object")
+
+    # Required: source must be tradingview_cdp
+    source = (payload.get("source") or "").strip()
+    if source not in ("tradingview_cdp", "tradingview"):
+        raise HTTPException(status_code=400, detail="source must be tradingview_cdp")
+
+    symbol = (payload.get("symbol") or "").strip()
+    if not symbol:
+        raise HTTPException(status_code=400, detail="Missing symbol")
+
+    event = (payload.get("event") or "").strip()
+    if not event or event not in _CDP_EVENT_TYPES:
+        raise HTTPException(status_code=400, detail=f"Unknown/missing event: {event!r}")
+
+    price = safe_float(payload.get("price"))
+    if price is None:
+        raise HTTPException(status_code=400, detail="Missing or invalid price")
+
+    timeframe = (payload.get("timeframe") or "").strip()
+    volume = safe_float(payload.get("volume"))
+    flags = payload.get("flags", {})
+    if not isinstance(flags, dict):
+        flags = {}
+    risk_mode = (payload.get("risk_mode") or "monitor_only").strip()
+
+    # Build normalized event
+    ts = iso_utc(utc_now())
+    evt = {
+        "_schema": "signal_event.v1",
+        "source": source,
+        "symbol": symbol,
+        "timeframe": timeframe,
+        "event": event,
+        "price": price,
+        "volume": volume,
+        "flags": flags,
+        "risk_mode": risk_mode,
+        "_ts": ts,
+        "_ip": req.client.host if req.client else None,
+    }
+
+    append_jsonl(CDP_EVENTS_JSONL, evt)
+    log.info(f"CDP event: {symbol} {event} @ {price}")
+
+    return {"ok": True, "event": event, "symbol": symbol}
 
 
 # -------------------- API --------------------
