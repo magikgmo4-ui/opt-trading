@@ -2059,18 +2059,46 @@ async function sendCommand(cmd) {{
     const endpoint = data.endpoint || '?';
     const oneLine = data.one_line || '(pas de reponse)';
     const source = data.source || '?';
-    lastOneLine = oneLine;
+    const rich = data.rich || {{}};
+    lastOneLine = rich.spoken_text || oneLine;
 
-    let meta = '<span class="monitor-badge">MONITOR-ONLY</span>';
+    // Build rich card HTML
+    let cardHTML = '';
+    const cards = rich.cards || [];
+    if (cards.length) {{
+      cardHTML = '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">';
+      cards.forEach(c => {{
+        cardHTML += '<div style="background:#1a1f2a;border-radius:6px;padding:5px 8px;font-size:11px">' +
+          '<div style="color:#666;font-size:9px">' + (c.label||'') + '</div>' +
+          '<div style="color:#a8c7ff">' + (c.value||'') + '</div></div>';
+      }});
+      cardHTML += '</div>';
+    }}
+
+    // Badges
+    let badgeHTML = '';
+    const badges = rich.badges || [];
+    if (badges.length) {{
+      badgeHTML = '<div style="margin-top:4px">';
+      badges.forEach(b => {{
+        badgeHTML += '<span style="font-size:8px;background:#1a2540;color:#aaa;border-radius:3px;padding:1px 5px;margin-right:3px">' + b + '</span>';
+      }});
+      badgeHTML += '</div>';
+    }}
+
+    let meta = badgeHTML || '<span class="monitor-badge">MONITOR-ONLY</span>';
     meta += ' <span>' + intent + '</span>';
     meta += ' <span style="font-family:monospace;font-size:9px">' + endpoint + '</span>';
     meta += ' <span>' + lat + 'ms</span>';
-    if (source !== 'ok') meta += ' <span style="color:#ffa500">src:' + source + '</span>';
+    if (source !== 'ok' && source !== 'healthy') meta += ' <span style="color:#ffa500">src:' + source + '</span>';
 
     let actions = '<button onclick="speakLast()">Lire</button>';
     if (data.ok === false) actions += '<button onclick="retryLastCmd()">Reessayer</button>';
 
-    addMessage('bot', oneLine, meta, actions, data.ok === false ? 'msg-error' : 'msg-bot');
+    let messageHTML = oneLine;
+    if (cardHTML) messageHTML += cardHTML;
+
+    addMessage('bot', messageHTML, meta, actions, data.ok === false ? 'msg-error' : 'msg-bot', true);
     if (ttsReady) speak(oneLine);
 
   }} catch(e) {{
@@ -2082,10 +2110,11 @@ async function sendCommand(cmd) {{
   scrollDown();
 }}
 
-function addMessage(role, text, meta, actions, cls) {{
+function addMessage(role, text, meta, actions, cls, isHtml) {{
   const div = document.createElement('div');
   div.className = 'msg ' + (cls || (role === 'user' ? 'msg-user' : 'msg-bot'));
-  div.innerHTML = '<div>' + text.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>' +
+  const safeText = isHtml ? text : text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  div.innerHTML = '<div>' + safeText + '</div>' +
     (meta ? '<div class=\"msg-meta\">' + meta + '</div>' : '') +
     (actions ? '<div class=\"msg-actions\">' + actions + '</div>' : '');
   document.getElementById('messages').appendChild(div);
@@ -2093,7 +2122,6 @@ function addMessage(role, text, meta, actions, cls) {{
   messages.push({{ role, text, ts: Date.now() }});
   if (messages.length > 50) messages.shift();
   try {{ localStorage.setItem(HIST_KEY, JSON.stringify(messages)); }} catch(e) {{}}
-  // Remove empty state
   const es = document.querySelector('.empty-state');
   if (es) es.remove();
 }}
@@ -2159,7 +2187,14 @@ def voice_operator_query(q: str = ""):
         result = call(routed.endpoint, routed.params if routed.params else None)
         latency_ms = int((_time.time() - _start) * 1000)
 
-        # Analytics: log command + response
+        # Extract one_line properly — handle both string and dict results
+        raw_one_line = result.get("one_line", "")
+        if isinstance(raw_one_line, dict):
+            raw_one_line = raw_one_line.get("one_line", raw_one_line.get("summary", str(raw_one_line)))
+        if not raw_one_line or raw_one_line.startswith("{"):
+            raw_one_line = result.get("summary", result.get("one_line", str(result)))
+
+        # Analytics
         try:
             from modules.voice_operator.analytics.collector import log_command, log_response
             log_command(q, routed.intent, routed.endpoint)
@@ -2167,12 +2202,15 @@ def voice_operator_query(q: str = ""):
         except Exception:
             pass
 
+        # Build rich cards from result data
+        rich = _build_rich_response(result, routed.intent)
+
         return JSONResponse(content={
             "intent": routed.intent,
             "endpoint": routed.endpoint,
             "params": routed.params,
-            "one_line": result.get("one_line", str(result)),
-            "source": result.get("source_quality", result.get("pipeline_state", "ok")),
+            "one_line": raw_one_line if isinstance(raw_one_line, str) else str(raw_one_line),
+            "source": result.get("source_quality", result.get("pipeline_state", result.get("source", "ok"))),
             "ok": result.get("ok", True),
             "generated_at": result.get("generated_at", ""),
             "confidence": result.get("confidence"),
@@ -2180,6 +2218,7 @@ def voice_operator_query(q: str = ""):
             "pipeline_state": result.get("pipeline_state"),
             "latency_ms": latency_ms,
             "mode": "monitor_only",
+            "rich": rich,
         })
     except Exception as e:
         try:
@@ -2195,6 +2234,81 @@ def voice_operator_query(q: str = ""):
             "ok": False,
             "mode": "monitor_only",
         })
+
+
+def _build_rich_response(result: dict, intent: str) -> dict:
+    """Build rich display cards from /read/* response data.
+    Extracts available fields without computing anything new.
+    """
+    cards = []
+    badges = ["MONITOR-ONLY", "READ-ONLY"]
+    spoken = ""
+
+    # System status
+    if intent == "system_status":
+        badges.append("DeskPro")
+        svc = result.get("services_running", result.get("services", []))
+        if isinstance(svc, int):
+            cards.append({"label": "Services", "value": str(svc)})
+        crit = result.get("critical_alerts", 0)
+        cards.append({"label": "Alertes critiques", "value": str(crit)})
+        ps = result.get("pipeline_state", result.get("status", "?"))
+        cards.append({"label": "Pipeline", "value": str(ps)})
+        spoken = result.get("one_line", f"Systeme: {svc} services, {crit} alertes critiques")
+
+    # SPCX summary
+    elif intent == "spcx_summary":
+        badges.append("SPCX")
+        for k, label in [("price", "Prix"), ("vwap_state", "VWAP"), ("trade_ready", "Trade Ready"),
+                          ("orderflow_score", "Orderflow"), ("source_quality", "Qualite source")]:
+            v = result.get(k)
+            if v is not None:
+                cards.append({"label": label, "value": str(v)})
+        spoken = result.get("summary", result.get("one_line", "SPCX: donnees disponibles"))
+
+    # Setup detail
+    elif intent in ("setup_detail", "setups_all"):
+        badges.append("DeskPro")
+        # Handle nested setup data in items list
+        items = result.get("items", [])
+        if items:
+            item = items[0]
+        else:
+            item = result
+        for k, label in [("symbol", "Symbole"), ("setup_type", "Setup"), ("direction", "Direction"),
+                          ("grade", "Grade"), ("entry_zone", "Entree"), ("invalidation", "Inval"),
+                          ("target_1", "TP1"), ("trade_ready", "Score"), ("source", "Source")]:
+            v = item.get(k)
+            if v is not None:
+                cards.append({"label": label, "value": str(v)})
+        spoken = result.get("one_line", f"Setup: {item.get('setup_type', '?')} {item.get('direction', '')}")
+
+    # Score detail
+    elif intent == "score_detail":
+        badges.append("DeskPro")
+        for k, label in [("trade_ready", "Trade Ready"), ("vwap_score", "VWAP"), ("orderflow_score", "Orderflow"),
+                          ("momentum", "Momentum"), ("risk", "Risque"), ("smart_money", "Smart Money")]:
+            v = result.get(k)
+            if v is not None:
+                cards.append({"label": label, "value": str(v)})
+        spoken = result.get("one_line", "Scores disponibles")
+
+    # Market / Report
+    elif intent in ("market", "report"):
+        badges.append("DeskPro")
+        spoken = result.get("one_line", "Rapport marche disponible")
+
+    # Alerts
+    elif intent in ("alerts", "alerts_critical"):
+        badges.append("DeskPro")
+        total = result.get("total", len(result.get("items", [])))
+        crit = result.get("critical", 0)
+        cards.append({"label": "Total", "value": str(total)})
+        cards.append({"label": "Critiques", "value": str(crit)})
+        spoken = result.get("one_line", f"{total} alertes")
+
+    spoken = spoken if spoken else result.get("one_line", "Reponse disponible")
+    return {"cards": cards, "badges": badges, "spoken_text": spoken}
 
 
 @app.get("/voice/analytics", response_class=HTMLResponse)
