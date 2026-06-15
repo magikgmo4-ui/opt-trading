@@ -1,0 +1,120 @@
+{
+  "_description": "TradingView CDP alert templates — P0 SPCX VWAP / ORB / Volume",
+  "_mode": "monitor_only",
+  "_source": "tradingview_cdp",
+  "_route": "data_center.signal_event",
+  "_contract": "signal_event.v1",
+
+  "spcx_vwap_reclaim": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "SPCX",
+    "timeframe": "5",
+    "event": "vwap_reclaim",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {
+      "vwap_reclaim": true,
+      "orb_break": false,
+      "bos": false,
+      "choch": false,
+      "fvg": false,
+      "volume_spike": false
+    },
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "spcx_vwap_loss": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "SPCX",
+    "timeframe": "5",
+    "event": "vwap_loss",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {
+      "vwap_reclaim": false,
+      "vwap_loss": true,
+      "orb_break": false,
+      "bos": false,
+      "choch": false,
+      "fvg": false,
+      "volume_spike": false
+    },
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "spcx_premarket_high_break": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "SPCX",
+    "timeframe": "5",
+    "event": "premarket_high_break",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {
+      "premarket_high_break": true,
+      "vwap_reclaim": false,
+      "orb_break": false
+    },
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "spcx_orb_break_high": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "SPCX",
+    "timeframe": "5",
+    "event": "orb_break_high",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {
+      "orb_break_high": true,
+      "vwap_reclaim": false,
+      "volume_spike": false
+    },
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "spcx_orb_break_low": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "SPCX",
+    "timeframe": "5",
+    "event": "orb_break_low",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {
+      "orb_break_low": true,
+      "vwap_loss": false
+    },
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "spcx_relative_volume_gt_2": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "SPCX",
+    "timeframe": "5",
+    "event": "relative_volume_gt_2",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {
+      "volume_spike": true,
+      "relative_volume": 2.0
+    },
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  }
+}

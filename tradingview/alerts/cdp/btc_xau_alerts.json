@@ -1,0 +1,115 @@
+{
+  "_description": "TradingView CDP alert templates — P1 BTC/XAU Liquidity + SMC",
+  "_mode": "monitor_only",
+  "_source": "tradingview_cdp",
+  "_route": "data_center.signal_event",
+
+  "btc_vwap_reclaim": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "BINANCE:BTCUSDT",
+    "timeframe": "5",
+    "event": "vwap_reclaim",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {"vwap_reclaim": true},
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "btc_vwap_loss": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "BINANCE:BTCUSDT",
+    "timeframe": "5",
+    "event": "vwap_loss",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {"vwap_loss": true},
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "btc_liquidity_sweep_high": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "BINANCE:BTCUSDT",
+    "timeframe": "5",
+    "event": "liquidity_sweep_high",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {"liquidity_sweep_high": true},
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "btc_liquidity_sweep_low": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "BINANCE:BTCUSDT",
+    "timeframe": "5",
+    "event": "liquidity_sweep_low",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {"liquidity_sweep_low": true},
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "btc_bos_bull": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "BINANCE:BTCUSDT",
+    "timeframe": "15",
+    "event": "bos_bull",
+    "price": "{{close}}",
+    "timestamp": "{{timenow}}",
+    "flags": {"bos_bull": true},
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "btc_bos_bear": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "BINANCE:BTCUSDT",
+    "timeframe": "15",
+    "event": "bos_bear",
+    "price": "{{close}}",
+    "timestamp": "{{timenow}}",
+    "flags": {"bos_bear": true},
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "xau_vwap_reclaim": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "5",
+    "event": "vwap_reclaim",
+    "price": "{{close}}",
+    "volume": "{{volume}}",
+    "timestamp": "{{timenow}}",
+    "flags": {"vwap_reclaim": true},
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  },
+
+  "xau_liquidity_sweep_high": {
+    "source": "tradingview_cdp",
+    "contract_class": "signal_event.v1",
+    "symbol": "OANDA:XAUUSD",
+    "timeframe": "5",
+    "event": "liquidity_sweep_high",
+    "price": "{{close}}",
+    "timestamp": "{{timenow}}",
+    "flags": {"liquidity_sweep_high": true},
+    "risk_mode": "monitor_only",
+    "route": "data_center.signal_event"
+  }
+}

@@ -1,0 +1,3 @@
+docs/chantiers/GO_SPACEX_CDP_TRADINGVIEW_ALERTS_01/**
+tradingview/alerts/cdp/**
+modules/tradingview/cdp_normalizer.py
