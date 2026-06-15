@@ -2505,7 +2505,7 @@ def _handle_composite(composite_type: str) -> dict:
         for a in analogs:
             cards.append({"label": f"Analog {a.get('symbol','?')}", "value": f"{a.get('pct', a.get('probability_pct', '?'))}%"})
         rich["cards"] = cards[:15]
-        rich["spoken_text"] = f"SPCX. Prix {cc.get(\"price\",\"?\")}. VWAP {cc.get(\"vwap\",\"?\")}. Edge score {cc.get(\"edge_score\",\"?\")}. Confiance {cc.get(\"confidence\",\"?\")}. Setup principal {cc.get(\"top_setup\",\"?\")}. Qualite source {sp.get(\"source_quality\",\"?\") if isinstance(sp, dict) else \"?\"}. Aucun signal d execution."
+        rich["spoken_text"] = f"SPCX. Prix {cc.get('price','?')}. VWAP {cc.get('vwap','?')}. Edge score {cc.get('edge_score','?')}. Confiance {cc.get('confidence','?')}. Setup principal {cc.get('top_setup','?')}. Qualite source {sp.get('source_quality','?') if isinstance(sp, dict) else '?'}. Aucun signal d execution."
         one_line = f"🚀 SPCX {len(cards)} champs"
 
     elif composite_type == "spcx_risk":
