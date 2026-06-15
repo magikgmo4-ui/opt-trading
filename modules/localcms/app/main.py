@@ -1755,6 +1755,23 @@ STATUS_BADGES = SHARED_STATUS_BADGES
 
 
 # ── Voice Operator ─────────────────────────────────────────────────────
+_VOICE_PROFILES = {
+    "default": {"label": "Tous", "icon": "🎙️", "sections": ["Système", "Marché", "Alertes", "Setups", "Scores / Risques", "Rapports"]},
+    "matin":   {"label": "Matin", "icon": "🌅", "sections": ["Système", "Marché", "Alertes"]},
+    "intraday":{"label": "Intraday", "icon": "📈", "sections": ["Marché", "Setups", "Scores / Risques"]},
+    "risk":    {"label": "Risque", "icon": "⚠️", "sections": ["Scores / Risques", "Alertes"]},
+    "spcx":    {"label": "SPCX", "icon": "🚀", "sections": ["Marché", "Setups", "Scores / Risques"]},
+    "gold":    {"label": "Gold", "icon": "🥇", "sections": ["Marché", "Setups", "Scores / Risques"]},
+    "btc":     {"label": "BTC", "icon": "₿", "sections": ["Marché", "Setups", "Scores / Risques"]},
+}
+
+_VOICE_PRESETS = [
+    ("🌅 Matin", ["Etat systeme", "Rapport marche", "Alertes Telegram"]),
+    ("📈 Intraday", ["Setups actifs", "Analyse BTC", "Analyse Gold"]),
+    ("⚠️ Risque", ["Score BTC", "Score Gold", "Alertes Telegram"]),
+    ("🚀 SPCX", ["Resume SPCX", "Setup SPCX", "Score SPCX"]),
+]
+
 _VOICE_SECTIONS = [
     {
         "title": "Système",
@@ -1808,15 +1825,30 @@ _VOICE_SECTIONS = [
     },
 ]
 
+_VOICE_ACTIVE_PROFILE = "default"
+
 
 def _voice_operator_html() -> str:
+    # Profile tabs
+    profile_tabs = ""
+    for pid, p in _VOICE_PROFILES.items():
+        active = " profile-active" if pid == _VOICE_ACTIVE_PROFILE else ""
+        profile_tabs += f'<button class="profile-tab{active}" onclick="switchProfile(\'{pid}\')">{p["icon"]} {p["label"]}</button>'
+
+    # Preset bar
+    preset_buttons = ""
+    for label, commands in _VOICE_PRESETS:
+        cmd_json = "[" + ",".join(f"'{c}'" for c in commands) + "]"
+        preset_buttons += f'<button class="preset-btn" onclick="runPreset({cmd_json})" title="Batch: {", ".join(commands)}">{label}</button>'
+
     sections_html = ""
     for section in _VOICE_SECTIONS:
         buttons = ""
         for label, command in section["commands"]:
-            buttons += f'<button class="voice-btn" onclick="voiceQuery(\'{command}\')" title="{command}">{label}</button>\n'
+            sec = section["title"]
+            buttons += f'<button class="voice-btn" data-section="{sec}" onclick="voiceQuery(\'{command}\')" title="{command}">{label}</button>\n'
         sections_html += f"""\
-<div class="voice-section">
+<div class="voice-section" data-section="{section['title']}">
   <h3>{section['icon']} {section['title']}</h3>
   <div class="voice-buttons">{buttons}</div>
 </div>
@@ -1830,16 +1862,16 @@ def _voice_operator_html() -> str:
   <title>LocalCMS — Voice Operator</title>
   <style>
     {STANDARD_CSS}
-    .voice-section {{ margin-bottom: 24px; }}
-    .voice-section h3 {{ color: #a8c7ff; margin-bottom: 10px; font-size: 15px; }}
-    .voice-buttons {{ display: flex; flex-wrap: wrap; gap: 8px; }}
+    .voice-section {{ margin-bottom: 20px; }}
+    .voice-section h3 {{ color: #a8c7ff; margin-bottom: 8px; font-size: 14px; }}
+    .voice-buttons {{ display: flex; flex-wrap: wrap; gap: 6px; }}
     .voice-btn {{
       background: var(--card-bg, #151a24);
       color: var(--text, #e8eef7);
       border: 1px solid var(--card-border, #2a3345);
       border-radius: var(--card-radius, 10px);
-      padding: 10px 18px;
-      font-size: 13px;
+      padding: 8px 14px;
+      font-size: 12px;
       cursor: pointer;
       transition: all 0.15s;
       white-space: nowrap;
@@ -1848,51 +1880,94 @@ def _voice_operator_html() -> str:
     .voice-btn:hover {{ background: #1e2840; border-color: #4477cc; }}
     .voice-btn:active {{ background: #243050; }}
     .voice-btn.loading {{ opacity: 0.5; pointer-events: none; }}
-    .voice-btn .star {{
-      position: absolute;
-      top: 2px;
-      right: 4px;
-      font-size: 10px;
-      opacity: 0;
-      transition: opacity 0.15s;
-      color: #ffd700;
+    .voice-btn .star {{ position:absolute;top:2px;right:3px;font-size:9px;opacity:0;transition:opacity 0.15s;color:#ffd700; }}
+    .voice-btn:hover .star {{ opacity:0.4; }}
+    .voice-btn.fav .star {{ opacity:1; }}
+    .voice-btn.fav {{ border-color:#665500; }}
+    .voice-section.hidden {{ display:none; }}
+
+    /* Profile tabs */
+    .profile-bar {{ display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px; }}
+    .profile-tab {{
+      background:var(--card-bg,#151a24);color:#888;border:1px solid var(--card-border,#2a3345);
+      border-radius:8px;padding:6px 12px;font-size:11px;cursor:pointer;transition:all 0.15s;
     }}
-    .voice-btn:hover .star {{ opacity: 0.4; }}
-    .voice-btn.fav .star {{ opacity: 1; }}
-    .voice-btn.fav {{ border-color: #665500; }}
+    .profile-tab:hover {{ color:#a8c7ff;border-color:#4477cc; }}
+    .profile-tab.profile-active {{ background:#1a2540;color:#a8c7ff;border-color:#4477cc; }}
+
+    /* Preset bar */
+    .preset-bar {{ display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px; }}
+    .preset-btn {{
+      background:linear-gradient(135deg,#1a2540,#151a24);color:#a8c7ff;border:1px solid #334466;
+      border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer;transition:all 0.15s;
+    }}
+    .preset-btn:hover {{ background:#243050;border-color:#4477cc; }}
+
+    /* Console */
+    .console-bar {{ display:flex;gap:8px;margin-bottom:12px;align-items:center; }}
+    .console-input {{
+      flex:1;background:var(--card-bg,#151a24);color:var(--text,#e8eef7);
+      border:1px solid var(--card-border,#2a3345);border-radius:8px;padding:8px 12px;
+      font-size:13px;font-family:inherit;outline:none;
+    }}
+    .console-input:focus {{ border-color:#4477cc; }}
+    .console-send {{
+      background:#1a3050;color:#a8c7ff;border:1px solid #4477cc;
+      border-radius:8px;padding:8px 16px;font-size:12px;cursor:pointer;white-space:nowrap;
+    }}
+    .console-send:hover {{ background:#243050; }}
+    .console-clear {{
+      background:transparent;color:#888;border:1px solid #333;
+      border-radius:8px;padding:8px 12px;font-size:11px;cursor:pointer;
+    }}
+
+    /* Suggestions */
+    .suggestions {{ display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;min-height:0; }}
+    .suggestion {{ font-size:10px;color:#555;cursor:pointer;padding:2px 6px;border-radius:4px; }}
+    .suggestion:hover {{ color:#a8c7ff;background:#1a1f2a; }}
+
+    /* Favorites */
     .favorites-section {{
-      margin-bottom: 24px;
-      padding: 14px;
-      background: var(--card-bg, #151a24);
-      border: 1px solid #665500;
-      border-radius: var(--card-radius, 10px);
-      display: none;
+      margin-bottom:20px;padding:12px;background:var(--card-bg,#151a24);
+      border:1px solid #665500;border-radius:var(--card-radius,10px);display:none;
     }}
-    .favorites-section.has-favs {{ display: block; }}
-    .favorites-section h3 {{ color: #ffd700; margin-bottom: 10px; font-size: 14px; }}
-    .empty-fav {{ color: #555; font-size: 12px; font-style: italic; }}
+    .favorites-section.has-favs {{ display:block; }}
+    .favorites-section h3 {{ color:#ffd700;margin-bottom:8px;font-size:13px; }}
+    .empty-fav {{ color:#555;font-size:11px;font-style:italic; }}
+
+    /* Response */
     .response-area {{
-      margin-top: 20px;
-      padding: 16px;
-      background: var(--card-bg, #151a24);
-      border: 1px solid var(--card-border, #2a3345);
-      border-radius: var(--card-radius, 10px);
-      min-height: 60px;
-      display: none;
+      margin-top:16px;padding:14px;background:var(--card-bg,#151a24);
+      border:1px solid var(--card-border,#2a3345);border-radius:var(--card-radius,10px);
+      min-height:50px;display:none;
     }}
-    .response-area.visible {{ display: block; }}
-    .response-intent {{ font-size: 11px; color: #666; margin-bottom: 4px; }}
-    .response-endpoint {{ font-size: 11px; color: #555; margin-bottom: 8px; font-family: monospace; }}
-    .response-text {{ font-size: 15px; color: #e8eef7; line-height: 1.5; }}
-    .response-mode {{ font-size: 10px; color: #ff9800; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }}
-    .history-area {{ margin-top: 24px; }}
-    .history-area h3 {{ color: #a8c7ff; font-size: 14px; margin-bottom: 8px; }}
-    .history-item {{ font-size: 12px; color: #888; padding: 4px 0; border-bottom: 1px solid #1a1f2a; cursor: pointer; }}
-    .history-item:hover {{ color: #a8c7ff; }}
-    .tts-indicator {{ display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; margin-left: 8px; }}
-    .tts-active {{ background: #1b3a1b; color: #30d158; }}
-    .tts-inactive {{ background: #3a1b1b; color: #ef5350; }}
-    .status-bar {{ display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 12px; color: #888; }}
+    .response-area.visible {{ display:block; }}
+    .response-meta {{ display:flex;gap:16px;font-size:10px;color:#555;margin-bottom:6px;flex-wrap:wrap; }}
+    .response-meta span {{ white-space:nowrap; }}
+    .source-badge {{ display:inline-block;padding:1px 6px;border-radius:3px;font-size:9px; }}
+    .source-ok {{ background:#1b3a1b;color:#30d158; }}
+    .source-stale {{ background:#3a301b;color:#ffa500; }}
+    .source-down {{ background:#3a1b1b;color:#ef5350; }}
+    .response-intent {{ font-size:11px;color:#666;margin-bottom:2px; }}
+    .response-endpoint {{ font-size:10px;color:#444;margin-bottom:8px;font-family:monospace; }}
+    .response-text {{ font-size:14px;color:#e8eef7;line-height:1.5; }}
+    .response-detail {{ font-size:11px;color:#777;margin-top:8px;line-height:1.4; }}
+    .response-mode {{ font-size:9px;color:#ff9800;margin-top:8px;text-transform:uppercase;letter-spacing:1px; }}
+    .response-actions {{ margin-top:8px;display:flex;gap:6px; }}
+    .resp-retry,.resp-replay {{ font-size:10px;color:#888;background:transparent;border:1px solid #333;border-radius:4px;padding:2px 8px;cursor:pointer; }}
+    .resp-retry:hover,.resp-replay:hover {{ color:#a8c7ff;border-color:#4477cc; }}
+
+    /* History */
+    .history-area {{ margin-top:20px; }}
+    .history-area h3 {{ color:#a8c7ff;font-size:13px;margin-bottom:6px; }}
+    .history-item {{ font-size:11px;color:#777;padding:3px 0;border-bottom:1px solid #1a1f2a;cursor:pointer; }}
+    .history-item:hover {{ color:#a8c7ff; }}
+    .history-time {{ color:#444;margin-right:6px; }}
+    .status-bar {{ display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:11px;color:#888;flex-wrap:wrap; }}
+    .tts-indicator {{ display:inline-block;padding:2px 8px;border-radius:4px;font-size:9px; }}
+    .tts-active {{ background:#1b3a1b;color:#30d158; }}
+    .tts-inactive {{ background:#3a1b1b;color:#ef5350; }}
+    .latency {{ font-family:monospace;font-size:10px;color:#555; }}
   </style>
 </head>
 <body>
@@ -1919,9 +1994,26 @@ def _voice_operator_html() -> str:
     <div class="status-bar">
       <span>TTS: <span id="tts-status" class="tts-indicator tts-inactive">inactif</span></span>
       <span id="last-query" style="color:#555"></span>
+      <span class="latency" id="latency-display"></span>
       <span style="margin-left:auto;font-size:10px;color:#555">⭐ = clic droit pour favori</span>
     </div>
 
+    <!-- Profile tabs -->
+    <div class="profile-bar">{profile_tabs}</div>
+
+    <!-- Presets -->
+    <div class="preset-bar">{preset_buttons}</div>
+
+    <!-- Console -->
+    <div class="console-bar">
+      <input type="text" class="console-input" id="console-input" placeholder="Tapez une commande (ex: Etat systeme, Setup BTC)..." autocomplete="off"
+             onkeydown="if(event.key==='Enter')voiceQuery(this.value);if(event.key==='Escape')this.value=''">
+      <button class="console-send" onclick="voiceQuery(document.getElementById('console-input').value)">Envoyer</button>
+      <button class="console-clear" onclick="clearConsole()">✕</button>
+    </div>
+    <div class="suggestions" id="suggestions"></div>
+
+    <!-- Favorites -->
     <div id="favorites" class="favorites-section">
       <h3>⭐ Favoris</h3>
       <div class="voice-buttons" id="fav-buttons"></div>
@@ -1933,8 +2025,18 @@ def _voice_operator_html() -> str:
     <div id="response" class="response-area">
       <div class="response-intent" id="resp-intent"></div>
       <div class="response-endpoint" id="resp-endpoint"></div>
+      <div class="response-meta">
+        <span class="source-badge" id="resp-source"></span>
+        <span id="resp-latency"></span>
+        <span id="resp-ts"></span>
+      </div>
       <div class="response-text" id="resp-text"></div>
+      <div class="response-detail" id="resp-detail"></div>
       <div class="response-mode">MONITOR-ONLY — VALIDATION HUMAINE REQUISE</div>
+      <div class="response-actions">
+        <button class="resp-replay" onclick="replayLast()">🔊 Rejouer</button>
+        <button class="resp-retry" id="resp-retry" style="display:none" onclick="retryLast()">🔄 Reessayer</button>
+      </div>
     </div>
 
     <div class="history-area" id="history-area" style="display:none">
@@ -1947,8 +2049,11 @@ def _voice_operator_html() -> str:
 <script>
 const HISTORY_KEY = 'voice_operator_history';
 const FAV_KEY = 'voice_operator_favorites';
+const CACHE_KEY = 'voice_operator_cache';
 let history = [];
 let favorites = [];
+let lastQuery = null;
+let lastResponse = null;
 
 try {{
     const stored = localStorage.getItem(HISTORY_KEY);
@@ -1963,152 +2068,246 @@ try {{
     markFavButtons();
 }} catch(e) {{}}
 
-// Check TTS availability
 if ('speechSynthesis' in window) {{
-    ttsAvailable = true;
     document.getElementById('tts-status').className = 'tts-indicator tts-active';
     document.getElementById('tts-status').textContent = 'actif';
+}} else {{
+    document.getElementById('tts-status').textContent = 'indisponible';
 }}
 
-async function voiceQuery(command) {{
+// ── Suggestions ──
+const ALL_COMMANDS = [];
+document.querySelectorAll('.voice-btn').forEach(b => {{
+    const cmd = b.getAttribute('title') || '';
+    if (cmd && !ALL_COMMANDS.includes(cmd)) ALL_COMMANDS.push(cmd);
+}});
+
+document.getElementById('console-input').addEventListener('input', function() {{
+    const val = this.value.trim().toLowerCase();
+    const sug = document.getElementById('suggestions');
+    if (!val || val.length < 2) {{ sug.innerHTML = ''; return; }}
+    const matches = ALL_COMMANDS.filter(c => c.toLowerCase().includes(val)).slice(0, 6);
+    sug.innerHTML = matches.map(c =>
+        '<span class="suggestion" onclick="voiceQuery(\'' + c.replace(/'/g,"\\\\'") + '\')">' + c + '</span>'
+    ).join('');
+}});
+
+function clearConsole() {{
+    document.getElementById('console-input').value = '';
+    document.getElementById('suggestions').innerHTML = '';
+}}
+
+// ── Profile switching ──
+function switchProfile(pid) {{
+    const p = {json.dumps({k: list(v["sections"]) for k,v in _VOICE_PROFILES.items()})};
+    const sections = p[pid] || [];
+    document.querySelectorAll('.voice-section').forEach(s => {{
+        s.classList.toggle('hidden', sections.length > 0 && !sections.includes(s.dataset.section));
+    }});
+    document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('profile-active'));
+    const tab = Array.from(document.querySelectorAll('.profile-tab')).find(t => t.textContent.includes(pid));
+    if (tab) tab.classList.add('profile-active');
+    localStorage.setItem('voice_profile', pid);
+}}
+
+// Restore profile
+const savedProfile = localStorage.getItem('voice_profile') || 'default';
+if (savedProfile !== 'default') switchProfile(savedProfile);
+
+// ── Presets ──
+async function runPreset(commands) {{
+    for (const cmd of commands) {{
+        await voiceQuery(cmd);
+    }}
+}}
+
+// ── Main query ──
+let activeRequests = 0;
+
+async function voiceQuery(command, retryCount) {{
+    if (!command) return;
+    command = command.trim();
+    if (!command || command === 'undefined') return;
+
     const btns = document.querySelectorAll('.voice-btn');
     btns.forEach(b => b.classList.add('loading'));
+    document.getElementById('console-input').value = '';
 
+    const startTime = Date.now();
     document.getElementById('last-query').textContent = '⏳ ' + command;
+    activeRequests++;
 
     try {{
-        const resp = await fetch('/voice/query?q=' + encodeURIComponent(command));
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 15000);
+        const resp = await fetch('/voice/query?q=' + encodeURIComponent(command), {{ signal: controller.signal }});
+        clearTimeout(timeout);
         const data = await resp.json();
+        const latency = Date.now() - startTime;
+
+        lastQuery = command;
+        lastResponse = data;
 
         const responseEl = document.getElementById('response');
         responseEl.classList.add('visible');
         document.getElementById('resp-intent').textContent = 'Intent: ' + (data.intent || '?');
-        document.getElementById('resp-endpoint').textContent = 'Endpoint: ' + (data.endpoint || '?');
+        document.getElementById('resp-endpoint').textContent = 'Endpoint: ' + (data.endpoint || '?') + (data.params && Object.keys(data.params).length ? ' ' + JSON.stringify(data.params) : '');
         document.getElementById('resp-text').textContent = data.one_line || '(pas de reponse)';
+        document.getElementById('resp-latency').textContent = latency + 'ms';
 
-        // Add to history
-        history.unshift({{
-            ts: new Date().toISOString(),
-            command: command,
-            intent: data.intent,
-            one_line: data.one_line,
-        }});
+        // Source badge
+        const srcBadge = document.getElementById('resp-source');
+        const src = data.source || (data.ok === false ? 'down' : 'ok');
+        srcBadge.className = 'source-badge ' + (src === 'down' ? 'source-down' : src === 'stale' ? 'source-stale' : 'source-ok');
+        srcBadge.textContent = src.toUpperCase();
+        srcBadge.style.display = 'inline-block';
+
+        // Timestamp
+        document.getElementById('resp-ts').textContent = data.generated_at ? data.generated_at.substr(11,8) : '';
+
+        // Details
+        const details = [];
+        if (data.confidence !== undefined) details.push('Confiance: ' + data.confidence + '%');
+        if (data.source_quality) details.push('Qualite: ' + data.source_quality);
+        if (data.pipeline_state) details.push('Pipeline: ' + data.pipeline_state);
+        document.getElementById('resp-detail').textContent = details.join(' · ');
+
+        // Retry button
+        document.getElementById('resp-retry').style.display = (data.ok === false || data.source === 'down') ? 'inline-block' : 'none';
+
+        // Cache valid result
+        if (data.ok !== false && data.one_line) {{
+            const cache = {{}};
+            try {{ cache = JSON.parse(localStorage.getItem(CACHE_KEY) || '{{}}'); }} catch(e) {{}}
+            cache[data.intent || command] = {{ ts: Date.now(), one_line: data.one_line }};
+            localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+        }}
+
+        // History
+        history.unshift({{ ts: new Date().toISOString(), command: command, intent: data.intent, one_line: data.one_line, latency: latency }});
         if (history.length > 50) history.length = 50;
         localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
         renderHistory();
 
         // TTS
-        if (ttsAvailable && data.one_line) {{
+        if (document.getElementById('tts-status').classList.contains('tts-active') && data.one_line) {{
             speak(data.one_line);
         }}
 
         document.getElementById('last-query').textContent = '✓ ' + command;
     }} catch(e) {{
-        document.getElementById('resp-text').textContent = 'Erreur: ' + e.message;
+        const latency = Date.now() - startTime;
+        document.getElementById('resp-text').textContent = 'Erreur: ' + (e.name === 'AbortError' ? 'Timeout (15s)' : e.message);
         document.getElementById('response').classList.add('visible');
+        document.getElementById('resp-latency').textContent = latency + 'ms';
+        document.getElementById('resp-source').className = 'source-badge source-down';
+        document.getElementById('resp-source').textContent = 'DOWN';
+        document.getElementById('resp-retry').style.display = 'inline-block';
         document.getElementById('last-query').textContent = '✗ ' + command;
     }}
 
+    activeRequests--;
     btns.forEach(b => b.classList.remove('loading'));
 }}
 
+function retryLast() {{
+    if (lastQuery) voiceQuery(lastQuery, true);
+}}
+
+function replayLast() {{
+    if (lastResponse && lastResponse.one_line && document.getElementById('tts-status').classList.contains('tts-active')) {{
+        speak(lastResponse.one_line);
+    }}
+}}
+
 function speak(text) {{
-    if (!ttsAvailable) return;
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'fr-FR';
-    u.rate = 1.1;
-    u.pitch = 1.0;
+    u.lang = 'fr-FR'; u.rate = 1.1; u.pitch = 1.0;
     window.speechSynthesis.speak(u);
 }}
 
+// ── Favorites ──
 function toggleFavorite(command, label) {{
     const idx = favorites.findIndex(f => f.command === command);
-    if (idx >= 0) {{
-        favorites.splice(idx, 1);
-    }} else {{
-        favorites.push({{ command: command, label: label }});
-        if (favorites.length > 10) favorites.shift();
-    }}
+    if (idx >= 0) {{ favorites.splice(idx, 1); }}
+    else {{ favorites.push({{ command: command, label: label }}); if (favorites.length > 10) favorites.shift(); }}
     localStorage.setItem(FAV_KEY, JSON.stringify(favorites));
-    renderFavorites();
-    markFavButtons();
+    renderFavorites(); markFavButtons();
 }}
 
 function renderFavorites() {{
     const section = document.getElementById('favorites');
     const buttons = document.getElementById('fav-buttons');
     const empty = document.getElementById('fav-empty');
-
-    if (favorites.length === 0) {{
-        section.classList.remove('has-favs');
-        empty.style.display = 'block';
-        return;
-    }}
-    section.classList.add('has-favs');
-    empty.style.display = 'none';
-
+    if (favorites.length === 0) {{ section.classList.remove('has-favs'); empty.style.display = 'block'; return; }}
+    section.classList.add('has-favs'); empty.style.display = 'none';
     buttons.innerHTML = favorites.map(f =>
-        '<button class="voice-btn fav" onclick="voiceQuery(\'' + f.command.replace(/'/g, "\\'") + '\')" oncontextmenu="toggleFavorite(\'' + f.command.replace(/'/g, "\\'") + '\',\'' + (f.label || f.command).replace(/'/g, "\\'") + '\');return false" title="Clic: executer | Clic droit: retirer">' +
-        '<span class="star">⭐</span>' + (f.label || f.command) + '</button>'
+        '<button class="voice-btn fav" onclick="voiceQuery(\'' + f.command.replace(/'/g,"\\\\'") + '\')" oncontextmenu="toggleFavorite(\'' + f.command.replace(/'/g,"\\\\'") + '\',\'' + (f.label||f.command).replace(/'/g,"\\\\'") + '\');return false" title="Clic: executer | Clic droit: retirer">' +
+        '<span class="star">⭐</span>' + (f.label||f.command) + '</button>'
     ).join('');
 }}
 
 function markFavButtons() {{
     document.querySelectorAll('.voice-btn:not(.fav)').forEach(btn => {{
         const cmd = btn.getAttribute('onclick') || '';
-        const match = cmd.match(/voiceQuery\('(.+?)'\)/);
+        const match = cmd.match(/voiceQuery\\('(.+?)'\\)/);
         if (match && favorites.some(f => f.command === match[1])) {{
             btn.classList.add('fav');
-            if (!btn.querySelector('.star')) {{
-                const star = document.createElement('span');
-                star.className = 'star';
-                star.textContent = '⭐';
-                btn.appendChild(star);
-            }}
+            if (!btn.querySelector('.star')) {{ const s = document.createElement('span'); s.className='star'; s.textContent='⭐'; btn.appendChild(s); }}
         }}
     }});
 }}
 
-// Right-click on any voice button to toggle favorite
+// Right-click to toggle favorite
 document.addEventListener('DOMContentLoaded', function() {{
     setTimeout(function() {{
         document.querySelectorAll('.voice-btn').forEach(function(btn) {{
             if (btn.closest('#fav-buttons')) return;
             btn.addEventListener('contextmenu', function(e) {{
                 e.preventDefault();
-                const cmd = btn.getAttribute('onclick') || '';
-                const match = cmd.match(/voiceQuery\('(.+?)'\)/);
-                if (match) {{
-                    const label = btn.textContent.replace('⭐', '').trim();
-                    toggleFavorite(match[1], label);
-                }}
+                const match = (btn.getAttribute('onclick')||'').match(/voiceQuery\\('(.+?)'\\)/);
+                if (match) toggleFavorite(match[1], btn.textContent.replace('⭐','').trim());
             }});
         }});
     }}, 200);
 }});
 
+// ── History ──
 function renderHistory() {{
     const area = document.getElementById('history-area');
     const list = document.getElementById('history-list');
     if (history.length === 0) {{ area.style.display = 'none'; return; }}
     area.style.display = 'block';
-    list.innerHTML = history.slice(0, 15).map((h, i) => {{
-        const time = h.ts ? h.ts.substr(11, 8) : '';
-        return '<div class="history-item" onclick="voiceQuery(\'' + h.command.replace(/'/g, "\\'") + '\')" title="Rejouer">' +
-               time + ' ' + h.command + ' → ' + (h.one_line || '').substr(0, 80) + '</div>';
+    list.innerHTML = history.slice(0, 20).map(h => {{
+        const time = h.ts ? h.ts.substr(11,8) : '';
+        const lat = h.latency ? ' <span style=\"color:#444\">' + h.latency + 'ms</span>' : '';
+        return '<div class="history-item" onclick="voiceQuery(\'' + h.command.replace(/'/g,"\\\\'") + '\')" title="Rejouer">' +
+               '<span class="history-time">' + time + '</span>' + h.command + lat + ' → ' + (h.one_line||'').substr(0,100) + '</div>';
     }}).join('');
 }}
 
+// Keyboard shortcuts
 document.addEventListener('keydown', function(e) {{
     if (e.key === 'Escape') {{
         window.speechSynthesis.cancel();
         document.getElementById('last-query').textContent = '⏹ TTS stoppé';
     }}
+    if (e.key === '/' && document.activeElement !== document.getElementById('console-input')) {{
+        e.preventDefault();
+        document.getElementById('console-input').focus();
+    }}
+    if (e.ctrlKey && e.key === 'k') {{
+        e.preventDefault();
+        clearConsole();
+        document.getElementById('console-input').focus();
+    }}
 }});
 </script>
 </body>
 </html>"""
+
+
 
 
 @app.get("/voice", response_class=HTMLResponse)
@@ -2118,9 +2317,12 @@ def voice_operator_html():
 
 @app.get("/voice/query")
 def voice_operator_query(q: str = ""):
-    """Route a voice command through intent_router → /read/* → one_line."""
+    """Route a voice command through intent_router → /read/* → enriched response."""
+    import time as _time
+    _start = _time.time()
+
     if not q:
-        return JSONResponse(content={"intent": "unknown", "endpoint": "", "one_line": "Aucune commande"})
+        return JSONResponse(content={"intent": "unknown", "endpoint": "", "one_line": "Aucune commande", "ok": False})
 
     try:
         from modules.voice_operator.engine.intent_router import route
@@ -2128,11 +2330,20 @@ def voice_operator_query(q: str = ""):
 
         routed = route(q)
         result = call(routed.endpoint, routed.params if routed.params else None)
+        latency_ms = int((_time.time() - _start) * 1000)
+
         return JSONResponse(content={
             "intent": routed.intent,
             "endpoint": routed.endpoint,
             "params": routed.params,
             "one_line": result.get("one_line", str(result)),
+            "source": result.get("source_quality", result.get("pipeline_state", "ok")),
+            "ok": result.get("ok", True),
+            "generated_at": result.get("generated_at", ""),
+            "confidence": result.get("confidence"),
+            "source_quality": result.get("source_quality"),
+            "pipeline_state": result.get("pipeline_state"),
+            "latency_ms": latency_ms,
             "mode": "monitor_only",
         })
     except Exception as e:
@@ -2140,5 +2351,7 @@ def voice_operator_query(q: str = ""):
             "intent": "error",
             "endpoint": "",
             "one_line": f"Erreur voix: {str(e)[:200]}",
+            "source": "down",
+            "ok": False,
             "mode": "monitor_only",
         })
