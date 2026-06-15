@@ -2408,7 +2408,7 @@ def _handle_composite(composite_type: str) -> dict:
             cards.append({"label": sym, "value": t.get("engine", "actif")})
         rich["cards"] = cards[:10]
         symbols = " · ".join(c["label"] for c in cards[:6])
-        rich["spoken_text"] = f"Vue marche. {len(all_top)} symboles suivis. {symbols}."
+        rich["spoken_text"] = f"Vue marche. {len(cards)} symboles suivis. {symbols}."
         one_line = symbols
 
     elif composite_type == "whats_new":
@@ -2562,23 +2562,136 @@ def _handle_composite(composite_type: str) -> dict:
         one_line = f"⚠️ Gold | {len(xau_trades)} trades | Verifier stops"
 
     elif composite_type == "watchlist_ia":
-        rich["cards"] = [
-            {"label": "NVDA", "value": "Leader IA"},
-            {"label": "PLTR", "value": "Defense/AI"},
-            {"label": "ARM", "value": "Semi-conducteurs"},
-        ]
-        rich["spoken_text"] = "Watchlist IA. NVDA, PLTR, ARM."
-        one_line = "🤖 NVDA | PLTR | ARM"
+        # Read from true_value DC views if available
+        cards = []
+        tv_dir = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "spacex_true_value.v1" / "by_symbol"
+        ai_tickers = ["NVDA", "AVGO", "AMD", "MRVL", "MU", "PLTR"]
+        for t in ai_tickers:
+            f = tv_dir / f"{t}.json"
+            if f.exists():
+                try:
+                    d = _json.loads(f.read_text())
+                    cards.append({"label": t, "value": f"Grade {d.get('final_grade','?')} · TV {d.get('true_value_score',0):.0f}"})
+                except: pass
+        if not cards:
+            cards = [{"label": "NVDA", "value": "Leader IA"}, {"label": "PLTR", "value": "Defense/AI"}, {"label": "AVGO", "value": "Semi-conducteurs"}]
+        rich["cards"] = cards[:8]
+        tl = " · ".join(c["label"] for c in cards[:4])
+        rich["spoken_text"] = f"Watchlist IA. {tl}. Donnees true value."
+        one_line = "🤖 " + tl
 
     elif composite_type == "watchlist_spatial":
-        rich["cards"] = [
-            {"label": "SPCX", "value": "IPO Leader"},
-            {"label": "RKLB", "value": "Lanceur"},
-            {"label": "ASTS", "value": "Satellite"},
-            {"label": "LUNR", "value": "Lunaire"},
-        ]
-        rich["spoken_text"] = "Watchlist spatial. SPCX, RKLB, ASTS, LUNR."
-        one_line = "🛰️ SPCX | RKLB | ASTS | LUNR"
+        cards = []
+        tv_dir = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "spacex_true_value.v1" / "by_symbol"
+        space_tickers = ["SPCX", "RKLB", "ASTS", "LUNR"]
+        for t in space_tickers:
+            f = tv_dir / f"{t}.json"
+            if f.exists():
+                try:
+                    d = _json.loads(f.read_text())
+                    cards.append({"label": t, "value": f"Grade {d.get('final_grade','?')} · TV {d.get('true_value_score',0):.0f}"})
+                except: pass
+        if not cards:
+            cards = [{"label": "SPCX", "value": "IPO Leader"}, {"label": "RKLB", "value": "Lanceur"}, {"label": "ASTS", "value": "Satellite"}, {"label": "LUNR", "value": "Lunaire"}]
+        rich["cards"] = cards[:8]
+        tl = " · ".join(c["label"] for c in cards[:4])
+        rich["spoken_text"] = f"Watchlist spatiale. {tl}. Donnees true value."
+        one_line = "🛰️ " + tl
+
+    # ── New detail/query composites ──
+    elif composite_type == "btc_full":
+        vm = _get_vision_markets()
+        price = vm.get("BTC", {}).get("price", "?") if isinstance(vm, dict) else "?"
+        trend = vm.get("BTC", {}).get("trend", "?") if isinstance(vm, dict) else "?"
+        cards = [{"label": "Prix", "value": str(price)}, {"label": "Tendance", "value": str(trend)}]
+        # Try market_metrics
+        mm_path = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "market_metrics" / "by_symbol" / "BTCUSDT.json"
+        if mm_path.exists():
+            try:
+                mm = _json.loads(mm_path.read_text())
+                for k in ["vwap", "volume_24h", "rsi_14"]:
+                    if mm.get(k): cards.append({"label": k.replace("_"," ").title(), "value": str(mm[k])[:20]})
+            except: pass
+        rich["cards"] = cards[:10]
+        rich["spoken_text"] = f"BTC. Prix {price}. Tendance {trend}. {len(cards)} indicateurs disponibles."
+        one_line = f"₿ BTC {price} · {trend}"
+
+    elif composite_type == "telegram_alerts":
+        a = _get_alerts()
+        total = a.get("total", 0) if isinstance(a, dict) else 0
+        crit = a.get("critical", 0) if isinstance(a, dict) else 0
+        items = a.get("items", []) if isinstance(a, dict) else []
+        cards = [{"label": "Total", "value": str(total)}, {"label": "Critiques", "value": str(crit)}]
+        for it in items[:3]:
+            cards.append({"label": it.get("symbol", "?"), "value": it.get("signal", "")[:30]})
+        rich["cards"] = cards[:8]
+        rich["spoken_text"] = f"Alertes Telegram. {total} alertes dont {crit} critiques."
+        one_line = f"📡 {total} alertes · {crit} critiques"
+
+    elif composite_type == "setups_all":
+        s = _get_setups()
+        items = s.get("items", []) if isinstance(s, dict) else []
+        cards = []
+        for it in items[:8]:
+            cards.append({"label": it.get("symbol", "?"), "value": it.get("setup_type", it.get("direction", "?"))})
+        rich["cards"] = cards
+        rich["spoken_text"] = f"Setups actifs. {len(items)} setups."
+        one_line = f"📊 {len(items)} setups"
+
+    elif composite_type == "setup_detail":
+        sym = params.get("symbol", "SPCX")
+        s = _get_setups()
+        items = s.get("items", []) if isinstance(s, dict) else []
+        match = [i for i in items if i.get("symbol", "").upper() == sym.upper()]
+        if match:
+            it = match[0]
+            cards = [{"label": k, "value": str(v)[:40]} for k, v in it.items() if k not in ("_priority", "raw")][:8]
+            rich["spoken_text"] = f"Setup {sym}. {it.get('setup_type', it.get('direction', '?'))}. {it.get('symbol', sym)}."
+            one_line = f"📐 {sym} {it.get('setup_type', it.get('direction', '?'))}"
+        else:
+            cards = []
+            rich["spoken_text"] = f"Aucun setup actif pour {sym}."
+            one_line = f"📐 {sym}: aucun setup"
+
+    elif composite_type == "score_detail":
+        sym = params.get("symbol", "SPCX")
+        tv_dir = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "spacex_true_value.v1" / "by_symbol"
+        f = tv_dir / f"{sym}.json"
+        if f.exists():
+            try:
+                d = _json.loads(f.read_text())
+                cards = [
+                    {"label": "Grade", "value": d.get("final_grade", "?")},
+                    {"label": "True Value", "value": f"{d.get('true_value_score', 0):.0f}"},
+                    {"label": "Confiance", "value": f"{d.get('confidence_score', 0):.0f}%"},
+                    {"label": "Hype", "value": f"{d.get('hype_score', 0):.0f}"},
+                    {"label": "Risque", "value": f"{d.get('risk_score', 0):.0f}"},
+                ]
+                rich["spoken_text"] = f"Score {sym}. Grade {d.get('final_grade','?')}. True value {d.get('true_value_score',0):.0f}. Confiance {d.get('confidence_score',0):.0f}%."
+                one_line = f"📐 {sym} {d.get('final_grade','?')} TV{d.get('true_value_score',0):.0f}"
+            except:
+                cards = [{"label": "Erreur", "value": "Donnees illisibles"}]
+                rich["spoken_text"] = f"Score {sym} indisponible. Donnees illisibles."
+                one_line = f"📐 {sym}: erreur"
+        else:
+            cards = [{"label": "Status", "value": "Aucune donnee"}]
+            rich["spoken_text"] = f"Score {sym} indisponible. Aucune donnee true value."
+            one_line = f"📐 {sym}: indisponible"
+
+    elif composite_type == "daily_report":
+        daily_dir = Path(__file__).resolve().parents[3] / "outputs" / "stock_true_value" / "daily"
+        reports = sorted(daily_dir.glob("*_report.md")) if daily_dir.exists() else []
+        if reports:
+            latest = reports[-1]
+            # Read first 10 non-empty lines for summary
+            lines = [l.strip() for l in latest.read_text().splitlines() if l.strip() and not l.startswith("#")][:8]
+            cards = [{"label": f"Ligne {i+1}", "value": l[:60]} for i, l in enumerate(lines[:5])]
+            rich["spoken_text"] = f"Rapport quotidien. {latest.stem}. {len(lines)} lignes."
+            one_line = f"📋 Rapport {latest.stem[:10]}"
+        else:
+            cards = []
+            rich["spoken_text"] = "Aucun rapport quotidien disponible."
+            one_line = "📋 Aucun rapport"
 
     # ── Priority engine commands ──
     elif composite_type == "priorities":
@@ -2680,7 +2793,24 @@ def _handle_composite(composite_type: str) -> dict:
         one_line = "Commande composite inconnue"
         rich["spoken_text"] = one_line
 
-    return {"one_line": one_line, "rich": rich, "generated_at": now}
+    # ── Add missing fields detection ──
+    missing = []
+    if not rich.get("cards"):
+        missing.append("cards")
+    if not rich.get("spoken_text"):
+        missing.append("spoken_text")
+    if not one_line or one_line == "Commande composite inconnue":
+        missing.append("one_line")
+
+    # ── Add next_action hint ──
+    next_action = []
+    if missing:
+        next_action.append("Verifier sources de donnees")
+    if not missing:
+        next_action.append("Aucune action immediate requise")
+
+    return {"one_line": one_line, "rich": rich, "generated_at": now,
+            "missing": missing, "next_action": next_action}
 
 
 @app.get("/voice/query")
