@@ -5,37 +5,43 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from modules.runtime_health.machine_map import MachineMap
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+MACHINE_MAP_PATH = PROJECT_ROOT / "config" / "machine_runtime_map.yml"
 
 
 class TestLocalCMSMenuJSON(unittest.TestCase):
     def setUp(self):
         self.menu_path = PROJECT_ROOT / "scripts" / "ai" / "menu" / "opt_trading_menu.json"
 
+    def _load_menu(self):
+        return json.loads(self.menu_path.read_text(encoding="utf-8"))
+
     def test_menu_file_exists(self):
         self.assertTrue(self.menu_path.exists())
 
     def test_menu_json_valid(self):
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         self.assertIn("version", data)
         self.assertIn("menu", data)
 
     def test_menu_14_domains(self):
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         self.assertEqual(len(data["menu"]), 14)
 
     def test_domain_labels_14_unique(self):
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         labels = [d["label"] for d in data["menu"]]
         self.assertEqual(len(labels), 14)
 
     def test_menu_domain_ids_unique(self):
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         ids = [d["id"] for d in data["menu"]]
         self.assertEqual(len(ids), len(set(ids)))
 
     def test_all_modules_have_status(self):
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         for domain in data["menu"]:
             for child in domain.get("children", []):
                 self._check_status(child)
@@ -48,7 +54,7 @@ class TestLocalCMSMenuJSON(unittest.TestCase):
             self.assertIn("status", item, f"Missing status in {item.get('id', item)}")
 
     def test_all_modules_have_label(self):
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         for domain in data["menu"]:
             for child in domain.get("children", []):
                 self._check_label(child)
@@ -61,7 +67,7 @@ class TestLocalCMSMenuJSON(unittest.TestCase):
 
     def test_known_status_values(self):
         valid_statuses = {"operational", "impl", "partial", "to_build", "closed", "deprecated", "minimal"}
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         for domain in data["menu"]:
             for child in domain.get("children", []):
                 self._check_status_valid(child, valid_statuses)
@@ -75,7 +81,7 @@ class TestLocalCMSMenuJSON(unittest.TestCase):
 
     def test_workers_updated_to_operational(self):
         """Workers GO-03 through GO-10 are now operational (PR #456-#467)."""
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         workers_domain = None
         for d in data["menu"]:
             if d["id"] == "10_workers":
@@ -111,7 +117,7 @@ class TestLocalCMSMenuJSON(unittest.TestCase):
 
     def test_total_module_count_range(self):
         """Expect 85-100 modules across all domains."""
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         count = 0
         for domain in data["menu"]:
             for child in domain.get("children", []):
@@ -125,13 +131,17 @@ class TestLocalCMSMenuJSON(unittest.TestCase):
         return 1
 
     def test_domain_icons_present(self):
-        data = json.loads(self.menu_path.read_text())
+        data = self._load_menu()
         for d in data["menu"]:
             self.assertIn("icon", d, f"Missing icon in domain {d['id']}")
 
     def test_all_machines_are_known(self):
-        known = {"admin-trading", "db-layer", "windows"}
-        data = json.loads(self.menu_path.read_text())
+        mm = MachineMap.load(str(MACHINE_MAP_PATH))
+        known = set(mm.known_machines())
+        for machine in list(known):
+            scope = mm.scope_for(machine) or {}
+            known.update(scope.get("hostname_aliases", []))
+        data = self._load_menu()
         for domain in data["menu"]:
             for child in domain.get("children", []):
                 self._check_machine(child, known)
@@ -222,13 +232,13 @@ class TestLocalCMSAppConfig(unittest.TestCase):
                 if overlap:
                     self.fail(f"Dangerous method {overlap} on {r.path}")
 
-    def test_tmux_9_sessions(self):
+    def test_runtime_16_checks(self):
         from modules.localcms.app.main import ALL_SESSIONS
-        self.assertEqual(len(ALL_SESSIONS), 9)
+        self.assertEqual(len(ALL_SESSIONS), 16)
 
-    def test_critical_sessions_3(self):
+    def test_critical_checks_8(self):
         from modules.localcms.app.main import CRITICAL_SESSIONS
-        self.assertEqual(len(CRITICAL_SESSIONS), 3)
+        self.assertEqual(len(CRITICAL_SESSIONS), 8)
 
     def test_tmux_sessions_have_all_fields(self):
         from modules.localcms.app.main import ALL_SESSIONS

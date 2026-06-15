@@ -1,37 +1,53 @@
 from __future__ import annotations
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from pathlib import Path
 import json
+import shlex
+import socket
 import subprocess
-import sys
 from datetime import date, datetime, timezone
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 MENU_FILE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "opt_trading_menu.json"
 STATE_CACHE = PROJECT_ROOT / "scripts" / "ai" / "menu" / "state_cache.json"
+STATE_CACHE_GENERATOR = PROJECT_ROOT / "scripts" / "ai" / "menu" / "menu_state_aggregator.sh"
+STATE_CACHE_MAX_AGE_S = 300
 TMUX_LOG_DIR = PROJECT_ROOT / "logs"
+SCRIPTS_DIR = PROJECT_ROOT / "scripts"
+SHARED_DESK_DIR = Path("/shared/desk_pro/latest")
 LOCALCMS_LATEST_JSON = PROJECT_ROOT / "tmp" / "localcms_latest.json"
 JOURNAL_DIR = PROJECT_ROOT / "data" / "journal" / "daily"
 SYNC_LOG = PROJECT_ROOT / "data" / "journal" / "sync_log.jsonl"
 
 CRITICAL_SESSIONS: frozenset[str] = frozenset({
-    "openclaw-core",
-    "screeners",
-    "strict-workers",
+    "admin-trading/tv-webhook.service",
+    "admin-trading/tv-perf.service",
+    "admin-trading/bot_vision_step2.service",
+    "fantome/shared-sshfs.service",
+    "fantome/localcms.service",
+    "fantome/openclaw-gateway.service",
+    "fantome/opt-trading-fleet-orchestrator.timer",
+    "fantome/opt-trading-runtime-health.timer",
 })
 
 ALL_SESSIONS: list[dict] = [
-    {"session": "openclaw-core",    "critical": True,  "machine": "db-layer",      "description": "Gateway + Bridge + Health + Logs"},
-    {"session": "screeners",        "critical": True,  "machine": "admin-trading",  "description": "TradingView + Webhook + Bot Vision + Telegram"},
-    {"session": "strict-workers",   "critical": True,  "machine": "admin-trading",  "description": "8 pipeline workers (DRY_RUN=1)"},
-    {"session": "trading-pipeline", "critical": False, "machine": "admin-trading",  "description": "kil_v1 + SimEx + Execution + Risk + Position"},
-    {"session": "market-data",      "critical": False, "machine": "admin-trading",  "description": "Binance + CoinGecko + Derivatives + Analyzers + Scanner + Hub"},
-    {"session": "apps-connectors",  "critical": False, "machine": "db-layer",      "description": "Airtable + ClickUp + Sheets + Health"},
-    {"session": "desk-pro",         "critical": False, "machine": "admin-trading",  "description": "Runner + Orchestrator + Perf + Logs"},
-    {"session": "kg-repo",          "critical": False, "machine": "db-layer",      "description": "Memory Bricks + Learning Feeder + Health"},
-    {"session": "localcms-ui",      "critical": False, "machine": "db-layer",      "description": "LocalCMS Consumer + Health + Logs"},
+    {"session": "admin-trading/tv-webhook.service", "unit": "tv-webhook.service", "critical": True, "machine": "admin-trading", "description": "TradingView webhook receiver on port 8000"},
+    {"session": "admin-trading/tv-perf.service", "unit": "tv-perf.service", "critical": True, "machine": "admin-trading", "description": "Desk Pro/performance API on port 8010"},
+    {"session": "admin-trading/bot_vision_step2.service", "unit": "bot_vision_step2.service", "critical": True, "machine": "admin-trading", "description": "Vision automation runtime"},
+    {"session": "admin-trading/bot_vision_step2_prune.timer", "unit": "bot_vision_step2_prune.timer", "critical": False, "machine": "admin-trading", "description": "Vision cleanup timer"},
+    {"session": "admin-trading/bot-vision-coinglass-capture.timer", "unit": "bot-vision-coinglass-capture.timer", "critical": False, "machine": "admin-trading", "description": "Coinglass capture timer"},
+    {"session": "db-layer/shared-sshfs.service", "unit": "shared-sshfs.service", "critical": False, "machine": "db-layer", "description": "Original db-layer /shared mount; inactive while db-layer is off"},
+    {"session": "db-layer/algo-hf-api.service", "unit": "algo-hf-api.service", "critical": False, "machine": "db-layer", "description": "Algo/Hugging Face API"},
+    {"session": "db-layer/snap.ollama.listener.service", "unit": "snap.ollama.listener.service", "critical": False, "machine": "db-layer", "description": "Ollama snap listener"},
+    {"session": "student/ollama.service", "unit": "ollama.service", "critical": False, "machine": "student", "description": "Student LLM runtime"},
+    {"session": "student/opt-trading-localcms.service", "unit": "opt-trading-localcms.service", "critical": False, "machine": "student", "description": "Fallback LocalCMS dashboard on port 8700"},
+    {"session": "fantome/shared-sshfs.service", "unit": "shared-sshfs.service", "critical": True, "machine": "fantome", "description": "Emergency read-only /shared route from admin-trading"},
+    {"session": "fantome/localcms.service", "unit": "localcms.service", "critical": True, "machine": "fantome", "description": "Emergency primary LocalCMS dashboard on port 8700"},
+    {"session": "fantome/openclaw-gateway.service", "unit": "openclaw-gateway.service", "critical": True, "machine": "fantome", "description": "OpenClaw gateway on loopback port 18789"},
+    {"session": "fantome/opt-trading-fleet-orchestrator.timer", "unit": "opt-trading-fleet-orchestrator.timer", "critical": True, "machine": "fantome", "description": "Emergency fleet orchestration timer"},
+    {"session": "fantome/opt-trading-runtime-health.timer", "unit": "opt-trading-runtime-health.timer", "critical": True, "machine": "fantome", "description": "Emergency runtime health timer"},
+    {"session": "fantome/fail2ban.service", "unit": "fail2ban.service", "critical": False, "machine": "fantome", "description": "SSH protection only; no trading runtime expected"},
 ]
 
 GLOBAL_MENU_SECTIONS = [
@@ -63,6 +79,98 @@ def _read_json(path: Path) -> dict | list:
         return {"error": f"Failed to read {path.name}: {e}"}
 
 
+def _refresh_state_cache() -> str | None:
+    if not STATE_CACHE_GENERATOR.exists():
+        return f"Generator not found: {STATE_CACHE_GENERATOR.name}"
+    try:
+        r = subprocess.run(
+            ["bash", str(STATE_CACHE_GENERATOR)],
+            capture_output=True,
+            text=True,
+            timeout=15,
+            cwd=PROJECT_ROOT,
+        )
+    except (subprocess.TimeoutExpired, FileNotFoundError, OSError) as e:
+        return str(e)
+
+    if r.returncode == 0:
+        return None
+
+    detail = (r.stderr or r.stdout).strip()
+    return detail or f"Generator exited with status {r.returncode}"
+
+
+def _load_state_cache() -> dict | list:
+    data = _read_json(STATE_CACHE)
+    needs_refresh = isinstance(data, dict) and "error" in data
+
+    try:
+        if not needs_refresh and STATE_CACHE.exists():
+            age_s = (datetime.now(timezone.utc).timestamp() - STATE_CACHE.stat().st_mtime)
+            needs_refresh = age_s > STATE_CACHE_MAX_AGE_S
+    except OSError:
+        needs_refresh = True
+
+    if not needs_refresh:
+        return data
+
+    refresh_error = _refresh_state_cache()
+    if refresh_error is None:
+        return _read_json(STATE_CACHE)
+
+    if isinstance(data, dict):
+        return {**data, "refresh_error": refresh_error}
+    return {"error": f"File not found: {STATE_CACHE.name}", "refresh_error": refresh_error}
+
+
+def _safe_child(base: Path, relative_path: str) -> Path | None:
+    try:
+        candidate = (base / relative_path).resolve()
+        candidate.relative_to(base.resolve())
+    except (OSError, ValueError):
+        return None
+    return candidate
+
+
+def _readable_file_response(path: Path) -> FileResponse:
+    media_type = "text/plain; charset=utf-8"
+    if path.suffix == ".json":
+        media_type = "application/json"
+    elif path.suffix in {".html", ".htm"}:
+        media_type = "text/html; charset=utf-8"
+    return FileResponse(path, media_type=media_type, filename=path.name)
+
+
+def _directory_listing_html(base: Path, current: Path, title: str, url_prefix: str) -> HTMLResponse:
+    if not current.exists():
+        return HTMLResponse(content=f"<h2>{title} not found</h2>", status_code=404)
+    if not current.is_dir():
+        return HTMLResponse(content=f"<h2>{title} is not a directory</h2>", status_code=400)
+
+    rows = []
+    for child in sorted(current.iterdir(), key=lambda p: (not p.is_dir(), p.name.lower())):
+        rel = child.relative_to(base).as_posix()
+        href = f"{url_prefix}/{rel}" if rel else url_prefix
+        display = child.name + ("/" if child.is_dir() else "")
+        kind = "dir" if child.is_dir() else "file"
+        size = "-" if child.is_dir() else str(child.stat().st_size)
+        rows.append(f"<tr><td><a href='{href}'>{display}</a></td><td>{kind}</td><td>{size}</td></tr>")
+
+    parent_link = ""
+    if current != base:
+        parent_rel = current.parent.relative_to(base).as_posix()
+        parent_href = url_prefix if parent_rel == "." else f"{url_prefix}/{parent_rel}"
+        parent_link = f"<p><a href='{parent_href}'>..</a></p>"
+
+    html = (
+        f"<html><body><h2>{title}</h2>{parent_link}"
+        "<table border='1' cellpadding='6' cellspacing='0'>"
+        "<thead><tr><th>Name</th><th>Type</th><th>Size</th></tr></thead>"
+        f"<tbody>{''.join(rows) or '<tr><td colspan=3>(empty)</td></tr>'}</tbody></table></body></html>"
+    )
+    return HTMLResponse(content=html)
+
+
 def _list_tmux_sessions() -> list[str]:
     try:
         r = subprocess.run(
@@ -76,26 +184,76 @@ def _list_tmux_sessions() -> list[str]:
         return []
 
 
-def _build_tmux_report() -> dict:
-    active = _list_tmux_sessions()
-    active_set = frozenset(active)
-    expected_ids = frozenset(s["session"] for s in ALL_SESSIONS)
-    up = expected_ids & active_set
-    missing = expected_ids - active_set
-    critical_down = missing & CRITICAL_SESSIONS
-    non_critical_down = missing - CRITICAL_SESSIONS
+def _current_hostnames() -> frozenset[str]:
+    names = {socket.gethostname(), socket.getfqdn(), "localhost", "127.0.0.1"}
+    try:
+        r = subprocess.run(["hostname"], capture_output=True, text=True, timeout=2)
+        if r.returncode == 0 and r.stdout.strip():
+            names.add(r.stdout.strip())
+    except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
+        pass
+    return frozenset(n for n in names if n)
 
+
+def _systemctl_statuses(machine: str, units: list[str]) -> dict[str, tuple[bool, str]]:
+    cmd = ["systemctl", "is-active", *units]
+    if machine not in _current_hostnames():
+        remote_cmd = shlex.join(cmd)
+        cmd = [
+            "ssh",
+            "-o", "BatchMode=yes",
+            "-o", "ConnectTimeout=2",
+            machine,
+            remote_cmd,
+        ]
+
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
+    except subprocess.TimeoutExpired:
+        return {unit: (False, "timeout") for unit in units}
+    except (FileNotFoundError, OSError) as e:
+        return {unit: (False, f"check_error:{e}") for unit in units}
+
+    lines = [line.strip() for line in r.stdout.splitlines() if line.strip()]
+    fallback = r.stderr.strip().splitlines()[0] if r.stderr.strip() else f"exit={r.returncode}"
+    statuses: dict[str, tuple[bool, str]] = {}
+    for index, unit in enumerate(units):
+        value = lines[index] if index < len(lines) else fallback
+        statuses[unit] = (value == "active", value)
+    return statuses
+
+
+def _build_tmux_report() -> dict:
+    expected_ids = frozenset(s["session"] for s in ALL_SESSIONS)
+
+    units_by_machine: dict[str, list[str]] = {}
+    for s in ALL_SESSIONS:
+        units_by_machine.setdefault(s["machine"], []).append(s["unit"])
+
+    statuses_by_machine = {
+        machine: _systemctl_statuses(machine, units)
+        for machine, units in units_by_machine.items()
+    }
+
+    up: set[str] = set()
     sessions_detail = []
     for s in ALL_SESSIONS:
         sid = s["session"]
-        running = sid in active_set
+        running, status = statuses_by_machine[s["machine"]].get(s["unit"], (False, "missing"))
+        if running:
+            up.add(sid)
         sessions_detail.append({
             "session": sid,
             "running": running,
+            "status": status,
             "critical": s["critical"],
             "machine": s["machine"],
             "description": s["description"],
         })
+
+    missing = expected_ids - frozenset(up)
+    critical_down = missing & CRITICAL_SESSIONS
+    non_critical_down = missing - CRITICAL_SESSIONS
 
     return {
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -125,7 +283,7 @@ def get_menu():
 
 @app.get("/menu/state")
 def get_menu_state():
-    data = _read_json(STATE_CACHE)
+    data = _load_state_cache()
     return JSONResponse(content=data)
 
 
@@ -137,10 +295,11 @@ def get_runtime_tmux():
 
 @app.get("/runtime/tmux/live")
 def get_runtime_tmux_live():
-    active = _list_tmux_sessions()
+    report = _build_tmux_report()
     return JSONResponse(content={
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "active_sessions": sorted(active),
+        "active_checks": sorted(s["session"] for s in report["sessions"] if s["running"]),
+        "checks": report["sessions"],
     })
 
 
@@ -148,8 +307,52 @@ def get_runtime_tmux_live():
 
 @app.get("/data-center/health")
 def get_data_center_health():
-    from modules.data_center.localcms_health_reader import read_data_center_health
+    try:
+        from modules.data_center.localcms_health_reader import read_data_center_health
+    except ModuleNotFoundError as e:
+        return JSONResponse(content={
+            "ok": False,
+            "consumer_id": "localcms__data_center_health",
+            "source": "data_center_registry",
+            "error": str(e),
+            "warning": "modules.data_center is not deployed on this machine",
+            "read_at": datetime.now(timezone.utc).isoformat(),
+        }, status_code=503)
+
     return JSONResponse(content=read_data_center_health())
+
+
+@app.get("/scripts/{relative_path:path}")
+def get_script_asset(relative_path: str):
+    path = _safe_child(SCRIPTS_DIR, relative_path)
+    if path is None or not path.exists():
+        return HTMLResponse(content=f"<h2>Script not found: {relative_path}</h2>", status_code=404)
+    if path.is_dir():
+        return _directory_listing_html(SCRIPTS_DIR, path, f"Scripts: {relative_path}", "/scripts")
+    return _readable_file_response(path)
+
+
+@app.get("/logs")
+def get_logs_root():
+    return _directory_listing_html(TMUX_LOG_DIR, TMUX_LOG_DIR, "Logs", "/logs")
+
+
+@app.get("/logs/{relative_path:path}")
+def get_log_asset(relative_path: str):
+    path = _safe_child(TMUX_LOG_DIR, relative_path)
+    if path is None or not path.exists():
+        return HTMLResponse(content=f"<h2>Log path not found: {relative_path}</h2>", status_code=404)
+    if path.is_dir():
+        return _directory_listing_html(TMUX_LOG_DIR, path, f"Logs: {relative_path}", "/logs")
+    return _readable_file_response(path)
+
+
+@app.get("/desk/ui")
+def get_desk_shared_dashboard():
+    dashboard = SHARED_DESK_DIR / "dashboard_latest.html"
+    if not dashboard.exists():
+        return HTMLResponse(content="<h2>Desk shared dashboard not found</h2>", status_code=404)
+    return _readable_file_response(dashboard)
 
 
 # ── Journal endpoints ────────────────────────────────────────────────
@@ -383,7 +586,7 @@ def _metrics_html(m: dict, tmux: dict) -> str:
     <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
     <div class="nav-section" style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
-      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">Runtime Checks</span></a>
       <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
     </div>
     <div style="margin-bottom:16px">
@@ -475,11 +678,11 @@ def _metrics_html(m: dict, tmux: dict) -> str:
     <div class="section-title">État runtime</div>
     <div class="info-grid">
       <div class="info-card">
-        <h4>TMUX Sessions</h4>
+        <h4>Runtime checks</h4>
         <div class="value" style="color:{tmux_color}">{tmux_up}/{tmux_total} UP</div>
       </div>
       <div class="info-card">
-        <h4>Critical sessions DOWN</h4>
+        <h4>Critical checks DOWN</h4>
         <div class="value">{'none' if not tmux.get('critical_down') else ', '.join(tmux['critical_down'])}</div>
       </div>
     </div>
@@ -628,7 +831,7 @@ def _journal_html(entries: list[dict]) -> str:
     <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
     <div class="nav-section" style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
-      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">Runtime Checks</span></a>
       <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
     </div>
     <div style="margin-bottom:16px">
@@ -766,7 +969,7 @@ def _journal_detail_html(entry: dict) -> str:
     <h1>LocalCMS<small>Central UI — opt-trading</small></h1>
     <div class="nav-section" style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
-      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span></a>
+      <a class="nav-item" href="/#tmux-sessions"><span class="nav-icon">🖥️</span><span class="nav-label">Runtime Checks</span></a>
       <a class="nav-item" href="/#health-status"><span class="nav-icon">❤️</span><span class="nav-label">Health Status</span></a>
     </div>
     <div style="margin-bottom:16px">
@@ -906,7 +1109,7 @@ def journal_detail_html(run_id: str):
 def ui_index(request: Request):
     tmux = _build_tmux_report()
     menu_data = _read_json(MENU_FILE)
-    state_data = _read_json(STATE_CACHE)
+    state_data = _load_state_cache()
 
     menu_json = json.dumps(menu_data, indent=2)
     tmux_json = json.dumps(tmux, indent=2)
@@ -1067,7 +1270,7 @@ def ui_index(request: Request):
     <div class="nav-section" style="margin-bottom:16px">
       <div class="nav-item" style="color:#aaa;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px">Runtime</div>
       <a class="nav-item" href="#tmux-sessions">
-        <span class="nav-icon">🖥️</span><span class="nav-label">TMUX Sessions</span>
+        <span class="nav-icon">🖥️</span><span class="nav-label">Runtime Checks</span>
       </a>
       <a class="nav-item" href="#health-status">
         <span class="nav-icon">❤️</span><span class="nav-label">Health Status</span>
@@ -1101,16 +1304,16 @@ def ui_index(request: Request):
 
   <main class="main">
     <h2>Central UI</h2>
-    <p class="subtitle">Cockpit de navigation système — lecture seule. 14 domaines, 9 sessions TMUX, état health.</p>
+    <p class="subtitle">Cockpit de navigation système — lecture seule. 14 domaines, checks runtime systemd, état health.</p>
 
     <div class="summary-bar">
       <div class="summary-card {summary_class}">
         <div class="num">{tmux['total_up']}/{tmux['total_expected']}</div>
-        <div class="label">TMUX Sessions UP</div>
+        <div class="label">Runtime Checks UP</div>
       </div>
       <div class="summary-card">
         <div class="num">{total_critical - critical_count}/{total_critical}</div>
-        <div class="label">Critical Sessions UP</div>
+        <div class="label">Critical Checks UP</div>
       </div>
       <div class="summary-card">
         <div class="num">{len(menu_data.get('menu', []))}</div>
@@ -1137,9 +1340,9 @@ def ui_index(request: Request):
       <div><strong>Non-critical DOWN:</strong> {non_critical_down_html}</div>
     </div>
 
-    <div class="section-title" id="tmux-sessions">🖥️ TMUX Sessions</div>
+    <div class="section-title" id="tmux-sessions">🖥️ Runtime Checks</div>
     <table>
-      <thead><tr><th>Session</th><th>Status</th><th>Type</th><th>Machine</th><th>Description</th></tr></thead>
+      <thead><tr><th>Check</th><th>Status</th><th>Type</th><th>Machine</th><th>Description</th></tr></thead>
       <tbody>{sessions_rows}</tbody>
     </table>
 
@@ -1172,8 +1375,8 @@ def ui_index(request: Request):
         <tr><td><a href="/health">/health</a></td><td>LocalCMS health check</td></tr>
         <tr><td><a href="/menu">/menu</a></td><td>Menu JSON (14 domaines, 85+ modules)</td></tr>
         <tr><td><a href="/menu/state">/menu/state</a></td><td>Module state cache (health polling)</td></tr>
-        <tr><td><a href="/runtime/tmux">/runtime/tmux</a></td><td>TMUX sessions report (9 sessions, critical/non-critical)</td></tr>
-        <tr><td><a href="/runtime/tmux/live">/runtime/tmux/live</a></td><td>Live TMUX session list</td></tr>
+        <tr><td><a href="/runtime/tmux">/runtime/tmux</a></td><td>Runtime systemd checks report (critical/non-critical)</td></tr>
+        <tr><td><a href="/runtime/tmux/live">/runtime/tmux/live</a></td><td>Live runtime checks list</td></tr>
         <tr><td><a href="/metrics">/metrics</a></td><td>Dashboard métriques agrégées (HTML)</td></tr>
         <tr><td><a href="/metrics/daily">/metrics/daily</a></td><td>Métriques daily session (JSON)</td></tr>
       </tbody>

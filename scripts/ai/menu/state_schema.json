@@ -1,13 +1,13 @@
 {
   "version": "1.0",
-  "updated_at": "2026-05-16",
+  "updated_at": "2026-06-15",
   "modules": [
-    {"id": "gateway_openclaw", "type": "ws", "endpoint": "ws://127.0.0.1:18789/health", "machine": "db-layer", "critical": true},
-    {"id": "openclaw_operator_bridge", "type": "process", "check": "pgrep -f openclaw_operator_bridge", "machine": "db-layer", "critical": true},
+    {"id": "gateway_openclaw", "type": "process", "check": "systemctl is-active --quiet openclaw-gateway.service", "machine": "fantome", "critical": true},
+    {"id": "openclaw_operator_bridge", "type": "process", "check": "pgrep -f 'openclaw.*gateway'", "machine": "fantome", "critical": false},
     {"id": "memory_bricks", "type": "http", "endpoint": "http://127.0.0.1:8112/health", "machine": "db-layer", "critical": false},
-    {"id": "desk_pro", "type": "http", "endpoint": "http://127.0.0.1:8010/desk/health", "machine": "admin-trading", "critical": false},
+    {"id": "desk_pro", "type": "http", "endpoint": "http://127.0.0.1:8010/desk/ui", "machine": "admin-trading", "critical": false},
     {"id": "perf", "type": "process", "check": "pgrep -f perf_app", "machine": "admin-trading", "critical": false},
-    {"id": "webhook", "type": "http", "endpoint": "http://127.0.0.1:8010/health", "machine": "admin-trading", "critical": false},
+    {"id": "webhook", "type": "http", "endpoint": "http://127.0.0.1:8000/docs", "machine": "admin-trading", "critical": false},
     {"id": "collector_binance_spot", "type": "process", "check": "pgrep -f collector_binance_spot", "machine": "admin-trading", "critical": false},
     {"id": "collector_coingecko", "type": "process", "check": "pgrep -f collector_coingecko", "machine": "admin-trading", "critical": false},
     {"id": "derivatives_collector", "type": "process", "check": "pgrep -f derivatives_collector", "machine": "admin-trading", "critical": false},

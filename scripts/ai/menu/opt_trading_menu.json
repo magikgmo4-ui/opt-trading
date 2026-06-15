@@ -85,21 +85,21 @@
       "icon": "🤖",
       "children": [
         {"id": "3_1_gateway", "label": "Gateway & Bridge", "children": [
-          {"id": "gateway_openclaw", "label": "Gateway OpenClaw", "status": "operational", "health_url": "ws://127.0.0.1:18789/health", "machine": "db-layer"},
-          {"id": "openclaw_operator_bridge", "label": "Operator Bridge", "status": "operational", "machine": "db-layer"}
+          {"id": "gateway_openclaw", "label": "Gateway OpenClaw", "status": "operational", "health_url": "ws://127.0.0.1:18789/health", "machine": "fantome"},
+          {"id": "openclaw_operator_bridge", "label": "Operator Bridge", "status": "operational", "machine": "fantome"}
         ]},
         {"id": "3_2_config", "label": "Configuration & Diagnostic", "children": [
-          {"id": "configure_openclaw", "label": "Configure", "status": "operational", "machine": "db-layer"},
-          {"id": "openclaw_config_modulaire", "label": "Config Modulaire", "status": "operational", "machine": "db-layer"},
-          {"id": "doctor_openclaw", "label": "Doctor", "status": "operational", "machine": "db-layer"},
-          {"id": "evidence_openclaw", "label": "Evidence", "status": "operational", "machine": "db-layer"}
+          {"id": "configure_openclaw", "label": "Configure", "status": "operational", "machine": "fantome"},
+          {"id": "openclaw_config_modulaire", "label": "Config Modulaire", "status": "operational", "machine": "fantome"},
+          {"id": "doctor_openclaw", "label": "Doctor", "status": "operational", "machine": "fantome"},
+          {"id": "evidence_openclaw", "label": "Evidence", "status": "operational", "machine": "fantome"}
         ]},
         {"id": "3_3_install", "label": "Installation & Providers", "children": [
-          {"id": "install_module_openclaw", "label": "Install Module", "status": "operational", "machine": "db-layer"},
-          {"id": "model_provider_openclaw", "label": "Model Provider", "status": "operational", "machine": "db-layer"}
+          {"id": "install_module_openclaw", "label": "Install Module", "status": "operational", "machine": "fantome"},
+          {"id": "model_provider_openclaw", "label": "Model Provider", "status": "operational", "machine": "fantome"}
         ]},
         {"id": "3_4_interface", "label": "Interface & Bridge", "children": [
-          {"id": "menu_openclaw", "label": "Menu OpenClaw", "status": "operational", "machine": "db-layer"},
+          {"id": "menu_openclaw", "label": "Menu OpenClaw", "status": "operational", "machine": "fantome"},
           {"id": "tradingview_observer_openclaw", "label": "TV Observer Bridge", "status": "impl", "machine": "admin-trading"}
         ]}
       ]
@@ -132,14 +132,14 @@
         ]},
         {"id": "5_2_ui", "label": "UI Centrale", "children": [
           {"id": "desk_pro", "label": "Desk Pro (FastAPI)", "status": "operational", "machine": "admin-trading"},
-          {"id": "desk_pro_dashboard", "label": "Dashboard", "status": "impl", "machine": "db-layer"}
+          {"id": "desk_pro_dashboard", "label": "Dashboard", "status": "impl", "machine": "admin-trading"}
         ]},
         {"id": "5_3_pipeline", "label": "Pipeline Snapshot (0→A→B→D→E)", "children": [
           {"id": "desk_retention", "label": "Step 0 — Retention", "status": "operational", "machine": "admin-trading"},
           {"id": "desk_snapshot_ingest", "label": "Step A — Snapshot Ingest", "status": "operational", "machine": "admin-trading"},
           {"id": "desk_analyze", "label": "Step B — Analyze", "status": "operational", "machine": "admin-trading"},
           {"id": "desk_capture_inputs", "label": "Step D — Capture Inputs", "status": "operational", "machine": "admin-trading"},
-          {"id": "desk_state", "label": "Step E — State Final", "status": "operational", "machine": "db-layer"}
+          {"id": "desk_state", "label": "Step E — State Final", "status": "operational", "machine": "admin-trading"}
         ]},
         {"id": "desk_common", "label": "Shared (desk_common)", "status": "operational", "machine": "admin-trading"}
       ]
@@ -178,14 +178,14 @@
       "icon": "🔌",
       "children": [
         {"id": "8_1_ssh", "label": "SSH & Réseau", "children": [
-          {"id": "reseau_ssh", "label": "Réseau SSH (canonique)", "status": "operational", "machine": "db-layer"},
+          {"id": "reseau_ssh", "label": "Réseau SSH (canonique)", "status": "operational", "machine": "admin-trading"},
           {"id": "reseau_ssh_step1b", "label": "SSH Step1b (deprecated)", "status": "deprecated", "machine": "db-layer"}
         ]},
         {"id": "8_2_transfer", "label": "Transfert Fichiers", "children": [
-          {"id": "shared_files_sftp", "label": "SFTP", "status": "impl", "machine": "db-layer"},
-          {"id": "shared_sshfs_permanent", "label": "SSHFS Permanent", "status": "impl", "machine": "db-layer"},
-          {"id": "shared", "label": "Shared Data", "status": "impl", "machine": "db-layer"},
-          {"id": "winscp_transfer", "label": "WinSCP Transfer", "status": "impl", "machine": "windows"}
+          {"id": "shared_files_sftp", "label": "SFTP", "status": "impl", "machine": "admin-trading"},
+          {"id": "shared_sshfs_permanent", "label": "SSHFS Permanent", "status": "impl", "machine": "fantome"},
+          {"id": "shared", "label": "Shared Data", "status": "impl", "machine": "admin-trading"},
+          {"id": "winscp_transfer", "label": "WinSCP Transfer", "status": "impl", "machine": "cursor-ai"}
         ]},
         {"id": "8_3_auth", "label": "Auth & Secrets", "children": [
           {"id": "auth", "label": "Auth (credentials)", "status": "operational", "machine": "db-layer"}
@@ -202,12 +202,12 @@
           {"id": "ui_registry_msi", "label": "UI Registry MSI", "status": "impl", "machine": "db-layer", "note": "source vérité UI"}
         ]},
         {"id": "9_2_routing", "label": "Routage & Meta", "children": [
-          {"id": "registry_router", "label": "Registry Router", "status": "impl", "machine": "db-layer"},
-          {"id": "registry_meta_reader", "label": "Meta Reader", "status": "impl", "machine": "db-layer"},
-          {"id": "modules_registry_reader", "label": "Modules Reader", "status": "impl", "machine": "db-layer"},
-          {"id": "machines_registry_reader", "label": "Machines Reader", "status": "impl", "machine": "db-layer"},
-          {"id": "wrappers_registry_reader", "label": "Wrappers Reader", "status": "impl", "machine": "db-layer"},
-          {"id": "router", "label": "Router (facade)", "status": "minimal", "machine": "db-layer"}
+          {"id": "registry_router", "label": "Registry Router", "status": "impl", "machine": "admin-trading"},
+          {"id": "registry_meta_reader", "label": "Meta Reader", "status": "impl", "machine": "admin-trading"},
+          {"id": "modules_registry_reader", "label": "Modules Reader", "status": "impl", "machine": "admin-trading"},
+          {"id": "machines_registry_reader", "label": "Machines Reader", "status": "impl", "machine": "admin-trading"},
+          {"id": "wrappers_registry_reader", "label": "Wrappers Reader", "status": "impl", "machine": "admin-trading"},
+          {"id": "router", "label": "Router (facade)", "status": "minimal", "machine": "admin-trading"}
         ]}
       ]
     },
@@ -243,9 +243,9 @@
       "label": "Ops & Menus",
       "icon": "🔧",
       "children": [
-        {"id": "ops_menu_hub", "label": "Ops Menu Hub", "status": "operational", "machine": "db-layer"},
-        {"id": "ops_super_menu", "label": "Ops Super Menu", "status": "operational", "machine": "db-layer"},
-        {"id": "ops_wrappers", "label": "Ops Wrappers", "status": "operational", "machine": "db-layer"},
+        {"id": "ops_menu_hub", "label": "Ops Menu Hub", "status": "operational", "machine": "admin-trading"},
+        {"id": "ops_super_menu", "label": "Ops Super Menu", "status": "operational", "machine": "admin-trading"},
+        {"id": "ops_wrappers", "label": "Ops Wrappers", "status": "operational", "machine": "admin-trading"},
         {"id": "module_contextuals_shell", "label": "Module Contextuals Shell", "status": "operational", "machine": "db-layer"},
         {"id": "naming_normalizer", "label": "Naming Normalizer", "status": "operational", "machine": "db-layer"}
       ]
@@ -261,14 +261,14 @@
           {"id": "audit", "label": "Audit Module", "status": "operational", "machine": "db-layer"}
         ]},
         {"id": "12_2_hygiene", "label": "Hygiène & Permissions", "children": [
-          {"id": "repo_hygiene", "label": "Repo Hygiene", "status": "operational", "machine": "db-layer"},
-          {"id": "repo_local_artifacts", "label": "Repo Local Artifacts", "status": "operational", "machine": "db-layer"},
-          {"id": "repo_ownership_guard", "label": "Ownership Guard", "status": "operational", "machine": "db-layer"},
-          {"id": "git_fleet_guard", "label": "Git Fleet Guard", "status": "impl", "machine": "db-layer"}
+          {"id": "repo_hygiene", "label": "Repo Hygiene", "status": "operational", "machine": "admin-trading"},
+          {"id": "repo_local_artifacts", "label": "Repo Local Artifacts", "status": "operational", "machine": "admin-trading"},
+          {"id": "repo_ownership_guard", "label": "Ownership Guard", "status": "operational", "machine": "admin-trading"},
+          {"id": "git_fleet_guard", "label": "Git Fleet Guard", "status": "impl", "machine": "admin-trading"}
         ]},
         {"id": "12_3_sync", "label": "Installation & Sync", "children": [
-          {"id": "install_module", "label": "Install Module (sync_validate)", "status": "operational", "machine": "db-layer"},
-          {"id": "workflow_post_change_v2", "label": "Workflow Post Change V2", "status": "impl", "machine": "db-layer"}
+          {"id": "install_module", "label": "Install Module (sync_validate)", "status": "operational", "machine": "admin-trading"},
+          {"id": "workflow_post_change_v2", "label": "Workflow Post Change V2", "status": "impl", "machine": "admin-trading"}
         ]}
       ]
     },
@@ -281,7 +281,7 @@
           {"id": "engines", "label": "Engines (registry + router)", "status": "operational", "machine": "db-layer"}
         ]},
         {"id": "13_2_env", "label": "Environnement", "children": [
-          {"id": "env", "label": "Env (bootstrap)", "status": "operational", "machine": "db-layer"}
+          {"id": "env", "label": "Env (bootstrap)", "status": "operational", "machine": "admin-trading"}
         ]}
       ]
     },
