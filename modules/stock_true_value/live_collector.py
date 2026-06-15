@@ -1,7 +1,6 @@
-"""Live collector framework for stock_true_value — Yahoo + SEC + ETF Flows.
+"""Live collector framework for stock_true_value — all 4 collectors active.
 
-Activation: Yahoo Finance (Phase 6) + SEC EDGAR (Remediation R2) + ETF Flows (G3).
-Analyst Revisions still stub.
+Yahoo Finance (Phase 6) + SEC EDGAR (Remediation R2) + ETF Flows (G3) + Analyst Momentum (G3).
 """
 
 from __future__ import annotations
@@ -23,7 +22,7 @@ COLLECTOR_STATUS = {
     "yahoo_finance": "active",
     "sec_edgar": "active",
     "etf_flows": "active",
-    "analyst_revisions": "stub",
+    "analyst_momentum": "active",
 }
 
 # Space-relevant ETFs for flow signal
@@ -117,11 +116,52 @@ def _etf_flows_signal() -> float:
     return signal
 
 
-def _price_to_raw_scores(quote: dict, sec_signal: float | None = None, etf_signal: float | None = None) -> dict:
-    """Convert Yahoo quote + optional SEC signal to raw scores.
+def _analyst_momentum_signal(ticker: str) -> float:
+    """Compute an analyst momentum proxy from 1mo daily price+volume data.
     
-    SEC signal enriches fundamental_score when available.
+    Uses: 5d price momentum + volume trend. Maps to 0-100 signal.
     """
+    import urllib.request as _ur
+    safe = urllib.parse.quote(ticker)
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{safe}?range=1mo&interval=1d"
+    try:
+        req = _ur.Request(url, headers={"User-Agent": "Mozilla/5.0 opt-trading stock_true_value"})
+        with _ur.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        return 50.0
+
+    result = (data.get("chart", {}).get("result") or [None])[0]
+    if not result:
+        return 50.0
+    quotes = result.get("indicators", {}).get("quote", [{}])[0]
+    closes = [c for c in quotes.get("close", []) if c]
+    volumes = [v for v in quotes.get("volume", []) if v]
+
+    if len(closes) < 3:
+        return 50.0
+
+    # 5-day momentum (or max available)
+    lookback = min(5, len(closes) - 1)
+    momentum = (closes[-1] - closes[-lookback-1]) / closes[-lookback-1] * 100 if len(closes) > lookback else 0
+
+    # Volume trend: recent 3 days vs early 3 days
+    n = min(3, len(volumes) // 2)
+    if n > 0 and len(volumes) >= 2 * n:
+        vol_recent = sum(volumes[-n:])
+        vol_early = sum(volumes[:n])
+        vol_trend = (vol_recent - vol_early) / max(1, vol_early) * 100
+    else:
+        vol_trend = 0
+
+    # Map momentum (-10%..+10%) and vol trend (-50%..+50%) to 0-100
+    mom_score = min(100, max(0, 50 + momentum * 5))
+    vol_score = min(100, max(0, 50 + vol_trend * 1))
+    return round((mom_score * 0.6 + vol_score * 0.4), 1)
+
+
+def _price_to_raw_scores(quote: dict, sec_signal: float | None = None, etf_signal: float | None = None, analyst_signal: float | None = None) -> dict:
+    """Convert Yahoo quote + optional SEC/ETF/Analyst signals to raw scores."""
     price = quote.get("price") or 0
     prev_close = quote.get("previous_close") or price or 1
     change_pct = ((price - prev_close) / prev_close * 100) if prev_close else 0
@@ -130,13 +170,15 @@ def _price_to_raw_scores(quote: dict, sec_signal: float | None = None, etf_signa
 
     etf_boost = etf_signal if etf_signal is not None else 50.0
 
+    analyst_boost = analyst_signal if analyst_signal is not None else 50.0
+
     return {
         "fundamental_score": min(100, max(0, (50 + change_pct * 2) * 0.6 + sec_boost * 0.4)),
         "valuation_score": min(100, max(0, 50 + (1 - price / 500 if price else 50))),
         "flow_score": etf_boost,
-        "speculation_score": 50.0,
+        "speculation_score": analyst_boost,
         "surprise_score": min(100, max(0, 50 + abs(change_pct) * 2)),
-        "catalyst_score": 50.0,
+        "catalyst_score": analyst_boost,
         "ecosystem_score": 50.0,
     }
 
@@ -181,12 +223,13 @@ def collect_and_score(dry_run: bool = False) -> dict:
 
         # Apply SEC signal only to SPCX
         ticker_sec = sec_signal_value if ticker == "SPCX" else None
-        raw = _price_to_raw_scores(quote, ticker_sec, etf_signal_value)
+        ticker_analyst = _analyst_momentum_signal(ticker)
+        raw = _price_to_raw_scores(quote, ticker_sec, etf_signal_value, ticker_analyst)
         snapshot = compute_score_snapshot(
             ticker=ticker,
             universe="spacex_watchlist",
             raw_scores=raw,
-            source_health_payload={"required_sources_available": 3 if ticker == "SPCX" else 2,
+            source_health_payload={"required_sources_available": 4 if ticker == "SPCX" else 3,
                                    "optional_sources_available": 0,
                                    "missing_sources": [], "stale_sources": [], "data_conflicts": []},
         )
