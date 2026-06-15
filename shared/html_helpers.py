@@ -164,15 +164,27 @@ def page_shell(
     body_cls = f' class="{body_class}"' if body_class else ""
     return (
         f'<!DOCTYPE html>\n'
-        f'<html lang="en">\n'
+        f'<html lang="fr">\n'
         f'<head>\n'
         f'  <meta charset="utf-8"/>\n'
-        f'  <meta name="viewport" content="width=device-width,initial-scale=1"/>\n'
+        f'  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>\n'
+        f'  <meta name="theme-color" content="#0b0d12"/>\n'
+        f'  <meta name="apple-mobile-web-app-capable" content="yes"/>\n'
+        f'  <meta name="apple-mobile-web-app-title" content="LocalCMS"/>\n'
+        f'  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>\n'
+        f'  <link rel="manifest" href="/manifest.webmanifest"/>\n'
+        f'  <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192.png"/>\n'
+        f'  <link rel="apple-touch-icon" href="/static/icon-192.png"/>\n'
         f'  <title>{title}</title>\n'
         f'  <style>{css}</style>\n'
         f'</head>\n'
         f'<body{body_cls}>\n'
         f'{layout}\n'
+        f'<script>\n'
+        f"if ('serviceWorker' in navigator) {{\n"
+        f"  navigator.serviceWorker.register('/service-worker.js').catch(() => {{}});\n"
+        f"}}\n"
+        f'</script>\n'
         f'{auto_refresh_script(refresh_s)}\n'
         f'</body>\n'
         f'</html>'
