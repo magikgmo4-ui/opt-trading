@@ -2191,8 +2191,20 @@ def voice_operator_query(q: str = ""):
         raw_one_line = result.get("one_line", "")
         if isinstance(raw_one_line, dict):
             raw_one_line = raw_one_line.get("one_line", raw_one_line.get("summary", str(raw_one_line)))
-        if not raw_one_line or raw_one_line.startswith("{"):
-            raw_one_line = result.get("summary", result.get("one_line", str(result)))
+        if not raw_one_line or not isinstance(raw_one_line, str) or raw_one_line.startswith("{"):
+            # Extract from nested data
+            items = result.get("items", [])
+            if items and isinstance(items, list) and len(items) > 0:
+                item = items[0]
+                raw_one_line = item.get("one_line", item.get("summary", ""))
+            if not raw_one_line or (isinstance(raw_one_line, str) and raw_one_line.startswith("{")):
+                raw_one_line = result.get("summary", result.get("one_line", ""))
+            # Last resort: build from known fields
+            if not raw_one_line or (isinstance(raw_one_line, str) and raw_one_line.startswith("{")):
+                sym = result.get("symbol", "")
+                setup = result.get("setup_type", "")
+                direction = result.get("direction", "")
+                raw_one_line = f"{sym} {setup} {direction}".strip() or "Donnees disponibles"
 
         # Analytics
         try:
