@@ -2030,6 +2030,7 @@ const HIST_KEY = 'voice_chat_history';
 let messages = [];
 let lastOneLine = '';
 let ttsReady = false;
+let lastCmd = '';
 
 // Init
 try {{ messages = JSON.parse(localStorage.getItem(HIST_KEY) || '[]'); }} catch(e) {{}}
@@ -2040,12 +2041,11 @@ async function sendCommand(cmd) {{
   cmd = (cmd || '').trim();
   if (!cmd) return;
   document.getElementById('cmd-input').value = '';
+  lastCmd = cmd;
 
-  // Add user message
   addMessage('user', cmd);
   scrollDown();
 
-  // Check backend
   const start = Date.now();
   try {{
     const resp = await fetch('/voice/query?q=' + encodeURIComponent(cmd));
@@ -2067,19 +2067,17 @@ async function sendCommand(cmd) {{
     meta += ' <span>' + lat + 'ms</span>';
     if (source !== 'ok') meta += ' <span style="color:#ffa500">src:' + source + '</span>';
 
-    let actions = '<button onclick="speakLast()">🔊 Lire</button>';
-    if (data.ok === false) actions += '<button onclick="sendCommand(\'' + cmd.replace(/'/g,"\\'") + '\')">🔄 Reessayer</button>';
+    let actions = '<button onclick="speakLast()">Lire</button>';
+    if (data.ok === false) actions += '<button onclick="retryLastCmd()">Reessayer</button>';
 
     addMessage('bot', oneLine, meta, actions, data.ok === false ? 'msg-error' : 'msg-bot');
-
-    // TTS
     if (ttsReady) speak(oneLine);
 
   }} catch(e) {{
     document.getElementById('diag-backend').className = 'diag-fail';
-    document.getElementById('diag-backend').textContent = '● backend FAIL';
+    document.getElementById('diag-backend').textContent = 'backend FAIL';
     addMessage('bot', 'Erreur: ' + (e.name === 'TypeError' ? 'Backend inaccessible' : e.message),
-               '<span>HTTP ERR</span>', '<button onclick="sendCommand(\'' + cmd.replace(/'/g,"\\'") + '\')">🔄 Reessayer</button>', 'msg-error');
+               '<span>HTTP ERR</span>', '<button onclick="retryLastCmd()">Reessayer</button>', 'msg-error');
   }}
   scrollDown();
 }}
@@ -2121,6 +2119,7 @@ function speak(text) {{
 }}
 
 function speakLast() {{ if (lastOneLine) speak(lastOneLine); }}
+function retryLastCmd() {{ if (lastCmd) sendCommand(lastCmd); }}
 function stopTTS() {{ window.speechSynthesis.cancel(); }}
 function clearChat() {{
   document.getElementById('messages').innerHTML = '<div class="empty-state">Historique efface.</div>';
