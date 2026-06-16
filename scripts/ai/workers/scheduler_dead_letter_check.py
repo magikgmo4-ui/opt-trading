@@ -1,70 +1,61 @@
-"""Check cron logs for recent failures — dead-letter detection with Telegram alert."""
-import json, pathlib, datetime, re, sys
+#!/usr/bin/env python3
+"""Scan scheduler/ops logs for recent failure signatures."""
 
-LOGS_DIR = pathlib.Path("data/logs/cron")
-REPORT_PATH = pathlib.Path("reports/ai/scheduler_dead_letter_check.json")
-LOOKBACK_HOURS = 24
-FAILURE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in
-                    [r'\bERROR\b', r'\bFAIL\b', r'\bTraceback\b', r'\bException\b']]
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[3]
+LOG_PATHS = [
+    REPO_ROOT / "logs" / "ops" / "cron.log",
+    REPO_ROOT / "logs" / "ops" / "gates_cron.log",
+    REPO_ROOT / "logs" / "ops" / "ops_pipeline.log",
+    REPO_ROOT / "logs" / "ops" / "pipeline.log",
+    REPO_ROOT / "data" / "logs" / "scheduler" / "scheduler.log",
+]
+KEYWORDS = ("ERROR", "FAIL", "BLOCKED", "Traceback", "TimeoutExpired", "CRITICAL_DOWN")
+TAIL_LINES = 200
 
 
-def _notify(failures: list) -> None:
+def scan_log(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
     try:
-        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
-        from modules.env.env import load_env
-        load_env()
-        from shared.telegram_channels import send_to_channel
-        lines = [f"🔴 <b>scheduler-dead-letter WARN</b>"]
-        lines.append(f"{len(failures)} erreur(s) cron dans les {LOOKBACK_HOURS}h :")
-        seen_logs: set = set()
-        for f in failures[:5]:
-            log = f["log"]
-            if log not in seen_logs:
-                lines.append(f"• <code>{log}</code> l.{f['line']}: {f['content'][:60]}")
-                seen_logs.add(log)
-        send_to_channel("alerts", "\n".join(lines), source="scheduler_dead_letter_check")
-    except Exception:
-        pass
+        lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    except OSError:
+        return []
+    findings = []
+    for idx, line in enumerate(lines[-TAIL_LINES:], start=max(len(lines) - TAIL_LINES + 1, 1)):
+        if any(token in line for token in KEYWORDS):
+            findings.append({
+                "line": idx,
+                "text": line[:220],
+            })
+    return findings
 
 
-def scan_logs():
-    failures = []
-    if not LOGS_DIR.exists():
-        return failures, "cron logs directory not found"
-    cutoff = datetime.datetime.utcnow() - datetime.timedelta(hours=LOOKBACK_HOURS)
-    for log in sorted(LOGS_DIR.glob("*.log")):
-        try:
-            mtime = datetime.datetime.utcfromtimestamp(log.stat().st_mtime)
-            if mtime < cutoff:
-                continue
-            for lineno, line in enumerate(log.read_text(errors="ignore").splitlines(), 1):
-                if any(p.search(line) for p in FAILURE_PATTERNS):
-                    failures.append({"log": log.name, "line": lineno, "content": line[:120]})
-                    if len(failures) >= 20:
-                        return failures, None
-        except OSError:
-            pass
-    return failures, None
+def main() -> int:
+    reports = []
+    total = 0
+    for path in LOG_PATHS:
+        findings = scan_log(path)
+        total += len(findings)
+        reports.append({
+            "path": str(path.relative_to(REPO_ROOT)),
+            "exists": path.exists(),
+            "findings": findings,
+        })
 
-
-def main():
-    failures, error = scan_logs()
-    status = "WARN" if failures else "PASS"
-    report = {
-        "job_id": "scheduler-dead-letter-check",
-        "checked_at": datetime.datetime.utcnow().isoformat() + "Z",
-        "lookback_hours": LOOKBACK_HOURS,
-        "failures_found": len(failures),
-        "failures": failures,
-        "error": error,
-        "status": status,
+    payload = {
+        "status": "PASS" if total == 0 else "FAIL",
+        "finding_count": total,
+        "logs": reports,
     }
-    REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    REPORT_PATH.write_text(json.dumps(report, indent=2))
-    print(json.dumps({"job_id": report["job_id"], "failures": len(failures),
-                      "status": status}, indent=2))
-    if failures:
-        _notify(failures)
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    return 0 if total == 0 else 1
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

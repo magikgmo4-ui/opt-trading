@@ -1,33 +1,32 @@
 #!/usr/bin/env bash
-# Check .env file presence and non-emptiness.
 set -euo pipefail
 
-REPORT=reports/ai/env_file_presence_check.json
-mkdir -p "$(dirname "$REPORT")"
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+ENV_FILE="$REPO_ROOT/.env"
+REQUIRED_VARS=(TV_WEBHOOK_KEY OPS_ADMIN_KEY TELEGRAM_BOT_TOKEN TELEGRAM_CHAT_ID)
 
-status="PASS"
-findings=()
-
-if [[ ! -f ".env" ]]; then
-    findings+=("MISSING: .env")
-    status="WARN"
-elif [[ ! -s ".env" ]]; then
-    findings+=("EMPTY: .env")
-    status="WARN"
+missing=0
+echo "env_file=$ENV_FILE"
+if [[ ! -f "$ENV_FILE" ]]; then
+  echo "status=FAIL"
+  echo "missing_file=.env"
+  exit 1
 fi
 
-if [[ ! -f ".env.example" ]]; then
-    findings+=("MISSING: .env.example")
-    status="WARN"
+for key in "${REQUIRED_VARS[@]}"; do
+  if grep -Eq "^${key}=" "$ENV_FILE"; then
+    echo "$key=present_in_file"
+  elif [[ -n "${!key:-}" ]]; then
+    echo "$key=present_in_env"
+  else
+    echo "$key=MISSING"
+    missing=1
+  fi
+done
+
+if [[ $missing -eq 1 ]]; then
+  echo "status=FAIL"
+  exit 1
 fi
 
-# Build JSON findings array
-json_findings=$(printf '%s\n' "${findings[@]+"${findings[@]}"}" | jq -R . | jq -s .)
-
-jq -n \
-  --arg job "env-file-presence-check" \
-  --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  --arg status "$status" \
-  --argjson findings "$json_findings" \
-  '{job_id: $job, checked_at: $ts, findings: $findings, status: $status}' \
-  | tee "$REPORT"
+echo "status=PASS"

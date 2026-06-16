@@ -354,6 +354,136 @@
         },
         "best_value": null,
         "stale": true
+      },
+      "price": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "gap_vs_ipo_pct": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "relative_volume": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "momentum": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "news_velocity": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "sec_activity": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "smart_money": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "risk": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "trade_ready": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "accumulation": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "fvg": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "bos": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
+      },
+      "signal_active": {
+        "producers": {
+          "spacex_super_desk_collector": {
+            "last_write": null,
+            "value": null
+          }
+        },
+        "best_value": null,
+        "stale": true
       }
     }
   }
