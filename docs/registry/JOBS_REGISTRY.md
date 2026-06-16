@@ -104,16 +104,16 @@ Entrées notables :
 | `aw_strict_denied_scan` | `scripts/ai/workers/strict_worker_denied_command_scan.py` | python | ai_workers | scan commandes interdites | active | medium | keep |
 | `aw_strict_log_archive` | `scripts/ai/workers/strict_worker_log_archive.py` | python | ai_workers | archivage logs strict | active | low | keep |
 | `aw_strict_output_schema` | `scripts/ai/workers/strict_worker_output_schema_check.py` | python | ai_workers | valide schema output | active | medium | keep |
-| `aw_signal_processor` | `scripts/ai/workers/signal_processor.py` | python | ai_workers | traitement signaux | candidate | high | keep |
+| `aw_signal_processor` | `modules/signal_router/app/router.py` | python | signal_router | traitement et normalisation des signaux | active | medium | replaced_by_surface |
 | `aw_signal_stats` | `scripts/ai/workers/signal_stats.py` | python | ai_workers | stats signaux | candidate | medium | keep |
-| `aw_health_status` | `scripts/ai/workers/health_status.py` | python | ai_workers | état santé système | active | low | keep |
+| `aw_health_status` | `scripts/tmux/health_check.py` | python | runtime_ops | état santé runtime/TMUX | active | low | replaced_by_surface |
 | `aw_stuck_job` | `scripts/ai/workers/stuck_job_detector.py` | python | ai_workers | détecte jobs bloqués | active | medium | keep |
 | `aw_permission_drift` | `scripts/ai/workers/permission_drift_check.py` | python | ai_workers | audit dérives permissions | active | medium | keep |
 | `aw_oauth_audit` | `scripts/ai/workers/oauth_scope_audit.py` | python | ai_workers | audit scopes OAuth | candidate | high | keep |
 | `aw_repo_frontmatter` | `scripts/ai/workers/repo_doc_frontmatter_lint.py` | python | ai_workers | lint frontmatter docs | active | low | keep |
 | `aw_repo_link_check` | `scripts/ai/workers/repo_doc_link_check.py` | python | ai_workers | vérifie liens docs | active | low | keep |
 | `aw_kill_switch` | `scripts/ai/workers/kill_switch_fullstop_test.py` | python | ai_workers | test kill switch | active | high | keep |
-| `aw_localcms_sync` | `scripts/ai/workers/localcms_automation_status_sync.py` | python | ai_workers | sync status localcms | active | medium | keep |
+| `aw_localcms_sync` | `modules/localcms/app/main.py` | python | localcms | surface d'état et synchronisation LocalCMS | active | medium | replaced_by_surface |
 | `aw_openclaw_mobile` | `scripts/ai/workers/openclaw_mobile_control.py` | python | ai_workers | contrôle mobile openclaw | active | medium | keep |
 | `aw_runner_readonly` | `scripts/ai/workers/runner_readonly.py` | python | ai_workers | runner lecture seule | active | low | keep |
 
@@ -174,7 +174,7 @@ Scripts de surveillance sécurité/repo activés en cron Lot 2A (`scripts/schedu
 | `aw_repo_closeout_check` | `scripts/ai/workers/repo_closeout_eligibility_check.py` | python | daily 01:33 | GOs avec PASS acceptance mais open initial doc | active | low |
 | `aw_repo_orphan_audit` | `scripts/ai/workers/repo_orphan_files_audit.py` | python | daily 01:34 | scripts .py/.sh non référencés | active | low |
 | `aw_repo_changelog` | `scripts/ai/workers/repo_changelog_digest.py` | python | daily 01:35 | digest git log 24h | active | low |
-| `aw_strict_registry_check` | `scripts/ai/workers/strict_worker_registry_check.py` | python | daily 01:36 | valide models.registry.json + tasks.index.json | active | medium |
+| `aw_strict_registry_check` | `scripts/ai/workers/_validate_job.py` | python | daily 01:36 | valide job packets, tasks.index.json et registry sur chemin borne | active | low |
 | `aw_env_presence` | `scripts/ai/workers/env_file_presence_check.sh` | shell | daily 01:37 | vérifie présence .env et vars critiques | active | medium |
 | `aw_gitignore_policy` | `scripts/ai/workers/gitignore_secrets_policy_check.sh` | shell | daily 01:38 | vérifie patterns secrets dans .gitignore | active | medium |
 | `aw_repo_branch_audit` | `scripts/ai/workers/repo_branch_audit.sh` | shell | daily 01:39 | audit branches locales stale >30j | active | low |
@@ -189,9 +189,9 @@ Scripts HITL/cockpit/task-routing activés en cron Lot 2B (`scripts/schedule/lot
 |---|---|---|---|---|---|---|
 | `aw_hitl_scenarios_smoke` | `scripts/ai/workers/hitl_scenarios_smoke.py` | python | nightly 01:00 | dry-run HITL flow validation | active | low |
 | `aw_ai_team_handoff` | `scripts/ai/workers/ai_team_handoff_dry_run.py` | python | nightly 01:01 | valide handoff spec agents | active | low |
-| `aw_task_router_dry_run` | `scripts/ai/workers/task_router_dry_run.py` | python | nightly 01:02 | valide task_type→runner routing vs tasks.index.json | active | low |
+| `aw_task_router_dry_run` | `scripts/ai/workers/run_local_pipeline.py` | python | nightly 01:02 | valide task_type→runner via `--dry-run` et tasks.index.json | active | low |
 | `aw_capability_matrix` | `scripts/ai/workers/capability_matrix_validate.py` | python | nightly 01:03 | valide sections capability docs/agents/ | active | low |
-| `aw_localcms_workers_sync` | `scripts/ai/workers/localcms_workers_state_sync.py` | python | 30 min | sync reports/ai/workers/*.json → tmp/localcms_workers_state.json | active | low |
+| `aw_localcms_workers_sync` | `modules/localcms/app/main.py` | python | 30 min | expose l'état workers/runtime via endpoints LocalCMS | active | low |
 
 ---
 
@@ -202,13 +202,13 @@ Scripts HITL/cockpit/scheduler/security activés en cron Lot 3 (`scripts/schedul
 | job_id | path | type | cadence | rôle | status | risk |
 |---|---|---|---|---|---|---|
 | `aw_pending_approvals` | `scripts/ai/workers/pending_approvals_digest.py` | python | hourly :45 | digest approval queue | active | low |
-| `aw_approval_expiry` | `scripts/ai/workers/approval_expiry_check.py` | python | hourly :46 | vérifie expirations approvals | active | medium |
+| `aw_approval_expiry` | `scripts/ai/workers/approval_expiry_check.py` | python | hourly :46 | vérifie expirations approvals | candidate | medium |
 | `aw_dead_letter_check` | `scripts/ai/workers/scheduler_dead_letter_check.py` | python | hourly :47 | scan logs cron ERROR/FAIL 24h | active | medium |
 | `aw_token_presence` | `scripts/ai/workers/external_token_presence_check.py` | python | daily 01:10 | vérifie présence tokens externes critiques | active | medium |
 | `aw_deny_by_default` | `scripts/ai/workers/deny_by_default_check.py` | python | daily 01:11 | vérifie config deny-by-default dispatcher | active | medium |
 | `aw_role_registry` | `scripts/ai/workers/ai_team_role_registry_check.py` | python | daily 01:12 | valide configs/env/registry/roles.yaml | active | low |
 | `aw_crontab_list` | `scripts/ai/workers/scheduler_crontab_list.py` | python | daily 01:13 | snapshot crontab actif | active | low |
-| `aw_safe_buttons_check` | `scripts/ai/workers/localcms_safe_buttons_check.py` | python | daily 01:14 | vérifie POST/DELETE patterns localcms | active | low |
+| `aw_safe_buttons_check` | `tests/test_localcms.py` | python | daily 01:14 | vérifie l'absence d'endpoints dangereux LocalCMS | active | low |
 | `aw_ledger_view_refresh` | `scripts/ai/workers/localcms_ledger_view_refresh.py` | python | 15 min | refresh tmp/localcms_ledger_view.json | active | low |
 
 ---
@@ -220,9 +220,10 @@ Scripts HITL/cockpit/scheduler/security activés en cron Lot 3 (`scripts/schedul
 | B01 | tasks.index.json en DRAFT_ONLY — pas de registre formel | formaliser dans jobs dedup audit |
 | B02 | 22 job_packets DRAFT_ONLY sans owner ni test | GO_AUTOMATION_OPS_OPT_TRADING_CHILD_JOBS_DEDUP_AUDIT_01 |
 | B03 | orchestration/ contrat non connecté aux workers | qualifier en dedup audit |
-| B04 | signal_processor + oauth_scope_audit sans test | CLOSED — tests/test_signal_workers.py (34) + tests/test_oauth_scope_audit.py (30) |
-| B05 | gha_strict_workers_schedule sans test unitaire | CLOSED — tests/test_signal_workers.py TestScheduleWorkflow (7) |
+| B04 | `signal_processor` remappé vers `modules/signal_router`, mais `oauth_scope_audit` reste sans surface ni test dans le repo courant | OPEN — traiter au lot re-scope/deprecate |
+| B05 | gha_strict_workers_schedule absent du repo courant | CLOSED — workflow minimal recréé en `.github/workflows/strict-workers-schedule.yml` |
 | B06 | 8 scripts apply_desk_pro_*.sh — LEGACY_REPLACED | DELETE — batch GO_AUTOMATION_OPS_OPT_TRADING_CHILD_CLEANUP_LEGACY_SCRIPTS_01 |
+| B07 | nombreuses références `scripts/ai/workers/*.py` restent absentes ou seulement remplacées partiellement par des surfaces réelles | OPEN — finir restore/replace avant le lot final de deprecation |
 
 ---
 

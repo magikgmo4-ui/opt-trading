@@ -70,7 +70,7 @@
       "price_target"
     ],
     "family": "vision",
-    "output_path": "data/data_center/views/vision_analysis/",
+    "output_path": "data/data_center/views/bot_vision_headless/",
     "score_components": {
       "source_reliability": 0.5,
       "freshness": 0.0,
@@ -90,7 +90,7 @@
       "long_short_ratio"
     ],
     "family": "vision",
-    "output_path": "data/data_center/views/vision_context/coinglass/",
+    "output_path": "data/data_center/views/bot_vision_headless__coinglass/",
     "score_components": {
       "source_reliability": 0.5,
       "freshness": 0.0,
@@ -106,7 +106,7 @@
       "stock_volume"
     ],
     "family": "vision",
-    "output_path": "data/data_center/views/vision_context/screener/",
+    "output_path": "data/data_center/views/bot_vision_headless__screener/",
     "score_components": {
       "source_reliability": 0.5,
       "freshness": 0.0,
@@ -124,7 +124,33 @@
       "neutral_count"
     ],
     "family": "vision",
-    "output_path": "data/data_center/views/vision_context/news_sentiment/",
+    "output_path": "data/data_center/views/bot_vision_headless__news_sentiment/",
+    "score_components": {
+      "source_reliability": 0.5,
+      "freshness": 0.0,
+      "completeness": 0.0
+    },
+    "last_write": null
+  },
+  "spacex_super_desk_collector": {
+    "contract_class": "spacex_super_desk.v1",
+    "data_keys": [
+      "price",
+      "gap_vs_ipo_pct",
+      "relative_volume",
+      "momentum",
+      "news_velocity",
+      "sec_activity",
+      "smart_money",
+      "risk",
+      "trade_ready",
+      "accumulation",
+      "fvg",
+      "bos",
+      "signal_active"
+    ],
+    "family": "equity",
+    "output_path": "data/data_center/views/spacex_super_desk/",
     "score_components": {
       "source_reliability": 0.5,
       "freshness": 0.0,

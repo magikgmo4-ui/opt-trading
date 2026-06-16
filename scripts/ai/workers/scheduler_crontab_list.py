@@ -1,44 +1,35 @@
-"""List active cron entries and report their count and schedule."""
-import json, subprocess, datetime, pathlib, re
+#!/usr/bin/env python3
+"""Emit current user crontab as a structured snapshot."""
 
-REPORT_PATH = pathlib.Path("reports/ai/scheduler_crontab_list.json")
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
 
 
-def parse_crontab():
+def main() -> int:
     result = subprocess.run(["crontab", "-l"], capture_output=True, text=True)
-    if result.returncode != 0:
-        return [], "no crontab installed"
+    raw = result.stdout if result.returncode == 0 else ""
     entries = []
-    for line in result.stdout.splitlines():
+    comments = []
+    for line in raw.splitlines():
         stripped = line.strip()
-        if not stripped or stripped.startswith("#") or "=" in stripped[:20]:
+        if not stripped:
             continue
-        # Extract schedule and command
-        parts = stripped.split(None, 5)
-        if len(parts) >= 6:
-            schedule = " ".join(parts[:5])
-            command = parts[5]
-            entries.append({"schedule": schedule, "command": command[:80]})
-        elif len(parts) >= 2:
-            entries.append({"schedule": parts[0], "command": " ".join(parts[1:])[:80]})
-    return entries, None
-
-
-def main():
-    entries, error = parse_crontab()
-    status = "PASS" if entries else "WARN"
-    report = {
-        "job_id": "scheduler-crontab-list",
-        "checked_at": datetime.datetime.utcnow().isoformat() + "Z",
-        "active_entries": len(entries),
+        if stripped.startswith("#"):
+            comments.append(stripped)
+        else:
+            entries.append(stripped)
+    payload = {
+        "status": "PASS",
+        "entry_count": len(entries),
         "entries": entries,
-        "error": error,
-        "status": status,
+        "comments": comments,
     }
-    REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    REPORT_PATH.write_text(json.dumps(report, indent=2))
-    print(json.dumps({"job_id": report["job_id"], "entries": len(entries),
-                      "status": status}, indent=2))
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
