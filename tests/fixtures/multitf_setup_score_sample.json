@@ -1,0 +1,56 @@
+{
+  "output_class": "multitf_setup_score.v1",
+  "symbol": "BTC",
+  "as_of": "2026-06-15T13:30:00Z",
+
+  "bias": {
+    "htf": "bearish",
+    "ltf": "bearish",
+    "alignment": "aligned",
+    "reason": "H4 bearish trend, M15 below VWAP, volume confirms downside"
+  },
+
+  "setups": [
+    {
+      "setup_id": "btc_vwap_reject_m15",
+      "direction": "short",
+      "setup_type": "vwap_rejection",
+      "grade": "B+",
+      "score": 74,
+      "probability_pct": 57,
+      "confidence_pct": 72,
+      "entry_zone": [66700, 66950],
+      "invalidation": 67300,
+      "targets": [65900, 65200],
+      "risk_reward": 1.8,
+      "reason": [
+        "H4 bearish",
+        "M15 VWAP rejection",
+        "volume confirms downside",
+        "DXY bullish"
+      ],
+      "missing": ["funding_fresh", "liquidation_heatmap"],
+      "score_breakdown": {
+        "htf_alignment": 14,
+        "ltf_trigger": 12,
+        "vwap_level_quality": 13,
+        "volume_orderflow": 9,
+        "macro_alignment": 8,
+        "freshness_source": 8,
+        "risk_reward": 6,
+        "backtest_edge": 4
+      }
+    }
+  ],
+
+  "top_setup": "btc_vwap_reject_m15",
+  "next_action": ["Surveiller reclaim VWAP M15", "Verifier fresh funding data"],
+  "missing": ["backtest_edge", "W1_context", "D1_context"],
+
+  "source_quality": {
+    "input_freshness": "fresh",
+    "timeframes_with_data": ["H4", "M15"],
+    "timeframes_missing": ["W1", "D1", "H1", "M5"],
+    "completeness_pct": 67
+  }
+}

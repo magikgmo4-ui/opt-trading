@@ -1,0 +1,6 @@
+docs/chantiers/GO_MULTITF_LAB_BACKTEST_FEEDBACK_LOOP_01/**
+modules/analysis_bundles/lab_backtest/setup_candidate_exporter.py
+modules/analysis_bundles/lab_backtest/setup_edge_scorer.py
+modules/data_center/multitf_setup_scorer.py  (modified: _load_lab_edge, backtest enrichment, Lab downgrade cap)
+outputs/lab_backtest/
+tests/dc_contracts/test_multitf_lab_feedback.py

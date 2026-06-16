@@ -1,0 +1,6 @@
+# GO_VOICE_OPERATOR_MULTITF_SETUP_CONSUMER_01
+
+## docs/chantiers/GO_VOICE_OPERATOR_MULTITF_SETUP_CONSUMER_01/**
+modules/voice_operator/readers/multitf_reader.py
+modules/localcms/app/main.py  (_handle_composite: btc_full, gold_full, market_view, priorities, attention, exec_summary)
+tests/voice_operator/test_voice_multitf_consumer.py

@@ -1,0 +1,3 @@
+docs/chantiers/GO_MULTITF_SIGNAL_CALIBRATION_LIVE_01/**
+outputs/multitf_signal_calibration/**
+tests/dc_contracts/test_multitf_signal_calibration.py

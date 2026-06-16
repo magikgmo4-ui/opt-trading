@@ -1,0 +1,15 @@
+# GO_VOICE_OPERATOR_MULTITF_ANALYSIS_DC_INPUT_01
+
+## docs/chantiers/GO_VOICE_OPERATOR_MULTITF_ANALYSIS_DC_INPUT_01/**
+modules/data_center/contracts/multitf_analysis_input.v1.schema.json
+modules/data_center/contracts/multitf_setup_score.v1.schema.json
+modules/data_center/multitf_analysis_producer.py
+modules/data_center/multitf_setup_scorer.py
+data/data_center/_registry/contracts.json
+data/data_center/_contracts/producers/multitf_analysis.v1.json
+data/data_center/views/multitf_analysis_input.v1/
+data/data_center/views/multitf_setup_score.v1/
+tests/dc_contracts/test_multitf_schemas.py
+tests/dc_contracts/test_multitf_producers.py
+tests/fixtures/multitf_analysis_input_sample.json
+tests/fixtures/multitf_setup_score_sample.json

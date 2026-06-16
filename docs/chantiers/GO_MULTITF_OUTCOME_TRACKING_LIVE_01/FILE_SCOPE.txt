@@ -1,0 +1,4 @@
+docs/chantiers/GO_MULTITF_OUTCOME_TRACKING_LIVE_01/**
+modules/analysis_bundles/multitf_outcomes/outcome_tracker.py
+outputs/multitf_outcomes/
+tests/analysis_bundles/test_multitf_outcome_tracker.py
