@@ -1,0 +1,8 @@
+docs/chantiers/GO_MARKET_THESIS_ENGINE_01/**
+modules/desk_pro/service/market_thesis_reader.py
+modules/market_thesis/**
+schemas/market_regime_v1.json
+schemas/market_thesis_v1.json
+tests/market_thesis/**
+tests/test_market_thesis_reader.py
+tests/test_market_thesis_routes.py

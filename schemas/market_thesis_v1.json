@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opt-trading/schemas/market_thesis_v1.json",
+  "title": "Market Thesis v1",
+  "description": "Unified market thesis per asset — read-only, monitor-only, no trade execution",
+  "type": "object",
+  "required": [
+    "metadata",
+    "symbol",
+    "probabilities",
+    "freshness",
+    "confidence"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["thesis_id", "generated_at"],
+      "properties": {
+        "thesis_id": {
+          "type": "string",
+          "description": "Unique thesis identifier, format: thesis_{SYM}_{ISO8601}"
+        },
+        "schema": {
+          "type": "string",
+          "const": "market_thesis.v1"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp of thesis generation"
+        },
+        "ttl_seconds": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 3600,
+          "default": 300,
+          "description": "Cache validity duration in seconds"
+        },
+        "version": {
+          "type": "string",
+          "default": "1.0.0"
+        }
+      }
+    },
+    "symbol": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10,
+      "description": "Canonical symbol: BTC, ETH, SOL, XRP, XAU, SPCX, NVDA, AVGO, MU"
+    },
+    "timeframe": {
+      "type": "string",
+      "default": "composite",
+      "description": "Primary timeframe or 'composite' for multi-TF synthesis"
+    },
+    "context": {
+      "type": "object",
+      "required": ["macro_regime", "dxy_trend", "vix_state", "market_phase"],
+      "properties": {
+        "macro_regime": {
+          "type": "string",
+          "enum": ["risk_on", "risk_off", "neutral", "unknown"],
+          "description": "Overall risk environment"
+        },
+        "dxy_trend": {
+          "type": "string",
+          "enum": ["bullish", "bearish", "neutral", "unknown"],
+          "description": "DXY trend direction"
+        },
+        "vix_state": {
+          "type": "string",
+          "enum": ["low", "normal", "elevated", "high", "unknown"],
+          "description": "VIX volatility state"
+        },
+        "spy_trend": {
+          "type": "string",
+          "enum": ["bullish", "bearish", "neutral", "unknown"],
+          "description": "SPY trend direction"
+        },
+        "market_phase": {
+          "type": "string",
+          "enum": ["accumulation", "markup", "distribution", "markdown", "unknown"],
+          "description": "Market cycle phase (Wyckoff)"
+        },
+        "narrative": {
+          "type": "string",
+          "description": "French narrative describing the macro context"
+        }
+      }
+    },
+    "technical": {
+      "type": "object",
+      "required": ["htf_bias", "ltf_bias", "alignment"],
+      "properties": {
+        "htf_bias": {
+          "type": "string",
+          "enum": ["bullish", "bearish", "neutral"],
+          "description": "Higher timeframe bias (D1/W1)"
+        },
+        "ltf_bias": {
+          "type": "string",
+          "enum": ["bullish", "bearish", "neutral"],
+          "description": "Lower timeframe bias (H4/H1)"
+        },
+        "alignment": {
+          "type": "string",
+          "enum": ["aligned_bullish", "aligned_bearish", "divergent", "neutral"],
+          "description": "HTF/LTF alignment"
+        },
+        "key_support": {
+          "type": "array",
+          "items": { "type": "number" },
+          "description": "Key support levels"
+        },
+        "key_resistance": {
+          "type": "array",
+          "items": { "type": "number" },
+          "description": "Key resistance levels"
+        },
+        "vwap": {
+          "type": ["number", "null"],
+          "description": "VWAP level"
+        },
+        "active_setups": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Active setup identifiers"
+        },
+        "narrative": {
+          "type": "string",
+          "description": "French narrative describing technical structure"
+        }
+      }
+    },
+    "flow": {
+      "type": "object",
+      "properties": {
+        "open_interest": {
+          "type": ["number", "null"],
+          "description": "Total open interest in USD"
+        },
+        "oi_change_24h_pct": {
+          "type": ["number", "null"],
+          "description": "Open interest 24h change in percent"
+        },
+        "funding_rate": {
+          "type": ["number", "null"],
+          "description": "Current funding rate"
+        },
+        "long_short_ratio": {
+          "type": ["number", "null"],
+          "description": "Account long/short ratio"
+        },
+        "liquidations_long": {
+          "type": ["number", "null"],
+          "description": "Long liquidations 24h in USD"
+        },
+        "liquidations_short": {
+          "type": ["number", "null"],
+          "description": "Short liquidations 24h in USD"
+        },
+        "etf_flow": {
+          "type": ["string", "null"],
+          "description": "ETF flow direction (inflow/outflow/flat)"
+        },
+        "narrative": {
+          "type": "string",
+          "description": "French narrative describing flow positioning"
+        }
+      }
+    },
+    "news": {
+      "type": "object",
+      "required": ["sentiment"],
+      "properties": {
+        "sentiment": {
+          "type": "string",
+          "enum": ["positive", "neutral", "negative", "unknown"],
+          "description": "Overall news sentiment"
+        },
+        "sentiment_score": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Sentiment score from -1 (negative) to 1 (positive)"
+        },
+        "key_drivers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key news drivers impacting the asset"
+        },
+        "narrative": {
+          "type": "string",
+          "description": "French narrative describing news and sentiment"
+        }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "severity", "description"],
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Risk category: concentration, technical, event, regulatory, correlation"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["high", "moderate", "low"]
+          },
+          "description": {
+            "type": "string",
+            "description": "French description of the risk factor"
+          }
+        }
+      }
+    },
+    "probabilities": {
+      "type": "object",
+      "required": ["bull", "range", "bear"],
+      "description": "Directional probability decomposition. Invariant: bull + range + bear == 100",
+      "properties": {
+        "bull": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Probability of bullish outcome (0-100)"
+        },
+        "range": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Probability of ranging outcome (0-100)"
+        },
+        "bear": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Probability of bearish outcome (0-100)"
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "required": ["readiness"],
+      "properties": {
+        "direction": {
+          "type": "string",
+          "enum": ["bullish", "bearish", "neutral", "wait"],
+          "description": "Directional bias"
+        },
+        "readiness": {
+          "type": "string",
+          "const": "monitor_only",
+          "description": "Always monitor_only — no auto execution permitted"
+        },
+        "key_levels": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key levels to watch with labels"
+        },
+        "narrative": {
+          "type": "string",
+          "description": "French narrative describing the action recommendation"
+        },
+        "voice_one_liner": {
+          "type": "string",
+          "description": "Single-line French summary for voice TTS"
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "contract", "status"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Human-readable source name"
+          },
+          "contract": {
+            "type": "string",
+            "description": "DC contract class (e.g. market_metrics.v1)"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["used", "missing", "stale"],
+            "description": "Source availability status"
+          },
+          "age_minutes": {
+            "type": ["number", "null"],
+            "description": "Data age in minutes, if available"
+          }
+        }
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["overall", "max_age_minutes", "source_count", "fresh_count"],
+      "properties": {
+        "overall": {
+          "type": "string",
+          "enum": ["fresh", "stale", "partial", "expired"],
+          "description": "Aggregate freshness state"
+        },
+        "max_age_minutes": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Age of the oldest source used"
+        },
+        "source_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of source contracts evaluated"
+        },
+        "fresh_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of sources with fresh data"
+        }
+      }
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Overall thesis confidence (0-100)"
+    }
+  }
+}

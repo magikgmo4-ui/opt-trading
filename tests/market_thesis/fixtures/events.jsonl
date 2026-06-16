@@ -1,0 +1,5 @@
+{"key":null,"engine":"COINM_SHORT","signal":"SELL","symbol":"BTCUSDT","tf":"H4","price":67200,"tp":65000,"sl":69000,"reason":"Bearish structure break H4","_ts":"2026-06-15T10:00:00Z","qty":0.5}
+{"key":null,"engine":"USDTM_LONG","signal":"BUY","symbol":"ETHUSDT","tf":"H1","price":3200,"tp":3400,"sl":3100,"reason":"VWAP reclaim","_ts":"2026-06-15T10:05:00Z","qty":1.0}
+invalid json line that should be skipped
+{"key":null,"engine":"COINM_SHORT","signal":"SELL","symbol":"SOLUSDT","tf":"H4","price":145,"tp":130,"sl":152,"reason":"Liquidity sweep resistance","_ts":"2026-06-15T10:10:00Z","qty":5.0}
+{"key":null,"engine":"GOLD_CFD_LONG","signal":"BUY","symbol":"XAUUSD","tf":"M15","price":5050,"tp":5080,"sl":5030,"reason":"Higher low confirmed","_ts":"2026-06-15T10:15:00Z","qty":10}
