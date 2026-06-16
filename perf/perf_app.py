@@ -441,7 +441,27 @@ def monitors_loop():
         info = kpis()
         dd_pct = float(info["max_dd_pct"])
         if dd_pct > DD_ALERT_PCT and (time.time() - _last_dd_sent) > 900:
-            telegram_send(f"🧯 PERF: global DD {dd_pct:.2f}% > {DD_ALERT_PCT:.2f}%")
+            eq_last = float(info["equity_last"])
+            peak_est = float(info["max_dd"]) / (dd_pct / 100.0) if dd_pct > 0 else float(info["equity0"])
+            ctx = {
+                "dd_pct": f"{dd_pct:.2f}%",
+                "threshold": f"{DD_ALERT_PCT:.2f}%",
+                "equity_last": round(eq_last, 2),
+                "equity0": round(float(info["equity0"]), 2),
+                "peak_est": round(peak_est, 2),
+                "closed_trades": info["closed_trades"],
+                "pnl_realized": round(float(info["pnl_realized"]), 2),
+            }
+            if dd_pct > 1000.0 or eq_last <= 0.0:
+                msg = (
+                    f"⚠ PERF: DD {ctx['dd_pct']} — anomalie calcul\n"
+                    f"equity_last={ctx['equity_last']} equity0={ctx['equity0']} "
+                    f"peak={ctx['peak_est']} pnl={ctx['pnl_realized']}\n"
+                    f"closed_trades={ctx['closed_trades']} — metrique invalide"
+                )
+            else:
+                msg = f"🧯 PERF: global DD {ctx['dd_pct']} > {ctx['threshold']}"
+            telegram_send(msg)
             _last_dd_sent = time.time()
 
 @app.on_event("startup")
