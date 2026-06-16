@@ -1,0 +1,6 @@
+GO_ID=GO_MARKET_THESIS_ENGINE_01
+SHORT_DESC=Moteur de thèse de marché unifiée — transforme données → analyses contextuelles exploitables par DeskPro/Voice
+DOCUMENT=00_INITIAL_PROJECT_DOC.md
+STATUS=PENDING_VALIDATION
+BRANCH=go/market-thesis-engine-01
+TARGET=sot/mainline

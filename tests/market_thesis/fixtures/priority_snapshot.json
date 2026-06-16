@@ -1,0 +1,36 @@
+{
+  "output_class": "multitf_setup_score.v1",
+  "symbol": "BTC",
+  "as_of": "2026-06-15T10:00:00Z",
+  "bias": {"htf": "bullish", "ltf": "bearish", "alignment": "divergent", "reason": "D1 bullish, H4 bearish"},
+  "setups": [
+    {
+      "setup_id": "btc_vwap_reclaim",
+      "direction": "long",
+      "setup_type": "vwap_reclaim",
+      "grade": "B",
+      "score": 62,
+      "probability_pct": 55,
+      "confidence_pct": 70,
+      "entry_zone": [66300, 66700],
+      "invalidation": 65000,
+      "targets": [68000, 70000],
+      "reason": ["VWAP reclaim H1 setup", "Support 65000 confirmed"],
+      "missing": ["W1", "D1"]
+    },
+    {
+      "setup_id": "btc_support_watch",
+      "direction": "monitor_only",
+      "setup_type": "support_watch",
+      "grade": "C",
+      "score": 39,
+      "probability_pct": 27,
+      "confidence_pct": 62,
+      "entry_zone": [64350, 65650],
+      "invalidation": 63050,
+      "targets": [66950],
+      "reason": ["Near support zone", "No CDP trigger"],
+      "missing": ["W1", "D1"]
+    }
+  ]
+}

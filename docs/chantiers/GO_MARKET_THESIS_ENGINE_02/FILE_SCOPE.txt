@@ -1,0 +1,7 @@
+GO_ID=GO_MARKET_THESIS_ENGINE_02
+SHORT_DESC=Executive Intelligence Layer — cross-asset, market regime, narrative memory, executive briefing
+DOCUMENT=00_INITIAL_PROJECT_DOC.md
+STATUS=PENDING_VALIDATION
+BRANCH=go/market-thesis-engine-02
+TARGET=sot/mainline
+DEPENDS_ON=GO_MARKET_THESIS_ENGINE_01
