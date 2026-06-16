@@ -63,7 +63,7 @@ class TestBuildBySource:
         cand = rv.load_source_candidates()
         result = rib.build_by_source(prod, inv, cand)
         assert isinstance(result, dict)
-        assert len(result) == 7
+        assert len(result) == 8
 
 
 class TestBuildByPriority:
