@@ -49,6 +49,43 @@ links:
 
 ## Regle d'entree obligatoire - creation GO / chantier / target
 
+### Application permanente — PR / IDE / SSH / machine / fix simple
+
+La présente matrice s'applique en tout temps à toute modification durable du repo.
+
+Aucune exception implicite n'est autorisée pour :
+- fix test-only ;
+- correctif rapide ;
+- PR directe ;
+- travail IDE ;
+- travail SSH sur machine ;
+- patch appliqué localement ;
+- runtime deploy ;
+- documentation mineure ;
+- update de registre ;
+- fermeture ou reprise de chantier.
+
+Toute modification durable doit avoir :
+- un `GO_ID` explicite ;
+- un dossier `docs/chantiers/<GO_ID>/` ou un rattachement documenté à un GO existant ;
+- un `00_INITIAL_PROJECT_DOC.md` si le GO est nouveau ;
+- un `FILE_SCOPE.txt` couvrant exactement les fichiers modifiés ;
+- une entrée courte `docs/index/inbox/<GO_ID>.md` si le chantier est nouveau ;
+- une condition d'ouverture ;
+- une condition de fermeture ;
+- une validation réelle ;
+- un point de reprise si le parent ou la target supérieure n'est pas fermé.
+
+Une PR sans dossier chantier n'est recevable que si elle modifie exclusivement une surface déjà couverte par un GO existant explicitement référencé dans le diff ou dans la PR.
+
+Si aucun GO existant ne couvre le changement, ouvrir un GO minimal avant modification.
+
+Règle de merge :
+PR mergée ≠ chantier fermé.
+Check GitHub vert ≠ target atteinte.
+Fix local ≠ standard appliqué.
+Runtime restart ≠ preuve de déploiement complète.
+
 Cette matrice est la source souveraine a relire avant toute ouverture de GO,
 chantier, bundle, patch, zip, PR ou fermeture parent dans `opt-trading`.
 

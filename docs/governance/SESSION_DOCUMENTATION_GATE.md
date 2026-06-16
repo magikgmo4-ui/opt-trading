@@ -206,7 +206,24 @@ sans être reflété dans le tableau canonique.
 
 ---
 
-## 9. Statut
+## 9. Gate permanent avant PR
+
+Avant toute PR, même petite, vérifier :
+
+1. Quel est le `GO_ID` ?
+2. Le GO existe-t-il dans `docs/chantiers/` ?
+3. Le fichier `00_INITIAL_PROJECT_DOC.md` existe-t-il ou le GO existant est-il explicitement référencé ?
+4. Le fichier `FILE_SCOPE.txt` couvre-t-il chaque fichier modifié ?
+5. La PR touche-t-elle un seul GO ?
+6. Les conditions d'ouverture et de fermeture sont-elles écrites ?
+7. La validation réelle est-elle indiquée ?
+8. Le point de reprise est-il clair si la target supérieure reste ouverte ?
+
+Si une réponse est non, ne pas ouvrir ou merger la PR.
+
+---
+
+## 10. Statut
 
 Fiche de référence de gouvernance.
 
