@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "multitf_analysis_input.v1",
+  "description": "Multi-timeframe analysis input per symbol — aggregates OHLCV, indicators, levels, signals, orderflow, macro context, risk, backtest, and source quality into a single consumable view for Voice Operator / DeskPro scoring.",
+  "type": "object",
+  "required": ["input_class", "symbol", "as_of", "price", "source", "freshness_state"],
+  "properties": {
+    "input_class": { "type": "string", "const": "multitf_analysis_input.v1" },
+    "symbol": { "type": "string", "description": "Canonical symbol: BTC, ETH, SOL, XAUUSD, SPCX, NVDA, etc." },
+    "asset_class": { "type": "string", "enum": ["crypto_perp", "forex_cfd", "stock", "ipo", "index", "commodity"], "description": "Asset class for risk/sizing rules" },
+    "as_of": { "type": "string", "format": "date-time", "description": "UTC timestamp of analysis snapshot" },
+    "price": { "type": "number", "description": "Current/last price" },
+    "source": { "type": "string", "description": "Primary data source: data_center, vision_analysis, market_metrics" },
+    "freshness_state": { "type": "string", "enum": ["fresh", "stale", "market_closed", "unknown"] },
+
+    "timeframes": {
+      "type": "object",
+      "description": "OHLCV bars + indicators per timeframe",
+      "properties": {
+        "W1": { "$ref": "#/$defs/tf_data" },
+        "D1": { "$ref": "#/$defs/tf_data" },
+        "H4": { "$ref": "#/$defs/tf_data" },
+        "H1": { "$ref": "#/$defs/tf_data" },
+        "M15": { "$ref": "#/$defs/tf_data" },
+        "M5": { "$ref": "#/$defs/tf_data" }
+      }
+    },
+
+    "levels": {
+      "type": "object",
+      "description": "Technical levels — support, resistance, VWAP, session ranges",
+      "properties": {
+        "weekly_high": { "type": "number" },
+        "weekly_low": { "type": "number" },
+        "daily_high": { "type": "number" },
+        "daily_low": { "type": "number" },
+        "previous_day_high": { "type": "number" },
+        "previous_day_low": { "type": "number" },
+        "session_high": { "type": "number" },
+        "session_low": { "type": "number" },
+        "vwap": { "type": "number" },
+        "orb_high": { "type": "number" },
+        "orb_low": { "type": "number" },
+        "premarket_high": { "type": "number" },
+        "premarket_low": { "type": "number" },
+        "support_levels": { "type": "array", "items": { "type": "number" } },
+        "resistance_levels": { "type": "array", "items": { "type": "number" } },
+        "liquidity_above": { "type": "number" },
+        "liquidity_below": { "type": "number" }
+      }
+    },
+
+    "signals": {
+      "type": "array",
+      "description": "CDP / TradingView signal events",
+      "items": {
+        "type": "object",
+        "required": ["event", "timeframe", "timestamp"],
+        "properties": {
+          "source": { "type": "string", "enum": ["tradingview_cdp", "vision_analysis", "data_center"] },
+          "event": { "type": "string", "enum": ["vwap_reclaim", "vwap_loss", "orb_break_high", "orb_break_low", "liquidity_sweep_high", "liquidity_sweep_low", "bos_bull", "bos_bear", "choch_bull", "choch_bear", "fvg_created", "fvg_filled", "volume_spike", "support_test", "resistance_test", "trend_continuation", "trend_reversal"] },
+          "timeframe": { "type": "string", "enum": ["W1", "D1", "H4", "H1", "M15", "M5", "M1"] },
+          "price": { "type": "number" },
+          "volume": { "type": "number" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "monitor_only": { "type": "boolean", "default": true }
+        }
+      }
+    },
+
+    "orderflow": {
+      "type": "object",
+      "description": "Orderflow, derivatives, liquidity data",
+      "properties": {
+        "open_interest": { "type": "number" },
+        "open_interest_change_pct": { "type": "number" },
+        "funding_rate": { "type": "number" },
+        "liquidation_bias": { "type": "string", "enum": ["longs_at_risk", "shorts_at_risk", "balanced", "unknown"] },
+        "long_short_ratio": { "type": "number" },
+        "cvd_trend": { "type": "string", "enum": ["rising", "falling", "flat", "unknown"] },
+        "volume_delta": { "type": "number" },
+        "relative_volume": { "type": "number", "description": "Volume vs 20-period average" }
+      }
+    },
+
+    "macro_context": {
+      "type": "object",
+      "description": "Macro and intermarket context",
+      "properties": {
+        "dxy_trend": { "type": "string", "enum": ["bullish", "bearish", "neutral", "unknown"] },
+        "vix_state": { "type": "string", "enum": ["low", "normal", "elevated", "high", "unknown"] },
+        "spy_trend": { "type": "string", "enum": ["bullish", "bearish", "neutral", "unknown"] },
+        "qqq_trend": { "type": "string", "enum": ["bullish", "bearish", "neutral", "unknown"] },
+        "us10y_trend": { "type": "string", "enum": ["rising", "falling", "flat", "unknown"] },
+        "risk_regime": { "type": "string", "enum": ["risk_on", "risk_off", "neutral", "unknown"] },
+        "btc_dominance": { "type": "number" },
+        "eth_btc_ratio": { "type": "number" }
+      }
+    },
+
+    "risk_context": {
+      "type": "object",
+      "description": "Account risk and position context",
+      "properties": {
+        "account_bucket": { "type": "string" },
+        "equity": { "type": "number" },
+        "risk_pct": { "type": "number", "description": "Max risk per trade as fraction of equity" },
+        "max_risk_usd": { "type": "number" },
+        "existing_position": { "type": "boolean" },
+        "open_exposure": { "type": "array", "items": { "type": "string" }, "description": "Symbols with open positions" },
+        "allowed_direction": { "type": "string", "enum": ["long_only", "short_only", "both", "monitor_only"] }
+      }
+    },
+
+    "backtest": {
+      "type": "object",
+      "description": "Historical setup performance",
+      "properties": {
+        "setup_type": { "type": "string" },
+        "timeframe": { "type": "string" },
+        "sample_size": { "type": "integer" },
+        "win_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "avg_r": { "type": "number" },
+        "profit_factor": { "type": "number" },
+        "max_dd_r": { "type": "number" }
+      }
+    },
+
+    "source_quality": {
+      "$ref": "#/$defs/source_quality"
+    },
+
+    "missing": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Expected but absent data fields — distinguishes data absence from response poverty"
+    }
+  },
+
+  "$defs": {
+    "tf_data": {
+      "type": "object",
+      "description": "OHLCV bars + indicators for a single timeframe",
+      "properties": {
+        "bars": {
+          "type": "array",
+          "description": "Last 50-200 candles",
+          "items": {
+            "type": "object",
+            "required": ["ts", "open", "high", "low", "close"],
+            "properties": {
+              "ts": { "type": "string", "format": "date-time" },
+              "open": { "type": "number" },
+              "high": { "type": "number" },
+              "low": { "type": "number" },
+              "close": { "type": "number" },
+              "volume": { "type": "number" }
+            }
+          }
+        },
+        "indicators": {
+          "type": "object",
+          "properties": {
+            "trend": { "type": "string", "enum": ["bullish", "bearish", "neutral", "range"] },
+            "vwap": { "type": "number" },
+            "price_vs_vwap": { "type": "string", "enum": ["above", "below", "at"] },
+            "ema20": { "type": "number" },
+            "ema50": { "type": "number" },
+            "ema200": { "type": "number" },
+            "rsi": { "type": "number", "minimum": 0, "maximum": 100 },
+            "atr": { "type": "number" },
+            "relative_volume": { "type": "number" }
+          }
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "state": { "type": "string", "enum": ["fresh", "stale", "unknown"] },
+            "bar_count": { "type": "integer" },
+            "last_bar_ts": { "type": "string", "format": "date-time" }
+          }
+        }
+      }
+    },
+    "source_quality": {
+      "type": "object",
+      "description": "Data quality metadata",
+      "properties": {
+        "source": { "type": "string" },
+        "producer": { "type": "string" },
+        "freshness_state": { "type": "string", "enum": ["fresh", "stale", "market_closed", "unknown"] },
+        "age_minutes": { "type": "integer" },
+        "completeness_score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "confidence_score": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}
