@@ -8,8 +8,15 @@ Tests the full chain:
 No live file I/O -- all tests use temp files written in setUp.
 No FastAPI app needed -- tests call read_spcx_score() directly.
 
-Weights (2026-06-15): VWAP_RECLAIM=25, ORB_HIGH_BREAK=25, BREAK_174=20,
-    VOLUME_SURGE=15, PREMARKET_GAP=10, SPACEX_WIRE=5, BOT_VISION_CONF=5.
+Weights (2026-06-16): VWAP_RECLAIM=25, ORB_HIGH_BREAK=25, BREAK_174=20,
+    VOLUME_SURGE=15, PREMARKET_HIGH_BREAK=15, SPACEX_WIRE=5, BOT_VISION_CONF=5.
+
+Score now includes dynamic opening session boost (Phase 3):
+    - vwap_acceptance (+10) for VWAP_RECLAIM
+    - momentum_continuation (+10) for ORB_HIGH_BREAK
+    - premarket_acceptance (+10) for PREMARKET_HIGH_BREAK
+    - continuation_score >= 60 triggers strong_continuation (+5)
+    - Score cap at 120 with boost enabled
 """
 
 import json
@@ -126,14 +133,16 @@ class TestCdpEvents(unittest.TestCase):
     def test_vwap_reclaim_cdp_scores_25(self):
         _write_jsonl(self.cdp, [_cdp_event("vwap_reclaim")])
         result = read_spcx_score(cdp_path=self.cdp, events_path=self.ev)
-        self.assertEqual(result["score"], 25)
+        # VWAP_RECLAIM(25) + vwap_acceptance boost(+10) = 35
+        self.assertEqual(result["score"], 35)
         self.assertIn("VWAP_RECLAIM", result["events"])
 
     def test_orb_break_high_alias_to_orb_high_break(self):
         """CDP stores 'orb_break_high' -> scorer expects 'ORB_HIGH_BREAK'."""
         _write_jsonl(self.cdp, [_cdp_event("orb_break_high")])
         result = read_spcx_score(cdp_path=self.cdp, events_path=self.ev)
-        self.assertEqual(result["score"], 25)
+        # ORB_HIGH_BREAK(25) + momentum_continuation(+10) = 35
+        self.assertEqual(result["score"], 35)
         self.assertIn("ORB_HIGH_BREAK", result["events"])
 
     def test_volume_spike_alias_to_volume_surge(self):
@@ -142,11 +151,12 @@ class TestCdpEvents(unittest.TestCase):
         self.assertIn("VOLUME_SURGE", result["events"])
         self.assertEqual(result["score"], 15)
 
-    def test_premarket_high_break_alias_to_premarket_gap(self):
+    def test_premarket_high_break_alias_to_premarket_high_break(self):
         _write_jsonl(self.cdp, [_cdp_event("premarket_high_break")])
         result = read_spcx_score(cdp_path=self.cdp, events_path=self.ev)
-        self.assertIn("PREMARKET_GAP", result["events"])
-        self.assertEqual(result["score"], 10)
+        self.assertIn("PREMARKET_HIGH_BREAK", result["events"])
+        # PREMARKET_HIGH_BREAK(15) + premarket_acceptance boost(+10) = 25
+        self.assertEqual(result["score"], 25)
 
     def test_non_spcx_cdp_events_ignored(self):
         _write_jsonl(self.cdp, [
@@ -227,8 +237,9 @@ class TestCombinedSources(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.tmp)
 
-    def test_full_scenario_score_55_grade_b_active(self):
-        # VWAP_RECLAIM(25) + ORB_HIGH_BREAK(25) + SPACEX_WIRE(5) = 55 -> B, active
+    def test_full_scenario_score_80_grade_aplus_active(self):
+        # VWAP_RECLAIM(25) + ORB_HIGH_BREAK(25) + SPACEX_WIRE(5) = 55
+        # + vwap_acceptance(10) + momentum_continuation(10) + strong_continuation(5) = 80 -> A+
         _write_jsonl(self.cdp, [
             _cdp_event("vwap_reclaim",  price=173.77, vwap=164.74),
             _cdp_event("orb_break_high", price=173.77, vwap=164.74, orb_high=168.75),
@@ -237,8 +248,8 @@ class TestCombinedSources(unittest.TestCase):
 
         result = read_spcx_score(cdp_path=self.cdp, events_path=self.ev)
 
-        self.assertEqual(result["score"], 55)
-        self.assertEqual(result["grade"], "B")
+        self.assertEqual(result["score"], 80)
+        self.assertEqual(result["grade"], "A+")
         self.assertEqual(result["setup_state"], "active")
         self.assertIn("extended_above_vwap", result["risk_notes"])
         self.assertTrue(result["monitor_only"])
@@ -255,7 +266,8 @@ class TestCombinedSources(unittest.TestCase):
         _write_jsonl(self.ev, [_wire_event("SPACEX_WIRE")])
         result = read_spcx_score(cdp_path=self.cdp, events_path=self.ev)
         # VWAP_RECLAIM(25) + SPACEX_WIRE(5) = 30
-        self.assertEqual(result["score"], 30)
+        # + vwap_acceptance boost(10) = 40
+        self.assertEqual(result["score"], 40)
 
     def test_mixed_symbols_only_spcx_counted(self):
         _write_jsonl(self.cdp, [
@@ -268,7 +280,8 @@ class TestCombinedSources(unittest.TestCase):
         ])
         result = read_spcx_score(cdp_path=self.cdp, events_path=self.ev)
         # Only SPCX: VWAP_RECLAIM(25) + SPACEX_WIRE(5) = 30
-        self.assertEqual(result["score"], 30)
+        # + vwap_acceptance boost(10) = 40
+        self.assertEqual(result["score"], 40)
 
 
 # ---------------------------------------------------------------------------

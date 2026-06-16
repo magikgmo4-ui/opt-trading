@@ -37,10 +37,32 @@ _WEIGHTS: dict[str, int] = {
     "ORB_HIGH_BREAK": 25,
     "BREAK_174": 20,      # breakout_high from TradingView (SPCX_BREAK_174 / SPCX_BREAK_180)
     "VOLUME_SURGE": 15,
-    "PREMARKET_GAP": 10,
+    "PREMARKET_HIGH_BREAK": 15,
+    "PREMARKET_LOW_BREAK": 5,
+    "PREMARKET_HIGH_REJECT": 0,
+    "PREMARKET_LOW_REJECT": 0,
+    "PREMARKET_GAP": 10,      # legacy alias kept for backward compatibility
+    "GAP_OPEN_UP": 15,
+    "GAP_OPEN_DOWN": 0,
+    "GAP_FILL_STARTED": 10,
+    "GAP_FILL_COMPLETED": 0,
     "SPACEX_WIRE": 5,
     "BOT_VISION_CONF": 5,
+    "OPENING_EXHAUSTION": 0,
     "BREAKDOWN": 0,       # registre mais poids nul (bearish, non additif au score bullish)
+}
+
+# Phase 3 — Score component descriptors for SPCX opening session
+_SCORE_COMPONENTS: dict[str, str] = {
+    "Opening Strength": "GAP_OPEN_UP",
+    "Opening Weakness": "GAP_OPEN_DOWN",
+    "Gap Quality": "GAP_FILL_STARTED",
+    "Gap Failure": "GAP_FILL_COMPLETED",
+    "Premarket Acceptance": "PREMARKET_HIGH_BREAK",
+    "Premarket Rejection": "PREMARKET_HIGH_REJECT",
+    "VWAP Acceptance": "VWAP_RECLAIM",
+    "Momentum Continuation": "ORB_HIGH_BREAK",
+    "Exhaustion Risk": "OPENING_EXHAUSTION",
 }
 
 # ---------------------------------------------------------------------------
@@ -107,15 +129,23 @@ def _setup_state(
 # ---------------------------------------------------------------------------
 
 
-def score_spcx(events: list[dict[str, Any]]) -> dict[str, Any]:
+def score_spcx(
+    events: list[dict[str, Any]],
+    opening_metrics: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Compute SPCX composite score from a list of signal_event.v1 dicts.
 
     Non-SPCX events are silently ignored.
     Repeated alerts for the same event type are deduplicated (last wins).
     No external calls are made.
 
+    When opening_metrics is provided (from compute_opening_metrics()), the
+    output is enriched with opening session scores that are dynamic during
+    the first 30 minutes of trading.
+
     Args:
         events: List of signal_event.v1 dicts.
+        opening_metrics: Optional dict from compute_opening_metrics().
 
     Returns:
         Scored setup dict -- see module docstring for full contract.
@@ -140,6 +170,13 @@ def score_spcx(events: list[dict[str, Any]]) -> dict[str, Any]:
         if event_type in seen:
             score += weight
             triggered.append(event_type)
+
+    # 3b. Opening session enrichment — dynamic score boost during first 30 min
+    opening_components: dict[str, Any] = {}
+    if opening_metrics is not None:
+        opening_components = _compute_opening_components(opening_metrics, seen)
+        score += opening_components.get("dynamic_boost", 0)
+        score = min(score, 120)  # cap at 120 with boost
 
     # 4. Extract best-available levels from all deduplicated events
     price: float | None = None
@@ -184,6 +221,18 @@ def score_spcx(events: list[dict[str, Any]]) -> dict[str, Any]:
         elif distance_pct < -5.0:
             risk_notes.append("extended_below_vwap")
 
+    # Add opening-specific risk notes
+    if opening_metrics:
+        rs = opening_metrics.get("risk_score", 0)
+        if rs >= 70:
+            risk_notes.append("high_risk_opening")
+        elif rs >= 40:
+            risk_notes.append("moderate_risk_opening")
+        if opening_metrics.get("exhaustion_score", 0) >= 60:
+            risk_notes.append("exhaustion_risk_high")
+        if opening_metrics.get("opening_drive") == "down":
+            risk_notes.append("gap_open_down")
+
     # 7. Setup state
     triggered_set = set(triggered)
     state = _setup_state(triggered_set, price, vwap, orb_high)
@@ -200,8 +249,15 @@ def score_spcx(events: list[dict[str, Any]]) -> dict[str, Any]:
             "level": orb_high,
             "note": "price recedes below ORB high",
         }
+    if "PREMARKET_HIGH_BREAK" in triggered_set and opening_metrics:
+        pmh = opening_metrics.get("premarket_high")
+        if pmh is not None:
+            invalidation["premarket_loss"] = {
+                "level": pmh,
+                "note": "price recedes below premarket high",
+            }
 
-    return {
+    result: dict[str, Any] = {
         "symbol": "SPCX",
         "score": score,
         "grade": _grade(score),
@@ -217,4 +273,88 @@ def score_spcx(events: list[dict[str, Any]]) -> dict[str, Any]:
         "risk_notes": risk_notes,
         "invalidation": invalidation,
         "monitor_only": True,
+    }
+
+    # 9. Opening session enrichment (Phase 3)
+    if opening_metrics:
+        result["opening_metrics"] = opening_metrics
+        result["opening_components"] = opening_components
+
+    return result
+
+
+def _compute_opening_components(
+    metrics: dict[str, Any],
+    seen: dict[str, dict],
+) -> dict[str, Any]:
+    """Compute opening session score components and dynamic boost.
+
+    The score becomes dynamic during the first 30 minutes based on:
+    - Opening Strength / Weakness
+    - Gap Quality / Failure
+    - Premarket Acceptance / Rejection
+    - VWAP Acceptance
+    - Momentum Continuation
+    - Exhaustion Risk
+    """
+    triggered_set = set(seen.keys())
+    boost = 0
+    details: list[str] = []
+
+    # Opening Strength
+    if metrics.get("opening_drive") == "up" or "GAP_OPEN_UP" in triggered_set:
+        boost += 10
+        details.append("opening_strength")
+    elif metrics.get("opening_drive") == "down" or "GAP_OPEN_DOWN" in triggered_set:
+        boost += 0
+        details.append("opening_weakness")
+
+    # Gap Quality
+    if "GAP_FILL_STARTED" in triggered_set:
+        boost += 5
+        details.append("gap_fill_quality")
+    if "GAP_FILL_COMPLETED" in triggered_set:
+        boost -= 5
+        details.append("gap_failure")
+
+    # Premarket Acceptance
+    if "PREMARKET_HIGH_BREAK" in triggered_set:
+        boost += 10
+        details.append("premarket_acceptance")
+    if "PREMARKET_HIGH_REJECT" in triggered_set:
+        boost -= 5
+        details.append("premarket_rejection")
+
+    # VWAP Acceptance
+    if "VWAP_RECLAIM" in triggered_set:
+        boost += 10
+        details.append("vwap_acceptance")
+
+    # Momentum Continuation
+    if "ORB_HIGH_BREAK" in triggered_set:
+        boost += 10
+        details.append("momentum_continuation")
+    cs = metrics.get("continuation_score", 0)
+    if cs >= 60:
+        boost += 5
+        details.append("strong_continuation")
+
+    # Exhaustion Risk
+    es = metrics.get("exhaustion_score", 0)
+    if es >= 60:
+        boost -= 10
+        details.append("exhaustion_risk_high")
+    if "OPENING_EXHAUSTION" in triggered_set:
+        boost -= 15
+        details.append("opening_exhaustion")
+
+    component_scores: dict[str, Any] = {
+        name: (event_type in triggered_set)
+        for name, event_type in _SCORE_COMPONENTS.items()
+    }
+
+    return {
+        "dynamic_boost": boost,
+        "components": component_scores,
+        "details": details,
     }

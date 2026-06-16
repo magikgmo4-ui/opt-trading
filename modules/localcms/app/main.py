@@ -322,6 +322,159 @@ def get_data_center_health():
     return JSONResponse(content=read_data_center_health())
 
 
+# ── Opening Session Dashboard (Phase 6) ─────────────────────────────────
+
+@app.get("/data-center/opening-session")
+def get_opening_session():
+    """Opening Session dashboard — live SPCX opening metrics from DeskPro."""
+    try:
+        from modules.desk_pro.service.spcx_score_reader import read_spcx_score
+    except ModuleNotFoundError as e:
+        return JSONResponse(content={
+            "ok": False,
+            "error": str(e),
+            "warning": "modules.desk_pro not deployed on this machine",
+            "read_at": datetime.now(timezone.utc).isoformat(),
+        }, status_code=503)
+
+    result = read_spcx_score()
+    om = result.get("opening_metrics") or {}
+    oc = result.get("opening_components") or {}
+
+    return JSONResponse(content={
+        "ok": True,
+        "consumer_id": "localcms__opening_session",
+        "source": "desk_pro.spcx_score_reader",
+        "read_at": datetime.now(timezone.utc).isoformat(),
+        "symbol": "SPCX",
+        "score": result.get("score", 0),
+        "grade": result.get("grade", "C"),
+        "setup_state": result.get("setup_state", "watch"),
+        "opening_metrics": {
+            "opening_gap_pct": om.get("opening_gap_pct"),
+            "premarket_range": om.get("premarket_range"),
+            "premarket_high": om.get("premarket_high"),
+            "premarket_low": om.get("premarket_low"),
+            "opening_drive": om.get("opening_drive"),
+            "distance_vwap_pct": om.get("distance_vwap_pct"),
+            "distance_premarket_high_pct": om.get("distance_premarket_high_pct"),
+            "distance_orb_pct": om.get("distance_orb_pct"),
+            "extension_pct": om.get("extension_pct"),
+            "relative_volume_15m": om.get("relative_volume_15m"),
+            "risk_score": om.get("risk_score"),
+            "continuation_score": om.get("continuation_score"),
+            "exhaustion_score": om.get("exhaustion_score"),
+        },
+        "opening_components": {
+            "dynamic_boost": oc.get("dynamic_boost", 0),
+            "details": oc.get("details", []),
+        },
+        "events": result.get("events", []),
+        "risk_notes": result.get("risk_notes", []),
+        "invalidation": result.get("invalidation", {}),
+        "monitor_only": True,
+    })
+
+
+@app.get("/data-center/opening-session/html")
+def get_opening_session_html():
+    """HTML dashboard for Opening Session metrics."""
+    try:
+        from modules.desk_pro.service.spcx_score_reader import read_spcx_score
+    except ModuleNotFoundError:
+        return HTMLResponse(
+            content="<h2>DeskPro not available</h2><p>modules.desk_pro not deployed here.</p>",
+            status_code=503,
+        )
+
+    result = read_spcx_score()
+    om = result.get("opening_metrics") or {}
+    oc = result.get("opening_components") or {}
+    score = result.get("score", 0)
+    grade = result.get("grade", "C")
+    state = result.get("setup_state", "watch")
+    events = ", ".join(result.get("events", [])) or "none"
+    risk_notes = ", ".join(result.get("risk_notes", [])) or "none"
+
+    gap = f"{om.get('opening_gap_pct', 0):+.2f}%" if om.get("opening_gap_pct") is not None else "--"
+    drive = om.get("opening_drive", "--")
+    pmh = f"{om.get('premarket_high', 0):.2f}" if om.get("premarket_high") is not None else "--"
+    pml = f"{om.get('premarket_low', 0):.2f}" if om.get("premarket_low") is not None else "--"
+    dv = f"{om.get('distance_vwap_pct', 0):+.2f}%" if om.get("distance_vwap_pct") is not None else "--"
+    dorb = f"{om.get('distance_orb_pct', 0):+.2f}%" if om.get("distance_orb_pct") is not None else "--"
+    rvol = f"{om.get('relative_volume_15m', 0):.1f}x" if om.get("relative_volume_15m") is not None else "--"
+    rs = om.get("risk_score", 0)
+    cs = om.get("continuation_score", 0)
+    es = om.get("exhaustion_score", 0)
+
+    grade_color = "#2e7d32" if grade in ("A", "A+") else "#e65100" if grade == "B" else "#c62828"
+
+    html = f"""<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Opening Session — SPCX</title>
+<style>
+  body{{font-family:system-ui,sans-serif;margin:20px;max-width:900px;background:#fafafa}}
+  h1{{margin:0 0 4px 0}} .muted{{color:#666;font-size:13px}}
+  .card{{border:1px solid #ddd;border-radius:10px;padding:14px;margin:12px 0;background:#fff}}
+  .grid{{display:grid;grid-template-columns:1fr 1fr;gap:12px}}
+  table{{width:100%;border-collapse:collapse;font-size:13px}}
+  th,td{{border-bottom:1px solid #eee;padding:6px;text-align:left}}
+  .score{{font-size:36px;font-weight:700;color:{grade_color}}}
+  .badge{{display:inline-block;padding:2px 10px;border-radius:999px;color:#fff;font-size:12px}}
+  .badge-green{{background:#2e7d32}} .badge-orange{{background:#e65100}} .badge-red{{background:#c62828}} .badge-gray{{background:#888}}
+  .metric-card{{text-align:center;border:1px solid #eee;border-radius:8px;padding:10px;background:#f9f9f9}}
+  .metric-value{{font-size:22px;font-weight:700}} .metric-label{{font-size:11px;color:#888;margin-top:2px}}
+</style></head>
+<body>
+  <h1>Opening Session — SPCX</h1>
+  <div class="muted">Live depuis DeskPro | monitor_only</div>
+
+  <div class="card" style="display:flex;align-items:center;gap:16px">
+    <div class="score">{score}</div>
+    <div><span class="badge badge-green">{grade}</span> <span class="badge {'badge-green' if state=='active' else 'badge-orange' if state=='watch' else 'badge-red'}">{state.upper()}</span></div>
+    <div class="muted">Gap: {gap} | Drive: {drive}</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px 0">Premarket</h3>
+    <table>
+      <tr><td>High</td><td>{pmh}</td><td>Low</td><td>{pml}</td></tr>
+      <tr><td>Dist VWAP</td><td>{dv}</td><td>Dist ORB</td><td>{dorb}</td></tr>
+      <tr><td>RVOL 15m</td><td>{rvol}</td><td></td><td></td></tr>
+    </table>
+  </div>
+
+  <div class="grid">
+    <div class="metric-card"><div class="metric-value" style="color:{'#c62828' if rs>=60 else '#e65100' if rs>=30 else '#2e7d32'}">{rs}</div><div class="metric-label">Risque</div></div>
+    <div class="metric-card"><div class="metric-value" style="color:{'#2e7d32' if cs>=60 else '#e65100' if cs>=30 else '#888'}">{cs}</div><div class="metric-label">Continuation</div></div>
+    <div class="metric-card"><div class="metric-value" style="color:{'#c62828' if es>=60 else '#e65100' if es>=30 else '#888'}">{es}</div><div class="metric-label">Épuisement</div></div>
+    <div class="metric-card"><div class="metric-value">{oc.get('dynamic_boost', 0):+d}</div><div class="metric-label">Dynamic Boost</div></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px 0">Événements</h3>
+    <div class="muted">{events}</div>
+    <h3 style="margin:8px 0">Alertes live</h3>
+    <div class="muted">{risk_notes}</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px 0">Chronologie</h3>
+    <div class="muted">Événements déclenchés dans l'ordre de poids :</div>
+    <ul>{"".join(f"<li>{e}</li>" for e in result.get("events", [])) or "<li class='muted'>aucun événement</li>"}</ul>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;gap:8px;font-size:12px">
+      <a href="/data-center/opening-session">JSON</a>
+      <span class="muted">|</span>
+      <a href="/desk/ui">DeskPro</a>
+    </div>
+  </div>
+</body></html>"""
+    return HTMLResponse(content=html)
+
+
 @app.get("/scripts/{relative_path:path}")
 def get_script_asset(relative_path: str):
     path = _safe_child(SCRIPTS_DIR, relative_path)

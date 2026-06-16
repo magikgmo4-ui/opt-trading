@@ -677,8 +677,61 @@ async function sendVoiceCommand(){
     if(btn) btn.disabled=false;
   }
 }
+// -- Opening Session card (Phase 4)
+function renderOpeningSessionCard(j){
+  const m=j.opening_metrics||{},c=j.opening_components||{},l=j.score??0,g=j.grade||'?',s=j.setup_state||'?';
+  const gap=m.opening_gap_pct!=null?m.opening_gap_pct.toFixed(2)+'%':'-';
+  const drive=m.opening_drive||'-';
+  const pmh=m.premarket_high!=null?Number(m.premarket_high).toFixed(2):'-';
+  const pml=m.premarket_low!=null?Number(m.premarket_low).toFixed(2):'-';
+  const dv=m.distance_vwap_pct!=null?m.distance_vwap_pct.toFixed(2)+'%':'-';
+  const dorb=m.distance_orb_pct!=null?m.distance_orb_pct.toFixed(2)+'%':'-';
+  const rvol=m.relative_volume_15m!=null?m.relative_volume_15m.toFixed(2)+'x':'-';
+  const rs=m.risk_score??0;
+  const cs=m.continuation_score??0;
+  const es=m.exhaustion_score??0;
+  const boost=c.dynamic_boost??0;
+  const det=(c.details||[]).join(', ')||'-';
+  const boostClr=boost>0?'#2e7d32':(boost<0?'#c62828':'#888');
+  const rsClr=rs>=60?'#c62828':(rs>=30?'#e65100':'#2e7d32');
+  const csClr=cs>=60?'#2e7d32':(cs>=30?'#e65100':'#c62828');
+  const esClr=es>=60?'#c62828':(es>=30?'#e65100':'#2e7d32');
+  let rows='<table style="font-size:13px;border-collapse:collapse;width:100%">';
+  rows+='<tr><td style="color:#888;padding:2px 8px 2px 0;white-space:nowrap">Gap %</td><td>'+gap+'</td><td style="color:#888;padding:2px 8px 2px 0;white-space:nowrap">Drive</td><td>'+drive+'</td></tr>';
+  rows+='<tr><td style="color:#888;padding:2px 8px 2px 0">Premarket H</td><td>'+pmh+'</td><td style="color:#888;padding:2px 8px 2px 0">Premarket L</td><td>'+pml+'</td></tr>';
+  rows+='<tr><td style="color:#888;padding:2px 8px 2px 0">Dist VWAP</td><td>'+dv+'</td><td style="color:#888;padding:2px 8px 2px 0">Dist ORB</td><td>'+dorb+'</td></tr>';
+  rows+='<tr><td style="color:#888;padding:2px 8px 2px 0">RVOL 15m</td><td>'+rvol+'</td><td colspan="2"></td></tr>';
+  rows+='</table>';
+  rows+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px">';
+  rows+='<div style="text-align:center;border:1px solid #ddd;border-radius:8px;padding:6px"><div style="font-size:11px;color:#888">Risque</div><div style="font-size:20px;font-weight:700;color:'+rsClr+'">'+rs+'</div></div>';
+  rows+='<div style="text-align:center;border:1px solid #ddd;border-radius:8px;padding:6px"><div style="font-size:11px;color:#888">Continuation</div><div style="font-size:20px;font-weight:700;color:'+csClr+'">'+cs+'</div></div>';
+  rows+='<div style="text-align:center;border:1px solid #ddd;border-radius:8px;padding:6px"><div style="font-size:11px;color:#888">Épuisement</div><div style="font-size:20px;font-weight:700;color:'+esClr+'">'+es+'</div></div>';
+  rows+='</div>';
+  rows+='<div style="margin-top:6px;font-size:11px;color:#888">Score: <span style="font-weight:600;color:#333">'+l+'/100</span> | Grade: <span style="color:'+gradeColor(g)+';font-weight:600">'+g+'</span> | '+s.toUpperCase()+' | Boost: <span style="color:'+boostClr+';font-weight:600">'+(boost>0?'+':'')+boost+'</span></div>';
+  if(det!=='-') rows+='<div style="margin-top:4px;font-size:11px;color:#888">Signaux: '+det+'</div>';
+  rows+='<div style="margin-top:4px;font-size:10px;color:#aaa">monitor_only</div>';
+  return rows;
+}
+async function refreshOpeningSession(){
+  const btn=el('btnOpeningSession'),meta=el('openingSessionMeta'),content=el('openingSessionContent');
+  if(btn) btn.disabled=true;
+  if(meta) meta.textContent='loading...';
+  try{
+    const r=await fetch('/desk/spacex/opening-session');
+    const j=await r.json();
+    if(content) content.innerHTML=renderOpeningSessionCard(j);
+    if(meta) meta.textContent=new Date().toLocaleTimeString();
+  }catch(e){
+    if(content) content.innerHTML='<span class="muted">Error: '+e+'</span>';
+    if(meta) meta.textContent='';
+  }finally{
+    if(btn) btn.disabled=false;
+  }
+}
+if(el('btnOpeningSession')) el('btnOpeningSession').addEventListener('click',refreshOpeningSession);
+
 if(el('btnSpcx')) el('btnSpcx').addEventListener('click',refreshSpcx);
-if(el('btnVoiceCmd')) el('btnVoiceCmd').addEventListener('click',sendVoiceCommand);
+if(el('btnVoiceCmd')) el('btnVoiceCmd'].addEventListener('click',sendVoiceCommand);
 if(el('voiceInput')) el('voiceInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendVoiceCommand();});
 
 refreshStatus();
@@ -697,6 +750,19 @@ refreshTelegramClaim();
         <span id="spcxMeta" class="muted" style="font-size:12px"></span>
       </div>
       <div id="spcxContent"><span class="muted">Cliquez Refresh pour charger le score SPCX.</span></div>
+    </div>
+  </details>
+
+  <!-- Opening Session card (Phase 4) -->
+  <details class="tools-section" id="openingSessionPanel" style="margin-top:16px" ontoggle="if(this.open&&el('openingSessionContent')&&!el('openingSessionContent').innerHTML.trim())refreshOpeningSession()">
+    <summary>Opening Session</summary>
+    <div class="card" style="margin-top:10px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <button id="btnOpeningSession" class="action-btn">Refresh</button>
+        <a href="/desk/spacex/opening-session" class="action-link" target="_blank">JSON</a>
+        <span id="openingSessionMeta" class="muted" style="font-size:12px"></span>
+      </div>
+      <div id="openingSessionContent"><span class="muted">Cliquez Refresh pour charger les métriques d'ouverture.</span></div>
     </div>
   </details>
 

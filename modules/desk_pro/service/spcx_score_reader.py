@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from modules.data_center.spcx_composite_score import score_spcx
+from modules.data_center.opening_session_metrics import compute_opening_metrics
 
 # ---------------------------------------------------------------------------
 # Default paths (relative to project root, resolved at import time)
@@ -46,8 +47,19 @@ _CDP_ALIAS: dict[str, str] = {
     "VOLUME_ON_BREAKOUT": "VOLUME_SURGE",
     # VWAP state aliases
     "VWAP_LOSS": "VWAP_LOST",
-    # Premarket
-    "PREMARKET_HIGH_BREAK": "PREMARKET_GAP",
+    # Premarket (legacy alias for backward compat)
+    "PREMARKET_HIGH_BREAK": "PREMARKET_HIGH_BREAK",
+    "PREMARKET_GAP": "PREMARKET_HIGH_BREAK",    # legacy alias
+    "PREMARKET_LOW_BREAK": "PREMARKET_LOW_BREAK",
+    "PREMARKET_HIGH_REJECT": "PREMARKET_HIGH_REJECT",
+    "PREMARKET_LOW_REJECT": "PREMARKET_LOW_REJECT",
+    # Gap events
+    "GAP_OPEN_UP": "GAP_OPEN_UP",
+    "GAP_OPEN_DOWN": "GAP_OPEN_DOWN",
+    "GAP_FILL_STARTED": "GAP_FILL_STARTED",
+    "GAP_FILL_COMPLETED": "GAP_FILL_COMPLETED",
+    # Opening exhaustion
+    "OPENING_EXHAUSTION": "OPENING_EXHAUSTION",
 }
 
 
@@ -181,7 +193,10 @@ def read_spcx_score(
 
     all_events = adapted_cdp + adapted_wire
 
-    result = score_spcx(all_events)
+    # Compute opening session metrics (Phase 2)
+    opening_metrics = compute_opening_metrics(all_events)
+
+    result = score_spcx(all_events, opening_metrics=opening_metrics)
     result["data_source"] = {
         "cdp_events": len(adapted_cdp),
         "wire_events": len(adapted_wire),

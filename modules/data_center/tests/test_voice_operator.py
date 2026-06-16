@@ -15,7 +15,7 @@ from modules.desk_pro.service.voice_operator import dispatch_command
 # Mock score result (realistic, matches score_spcx() contract)
 # ---------------------------------------------------------------------------
 
-_MOCK_SCORE = {
+_BASE_SCORE = {
     "symbol": "SPCX",
     "score": 60,
     "grade": "A",
@@ -32,6 +32,8 @@ _MOCK_SCORE = {
     "data_source": {"cdp_events": 2, "wire_events": 1, "total_input_events": 3},
 }
 
+_MOCK_SCORE = dict(_BASE_SCORE)
+
 _EMPTY_SCORE = {
     "symbol": "SPCX",
     "score": 0,
@@ -44,6 +46,27 @@ _EMPTY_SCORE = {
     "invalidation": {},
     "monitor_only": True,
     "data_source": {"cdp_events": 0, "wire_events": 0, "total_input_events": 0},
+}
+
+_MOCK_OPENING = {
+    **_BASE_SCORE,
+    "opening_metrics": {
+        "opening_gap_pct": 0.85,
+        "opening_drive": "up",
+        "premarket_range": 1.25,
+        "distance_vwap_pct": 2.35,
+        "distance_premarket_high_pct": 0.45,
+        "distance_orb_pct": 1.15,
+        "relative_volume_15m": 1.8,
+        "risk_score": 25,
+        "continuation_score": 70,
+        "exhaustion_score": 10,
+        "extension_pct": 0.5,
+    },
+    "opening_components": {
+        "dynamic_boost": 15,
+        "details": ["VWAP_ACCEPTANCE", "MOMENTUM_CONTINUATION"],
+    },
 }
 
 # read_spcx_score is imported at module level in voice_operator.py,
@@ -111,6 +134,54 @@ class TestIntentRouting(unittest.TestCase):
         self.assertFalse(result["matched"])
         self.assertEqual(result["intent"], "empty")
 
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_opening_analysis_full(self, _):
+        result = dispatch_command("analyse ouverture spcx")
+        self.assertTrue(result["matched"])
+        self.assertEqual(result["intent"], "spcx_opening_analysis")
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_opening_analysis_resume(self, _):
+        result = dispatch_command("résumé première demi-heure")
+        self.assertTrue(result["matched"])
+        self.assertEqual(result["intent"], "spcx_opening_analysis")
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_gap_command(self, _):
+        result = dispatch_command("gap spcx")
+        self.assertTrue(result["matched"])
+        self.assertEqual(result["intent"], "spcx_gap")
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_gap_alone(self, _):
+        result = dispatch_command("gap")
+        self.assertTrue(result["matched"])
+        self.assertEqual(result["intent"], "spcx_gap")
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_momentum_command(self, _):
+        result = dispatch_command("momentum spcx")
+        self.assertTrue(result["matched"])
+        self.assertEqual(result["intent"], "spcx_momentum")
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_momentum_alone(self, _):
+        result = dispatch_command("momentum")
+        self.assertTrue(result["matched"])
+        self.assertEqual(result["intent"], "spcx_momentum")
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_risk_command(self, _):
+        result = dispatch_command("risque spcx")
+        self.assertTrue(result["matched"])
+        self.assertEqual(result["intent"], "spcx_risk")
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_risk_alone(self, _):
+        result = dispatch_command("risque")
+        self.assertTrue(result["matched"])
+        self.assertEqual(result["intent"], "spcx_risk")
+
 
 # ---------------------------------------------------------------------------
 # 2. Output structure
@@ -147,6 +218,27 @@ class TestOutputStructure(unittest.TestCase):
     def test_unknown_data_is_empty_dict(self):
         result = dispatch_command("xyz")
         self.assertEqual(result["data"], {})
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_opening_analysis_has_metrics(self, _):
+        result = dispatch_command("analyse ouverture spcx")
+        self.assertIn("opening_metrics", result["data"])
+        self.assertIn("opening_components", result["data"])
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_gap_has_metrics(self, _):
+        result = dispatch_command("gap")
+        self.assertIn("opening_metrics", result["data"])
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_momentum_has_metrics(self, _):
+        result = dispatch_command("momentum")
+        self.assertIn("continuation_score", result["data"].get("opening_metrics", {}))
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_risk_has_metrics(self, _):
+        result = dispatch_command("risque")
+        self.assertIn("risk_score", result["data"].get("opening_metrics", {}))
 
 
 # ---------------------------------------------------------------------------
@@ -192,6 +284,42 @@ class TestResponseText(unittest.TestCase):
         result = dispatch_command("spcx")
         self.assertIn("C", result["response"])
 
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_opening_analysis_contains_grade(self, _):
+        result = dispatch_command("analyse ouverture spcx")
+        self.assertIn("Ouverture", result["response"])
+        self.assertIn("A", result["response"])
+        self.assertIn("monitor_only", result["response"])
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_opening_analysis_contains_metrics(self, _):
+        result = dispatch_command("résumé première demi-heure")
+        self.assertIn("+0.85%", result["response"])
+        self.assertIn("1.8x", result["response"])
+        self.assertIn("25/100", result["response"])
+        self.assertIn("70/100", result["response"])
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_gap_response_contains_gap(self, _):
+        result = dispatch_command("gap")
+        self.assertIn("Gap", result["response"])
+        self.assertIn("+0.85%", result["response"])
+        self.assertIn("monitor_only", result["response"])
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_momentum_response_contains_scores(self, _):
+        result = dispatch_command("momentum")
+        self.assertIn("Momentum", result["response"])
+        self.assertIn("70/100", result["response"])
+        self.assertIn("10/100", result["response"])
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_risk_response_contains_risk(self, _):
+        result = dispatch_command("risque")
+        self.assertIn("Risque", result["response"])
+        self.assertIn("25/100", result["response"])
+        self.assertIn("monitor_only", result["response"])
+
 
 # ---------------------------------------------------------------------------
 # 4. Scorer called exactly once per SPCX command
@@ -212,6 +340,26 @@ class TestScorerCallCount(unittest.TestCase):
     def test_scorer_not_called_for_unknown(self, mock_reader):
         dispatch_command("buy bitcoin")
         mock_reader.assert_not_called()
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_scorer_called_for_opening_analysis(self, mock_reader):
+        dispatch_command("analyse ouverture spcx")
+        mock_reader.assert_called_once()
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_scorer_called_for_gap(self, mock_reader):
+        dispatch_command("gap")
+        mock_reader.assert_called_once()
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_scorer_called_for_momentum(self, mock_reader):
+        dispatch_command("momentum")
+        mock_reader.assert_called_once()
+
+    @patch(_PATCH, return_value=_MOCK_OPENING)
+    def test_scorer_called_for_risk(self, mock_reader):
+        dispatch_command("risque")
+        mock_reader.assert_called_once()
 
 
 # ---------------------------------------------------------------------------
@@ -249,6 +397,24 @@ class TestUIHtml(unittest.TestCase):
 
     def test_monitor_only_label_in_ui(self):
         self.assertIn("monitor_only", self.html)
+
+    def test_opening_session_panel_present(self):
+        self.assertIn("openingSessionPanel", self.html)
+
+    def test_opening_session_content_present(self):
+        self.assertIn("openingSessionContent", self.html)
+
+    def test_opening_session_btn_present(self):
+        self.assertIn("btnOpeningSession", self.html)
+
+    def test_opening_session_endpoint_referenced(self):
+        self.assertIn("/desk/spacex/opening-session", self.html)
+
+    def test_refresh_opening_session_js_function(self):
+        self.assertIn("refreshOpeningSession", self.html)
+
+    def test_render_opening_session_card_js_function(self):
+        self.assertIn("renderOpeningSessionCard", self.html)
 
 
 if __name__ == "__main__":

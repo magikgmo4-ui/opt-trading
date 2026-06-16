@@ -639,6 +639,11 @@ _CDP_EVENT_TYPES = {
     "bos_bull", "bos_bear", "choch_bull", "choch_bear", "fvg_created", "fvg_filled",
     "liquidity_sweep_high", "liquidity_sweep_low",
     "breakout_high", "breakdown_low", "vwap_state",
+    # Phase 1 — Opening session enrichment events
+    "premarket_low_break", "premarket_high_reject", "premarket_low_reject",
+    "gap_open_up", "gap_open_down", "gap_fill_started", "gap_fill_completed",
+    # Phase 1 — P0 events
+    "opening_exhaustion", "gap_fill",
 }
 
 @app.post("/tv/cdp")

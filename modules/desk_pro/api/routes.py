@@ -504,10 +504,29 @@ def desk_spacex_score():
     from modules.desk_pro.service.spcx_score_reader import read_spcx_score
     return read_spcx_score()
 
-    Returns: score (0-100), grade (C/B/A/A+), setup_state, levels, risk_notes, monitor_only.
+
+@router.get("/spacex/opening-session")
+def desk_spacex_opening():
+    """SPCX Opening Session metrics — computed from recent CDP events.
+
+    Returns opening_gap_pct, premarket metrics, VWAP/ORB distances,
+    risk/continuation/exhaustion scores, and live event timeline.
+    Read-only. monitor_only=True always.
     """
     from modules.desk_pro.service.spcx_score_reader import read_spcx_score
-    return read_spcx_score()
+    result = read_spcx_score()
+    opening = result.get("opening_metrics")
+    components = result.get("opening_components")
+    return {
+        "ok": True,
+        "symbol": "SPCX",
+        "score": result.get("score", 0),
+        "grade": result.get("grade", "C"),
+        "setup_state": result.get("setup_state", "watch"),
+        "opening_metrics": opening or {},
+        "opening_components": components or {},
+        "monitor_only": True,
+    }
 
 
 @router.get("/logs/latest")
