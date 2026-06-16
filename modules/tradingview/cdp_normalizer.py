@@ -12,6 +12,7 @@ VALID_EVENTS = frozenset({
     "vwap_reclaim", "vwap_loss",
     "premarket_high_break", "premarket_low_loss",
     "orb_break_high", "orb_break_low",
+    "opening_range_failure",
     "relative_volume_gt_2", "relative_volume_gt_3",
     "volume_spike", "volume_on_breakout",
     "bos_bull", "bos_bear",

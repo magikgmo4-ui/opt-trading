@@ -2507,17 +2507,20 @@ def voice_operator_html():
     return HTMLResponse(content=_voice_operator_html())
 
 
-def _handle_composite(composite_type: str) -> dict:
+def _handle_composite(composite_type: str, params: dict = None) -> dict:
     """Handle composite/trader commands that aggregate multiple /read/* endpoints."""
     from modules.voice_operator.engine.read_api_client import call
     from datetime import datetime, timezone
+
+    if params is None:
+        params = {}
 
     now = datetime.now(timezone.utc).isoformat()
     rich = {"cards": [], "badges": ["MONITOR-ONLY", "COMPOSITE"], "spoken_text": ""}
     one_line = ""
 
     # Shared data fetches (lazy, only when needed)
-    alerts = setups = spcx = open_trades = None
+    alerts = setups = spcx = open_trades = vision_markets = None
 
     def _get_alerts():
         nonlocal alerts
@@ -2552,6 +2555,62 @@ def _handle_composite(composite_type: str) -> dict:
             try: return _json.loads(p.read_text())
             except: pass
         return {}
+
+    def _get_vision_markets():
+        nonlocal vision_markets
+        if vision_markets is None:
+            import json as _vj
+            vm = {}
+            vd = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "vision_analysis" / "by_symbol"
+            md = Path(__file__).resolve().parents[3] / "data" / "data_center" / "views" / "market_metrics" / "by_symbol"
+            mm_files = {"BTC": "BTCUSDT.json", "ETH": "ETHUSDT.json", "SOL": "SOLUSDT.json",
+                        "XAUUSD": "XAUUSD.json", "DXY": "DXY.json", "SPY": "SPY.json", "VIX": "VIX.json"}
+            for sym_file, sym_key in [("BTCUSDT.P", "BTC"), ("ETHUSDT.P", "ETH"), ("SOLUSDT.P", "SOL"),
+                                        ("OANDA:XAUUSD", "XAUUSD"), ("TVC:DXY", "DXY"), ("SPY", "SPY"), ("TVC:VIX", "VIX")]:
+                entry = {"trend": "", "confidence": 50, "freshness": "", "price": None}
+                vf = vd / f"{sym_file}.json"
+                if vf.exists():
+                    try:
+                        d = _vj.loads(vf.read_text())
+                        if isinstance(d, list) and len(d) > 0:
+                            d = d[0]
+                        if isinstance(d, dict):
+                            entry["freshness"] = d.get("freshness_state", "")
+                            summary = d.get("analysis_summary", "")
+                            if isinstance(summary, str):
+                                low = summary.lower()
+                                if any(w in low for w in ["baissier", "baissi", "bearish", "bear", "baisse "]):
+                                    entry["trend"] = "BEARISH"
+                                elif any(w in low for w in ["haussier", "bullish", "bull", "hauss "]):
+                                    entry["trend"] = "BULLISH"
+                                elif any(w in low for w in ["range", "neutre", "neutral", "consolidation", "lateral"]):
+                                    entry["trend"] = "NEUTRAL"
+                            signals = d.get("signals", [])
+                            if isinstance(signals, list):
+                                num_signals = [s for s in signals if isinstance(s.get("value"), (int, float))]
+                                best = max(num_signals, key=lambda s: s.get("confidence", 0), default=None)
+                                if best and not entry.get("price"):
+                                    entry["price"] = best.get("value")
+                            entry["confidence"] = d.get("confidence", 50)
+                    except: pass
+                mm_key = mm_files.get(sym_key)
+                if mm_key:
+                    mf = md / mm_key
+                    if mf.exists():
+                        try:
+                            mm = _vj.loads(mf.read_text())
+                            if isinstance(mm, dict):
+                                lp = mm.get("last_price")
+                                if lp is not None:
+                                    entry["price"] = lp
+                                entry["vwap"] = mm.get("vwap")
+                                entry["change_24h"] = mm.get("change_24h")
+                                if mm.get("freshness_state") == "fresh":
+                                    entry["freshness"] = "fresh"
+                        except: pass
+                vm[sym_key] = entry
+            vision_markets = vm
+        return vision_markets
 
     if composite_type == "morning_brief":
         a = _get_alerts()
@@ -3032,7 +3091,7 @@ def voice_operator_query(q: str = ""):
         routed = route(q)
         # Handle composite/trader commands
         if routed.endpoint == "/read/composite":
-            result = _handle_composite(routed.params.get("type", ""))
+            result = _handle_composite(routed.params.get("type", ""), routed.params)
             latency_ms = int((_time.time() - _start) * 1000)
             # Add freshness to composite results
             from modules.voice_operator.models.freshness import classify_freshness

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "multitf_setup_score.v1",
+  "description": "Multi-timeframe setup score output per symbol — bias, setups, scores, probabilities, and action hints. Produced by multitf_analysis_input.v1 consumer. Monitor-only — no execution terms.",
+  "type": "object",
+  "required": ["output_class", "symbol", "as_of", "bias", "setups"],
+  "properties": {
+    "output_class": { "type": "string", "const": "multitf_setup_score.v1" },
+    "symbol": { "type": "string", "description": "Canonical symbol" },
+    "as_of": { "type": "string", "format": "date-time" },
+
+    "bias": {
+      "type": "object",
+      "description": "Multi-timeframe directional bias",
+      "required": ["htf", "ltf"],
+      "properties": {
+        "htf": { "type": "string", "enum": ["bullish", "bearish", "neutral"], "description": "Higher timeframe bias (D1/W1)" },
+        "ltf": { "type": "string", "enum": ["bullish", "bearish", "neutral"], "description": "Lower timeframe bias (M15/H1)" },
+        "alignment": { "type": "string", "enum": ["aligned", "divergent", "neutral"], "description": "Are HTF and LTF aligned?" },
+        "reason": { "type": "string", "description": "Why this bias — short summary" }
+      }
+    },
+
+    "setups": {
+      "type": "array",
+      "description": "Active or candidate setups ranked by score",
+      "items": {
+        "type": "object",
+        "required": ["setup_id", "direction", "setup_type", "grade", "score"],
+        "properties": {
+          "setup_id": { "type": "string", "description": "Unique setup identifier: btc_vwap_reject_m15" },
+          "direction": { "type": "string", "enum": ["long", "short", "monitor_only"] },
+          "setup_type": { "type": "string", "description": "Strategy type: vwap_reclaim, orb_break, liquidity_sweep, etc." },
+          "grade": { "type": "string", "enum": ["A+", "A", "A-", "B+", "B", "B-", "C", "REJECT"], "description": "Overall setup grade" },
+          "score": { "type": "integer", "minimum": 0, "maximum": 100, "description": "Setup quality score /100" },
+          "probability_pct": { "type": "integer", "minimum": 0, "maximum": 100, "description": "Estimated success probability %" },
+          "confidence_pct": { "type": "integer", "minimum": 0, "maximum": 100, "description": "Confidence in data and analysis %" },
+
+          "entry_zone": {
+            "type": "array", "items": { "type": "number" },
+            "description": "[low, high] entry price zone"
+          },
+          "invalidation": { "type": "number", "description": "Price level that invalidates the setup" },
+          "targets": {
+            "type": "array", "items": { "type": "number" },
+            "description": "[TP1, TP2, ...] target prices"
+          },
+          "risk_reward": { "type": "number", "description": "Risk:Reward ratio" },
+
+          "reason": {
+            "type": "array", "items": { "type": "string" },
+            "description": "Why this setup — list of confluence factors"
+          },
+          "missing": {
+            "type": "array", "items": { "type": "string" },
+            "description": "Expected data absent for this setup"
+          },
+
+          "score_breakdown": {
+            "type": "object",
+            "description": "Score decomposition (sum = 100%)",
+            "properties": {
+              "htf_alignment": { "type": "integer" },
+              "ltf_trigger": { "type": "integer" },
+              "vwap_level_quality": { "type": "integer" },
+              "volume_orderflow": { "type": "integer" },
+              "macro_alignment": { "type": "integer" },
+              "freshness_source": { "type": "integer" },
+              "risk_reward": { "type": "integer" },
+              "backtest_edge": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+
+    "top_setup": { "type": "string", "description": "setup_id of best setup" },
+    "next_action": {
+      "type": "array", "items": { "type": "string" },
+      "description": "What to watch next — non-execution hints"
+    },
+    "missing": {
+      "type": "array", "items": { "type": "string" },
+      "description": "Global missing data fields"
+    },
+
+    "source_quality": {
+      "type": "object",
+      "properties": {
+        "input_freshness": { "type": "string", "enum": ["fresh", "stale", "partial", "unknown"] },
+        "timeframes_with_data": { "type": "array", "items": { "type": "string" } },
+        "timeframes_missing": { "type": "array", "items": { "type": "string" } },
+        "completeness_pct": { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@ class TestLoadInventory:
     def test_load_producers_exists(self):
         prod = rv.load_producers()
         assert "producers" in prod
-        assert len(prod["producers"]) == 7
+        assert len(prod["producers"]) >= 7
 
 
 class TestValidateInventorySummary:

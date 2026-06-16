@@ -116,3 +116,8 @@ modules/collector_binance_spot/outputs/
 modules/collector_binance_spot/logs/
 reports/tradingview/
 data/ipo/spacex/raw/
+outputs/
+reports/ipo/spacex/
+ui/spacex_desk/legacy_snapshot.html
+ui/spacex_desk/latest.json
+data/telemetry/

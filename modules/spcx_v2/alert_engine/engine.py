@@ -277,6 +277,7 @@ class AlertAutomationEngine:
             "key": "__TV_WEBHOOK_KEY__",
             "schema": "spacex_tv_event_v1",
             "source": "tradingview",
+            "alert_name": f"{{{{alert_name}}}}",
             "event": alert_type,
             "symbol": "{{ticker}}",
             "exchange": "{{exchange}}",
