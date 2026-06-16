@@ -1,0 +1,4 @@
+{"source":"tradingview_cdp","symbol":"BTCUSDT.P","event":"vwap_loss","timeframe":"H4","price":67100,"volume":1500000,"timestamp":"2026-06-15T09:30:00Z","flags":{"vwap_loss":true},"monitor_only":true}
+{"source":"tradingview_cdp","symbol":"ETHUSDT.P","event":"orb_break_high","timeframe":"H1","price":3250,"volume":800000,"timestamp":"2026-06-15T09:45:00Z","flags":{"orb_break_high":true},"monitor_only":true}
+corrupted line }}{ 
+{"source":"tradingview_cdp","symbol":"XAUUSD","event":"volume_spike","timeframe":"M5","price":5075,"volume":2000000,"timestamp":"2026-06-15T10:00:00Z","flags":{"volume_spike":true},"monitor_only":true}

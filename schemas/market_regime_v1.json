@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opt-trading/schemas/market_regime_v1.json",
+  "title": "Market Regime v1",
+  "description": "Detected market regime with evidence and confidence",
+  "type": "object",
+  "required": ["regime", "confidence", "evidence"],
+  "properties": {
+    "schema": { "const": "market_regime.v1" },
+    "regime": { "type": "string", "enum": ["risk_on", "risk_off", "expansion", "compression", "distribution", "accumulation", "panic", "recovery", "unknown"] },
+    "confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "risk_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "dxy_trend": { "type": "string" },
+        "vix_level": { "type": "string" },
+        "spy_trend": { "type": "string" },
+        "btc_dominance": { "type": ["number", "null"] },
+        "fear_greed": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+        "asset_count_bullish": { "type": "integer" },
+        "asset_count_bearish": { "type": "integer" },
+        "volatility_regime": { "type": "string" }
+      }
+    },
+    "narrative": { "type": "string" },
+    "next_likely_regime": { "type": ["string", "null"] },
+    "transition_probability": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "generated_at": { "type": "string", "format": "date-time" }
+  }
+}

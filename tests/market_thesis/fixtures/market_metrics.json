@@ -1,0 +1,28 @@
+{
+  "contract_version": "v1",
+  "input_class": "market_metrics.v1",
+  "module_id": "analysis_bundles.live",
+  "symbol": "BTCUSDT",
+  "metrics_ts": "2026-06-15T10:00:00Z",
+  "freshness_state": "fresh",
+  "provider_coverage": {
+    "status": "full",
+    "collectable_metrics": ["open_interest", "funding_rate", "volume_futures", "long_short_ratio", "liquidations_long", "liquidations_short"],
+    "missing_metrics": []
+  },
+  "metrics": {
+    "open_interest": 28500000000,
+    "funding_rate": 0.0045,
+    "volume_futures": 52000000000,
+    "long_short_ratio": 1.75,
+    "liquidations_long": 35000000,
+    "liquidations_short": 12000000
+  },
+  "refs": {
+    "primary_output": "market_metrics/BTCUSDT.json",
+    "latest": "market_metrics/latest.json",
+    "status": "live_from_binance"
+  },
+  "provider_id": "binance_spot",
+  "last_price": 66450
+}

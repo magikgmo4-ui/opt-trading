@@ -1,0 +1,18 @@
+{
+  "input_class": "vision_analysis.v1",
+  "capture_id": "cap_20260615_083214_BTCUSDT.P_15m",
+  "screen_type": "CHART_TECHNICAL",
+  "symbol": "BTCUSDT.P",
+  "timeframe": "15m",
+  "analysis_ts": "2026-06-15T08:32:14Z",
+  "source_module": "bot_vision_step2",
+  "freshness_state": "fresh",
+  "signals": [
+    {"type": "support_level", "value": 65000, "confidence": 0.85, "note": "Major support zone"},
+    {"type": "support_level", "value": 63000, "confidence": 0.70, "note": "Secondary support"},
+    {"type": "resistance_level", "value": 68500, "confidence": 0.80, "note": "Weekly resistance"},
+    {"type": "resistance_level", "value": 70000, "confidence": 0.90, "note": "Psychological resistance"},
+    {"type": "analysis_note", "value": "Trend bullish D1, bearish H4", "confidence": 0.75}
+  ],
+  "analysis_summary": "BTC en consolidation. Support 65000, resistance 68500."
+}
