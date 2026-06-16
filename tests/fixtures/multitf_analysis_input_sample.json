@@ -1,0 +1,101 @@
+{
+  "input_class": "multitf_analysis_input.v1",
+  "symbol": "BTC",
+  "asset_class": "crypto_perp",
+  "as_of": "2026-06-15T13:30:00Z",
+  "price": 66649.14,
+  "source": "data_center",
+  "freshness_state": "fresh",
+
+  "timeframes": {
+    "H4": {
+      "indicators": {
+        "trend": "bearish",
+        "vwap": 67100,
+        "price_vs_vwap": "below",
+        "ema20": 67300,
+        "ema50": 68500,
+        "ema200": 68400,
+        "rsi": 42,
+        "atr": 520,
+        "relative_volume": 1.8
+      },
+      "freshness": {
+        "state": "fresh",
+        "bar_count": 200,
+        "last_bar_ts": "2026-06-15T12:00:00Z"
+      }
+    },
+    "M15": {
+      "indicators": {
+        "trend": "bearish",
+        "vwap": 66780,
+        "price_vs_vwap": "below",
+        "rsi": 38,
+        "atr": 140,
+        "relative_volume": 2.1
+      },
+      "freshness": {
+        "state": "fresh",
+        "bar_count": 200,
+        "last_bar_ts": "2026-06-15T13:15:00Z"
+      }
+    }
+  },
+
+  "levels": {
+    "weekly_high": 72000,
+    "weekly_low": 62000,
+    "daily_high": 67500,
+    "daily_low": 65500,
+    "previous_day_high": 67800,
+    "previous_day_low": 66200,
+    "vwap": 66780,
+    "orb_high": 67020,
+    "orb_low": 66280,
+    "support_levels": [65000, 64200],
+    "resistance_levels": [67200, 68500],
+    "liquidity_above": 67200,
+    "liquidity_below": 65000
+  },
+
+  "signals": [
+    {
+      "source": "tradingview_cdp",
+      "event": "vwap_loss",
+      "timeframe": "M15",
+      "price": 66649.14,
+      "volume": 123456,
+      "confidence": 0.72,
+      "timestamp": "2026-06-15T13:30:00Z",
+      "monitor_only": true
+    }
+  ],
+
+  "orderflow": {
+    "open_interest_change_pct": -2.4,
+    "funding_rate": 0.008,
+    "liquidation_bias": "longs_at_risk",
+    "cvd_trend": "falling",
+    "volume_delta": -1250000,
+    "relative_volume": 2.1
+  },
+
+  "macro_context": {
+    "dxy_trend": "bullish",
+    "vix_state": "elevated",
+    "spy_trend": "bearish",
+    "risk_regime": "risk_off"
+  },
+
+  "source_quality": {
+    "source": "data_center",
+    "producer": "multitf_analysis_producer",
+    "freshness_state": "fresh",
+    "age_minutes": 4,
+    "completeness_score": 0.75,
+    "confidence_score": 0.82
+  },
+
+  "missing": ["W1", "D1", "H1", "M5", "funding_fresh", "backtest"]
+}
