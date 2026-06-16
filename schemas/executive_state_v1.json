@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opt-trading/schemas/executive_state_v1.json",
+  "title": "Executive State v1",
+  "description": "Global market intelligence snapshot — cross-asset, regime, leaders, risks, changes",
+  "type": "object",
+  "required": ["snapshot_id", "generated_at", "overall_confidence", "source_count"],
+  "properties": {
+    "schema": { "const": "executive_state.v1" },
+    "snapshot_id": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "ttl_seconds": { "type": "integer", "minimum": 30, "maximum": 600, "default": 120 },
+    "regime": {
+      "type": "object",
+      "required": ["regime", "confidence"],
+      "properties": {
+        "schema": { "const": "market_regime.v1" },
+        "regime": { "type": "string", "enum": ["risk_on", "risk_off", "expansion", "compression", "distribution", "accumulation", "panic", "recovery", "unknown"] },
+        "confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "risk_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "dxy_trend": { "type": "string" },
+            "vix_level": { "type": "string" },
+            "spy_trend": { "type": "string" },
+            "btc_dominance": { "type": ["number", "null"] },
+            "fear_greed": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+            "asset_count_bullish": { "type": "integer" },
+            "asset_count_bearish": { "type": "integer" },
+            "volatility_regime": { "type": "string" }
+          }
+        },
+        "narrative": { "type": "string" },
+        "next_likely_regime": { "type": ["string", "null"] },
+        "transition_probability": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "generated_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "influences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "target"],
+        "properties": {
+          "source": { "type": "string" },
+          "target": { "type": "string" },
+          "correlation": { "type": "number", "minimum": -1, "maximum": 1 },
+          "influence_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "direction": { "type": "string", "enum": ["same", "opposite", "independent"] },
+          "evidence": { "type": "string" }
+        }
+      }
+    },
+    "leaders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["symbol", "rank"],
+        "properties": {
+          "symbol": { "type": "string" },
+          "rank": { "type": "integer" },
+          "direction": { "type": "string" },
+          "confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "reliability": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "momentum_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "change_24h": { "type": ["number", "null"] },
+          "is_leader": { "type": "boolean" },
+          "is_laggard": { "type": "boolean" }
+        }
+      }
+    },
+    "top_opportunities": { "type": "array", "items": { "type": "object" } },
+    "top_risks": { "type": "array", "items": { "type": "object" } },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field"],
+        "properties": {
+          "symbol": { "type": "string" },
+          "field": { "type": "string" },
+          "previous": { "type": "string" },
+          "current": { "type": "string" },
+          "magnitude": { "type": "string", "enum": ["minor", "moderate", "major"] },
+          "description": { "type": "string" },
+          "detected_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "overall_confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "source_count": { "type": "integer" },
+    "freshness": { "type": "string", "enum": ["fresh", "stale", "partial", "expired", "unknown"] }
+  }
+}

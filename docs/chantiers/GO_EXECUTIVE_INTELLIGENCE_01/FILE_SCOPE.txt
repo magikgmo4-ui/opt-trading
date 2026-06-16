@@ -1,0 +1,7 @@
+docs/chantiers/GO_EXECUTIVE_INTELLIGENCE_01/**
+modules/desk_pro/service/executive_reader.py
+modules/executive_intelligence/**
+schemas/executive_briefing_v1.json
+schemas/executive_state_v1.json
+tests/executive_intelligence/**
+tests/test_executive_deskpro.py

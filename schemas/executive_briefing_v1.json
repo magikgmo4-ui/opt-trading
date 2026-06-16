@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opt-trading/schemas/executive_briefing_v1.json",
+  "title": "Executive Briefing v1",
+  "description": "Human-readable market intelligence for DeskPro, Voice, and API",
+  "type": "object",
+  "required": ["briefing_id", "generated_at", "market_regime"],
+  "properties": {
+    "schema": { "const": "executive_briefing.v1" },
+    "briefing_id": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "market_regime": { "type": "string" },
+    "regime_confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "overall_confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "leaders": { "type": "array", "items": { "type": "string" } },
+    "laggards": { "type": "array", "items": { "type": "string" } },
+    "summary": { "type": "string", "description": "2-3 sentence French market summary" },
+    "what_changed": { "type": "string", "description": "What changed since last briefing" },
+    "what_to_watch": { "type": "string", "description": "What to monitor going forward" },
+    "top_risks": { "type": "array", "items": { "type": "string" } },
+    "top_opportunities": { "type": "array", "items": { "type": "string" } },
+    "voice_one_liner": { "type": "string", "description": "Single-line French voice summary" },
+    "voice_briefing": { "type": "string", "description": "Full French voice briefing" }
+  }
+}
