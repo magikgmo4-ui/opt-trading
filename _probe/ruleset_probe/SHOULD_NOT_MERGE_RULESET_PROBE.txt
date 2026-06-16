@@ -1,0 +1,12 @@
+INTENTIONAL RULESET PROBE — DO NOT MERGE
+
+This branch intentionally violates the always-on GO/FILE_SCOPE gates.
+
+Expected result:
+- gate/preflight may pass
+- gate/file-scope must fail
+- gate/no-lock-overlap may fail or be blocked by missing GO
+- gate/tests must not produce a mergeable state
+- GitHub ruleset must block merge into sot/mainline
+
+This file must never be merged.
