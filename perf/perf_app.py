@@ -28,6 +28,7 @@ DD_ALERT_PCT = float(os.getenv("PERF_DD_ALERT_PCT", "5.0"))  # % global
 ENGINE_DD_ALERT_PCT = float(os.getenv("PERF_ENGINE_DD_ALERT_PCT", "7.0"))  # % engine
 
 EQUITY0 = float(os.getenv("PERF_EQUITY0", "10000"))  # simulated start equity
+MAX_PNL_MULTIPLE = float(os.getenv("PERF_MAX_PNL_MULTIPLE", "3.0"))  # max realistic abs(pnl) / EQUITY0
 
 app = FastAPI(title="perf", version="1.0")
 
@@ -161,8 +162,14 @@ def init_db():
       exit REAL,
       status TEXT NOT NULL DEFAULT 'OPEN',
       pnl_real REAL NOT NULL DEFAULT 0.0,
-      r_real REAL NOT NULL DEFAULT 0.0
+      r_real REAL NOT NULL DEFAULT 0.0,
+      suspect INTEGER NOT NULL DEFAULT 0
     )""")
+    # safe migration: add suspect column if table already exists without it
+    try:
+        cur.execute("ALTER TABLE trades ADD COLUMN suspect INTEGER NOT NULL DEFAULT 0")
+    except sqlite3.OperationalError:
+        pass
     cur.execute("CREATE INDEX IF NOT EXISTS idx_events_ts ON events(ts)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_trades_engine ON trades(engine)")
     con.commit()
@@ -266,17 +273,22 @@ def close_trade(ev: PerfEvent):
         pnl = (exit_px - entry) * qty if side == "LONG" else (entry - exit_px) * qty
         r = pnl / risk_usd if risk_usd != 0 else 0.0
 
+        suspect = int(abs(pnl) > EQUITY0 * MAX_PNL_MULTIPLE)
+        if suspect:
+            log.warning("suspect trade pnl_real=%.2f equity0=%.2f max_pnl=%.2f trade_id=%s",
+                        pnl, EQUITY0, EQUITY0 * MAX_PNL_MULTIPLE, ev.trade_id)
+
         cur.execute(
             """
             UPDATE trades
-            SET exit_ts=?, exit=?, status=?, pnl_real=?, r_real=?
+            SET exit_ts=?, exit=?, status=?, pnl_real=?, r_real=?, suspect=?
             WHERE trade_id=?
             """,
-            (ev.ts or now_iso(), exit_px, "CLOSED", pnl, r, ev.trade_id),
+            (ev.ts or now_iso(), exit_px, "CLOSED", pnl, r, suspect, ev.trade_id),
         )
         con.commit()
         con.close()
-        return {"ok": True, "trade_id": ev.trade_id, "pnl_real": pnl, "r_real": r}
+        return {"ok": True, "trade_id": ev.trade_id, "pnl_real": pnl, "r_real": r, "suspect": bool(suspect)}
 
     return with_retry(_do)
 
@@ -311,7 +323,7 @@ def parse_iso(ts: str) -> datetime:
 def equity_series(include_open_live: bool = False, marks: Optional[Dict[str, float]] = None) -> List[Dict[str, Any]]:
     # Equity based on CLOSED trades only (default)
     con = db()
-    rows = con.execute("SELECT exit_ts, pnl_real FROM trades WHERE status='CLOSED' ORDER BY exit_ts").fetchall()
+    rows = con.execute("SELECT exit_ts, pnl_real FROM trades WHERE status='CLOSED' AND suspect=0 ORDER BY exit_ts").fetchall()
     con.close()
 
     eq = EQUITY0
@@ -442,6 +454,17 @@ def monitors_loop():
         dd_pct = float(info["max_dd_pct"])
         if dd_pct > DD_ALERT_PCT and (time.time() - _last_dd_sent) > 900:
             telegram_send(f"🧯 PERF: global DD {dd_pct:.2f}% > {DD_ALERT_PCT:.2f}%")
+            _last_dd_sent = time.time()
+
+        # suspect trades
+        con = db()
+        suspect_count = con.execute("SELECT COUNT(*) FROM trades WHERE suspect=1").fetchone()[0]
+        con.close()
+        if suspect_count > 0 and (time.time() - _last_dd_sent) > 900:
+            telegram_send(
+                f"\u26a0 PERF: {suspect_count} trade(s) suspect(s) \u2014 exclus du DD global\n"
+                f"V\u00e9rifier perf.db: suspect=1"
+            )
             _last_dd_sent = time.time()
 
 @app.on_event("startup")
